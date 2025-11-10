@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSentinelAlertRuleAnomalyBuiltInTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_sentinel_alert_rule_anomaly_built_in resource.
 /// </summary>
 public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
@@ -40,7 +84,8 @@ public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -58,7 +103,8 @@ public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsWorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
+    public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
@@ -67,7 +113,8 @@ public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformProperty<string> Mode
     {
         get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
@@ -80,6 +127,16 @@ public class AzurermSentinelAlertRuleAnomalyBuiltIn : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSentinelAlertRuleAnomalyBuiltInTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSentinelAlertRuleAnomalyBuiltInTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

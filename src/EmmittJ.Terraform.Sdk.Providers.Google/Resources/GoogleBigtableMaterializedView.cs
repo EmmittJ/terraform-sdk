@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigtableMaterializedViewTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigtable_materialized_view resource.
 /// </summary>
 public class GoogleBigtableMaterializedView : TerraformResource
@@ -47,7 +82,8 @@ public class GoogleBigtableMaterializedView : TerraformResource
     /// <summary>
     /// The unique name of the materialized view in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
     /// </summary>
-    public TerraformProperty<string>? MaterializedViewId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaterializedViewId is required")]
+    public required TerraformProperty<string> MaterializedViewId
     {
         get => GetProperty<TerraformProperty<string>>("materialized_view_id");
         set => this.WithProperty("materialized_view_id", value);
@@ -65,10 +101,21 @@ public class GoogleBigtableMaterializedView : TerraformResource
     /// <summary>
     /// The materialized view&#39;s select query.
     /// </summary>
-    public TerraformProperty<string>? Query
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
+    public required TerraformProperty<string> Query
     {
         get => GetProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigtableMaterializedViewTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigtableMaterializedViewTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

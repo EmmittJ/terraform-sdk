@@ -28,7 +28,8 @@ public class AwsQuicksightRoleCustomPermission : TerraformResource
     /// <summary>
     /// The custom_permissions_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomPermissionsName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomPermissionsName is required")]
+    public required TerraformProperty<string> CustomPermissionsName
     {
         get => GetProperty<TerraformProperty<string>>("custom_permissions_name");
         set => this.WithProperty("custom_permissions_name", value);
@@ -55,7 +56,8 @@ public class AwsQuicksightRoleCustomPermission : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);

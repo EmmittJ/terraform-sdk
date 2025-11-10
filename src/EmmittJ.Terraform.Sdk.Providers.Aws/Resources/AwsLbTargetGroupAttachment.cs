@@ -55,7 +55,8 @@ public class AwsLbTargetGroupAttachment : TerraformResource
     /// <summary>
     /// The target_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetGroupArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupArn is required")]
+    public required TerraformProperty<string> TargetGroupArn
     {
         get => GetProperty<TerraformProperty<string>>("target_group_arn");
         set => this.WithProperty("target_group_arn", value);
@@ -64,7 +65,8 @@ public class AwsLbTargetGroupAttachment : TerraformResource
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
+    public required TerraformProperty<string> TargetId
     {
         get => GetProperty<TerraformProperty<string>>("target_id");
         set => this.WithProperty("target_id", value);

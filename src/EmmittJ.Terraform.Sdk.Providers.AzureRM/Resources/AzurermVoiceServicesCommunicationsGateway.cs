@@ -3,6 +3,105 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for service_location in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allowed_media_source_address_prefixes attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowedMediaSourceAddressPrefixes
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_media_source_address_prefixes");
+        set => WithProperty("allowed_media_source_address_prefixes", value);
+    }
+
+    /// <summary>
+    /// The allowed_signaling_source_address_prefixes attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowedSignalingSourceAddressPrefixes
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_signaling_source_address_prefixes");
+        set => WithProperty("allowed_signaling_source_address_prefixes", value);
+    }
+
+    /// <summary>
+    /// The esrp_addresses attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? EsrpAddresses
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("esrp_addresses");
+        set => WithProperty("esrp_addresses", value);
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// The operator_addresses attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAddresses is required")]
+    public HashSet<TerraformProperty<string>>? OperatorAddresses
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("operator_addresses");
+        set => WithProperty("operator_addresses", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_voice_services_communications_gateway resource.
 /// </summary>
 public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
@@ -37,7 +136,8 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The codecs attribute.
     /// </summary>
-    public TerraformProperty<string>? Codecs
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codecs is required")]
+    public required TerraformProperty<string> Codecs
     {
         get => GetProperty<TerraformProperty<string>>("codecs");
         set => this.WithProperty("codecs", value);
@@ -46,7 +146,8 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The connectivity attribute.
     /// </summary>
-    public TerraformProperty<string>? Connectivity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connectivity is required")]
+    public required TerraformProperty<string> Connectivity
     {
         get => GetProperty<TerraformProperty<string>>("connectivity");
         set => this.WithProperty("connectivity", value);
@@ -55,7 +156,8 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The e911_type attribute.
     /// </summary>
-    public TerraformProperty<string>? E911Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "E911Type is required")]
+    public required TerraformProperty<string> E911Type
     {
         get => GetProperty<TerraformProperty<string>>("e911_type");
         set => this.WithProperty("e911_type", value);
@@ -64,9 +166,9 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The emergency_dial_strings attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? EmergencyDialStrings
+    public List<TerraformProperty<string>>? EmergencyDialStrings
     {
-        get => GetProperty<TerraformProperty<List<string>>>("emergency_dial_strings");
+        get => GetProperty<List<TerraformProperty<string>>>("emergency_dial_strings");
         set => this.WithProperty("emergency_dial_strings", value);
     }
 
@@ -82,7 +184,8 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -100,7 +203,8 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -118,16 +222,18 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The platforms attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Platforms
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platforms is required")]
+    public List<TerraformProperty<string>>? Platforms
     {
-        get => GetProperty<TerraformProperty<List<string>>>("platforms");
+        get => GetProperty<List<TerraformProperty<string>>>("platforms");
         set => this.WithProperty("platforms", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -136,10 +242,31 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for service_location.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceLocation block(s) required")]
+    public HashSet<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock>? ServiceLocation
+    {
+        get => GetProperty<HashSet<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock>>("service_location");
+        set => this.WithProperty("service_location", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

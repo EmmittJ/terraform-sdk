@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleGeminiReleaseChannelSettingBindingTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_gemini_release_channel_setting_binding resource.
 /// </summary>
 public class GoogleGeminiReleaseChannelSettingBinding : TerraformResource
@@ -36,9 +71,9 @@ public class GoogleGeminiReleaseChannelSettingBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -72,7 +107,8 @@ public class GoogleGeminiReleaseChannelSettingBinding : TerraformResource
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? ReleaseChannelSettingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseChannelSettingId is required")]
+    public required TerraformProperty<string> ReleaseChannelSettingId
     {
         get => GetProperty<TerraformProperty<string>>("release_channel_setting_id");
         set => this.WithProperty("release_channel_setting_id", value);
@@ -81,7 +117,8 @@ public class GoogleGeminiReleaseChannelSettingBinding : TerraformResource
     /// <summary>
     /// Id of the setting binding.
     /// </summary>
-    public TerraformProperty<string>? SettingBindingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingBindingId is required")]
+    public required TerraformProperty<string> SettingBindingId
     {
         get => GetProperty<TerraformProperty<string>>("setting_binding_id");
         set => this.WithProperty("setting_binding_id", value);
@@ -90,10 +127,21 @@ public class GoogleGeminiReleaseChannelSettingBinding : TerraformResource
     /// <summary>
     /// Target of the binding.
     /// </summary>
-    public TerraformProperty<string>? Target
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
+    public required TerraformProperty<string> Target
     {
         get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleGeminiReleaseChannelSettingBindingTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleGeminiReleaseChannelSettingBindingTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

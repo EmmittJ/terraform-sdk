@@ -31,7 +31,8 @@ public class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     /// <summary>
     /// The backup_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupVaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
+    public required TerraformProperty<string> BackupVaultId
     {
         get => GetProperty<TerraformProperty<string>>("backup_vault_id");
         set => this.WithProperty("backup_vault_id", value);
@@ -40,7 +41,8 @@ public class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     /// <summary>
     /// The data_source_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataSourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
+    public required TerraformProperty<string> DataSourceId
     {
         get => GetProperty<TerraformProperty<string>>("data_source_id");
         set => this.WithProperty("data_source_id", value);
@@ -58,7 +60,8 @@ public class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -67,7 +70,8 @@ public class GoogleBackupDrDataSourceDataSource : TerraformDataSource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);

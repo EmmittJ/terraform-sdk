@@ -3,6 +3,22 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for auth_parameters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchEventConnectionAuthParametersBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for invocation_connectivity_parameters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_cloudwatch_event_connection resource.
 /// </summary>
 public class AwsCloudwatchEventConnection : TerraformResource
@@ -21,7 +37,8 @@ public class AwsCloudwatchEventConnection : TerraformResource
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizationType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
+    public required TerraformProperty<string> AuthorizationType
     {
         get => GetProperty<TerraformProperty<string>>("authorization_type");
         set => this.WithProperty("authorization_type", value);
@@ -57,7 +74,8 @@ public class AwsCloudwatchEventConnection : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -70,6 +88,29 @@ public class AwsCloudwatchEventConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for auth_parameters.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthParameters block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthParameters block(s) allowed")]
+    public List<AwsCloudwatchEventConnectionAuthParametersBlock>? AuthParameters
+    {
+        get => GetProperty<List<AwsCloudwatchEventConnectionAuthParametersBlock>>("auth_parameters");
+        set => this.WithProperty("auth_parameters", value);
+    }
+
+    /// <summary>
+    /// Block for invocation_connectivity_parameters.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InvocationConnectivityParameters block(s) allowed")]
+    public List<AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock>? InvocationConnectivityParameters
+    {
+        get => GetProperty<List<AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock>>("invocation_connectivity_parameters");
+        set => this.WithProperty("invocation_connectivity_parameters", value);
     }
 
     /// <summary>

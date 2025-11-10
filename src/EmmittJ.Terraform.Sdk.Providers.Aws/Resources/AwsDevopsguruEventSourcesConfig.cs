@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for event_sources in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDevopsguruEventSourcesConfigEventSourcesBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_devopsguru_event_sources_config resource.
 /// </summary>
 public class AwsDevopsguruEventSourcesConfig : TerraformResource
@@ -24,6 +32,16 @@ public class AwsDevopsguruEventSourcesConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for event_sources.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsDevopsguruEventSourcesConfigEventSourcesBlock>? EventSources
+    {
+        get => GetProperty<List<AwsDevopsguruEventSourcesConfigEventSourcesBlock>>("event_sources");
+        set => this.WithProperty("event_sources", value);
     }
 
     /// <summary>

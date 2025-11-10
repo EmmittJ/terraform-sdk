@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkSecurityUrlListsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_security_url_lists resource.
 /// </summary>
 public class GoogleNetworkSecurityUrlLists : TerraformResource
@@ -39,7 +74,8 @@ public class GoogleNetworkSecurityUrlLists : TerraformResource
     /// <summary>
     /// The location of the url lists.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -49,7 +85,8 @@ public class GoogleNetworkSecurityUrlLists : TerraformResource
     /// Short name of the UrlList resource to be created.
     /// This value should be 1-63 characters long, containing only letters, numbers, hyphens, and underscores, and should not start with a number. E.g. &#39;urlList&#39;.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -67,10 +104,21 @@ public class GoogleNetworkSecurityUrlLists : TerraformResource
     /// <summary>
     /// FQDNs and URLs.
     /// </summary>
-    public TerraformProperty<List<string>>? Values
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public List<TerraformProperty<string>>? Values
     {
-        get => GetProperty<TerraformProperty<List<string>>>("values");
+        get => GetProperty<List<TerraformProperty<string>>>("values");
         set => this.WithProperty("values", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkSecurityUrlListsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkSecurityUrlListsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

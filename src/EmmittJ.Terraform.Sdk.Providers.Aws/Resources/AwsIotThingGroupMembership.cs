@@ -46,7 +46,8 @@ public class AwsIotThingGroupMembership : TerraformResource
     /// <summary>
     /// The thing_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ThingGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupName is required")]
+    public required TerraformProperty<string> ThingGroupName
     {
         get => GetProperty<TerraformProperty<string>>("thing_group_name");
         set => this.WithProperty("thing_group_name", value);
@@ -55,7 +56,8 @@ public class AwsIotThingGroupMembership : TerraformResource
     /// <summary>
     /// The thing_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ThingName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingName is required")]
+    public required TerraformProperty<string> ThingName
     {
         get => GetProperty<TerraformProperty<string>>("thing_name");
         set => this.WithProperty("thing_name", value);

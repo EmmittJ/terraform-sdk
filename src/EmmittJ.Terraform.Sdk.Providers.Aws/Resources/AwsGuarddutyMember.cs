@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsGuarddutyMemberTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_guardduty_member resource.
 /// </summary>
 public class AwsGuarddutyMember : TerraformResource
@@ -20,7 +46,8 @@ public class AwsGuarddutyMember : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
+    public required TerraformProperty<string> AccountId
     {
         get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
@@ -29,7 +56,8 @@ public class AwsGuarddutyMember : TerraformResource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
+    public required TerraformProperty<string> DetectorId
     {
         get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
@@ -47,7 +75,8 @@ public class AwsGuarddutyMember : TerraformResource
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string>? Email
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
+    public required TerraformProperty<string> Email
     {
         get => GetProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
@@ -87,6 +116,16 @@ public class AwsGuarddutyMember : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsGuarddutyMemberTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsGuarddutyMemberTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

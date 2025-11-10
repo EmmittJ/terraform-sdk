@@ -46,7 +46,8 @@ public class GooglePubsubSubscriptionDataSource : TerraformDataSource
     /// <summary>
     /// Name of the subscription.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

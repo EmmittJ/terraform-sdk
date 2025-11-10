@@ -75,7 +75,8 @@ public class GoogleCloudRunV2ServiceDataSource : TerraformDataSource
     /// <summary>
     /// Name of the Service.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

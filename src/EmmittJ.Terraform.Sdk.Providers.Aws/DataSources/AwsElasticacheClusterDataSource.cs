@@ -41,7 +41,8 @@ public class AwsElasticacheClusterDataSource : TerraformDataSource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
+    public required TerraformProperty<string> ClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
@@ -68,9 +69,9 @@ public class AwsElasticacheClusterDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

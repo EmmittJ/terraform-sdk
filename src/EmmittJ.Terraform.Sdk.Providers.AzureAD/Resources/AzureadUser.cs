@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadUserTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_user resource.
 /// </summary>
 public class AzureadUser : TerraformResource
@@ -50,9 +94,9 @@ public class AzureadUser : TerraformResource
     /// <summary>
     /// The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced with Azure AD Connect
     /// </summary>
-    public TerraformProperty<List<string>>? BusinessPhones
+    public List<TerraformProperty<string>>? BusinessPhones
     {
-        get => GetProperty<TerraformProperty<List<string>>>("business_phones");
+        get => GetProperty<List<TerraformProperty<string>>>("business_phones");
         set => this.WithProperty("business_phones", value);
     }
 
@@ -131,7 +175,8 @@ public class AzureadUser : TerraformResource
     /// <summary>
     /// The name to display in the address book for the user
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -275,9 +320,9 @@ public class AzureadUser : TerraformResource
     /// <summary>
     /// Additional email addresses for the user
     /// </summary>
-    public TerraformProperty<HashSet<string>>? OtherMails
+    public HashSet<TerraformProperty<string>>? OtherMails
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("other_mails");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("other_mails");
         set => this.WithProperty("other_mails", value);
     }
 
@@ -356,10 +401,21 @@ public class AzureadUser : TerraformResource
     /// <summary>
     /// The user principal name (UPN) of the user
     /// </summary>
-    public TerraformProperty<string>? UserPrincipalName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPrincipalName is required")]
+    public required TerraformProperty<string> UserPrincipalName
     {
         get => GetProperty<TerraformProperty<string>>("user_principal_name");
         set => this.WithProperty("user_principal_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadUserTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadUserTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

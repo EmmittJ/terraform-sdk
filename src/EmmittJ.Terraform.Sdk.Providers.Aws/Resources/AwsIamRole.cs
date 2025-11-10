@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for inline_policy in .
+/// Nesting mode: set
+/// </summary>
+public class AwsIamRoleInlinePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The policy attribute.
+    /// </summary>
+    public TerraformProperty<string>? Policy
+    {
+        get => GetProperty<TerraformProperty<string>>("policy");
+        set => WithProperty("policy", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_iam_role resource.
 /// </summary>
 public class AwsIamRole : TerraformResource
@@ -22,7 +48,8 @@ public class AwsIamRole : TerraformResource
     /// <summary>
     /// The assume_role_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? AssumeRolePolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssumeRolePolicy is required")]
+    public required TerraformProperty<string> AssumeRolePolicy
     {
         get => GetProperty<TerraformProperty<string>>("assume_role_policy");
         set => this.WithProperty("assume_role_policy", value);
@@ -59,9 +86,9 @@ public class AwsIamRole : TerraformResource
     /// The managed_policy_arns attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<HashSet<string>>? ManagedPolicyArns
+    public HashSet<TerraformProperty<string>>? ManagedPolicyArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("managed_policy_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("managed_policy_arns");
         set => this.WithProperty("managed_policy_arns", value);
     }
 
@@ -113,19 +140,29 @@ public class AwsIamRole : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for inline_policy.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsIamRoleInlinePolicyBlock>? InlinePolicy
+    {
+        get => GetProperty<HashSet<AwsIamRoleInlinePolicyBlock>>("inline_policy");
+        set => this.WithProperty("inline_policy", value);
     }
 
     /// <summary>

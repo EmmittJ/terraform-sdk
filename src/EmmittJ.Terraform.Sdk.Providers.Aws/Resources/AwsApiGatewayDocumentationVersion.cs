@@ -46,7 +46,8 @@ public class AwsApiGatewayDocumentationVersion : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
@@ -55,7 +56,8 @@ public class AwsApiGatewayDocumentationVersion : TerraformResource
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);

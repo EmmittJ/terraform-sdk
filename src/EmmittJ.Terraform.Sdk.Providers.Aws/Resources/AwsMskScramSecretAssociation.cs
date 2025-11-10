@@ -19,7 +19,8 @@ public class AwsMskScramSecretAssociation : TerraformResource
     /// <summary>
     /// The cluster_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
+    public required TerraformProperty<string> ClusterArn
     {
         get => GetProperty<TerraformProperty<string>>("cluster_arn");
         set => this.WithProperty("cluster_arn", value);
@@ -46,9 +47,10 @@ public class AwsMskScramSecretAssociation : TerraformResource
     /// <summary>
     /// The secret_arn_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecretArnList
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArnList is required")]
+    public HashSet<TerraformProperty<string>>? SecretArnList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("secret_arn_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("secret_arn_list");
         set => this.WithProperty("secret_arn_list", value);
     }
 

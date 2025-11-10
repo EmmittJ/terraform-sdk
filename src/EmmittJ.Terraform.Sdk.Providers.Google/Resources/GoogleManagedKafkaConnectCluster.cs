@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for capacity_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The memory to provision for the cluster in bytes. The CPU:memory ratio (vCPU:GiB) must be between 1:1 and 1:8. Minimum: 3221225472 (3 GiB).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryBytes is required")]
+    public required TerraformProperty<string> MemoryBytes
+    {
+        get => GetProperty<TerraformProperty<string>>("memory_bytes");
+        set => WithProperty("memory_bytes", value);
+    }
+
+    /// <summary>
+    /// The number of vCPUs to provision for the cluster. The minimum is 3.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VcpuCount is required")]
+    public required TerraformProperty<string> VcpuCount
+    {
+        get => GetProperty<TerraformProperty<string>>("vcpu_count");
+        set => WithProperty("vcpu_count", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for gcp_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleManagedKafkaConnectClusterGcpConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_managed_kafka_connect_cluster resource.
 /// </summary>
 public class GoogleManagedKafkaConnectCluster : TerraformResource
@@ -25,7 +96,8 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     /// <summary>
     /// The ID to use for the Connect Cluster, which will become the final component of the connect cluster&#39;s name. This value is structured like: &#39;my-connect-cluster-id&#39;.
     /// </summary>
-    public TerraformProperty<string>? ConnectClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectClusterId is required")]
+    public required TerraformProperty<string> ConnectClusterId
     {
         get => GetProperty<TerraformProperty<string>>("connect_cluster_id");
         set => this.WithProperty("connect_cluster_id", value);
@@ -43,7 +115,8 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     /// <summary>
     /// The name of the Kafka cluster this Kafka Connect cluster is attached to. Structured like: &#39;projects/PROJECT_ID/locations/LOCATION/clusters/CLUSTER_ID&#39;.
     /// </summary>
-    public TerraformProperty<string>? KafkaCluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaCluster is required")]
+    public required TerraformProperty<string> KafkaCluster
     {
         get => GetProperty<TerraformProperty<string>>("kafka_cluster");
         set => this.WithProperty("kafka_cluster", value);
@@ -55,16 +128,17 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// ID of the location of the Kafka Connect resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -77,6 +151,40 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for capacity_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CapacityConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityConfig block(s) allowed")]
+    public List<GoogleManagedKafkaConnectClusterCapacityConfigBlock>? CapacityConfig
+    {
+        get => GetProperty<List<GoogleManagedKafkaConnectClusterCapacityConfigBlock>>("capacity_config");
+        set => this.WithProperty("capacity_config", value);
+    }
+
+    /// <summary>
+    /// Block for gcp_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GcpConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcpConfig block(s) allowed")]
+    public List<GoogleManagedKafkaConnectClusterGcpConfigBlock>? GcpConfig
+    {
+        get => GetProperty<List<GoogleManagedKafkaConnectClusterGcpConfigBlock>>("gcp_config");
+        set => this.WithProperty("gcp_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleManagedKafkaConnectClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleManagedKafkaConnectClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

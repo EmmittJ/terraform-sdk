@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for attributes in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApigeeAppGroupAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Key of the attribute
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Value of the attribute
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_app_group resource.
 /// </summary>
 public class GoogleApigeeAppGroup : TerraformResource
@@ -59,7 +120,8 @@ public class GoogleApigeeAppGroup : TerraformResource
     /// <summary>
     /// Name of the AppGroup. Characters you can use in the name are restricted to: A-Z0-9._-$ %.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -69,7 +131,8 @@ public class GoogleApigeeAppGroup : TerraformResource
     /// The Apigee Organization associated with the Apigee app group,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -82,6 +145,26 @@ public class GoogleApigeeAppGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
+    }
+
+    /// <summary>
+    /// Block for attributes.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleApigeeAppGroupAttributesBlock>? Attributes
+    {
+        get => GetProperty<List<GoogleApigeeAppGroupAttributesBlock>>("attributes");
+        set => this.WithProperty("attributes", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeAppGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeAppGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

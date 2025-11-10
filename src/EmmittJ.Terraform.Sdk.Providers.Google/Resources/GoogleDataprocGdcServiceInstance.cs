@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for gdce_cluster in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataprocGdcServiceInstanceGdceClusterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gdce cluster resource id.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GdceCluster is required")]
+    public required TerraformProperty<string> GdceCluster
+    {
+        get => GetProperty<TerraformProperty<string>>("gdce_cluster");
+        set => WithProperty("gdce_cluster", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for spark_service_instance_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataprocGdcServiceInstanceSparkServiceInstanceConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataprocGdcServiceInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataproc_gdc_service_instance resource.
 /// </summary>
 public class GoogleDataprocGdcServiceInstance : TerraformResource
@@ -51,16 +112,17 @@ public class GoogleDataprocGdcServiceInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location of the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -87,10 +149,43 @@ public class GoogleDataprocGdcServiceInstance : TerraformResource
     /// <summary>
     /// Id of the service instance.
     /// </summary>
-    public TerraformProperty<string>? ServiceInstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceInstanceId is required")]
+    public required TerraformProperty<string> ServiceInstanceId
     {
         get => GetProperty<TerraformProperty<string>>("service_instance_id");
         set => this.WithProperty("service_instance_id", value);
+    }
+
+    /// <summary>
+    /// Block for gdce_cluster.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GdceCluster block(s) allowed")]
+    public List<GoogleDataprocGdcServiceInstanceGdceClusterBlock>? GdceCluster
+    {
+        get => GetProperty<List<GoogleDataprocGdcServiceInstanceGdceClusterBlock>>("gdce_cluster");
+        set => this.WithProperty("gdce_cluster", value);
+    }
+
+    /// <summary>
+    /// Block for spark_service_instance_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkServiceInstanceConfig block(s) allowed")]
+    public List<GoogleDataprocGdcServiceInstanceSparkServiceInstanceConfigBlock>? SparkServiceInstanceConfig
+    {
+        get => GetProperty<List<GoogleDataprocGdcServiceInstanceSparkServiceInstanceConfigBlock>>("spark_service_instance_config");
+        set => this.WithProperty("spark_service_instance_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataprocGdcServiceInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataprocGdcServiceInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

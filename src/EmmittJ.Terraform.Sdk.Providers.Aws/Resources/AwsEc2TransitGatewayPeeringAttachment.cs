@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEc2TransitGatewayPeeringAttachmentOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The dynamic_routing attribute.
+    /// </summary>
+    public TerraformProperty<string>? DynamicRouting
+    {
+        get => GetProperty<TerraformProperty<string>>("dynamic_routing");
+        set => WithProperty("dynamic_routing", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ec2_transit_gateway_peering_attachment resource.
 /// </summary>
 public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
@@ -39,7 +56,8 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerRegion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerRegion is required")]
+    public required TerraformProperty<string> PeerRegion
     {
         get => GetProperty<TerraformProperty<string>>("peer_region");
         set => this.WithProperty("peer_region", value);
@@ -48,7 +66,8 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     /// <summary>
     /// The peer_transit_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerTransitGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerTransitGatewayId is required")]
+    public required TerraformProperty<string> PeerTransitGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("peer_transit_gateway_id");
         set => this.WithProperty("peer_transit_gateway_id", value);
@@ -66,28 +85,40 @@ public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TransitGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
+    public required TerraformProperty<string> TransitGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
+    }
+
+    /// <summary>
+    /// Block for options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
+    public List<AwsEc2TransitGatewayPeeringAttachmentOptionsBlock>? Options
+    {
+        get => GetProperty<List<AwsEc2TransitGatewayPeeringAttachmentOptionsBlock>>("options");
+        set => this.WithProperty("options", value);
     }
 
     /// <summary>

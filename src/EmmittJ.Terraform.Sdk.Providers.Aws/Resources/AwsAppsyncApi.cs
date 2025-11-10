@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for event_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncApiEventConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_appsync_api resource.
 /// </summary>
 public class AwsAppsyncApi : TerraformResource
@@ -25,7 +33,8 @@ public class AwsAppsyncApi : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -52,10 +61,20 @@ public class AwsAppsyncApi : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for event_config.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsAppsyncApiEventConfigBlock>? EventConfig
+    {
+        get => GetProperty<List<AwsAppsyncApiEventConfigBlock>>("event_config");
+        set => this.WithProperty("event_config", value);
     }
 
     /// <summary>

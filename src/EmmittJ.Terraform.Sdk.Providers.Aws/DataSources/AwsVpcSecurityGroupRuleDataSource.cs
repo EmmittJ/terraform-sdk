@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsVpcSecurityGroupRuleDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_vpc_security_group_rule.
 /// </summary>
 public class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
@@ -45,6 +73,16 @@ public class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("security_group_rule_id");
         set => this.WithProperty("security_group_rule_id", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsVpcSecurityGroupRuleDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsVpcSecurityGroupRuleDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>

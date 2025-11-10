@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsChatbotTeamsChannelConfigurationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_chatbot_teams_channel_configuration resource.
 /// </summary>
 public class AwsChatbotTeamsChannelConfiguration : TerraformResource
@@ -21,7 +56,8 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     /// <summary>
     /// The channel_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ChannelId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelId is required")]
+    public required TerraformProperty<string> ChannelId
     {
         get => GetProperty<TerraformProperty<string>>("channel_id");
         set => this.WithProperty("channel_id", value);
@@ -39,7 +75,8 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     /// <summary>
     /// The configuration_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
+    public required TerraformProperty<string> ConfigurationName
     {
         get => GetProperty<TerraformProperty<string>>("configuration_name");
         set => this.WithProperty("configuration_name", value);
@@ -48,16 +85,17 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     /// <summary>
     /// The guardrail_policy_arns attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? GuardrailPolicyArns
+    public List<TerraformProperty<string>>? GuardrailPolicyArns
     {
-        get => GetProperty<TerraformProperty<List<string>>>("guardrail_policy_arns");
+        get => GetProperty<List<TerraformProperty<string>>>("guardrail_policy_arns");
         set => this.WithProperty("guardrail_policy_arns", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
+    public required TerraformProperty<string> IamRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
@@ -84,25 +122,26 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     /// <summary>
     /// The sns_topic_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SnsTopicArns
+    public HashSet<TerraformProperty<string>>? SnsTopicArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("sns_topic_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("sns_topic_arns");
         set => this.WithProperty("sns_topic_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The team_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TeamId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
+    public required TerraformProperty<string> TeamId
     {
         get => GetProperty<TerraformProperty<string>>("team_id");
         set => this.WithProperty("team_id", value);
@@ -120,7 +159,8 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformProperty<string> TenantId
     {
         get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
@@ -133,6 +173,16 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("user_authorization_required");
         set => this.WithProperty("user_authorization_required", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsChatbotTeamsChannelConfigurationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsChatbotTeamsChannelConfigurationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

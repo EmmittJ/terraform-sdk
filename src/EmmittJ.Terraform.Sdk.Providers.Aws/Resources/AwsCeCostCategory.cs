@@ -3,6 +3,70 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for rule in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCeCostCategoryRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for split_charge_rule in .
+/// Nesting mode: set
+/// </summary>
+public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The method attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
+    public required TerraformProperty<string> Method
+    {
+        get => GetProperty<TerraformProperty<string>>("method");
+        set => WithProperty("method", value);
+    }
+
+    /// <summary>
+    /// The source attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformProperty<string> Source
+    {
+        get => GetProperty<TerraformProperty<string>>("source");
+        set => WithProperty("source", value);
+    }
+
+    /// <summary>
+    /// The targets attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Targets is required")]
+    public HashSet<TerraformProperty<string>>? Targets
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("targets");
+        set => WithProperty("targets", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ce_cost_category resource.
 /// </summary>
 public class AwsCeCostCategory : TerraformResource
@@ -48,7 +112,8 @@ public class AwsCeCostCategory : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -57,7 +122,8 @@ public class AwsCeCostCategory : TerraformResource
     /// <summary>
     /// The rule_version attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleVersion is required")]
+    public required TerraformProperty<string> RuleVersion
     {
         get => GetProperty<TerraformProperty<string>>("rule_version");
         set => this.WithProperty("rule_version", value);
@@ -66,19 +132,40 @@ public class AwsCeCostCategory : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for rule.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
+    public List<AwsCeCostCategoryRuleBlock>? Rule
+    {
+        get => GetProperty<List<AwsCeCostCategoryRuleBlock>>("rule");
+        set => this.WithProperty("rule", value);
+    }
+
+    /// <summary>
+    /// Block for split_charge_rule.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsCeCostCategorySplitChargeRuleBlock>? SplitChargeRule
+    {
+        get => GetProperty<HashSet<AwsCeCostCategorySplitChargeRuleBlock>>("split_charge_rule");
+        set => this.WithProperty("split_charge_rule", value);
     }
 
     /// <summary>

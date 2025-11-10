@@ -34,7 +34,8 @@ public class GoogleMonitoringMeshIstioServiceDataSource : TerraformDataSource
     /// Identifier for the mesh in which this Istio service is defined.
     ///                         Corresponds to the meshUid metric label in Istio metrics.
     /// </summary>
-    public TerraformProperty<string>? MeshUid
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshUid is required")]
+    public required TerraformProperty<string> MeshUid
     {
         get => GetProperty<TerraformProperty<string>>("mesh_uid");
         set => this.WithProperty("mesh_uid", value);
@@ -53,7 +54,8 @@ public class GoogleMonitoringMeshIstioServiceDataSource : TerraformDataSource
     /// The name of the Istio service underlying this service. 
     ///                         Corresponds to the destination_service_name metric label in Istio metrics.
     /// </summary>
-    public TerraformProperty<string>? ServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
+    public required TerraformProperty<string> ServiceName
     {
         get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
@@ -63,7 +65,8 @@ public class GoogleMonitoringMeshIstioServiceDataSource : TerraformDataSource
     /// The namespace of the Istio service underlying this service.
     ///                         Corresponds to the destination_service_namespace metric label in Istio metrics.
     /// </summary>
-    public TerraformProperty<string>? ServiceNamespace
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
+    public required TerraformProperty<string> ServiceNamespace
     {
         get => GetProperty<TerraformProperty<string>>("service_namespace");
         set => this.WithProperty("service_namespace", value);

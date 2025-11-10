@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeNetworkPeeringTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_network_peering resource.
 /// </summary>
 public class GoogleComputeNetworkPeering : TerraformResource
@@ -66,7 +101,8 @@ public class GoogleComputeNetworkPeering : TerraformResource
     /// <summary>
     /// Name of the peering.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -75,7 +111,8 @@ public class GoogleComputeNetworkPeering : TerraformResource
     /// <summary>
     /// The primary network of the peering.
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -84,7 +121,8 @@ public class GoogleComputeNetworkPeering : TerraformResource
     /// <summary>
     /// The peer network in the peering. The peer network may belong to a different project.
     /// </summary>
-    public TerraformProperty<string>? PeerNetwork
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetwork is required")]
+    public required TerraformProperty<string> PeerNetwork
     {
         get => GetProperty<TerraformProperty<string>>("peer_network");
         set => this.WithProperty("peer_network", value);
@@ -106,6 +144,16 @@ public class GoogleComputeNetworkPeering : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("update_strategy");
         set => this.WithProperty("update_strategy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeNetworkPeeringTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeNetworkPeeringTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,98 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for long_term_backup_schedule in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The repeat_cadence attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepeatCadence is required")]
+    public required TerraformProperty<string> RepeatCadence
+    {
+        get => GetProperty<TerraformProperty<string>>("repeat_cadence");
+        set => WithProperty("repeat_cadence", value);
+    }
+
+    /// <summary>
+    /// The retention_period_in_days attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
+    public required TerraformProperty<double> RetentionPeriodInDays
+    {
+        get => GetProperty<TerraformProperty<double>>("retention_period_in_days");
+        set => WithProperty("retention_period_in_days", value);
+    }
+
+    /// <summary>
+    /// The time_of_backup attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfBackup is required")]
+    public required TerraformProperty<string> TimeOfBackup
+    {
+        get => GetProperty<TerraformProperty<string>>("time_of_backup");
+        set => WithProperty("time_of_backup", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_oracle_autonomous_database resource.
 /// </summary>
 public class AzurermOracleAutonomousDatabase : TerraformResource
@@ -19,7 +111,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The admin_password attribute.
     /// </summary>
-    public TerraformProperty<string>? AdminPassword
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
+    public required TerraformProperty<string> AdminPassword
     {
         get => GetProperty<TerraformProperty<string>>("admin_password");
         set => this.WithProperty("admin_password", value);
@@ -28,16 +121,17 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The allowed_ips attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedIps
+    public HashSet<TerraformProperty<string>>? AllowedIps
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_ips");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_ips");
         set => this.WithProperty("allowed_ips", value);
     }
 
     /// <summary>
     /// The auto_scaling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoScalingEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingEnabled is required")]
+    public required TerraformProperty<bool> AutoScalingEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("auto_scaling_enabled");
         set => this.WithProperty("auto_scaling_enabled", value);
@@ -46,7 +140,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The auto_scaling_for_storage_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoScalingForStorageEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingForStorageEnabled is required")]
+    public required TerraformProperty<bool> AutoScalingForStorageEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("auto_scaling_for_storage_enabled");
         set => this.WithProperty("auto_scaling_for_storage_enabled", value);
@@ -55,7 +150,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The backup_retention_period_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? BackupRetentionPeriodInDays
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionPeriodInDays is required")]
+    public required TerraformProperty<double> BackupRetentionPeriodInDays
     {
         get => GetProperty<TerraformProperty<double>>("backup_retention_period_in_days");
         set => this.WithProperty("backup_retention_period_in_days", value);
@@ -64,7 +160,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The character_set attribute.
     /// </summary>
-    public TerraformProperty<string>? CharacterSet
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CharacterSet is required")]
+    public required TerraformProperty<string> CharacterSet
     {
         get => GetProperty<TerraformProperty<string>>("character_set");
         set => this.WithProperty("character_set", value);
@@ -73,7 +170,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The compute_count attribute.
     /// </summary>
-    public TerraformProperty<double>? ComputeCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
+    public required TerraformProperty<double> ComputeCount
     {
         get => GetProperty<TerraformProperty<double>>("compute_count");
         set => this.WithProperty("compute_count", value);
@@ -82,7 +180,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The compute_model attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputeModel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeModel is required")]
+    public required TerraformProperty<string> ComputeModel
     {
         get => GetProperty<TerraformProperty<string>>("compute_model");
         set => this.WithProperty("compute_model", value);
@@ -91,16 +190,17 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? CustomerContacts
+    public List<TerraformProperty<string>>? CustomerContacts
     {
-        get => GetProperty<TerraformProperty<List<string>>>("customer_contacts");
+        get => GetProperty<List<TerraformProperty<string>>>("customer_contacts");
         set => this.WithProperty("customer_contacts", value);
     }
 
     /// <summary>
     /// The data_storage_size_in_tbs attribute.
     /// </summary>
-    public TerraformProperty<double>? DataStorageSizeInTbs
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTbs is required")]
+    public required TerraformProperty<double> DataStorageSizeInTbs
     {
         get => GetProperty<TerraformProperty<double>>("data_storage_size_in_tbs");
         set => this.WithProperty("data_storage_size_in_tbs", value);
@@ -109,7 +209,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The db_version attribute.
     /// </summary>
-    public TerraformProperty<string>? DbVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbVersion is required")]
+    public required TerraformProperty<string> DbVersion
     {
         get => GetProperty<TerraformProperty<string>>("db_version");
         set => this.WithProperty("db_version", value);
@@ -118,7 +219,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The db_workload attribute.
     /// </summary>
-    public TerraformProperty<string>? DbWorkload
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbWorkload is required")]
+    public required TerraformProperty<string> DbWorkload
     {
         get => GetProperty<TerraformProperty<string>>("db_workload");
         set => this.WithProperty("db_workload", value);
@@ -127,7 +229,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -145,7 +248,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseModel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
+    public required TerraformProperty<string> LicenseModel
     {
         get => GetProperty<TerraformProperty<string>>("license_model");
         set => this.WithProperty("license_model", value);
@@ -154,7 +258,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -163,7 +268,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The mtls_connection_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? MtlsConnectionRequired
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MtlsConnectionRequired is required")]
+    public required TerraformProperty<bool> MtlsConnectionRequired
     {
         get => GetProperty<TerraformProperty<bool>>("mtls_connection_required");
         set => this.WithProperty("mtls_connection_required", value);
@@ -172,7 +278,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -181,7 +288,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The national_character_set attribute.
     /// </summary>
-    public TerraformProperty<string>? NationalCharacterSet
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NationalCharacterSet is required")]
+    public required TerraformProperty<string> NationalCharacterSet
     {
         get => GetProperty<TerraformProperty<string>>("national_character_set");
         set => this.WithProperty("national_character_set", value);
@@ -190,7 +298,8 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -208,9 +317,9 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -221,6 +330,27 @@ public class AzurermOracleAutonomousDatabase : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("virtual_network_id");
         set => this.WithProperty("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// Block for long_term_backup_schedule.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermBackupSchedule block(s) allowed")]
+    public List<AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock>? LongTermBackupSchedule
+    {
+        get => GetProperty<List<AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock>>("long_term_backup_schedule");
+        set => this.WithProperty("long_term_backup_schedule", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermOracleAutonomousDatabaseTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermOracleAutonomousDatabaseTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

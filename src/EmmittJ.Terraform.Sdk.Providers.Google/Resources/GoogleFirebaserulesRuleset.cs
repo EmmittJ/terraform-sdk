@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for source in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFirebaserulesRulesetSourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// `Language` of the `Source` bundle. If unspecified, the language will default to `FIREBASE_RULES`. Possible values: LANGUAGE_UNSPECIFIED, FIREBASE_RULES, EVENT_FLOW_TRIGGERS
+    /// </summary>
+    public TerraformProperty<string>? Language
+    {
+        get => GetProperty<TerraformProperty<string>>("language");
+        set => WithProperty("language", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaserulesRulesetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebaserules_ruleset resource.
 /// </summary>
 public class GoogleFirebaserulesRuleset : TerraformResource
@@ -35,6 +78,28 @@ public class GoogleFirebaserulesRuleset : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for source.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
+    public List<GoogleFirebaserulesRulesetSourceBlock>? Source
+    {
+        get => GetProperty<List<GoogleFirebaserulesRulesetSourceBlock>>("source");
+        set => this.WithProperty("source", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaserulesRulesetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaserulesRulesetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

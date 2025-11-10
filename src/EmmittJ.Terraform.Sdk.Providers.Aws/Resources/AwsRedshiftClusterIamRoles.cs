@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRedshiftClusterIamRolesTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_redshift_cluster_iam_roles resource.
 /// </summary>
 public class AwsRedshiftClusterIamRoles : TerraformResource
@@ -19,7 +54,8 @@ public class AwsRedshiftClusterIamRoles : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -37,9 +73,9 @@ public class AwsRedshiftClusterIamRoles : TerraformResource
     /// <summary>
     /// The iam_role_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? IamRoleArns
+    public HashSet<TerraformProperty<string>>? IamRoleArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("iam_role_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("iam_role_arns");
         set => this.WithProperty("iam_role_arns", value);
     }
 
@@ -59,6 +95,16 @@ public class AwsRedshiftClusterIamRoles : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRedshiftClusterIamRolesTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRedshiftClusterIamRolesTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

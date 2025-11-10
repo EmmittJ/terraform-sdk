@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for mount_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDatasyncLocationSmbMountOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformProperty<string>? Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_datasync_location_smb resource.
 /// </summary>
 public class AwsDatasyncLocationSmb : TerraformResource
@@ -21,9 +38,10 @@ public class AwsDatasyncLocationSmb : TerraformResource
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AgentArns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
+    public HashSet<TerraformProperty<string>>? AgentArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("agent_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
         set => this.WithProperty("agent_arns", value);
     }
 
@@ -48,7 +66,8 @@ public class AwsDatasyncLocationSmb : TerraformResource
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
@@ -66,7 +85,8 @@ public class AwsDatasyncLocationSmb : TerraformResource
     /// <summary>
     /// The server_hostname attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerHostname
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
+    public required TerraformProperty<string> ServerHostname
     {
         get => GetProperty<TerraformProperty<string>>("server_hostname");
         set => this.WithProperty("server_hostname", value);
@@ -75,7 +95,8 @@ public class AwsDatasyncLocationSmb : TerraformResource
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformProperty<string>? Subdirectory
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
+    public required TerraformProperty<string> Subdirectory
     {
         get => GetProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
@@ -84,28 +105,40 @@ public class AwsDatasyncLocationSmb : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    public TerraformProperty<string>? User
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
+    public required TerraformProperty<string> User
     {
         get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
+    }
+
+    /// <summary>
+    /// Block for mount_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MountOptions block(s) allowed")]
+    public List<AwsDatasyncLocationSmbMountOptionsBlock>? MountOptions
+    {
+        get => GetProperty<List<AwsDatasyncLocationSmbMountOptionsBlock>>("mount_options");
+        set => this.WithProperty("mount_options", value);
     }
 
     /// <summary>

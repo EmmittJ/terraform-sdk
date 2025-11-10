@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageTableDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_storage_table.
 /// </summary>
 public class AzurermStorageTableDataSource : TerraformDataSource
@@ -22,7 +39,8 @@ public class AzurermStorageTableDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -31,10 +49,21 @@ public class AzurermStorageTableDataSource : TerraformDataSource
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
+    public required TerraformProperty<string> StorageAccountName
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageTableDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageTableDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

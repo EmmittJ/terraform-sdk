@@ -21,7 +21,8 @@ public class AwsAppsyncApiKey : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);

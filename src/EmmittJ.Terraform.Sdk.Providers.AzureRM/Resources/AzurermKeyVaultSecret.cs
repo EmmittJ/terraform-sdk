@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_key_vault_secret resource.
 /// </summary>
 public class AzurermKeyVaultSecret : TerraformResource
@@ -50,7 +94,8 @@ public class AzurermKeyVaultSecret : TerraformResource
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
+    public required TerraformProperty<string> KeyVaultId
     {
         get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
@@ -59,7 +104,8 @@ public class AzurermKeyVaultSecret : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -77,9 +123,9 @@ public class AzurermKeyVaultSecret : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -108,6 +154,16 @@ public class AzurermKeyVaultSecret : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("value_wo_version");
         set => this.WithProperty("value_wo_version", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultSecretTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultSecretTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

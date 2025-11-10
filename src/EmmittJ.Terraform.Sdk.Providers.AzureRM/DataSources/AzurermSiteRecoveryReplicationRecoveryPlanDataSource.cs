@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_site_recovery_replication_recovery_plan.
 /// </summary>
 public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDataSource
@@ -33,7 +50,8 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDat
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -42,10 +60,21 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSource : TerraformDat
     /// <summary>
     /// The recovery_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RecoveryVaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
+    public required TerraformProperty<string> RecoveryVaultId
     {
         get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

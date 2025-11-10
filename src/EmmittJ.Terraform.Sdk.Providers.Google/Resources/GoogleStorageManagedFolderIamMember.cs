@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageManagedFolderIamMemberConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The title attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_storage_managed_folder_iam_member resource.
 /// </summary>
 public class GoogleStorageManagedFolderIamMember : TerraformResource
@@ -20,7 +57,8 @@ public class GoogleStorageManagedFolderIamMember : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -38,7 +76,8 @@ public class GoogleStorageManagedFolderIamMember : TerraformResource
     /// <summary>
     /// The managed_folder attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedFolder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedFolder is required")]
+    public required TerraformProperty<string> ManagedFolder
     {
         get => GetProperty<TerraformProperty<string>>("managed_folder");
         set => this.WithProperty("managed_folder", value);
@@ -47,7 +86,8 @@ public class GoogleStorageManagedFolderIamMember : TerraformResource
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public TerraformProperty<string>? Member
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
+    public required TerraformProperty<string> Member
     {
         get => GetProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
@@ -56,10 +96,22 @@ public class GoogleStorageManagedFolderIamMember : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleStorageManagedFolderIamMemberConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleStorageManagedFolderIamMemberConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>

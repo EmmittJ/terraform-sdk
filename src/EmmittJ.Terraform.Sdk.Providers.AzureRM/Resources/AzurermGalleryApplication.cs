@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermGalleryApplicationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_gallery_application resource.
 /// </summary>
 public class AzurermGalleryApplication : TerraformResource
@@ -46,7 +90,8 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The gallery_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GalleryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryId is required")]
+    public required TerraformProperty<string> GalleryId
     {
         get => GetProperty<TerraformProperty<string>>("gallery_id");
         set => this.WithProperty("gallery_id", value);
@@ -64,7 +109,8 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -73,7 +119,8 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,7 +147,8 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The supported_os_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SupportedOsType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportedOsType is required")]
+    public required TerraformProperty<string> SupportedOsType
     {
         get => GetProperty<TerraformProperty<string>>("supported_os_type");
         set => this.WithProperty("supported_os_type", value);
@@ -109,10 +157,20 @@ public class AzurermGalleryApplication : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermGalleryApplicationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermGalleryApplicationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

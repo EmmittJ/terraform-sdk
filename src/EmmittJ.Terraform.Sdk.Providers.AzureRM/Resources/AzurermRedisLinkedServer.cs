@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_redis_linked_server resource.
 /// </summary>
 public class AzurermRedisLinkedServer : TerraformResource
@@ -30,7 +65,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// <summary>
     /// The linked_redis_cache_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkedRedisCacheId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheId is required")]
+    public required TerraformProperty<string> LinkedRedisCacheId
     {
         get => GetProperty<TerraformProperty<string>>("linked_redis_cache_id");
         set => this.WithProperty("linked_redis_cache_id", value);
@@ -39,7 +75,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// <summary>
     /// The linked_redis_cache_location attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkedRedisCacheLocation
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheLocation is required")]
+    public required TerraformProperty<string> LinkedRedisCacheLocation
     {
         get => GetProperty<TerraformProperty<string>>("linked_redis_cache_location");
         set => this.WithProperty("linked_redis_cache_location", value);
@@ -48,7 +85,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -57,7 +95,8 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// <summary>
     /// The server_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerRole
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerRole is required")]
+    public required TerraformProperty<string> ServerRole
     {
         get => GetProperty<TerraformProperty<string>>("server_role");
         set => this.WithProperty("server_role", value);
@@ -66,10 +105,21 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// <summary>
     /// The target_redis_cache_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetRedisCacheName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRedisCacheName is required")]
+    public required TerraformProperty<string> TargetRedisCacheName
     {
         get => GetProperty<TerraformProperty<string>>("target_redis_cache_name");
         set => this.WithProperty("target_redis_cache_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermRedisLinkedServerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermRedisLinkedServerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

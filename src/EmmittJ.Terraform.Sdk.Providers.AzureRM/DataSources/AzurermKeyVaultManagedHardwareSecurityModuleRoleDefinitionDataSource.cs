@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_key_vault_managed_hardware_security_module_role_definition.
 /// </summary>
 public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSource : TerraformDataSource
@@ -34,7 +51,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
     /// <summary>
     /// The managed_hsm_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedHsmId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
+    public required TerraformProperty<string> ManagedHsmId
     {
         get => GetProperty<TerraformProperty<string>>("managed_hsm_id");
         set => this.WithProperty("managed_hsm_id", value);
@@ -43,10 +61,21 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermBlueprintDefinitionDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_blueprint_definition.
 /// </summary>
 public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
@@ -34,7 +51,8 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -43,10 +61,21 @@ public class AzurermBlueprintDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The scope_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
+    public required TerraformProperty<string> ScopeId
     {
         get => GetProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermBlueprintDefinitionDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermBlueprintDefinitionDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

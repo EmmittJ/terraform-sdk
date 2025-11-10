@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApihubHostProjectRegistrationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apihub_host_project_registration resource.
 /// </summary>
 public class GoogleApihubHostProjectRegistration : TerraformResource
@@ -23,7 +49,8 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     /// As input, project name with either project id or number are accepted.
     /// As output, this field will contain project number.
     /// </summary>
-    public TerraformProperty<string>? GcpProject
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpProject is required")]
+    public required TerraformProperty<string> GcpProject
     {
         get => GetProperty<TerraformProperty<string>>("gcp_project");
         set => this.WithProperty("gcp_project", value);
@@ -35,7 +62,8 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     /// must be the same as the Google cloud project specified in the
     /// host_project_registration.gcp_project field.
     /// </summary>
-    public TerraformProperty<string>? HostProjectRegistrationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProjectRegistrationId is required")]
+    public required TerraformProperty<string> HostProjectRegistrationId
     {
         get => GetProperty<TerraformProperty<string>>("host_project_registration_id");
         set => this.WithProperty("host_project_registration_id", value);
@@ -53,7 +81,8 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -66,6 +95,16 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApihubHostProjectRegistrationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApihubHostProjectRegistrationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

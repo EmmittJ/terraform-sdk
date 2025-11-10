@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermFunctionAppHybridConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_function_app_hybrid_connection resource.
 /// </summary>
 public class AzurermFunctionAppHybridConnection : TerraformResource
@@ -24,7 +68,8 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// <summary>
     /// The ID of the Function App for this Hybrid Connection.
     /// </summary>
-    public TerraformProperty<string>? FunctionAppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
+    public required TerraformProperty<string> FunctionAppId
     {
         get => GetProperty<TerraformProperty<string>>("function_app_id");
         set => this.WithProperty("function_app_id", value);
@@ -33,7 +78,8 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// <summary>
     /// The hostname of the endpoint.
     /// </summary>
-    public TerraformProperty<string>? Hostname
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
+    public required TerraformProperty<string> Hostname
     {
         get => GetProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
@@ -51,7 +97,8 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// <summary>
     /// The port to use for the endpoint
     /// </summary>
-    public TerraformProperty<double>? Port
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformProperty<double> Port
     {
         get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
@@ -60,7 +107,8 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// <summary>
     /// The ID of the Relay Hybrid Connection to use.
     /// </summary>
-    public TerraformProperty<string>? RelayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
+    public required TerraformProperty<string> RelayId
     {
         get => GetProperty<TerraformProperty<string>>("relay_id");
         set => this.WithProperty("relay_id", value);
@@ -73,6 +121,16 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("send_key_name");
         set => this.WithProperty("send_key_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermFunctionAppHybridConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermFunctionAppHybridConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

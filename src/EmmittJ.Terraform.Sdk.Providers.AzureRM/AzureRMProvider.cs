@@ -33,9 +33,9 @@ public class AzureRMProvider : TerraformProvider
     /// The auxiliary_tenant_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<string>>? AuxiliaryTenantIds
+    public List<TerraformProperty<string>>? AuxiliaryTenantIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("auxiliary_tenant_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("auxiliary_tenant_ids");
         set => this.WithProperty("auxiliary_tenant_ids", value);
     }
 
@@ -233,9 +233,9 @@ public class AzureRMProvider : TerraformProvider
     /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<string>>? ResourceProvidersToRegister
+    public List<TerraformProperty<string>>? ResourceProvidersToRegister
     {
-        get => GetProperty<TerraformProperty<List<string>>>("resource_providers_to_register");
+        get => GetProperty<List<TerraformProperty<string>>>("resource_providers_to_register");
         set => this.WithProperty("resource_providers_to_register", value);
     }
 

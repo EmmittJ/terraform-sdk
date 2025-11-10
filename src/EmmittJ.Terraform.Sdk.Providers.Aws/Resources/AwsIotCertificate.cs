@@ -23,7 +23,8 @@ public class AwsIotCertificate : TerraformResource
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformProperty<bool>? Active
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
+    public required TerraformProperty<bool> Active
     {
         get => GetProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);

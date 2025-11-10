@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultManagedStorageAccountSasTokenDefinitionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_key_vault_managed_storage_account_sas_token_definition resource.
 /// </summary>
 public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformResource
@@ -29,7 +73,8 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     /// <summary>
     /// The managed_storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedStorageAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedStorageAccountId is required")]
+    public required TerraformProperty<string> ManagedStorageAccountId
     {
         get => GetProperty<TerraformProperty<string>>("managed_storage_account_id");
         set => this.WithProperty("managed_storage_account_id", value);
@@ -38,7 +83,8 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,7 +93,8 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     /// <summary>
     /// The sas_template_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? SasTemplateUri
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasTemplateUri is required")]
+    public required TerraformProperty<string> SasTemplateUri
     {
         get => GetProperty<TerraformProperty<string>>("sas_template_uri");
         set => this.WithProperty("sas_template_uri", value);
@@ -56,7 +103,8 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     /// <summary>
     /// The sas_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SasType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasType is required")]
+    public required TerraformProperty<string> SasType
     {
         get => GetProperty<TerraformProperty<string>>("sas_type");
         set => this.WithProperty("sas_type", value);
@@ -65,19 +113,30 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The validity_period attribute.
     /// </summary>
-    public TerraformProperty<string>? ValidityPeriod
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidityPeriod is required")]
+    public required TerraformProperty<string> ValidityPeriod
     {
         get => GetProperty<TerraformProperty<string>>("validity_period");
         set => this.WithProperty("validity_period", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultManagedStorageAccountSasTokenDefinitionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultManagedStorageAccountSasTokenDefinitionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

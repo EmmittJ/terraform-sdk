@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNetworkmanagerAttachmentAccepterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_networkmanager_attachment_accepter resource.
 /// </summary>
 public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
@@ -28,7 +45,8 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     /// <summary>
     /// The attachment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AttachmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentId is required")]
+    public required TerraformProperty<string> AttachmentId
     {
         get => GetProperty<TerraformProperty<string>>("attachment_id");
         set => this.WithProperty("attachment_id", value);
@@ -37,7 +55,8 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     /// <summary>
     /// The attachment_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AttachmentType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
+    public required TerraformProperty<string> AttachmentType
     {
         get => GetProperty<TerraformProperty<string>>("attachment_type");
         set => this.WithProperty("attachment_type", value);
@@ -50,6 +69,16 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNetworkmanagerAttachmentAccepterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNetworkmanagerAttachmentAccepterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

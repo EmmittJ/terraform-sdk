@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEfsMountTargetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_efs_mount_target resource.
 /// </summary>
 public class AwsEfsMountTarget : TerraformResource
@@ -26,7 +52,8 @@ public class AwsEfsMountTarget : TerraformResource
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
+    public required TerraformProperty<string> FileSystemId
     {
         get => GetProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
@@ -80,19 +107,30 @@ public class AwsEfsMountTarget : TerraformResource
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
     {
         get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEfsMountTargetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEfsMountTargetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

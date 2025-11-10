@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for dead_letter_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchEventBusDeadLetterConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? Arn
+    {
+        get => GetProperty<TerraformProperty<string>>("arn");
+        set => WithProperty("arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for log_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchEventBusLogConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The include_detail attribute.
+    /// </summary>
+    public TerraformProperty<string>? IncludeDetail
+    {
+        get => GetProperty<TerraformProperty<string>>("include_detail");
+        set => WithProperty("include_detail", value);
+    }
+
+    /// <summary>
+    /// The level attribute.
+    /// </summary>
+    public TerraformProperty<string>? Level
+    {
+        get => GetProperty<TerraformProperty<string>>("level");
+        set => WithProperty("level", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudwatch_event_bus resource.
 /// </summary>
 public class AwsCloudwatchEventBus : TerraformResource
@@ -56,7 +99,8 @@ public class AwsCloudwatchEventBus : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -74,19 +118,41 @@ public class AwsCloudwatchEventBus : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for dead_letter_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterConfig block(s) allowed")]
+    public List<AwsCloudwatchEventBusDeadLetterConfigBlock>? DeadLetterConfig
+    {
+        get => GetProperty<List<AwsCloudwatchEventBusDeadLetterConfigBlock>>("dead_letter_config");
+        set => this.WithProperty("dead_letter_config", value);
+    }
+
+    /// <summary>
+    /// Block for log_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
+    public List<AwsCloudwatchEventBusLogConfigBlock>? LogConfig
+    {
+        get => GetProperty<List<AwsCloudwatchEventBusLogConfigBlock>>("log_config");
+        set => this.WithProperty("log_config", value);
     }
 
     /// <summary>

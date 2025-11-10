@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for operating_regions in .
+/// Nesting mode: set
+/// </summary>
+public class AwsVpcIpamOperatingRegionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The region_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
+    public required TerraformProperty<string> RegionName
+    {
+        get => GetProperty<TerraformProperty<string>>("region_name");
+        set => WithProperty("region_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcIpamTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_ipam resource.
 /// </summary>
 public class AwsVpcIpam : TerraformResource
@@ -79,18 +132,18 @@ public class AwsVpcIpam : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -101,6 +154,27 @@ public class AwsVpcIpam : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
+    }
+
+    /// <summary>
+    /// Block for operating_regions.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OperatingRegions block(s) required")]
+    public HashSet<AwsVpcIpamOperatingRegionsBlock>? OperatingRegions
+    {
+        get => GetProperty<HashSet<AwsVpcIpamOperatingRegionsBlock>>("operating_regions");
+        set => this.WithProperty("operating_regions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcIpamTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcIpamTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

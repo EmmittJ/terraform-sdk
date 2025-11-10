@@ -3,6 +3,247 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for admin_settings in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLookerInstanceAdminSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Email domain allowlist for the instance.
+    /// 
+    /// Define the email domains to which your users can deliver Looker (Google Cloud core) content.
+    /// Updating this list will restart the instance. Updating the allowed email domains from terraform
+    /// means the value provided will be considered as the entire list and not an amendment to the
+    /// existing list of allowed email domains.
+    /// </summary>
+    public List<TerraformProperty<string>>? AllowedEmailDomains
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("allowed_email_domains");
+        set => WithProperty("allowed_email_domains", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for custom_domain in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLookerInstanceCustomDomainBlock : TerraformBlock
+{
+    /// <summary>
+    /// Domain name
+    /// </summary>
+    public TerraformProperty<string>? Domain
+    {
+        get => GetProperty<TerraformProperty<string>>("domain");
+        set => WithProperty("domain", value);
+    }
+
+    /// <summary>
+    /// Status of the custom domain.
+    /// </summary>
+    public TerraformProperty<string>? State
+    {
+        get => GetProperty<TerraformProperty<string>>("state");
+        set => WithProperty("state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for deny_maintenance_period in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLookerInstanceDenyMaintenancePeriodBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for encryption_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Name of the customer managed encryption key (CMEK) in KMS.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+    /// <summary>
+    /// Full name and version of the CMEK key currently in use to encrypt Looker data.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyNameVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name_version");
+        set => WithProperty("kms_key_name_version", value);
+    }
+
+    /// <summary>
+    /// Status of the customer managed encryption key (CMEK) in KMS.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyState
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_state");
+        set => WithProperty("kms_key_state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for maintenance_window in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLookerInstanceMaintenanceWindowBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. Day of the week for this MaintenanceWindow (in UTC).
+    /// 
+    /// - MONDAY: Monday
+    /// - TUESDAY: Tuesday
+    /// - WEDNESDAY: Wednesday
+    /// - THURSDAY: Thursday
+    /// - FRIDAY: Friday
+    /// - SATURDAY: Saturday
+    /// - SUNDAY: Sunday Possible values: [&amp;quot;MONDAY&amp;quot;, &amp;quot;TUESDAY&amp;quot;, &amp;quot;WEDNESDAY&amp;quot;, &amp;quot;THURSDAY&amp;quot;, &amp;quot;FRIDAY&amp;quot;, &amp;quot;SATURDAY&amp;quot;, &amp;quot;SUNDAY&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
+    public required TerraformProperty<string> DayOfWeek
+    {
+        get => GetProperty<TerraformProperty<string>>("day_of_week");
+        set => WithProperty("day_of_week", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for oauth_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLookerInstanceOauthConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The client ID for the Oauth config.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
+    {
+        get => GetProperty<TerraformProperty<string>>("client_id");
+        set => WithProperty("client_id", value);
+    }
+
+    /// <summary>
+    /// The client secret for the Oauth config.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
+    public required TerraformProperty<string> ClientSecret
+    {
+        get => GetProperty<TerraformProperty<string>>("client_secret");
+        set => WithProperty("client_secret", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for psc_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLookerInstancePscConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// List of VPCs that are allowed ingress into the Looker instance.
+    /// </summary>
+    public List<TerraformProperty<string>>? AllowedVpcs
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("allowed_vpcs");
+        set => WithProperty("allowed_vpcs", value);
+    }
+
+    /// <summary>
+    /// URI of the Looker service attachment.
+    /// </summary>
+    public TerraformProperty<string>? LookerServiceAttachmentUri
+    {
+        get => GetProperty<TerraformProperty<string>>("looker_service_attachment_uri");
+        set => WithProperty("looker_service_attachment_uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleLookerInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for user_metadata in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLookerInstanceUserMetadataBlock : TerraformBlock
+{
+    /// <summary>
+    /// Number of additional Developer Users to allocate to the Looker Instance.
+    /// </summary>
+    public TerraformProperty<double>? AdditionalDeveloperUserCount
+    {
+        get => GetProperty<TerraformProperty<double>>("additional_developer_user_count");
+        set => WithProperty("additional_developer_user_count", value);
+    }
+
+    /// <summary>
+    /// Number of additional Standard Users to allocate to the Looker Instance.
+    /// </summary>
+    public TerraformProperty<double>? AdditionalStandardUserCount
+    {
+        get => GetProperty<TerraformProperty<double>>("additional_standard_user_count");
+        set => WithProperty("additional_standard_user_count", value);
+    }
+
+    /// <summary>
+    /// Number of additional Viewer Users to allocate to the Looker Instance.
+    /// </summary>
+    public TerraformProperty<double>? AdditionalViewerUserCount
+    {
+        get => GetProperty<TerraformProperty<double>>("additional_viewer_user_count");
+        set => WithProperty("additional_viewer_user_count", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_looker_instance resource.
 /// </summary>
 public class GoogleLookerInstance : TerraformResource
@@ -76,7 +317,8 @@ public class GoogleLookerInstance : TerraformResource
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -155,6 +397,105 @@ public class GoogleLookerInstance : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("reserved_range");
         set => this.WithProperty("reserved_range", value);
+    }
+
+    /// <summary>
+    /// Block for admin_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminSettings block(s) allowed")]
+    public List<GoogleLookerInstanceAdminSettingsBlock>? AdminSettings
+    {
+        get => GetProperty<List<GoogleLookerInstanceAdminSettingsBlock>>("admin_settings");
+        set => this.WithProperty("admin_settings", value);
+    }
+
+    /// <summary>
+    /// Block for custom_domain.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDomain block(s) allowed")]
+    public List<GoogleLookerInstanceCustomDomainBlock>? CustomDomain
+    {
+        get => GetProperty<List<GoogleLookerInstanceCustomDomainBlock>>("custom_domain");
+        set => this.WithProperty("custom_domain", value);
+    }
+
+    /// <summary>
+    /// Block for deny_maintenance_period.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DenyMaintenancePeriod block(s) allowed")]
+    public List<GoogleLookerInstanceDenyMaintenancePeriodBlock>? DenyMaintenancePeriod
+    {
+        get => GetProperty<List<GoogleLookerInstanceDenyMaintenancePeriodBlock>>("deny_maintenance_period");
+        set => this.WithProperty("deny_maintenance_period", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
+    public List<GoogleLookerInstanceEncryptionConfigBlock>? EncryptionConfig
+    {
+        get => GetProperty<List<GoogleLookerInstanceEncryptionConfigBlock>>("encryption_config");
+        set => this.WithProperty("encryption_config", value);
+    }
+
+    /// <summary>
+    /// Block for maintenance_window.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
+    public List<GoogleLookerInstanceMaintenanceWindowBlock>? MaintenanceWindow
+    {
+        get => GetProperty<List<GoogleLookerInstanceMaintenanceWindowBlock>>("maintenance_window");
+        set => this.WithProperty("maintenance_window", value);
+    }
+
+    /// <summary>
+    /// Block for oauth_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OauthConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OauthConfig block(s) allowed")]
+    public List<GoogleLookerInstanceOauthConfigBlock>? OauthConfig
+    {
+        get => GetProperty<List<GoogleLookerInstanceOauthConfigBlock>>("oauth_config");
+        set => this.WithProperty("oauth_config", value);
+    }
+
+    /// <summary>
+    /// Block for psc_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscConfig block(s) allowed")]
+    public List<GoogleLookerInstancePscConfigBlock>? PscConfig
+    {
+        get => GetProperty<List<GoogleLookerInstancePscConfigBlock>>("psc_config");
+        set => this.WithProperty("psc_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleLookerInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleLookerInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for user_metadata.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserMetadata block(s) allowed")]
+    public List<GoogleLookerInstanceUserMetadataBlock>? UserMetadata
+    {
+        get => GetProperty<List<GoogleLookerInstanceUserMetadataBlock>>("user_metadata");
+        set => this.WithProperty("user_metadata", value);
     }
 
     /// <summary>

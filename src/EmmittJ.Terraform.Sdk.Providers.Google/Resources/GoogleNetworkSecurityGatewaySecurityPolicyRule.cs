@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkSecurityGatewaySecurityPolicyRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_security_gateway_security_policy_rule resource.
 /// </summary>
 public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
@@ -31,7 +66,8 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// <summary>
     /// Profile which tells what the primitive action should be. Possible values are: * ALLOW * DENY. Possible values: [&amp;quot;BASIC_PROFILE_UNSPECIFIED&amp;quot;, &amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? BasicProfile
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasicProfile is required")]
+    public required TerraformProperty<string> BasicProfile
     {
         get => GetProperty<TerraformProperty<string>>("basic_profile");
         set => this.WithProperty("basic_profile", value);
@@ -49,7 +85,8 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// <summary>
     /// Whether the rule is enforced.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -58,7 +95,8 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// <summary>
     /// The name of the gatewat security policy this rule belongs to.
     /// </summary>
-    public TerraformProperty<string>? GatewaySecurityPolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewaySecurityPolicy is required")]
+    public required TerraformProperty<string> GatewaySecurityPolicy
     {
         get => GetProperty<TerraformProperty<string>>("gateway_security_policy");
         set => this.WithProperty("gateway_security_policy", value);
@@ -76,7 +114,8 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// <summary>
     /// The location of the gateway security policy.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -86,7 +125,8 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// Name of the resource. ame is the full resource name so projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}/rules/{rule}
     /// rule should match the pattern: (^a-z?$).
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -95,7 +135,8 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// <summary>
     /// Priority of the rule. Lower number corresponds to higher precedence.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
     {
         get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
@@ -113,7 +154,8 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// <summary>
     /// CEL expression for matching on session criteria.
     /// </summary>
-    public TerraformProperty<string>? SessionMatcher
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionMatcher is required")]
+    public required TerraformProperty<string> SessionMatcher
     {
         get => GetProperty<TerraformProperty<string>>("session_matcher");
         set => this.WithProperty("session_matcher", value);
@@ -127,6 +169,16 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("tls_inspection_enabled");
         set => this.WithProperty("tls_inspection_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkSecurityGatewaySecurityPolicyRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkSecurityGatewaySecurityPolicyRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

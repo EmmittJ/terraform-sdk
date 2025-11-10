@@ -53,7 +53,8 @@ public class GoogleSecretManagerSecretDataSource : TerraformDataSource
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
-    public TerraformProperty<string>? SecretId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
+    public required TerraformProperty<string> SecretId
     {
         get => GetProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);

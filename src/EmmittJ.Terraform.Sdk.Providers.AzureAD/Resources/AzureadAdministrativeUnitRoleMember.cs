@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadAdministrativeUnitRoleMemberTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_administrative_unit_role_member resource.
 /// </summary>
 public class AzureadAdministrativeUnitRoleMember : TerraformResource
@@ -19,7 +54,8 @@ public class AzureadAdministrativeUnitRoleMember : TerraformResource
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    public TerraformProperty<string>? AdministrativeUnitObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministrativeUnitObjectId is required")]
+    public required TerraformProperty<string> AdministrativeUnitObjectId
     {
         get => GetProperty<TerraformProperty<string>>("administrative_unit_object_id");
         set => this.WithProperty("administrative_unit_object_id", value);
@@ -37,7 +73,8 @@ public class AzureadAdministrativeUnitRoleMember : TerraformResource
     /// <summary>
     /// The object ID of the member
     /// </summary>
-    public TerraformProperty<string>? MemberObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberObjectId is required")]
+    public required TerraformProperty<string> MemberObjectId
     {
         get => GetProperty<TerraformProperty<string>>("member_object_id");
         set => this.WithProperty("member_object_id", value);
@@ -46,10 +83,21 @@ public class AzureadAdministrativeUnitRoleMember : TerraformResource
     /// <summary>
     /// The object ID of the directory role
     /// </summary>
-    public TerraformProperty<string>? RoleObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleObjectId is required")]
+    public required TerraformProperty<string> RoleObjectId
     {
         get => GetProperty<TerraformProperty<string>>("role_object_id");
         set => this.WithProperty("role_object_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadAdministrativeUnitRoleMemberTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadAdministrativeUnitRoleMemberTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

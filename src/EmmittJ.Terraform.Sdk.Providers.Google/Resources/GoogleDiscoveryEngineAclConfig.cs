@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for idp_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDiscoveryEngineAclConfigIdpConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Identity provider type. Possible values: [&amp;quot;GSUITE&amp;quot;, &amp;quot;THIRD_PARTY&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? IdpType
+    {
+        get => GetProperty<TerraformProperty<string>>("idp_type");
+        set => WithProperty("idp_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDiscoveryEngineAclConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_discovery_engine_acl_config resource.
 /// </summary>
 public class GoogleDiscoveryEngineAclConfig : TerraformResource
@@ -30,7 +82,8 @@ public class GoogleDiscoveryEngineAclConfig : TerraformResource
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -43,6 +96,27 @@ public class GoogleDiscoveryEngineAclConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for idp_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdpConfig block(s) allowed")]
+    public List<GoogleDiscoveryEngineAclConfigIdpConfigBlock>? IdpConfig
+    {
+        get => GetProperty<List<GoogleDiscoveryEngineAclConfigIdpConfigBlock>>("idp_config");
+        set => this.WithProperty("idp_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDiscoveryEngineAclConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDiscoveryEngineAclConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

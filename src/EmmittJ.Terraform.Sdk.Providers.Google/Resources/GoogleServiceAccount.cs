@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleServiceAccountTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_service_account resource.
 /// </summary>
 public class GoogleServiceAccount : TerraformResource
@@ -23,7 +40,8 @@ public class GoogleServiceAccount : TerraformResource
     /// <summary>
     /// The account id that is used to generate the service account email address and a stable unique id. It is unique within a project, must be 6-30 characters long, and match the regular expression [a-z]([-a-z0-9]*[a-z0-9]) to comply with RFC1035. Changing this forces a new service account to be created.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
+    public required TerraformProperty<string> AccountId
     {
         get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
@@ -81,6 +99,16 @@ public class GoogleServiceAccount : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleServiceAccountTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleServiceAccountTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

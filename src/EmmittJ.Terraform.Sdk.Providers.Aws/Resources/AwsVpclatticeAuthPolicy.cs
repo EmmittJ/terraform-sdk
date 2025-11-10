@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpclatticeAuthPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpclattice_auth_policy resource.
 /// </summary>
 public class AwsVpclatticeAuthPolicy : TerraformResource
@@ -28,7 +63,8 @@ public class AwsVpclatticeAuthPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -46,7 +82,8 @@ public class AwsVpclatticeAuthPolicy : TerraformResource
     /// <summary>
     /// The resource_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceIdentifier is required")]
+    public required TerraformProperty<string> ResourceIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("resource_identifier");
         set => this.WithProperty("resource_identifier", value);
@@ -59,6 +96,16 @@ public class AwsVpclatticeAuthPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpclatticeAuthPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpclatticeAuthPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -20,7 +20,8 @@ public class GoogleIapWebRegionForwardingRuleServiceIamPolicy : TerraformResourc
     /// <summary>
     /// The forwarding_rule_region_service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ForwardingRuleRegionServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRuleRegionServiceName is required")]
+    public required TerraformProperty<string> ForwardingRuleRegionServiceName
     {
         get => GetProperty<TerraformProperty<string>>("forwarding_rule_region_service_name");
         set => this.WithProperty("forwarding_rule_region_service_name", value);
@@ -38,7 +39,8 @@ public class GoogleIapWebRegionForwardingRuleServiceIamPolicy : TerraformResourc
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

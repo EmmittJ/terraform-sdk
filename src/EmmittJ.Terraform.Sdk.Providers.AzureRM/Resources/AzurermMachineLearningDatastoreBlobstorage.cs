@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_machine_learning_datastore_blobstorage resource.
 /// </summary>
 public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
@@ -55,7 +99,8 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -82,7 +127,8 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     /// <summary>
     /// The storage_container_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageContainerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
+    public required TerraformProperty<string> StorageContainerId
     {
         get => GetProperty<TerraformProperty<string>>("storage_container_id");
         set => this.WithProperty("storage_container_id", value);
@@ -91,19 +137,30 @@ public class AzurermMachineLearningDatastoreBlobstorage : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    public required TerraformProperty<string> WorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMachineLearningDatastoreBlobstorageTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

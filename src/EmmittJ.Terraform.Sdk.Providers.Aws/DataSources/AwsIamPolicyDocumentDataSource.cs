@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for statement in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
+{
+    /// <summary>
+    /// The actions attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Actions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
+        set => WithProperty("actions", value);
+    }
+
+    /// <summary>
+    /// The effect attribute.
+    /// </summary>
+    public TerraformProperty<string>? Effect
+    {
+        get => GetProperty<TerraformProperty<string>>("effect");
+        set => WithProperty("effect", value);
+    }
+
+    /// <summary>
+    /// The not_actions attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? NotActions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("not_actions");
+        set => WithProperty("not_actions", value);
+    }
+
+    /// <summary>
+    /// The not_resources attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? NotResources
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("not_resources");
+        set => WithProperty("not_resources", value);
+    }
+
+    /// <summary>
+    /// The resources attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Resources
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
+        set => WithProperty("resources", value);
+    }
+
+    /// <summary>
+    /// The sid attribute.
+    /// </summary>
+    public TerraformProperty<string>? Sid
+    {
+        get => GetProperty<TerraformProperty<string>>("sid");
+        set => WithProperty("sid", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_iam_policy_document.
 /// </summary>
 public class AwsIamPolicyDocumentDataSource : TerraformDataSource
@@ -40,9 +102,9 @@ public class AwsIamPolicyDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The override_policy_documents attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? OverridePolicyDocuments
+    public List<TerraformProperty<string>>? OverridePolicyDocuments
     {
-        get => GetProperty<TerraformProperty<List<string>>>("override_policy_documents");
+        get => GetProperty<List<TerraformProperty<string>>>("override_policy_documents");
         set => this.WithProperty("override_policy_documents", value);
     }
 
@@ -68,9 +130,9 @@ public class AwsIamPolicyDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The source_policy_documents attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SourcePolicyDocuments
+    public List<TerraformProperty<string>>? SourcePolicyDocuments
     {
-        get => GetProperty<TerraformProperty<List<string>>>("source_policy_documents");
+        get => GetProperty<List<TerraformProperty<string>>>("source_policy_documents");
         set => this.WithProperty("source_policy_documents", value);
     }
 
@@ -81,6 +143,16 @@ public class AwsIamPolicyDocumentDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for statement.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsIamPolicyDocumentDataSourceStatementBlock>? Statement
+    {
+        get => GetProperty<List<AwsIamPolicyDocumentDataSourceStatementBlock>>("statement");
+        set => this.WithProperty("statement", value);
     }
 
     /// <summary>

@@ -25,7 +25,8 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
     /// <summary>
     /// The folder for which to retrieve settings.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
+    public required TerraformProperty<string> Folder
     {
         get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);

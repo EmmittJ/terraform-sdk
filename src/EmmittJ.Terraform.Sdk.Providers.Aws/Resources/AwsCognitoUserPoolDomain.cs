@@ -34,7 +34,8 @@ public class AwsCognitoUserPoolDomain : TerraformResource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    public required TerraformProperty<string> Domain
     {
         get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
@@ -70,7 +71,8 @@ public class AwsCognitoUserPoolDomain : TerraformResource
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
+    public required TerraformProperty<string> UserPoolId
     {
         get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);

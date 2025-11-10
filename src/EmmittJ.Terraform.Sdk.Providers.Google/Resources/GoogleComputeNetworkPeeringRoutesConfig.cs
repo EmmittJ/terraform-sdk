@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_network_peering_routes_config resource.
 /// </summary>
 public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
@@ -19,7 +54,8 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// <summary>
     /// Whether to export the custom routes to the peer network.
     /// </summary>
-    public TerraformProperty<bool>? ExportCustomRoutes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportCustomRoutes is required")]
+    public required TerraformProperty<bool> ExportCustomRoutes
     {
         get => GetProperty<TerraformProperty<bool>>("export_custom_routes");
         set => this.WithProperty("export_custom_routes", value);
@@ -48,7 +84,8 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// <summary>
     /// Whether to import the custom routes to the peer network.
     /// </summary>
-    public TerraformProperty<bool>? ImportCustomRoutes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportCustomRoutes is required")]
+    public required TerraformProperty<bool> ImportCustomRoutes
     {
         get => GetProperty<TerraformProperty<bool>>("import_custom_routes");
         set => this.WithProperty("import_custom_routes", value);
@@ -68,7 +105,8 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// <summary>
     /// The name of the primary network for the peering.
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -77,7 +115,8 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// <summary>
     /// Name of the peering.
     /// </summary>
-    public TerraformProperty<string>? Peering
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
+    public required TerraformProperty<string> Peering
     {
         get => GetProperty<TerraformProperty<string>>("peering");
         set => this.WithProperty("peering", value);
@@ -90,6 +129,16 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeNetworkPeeringRoutesConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

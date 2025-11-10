@@ -3,6 +3,96 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for notification in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
+    {
+        get => GetProperty<TerraformProperty<string>>("action");
+        set => WithProperty("action", value);
+    }
+
+    /// <summary>
+    /// The digest attribute.
+    /// </summary>
+    public TerraformProperty<string>? Digest
+    {
+        get => GetProperty<TerraformProperty<string>>("digest");
+        set => WithProperty("digest", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The tag attribute.
+    /// </summary>
+    public TerraformProperty<string>? Tag
+    {
+        get => GetProperty<TerraformProperty<string>>("tag");
+        set => WithProperty("tag", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_container_connected_registry resource.
 /// </summary>
 public class AzurermContainerConnectedRegistry : TerraformResource
@@ -28,16 +118,17 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The client_token_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ClientTokenIds
+    public List<TerraformProperty<string>>? ClientTokenIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("client_token_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("client_token_ids");
         set => this.WithProperty("client_token_ids", value);
     }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerRegistryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
+    public required TerraformProperty<string> ContainerRegistryId
     {
         get => GetProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
@@ -73,7 +164,8 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -109,7 +201,8 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     /// <summary>
     /// The sync_token_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SyncTokenId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyncTokenId is required")]
+    public required TerraformProperty<string> SyncTokenId
     {
         get => GetProperty<TerraformProperty<string>>("sync_token_id");
         set => this.WithProperty("sync_token_id", value);
@@ -122,6 +215,26 @@ public class AzurermContainerConnectedRegistry : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("sync_window");
         set => this.WithProperty("sync_window", value);
+    }
+
+    /// <summary>
+    /// Block for notification.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermContainerConnectedRegistryNotificationBlock>? Notification
+    {
+        get => GetProperty<List<AzurermContainerConnectedRegistryNotificationBlock>>("notification");
+        set => this.WithProperty("notification", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermContainerConnectedRegistryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermContainerConnectedRegistryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

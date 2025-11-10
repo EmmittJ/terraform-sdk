@@ -46,7 +46,8 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
     /// <summary>
     /// The key ring that the keys belongs to. Format: &#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;.
     /// </summary>
-    public TerraformProperty<string>? KeyRing
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
+    public required TerraformProperty<string> KeyRing
     {
         get => GetProperty<TerraformProperty<string>>("key_ring");
         set => this.WithProperty("key_ring", value);

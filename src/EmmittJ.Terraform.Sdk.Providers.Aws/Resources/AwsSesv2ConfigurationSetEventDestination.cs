@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for event_destination in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The matching_event_types attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingEventTypes is required")]
+    public HashSet<TerraformProperty<string>>? MatchingEventTypes
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("matching_event_types");
+        set => WithProperty("matching_event_types", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sesv2_configuration_set_event_destination resource.
 /// </summary>
 public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
@@ -19,7 +46,8 @@ public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
     /// <summary>
     /// The configuration_set_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationSetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
+    public required TerraformProperty<string> ConfigurationSetName
     {
         get => GetProperty<TerraformProperty<string>>("configuration_set_name");
         set => this.WithProperty("configuration_set_name", value);
@@ -28,7 +56,8 @@ public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
     /// <summary>
     /// The event_destination_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EventDestinationName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventDestinationName is required")]
+    public required TerraformProperty<string> EventDestinationName
     {
         get => GetProperty<TerraformProperty<string>>("event_destination_name");
         set => this.WithProperty("event_destination_name", value);
@@ -50,6 +79,18 @@ public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for event_destination.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EventDestination block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventDestination block(s) allowed")]
+    public List<AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock>? EventDestination
+    {
+        get => GetProperty<List<AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock>>("event_destination");
+        set => this.WithProperty("event_destination", value);
     }
 
 }

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigqueryRowAccessPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_row_access_policy resource.
 /// </summary>
 public class GoogleBigqueryRowAccessPolicy : TerraformResource
@@ -21,7 +56,8 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// <summary>
     /// The ID of the dataset containing this row access policy.
     /// </summary>
-    public TerraformProperty<string>? DatasetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
+    public required TerraformProperty<string> DatasetId
     {
         get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
@@ -39,7 +75,8 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// nullable_field is not NULL
     /// numeric_field BETWEEN 1.0 AND 5.0
     /// </summary>
-    public TerraformProperty<string>? FilterPredicate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPredicate is required")]
+    public required TerraformProperty<string> FilterPredicate
     {
         get => GetProperty<TerraformProperty<string>>("filter_predicate");
         set => this.WithProperty("filter_predicate", value);
@@ -69,9 +106,9 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// BigQuery requires authentication before a user can access the service,
     /// allUsers includes only authenticated users.
     /// </summary>
-    public TerraformProperty<List<string>>? Grantees
+    public List<TerraformProperty<string>>? Grantees
     {
-        get => GetProperty<TerraformProperty<List<string>>>("grantees");
+        get => GetProperty<List<TerraformProperty<string>>>("grantees");
         set => this.WithProperty("grantees", value);
     }
 
@@ -89,7 +126,8 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum
     /// length is 256 characters.
     /// </summary>
-    public TerraformProperty<string>? PolicyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
+    public required TerraformProperty<string> PolicyId
     {
         get => GetProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
@@ -107,10 +145,21 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// <summary>
     /// The ID of the table containing this row access policy.
     /// </summary>
-    public TerraformProperty<string>? TableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
+    public required TerraformProperty<string> TableId
     {
         get => GetProperty<TerraformProperty<string>>("table_id");
         set => this.WithProperty("table_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigqueryRowAccessPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigqueryRowAccessPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

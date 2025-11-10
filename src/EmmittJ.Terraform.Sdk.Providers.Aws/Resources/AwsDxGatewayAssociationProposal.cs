@@ -21,16 +21,17 @@ public class AwsDxGatewayAssociationProposal : TerraformResource
     /// <summary>
     /// The allowed_prefixes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedPrefixes
+    public HashSet<TerraformProperty<string>>? AllowedPrefixes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_prefixes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_prefixes");
         set => this.WithProperty("allowed_prefixes", value);
     }
 
     /// <summary>
     /// The associated_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociatedGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociatedGatewayId is required")]
+    public required TerraformProperty<string> AssociatedGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("associated_gateway_id");
         set => this.WithProperty("associated_gateway_id", value);
@@ -39,7 +40,8 @@ public class AwsDxGatewayAssociationProposal : TerraformResource
     /// <summary>
     /// The dx_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DxGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
+    public required TerraformProperty<string> DxGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("dx_gateway_id");
         set => this.WithProperty("dx_gateway_id", value);
@@ -48,7 +50,8 @@ public class AwsDxGatewayAssociationProposal : TerraformResource
     /// <summary>
     /// The dx_gateway_owner_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DxGatewayOwnerAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayOwnerAccountId is required")]
+    public required TerraformProperty<string> DxGatewayOwnerAccountId
     {
         get => GetProperty<TerraformProperty<string>>("dx_gateway_owner_account_id");
         set => this.WithProperty("dx_gateway_owner_account_id", value);

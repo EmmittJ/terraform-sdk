@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for on_exception_steps in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferWorkflowOnExceptionStepsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for steps in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferWorkflowStepsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_transfer_workflow resource.
 /// </summary>
 public class AwsTransferWorkflow : TerraformResource
@@ -47,19 +83,42 @@ public class AwsTransferWorkflow : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for on_exception_steps.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 OnExceptionSteps block(s) allowed")]
+    public List<AwsTransferWorkflowOnExceptionStepsBlock>? OnExceptionSteps
+    {
+        get => GetProperty<List<AwsTransferWorkflowOnExceptionStepsBlock>>("on_exception_steps");
+        set => this.WithProperty("on_exception_steps", value);
+    }
+
+    /// <summary>
+    /// Block for steps.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Steps block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 Steps block(s) allowed")]
+    public List<AwsTransferWorkflowStepsBlock>? Steps
+    {
+        get => GetProperty<List<AwsTransferWorkflowStepsBlock>>("steps");
+        set => this.WithProperty("steps", value);
     }
 
     /// <summary>

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_environment_api_revision_deployment resource.
 /// </summary>
 public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
@@ -22,7 +48,8 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
     /// <summary>
     /// Apigee API proxy name.
     /// </summary>
-    public TerraformProperty<string>? Api
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Api is required")]
+    public required TerraformProperty<string> Api
     {
         get => GetProperty<TerraformProperty<string>>("api");
         set => this.WithProperty("api", value);
@@ -31,7 +58,8 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
     /// <summary>
     /// Apigee environment name.
     /// </summary>
-    public TerraformProperty<string>? Environment
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
+    public required TerraformProperty<string> Environment
     {
         get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
@@ -49,7 +77,8 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
     /// <summary>
     /// Apigee organization ID.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -67,7 +96,8 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
     /// <summary>
     /// API proxy revision number to deploy.
     /// </summary>
-    public TerraformProperty<double>? Revision
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
+    public required TerraformProperty<double> Revision
     {
         get => GetProperty<TerraformProperty<double>>("revision");
         set => this.WithProperty("revision", value);
@@ -89,6 +119,16 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("service_account");
         set => this.WithProperty("service_account", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

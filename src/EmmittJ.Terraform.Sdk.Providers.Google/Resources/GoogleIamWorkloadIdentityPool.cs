@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamWorkloadIdentityPoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_workload_identity_pool resource.
 /// </summary>
 public class GoogleIamWorkloadIdentityPool : TerraformResource
@@ -70,10 +105,21 @@ public class GoogleIamWorkloadIdentityPool : TerraformResource
     /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformProperty<string>? WorkloadIdentityPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
+    public required TerraformProperty<string> WorkloadIdentityPoolId
     {
         get => GetProperty<TerraformProperty<string>>("workload_identity_pool_id");
         set => this.WithProperty("workload_identity_pool_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamWorkloadIdentityPoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamWorkloadIdentityPoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

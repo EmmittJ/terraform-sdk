@@ -19,7 +19,8 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -64,7 +65,8 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     /// <summary>
     /// The firewall_domain_list_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FirewallDomainListId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallDomainListId is required")]
+    public required TerraformProperty<string> FirewallDomainListId
     {
         get => GetProperty<TerraformProperty<string>>("firewall_domain_list_id");
         set => this.WithProperty("firewall_domain_list_id", value);
@@ -82,7 +84,8 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     /// <summary>
     /// The firewall_rule_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FirewallRuleGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
+    public required TerraformProperty<string> FirewallRuleGroupId
     {
         get => GetProperty<TerraformProperty<string>>("firewall_rule_group_id");
         set => this.WithProperty("firewall_rule_group_id", value);
@@ -100,7 +103,8 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -109,7 +113,8 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
     {
         get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);

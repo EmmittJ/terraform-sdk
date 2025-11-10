@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for storage_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsConnectInstanceStorageConfigStorageConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The storage_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
+    public required TerraformProperty<string> StorageType
+    {
+        get => GetProperty<TerraformProperty<string>>("storage_type");
+        set => WithProperty("storage_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_connect_instance_storage_config resource.
 /// </summary>
 public class AwsConnectInstanceStorageConfig : TerraformResource
@@ -29,7 +47,8 @@ public class AwsConnectInstanceStorageConfig : TerraformResource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -47,10 +66,23 @@ public class AwsConnectInstanceStorageConfig : TerraformResource
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
+    public required TerraformProperty<string> ResourceType
     {
         get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
+    }
+
+    /// <summary>
+    /// Block for storage_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfig block(s) allowed")]
+    public List<AwsConnectInstanceStorageConfigStorageConfigBlock>? StorageConfig
+    {
+        get => GetProperty<List<AwsConnectInstanceStorageConfigStorageConfigBlock>>("storage_config");
+        set => this.WithProperty("storage_config", value);
     }
 
     /// <summary>

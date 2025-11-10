@@ -3,6 +3,158 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for email_preferences in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDataTransferConfigEmailPreferencesBlock : TerraformBlock
+{
+    /// <summary>
+    /// If true, email notifications will be sent on transfer run failures.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableFailureEmail is required")]
+    public required TerraformProperty<bool> EnableFailureEmail
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_failure_email");
+        set => WithProperty("enable_failure_email", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for encryption_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the KMS key used for encrypting BigQuery data.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
+    public required TerraformProperty<string> KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for schedule_options in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// If true, automatic scheduling of data transfer runs for this
+    /// configuration will be disabled. The runs can be started on ad-hoc
+    /// basis using transferConfigs.startManualRuns API. When automatic
+    /// scheduling is disabled, the TransferConfig.schedule field will
+    /// be ignored.
+    /// </summary>
+    public TerraformProperty<bool>? DisableAutoScheduling
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_auto_scheduling");
+        set => WithProperty("disable_auto_scheduling", value);
+    }
+
+    /// <summary>
+    /// Defines time to stop scheduling transfer runs. A transfer run cannot be
+    /// scheduled at or after the end time. The end time can be changed at any
+    /// moment. The time when a data transfer can be triggered manually is not
+    /// limited by this option.
+    /// </summary>
+    public TerraformProperty<string>? EndTime
+    {
+        get => GetProperty<TerraformProperty<string>>("end_time");
+        set => WithProperty("end_time", value);
+    }
+
+    /// <summary>
+    /// Specifies time to start scheduling transfer runs. The first run will be
+    /// scheduled at or after the start time according to a recurrence pattern
+    /// defined in the schedule string. The start time can be changed at any
+    /// moment. The time when a data transfer can be triggered manually is not
+    /// limited by this option.
+    /// </summary>
+    public TerraformProperty<string>? StartTime
+    {
+        get => GetProperty<TerraformProperty<string>>("start_time");
+        set => WithProperty("start_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for sensitive_params in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Secret Access Key of the AWS account transferring data from.
+    /// </summary>
+    public TerraformProperty<string>? SecretAccessKey
+    {
+        get => GetProperty<TerraformProperty<string>>("secret_access_key");
+        set => WithProperty("secret_access_key", value);
+    }
+
+    /// <summary>
+    /// The Secret Access Key of the AWS account transferring data from.
+    /// </summary>
+    public TerraformProperty<string>? SecretAccessKeyWo
+    {
+        get => GetProperty<TerraformProperty<string>>("secret_access_key_wo");
+        set => WithProperty("secret_access_key_wo", value);
+    }
+
+    /// <summary>
+    /// The version of the sensitive params - used to trigger updates of the write-only params. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
+    /// </summary>
+    public TerraformProperty<double>? SecretAccessKeyWoVersion
+    {
+        get => GetProperty<TerraformProperty<double>>("secret_access_key_wo_version");
+        set => WithProperty("secret_access_key_wo_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_data_transfer_config resource.
 /// </summary>
 public class GoogleBigqueryDataTransferConfig : TerraformResource
@@ -33,7 +185,8 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// <summary>
     /// The data source id. Cannot be changed once the transfer config is created.
     /// </summary>
-    public TerraformProperty<string>? DataSourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
+    public required TerraformProperty<string> DataSourceId
     {
         get => GetProperty<TerraformProperty<string>>("data_source_id");
         set => this.WithProperty("data_source_id", value);
@@ -60,7 +213,8 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// <summary>
     /// The user specified display name for the transfer config.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -102,9 +256,10 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// 
     /// **NOTE** : If you are attempting to update a parameter that cannot be updated (due to api limitations) [please force recreation of the resource](https://www.terraform.io/cli/state/taint#forcing-re-creation-of-resources).
     /// </summary>
-    public TerraformMapProperty<string>? Params
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Params is required")]
+    public Dictionary<string, TerraformProperty<string>>? Params
     {
-        get => GetProperty<TerraformMapProperty<string>>("params");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("params");
         set => this.WithProperty("params", value);
     }
 
@@ -143,6 +298,60 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("service_account_name");
         set => this.WithProperty("service_account_name", value);
+    }
+
+    /// <summary>
+    /// Block for email_preferences.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EmailPreferences block(s) allowed")]
+    public List<GoogleBigqueryDataTransferConfigEmailPreferencesBlock>? EmailPreferences
+    {
+        get => GetProperty<List<GoogleBigqueryDataTransferConfigEmailPreferencesBlock>>("email_preferences");
+        set => this.WithProperty("email_preferences", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
+    public List<GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock>? EncryptionConfiguration
+    {
+        get => GetProperty<List<GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock>>("encryption_configuration");
+        set => this.WithProperty("encryption_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for schedule_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleOptions block(s) allowed")]
+    public List<GoogleBigqueryDataTransferConfigScheduleOptionsBlock>? ScheduleOptions
+    {
+        get => GetProperty<List<GoogleBigqueryDataTransferConfigScheduleOptionsBlock>>("schedule_options");
+        set => this.WithProperty("schedule_options", value);
+    }
+
+    /// <summary>
+    /// Block for sensitive_params.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SensitiveParams block(s) allowed")]
+    public List<GoogleBigqueryDataTransferConfigSensitiveParamsBlock>? SensitiveParams
+    {
+        get => GetProperty<List<GoogleBigqueryDataTransferConfigSensitiveParamsBlock>>("sensitive_params");
+        set => this.WithProperty("sensitive_params", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigqueryDataTransferConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigqueryDataTransferConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,106 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for audio_export_settings in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Filename pattern for exported audio.
+    /// </summary>
+    public TerraformProperty<string>? AudioExportPattern
+    {
+        get => GetProperty<TerraformProperty<string>>("audio_export_pattern");
+        set => WithProperty("audio_export_pattern", value);
+    }
+
+    /// <summary>
+    /// File format for exported audio file. Currently only in telephony recordings.
+    /// * MULAW: G.711 mu-law PCM with 8kHz sample rate.
+    /// * MP3: MP3 file format.
+    /// * OGG: OGG Vorbis. Possible values: [&amp;quot;MULAW&amp;quot;, &amp;quot;MP3&amp;quot;, &amp;quot;OGG&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? AudioFormat
+    {
+        get => GetProperty<TerraformProperty<string>>("audio_format");
+        set => WithProperty("audio_format", value);
+    }
+
+    /// <summary>
+    /// Enable audio redaction if it is true.
+    /// </summary>
+    public TerraformProperty<bool>? EnableAudioRedaction
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_audio_redaction");
+        set => WithProperty("enable_audio_redaction", value);
+    }
+
+    /// <summary>
+    /// Cloud Storage bucket to export audio record to. Setting this field would grant the Storage Object Creator role to the Dialogflow Service Agent. API caller that tries to modify this field should have the permission of storage.buckets.setIamPolicy.
+    /// </summary>
+    public TerraformProperty<string>? GcsBucket
+    {
+        get => GetProperty<TerraformProperty<string>>("gcs_bucket");
+        set => WithProperty("gcs_bucket", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for insights_export_settings in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// If enabled, we will automatically exports conversations to Insights and Insights runs its analyzers.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableInsightsExport is required")]
+    public required TerraformProperty<bool> EnableInsightsExport
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_insights_export");
+        set => WithProperty("enable_insights_export", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dialogflow_cx_security_settings resource.
 /// </summary>
 public class GoogleDialogflowCxSecuritySettings : TerraformResource
@@ -31,7 +131,8 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// <summary>
     /// The human-readable name of the security settings, unique within the location.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -61,7 +162,8 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// The location these settings are located in. Settings can only be applied to an agent in the same location.
     /// See [Available Regions](https://cloud.google.com/dialogflow/cx/docs/concept/region#avail) for a list of supported locations.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -79,9 +181,9 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     /// <summary>
     /// List of types of data to remove when retention settings triggers purge. Possible values: [&amp;quot;DIALOGFLOW_HISTORY&amp;quot;]
     /// </summary>
-    public TerraformProperty<List<string>>? PurgeDataTypes
+    public List<TerraformProperty<string>>? PurgeDataTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("purge_data_types");
+        get => GetProperty<List<TerraformProperty<string>>>("purge_data_types");
         set => this.WithProperty("purge_data_types", value);
     }
 
@@ -123,6 +225,38 @@ public class GoogleDialogflowCxSecuritySettings : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("retention_window_days");
         set => this.WithProperty("retention_window_days", value);
+    }
+
+    /// <summary>
+    /// Block for audio_export_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AudioExportSettings block(s) allowed")]
+    public List<GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock>? AudioExportSettings
+    {
+        get => GetProperty<List<GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock>>("audio_export_settings");
+        set => this.WithProperty("audio_export_settings", value);
+    }
+
+    /// <summary>
+    /// Block for insights_export_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InsightsExportSettings block(s) allowed")]
+    public List<GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock>? InsightsExportSettings
+    {
+        get => GetProperty<List<GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock>>("insights_export_settings");
+        set => this.WithProperty("insights_export_settings", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDialogflowCxSecuritySettingsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDialogflowCxSecuritySettingsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

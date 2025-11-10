@@ -19,7 +19,8 @@ public class AwsAcmpcaCertificateAuthorityCertificate : TerraformResource
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public TerraformProperty<string>? Certificate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
+    public required TerraformProperty<string> Certificate
     {
         get => GetProperty<TerraformProperty<string>>("certificate");
         set => this.WithProperty("certificate", value);
@@ -28,7 +29,8 @@ public class AwsAcmpcaCertificateAuthorityCertificate : TerraformResource
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateAuthorityArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
+    public required TerraformProperty<string> CertificateAuthorityArn
     {
         get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
         set => this.WithProperty("certificate_authority_arn", value);

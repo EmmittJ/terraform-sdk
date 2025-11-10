@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMacie2InvitationAccepterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_macie2_invitation_accepter resource.
 /// </summary>
 public class AwsMacie2InvitationAccepter : TerraformResource
@@ -20,7 +37,8 @@ public class AwsMacie2InvitationAccepter : TerraformResource
     /// <summary>
     /// The administrator_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AdministratorAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorAccountId is required")]
+    public required TerraformProperty<string> AdministratorAccountId
     {
         get => GetProperty<TerraformProperty<string>>("administrator_account_id");
         set => this.WithProperty("administrator_account_id", value);
@@ -42,6 +60,16 @@ public class AwsMacie2InvitationAccepter : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMacie2InvitationAccepterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMacie2InvitationAccepterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

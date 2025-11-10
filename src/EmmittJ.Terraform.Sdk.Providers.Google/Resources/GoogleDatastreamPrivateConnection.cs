@@ -3,6 +3,94 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for psc_interface_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Fully qualified name of the network attachment that Datastream will connect to.
+    /// Format: projects/{project}/regions/{region}/networkAttachments/{name}
+    /// 
+    /// To get Datastream project for the accepted list:
+    /// &#39;gcloud datastream private-connections create [PC ID] --location=[LOCATION] --network-attachment=[NA URI] --validate-only --display-name=[ANY STRING]&#39;
+    /// Add Datastream project to the attachment accepted list:
+    /// &#39;gcloud compute network-attachments update [NA URI] --region=[NA region] --producer-accept-list=[TP from prev command]&#39;
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
+    public required TerraformProperty<string> NetworkAttachment
+    {
+        get => GetProperty<TerraformProperty<string>>("network_attachment");
+        set => WithProperty("network_attachment", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDatastreamPrivateConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_peering_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// A free subnet for peering. (CIDR of /29)
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
+    public required TerraformProperty<string> Subnet
+    {
+        get => GetProperty<TerraformProperty<string>>("subnet");
+        set => WithProperty("subnet", value);
+    }
+
+    /// <summary>
+    /// Fully qualified name of the VPC that Datastream will peer to.
+    /// Format: projects/{project}/global/{networks}/{name}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vpc is required")]
+    public required TerraformProperty<string> Vpc
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc");
+        set => WithProperty("vpc", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_datastream_private_connection resource.
 /// </summary>
 public class GoogleDatastreamPrivateConnection : TerraformResource
@@ -33,7 +121,8 @@ public class GoogleDatastreamPrivateConnection : TerraformResource
     /// <summary>
     /// Display name.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -54,16 +143,17 @@ public class GoogleDatastreamPrivateConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the location this private connection is located in.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -72,7 +162,8 @@ public class GoogleDatastreamPrivateConnection : TerraformResource
     /// <summary>
     /// The private connectivity identifier.
     /// </summary>
-    public TerraformProperty<string>? PrivateConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnectionId is required")]
+    public required TerraformProperty<string> PrivateConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("private_connection_id");
         set => this.WithProperty("private_connection_id", value);
@@ -85,6 +176,38 @@ public class GoogleDatastreamPrivateConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for psc_interface_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscInterfaceConfig block(s) allowed")]
+    public List<GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock>? PscInterfaceConfig
+    {
+        get => GetProperty<List<GoogleDatastreamPrivateConnectionPscInterfaceConfigBlock>>("psc_interface_config");
+        set => this.WithProperty("psc_interface_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDatastreamPrivateConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDatastreamPrivateConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_peering_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConfig block(s) allowed")]
+    public List<GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock>? VpcPeeringConfig
+    {
+        get => GetProperty<List<GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock>>("vpc_peering_config");
+        set => this.WithProperty("vpc_peering_config", value);
     }
 
     /// <summary>

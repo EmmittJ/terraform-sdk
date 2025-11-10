@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_log_analytics_datasource_windows_event resource.
 /// </summary>
 public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     /// <summary>
     /// The event_log_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EventLogName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventLogName is required")]
+    public required TerraformProperty<string> EventLogName
     {
         get => GetProperty<TerraformProperty<string>>("event_log_name");
         set => this.WithProperty("event_log_name", value);
@@ -28,9 +73,10 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     /// <summary>
     /// The event_types attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EventTypes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTypes is required")]
+    public HashSet<TerraformProperty<string>>? EventTypes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("event_types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("event_types");
         set => this.WithProperty("event_types", value);
     }
 
@@ -46,7 +92,8 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +102,8 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -64,10 +112,21 @@ public class AzurermLogAnalyticsDatasourceWindowsEvent : TerraformResource
     /// <summary>
     /// The workspace_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
+    public required TerraformProperty<string> WorkspaceName
     {
         get => GetProperty<TerraformProperty<string>>("workspace_name");
         set => this.WithProperty("workspace_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -39,7 +39,8 @@ public class GoogleGkeHubMembershipIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The membership_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MembershipId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
+    public required TerraformProperty<string> MembershipId
     {
         get => GetProperty<TerraformProperty<string>>("membership_id");
         set => this.WithProperty("membership_id", value);

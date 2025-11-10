@@ -3,6 +3,246 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for pyspark_application_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
+    /// </summary>
+    public List<TerraformProperty<string>>? ArchiveUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
+        set => WithProperty("archive_uris", value);
+    }
+
+    /// <summary>
+    /// The arguments to pass to the driver.  Do not include arguments, such as &#39;--conf&#39;, that can be set as job properties, since a collision may occur that causes an incorrect job submission.
+    /// </summary>
+    public List<TerraformProperty<string>>? Args
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("args");
+        set => WithProperty("args", value);
+    }
+
+    /// <summary>
+    /// HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks.
+    /// </summary>
+    public List<TerraformProperty<string>>? FileUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
+        set => WithProperty("file_uris", value);
+    }
+
+    /// <summary>
+    /// HCFS URIs of jar files to add to the CLASSPATHs of the Python driver and tasks.
+    /// </summary>
+    public List<TerraformProperty<string>>? JarFileUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
+        set => WithProperty("jar_file_uris", value);
+    }
+
+    /// <summary>
+    /// The HCFS URI of the main Python file to use as the driver. Must be a .py file.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
+    public required TerraformProperty<string> MainPythonFileUri
+    {
+        get => GetProperty<TerraformProperty<string>>("main_python_file_uri");
+        set => WithProperty("main_python_file_uri", value);
+    }
+
+    /// <summary>
+    /// HCFS file URIs of Python files to pass to the PySpark framework. Supported file types: .py, .egg, and .zip.
+    /// </summary>
+    public List<TerraformProperty<string>>? PythonFileUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("python_file_uris");
+        set => WithProperty("python_file_uris", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for spark_application_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: &#39;.jar&#39;, &#39;.tar&#39;, &#39;.tar.gz&#39;, &#39;.tgz&#39;, and &#39;.zip&#39;.
+    /// </summary>
+    public List<TerraformProperty<string>>? ArchiveUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
+        set => WithProperty("archive_uris", value);
+    }
+
+    /// <summary>
+    /// The arguments to pass to the driver. Do not include arguments that can be set as application properties, such as &#39;--conf&#39;, since a collision can occur that causes an incorrect application submission.
+    /// </summary>
+    public List<TerraformProperty<string>>? Args
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("args");
+        set => WithProperty("args", value);
+    }
+
+    /// <summary>
+    /// HCFS URIs of files to be placed in the working directory of each executor.
+    /// </summary>
+    public List<TerraformProperty<string>>? FileUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
+        set => WithProperty("file_uris", value);
+    }
+
+    /// <summary>
+    /// HCFS URIs of jar files to add to the classpath of the Spark driver and tasks.
+    /// </summary>
+    public List<TerraformProperty<string>>? JarFileUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
+        set => WithProperty("jar_file_uris", value);
+    }
+
+    /// <summary>
+    /// The name of the driver main class. The jar file that contains the class must be in the classpath or specified in &#39;jar_file_uris&#39;.
+    /// </summary>
+    public TerraformProperty<string>? MainClass
+    {
+        get => GetProperty<TerraformProperty<string>>("main_class");
+        set => WithProperty("main_class", value);
+    }
+
+    /// <summary>
+    /// The HCFS URI of the jar file that contains the main class.
+    /// </summary>
+    public TerraformProperty<string>? MainJarFileUri
+    {
+        get => GetProperty<TerraformProperty<string>>("main_jar_file_uri");
+        set => WithProperty("main_jar_file_uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for spark_r_application_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
+    /// </summary>
+    public List<TerraformProperty<string>>? ArchiveUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("archive_uris");
+        set => WithProperty("archive_uris", value);
+    }
+
+    /// <summary>
+    /// The arguments to pass to the driver.  Do not include arguments, such as &#39;--conf&#39;, that can be set as job properties, since a collision may occur that causes an incorrect job submission.
+    /// </summary>
+    public List<TerraformProperty<string>>? Args
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("args");
+        set => WithProperty("args", value);
+    }
+
+    /// <summary>
+    /// HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks.
+    /// </summary>
+    public List<TerraformProperty<string>>? FileUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("file_uris");
+        set => WithProperty("file_uris", value);
+    }
+
+    /// <summary>
+    /// The HCFS URI of the main R file to use as the driver. Must be a .R file.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainRFileUri is required")]
+    public required TerraformProperty<string> MainRFileUri
+    {
+        get => GetProperty<TerraformProperty<string>>("main_r_file_uri");
+        set => WithProperty("main_r_file_uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for spark_sql_application_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// HCFS URIs of jar files to be added to the Spark CLASSPATH.
+    /// </summary>
+    public List<TerraformProperty<string>>? JarFileUris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("jar_file_uris");
+        set => WithProperty("jar_file_uris", value);
+    }
+
+    /// <summary>
+    /// The HCFS URI of the script that contains SQL queries.
+    /// </summary>
+    public TerraformProperty<string>? QueryFileUri
+    {
+        get => GetProperty<TerraformProperty<string>>("query_file_uri");
+        set => WithProperty("query_file_uri", value);
+    }
+
+    /// <summary>
+    /// Mapping of query variable names to values (equivalent to the Spark SQL command: SET &#39;name=&amp;quot;value&amp;quot;;&#39;).
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? ScriptVariables
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("script_variables");
+        set => WithProperty("script_variables", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataproc_gdc_spark_application resource.
 /// </summary>
 public class GoogleDataprocGdcSparkApplication : TerraformResource
@@ -34,9 +274,9 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -52,9 +292,9 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// <summary>
     /// List of container image uris for additional file dependencies. Dependent files are sequentially copied from each image. If a file with the same name exists in 2 images then the file from later image is used.
     /// </summary>
-    public TerraformProperty<List<string>>? DependencyImages
+    public List<TerraformProperty<string>>? DependencyImages
     {
-        get => GetProperty<TerraformProperty<List<string>>>("dependency_images");
+        get => GetProperty<List<TerraformProperty<string>>>("dependency_images");
         set => this.WithProperty("dependency_images", value);
     }
 
@@ -82,16 +322,17 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the spark application.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -118,16 +359,17 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// <summary>
     /// application-specific properties.
     /// </summary>
-    public TerraformMapProperty<string>? Properties
+    public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<TerraformMapProperty<string>>("properties");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
         set => this.WithProperty("properties", value);
     }
 
     /// <summary>
     /// The id of the service instance to which this spark application belongs.
     /// </summary>
-    public TerraformProperty<string>? Serviceinstance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
+    public required TerraformProperty<string> Serviceinstance
     {
         get => GetProperty<TerraformProperty<string>>("serviceinstance");
         set => this.WithProperty("serviceinstance", value);
@@ -136,7 +378,8 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// <summary>
     /// The id of the application
     /// </summary>
-    public TerraformProperty<string>? SparkApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkApplicationId is required")]
+    public required TerraformProperty<string> SparkApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("spark_application_id");
         set => this.WithProperty("spark_application_id", value);
@@ -149,6 +392,60 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for pyspark_application_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PysparkApplicationConfig block(s) allowed")]
+    public List<GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock>? PysparkApplicationConfig
+    {
+        get => GetProperty<List<GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock>>("pyspark_application_config");
+        set => this.WithProperty("pyspark_application_config", value);
+    }
+
+    /// <summary>
+    /// Block for spark_application_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkApplicationConfig block(s) allowed")]
+    public List<GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock>? SparkApplicationConfig
+    {
+        get => GetProperty<List<GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock>>("spark_application_config");
+        set => this.WithProperty("spark_application_config", value);
+    }
+
+    /// <summary>
+    /// Block for spark_r_application_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkRApplicationConfig block(s) allowed")]
+    public List<GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock>? SparkRApplicationConfig
+    {
+        get => GetProperty<List<GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock>>("spark_r_application_config");
+        set => this.WithProperty("spark_r_application_config", value);
+    }
+
+    /// <summary>
+    /// Block for spark_sql_application_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkSqlApplicationConfig block(s) allowed")]
+    public List<GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock>? SparkSqlApplicationConfig
+    {
+        get => GetProperty<List<GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock>>("spark_sql_application_config");
+        set => this.WithProperty("spark_sql_application_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataprocGdcSparkApplicationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataprocGdcSparkApplicationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

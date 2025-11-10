@@ -38,7 +38,8 @@ public class AwsControltowerControlsDataSource : TerraformDataSource
     /// <summary>
     /// The target_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIdentifier is required")]
+    public required TerraformProperty<string> TargetIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("target_identifier");
         set => this.WithProperty("target_identifier", value);

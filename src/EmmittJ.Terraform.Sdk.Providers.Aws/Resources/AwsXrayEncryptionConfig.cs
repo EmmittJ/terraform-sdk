@@ -46,7 +46,8 @@ public class AwsXrayEncryptionConfig : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);

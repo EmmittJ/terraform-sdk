@@ -3,6 +3,52 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for bigquery_dataset in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLoggingLinkedDatasetBigqueryDatasetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Output only. The full resource name of the BigQuery dataset. The DATASET_ID will match the ID
+    /// of the link, so the link must match the naming restrictions of BigQuery datasets
+    /// (alphanumeric characters and underscores only). The dataset will have a resource path of
+    /// &amp;quot;bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET_ID]&amp;quot;
+    /// </summary>
+    public TerraformProperty<string>? DatasetId
+    {
+        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        set => WithProperty("dataset_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleLoggingLinkedDatasetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_logging_linked_dataset resource.
 /// </summary>
 public class GoogleLoggingLinkedDataset : TerraformResource
@@ -22,7 +68,8 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     /// <summary>
     /// The bucket to which the linked dataset is attached.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -49,7 +96,8 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     /// <summary>
     /// The id of the linked dataset.
     /// </summary>
-    public TerraformProperty<string>? LinkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
+    public required TerraformProperty<string> LinkId
     {
         get => GetProperty<TerraformProperty<string>>("link_id");
         set => this.WithProperty("link_id", value);
@@ -71,6 +119,26 @@ public class GoogleLoggingLinkedDataset : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
+    }
+
+    /// <summary>
+    /// Block for bigquery_dataset.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>? BigqueryDataset
+    {
+        get => GetProperty<List<GoogleLoggingLinkedDatasetBigqueryDatasetBlock>>("bigquery_dataset");
+        set => this.WithProperty("bigquery_dataset", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleLoggingLinkedDatasetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleLoggingLinkedDatasetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

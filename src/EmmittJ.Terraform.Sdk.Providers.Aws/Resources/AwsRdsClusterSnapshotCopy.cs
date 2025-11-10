@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRdsClusterSnapshotCopyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rds_cluster_snapshot_copy resource.
 /// </summary>
 public class AwsRdsClusterSnapshotCopy : TerraformResource
@@ -75,16 +92,17 @@ public class AwsRdsClusterSnapshotCopy : TerraformResource
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SharedAccounts
+    public HashSet<TerraformProperty<string>>? SharedAccounts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("shared_accounts");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("shared_accounts");
         set => this.WithProperty("shared_accounts", value);
     }
 
     /// <summary>
     /// The source_db_cluster_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceDbClusterSnapshotIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbClusterSnapshotIdentifier is required")]
+    public required TerraformProperty<string> SourceDbClusterSnapshotIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("source_db_cluster_snapshot_identifier");
         set => this.WithProperty("source_db_cluster_snapshot_identifier", value);
@@ -93,19 +111,30 @@ public class AwsRdsClusterSnapshotCopy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The target_db_cluster_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetDbClusterSnapshotIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDbClusterSnapshotIdentifier is required")]
+    public required TerraformProperty<string> TargetDbClusterSnapshotIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("target_db_cluster_snapshot_identifier");
         set => this.WithProperty("target_db_cluster_snapshot_identifier", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRdsClusterSnapshotCopyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRdsClusterSnapshotCopyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

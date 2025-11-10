@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for data_catalog_encryption_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_glue_data_catalog_encryption_settings resource.
 /// </summary>
 public class AwsGlueDataCatalogEncryptionSettings : TerraformResource
@@ -41,6 +49,18 @@ public class AwsGlueDataCatalogEncryptionSettings : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for data_catalog_encryption_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataCatalogEncryptionSettings block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCatalogEncryptionSettings block(s) allowed")]
+    public List<AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock>? DataCatalogEncryptionSettings
+    {
+        get => GetProperty<List<AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBlock>>("data_catalog_encryption_settings");
+        set => this.WithProperty("data_catalog_encryption_settings", value);
     }
 
 }

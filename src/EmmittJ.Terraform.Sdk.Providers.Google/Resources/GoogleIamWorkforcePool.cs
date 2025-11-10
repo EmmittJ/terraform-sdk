@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for access_restrictions in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkforcePoolAccessRestrictionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Disable programmatic sign-in by disabling token issue via the Security Token API endpoint.
+    /// See [Security Token Service API](https://cloud.google.com/iam/docs/reference/sts/rest).
+    /// </summary>
+    public TerraformProperty<bool>? DisableProgrammaticSignin
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_programmatic_signin");
+        set => WithProperty("disable_programmatic_signin", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_workforce_pool resource.
 /// </summary>
 public class GoogleIamWorkforcePool : TerraformResource
@@ -58,7 +111,8 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -67,7 +121,8 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// <summary>
     /// Immutable. The resource name of the parent. Format: &#39;organizations/{org-id}&#39;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -91,10 +146,32 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// digits, or hyphens. It must start with a letter, and cannot have a trailing hyphen.
     /// The prefix &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformProperty<string>? WorkforcePoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
+    public required TerraformProperty<string> WorkforcePoolId
     {
         get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
+    }
+
+    /// <summary>
+    /// Block for access_restrictions.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessRestrictions block(s) allowed")]
+    public List<GoogleIamWorkforcePoolAccessRestrictionsBlock>? AccessRestrictions
+    {
+        get => GetProperty<List<GoogleIamWorkforcePoolAccessRestrictionsBlock>>("access_restrictions");
+        set => this.WithProperty("access_restrictions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamWorkforcePoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamWorkforcePoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

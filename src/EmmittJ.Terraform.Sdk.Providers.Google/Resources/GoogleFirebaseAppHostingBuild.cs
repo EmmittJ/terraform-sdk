@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for source in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFirebaseAppHostingBuildSourceBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaseAppHostingBuildTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebase_app_hosting_build resource.
 /// </summary>
 public class GoogleFirebaseAppHostingBuild : TerraformResource
@@ -38,16 +81,17 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The ID of the Backend that this Build applies to
     /// </summary>
-    public TerraformProperty<string>? Backend
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
+    public required TerraformProperty<string> Backend
     {
         get => GetProperty<TerraformProperty<string>>("backend");
         set => this.WithProperty("backend", value);
@@ -56,7 +100,8 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// <summary>
     /// The user-specified ID of the build being created.
     /// </summary>
-    public TerraformProperty<string>? BuildId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildId is required")]
+    public required TerraformProperty<string> BuildId
     {
         get => GetProperty<TerraformProperty<string>>("build_id");
         set => this.WithProperty("build_id", value);
@@ -87,16 +132,17 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the Backend that this Build applies to
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -109,6 +155,28 @@ public class GoogleFirebaseAppHostingBuild : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for source.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
+    public List<GoogleFirebaseAppHostingBuildSourceBlock>? Source
+    {
+        get => GetProperty<List<GoogleFirebaseAppHostingBuildSourceBlock>>("source");
+        set => this.WithProperty("source", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaseAppHostingBuildTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaseAppHostingBuildTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

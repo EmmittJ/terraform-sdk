@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for data_collection_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The is_diagnostics_events_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDiagnosticsEventsEnabled is required")]
+    public required TerraformProperty<bool> IsDiagnosticsEventsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_diagnostics_events_enabled");
+        set => WithProperty("is_diagnostics_events_enabled", value);
+    }
+
+    /// <summary>
+    /// The is_health_monitoring_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsHealthMonitoringEnabled is required")]
+    public required TerraformProperty<bool> IsHealthMonitoringEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_health_monitoring_enabled");
+        set => WithProperty("is_health_monitoring_enabled", value);
+    }
+
+    /// <summary>
+    /// The is_incident_logs_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsIncidentLogsEnabled is required")]
+    public required TerraformProperty<bool> IsIncidentLogsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_incident_logs_enabled");
+        set => WithProperty("is_incident_logs_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsOdbCloudVmClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_odb_cloud_vm_cluster resource.
 /// </summary>
 public class AwsOdbCloudVmCluster : TerraformResource
@@ -45,7 +118,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<string>? CloudExadataInfrastructureId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
+    public required TerraformProperty<string> CloudExadataInfrastructureId
     {
         get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);
@@ -63,7 +137,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<double>? CpuCoreCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
+    public required TerraformProperty<double> CpuCoreCount
     {
         get => GetProperty<TerraformProperty<double>>("cpu_core_count");
         set => this.WithProperty("cpu_core_count", value);
@@ -72,7 +147,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<double>? DataStorageSizeInTbs
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTbs is required")]
+    public required TerraformProperty<double> DataStorageSizeInTbs
     {
         get => GetProperty<TerraformProperty<double>>("data_storage_size_in_tbs");
         set => this.WithProperty("data_storage_size_in_tbs", value);
@@ -90,16 +166,18 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// The list of database servers for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DbServers
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
+    public HashSet<TerraformProperty<string>>? DbServers
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("db_servers");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("db_servers");
         set => this.WithProperty("db_servers", value);
     }
 
     /// <summary>
     /// A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -108,7 +186,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<string>? GiVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GiVersion is required")]
+    public required TerraformProperty<string> GiVersion
     {
         get => GetProperty<TerraformProperty<string>>("gi_version");
         set => this.WithProperty("gi_version", value);
@@ -117,7 +196,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// The host name prefix for the VM cluster. Constraints: - Can&#39;t be &amp;quot;localhost&amp;quot; or &amp;quot;hostname&amp;quot;. - Can&#39;t contain &amp;quot;-version&amp;quot;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<string>? HostnamePrefix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnamePrefix is required")]
+    public required TerraformProperty<string> HostnamePrefix
     {
         get => GetProperty<TerraformProperty<string>>("hostname_prefix");
         set => this.WithProperty("hostname_prefix", value);
@@ -162,7 +242,8 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<string>? OdbNetworkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
+    public required TerraformProperty<string> OdbNetworkId
     {
         get => GetProperty<TerraformProperty<string>>("odb_network_id");
         set => this.WithProperty("odb_network_id", value);
@@ -189,18 +270,19 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SshPublicKeys
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeys is required")]
+    public HashSet<TerraformProperty<string>>? SshPublicKeys
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("ssh_public_keys");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("ssh_public_keys");
         set => this.WithProperty("ssh_public_keys", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -211,6 +293,26 @@ public class AwsOdbCloudVmCluster : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("timezone");
         set => this.WithProperty("timezone", value);
+    }
+
+    /// <summary>
+    /// Block for data_collection_options.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsOdbCloudVmClusterDataCollectionOptionsBlock>? DataCollectionOptions
+    {
+        get => GetProperty<List<AwsOdbCloudVmClusterDataCollectionOptionsBlock>>("data_collection_options");
+        set => this.WithProperty("data_collection_options", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsOdbCloudVmClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsOdbCloudVmClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

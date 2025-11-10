@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for role_mapping in .
+/// Nesting mode: set
+/// </summary>
+public class AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ambiguous_role_resolution attribute.
+    /// </summary>
+    public TerraformProperty<string>? AmbiguousRoleResolution
+    {
+        get => GetProperty<TerraformProperty<string>>("ambiguous_role_resolution");
+        set => WithProperty("ambiguous_role_resolution", value);
+    }
+
+    /// <summary>
+    /// The identity_provider attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProvider is required")]
+    public required TerraformProperty<string> IdentityProvider
+    {
+        get => GetProperty<TerraformProperty<string>>("identity_provider");
+        set => WithProperty("identity_provider", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cognito_identity_pool_roles_attachment resource.
 /// </summary>
 public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
@@ -28,7 +65,8 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     /// <summary>
     /// The identity_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
+    public required TerraformProperty<string> IdentityPoolId
     {
         get => GetProperty<TerraformProperty<string>>("identity_pool_id");
         set => this.WithProperty("identity_pool_id", value);
@@ -46,10 +84,21 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     /// <summary>
     /// The roles attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Roles
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
+    public Dictionary<string, TerraformProperty<string>>? Roles
     {
-        get => GetProperty<TerraformMapProperty<string>>("roles");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("roles");
         set => this.WithProperty("roles", value);
+    }
+
+    /// <summary>
+    /// Block for role_mapping.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>? RoleMapping
+    {
+        get => GetProperty<HashSet<AwsCognitoIdentityPoolRolesAttachmentRoleMappingBlock>>("role_mapping");
+        set => this.WithProperty("role_mapping", value);
     }
 
 }

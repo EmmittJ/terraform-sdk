@@ -37,7 +37,8 @@ public class GoogleParameterManagerParameterDataSource : TerraformDataSource
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
-    public TerraformProperty<string>? ParameterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
+    public required TerraformProperty<string> ParameterId
     {
         get => GetProperty<TerraformProperty<string>>("parameter_id");
         set => this.WithProperty("parameter_id", value);

@@ -21,7 +21,8 @@ public class GoogleBigqueryAnalyticsHubListingIamPolicyDataSource : TerraformDat
     /// <summary>
     /// The data_exchange_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataExchangeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
+    public required TerraformProperty<string> DataExchangeId
     {
         get => GetProperty<TerraformProperty<string>>("data_exchange_id");
         set => this.WithProperty("data_exchange_id", value);
@@ -39,7 +40,8 @@ public class GoogleBigqueryAnalyticsHubListingIamPolicyDataSource : TerraformDat
     /// <summary>
     /// The listing_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ListingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
+    public required TerraformProperty<string> ListingId
     {
         get => GetProperty<TerraformProperty<string>>("listing_id");
         set => this.WithProperty("listing_id", value);

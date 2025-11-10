@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for properties in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApigeeOrganizationPropertiesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_organization resource.
 /// </summary>
 public class GoogleApigeeOrganization : TerraformResource
@@ -122,7 +165,8 @@ public class GoogleApigeeOrganization : TerraformResource
     /// <summary>
     /// The project ID associated with the Apigee organization.
     /// </summary>
-    public TerraformProperty<string>? ProjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
+    public required TerraformProperty<string> ProjectId
     {
         get => GetProperty<TerraformProperty<string>>("project_id");
         set => this.WithProperty("project_id", value);
@@ -159,6 +203,27 @@ public class GoogleApigeeOrganization : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("runtime_type");
         set => this.WithProperty("runtime_type", value);
+    }
+
+    /// <summary>
+    /// Block for properties.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
+    public List<GoogleApigeeOrganizationPropertiesBlock>? Properties
+    {
+        get => GetProperty<List<GoogleApigeeOrganizationPropertiesBlock>>("properties");
+        set => this.WithProperty("properties", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeOrganizationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeOrganizationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

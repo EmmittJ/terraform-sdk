@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for key_vault_password in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryLinkedServiceAzureFileStorageKeyVaultPasswordBlock : TerraformBlock
+{
+    /// <summary>
+    /// The linked_service_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
+    public required TerraformProperty<string> LinkedServiceName
+    {
+        get => GetProperty<TerraformProperty<string>>("linked_service_name");
+        set => WithProperty("linked_service_name", value);
+    }
+
+    /// <summary>
+    /// The secret_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
+    public required TerraformProperty<string> SecretName
+    {
+        get => GetProperty<TerraformProperty<string>>("secret_name");
+        set => WithProperty("secret_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataFactoryLinkedServiceAzureFileStorageTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_data_factory_linked_service_azure_file_storage resource.
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureFileStorage : TerraformResource
@@ -19,25 +91,26 @@ public class AzurermDataFactoryLinkedServiceAzureFileStorage : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_properties");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
         set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Annotations
+    public List<TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformProperty<List<string>>>("annotations");
+        get => GetProperty<List<TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
+    public required TerraformProperty<string> ConnectionString
     {
         get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
@@ -46,7 +119,8 @@ public class AzurermDataFactoryLinkedServiceAzureFileStorage : TerraformResource
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataFactoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
+    public required TerraformProperty<string> DataFactoryId
     {
         get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
@@ -100,7 +174,8 @@ public class AzurermDataFactoryLinkedServiceAzureFileStorage : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -109,9 +184,9 @@ public class AzurermDataFactoryLinkedServiceAzureFileStorage : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -131,6 +206,27 @@ public class AzurermDataFactoryLinkedServiceAzureFileStorage : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
+    }
+
+    /// <summary>
+    /// Block for key_vault_password.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
+    public List<AzurermDataFactoryLinkedServiceAzureFileStorageKeyVaultPasswordBlock>? KeyVaultPassword
+    {
+        get => GetProperty<List<AzurermDataFactoryLinkedServiceAzureFileStorageKeyVaultPasswordBlock>>("key_vault_password");
+        set => this.WithProperty("key_vault_password", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataFactoryLinkedServiceAzureFileStorageTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataFactoryLinkedServiceAzureFileStorageTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

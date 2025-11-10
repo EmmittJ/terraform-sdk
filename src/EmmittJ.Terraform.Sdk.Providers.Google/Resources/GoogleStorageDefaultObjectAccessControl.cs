@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_storage_default_object_access_control resource.
 /// </summary>
 public class GoogleStorageDefaultObjectAccessControl : TerraformResource
@@ -24,7 +59,8 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     /// <summary>
     /// The name of the bucket.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -41,7 +77,8 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     ///   * allUsers
     ///   * allAuthenticatedUsers
     /// </summary>
-    public TerraformProperty<string>? Entity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
+    public required TerraformProperty<string> Entity
     {
         get => GetProperty<TerraformProperty<string>>("entity");
         set => this.WithProperty("entity", value);
@@ -68,10 +105,21 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     /// <summary>
     /// The access permission for the entity. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;READER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleStorageDefaultObjectAccessControlTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleStorageDefaultObjectAccessControlTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

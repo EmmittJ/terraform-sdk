@@ -20,7 +20,8 @@ public class GoogleBigqueryTablesDataSource : TerraformDataSource
     /// <summary>
     /// The ID of the dataset containing the tables.
     /// </summary>
-    public TerraformProperty<string>? DatasetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
+    public required TerraformProperty<string> DatasetId
     {
         get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);

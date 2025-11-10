@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_ip_group_cidr resource.
 /// </summary>
 public class AzurermIpGroupCidr : TerraformResource
@@ -19,7 +54,8 @@ public class AzurermIpGroupCidr : TerraformResource
     /// <summary>
     /// The cidr attribute.
     /// </summary>
-    public TerraformProperty<string>? Cidr
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
+    public required TerraformProperty<string> Cidr
     {
         get => GetProperty<TerraformProperty<string>>("cidr");
         set => this.WithProperty("cidr", value);
@@ -37,10 +73,21 @@ public class AzurermIpGroupCidr : TerraformResource
     /// <summary>
     /// The ip_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IpGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpGroupId is required")]
+    public required TerraformProperty<string> IpGroupId
     {
         get => GetProperty<TerraformProperty<string>>("ip_group_id");
         set => this.WithProperty("ip_group_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermIpGroupCidrTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermIpGroupCidrTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

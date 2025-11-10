@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for hierarchy_structure in .
+/// Nesting mode: list
+/// </summary>
+public class AwsConnectUserHierarchyStructureHierarchyStructureBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_connect_user_hierarchy_structure resource.
 /// </summary>
 public class AwsConnectUserHierarchyStructure : TerraformResource
@@ -28,7 +36,8 @@ public class AwsConnectUserHierarchyStructure : TerraformResource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -41,6 +50,18 @@ public class AwsConnectUserHierarchyStructure : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for hierarchy_structure.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HierarchyStructure block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HierarchyStructure block(s) allowed")]
+    public List<AwsConnectUserHierarchyStructureHierarchyStructureBlock>? HierarchyStructure
+    {
+        get => GetProperty<List<AwsConnectUserHierarchyStructureHierarchyStructureBlock>>("hierarchy_structure");
+        set => this.WithProperty("hierarchy_structure", value);
     }
 
 }

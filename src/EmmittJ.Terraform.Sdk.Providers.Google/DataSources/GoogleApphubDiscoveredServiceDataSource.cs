@@ -31,7 +31,8 @@ public class GoogleApphubDiscoveredServiceDataSource : TerraformDataSource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -49,7 +50,8 @@ public class GoogleApphubDiscoveredServiceDataSource : TerraformDataSource
     /// <summary>
     /// The service_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceUri
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
+    public required TerraformProperty<string> ServiceUri
     {
         get => GetProperty<TerraformProperty<string>>("service_uri");
         set => this.WithProperty("service_uri", value);

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageSyncCloudEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_storage_sync_cloud_endpoint resource.
 /// </summary>
 public class AzurermStorageSyncCloudEndpoint : TerraformResource
@@ -19,7 +54,8 @@ public class AzurermStorageSyncCloudEndpoint : TerraformResource
     /// <summary>
     /// The file_share_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FileShareName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileShareName is required")]
+    public required TerraformProperty<string> FileShareName
     {
         get => GetProperty<TerraformProperty<string>>("file_share_name");
         set => this.WithProperty("file_share_name", value);
@@ -37,7 +73,8 @@ public class AzurermStorageSyncCloudEndpoint : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,7 +83,8 @@ public class AzurermStorageSyncCloudEndpoint : TerraformResource
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
+    public required TerraformProperty<string> StorageAccountId
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
@@ -64,10 +102,21 @@ public class AzurermStorageSyncCloudEndpoint : TerraformResource
     /// <summary>
     /// The storage_sync_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageSyncGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncGroupId is required")]
+    public required TerraformProperty<string> StorageSyncGroupId
     {
         get => GetProperty<TerraformProperty<string>>("storage_sync_group_id");
         set => this.WithProperty("storage_sync_group_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageSyncCloudEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageSyncCloudEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

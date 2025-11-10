@@ -3,6 +3,159 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for destinations in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEventarcPipelineDestinationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The resource name of the Message Bus to which events should be
+    /// published. The Message Bus resource should exist in the same project as
+    /// the Pipeline. Format:
+    /// &#39;projects/{project}/locations/{location}/messageBuses/{message_bus}&#39;
+    /// </summary>
+    public TerraformProperty<string>? MessageBus
+    {
+        get => GetProperty<TerraformProperty<string>>("message_bus");
+        set => WithProperty("message_bus", value);
+    }
+
+    /// <summary>
+    /// The resource name of the Pub/Sub topic to which events should be
+    /// published. Format:
+    /// &#39;projects/{project}/locations/{location}/topics/{topic}&#39;
+    /// </summary>
+    public TerraformProperty<string>? Topic
+    {
+        get => GetProperty<TerraformProperty<string>>("topic");
+        set => WithProperty("topic", value);
+    }
+
+    /// <summary>
+    /// The resource name of the Workflow whose Executions are triggered by
+    /// the events. The Workflow resource should be deployed in the same
+    /// project as the Pipeline. Format:
+    /// &#39;projects/{project}/locations/{location}/workflows/{workflow}&#39;
+    /// </summary>
+    public TerraformProperty<string>? Workflow
+    {
+        get => GetProperty<TerraformProperty<string>>("workflow");
+        set => WithProperty("workflow", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for input_payload_format in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEventarcPipelineInputPayloadFormatBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for logging_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEventarcPipelineLoggingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The minimum severity of logs that will be sent to Stackdriver/Platform
+    /// Telemetry. Logs at severitiy ≥ this value will be sent, unless it is NONE. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;NOTICE&amp;quot;, &amp;quot;WARNING&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;, &amp;quot;ALERT&amp;quot;, &amp;quot;EMERGENCY&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? LogSeverity
+    {
+        get => GetProperty<TerraformProperty<string>>("log_severity");
+        set => WithProperty("log_severity", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for mediations in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEventarcPipelineMediationsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for retry_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum number of delivery attempts for any message. The value must
+    /// be between 1 and 100.
+    /// The default value for this field is 5.
+    /// </summary>
+    public TerraformProperty<double>? MaxAttempts
+    {
+        get => GetProperty<TerraformProperty<double>>("max_attempts");
+        set => WithProperty("max_attempts", value);
+    }
+
+    /// <summary>
+    /// The maximum amount of seconds to wait between retry attempts. The value
+    /// must be between 1 and 600.
+    /// The default value for this field is 60.
+    /// </summary>
+    public TerraformProperty<string>? MaxRetryDelay
+    {
+        get => GetProperty<TerraformProperty<string>>("max_retry_delay");
+        set => WithProperty("max_retry_delay", value);
+    }
+
+    /// <summary>
+    /// The minimum amount of seconds to wait between retry attempts. The value
+    /// must be between 1 and 600.
+    /// The default value for this field is 5.
+    /// </summary>
+    public TerraformProperty<string>? MinRetryDelay
+    {
+        get => GetProperty<TerraformProperty<string>>("min_retry_delay");
+        set => WithProperty("min_retry_delay", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEventarcPipelineTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_eventarc_pipeline resource.
 /// </summary>
 public class GoogleEventarcPipeline : TerraformResource
@@ -30,9 +183,9 @@ public class GoogleEventarcPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -74,16 +227,17 @@ public class GoogleEventarcPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -93,7 +247,8 @@ public class GoogleEventarcPipeline : TerraformResource
     /// The user-provided ID to be assigned to the Pipeline. It should match the
     /// format &#39;^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$&#39;.
     /// </summary>
-    public TerraformProperty<string>? PipelineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
+    public required TerraformProperty<string> PipelineId
     {
         get => GetProperty<TerraformProperty<string>>("pipeline_id");
         set => this.WithProperty("pipeline_id", value);
@@ -106,6 +261,70 @@ public class GoogleEventarcPipeline : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for destinations.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
+    public List<GoogleEventarcPipelineDestinationsBlock>? Destinations
+    {
+        get => GetProperty<List<GoogleEventarcPipelineDestinationsBlock>>("destinations");
+        set => this.WithProperty("destinations", value);
+    }
+
+    /// <summary>
+    /// Block for input_payload_format.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputPayloadFormat block(s) allowed")]
+    public List<GoogleEventarcPipelineInputPayloadFormatBlock>? InputPayloadFormat
+    {
+        get => GetProperty<List<GoogleEventarcPipelineInputPayloadFormatBlock>>("input_payload_format");
+        set => this.WithProperty("input_payload_format", value);
+    }
+
+    /// <summary>
+    /// Block for logging_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
+    public List<GoogleEventarcPipelineLoggingConfigBlock>? LoggingConfig
+    {
+        get => GetProperty<List<GoogleEventarcPipelineLoggingConfigBlock>>("logging_config");
+        set => this.WithProperty("logging_config", value);
+    }
+
+    /// <summary>
+    /// Block for mediations.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleEventarcPipelineMediationsBlock>? Mediations
+    {
+        get => GetProperty<List<GoogleEventarcPipelineMediationsBlock>>("mediations");
+        set => this.WithProperty("mediations", value);
+    }
+
+    /// <summary>
+    /// Block for retry_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
+    public List<GoogleEventarcPipelineRetryPolicyBlock>? RetryPolicy
+    {
+        get => GetProperty<List<GoogleEventarcPipelineRetryPolicyBlock>>("retry_policy");
+        set => this.WithProperty("retry_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEventarcPipelineTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEventarcPipelineTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

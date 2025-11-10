@@ -3,6 +3,91 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for permissions in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The add attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Add is required")]
+    public required TerraformProperty<bool> Add
+    {
+        get => GetProperty<TerraformProperty<bool>>("add");
+        set => WithProperty("add", value);
+    }
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Create is required")]
+    public required TerraformProperty<bool> Create
+    {
+        get => GetProperty<TerraformProperty<bool>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
+    public required TerraformProperty<bool> Delete
+    {
+        get => GetProperty<TerraformProperty<bool>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The list attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "List is required")]
+    public required TerraformProperty<bool> List
+    {
+        get => GetProperty<TerraformProperty<bool>>("list");
+        set => WithProperty("list", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
+    public required TerraformProperty<bool> Read
+    {
+        get => GetProperty<TerraformProperty<bool>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The write attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
+    public required TerraformProperty<bool> Write
+    {
+        get => GetProperty<TerraformProperty<bool>>("write");
+        set => WithProperty("write", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_storage_account_blob_container_sas.
 /// </summary>
 public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSource
@@ -29,7 +114,8 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
+    public required TerraformProperty<string> ConnectionString
     {
         get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
@@ -38,7 +124,8 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
+    public required TerraformProperty<string> ContainerName
     {
         get => GetProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
@@ -83,7 +170,8 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The expiry attribute.
     /// </summary>
-    public TerraformProperty<string>? Expiry
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
+    public required TerraformProperty<string> Expiry
     {
         get => GetProperty<TerraformProperty<string>>("expiry");
         set => this.WithProperty("expiry", value);
@@ -119,10 +207,33 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The start attribute.
     /// </summary>
-    public TerraformProperty<string>? Start
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
+    public required TerraformProperty<string> Start
     {
         get => GetProperty<TerraformProperty<string>>("start");
         set => this.WithProperty("start", value);
+    }
+
+    /// <summary>
+    /// Block for permissions.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
+    public List<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>? Permissions
+    {
+        get => GetProperty<List<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>>("permissions");
+        set => this.WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

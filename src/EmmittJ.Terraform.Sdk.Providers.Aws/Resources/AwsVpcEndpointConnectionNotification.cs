@@ -21,16 +21,18 @@ public class AwsVpcEndpointConnectionNotification : TerraformResource
     /// <summary>
     /// The connection_events attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ConnectionEvents
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionEvents is required")]
+    public HashSet<TerraformProperty<string>>? ConnectionEvents
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("connection_events");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("connection_events");
         set => this.WithProperty("connection_events", value);
     }
 
     /// <summary>
     /// The connection_notification_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionNotificationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionNotificationArn is required")]
+    public required TerraformProperty<string> ConnectionNotificationArn
     {
         get => GetProperty<TerraformProperty<string>>("connection_notification_arn");
         set => this.WithProperty("connection_notification_arn", value);

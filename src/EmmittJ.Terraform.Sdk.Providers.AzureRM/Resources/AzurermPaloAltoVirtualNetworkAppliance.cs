@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPaloAltoVirtualNetworkApplianceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_palo_alto_virtual_network_appliance resource.
 /// </summary>
 public class AzurermPaloAltoVirtualNetworkAppliance : TerraformResource
@@ -28,7 +63,8 @@ public class AzurermPaloAltoVirtualNetworkAppliance : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -37,10 +73,21 @@ public class AzurermPaloAltoVirtualNetworkAppliance : TerraformResource
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualHubId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
+    public required TerraformProperty<string> VirtualHubId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPaloAltoVirtualNetworkApplianceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPaloAltoVirtualNetworkApplianceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatasetIamMemberConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The title attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_dataset_iam_member resource.
 /// </summary>
 public class GoogleBigqueryDatasetIamMember : TerraformResource
@@ -20,7 +57,8 @@ public class GoogleBigqueryDatasetIamMember : TerraformResource
     /// <summary>
     /// The dataset_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DatasetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
+    public required TerraformProperty<string> DatasetId
     {
         get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
@@ -38,7 +76,8 @@ public class GoogleBigqueryDatasetIamMember : TerraformResource
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public TerraformProperty<string>? Member
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
+    public required TerraformProperty<string> Member
     {
         get => GetProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
@@ -56,10 +95,22 @@ public class GoogleBigqueryDatasetIamMember : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleBigqueryDatasetIamMemberConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleBigqueryDatasetIamMemberConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>

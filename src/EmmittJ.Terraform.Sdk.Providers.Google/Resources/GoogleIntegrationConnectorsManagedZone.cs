@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIntegrationConnectorsManagedZoneTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_integration_connectors_managed_zone resource.
 /// </summary>
 public class GoogleIntegrationConnectorsManagedZone : TerraformResource
@@ -32,7 +67,8 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// <summary>
     /// DNS Name of the resource.
     /// </summary>
-    public TerraformProperty<string>? Dns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
+    public required TerraformProperty<string> Dns
     {
         get => GetProperty<TerraformProperty<string>>("dns");
         set => this.WithProperty("dns", value);
@@ -54,16 +90,17 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of Managed Zone needs to be created.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -81,7 +118,8 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// <summary>
     /// The name of the Target Project.
     /// </summary>
-    public TerraformProperty<string>? TargetProject
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetProject is required")]
+    public required TerraformProperty<string> TargetProject
     {
         get => GetProperty<TerraformProperty<string>>("target_project");
         set => this.WithProperty("target_project", value);
@@ -90,10 +128,21 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// <summary>
     /// The name of the Target Project VPC Network.
     /// </summary>
-    public TerraformProperty<string>? TargetVpc
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpc is required")]
+    public required TerraformProperty<string> TargetVpc
     {
         get => GetProperty<TerraformProperty<string>>("target_vpc");
         set => this.WithProperty("target_vpc", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIntegrationConnectorsManagedZoneTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIntegrationConnectorsManagedZoneTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

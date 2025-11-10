@@ -20,7 +20,8 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
+    public required TerraformProperty<string> ApplicationArn
     {
         get => GetProperty<TerraformProperty<string>>("application_arn");
         set => this.WithProperty("application_arn", value);
@@ -29,9 +30,9 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
     /// <summary>
     /// The authorized_targets attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? AuthorizedTargets
+    public List<TerraformProperty<string>>? AuthorizedTargets
     {
-        get => GetProperty<TerraformProperty<List<string>>>("authorized_targets");
+        get => GetProperty<List<TerraformProperty<string>>>("authorized_targets");
         set => this.WithProperty("authorized_targets", value);
     }
 
@@ -47,7 +48,8 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);

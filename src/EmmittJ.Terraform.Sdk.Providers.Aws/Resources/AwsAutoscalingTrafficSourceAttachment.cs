@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for traffic_source in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The identifier attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
+    public required TerraformProperty<string> Identifier
+    {
+        get => GetProperty<TerraformProperty<string>>("identifier");
+        set => WithProperty("identifier", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_autoscaling_traffic_source_attachment resource.
 /// </summary>
 public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
@@ -19,7 +73,8 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoscalingGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
+    public required TerraformProperty<string> AutoscalingGroupName
     {
         get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);
@@ -41,6 +96,27 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for traffic_source.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficSource block(s) allowed")]
+    public List<AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock>? TrafficSource
+    {
+        get => GetProperty<List<AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock>>("traffic_source");
+        set => this.WithProperty("traffic_source", value);
     }
 
 }

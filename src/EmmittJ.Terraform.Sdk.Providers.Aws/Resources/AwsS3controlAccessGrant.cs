@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for access_grants_location_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The s3_sub_prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? S3SubPrefix
+    {
+        get => GetProperty<TerraformProperty<string>>("s3_sub_prefix");
+        set => WithProperty("s3_sub_prefix", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for grantee in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The grantee_identifier attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeIdentifier is required")]
+    public required TerraformProperty<string> GranteeIdentifier
+    {
+        get => GetProperty<TerraformProperty<string>>("grantee_identifier");
+        set => WithProperty("grantee_identifier", value);
+    }
+
+    /// <summary>
+    /// The grantee_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeType is required")]
+    public required TerraformProperty<string> GranteeType
+    {
+        get => GetProperty<TerraformProperty<string>>("grantee_type");
+        set => WithProperty("grantee_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3control_access_grant resource.
 /// </summary>
 public class AwsS3controlAccessGrant : TerraformResource
@@ -24,7 +69,8 @@ public class AwsS3controlAccessGrant : TerraformResource
     /// <summary>
     /// The access_grants_location_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessGrantsLocationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessGrantsLocationId is required")]
+    public required TerraformProperty<string> AccessGrantsLocationId
     {
         get => GetProperty<TerraformProperty<string>>("access_grants_location_id");
         set => this.WithProperty("access_grants_location_id", value);
@@ -42,7 +88,8 @@ public class AwsS3controlAccessGrant : TerraformResource
     /// <summary>
     /// The permission attribute.
     /// </summary>
-    public TerraformProperty<string>? Permission
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
+    public required TerraformProperty<string> Permission
     {
         get => GetProperty<TerraformProperty<string>>("permission");
         set => this.WithProperty("permission", value);
@@ -69,10 +116,30 @@ public class AwsS3controlAccessGrant : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for access_grants_location_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock>? AccessGrantsLocationConfiguration
+    {
+        get => GetProperty<List<AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock>>("access_grants_location_configuration");
+        set => this.WithProperty("access_grants_location_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for grantee.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsS3controlAccessGrantGranteeBlock>? Grantee
+    {
+        get => GetProperty<List<AwsS3controlAccessGrantGranteeBlock>>("grantee");
+        set => this.WithProperty("grantee", value);
     }
 
     /// <summary>

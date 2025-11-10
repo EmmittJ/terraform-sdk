@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for details in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3controlMultiRegionAccessPointDetailsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsS3controlMultiRegionAccessPointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3control_multi_region_access_point resource.
 /// </summary>
 public class AwsS3controlMultiRegionAccessPoint : TerraformResource
@@ -45,6 +89,28 @@ public class AwsS3controlMultiRegionAccessPoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Details block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Details block(s) allowed")]
+    public List<AwsS3controlMultiRegionAccessPointDetailsBlock>? Details
+    {
+        get => GetProperty<List<AwsS3controlMultiRegionAccessPointDetailsBlock>>("details");
+        set => this.WithProperty("details", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsS3controlMultiRegionAccessPointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsS3controlMultiRegionAccessPointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

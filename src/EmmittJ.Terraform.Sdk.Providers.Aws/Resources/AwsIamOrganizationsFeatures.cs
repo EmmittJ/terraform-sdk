@@ -20,9 +20,10 @@ public class AwsIamOrganizationsFeatures : TerraformResource
     /// <summary>
     /// The enabled_features attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EnabledFeatures
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledFeatures is required")]
+    public HashSet<TerraformProperty<string>>? EnabledFeatures
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("enabled_features");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_features");
         set => this.WithProperty("enabled_features", value);
     }
 

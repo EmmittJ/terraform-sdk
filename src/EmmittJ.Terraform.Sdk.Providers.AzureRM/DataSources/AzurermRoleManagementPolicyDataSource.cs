@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermRoleManagementPolicyDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_role_management_policy.
 /// </summary>
 public class AzurermRoleManagementPolicyDataSource : TerraformDataSource
@@ -34,7 +51,8 @@ public class AzurermRoleManagementPolicyDataSource : TerraformDataSource
     /// <summary>
     /// ID of the Azure Role to which this policy is assigned
     /// </summary>
-    public TerraformProperty<string>? RoleDefinitionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
+    public required TerraformProperty<string> RoleDefinitionId
     {
         get => GetProperty<TerraformProperty<string>>("role_definition_id");
         set => this.WithProperty("role_definition_id", value);
@@ -43,10 +61,21 @@ public class AzurermRoleManagementPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The scope of the role to which this policy will apply
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermRoleManagementPolicyDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermRoleManagementPolicyDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

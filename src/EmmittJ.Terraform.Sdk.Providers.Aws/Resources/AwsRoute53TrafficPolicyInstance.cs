@@ -20,7 +20,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HostedZoneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
+    public required TerraformProperty<string> HostedZoneId
     {
         get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
         set => this.WithProperty("hosted_zone_id", value);
@@ -38,7 +39,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,7 +49,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     /// <summary>
     /// The traffic_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TrafficPolicyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyId is required")]
+    public required TerraformProperty<string> TrafficPolicyId
     {
         get => GetProperty<TerraformProperty<string>>("traffic_policy_id");
         set => this.WithProperty("traffic_policy_id", value);
@@ -56,7 +59,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     /// <summary>
     /// The traffic_policy_version attribute.
     /// </summary>
-    public TerraformProperty<double>? TrafficPolicyVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyVersion is required")]
+    public required TerraformProperty<double> TrafficPolicyVersion
     {
         get => GetProperty<TerraformProperty<double>>("traffic_policy_version");
         set => this.WithProperty("traffic_policy_version", value);
@@ -65,7 +69,8 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? Ttl
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
+    public required TerraformProperty<double> Ttl
     {
         get => GetProperty<TerraformProperty<double>>("ttl");
         set => this.WithProperty("ttl", value);

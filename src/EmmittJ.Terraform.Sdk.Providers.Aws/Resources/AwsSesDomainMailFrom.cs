@@ -28,7 +28,8 @@ public class AwsSesDomainMailFrom : TerraformResource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    public required TerraformProperty<string> Domain
     {
         get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
@@ -46,7 +47,8 @@ public class AwsSesDomainMailFrom : TerraformResource
     /// <summary>
     /// The mail_from_domain attribute.
     /// </summary>
-    public TerraformProperty<string>? MailFromDomain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MailFromDomain is required")]
+    public required TerraformProperty<string> MailFromDomain
     {
         get => GetProperty<TerraformProperty<string>>("mail_from_domain");
         set => this.WithProperty("mail_from_domain", value);

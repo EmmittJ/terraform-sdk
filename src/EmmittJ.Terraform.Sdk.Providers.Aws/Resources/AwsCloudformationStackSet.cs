@@ -3,6 +3,128 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for auto_deployment in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudformationStackSetAutoDeploymentBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The retain_stacks_on_account_removal attribute.
+    /// </summary>
+    public TerraformProperty<bool>? RetainStacksOnAccountRemoval
+    {
+        get => GetProperty<TerraformProperty<bool>>("retain_stacks_on_account_removal");
+        set => WithProperty("retain_stacks_on_account_removal", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for managed_execution in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudformationStackSetManagedExecutionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The active attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Active
+    {
+        get => GetProperty<TerraformProperty<bool>>("active");
+        set => WithProperty("active", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for operation_preferences in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudformationStackSetOperationPreferencesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The failure_tolerance_count attribute.
+    /// </summary>
+    public TerraformProperty<double>? FailureToleranceCount
+    {
+        get => GetProperty<TerraformProperty<double>>("failure_tolerance_count");
+        set => WithProperty("failure_tolerance_count", value);
+    }
+
+    /// <summary>
+    /// The failure_tolerance_percentage attribute.
+    /// </summary>
+    public TerraformProperty<double>? FailureTolerancePercentage
+    {
+        get => GetProperty<TerraformProperty<double>>("failure_tolerance_percentage");
+        set => WithProperty("failure_tolerance_percentage", value);
+    }
+
+    /// <summary>
+    /// The max_concurrent_count attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxConcurrentCount
+    {
+        get => GetProperty<TerraformProperty<double>>("max_concurrent_count");
+        set => WithProperty("max_concurrent_count", value);
+    }
+
+    /// <summary>
+    /// The max_concurrent_percentage attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxConcurrentPercentage
+    {
+        get => GetProperty<TerraformProperty<double>>("max_concurrent_percentage");
+        set => WithProperty("max_concurrent_percentage", value);
+    }
+
+    /// <summary>
+    /// The region_concurrency_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? RegionConcurrencyType
+    {
+        get => GetProperty<TerraformProperty<string>>("region_concurrency_type");
+        set => WithProperty("region_concurrency_type", value);
+    }
+
+    /// <summary>
+    /// The region_order attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? RegionOrder
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("region_order");
+        set => WithProperty("region_order", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsCloudformationStackSetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudformation_stack_set resource.
 /// </summary>
 public class AwsCloudformationStackSet : TerraformResource
@@ -39,9 +161,9 @@ public class AwsCloudformationStackSet : TerraformResource
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Capabilities
+    public HashSet<TerraformProperty<string>>? Capabilities
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("capabilities");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("capabilities");
         set => this.WithProperty("capabilities", value);
     }
 
@@ -75,7 +197,8 @@ public class AwsCloudformationStackSet : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -84,9 +207,9 @@ public class AwsCloudformationStackSet : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -111,18 +234,18 @@ public class AwsCloudformationStackSet : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -142,6 +265,49 @@ public class AwsCloudformationStackSet : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("template_url");
         set => this.WithProperty("template_url", value);
+    }
+
+    /// <summary>
+    /// Block for auto_deployment.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoDeployment block(s) allowed")]
+    public List<AwsCloudformationStackSetAutoDeploymentBlock>? AutoDeployment
+    {
+        get => GetProperty<List<AwsCloudformationStackSetAutoDeploymentBlock>>("auto_deployment");
+        set => this.WithProperty("auto_deployment", value);
+    }
+
+    /// <summary>
+    /// Block for managed_execution.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedExecution block(s) allowed")]
+    public List<AwsCloudformationStackSetManagedExecutionBlock>? ManagedExecution
+    {
+        get => GetProperty<List<AwsCloudformationStackSetManagedExecutionBlock>>("managed_execution");
+        set => this.WithProperty("managed_execution", value);
+    }
+
+    /// <summary>
+    /// Block for operation_preferences.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationPreferences block(s) allowed")]
+    public List<AwsCloudformationStackSetOperationPreferencesBlock>? OperationPreferences
+    {
+        get => GetProperty<List<AwsCloudformationStackSetOperationPreferencesBlock>>("operation_preferences");
+        set => this.WithProperty("operation_preferences", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsCloudformationStackSetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsCloudformationStackSetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

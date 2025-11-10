@@ -68,7 +68,8 @@ public class AwsOdbCloudAutonomousVmClusterDataSource : TerraformDataSource
     /// <summary>
     /// Unique ID of the Autonomous VM cluster.
     /// </summary>
-    public TerraformProperty<string>? Id
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);

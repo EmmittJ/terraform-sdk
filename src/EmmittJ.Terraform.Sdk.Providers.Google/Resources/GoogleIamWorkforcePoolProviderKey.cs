@@ -3,6 +3,96 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for key_data in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
+{
+    /// <summary>
+    /// The format of the key.
+    /// </summary>
+    public TerraformProperty<string>? Format
+    {
+        get => GetProperty<TerraformProperty<string>>("format");
+        set => WithProperty("format", value);
+    }
+
+    /// <summary>
+    /// The key data. The format of the key is represented by the format field.
+    /// </summary>
+    public TerraformProperty<string>? Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The specifications for the key. Possible values: [&amp;quot;RSA_2048&amp;quot;, &amp;quot;RSA_3072&amp;quot;, &amp;quot;RSA_4096&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeySpec is required")]
+    public required TerraformProperty<string> KeySpec
+    {
+        get => GetProperty<TerraformProperty<string>>("key_spec");
+        set => WithProperty("key_spec", value);
+    }
+
+    /// <summary>
+    /// Latest timestamp when this key is valid. Attempts to use this key after this time will fail.
+    /// Only present if the key data represents a X.509 certificate.
+    /// 
+    /// Uses RFC 3339, where generated output will always be Z-normalized and uses 0, 3, 6 or 9 fractional digits.
+    /// Offsets other than &amp;quot;Z&amp;quot; are also accepted.
+    /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? NotAfterTime
+    {
+        get => GetProperty<TerraformProperty<string>>("not_after_time");
+        set => WithProperty("not_after_time", value);
+    }
+
+    /// <summary>
+    /// Earliest timestamp when this key is valid. Attempts to use this key before this time will fail.
+    /// Only present if the key data represents a X.509 certificate.
+    /// 
+    /// Uses RFC 3339, where generated output will always be Z-normalized and uses 0, 3, 6 or 9 fractional digits.
+    /// Offsets other than &amp;quot;Z&amp;quot; are also accepted.
+    /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? NotBeforeTime
+    {
+        get => GetProperty<TerraformProperty<string>>("not_before_time");
+        set => WithProperty("not_before_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_workforce_pool_provider_key resource.
 /// </summary>
 public class GoogleIamWorkforcePoolProviderKey : TerraformResource
@@ -31,7 +121,8 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// <summary>
     /// The ID to use for the key, which becomes the final component of the resource name. This value must be 4-32 characters, and may contain the characters [a-z0-9-].
     /// </summary>
-    public TerraformProperty<string>? KeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
+    public required TerraformProperty<string> KeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
@@ -40,7 +131,8 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -49,7 +141,8 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// <summary>
     /// The ID of the provider.
     /// </summary>
-    public TerraformProperty<string>? ProviderId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
+    public required TerraformProperty<string> ProviderId
     {
         get => GetProperty<TerraformProperty<string>>("provider_id");
         set => this.WithProperty("provider_id", value);
@@ -58,7 +151,8 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// <summary>
     /// The purpose of the key. Possible values: [&amp;quot;ENCRYPTION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Use
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Use is required")]
+    public required TerraformProperty<string> Use
     {
         get => GetProperty<TerraformProperty<string>>("use");
         set => this.WithProperty("use", value);
@@ -67,10 +161,33 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// <summary>
     /// The ID of the workforce pool.
     /// </summary>
-    public TerraformProperty<string>? WorkforcePoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
+    public required TerraformProperty<string> WorkforcePoolId
     {
         get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
+    }
+
+    /// <summary>
+    /// Block for key_data.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeyData block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyData block(s) allowed")]
+    public List<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>? KeyData
+    {
+        get => GetProperty<List<GoogleIamWorkforcePoolProviderKeyKeyDataBlock>>("key_data");
+        set => this.WithProperty("key_data", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamWorkforcePoolProviderKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamWorkforcePoolProviderKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

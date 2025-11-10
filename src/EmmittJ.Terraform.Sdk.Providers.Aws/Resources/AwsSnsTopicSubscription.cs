@@ -41,7 +41,8 @@ public class AwsSnsTopicSubscription : TerraformResource
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformProperty<string>? Endpoint
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
+    public required TerraformProperty<string> Endpoint
     {
         get => GetProperty<TerraformProperty<string>>("endpoint");
         set => this.WithProperty("endpoint", value);
@@ -86,7 +87,8 @@ public class AwsSnsTopicSubscription : TerraformResource
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
     {
         get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
@@ -140,7 +142,8 @@ public class AwsSnsTopicSubscription : TerraformResource
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TopicArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
+    public required TerraformProperty<string> TopicArn
     {
         get => GetProperty<TerraformProperty<string>>("topic_arn");
         set => this.WithProperty("topic_arn", value);

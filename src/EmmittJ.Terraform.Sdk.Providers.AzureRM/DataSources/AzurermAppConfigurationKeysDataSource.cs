@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAppConfigurationKeysDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_app_configuration_keys.
 /// </summary>
 public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
@@ -20,7 +37,8 @@ public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
+    public required TerraformProperty<string> ConfigurationStoreId
     {
         get => GetProperty<TerraformProperty<string>>("configuration_store_id");
         set => this.WithProperty("configuration_store_id", value);
@@ -51,6 +69,16 @@ public class AzurermAppConfigurationKeysDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("label");
         set => this.WithProperty("label", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAppConfigurationKeysDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAppConfigurationKeysDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

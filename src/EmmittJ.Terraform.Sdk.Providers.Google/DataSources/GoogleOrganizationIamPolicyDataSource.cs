@@ -30,7 +30,8 @@ public class GoogleOrganizationIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The numeric ID of the organization in which you want to manage the audit logging config.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);

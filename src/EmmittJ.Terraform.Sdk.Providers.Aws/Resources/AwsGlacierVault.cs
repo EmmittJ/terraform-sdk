@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for notification in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGlacierVaultNotificationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The events attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
+    public HashSet<TerraformProperty<string>>? Events
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("events");
+        set => WithProperty("events", value);
+    }
+
+    /// <summary>
+    /// The sns_topic attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopic is required")]
+    public required TerraformProperty<string> SnsTopic
+    {
+        get => GetProperty<TerraformProperty<string>>("sns_topic");
+        set => WithProperty("sns_topic", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_glacier_vault resource.
 /// </summary>
 public class AwsGlacierVault : TerraformResource
@@ -39,7 +67,8 @@ public class AwsGlacierVault : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -57,19 +86,30 @@ public class AwsGlacierVault : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for notification.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notification block(s) allowed")]
+    public List<AwsGlacierVaultNotificationBlock>? Notification
+    {
+        get => GetProperty<List<AwsGlacierVaultNotificationBlock>>("notification");
+        set => this.WithProperty("notification", value);
     }
 
     /// <summary>

@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for destination_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_lambda_function_event_invoke_config resource.
 /// </summary>
 public class AwsLambdaFunctionEventInvokeConfig : TerraformResource
@@ -19,7 +27,8 @@ public class AwsLambdaFunctionEventInvokeConfig : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
+    public required TerraformProperty<string> FunctionName
     {
         get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
@@ -68,6 +77,17 @@ public class AwsLambdaFunctionEventInvokeConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for destination_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationConfig block(s) allowed")]
+    public List<AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock>? DestinationConfig
+    {
+        get => GetProperty<List<AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock>>("destination_config");
+        set => this.WithProperty("destination_config", value);
     }
 
 }

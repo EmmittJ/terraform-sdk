@@ -66,7 +66,8 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// in length.
     /// If not provided, a random string starting with &#39;tf-&#39; will be selected.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

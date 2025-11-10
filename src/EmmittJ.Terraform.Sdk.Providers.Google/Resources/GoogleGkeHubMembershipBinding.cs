@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleGkeHubMembershipBindingTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_gke_hub_membership_binding resource.
 /// </summary>
 public class GoogleGkeHubMembershipBinding : TerraformResource
@@ -40,16 +75,17 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location of the membership
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -58,7 +94,8 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     /// <summary>
     /// The client-provided identifier of the membership binding.
     /// </summary>
-    public TerraformProperty<string>? MembershipBindingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipBindingId is required")]
+    public required TerraformProperty<string> MembershipBindingId
     {
         get => GetProperty<TerraformProperty<string>>("membership_binding_id");
         set => this.WithProperty("membership_binding_id", value);
@@ -67,7 +104,8 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     /// <summary>
     /// Id of the membership
     /// </summary>
-    public TerraformProperty<string>? MembershipId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
+    public required TerraformProperty<string> MembershipId
     {
         get => GetProperty<TerraformProperty<string>>("membership_id");
         set => this.WithProperty("membership_id", value);
@@ -86,10 +124,21 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     /// A Workspace resource name in the format
     /// &#39;projects/*/locations/*/scopes/*&#39;.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleGkeHubMembershipBindingTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleGkeHubMembershipBindingTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

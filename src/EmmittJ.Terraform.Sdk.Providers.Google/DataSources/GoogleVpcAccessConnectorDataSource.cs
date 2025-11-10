@@ -39,7 +39,8 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     /// <summary>
     /// The name of the resource (Max 25 characters).
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

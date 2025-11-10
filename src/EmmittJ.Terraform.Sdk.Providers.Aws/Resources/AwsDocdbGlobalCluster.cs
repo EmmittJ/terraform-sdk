@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDocdbGlobalClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_docdb_global_cluster resource.
 /// </summary>
 public class AwsDocdbGlobalCluster : TerraformResource
@@ -59,7 +94,8 @@ public class AwsDocdbGlobalCluster : TerraformResource
     /// <summary>
     /// The global_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? GlobalClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalClusterIdentifier is required")]
+    public required TerraformProperty<string> GlobalClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("global_cluster_identifier");
         set => this.WithProperty("global_cluster_identifier", value);
@@ -99,6 +135,16 @@ public class AwsDocdbGlobalCluster : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("storage_encrypted");
         set => this.WithProperty("storage_encrypted", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDocdbGlobalClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDocdbGlobalClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

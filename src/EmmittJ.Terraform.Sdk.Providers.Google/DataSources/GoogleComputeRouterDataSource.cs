@@ -40,7 +40,8 @@ public class GoogleComputeRouterDataSource : TerraformDataSource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -49,7 +50,8 @@ public class GoogleComputeRouterDataSource : TerraformDataSource
     /// <summary>
     /// A reference to the network to which this router belongs.
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);

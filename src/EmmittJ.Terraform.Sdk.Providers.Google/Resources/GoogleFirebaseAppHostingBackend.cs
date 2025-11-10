@@ -3,6 +3,73 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for codebase in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFirebaseAppHostingBackendCodebaseBlock : TerraformBlock
+{
+    /// <summary>
+    /// The resource name for the Developer Connect
+    /// [&#39;gitRepositoryLink&#39;](https://cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks)
+    /// connected to this backend, in the format:
+    /// 
+    /// projects/{project}/locations/{location}/connections/{connection}/gitRepositoryLinks/{repositoryLink}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
+    public required TerraformProperty<string> Repository
+    {
+        get => GetProperty<TerraformProperty<string>>("repository");
+        set => WithProperty("repository", value);
+    }
+
+    /// <summary>
+    /// If &#39;repository&#39; is provided, the directory relative to the root of the
+    /// repository to use as the root for the deployed web app.
+    /// </summary>
+    public TerraformProperty<string>? RootDirectory
+    {
+        get => GetProperty<TerraformProperty<string>>("root_directory");
+        set => WithProperty("root_directory", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaseAppHostingBackendTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebase_app_hosting_backend resource.
 /// </summary>
 public class GoogleFirebaseAppHostingBackend : TerraformResource
@@ -35,9 +102,9 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -46,7 +113,8 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id)
     /// associated with the backend.
     /// </summary>
-    public TerraformProperty<string>? AppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
+    public required TerraformProperty<string> AppId
     {
         get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
@@ -56,7 +124,8 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// Id of the backend. Also used as the service ID for Cloud Run, and as part
     /// of the default domain name.
     /// </summary>
-    public TerraformProperty<string>? BackendId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendId is required")]
+    public required TerraformProperty<string> BackendId
     {
         get => GetProperty<TerraformProperty<string>>("backend_id");
         set => this.WithProperty("backend_id", value);
@@ -97,16 +166,17 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The canonical IDs of a Google Cloud location such as &amp;quot;us-east1&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -126,7 +196,8 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// Should have the role roles/firebaseapphosting.computeRunner
     /// or equivalent permissions.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
+    public required TerraformProperty<string> ServiceAccount
     {
         get => GetProperty<TerraformProperty<string>>("service_account");
         set => this.WithProperty("service_account", value);
@@ -137,10 +208,32 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// either be contained to a single region (REGIONAL_STRICT) or allowed to use
     /// App Hosting&#39;s global-replicated serving infrastructure (GLOBAL_ACCESS). Possible values: [&amp;quot;REGIONAL_STRICT&amp;quot;, &amp;quot;GLOBAL_ACCESS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ServingLocality
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServingLocality is required")]
+    public required TerraformProperty<string> ServingLocality
     {
         get => GetProperty<TerraformProperty<string>>("serving_locality");
         set => this.WithProperty("serving_locality", value);
+    }
+
+    /// <summary>
+    /// Block for codebase.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Codebase block(s) allowed")]
+    public List<GoogleFirebaseAppHostingBackendCodebaseBlock>? Codebase
+    {
+        get => GetProperty<List<GoogleFirebaseAppHostingBackendCodebaseBlock>>("codebase");
+        set => this.WithProperty("codebase", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaseAppHostingBackendTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaseAppHostingBackendTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

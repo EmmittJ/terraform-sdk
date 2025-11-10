@@ -26,7 +26,8 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
+    public required TerraformProperty<string> GatewayArn
     {
         get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
@@ -62,7 +63,8 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterfaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
+    public required TerraformProperty<string> NetworkInterfaceId
     {
         get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
@@ -98,25 +100,26 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
+    public required TerraformProperty<string> TargetName
     {
         get => GetProperty<TerraformProperty<string>>("target_name");
         set => this.WithProperty("target_name", value);
@@ -125,7 +128,8 @@ public class AwsStoragegatewayCachedIscsiVolume : TerraformResource
     /// <summary>
     /// The volume_size_in_bytes attribute.
     /// </summary>
-    public TerraformProperty<double>? VolumeSizeInBytes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeSizeInBytes is required")]
+    public required TerraformProperty<double> VolumeSizeInBytes
     {
         get => GetProperty<TerraformProperty<double>>("volume_size_in_bytes");
         set => this.WithProperty("volume_size_in_bytes", value);

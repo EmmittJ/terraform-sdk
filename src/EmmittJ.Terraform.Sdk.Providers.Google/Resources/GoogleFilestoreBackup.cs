@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFilestoreBackupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_filestore_backup resource.
 /// </summary>
 public class GoogleFilestoreBackup : TerraformResource
@@ -50,16 +85,17 @@ public class GoogleFilestoreBackup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -75,7 +111,8 @@ public class GoogleFilestoreBackup : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -93,7 +130,8 @@ public class GoogleFilestoreBackup : TerraformResource
     /// <summary>
     /// Name of the file share in the source Cloud Filestore instance that the backup is created from.
     /// </summary>
-    public TerraformProperty<string>? SourceFileShare
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShare is required")]
+    public required TerraformProperty<string> SourceFileShare
     {
         get => GetProperty<TerraformProperty<string>>("source_file_share");
         set => this.WithProperty("source_file_share", value);
@@ -102,7 +140,8 @@ public class GoogleFilestoreBackup : TerraformResource
     /// <summary>
     /// The resource name of the source Cloud Filestore instance, in the format projects/{projectId}/locations/{locationId}/instances/{instanceId}, used to create this backup.
     /// </summary>
-    public TerraformProperty<string>? SourceInstance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstance is required")]
+    public required TerraformProperty<string> SourceInstance
     {
         get => GetProperty<TerraformProperty<string>>("source_instance");
         set => this.WithProperty("source_instance", value);
@@ -114,10 +153,20 @@ public class GoogleFilestoreBackup : TerraformResource
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFilestoreBackupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFilestoreBackupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

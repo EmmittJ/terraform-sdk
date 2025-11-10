@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleResourceManagerLienTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_resource_manager_lien resource.
 /// </summary>
 public class GoogleResourceManagerLien : TerraformResource
@@ -32,7 +58,8 @@ public class GoogleResourceManagerLien : TerraformResource
     /// of the Lien, intended to be inspected programmatically. Maximum length of
     /// 200 characters.
     /// </summary>
-    public TerraformProperty<string>? Origin
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
+    public required TerraformProperty<string> Origin
     {
         get => GetProperty<TerraformProperty<string>>("origin");
         set => this.WithProperty("origin", value);
@@ -44,7 +71,8 @@ public class GoogleResourceManagerLien : TerraformResource
     /// Since a variety of objects can have Liens against them, you must provide the type
     /// prefix (e.g. &amp;quot;projects/my-project-name&amp;quot;).
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -54,7 +82,8 @@ public class GoogleResourceManagerLien : TerraformResource
     /// Concise user-visible strings indicating why an action cannot be performed
     /// on a resource. Maximum length of 200 characters.
     /// </summary>
-    public TerraformProperty<string>? Reason
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
+    public required TerraformProperty<string> Reason
     {
         get => GetProperty<TerraformProperty<string>>("reason");
         set => this.WithProperty("reason", value);
@@ -67,10 +96,21 @@ public class GoogleResourceManagerLien : TerraformResource
     /// list is meaningless and will be rejected.
     /// e.g. [&#39;resourcemanager.projects.delete&#39;]
     /// </summary>
-    public TerraformProperty<List<string>>? Restrictions
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Restrictions is required")]
+    public List<TerraformProperty<string>>? Restrictions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("restrictions");
+        get => GetProperty<List<TerraformProperty<string>>>("restrictions");
         set => this.WithProperty("restrictions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleResourceManagerLienTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleResourceManagerLienTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

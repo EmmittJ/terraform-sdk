@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for metric_query in .
+/// Nesting mode: set
+/// </summary>
+public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
+{
+    /// <summary>
+    /// The account_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? AccountId
+    {
+        get => GetProperty<TerraformProperty<string>>("account_id");
+        set => WithProperty("account_id", value);
+    }
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    public TerraformProperty<string>? Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The label attribute.
+    /// </summary>
+    public TerraformProperty<string>? Label
+    {
+        get => GetProperty<TerraformProperty<string>>("label");
+        set => WithProperty("label", value);
+    }
+
+    /// <summary>
+    /// The period attribute.
+    /// </summary>
+    public TerraformProperty<double>? Period
+    {
+        get => GetProperty<TerraformProperty<double>>("period");
+        set => WithProperty("period", value);
+    }
+
+    /// <summary>
+    /// The return_data attribute.
+    /// </summary>
+    public TerraformProperty<bool>? ReturnData
+    {
+        get => GetProperty<TerraformProperty<bool>>("return_data");
+        set => WithProperty("return_data", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudwatch_metric_alarm resource.
 /// </summary>
 public class AwsCloudwatchMetricAlarm : TerraformResource
@@ -29,9 +92,9 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The alarm_actions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AlarmActions
+    public HashSet<TerraformProperty<string>>? AlarmActions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("alarm_actions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("alarm_actions");
         set => this.WithProperty("alarm_actions", value);
     }
 
@@ -47,7 +110,8 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The alarm_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AlarmName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
+    public required TerraformProperty<string> AlarmName
     {
         get => GetProperty<TerraformProperty<string>>("alarm_name");
         set => this.WithProperty("alarm_name", value);
@@ -56,7 +120,8 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The comparison_operator attribute.
     /// </summary>
-    public TerraformProperty<string>? ComparisonOperator
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
+    public required TerraformProperty<string> ComparisonOperator
     {
         get => GetProperty<TerraformProperty<string>>("comparison_operator");
         set => this.WithProperty("comparison_operator", value);
@@ -74,9 +139,9 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The dimensions attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Dimensions
+    public Dictionary<string, TerraformProperty<string>>? Dimensions
     {
-        get => GetProperty<TerraformMapProperty<string>>("dimensions");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("dimensions");
         set => this.WithProperty("dimensions", value);
     }
 
@@ -92,7 +157,8 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The evaluation_periods attribute.
     /// </summary>
-    public TerraformProperty<double>? EvaluationPeriods
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationPeriods is required")]
+    public required TerraformProperty<double> EvaluationPeriods
     {
         get => GetProperty<TerraformProperty<double>>("evaluation_periods");
         set => this.WithProperty("evaluation_periods", value);
@@ -119,9 +185,9 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The insufficient_data_actions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? InsufficientDataActions
+    public HashSet<TerraformProperty<string>>? InsufficientDataActions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("insufficient_data_actions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("insufficient_data_actions");
         set => this.WithProperty("insufficient_data_actions", value);
     }
 
@@ -146,9 +212,9 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The ok_actions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? OkActions
+    public HashSet<TerraformProperty<string>>? OkActions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("ok_actions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("ok_actions");
         set => this.WithProperty("ok_actions", value);
     }
 
@@ -182,18 +248,18 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -231,6 +297,16 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("unit");
         set => this.WithProperty("unit", value);
+    }
+
+    /// <summary>
+    /// Block for metric_query.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsCloudwatchMetricAlarmMetricQueryBlock>? MetricQuery
+    {
+        get => GetProperty<HashSet<AwsCloudwatchMetricAlarmMetricQueryBlock>>("metric_query");
+        set => this.WithProperty("metric_query", value);
     }
 
     /// <summary>

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleKmsSecretCiphertextTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_kms_secret_ciphertext resource.
 /// </summary>
 public class GoogleKmsSecretCiphertext : TerraformResource
@@ -30,7 +56,8 @@ public class GoogleKmsSecretCiphertext : TerraformResource
     /// The full name of the CryptoKey that will be used to encrypt the provided plaintext.
     /// Format: &#39;&#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}/cryptoKeys/{{cryptoKey}}&#39;&#39;
     /// </summary>
-    public TerraformProperty<string>? CryptoKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
+    public required TerraformProperty<string> CryptoKey
     {
         get => GetProperty<TerraformProperty<string>>("crypto_key");
         set => this.WithProperty("crypto_key", value);
@@ -48,10 +75,21 @@ public class GoogleKmsSecretCiphertext : TerraformResource
     /// <summary>
     /// The plaintext to be encrypted.
     /// </summary>
-    public TerraformProperty<string>? Plaintext
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
+    public required TerraformProperty<string> Plaintext
     {
         get => GetProperty<TerraformProperty<string>>("plaintext");
         set => this.WithProperty("plaintext", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleKmsSecretCiphertextTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleKmsSecretCiphertextTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

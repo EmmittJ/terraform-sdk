@@ -1,0 +1,64 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Manages a google_service_account_access_token ephemeral resource (temporary credentials/tokens).
+/// Ephemeral resources are used for temporary credentials, tokens, and secrets.
+/// </summary>
+public class GoogleServiceAccountAccessTokenEphemeralResource : TerraformEphemeralResource
+{
+    public GoogleServiceAccountAccessTokenEphemeralResource(string name) : base("google_service_account_access_token", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("access_token");
+    }
+
+    /// <summary>
+    /// Delegate chain of approvals needed to perform full impersonation. Specify the fully qualified service account name.  (e.g. `[&#39;projects/-/serviceAccounts/delegate-svc-account@project-id.iam.gserviceaccount.com&#39;]`)
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Delegates
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
+        set => this.WithProperty("delegates", value);
+    }
+
+    /// <summary>
+    /// Lifetime of the impersonated token (defaults to its max: `3600s`)
+    /// </summary>
+    public TerraformProperty<string>? Lifetime
+    {
+        get => GetProperty<TerraformProperty<string>>("lifetime");
+        set => this.WithProperty("lifetime", value);
+    }
+
+    /// <summary>
+    /// The scopes the new credential should have (e.g. `[&#39;cloud-platform&#39;]`)
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
+    public HashSet<TerraformProperty<string>>? Scopes
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("scopes");
+        set => this.WithProperty("scopes", value);
+    }
+
+    /// <summary>
+    /// The service account to impersonate (e.g. `service_B@your-project-id.iam.gserviceaccount.com`)
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
+    public required TerraformProperty<string> TargetServiceAccount
+    {
+        get => GetProperty<TerraformProperty<string>>("target_service_account");
+        set => this.WithProperty("target_service_account", value);
+    }
+
+    /// <summary>
+    /// The `access_token` representing the new generated identity.
+    /// </summary>
+    public TerraformExpression AccessToken => this["access_token"];
+
+}

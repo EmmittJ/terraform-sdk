@@ -21,7 +21,8 @@ public class GoogleFolderIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
+    public required TerraformProperty<string> Folder
     {
         get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);

@@ -33,7 +33,8 @@ public class GoogleStorageControlOrganizationIntelligenceConfigDataSource : Terr
     /// <summary>
     /// Identifier of the GCP Organization. For GCP org, this field should be organization number.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

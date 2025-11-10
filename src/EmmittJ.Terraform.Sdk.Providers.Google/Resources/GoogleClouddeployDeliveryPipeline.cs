@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for serial_pipeline in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleClouddeployDeliveryPipelineSerialPipelineBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleClouddeployDeliveryPipelineTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_clouddeploy_delivery_pipeline resource.
 /// </summary>
 public class GoogleClouddeployDeliveryPipeline : TerraformResource
@@ -30,9 +73,9 @@ public class GoogleClouddeployDeliveryPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -60,16 +103,17 @@ public class GoogleClouddeployDeliveryPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -78,7 +122,8 @@ public class GoogleClouddeployDeliveryPipeline : TerraformResource
     /// <summary>
     /// Name of the `DeliveryPipeline`. Format is `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,6 +145,27 @@ public class GoogleClouddeployDeliveryPipeline : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("suspended");
         set => this.WithProperty("suspended", value);
+    }
+
+    /// <summary>
+    /// Block for serial_pipeline.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SerialPipeline block(s) allowed")]
+    public List<GoogleClouddeployDeliveryPipelineSerialPipelineBlock>? SerialPipeline
+    {
+        get => GetProperty<List<GoogleClouddeployDeliveryPipelineSerialPipelineBlock>>("serial_pipeline");
+        set => this.WithProperty("serial_pipeline", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleClouddeployDeliveryPipelineTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleClouddeployDeliveryPipelineTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

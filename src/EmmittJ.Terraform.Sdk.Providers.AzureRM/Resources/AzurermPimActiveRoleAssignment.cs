@@ -3,6 +3,84 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for schedule in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPimActiveRoleAssignmentScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The start date/time of the role assignment
+    /// </summary>
+    public TerraformProperty<string>? StartDateTime
+    {
+        get => GetProperty<TerraformProperty<string>>("start_date_time");
+        set => WithProperty("start_date_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ticket in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPimActiveRoleAssignmentTicketBlock : TerraformBlock
+{
+    /// <summary>
+    /// User-supplied ticket number to be included with the request
+    /// </summary>
+    public TerraformProperty<string>? Number
+    {
+        get => GetProperty<TerraformProperty<string>>("number");
+        set => WithProperty("number", value);
+    }
+
+    /// <summary>
+    /// User-supplied ticket system name to be included with the request
+    /// </summary>
+    public TerraformProperty<string>? System
+    {
+        get => GetProperty<TerraformProperty<string>>("system");
+        set => WithProperty("system", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPimActiveRoleAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_pim_active_role_assignment resource.
 /// </summary>
 public class AzurermPimActiveRoleAssignment : TerraformResource
@@ -38,7 +116,8 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     /// <summary>
     /// Object ID of the principal for this role assignment
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
+    public required TerraformProperty<string> PrincipalId
     {
         get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
@@ -47,7 +126,8 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     /// <summary>
     /// Role definition ID for this role assignment
     /// </summary>
-    public TerraformProperty<string>? RoleDefinitionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
+    public required TerraformProperty<string> RoleDefinitionId
     {
         get => GetProperty<TerraformProperty<string>>("role_definition_id");
         set => this.WithProperty("role_definition_id", value);
@@ -56,10 +136,43 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     /// <summary>
     /// Scope for this role assignment, should be a valid resource ID
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
+    }
+
+    /// <summary>
+    /// Block for schedule.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
+    public List<AzurermPimActiveRoleAssignmentScheduleBlock>? Schedule
+    {
+        get => GetProperty<List<AzurermPimActiveRoleAssignmentScheduleBlock>>("schedule");
+        set => this.WithProperty("schedule", value);
+    }
+
+    /// <summary>
+    /// Block for ticket.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ticket block(s) allowed")]
+    public List<AzurermPimActiveRoleAssignmentTicketBlock>? Ticket
+    {
+        get => GetProperty<List<AzurermPimActiveRoleAssignmentTicketBlock>>("ticket");
+        set => this.WithProperty("ticket", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPimActiveRoleAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPimActiveRoleAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,40 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for health_events_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsInternetmonitorMonitorHealthEventsConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The availability_score_threshold attribute.
+    /// </summary>
+    public TerraformProperty<double>? AvailabilityScoreThreshold
+    {
+        get => GetProperty<TerraformProperty<double>>("availability_score_threshold");
+        set => WithProperty("availability_score_threshold", value);
+    }
+
+    /// <summary>
+    /// The performance_score_threshold attribute.
+    /// </summary>
+    public TerraformProperty<double>? PerformanceScoreThreshold
+    {
+        get => GetProperty<TerraformProperty<double>>("performance_score_threshold");
+        set => WithProperty("performance_score_threshold", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for internet_measurements_log_delivery in .
+/// Nesting mode: list
+/// </summary>
+public class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_internetmonitor_monitor resource.
 /// </summary>
 public class AwsInternetmonitorMonitor : TerraformResource
@@ -38,7 +72,8 @@ public class AwsInternetmonitorMonitor : TerraformResource
     /// <summary>
     /// The monitor_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MonitorName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
+    public required TerraformProperty<string> MonitorName
     {
         get => GetProperty<TerraformProperty<string>>("monitor_name");
         set => this.WithProperty("monitor_name", value);
@@ -56,9 +91,9 @@ public class AwsInternetmonitorMonitor : TerraformResource
     /// <summary>
     /// The resources attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Resources
+    public HashSet<TerraformProperty<string>>? Resources
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resources");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
         set => this.WithProperty("resources", value);
     }
 
@@ -74,18 +109,18 @@ public class AwsInternetmonitorMonitor : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -96,6 +131,28 @@ public class AwsInternetmonitorMonitor : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("traffic_percentage_to_monitor");
         set => this.WithProperty("traffic_percentage_to_monitor", value);
+    }
+
+    /// <summary>
+    /// Block for health_events_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthEventsConfig block(s) allowed")]
+    public List<AwsInternetmonitorMonitorHealthEventsConfigBlock>? HealthEventsConfig
+    {
+        get => GetProperty<List<AwsInternetmonitorMonitorHealthEventsConfigBlock>>("health_events_config");
+        set => this.WithProperty("health_events_config", value);
+    }
+
+    /// <summary>
+    /// Block for internet_measurements_log_delivery.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InternetMeasurementsLogDelivery block(s) allowed")]
+    public List<AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock>? InternetMeasurementsLogDelivery
+    {
+        get => GetProperty<List<AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock>>("internet_measurements_log_delivery");
+        set => this.WithProperty("internet_measurements_log_delivery", value);
     }
 
     /// <summary>

@@ -21,7 +21,8 @@ public class GoogleDataplexEntryGroupIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The entry_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EntryGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
+    public required TerraformProperty<string> EntryGroupId
     {
         get => GetProperty<TerraformProperty<string>>("entry_group_id");
         set => this.WithProperty("entry_group_id", value);

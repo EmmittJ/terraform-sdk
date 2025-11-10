@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleChronicleRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_chronicle_rule resource.
 /// </summary>
 public class GoogleChronicleRule : TerraformResource
@@ -71,7 +106,8 @@ public class GoogleChronicleRule : TerraformResource
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -80,7 +116,8 @@ public class GoogleChronicleRule : TerraformResource
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -127,6 +164,16 @@ public class GoogleChronicleRule : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("text");
         set => this.WithProperty("text", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleChronicleRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleChronicleRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

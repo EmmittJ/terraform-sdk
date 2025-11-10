@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsClusterConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for service_connect_defaults in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsClusterServiceConnectDefaultsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The namespace attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
+    public required TerraformProperty<string> Namespace
+    {
+        get => GetProperty<TerraformProperty<string>>("namespace");
+        set => WithProperty("namespace", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for setting in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEcsClusterSettingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ecs_cluster resource.
 /// </summary>
 public class AwsEcsCluster : TerraformResource
@@ -29,7 +83,8 @@ public class AwsEcsCluster : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,19 +102,51 @@ public class AwsEcsCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
+    public List<AwsEcsClusterConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsEcsClusterConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
+    }
+
+    /// <summary>
+    /// Block for service_connect_defaults.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceConnectDefaults block(s) allowed")]
+    public List<AwsEcsClusterServiceConnectDefaultsBlock>? ServiceConnectDefaults
+    {
+        get => GetProperty<List<AwsEcsClusterServiceConnectDefaultsBlock>>("service_connect_defaults");
+        set => this.WithProperty("service_connect_defaults", value);
+    }
+
+    /// <summary>
+    /// Block for setting.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsEcsClusterSettingBlock>? Setting
+    {
+        get => GetProperty<HashSet<AwsEcsClusterSettingBlock>>("setting");
+        set => this.WithProperty("setting", value);
     }
 
     /// <summary>

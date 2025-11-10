@@ -19,7 +19,8 @@ public class AwsConnectLambdaFunctionAssociationDataSource : TerraformDataSource
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
+    public required TerraformProperty<string> FunctionArn
     {
         get => GetProperty<TerraformProperty<string>>("function_arn");
         set => this.WithProperty("function_arn", value);
@@ -37,7 +38,8 @@ public class AwsConnectLambdaFunctionAssociationDataSource : TerraformDataSource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);

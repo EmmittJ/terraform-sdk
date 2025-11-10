@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSesDomainIdentityVerificationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ses_domain_identity_verification resource.
 /// </summary>
 public class AwsSesDomainIdentityVerification : TerraformResource
@@ -20,7 +37,8 @@ public class AwsSesDomainIdentityVerification : TerraformResource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    public required TerraformProperty<string> Domain
     {
         get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
@@ -42,6 +60,16 @@ public class AwsSesDomainIdentityVerification : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSesDomainIdentityVerificationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSesDomainIdentityVerificationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

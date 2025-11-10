@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsGrafanaLicenseAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_grafana_license_association resource.
 /// </summary>
 public class AwsGrafanaLicenseAssociation : TerraformResource
@@ -39,7 +65,8 @@ public class AwsGrafanaLicenseAssociation : TerraformResource
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
+    public required TerraformProperty<string> LicenseType
     {
         get => GetProperty<TerraformProperty<string>>("license_type");
         set => this.WithProperty("license_type", value);
@@ -57,10 +84,21 @@ public class AwsGrafanaLicenseAssociation : TerraformResource
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    public required TerraformProperty<string> WorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsGrafanaLicenseAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsGrafanaLicenseAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_cosmosdb_cassandra_datacenter resource.
 /// </summary>
 public class AzurermCosmosdbCassandraDatacenter : TerraformResource
@@ -47,7 +91,8 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     /// <summary>
     /// The cassandra_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CassandraClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraClusterId is required")]
+    public required TerraformProperty<string> CassandraClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cassandra_cluster_id");
         set => this.WithProperty("cassandra_cluster_id", value);
@@ -56,7 +101,8 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     /// <summary>
     /// The delegated_management_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DelegatedManagementSubnetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
+    public required TerraformProperty<string> DelegatedManagementSubnetId
     {
         get => GetProperty<TerraformProperty<string>>("delegated_management_subnet_id");
         set => this.WithProperty("delegated_management_subnet_id", value);
@@ -92,7 +138,8 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -110,7 +157,8 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -132,6 +180,16 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermCosmosdbCassandraDatacenterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermCosmosdbCassandraDatacenterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

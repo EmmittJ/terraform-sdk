@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_nginx_certificate resource.
 /// </summary>
 public class AzurermNginxCertificate : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermNginxCertificate : TerraformResource
     /// <summary>
     /// The certificate_virtual_path attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateVirtualPath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateVirtualPath is required")]
+    public required TerraformProperty<string> CertificateVirtualPath
     {
         get => GetProperty<TerraformProperty<string>>("certificate_virtual_path");
         set => this.WithProperty("certificate_virtual_path", value);
@@ -37,7 +82,8 @@ public class AzurermNginxCertificate : TerraformResource
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultSecretId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
+    public required TerraformProperty<string> KeyVaultSecretId
     {
         get => GetProperty<TerraformProperty<string>>("key_vault_secret_id");
         set => this.WithProperty("key_vault_secret_id", value);
@@ -46,7 +92,8 @@ public class AzurermNginxCertificate : TerraformResource
     /// <summary>
     /// The key_virtual_path attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVirtualPath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVirtualPath is required")]
+    public required TerraformProperty<string> KeyVirtualPath
     {
         get => GetProperty<TerraformProperty<string>>("key_virtual_path");
         set => this.WithProperty("key_virtual_path", value);
@@ -55,7 +102,8 @@ public class AzurermNginxCertificate : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,10 +112,21 @@ public class AzurermNginxCertificate : TerraformResource
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NginxDeploymentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
+    public required TerraformProperty<string> NginxDeploymentId
     {
         get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNginxCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNginxCertificateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

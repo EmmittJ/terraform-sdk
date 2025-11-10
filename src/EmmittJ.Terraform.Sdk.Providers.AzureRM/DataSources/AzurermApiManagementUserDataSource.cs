@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApiManagementUserDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_api_management_user.
 /// </summary>
 public class AzurermApiManagementUserDataSource : TerraformDataSource
@@ -24,7 +41,8 @@ public class AzurermApiManagementUserDataSource : TerraformDataSource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiManagementName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
+    public required TerraformProperty<string> ApiManagementName
     {
         get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
@@ -42,7 +60,8 @@ public class AzurermApiManagementUserDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -51,10 +70,21 @@ public class AzurermApiManagementUserDataSource : TerraformDataSource
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
+    public required TerraformProperty<string> UserId
     {
         get => GetProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApiManagementUserDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApiManagementUserDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

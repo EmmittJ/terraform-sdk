@@ -3,6 +3,103 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for bucket_options in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLoggingMetricBucketOptionsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for metric_descriptor in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
+{
+    /// <summary>
+    /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case
+    /// without an ending period, for example &amp;quot;Request count&amp;quot;. This field is optional but it is
+    /// recommended to be set for any metrics associated with user-visible concepts, such as Quota.
+    /// </summary>
+    public TerraformProperty<string>? DisplayName
+    {
+        get => GetProperty<TerraformProperty<string>>("display_name");
+        set => WithProperty("display_name", value);
+    }
+
+    /// <summary>
+    /// Whether the metric records instantaneous values, changes to a value, etc.
+    /// Some combinations of metricKind and valueType might not be supported.
+    /// For counter metrics, set this to DELTA. Possible values: [&amp;quot;DELTA&amp;quot;, &amp;quot;GAUGE&amp;quot;, &amp;quot;CUMULATIVE&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
+    public required TerraformProperty<string> MetricKind
+    {
+        get => GetProperty<TerraformProperty<string>>("metric_kind");
+        set => WithProperty("metric_kind", value);
+    }
+
+    /// <summary>
+    /// The unit in which the metric value is reported. It is only applicable if the valueType is
+    /// &#39;INT64&#39;, &#39;DOUBLE&#39;, or &#39;DISTRIBUTION&#39;. The supported units are a subset of
+    /// [The Unified Code for Units of Measure](http://unitsofmeasure.org/ucum.html) standard
+    /// </summary>
+    public TerraformProperty<string>? Unit
+    {
+        get => GetProperty<TerraformProperty<string>>("unit");
+        set => WithProperty("unit", value);
+    }
+
+    /// <summary>
+    /// Whether the measurement is an integer, a floating-point number, etc.
+    /// Some combinations of metricKind and valueType might not be supported.
+    /// For counter metrics, set this to INT64. Possible values: [&amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;, &amp;quot;DOUBLE&amp;quot;, &amp;quot;STRING&amp;quot;, &amp;quot;DISTRIBUTION&amp;quot;, &amp;quot;MONEY&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
+    public required TerraformProperty<string> ValueType
+    {
+        get => GetProperty<TerraformProperty<string>>("value_type");
+        set => WithProperty("value_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleLoggingMetricTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_logging_metric resource.
 /// </summary>
 public class GoogleLoggingMetric : TerraformResource
@@ -49,7 +146,8 @@ public class GoogleLoggingMetric : TerraformResource
     /// An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-filters) which
     /// is used to match log entries.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
+    public required TerraformProperty<string> Filter
     {
         get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
@@ -70,9 +168,9 @@ public class GoogleLoggingMetric : TerraformResource
     /// have an associated extractor expression in this map. The syntax of the extractor expression is
     /// the same as for the valueExtractor field.
     /// </summary>
-    public TerraformMapProperty<string>? LabelExtractors
+    public Dictionary<string, TerraformProperty<string>>? LabelExtractors
     {
-        get => GetProperty<TerraformMapProperty<string>>("label_extractors");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("label_extractors");
         set => this.WithProperty("label_extractors", value);
     }
 
@@ -83,7 +181,8 @@ public class GoogleLoggingMetric : TerraformResource
     /// character (/) denotes a hierarchy of name pieces, and it cannot be the first character
     /// of the name.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -111,6 +210,38 @@ public class GoogleLoggingMetric : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("value_extractor");
         set => this.WithProperty("value_extractor", value);
+    }
+
+    /// <summary>
+    /// Block for bucket_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BucketOptions block(s) allowed")]
+    public List<GoogleLoggingMetricBucketOptionsBlock>? BucketOptions
+    {
+        get => GetProperty<List<GoogleLoggingMetricBucketOptionsBlock>>("bucket_options");
+        set => this.WithProperty("bucket_options", value);
+    }
+
+    /// <summary>
+    /// Block for metric_descriptor.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricDescriptor block(s) allowed")]
+    public List<GoogleLoggingMetricMetricDescriptorBlock>? MetricDescriptor
+    {
+        get => GetProperty<List<GoogleLoggingMetricMetricDescriptorBlock>>("metric_descriptor");
+        set => this.WithProperty("metric_descriptor", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleLoggingMetricTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleLoggingMetricTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -20,9 +20,9 @@ public class AwsVpcIpamPreviewNextCidr : TerraformResource
     /// <summary>
     /// The disallowed_cidrs attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DisallowedCidrs
+    public HashSet<TerraformProperty<string>>? DisallowedCidrs
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("disallowed_cidrs");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("disallowed_cidrs");
         set => this.WithProperty("disallowed_cidrs", value);
     }
 
@@ -38,7 +38,8 @@ public class AwsVpcIpamPreviewNextCidr : TerraformResource
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IpamPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
+    public required TerraformProperty<string> IpamPoolId
     {
         get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
         set => this.WithProperty("ipam_pool_id", value);

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for scalable_target_action in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppautoscalingScheduledActionScalableTargetActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The max_capacity attribute.
+    /// </summary>
+    public TerraformProperty<string>? MaxCapacity
+    {
+        get => GetProperty<TerraformProperty<string>>("max_capacity");
+        set => WithProperty("max_capacity", value);
+    }
+
+    /// <summary>
+    /// The min_capacity attribute.
+    /// </summary>
+    public TerraformProperty<string>? MinCapacity
+    {
+        get => GetProperty<TerraformProperty<string>>("min_capacity");
+        set => WithProperty("min_capacity", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appautoscaling_scheduled_action resource.
 /// </summary>
 public class AwsAppautoscalingScheduledAction : TerraformResource
@@ -38,7 +64,8 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,7 +83,8 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
@@ -65,7 +93,8 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     /// <summary>
     /// The scalable_dimension attribute.
     /// </summary>
-    public TerraformProperty<string>? ScalableDimension
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
+    public required TerraformProperty<string> ScalableDimension
     {
         get => GetProperty<TerraformProperty<string>>("scalable_dimension");
         set => this.WithProperty("scalable_dimension", value);
@@ -74,7 +103,8 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public TerraformProperty<string>? Schedule
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
+    public required TerraformProperty<string> Schedule
     {
         get => GetProperty<TerraformProperty<string>>("schedule");
         set => this.WithProperty("schedule", value);
@@ -83,7 +113,8 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     /// <summary>
     /// The service_namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceNamespace
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
+    public required TerraformProperty<string> ServiceNamespace
     {
         get => GetProperty<TerraformProperty<string>>("service_namespace");
         set => this.WithProperty("service_namespace", value);
@@ -105,6 +136,18 @@ public class AwsAppautoscalingScheduledAction : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("timezone");
         set => this.WithProperty("timezone", value);
+    }
+
+    /// <summary>
+    /// Block for scalable_target_action.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalableTargetAction block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalableTargetAction block(s) allowed")]
+    public List<AwsAppautoscalingScheduledActionScalableTargetActionBlock>? ScalableTargetAction
+    {
+        get => GetProperty<List<AwsAppautoscalingScheduledActionScalableTargetActionBlock>>("scalable_target_action");
+        set => this.WithProperty("scalable_target_action", value);
     }
 
     /// <summary>

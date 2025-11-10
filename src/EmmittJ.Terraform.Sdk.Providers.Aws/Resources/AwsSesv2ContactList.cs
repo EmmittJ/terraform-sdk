@@ -3,6 +3,53 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for topic in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSesv2ContactListTopicBlock : TerraformBlock
+{
+    /// <summary>
+    /// The default_subscription_status attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultSubscriptionStatus is required")]
+    public required TerraformProperty<string> DefaultSubscriptionStatus
+    {
+        get => GetProperty<TerraformProperty<string>>("default_subscription_status");
+        set => WithProperty("default_subscription_status", value);
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
+    {
+        get => GetProperty<TerraformProperty<string>>("display_name");
+        set => WithProperty("display_name", value);
+    }
+
+    /// <summary>
+    /// The topic_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
+    public required TerraformProperty<string> TopicName
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_name");
+        set => WithProperty("topic_name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sesv2_contact_list resource.
 /// </summary>
 public class AwsSesv2ContactList : TerraformResource
@@ -22,7 +69,8 @@ public class AwsSesv2ContactList : TerraformResource
     /// <summary>
     /// The contact_list_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ContactListName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactListName is required")]
+    public required TerraformProperty<string> ContactListName
     {
         get => GetProperty<TerraformProperty<string>>("contact_list_name");
         set => this.WithProperty("contact_list_name", value);
@@ -58,19 +106,29 @@ public class AwsSesv2ContactList : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for topic.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSesv2ContactListTopicBlock>? Topic
+    {
+        get => GetProperty<HashSet<AwsSesv2ContactListTopicBlock>>("topic");
+        set => this.WithProperty("topic", value);
     }
 
     /// <summary>

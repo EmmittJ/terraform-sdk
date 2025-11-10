@@ -33,7 +33,8 @@ public class AwsOpensearchserverlessSecurityPolicyDataSource : TerraformDataSour
     /// <summary>
     /// Name of the policy.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -51,7 +52,8 @@ public class AwsOpensearchserverlessSecurityPolicyDataSource : TerraformDataSour
     /// <summary>
     /// Type of security policy. One of `encryption` or `network`.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);

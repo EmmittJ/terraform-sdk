@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bytes_scanned_cutoff_per_query attribute.
+    /// </summary>
+    public TerraformProperty<double>? BytesScannedCutoffPerQuery
+    {
+        get => GetProperty<TerraformProperty<double>>("bytes_scanned_cutoff_per_query");
+        set => WithProperty("bytes_scanned_cutoff_per_query", value);
+    }
+
+    /// <summary>
+    /// The enforce_workgroup_configuration attribute.
+    /// </summary>
+    public TerraformProperty<bool>? EnforceWorkgroupConfiguration
+    {
+        get => GetProperty<TerraformProperty<bool>>("enforce_workgroup_configuration");
+        set => WithProperty("enforce_workgroup_configuration", value);
+    }
+
+    /// <summary>
+    /// The execution_role attribute.
+    /// </summary>
+    public TerraformProperty<string>? ExecutionRole
+    {
+        get => GetProperty<TerraformProperty<string>>("execution_role");
+        set => WithProperty("execution_role", value);
+    }
+
+    /// <summary>
+    /// The publish_cloudwatch_metrics_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? PublishCloudwatchMetricsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("publish_cloudwatch_metrics_enabled");
+        set => WithProperty("publish_cloudwatch_metrics_enabled", value);
+    }
+
+    /// <summary>
+    /// The requester_pays_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? RequesterPaysEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("requester_pays_enabled");
+        set => WithProperty("requester_pays_enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_athena_workgroup resource.
 /// </summary>
 public class AwsAthenaWorkgroup : TerraformResource
@@ -47,7 +100,8 @@ public class AwsAthenaWorkgroup : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -74,19 +128,30 @@ public class AwsAthenaWorkgroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
+    public List<AwsAthenaWorkgroupConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsAthenaWorkgroupConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
     }
 
     /// <summary>

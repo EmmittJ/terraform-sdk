@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsOdbNetworkTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_odb_network resource.
 /// </summary>
 public class AwsOdbNetwork : TerraformResource
@@ -43,7 +78,8 @@ public class AwsOdbNetwork : TerraformResource
     /// <summary>
     /// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZoneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
+    public required TerraformProperty<string> AvailabilityZoneId
     {
         get => GetProperty<TerraformProperty<string>>("availability_zone_id");
         set => this.WithProperty("availability_zone_id", value);
@@ -61,7 +97,8 @@ public class AwsOdbNetwork : TerraformResource
     /// 	   - 224.0.0.0 - 239.255.255.255
     /// 	   - 240.0.0.0 - 255.255.255.255
     /// </summary>
-    public TerraformProperty<string>? BackupSubnetCidr
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupSubnetCidr is required")]
+    public required TerraformProperty<string> BackupSubnetCidr
     {
         get => GetProperty<TerraformProperty<string>>("backup_subnet_cidr");
         set => this.WithProperty("backup_subnet_cidr", value);
@@ -79,7 +116,8 @@ public class AwsOdbNetwork : TerraformResource
     ///    	- 224.0.0.0 - 239.255.255.255
     ///    	- 240.0.0.0 - 255.255.255.255
     /// </summary>
-    public TerraformProperty<string>? ClientSubnetCidr
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnetCidr is required")]
+    public required TerraformProperty<string> ClientSubnetCidr
     {
         get => GetProperty<TerraformProperty<string>>("client_subnet_cidr");
         set => this.WithProperty("client_subnet_cidr", value);
@@ -115,7 +153,8 @@ public class AwsOdbNetwork : TerraformResource
     /// <summary>
     /// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -133,7 +172,8 @@ public class AwsOdbNetwork : TerraformResource
     /// <summary>
     /// Specifies the configuration for Amazon S3 access from the ODB network.
     /// </summary>
-    public TerraformProperty<string>? S3Access
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Access is required")]
+    public required TerraformProperty<string> S3Access
     {
         get => GetProperty<TerraformProperty<string>>("s3_access");
         set => this.WithProperty("s3_access", value);
@@ -151,19 +191,30 @@ public class AwsOdbNetwork : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// Specifies the configuration for Zero-ETL access from the ODB network.
     /// </summary>
-    public TerraformProperty<string>? ZeroEtlAccess
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZeroEtlAccess is required")]
+    public required TerraformProperty<string> ZeroEtlAccess
     {
         get => GetProperty<TerraformProperty<string>>("zero_etl_access");
         set => this.WithProperty("zero_etl_access", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsOdbNetworkTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsOdbNetworkTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

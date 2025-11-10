@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAppServicePublicCertificateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_app_service_public_certificate resource.
 /// </summary>
 public class AzurermAppServicePublicCertificate : TerraformResource
@@ -20,7 +55,8 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     /// <summary>
     /// The app_service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AppServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
+    public required TerraformProperty<string> AppServiceName
     {
         get => GetProperty<TerraformProperty<string>>("app_service_name");
         set => this.WithProperty("app_service_name", value);
@@ -29,7 +65,8 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     /// <summary>
     /// The blob attribute.
     /// </summary>
-    public TerraformProperty<string>? Blob
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Blob is required")]
+    public required TerraformProperty<string> Blob
     {
         get => GetProperty<TerraformProperty<string>>("blob");
         set => this.WithProperty("blob", value);
@@ -38,7 +75,8 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     /// <summary>
     /// The certificate_location attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateLocation
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateLocation is required")]
+    public required TerraformProperty<string> CertificateLocation
     {
         get => GetProperty<TerraformProperty<string>>("certificate_location");
         set => this.WithProperty("certificate_location", value);
@@ -47,7 +85,8 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
+    public required TerraformProperty<string> CertificateName
     {
         get => GetProperty<TerraformProperty<string>>("certificate_name");
         set => this.WithProperty("certificate_name", value);
@@ -65,10 +104,21 @@ public class AzurermAppServicePublicCertificate : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAppServicePublicCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAppServicePublicCertificateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

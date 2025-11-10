@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcIpamPoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_ipam_pool resource.
 /// </summary>
 public class AwsVpcIpamPool : TerraformResource
@@ -23,7 +58,8 @@ public class AwsVpcIpamPool : TerraformResource
     /// <summary>
     /// The address_family attribute.
     /// </summary>
-    public TerraformProperty<string>? AddressFamily
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
+    public required TerraformProperty<string> AddressFamily
     {
         get => GetProperty<TerraformProperty<string>>("address_family");
         set => this.WithProperty("address_family", value);
@@ -59,9 +95,9 @@ public class AwsVpcIpamPool : TerraformResource
     /// <summary>
     /// The allocation_resource_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AllocationResourceTags
+    public Dictionary<string, TerraformProperty<string>>? AllocationResourceTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("allocation_resource_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("allocation_resource_tags");
         set => this.WithProperty("allocation_resource_tags", value);
     }
 
@@ -113,7 +149,8 @@ public class AwsVpcIpamPool : TerraformResource
     /// <summary>
     /// The ipam_scope_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IpamScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamScopeId is required")]
+    public required TerraformProperty<string> IpamScopeId
     {
         get => GetProperty<TerraformProperty<string>>("ipam_scope_id");
         set => this.WithProperty("ipam_scope_id", value);
@@ -167,19 +204,29 @@ public class AwsVpcIpamPool : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcIpamPoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcIpamPoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

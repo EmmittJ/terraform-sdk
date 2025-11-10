@@ -57,7 +57,8 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
     /// <summary>
     /// The license_counting_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseCountingType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCountingType is required")]
+    public required TerraformProperty<string> LicenseCountingType
     {
         get => GetProperty<TerraformProperty<string>>("license_counting_type");
         set => this.WithProperty("license_counting_type", value);
@@ -66,16 +67,17 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
     /// <summary>
     /// The license_rules attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? LicenseRules
+    public List<TerraformProperty<string>>? LicenseRules
     {
-        get => GetProperty<TerraformProperty<List<string>>>("license_rules");
+        get => GetProperty<List<TerraformProperty<string>>>("license_rules");
         set => this.WithProperty("license_rules", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -93,18 +95,18 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

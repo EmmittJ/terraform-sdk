@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for attribute in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLbSslNegotiationPolicyAttributeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lb_ssl_negotiation_policy resource.
 /// </summary>
 public class AwsLbSslNegotiationPolicy : TerraformResource
@@ -28,7 +56,8 @@ public class AwsLbSslNegotiationPolicy : TerraformResource
     /// <summary>
     /// The lb_port attribute.
     /// </summary>
-    public TerraformProperty<double>? LbPort
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
+    public required TerraformProperty<double> LbPort
     {
         get => GetProperty<TerraformProperty<double>>("lb_port");
         set => this.WithProperty("lb_port", value);
@@ -37,7 +66,8 @@ public class AwsLbSslNegotiationPolicy : TerraformResource
     /// <summary>
     /// The load_balancer attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
+    public required TerraformProperty<string> LoadBalancer
     {
         get => GetProperty<TerraformProperty<string>>("load_balancer");
         set => this.WithProperty("load_balancer", value);
@@ -46,7 +76,8 @@ public class AwsLbSslNegotiationPolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,10 +95,20 @@ public class AwsLbSslNegotiationPolicy : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Triggers
+    public Dictionary<string, TerraformProperty<string>>? Triggers
     {
-        get => GetProperty<TerraformMapProperty<string>>("triggers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
         set => this.WithProperty("triggers", value);
+    }
+
+    /// <summary>
+    /// Block for attribute.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsLbSslNegotiationPolicyAttributeBlock>? Attribute
+    {
+        get => GetProperty<HashSet<AwsLbSslNegotiationPolicyAttributeBlock>>("attribute");
+        set => this.WithProperty("attribute", value);
     }
 
 }

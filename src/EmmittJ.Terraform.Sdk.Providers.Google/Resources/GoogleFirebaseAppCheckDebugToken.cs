@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaseAppCheckDebugTokenTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebase_app_check_debug_token resource.
 /// </summary>
 public class GoogleFirebaseAppCheckDebugToken : TerraformResource
@@ -23,7 +58,8 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     /// [Apple App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.iosApps#IosApp.FIELDS.app_id),
     /// or [Android App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.androidApps#AndroidApp.FIELDS.app_id)
     /// </summary>
-    public TerraformProperty<string>? AppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
+    public required TerraformProperty<string> AppId
     {
         get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
@@ -32,7 +68,8 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     /// <summary>
     /// A human readable display name used to identify this debug token.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -66,10 +103,21 @@ public class GoogleFirebaseAppCheckDebugToken : TerraformResource
     /// 
     /// For security reasons, this field will never be populated in any response.
     /// </summary>
-    public TerraformProperty<string>? Token
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
+    public required TerraformProperty<string> Token
     {
         get => GetProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaseAppCheckDebugTokenTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaseAppCheckDebugTokenTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

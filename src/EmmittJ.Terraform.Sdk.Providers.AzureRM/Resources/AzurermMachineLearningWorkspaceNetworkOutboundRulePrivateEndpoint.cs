@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_machine_learning_workspace_network_outbound_rule_private_endpoint resource.
 /// </summary>
 public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint : TerraformResource
@@ -28,7 +63,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -37,7 +73,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// <summary>
     /// The service_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceResourceId is required")]
+    public required TerraformProperty<string> ServiceResourceId
     {
         get => GetProperty<TerraformProperty<string>>("service_resource_id");
         set => this.WithProperty("service_resource_id", value);
@@ -55,7 +92,8 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// <summary>
     /// The sub_resource_target attribute.
     /// </summary>
-    public TerraformProperty<string>? SubResourceTarget
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubResourceTarget is required")]
+    public required TerraformProperty<string> SubResourceTarget
     {
         get => GetProperty<TerraformProperty<string>>("sub_resource_target");
         set => this.WithProperty("sub_resource_target", value);
@@ -64,10 +102,21 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    public required TerraformProperty<string> WorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

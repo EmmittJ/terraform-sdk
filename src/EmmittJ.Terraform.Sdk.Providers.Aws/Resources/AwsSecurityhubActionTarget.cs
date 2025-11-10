@@ -20,7 +20,8 @@ public class AwsSecurityhubActionTarget : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
+    public required TerraformProperty<string> Description
     {
         get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
@@ -38,7 +39,8 @@ public class AwsSecurityhubActionTarget : TerraformResource
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Identifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
+    public required TerraformProperty<string> Identifier
     {
         get => GetProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
@@ -47,7 +49,8 @@ public class AwsSecurityhubActionTarget : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

@@ -25,9 +25,9 @@ public class AwsDirectoryServiceTrust : TerraformResource
     /// <summary>
     /// The conditional_forwarder_ip_addrs attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ConditionalForwarderIpAddrs
+    public HashSet<TerraformProperty<string>>? ConditionalForwarderIpAddrs
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("conditional_forwarder_ip_addrs");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("conditional_forwarder_ip_addrs");
         set => this.WithProperty("conditional_forwarder_ip_addrs", value);
     }
 
@@ -43,7 +43,8 @@ public class AwsDirectoryServiceTrust : TerraformResource
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DirectoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
+    public required TerraformProperty<string> DirectoryId
     {
         get => GetProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
@@ -61,7 +62,8 @@ public class AwsDirectoryServiceTrust : TerraformResource
     /// <summary>
     /// The remote_domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RemoteDomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteDomainName is required")]
+    public required TerraformProperty<string> RemoteDomainName
     {
         get => GetProperty<TerraformProperty<string>>("remote_domain_name");
         set => this.WithProperty("remote_domain_name", value);
@@ -79,7 +81,8 @@ public class AwsDirectoryServiceTrust : TerraformResource
     /// <summary>
     /// The trust_direction attribute.
     /// </summary>
-    public TerraformProperty<string>? TrustDirection
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustDirection is required")]
+    public required TerraformProperty<string> TrustDirection
     {
         get => GetProperty<TerraformProperty<string>>("trust_direction");
         set => this.WithProperty("trust_direction", value);
@@ -88,7 +91,8 @@ public class AwsDirectoryServiceTrust : TerraformResource
     /// <summary>
     /// The trust_password attribute.
     /// </summary>
-    public TerraformProperty<string>? TrustPassword
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustPassword is required")]
+    public required TerraformProperty<string> TrustPassword
     {
         get => GetProperty<TerraformProperty<string>>("trust_password");
         set => this.WithProperty("trust_password", value);

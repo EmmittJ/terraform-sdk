@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNeptuneClusterSnapshotTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_neptune_cluster_snapshot resource.
 /// </summary>
 public class AwsNeptuneClusterSnapshot : TerraformResource
@@ -32,7 +49,8 @@ public class AwsNeptuneClusterSnapshot : TerraformResource
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
+    public required TerraformProperty<string> DbClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("db_cluster_identifier");
         set => this.WithProperty("db_cluster_identifier", value);
@@ -41,7 +59,8 @@ public class AwsNeptuneClusterSnapshot : TerraformResource
     /// <summary>
     /// The db_cluster_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbClusterSnapshotIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterSnapshotIdentifier is required")]
+    public required TerraformProperty<string> DbClusterSnapshotIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("db_cluster_snapshot_identifier");
         set => this.WithProperty("db_cluster_snapshot_identifier", value);
@@ -63,6 +82,16 @@ public class AwsNeptuneClusterSnapshot : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNeptuneClusterSnapshotTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNeptuneClusterSnapshotTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

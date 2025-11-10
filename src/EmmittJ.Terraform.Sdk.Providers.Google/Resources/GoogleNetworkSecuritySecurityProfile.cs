@@ -3,6 +3,87 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for custom_intercept_profile in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Intercept Endpoint Group to which matching traffic should be intercepted.
+    /// Format: projects/{project_id}/locations/global/interceptEndpointGroups/{endpoint_group_id}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroup is required")]
+    public required TerraformProperty<string> InterceptEndpointGroup
+    {
+        get => GetProperty<TerraformProperty<string>>("intercept_endpoint_group");
+        set => WithProperty("intercept_endpoint_group", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for custom_mirroring_profile in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Mirroring Endpoint Group to which matching traffic should be mirrored.
+    /// Format: projects/{project_id}/locations/global/mirroringEndpointGroups/{endpoint_group_id}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroup is required")]
+    public required TerraformProperty<string> MirroringEndpointGroup
+    {
+        get => GetProperty<TerraformProperty<string>>("mirroring_endpoint_group");
+        set => WithProperty("mirroring_endpoint_group", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for threat_prevention_profile in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkSecuritySecurityProfileTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_security_security_profile resource.
 /// </summary>
 public class GoogleNetworkSecuritySecurityProfile : TerraformResource
@@ -47,9 +128,9 @@ public class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -66,7 +147,8 @@ public class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// <summary>
     /// The name of the security profile resource.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -85,10 +167,54 @@ public class GoogleNetworkSecuritySecurityProfile : TerraformResource
     /// <summary>
     /// The type of security profile. Possible values: [&amp;quot;THREAT_PREVENTION&amp;quot;, &amp;quot;URL_FILTERING&amp;quot;, &amp;quot;CUSTOM_MIRRORING&amp;quot;, &amp;quot;CUSTOM_INTERCEPT&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for custom_intercept_profile.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomInterceptProfile block(s) allowed")]
+    public List<GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock>? CustomInterceptProfile
+    {
+        get => GetProperty<List<GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock>>("custom_intercept_profile");
+        set => this.WithProperty("custom_intercept_profile", value);
+    }
+
+    /// <summary>
+    /// Block for custom_mirroring_profile.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomMirroringProfile block(s) allowed")]
+    public List<GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock>? CustomMirroringProfile
+    {
+        get => GetProperty<List<GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock>>("custom_mirroring_profile");
+        set => this.WithProperty("custom_mirroring_profile", value);
+    }
+
+    /// <summary>
+    /// Block for threat_prevention_profile.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatPreventionProfile block(s) allowed")]
+    public List<GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock>? ThreatPreventionProfile
+    {
+        get => GetProperty<List<GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlock>>("threat_prevention_profile");
+        set => this.WithProperty("threat_prevention_profile", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkSecuritySecurityProfileTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkSecuritySecurityProfileTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

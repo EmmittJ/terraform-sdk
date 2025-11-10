@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAutoscalingGroupsDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public List<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_autoscaling_groups.
 /// </summary>
 public class AwsAutoscalingGroupsDataSource : TerraformDataSource
@@ -29,9 +57,9 @@ public class AwsAutoscalingGroupsDataSource : TerraformDataSource
     /// <summary>
     /// The names attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Names
+    public List<TerraformProperty<string>>? Names
     {
-        get => GetProperty<TerraformProperty<List<string>>>("names");
+        get => GetProperty<List<TerraformProperty<string>>>("names");
         set => this.WithProperty("names", value);
     }
 
@@ -42,6 +70,16 @@ public class AwsAutoscalingGroupsDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAutoscalingGroupsDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsAutoscalingGroupsDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>

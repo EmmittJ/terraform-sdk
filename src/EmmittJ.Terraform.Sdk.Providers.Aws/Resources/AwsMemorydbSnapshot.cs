@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMemorydbSnapshotTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_memorydb_snapshot resource.
 /// </summary>
 public class AwsMemorydbSnapshot : TerraformResource
@@ -22,7 +48,8 @@ public class AwsMemorydbSnapshot : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -76,19 +103,29 @@ public class AwsMemorydbSnapshot : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMemorydbSnapshotTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMemorydbSnapshotTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

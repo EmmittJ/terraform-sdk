@@ -55,7 +55,8 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
     /// The location where the metastore service should reside.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -75,7 +76,8 @@ public class GoogleDataprocMetastoreServiceDataSource : TerraformDataSource
     /// and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between
     /// 3 and 63 characters.
     /// </summary>
-    public TerraformProperty<string>? ServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
+    public required TerraformProperty<string> ServiceId
     {
         get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);

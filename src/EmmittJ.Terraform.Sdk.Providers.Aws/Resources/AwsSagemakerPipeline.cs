@@ -3,6 +3,61 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for parallelism_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerPipelineParallelismConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The max_parallel_execution_steps attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxParallelExecutionSteps is required")]
+    public required TerraformProperty<double> MaxParallelExecutionSteps
+    {
+        get => GetProperty<TerraformProperty<double>>("max_parallel_execution_steps");
+        set => WithProperty("max_parallel_execution_steps", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for pipeline_definition_s3_location in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket");
+        set => WithProperty("bucket", value);
+    }
+
+    /// <summary>
+    /// The object_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectKey is required")]
+    public required TerraformProperty<string> ObjectKey
+    {
+        get => GetProperty<TerraformProperty<string>>("object_key");
+        set => WithProperty("object_key", value);
+    }
+
+    /// <summary>
+    /// The version_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? VersionId
+    {
+        get => GetProperty<TerraformProperty<string>>("version_id");
+        set => WithProperty("version_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_pipeline resource.
 /// </summary>
 public class AwsSagemakerPipeline : TerraformResource
@@ -47,7 +102,8 @@ public class AwsSagemakerPipeline : TerraformResource
     /// <summary>
     /// The pipeline_display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PipelineDisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineDisplayName is required")]
+    public required TerraformProperty<string> PipelineDisplayName
     {
         get => GetProperty<TerraformProperty<string>>("pipeline_display_name");
         set => this.WithProperty("pipeline_display_name", value);
@@ -56,7 +112,8 @@ public class AwsSagemakerPipeline : TerraformResource
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PipelineName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
+    public required TerraformProperty<string> PipelineName
     {
         get => GetProperty<TerraformProperty<string>>("pipeline_name");
         set => this.WithProperty("pipeline_name", value);
@@ -83,19 +140,41 @@ public class AwsSagemakerPipeline : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for parallelism_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParallelismConfiguration block(s) allowed")]
+    public List<AwsSagemakerPipelineParallelismConfigurationBlock>? ParallelismConfiguration
+    {
+        get => GetProperty<List<AwsSagemakerPipelineParallelismConfigurationBlock>>("parallelism_configuration");
+        set => this.WithProperty("parallelism_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for pipeline_definition_s3_location.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineDefinitionS3Location block(s) allowed")]
+    public List<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>? PipelineDefinitionS3Location
+    {
+        get => GetProperty<List<AwsSagemakerPipelinePipelineDefinitionS3LocationBlock>>("pipeline_definition_s3_location");
+        set => this.WithProperty("pipeline_definition_s3_location", value);
     }
 
     /// <summary>

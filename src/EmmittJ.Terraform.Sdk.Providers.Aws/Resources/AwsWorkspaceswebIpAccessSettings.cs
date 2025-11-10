@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for ip_rule in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWorkspaceswebIpAccessSettingsIpRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The ip_range attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
+    public required TerraformProperty<string> IpRange
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_range");
+        set => WithProperty("ip_range", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_workspacesweb_ip_access_settings resource.
 /// </summary>
 public class AwsWorkspaceswebIpAccessSettings : TerraformResource
@@ -22,9 +49,9 @@ public class AwsWorkspaceswebIpAccessSettings : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_encryption_context");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
@@ -49,7 +76,8 @@ public class AwsWorkspaceswebIpAccessSettings : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -67,10 +95,20 @@ public class AwsWorkspaceswebIpAccessSettings : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for ip_rule.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsWorkspaceswebIpAccessSettingsIpRuleBlock>? IpRule
+    {
+        get => GetProperty<List<AwsWorkspaceswebIpAccessSettingsIpRuleBlock>>("ip_rule");
+        set => this.WithProperty("ip_rule", value);
     }
 
     /// <summary>

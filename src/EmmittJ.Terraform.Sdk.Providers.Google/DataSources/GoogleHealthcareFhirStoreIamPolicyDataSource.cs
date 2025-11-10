@@ -21,7 +21,8 @@ public class GoogleHealthcareFhirStoreIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The fhir_store_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FhirStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FhirStoreId is required")]
+    public required TerraformProperty<string> FhirStoreId
     {
         get => GetProperty<TerraformProperty<string>>("fhir_store_id");
         set => this.WithProperty("fhir_store_id", value);

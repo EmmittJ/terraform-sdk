@@ -3,6 +3,280 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for automatic_scaling in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.
+    /// 
+    /// Defaults to a runtime-specific value.
+    /// </summary>
+    public TerraformProperty<double>? MaxConcurrentRequests
+    {
+        get => GetProperty<TerraformProperty<double>>("max_concurrent_requests");
+        set => WithProperty("max_concurrent_requests", value);
+    }
+
+    /// <summary>
+    /// Maximum number of idle instances that should be maintained for this version.
+    /// </summary>
+    public TerraformProperty<double>? MaxIdleInstances
+    {
+        get => GetProperty<TerraformProperty<double>>("max_idle_instances");
+        set => WithProperty("max_idle_instances", value);
+    }
+
+    /// <summary>
+    /// Maximum amount of time that a request should wait in the pending queue before starting a new instance to handle it.
+    /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? MaxPendingLatency
+    {
+        get => GetProperty<TerraformProperty<string>>("max_pending_latency");
+        set => WithProperty("max_pending_latency", value);
+    }
+
+    /// <summary>
+    /// Minimum number of idle instances that should be maintained for this version. Only applicable for the default version of a service.
+    /// </summary>
+    public TerraformProperty<double>? MinIdleInstances
+    {
+        get => GetProperty<TerraformProperty<double>>("min_idle_instances");
+        set => WithProperty("min_idle_instances", value);
+    }
+
+    /// <summary>
+    /// Minimum amount of time a request should wait in the pending queue before starting a new instance to handle it.
+    /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? MinPendingLatency
+    {
+        get => GetProperty<TerraformProperty<string>>("min_pending_latency");
+        set => WithProperty("min_pending_latency", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for basic_scaling in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAppEngineStandardAppVersionBasicScalingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Duration of time after the last request that an instance must wait before the instance is shut down.
+    /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Defaults to 900s.
+    /// </summary>
+    public TerraformProperty<string>? IdleTimeout
+    {
+        get => GetProperty<TerraformProperty<string>>("idle_timeout");
+        set => WithProperty("idle_timeout", value);
+    }
+
+    /// <summary>
+    /// Maximum number of instances to create for this version. Must be in the range [1.0, 200.0].
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
+    public required TerraformProperty<double> MaxInstances
+    {
+        get => GetProperty<TerraformProperty<double>>("max_instances");
+        set => WithProperty("max_instances", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for deployment in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAppEngineStandardAppVersionDeploymentBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for entrypoint in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAppEngineStandardAppVersionEntrypointBlock : TerraformBlock
+{
+    /// <summary>
+    /// The format should be a shell command that can be fed to bash -c.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
+    public required TerraformProperty<string> Shell
+    {
+        get => GetProperty<TerraformProperty<string>>("shell");
+        set => WithProperty("shell", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for handlers in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Actions to take when the user is not logged in. Possible values: [&amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot;, &amp;quot;AUTH_FAIL_ACTION_UNAUTHORIZED&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? AuthFailAction
+    {
+        get => GetProperty<TerraformProperty<string>>("auth_fail_action");
+        set => WithProperty("auth_fail_action", value);
+    }
+
+    /// <summary>
+    /// Methods to restrict access to a URL based on login status. Possible values: [&amp;quot;LOGIN_OPTIONAL&amp;quot;, &amp;quot;LOGIN_ADMIN&amp;quot;, &amp;quot;LOGIN_REQUIRED&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Login
+    {
+        get => GetProperty<TerraformProperty<string>>("login");
+        set => WithProperty("login", value);
+    }
+
+    /// <summary>
+    /// 30x code to use when performing redirects for the secure field. Possible values: [&amp;quot;REDIRECT_HTTP_RESPONSE_CODE_301&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_302&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_303&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_307&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? RedirectHttpResponseCode
+    {
+        get => GetProperty<TerraformProperty<string>>("redirect_http_response_code");
+        set => WithProperty("redirect_http_response_code", value);
+    }
+
+    /// <summary>
+    /// Security (HTTPS) enforcement for this URL. Possible values: [&amp;quot;SECURE_DEFAULT&amp;quot;, &amp;quot;SECURE_NEVER&amp;quot;, &amp;quot;SECURE_OPTIONAL&amp;quot;, &amp;quot;SECURE_ALWAYS&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? SecurityLevel
+    {
+        get => GetProperty<TerraformProperty<string>>("security_level");
+        set => WithProperty("security_level", value);
+    }
+
+    /// <summary>
+    /// URL prefix. Uses regular expression syntax, which means regexp special characters must be escaped, but should not contain groupings.
+    /// All URLs that begin with this prefix are handled by this handler, using the portion of the URL after the prefix as part of the file path.
+    /// </summary>
+    public TerraformProperty<string>? UrlRegex
+    {
+        get => GetProperty<TerraformProperty<string>>("url_regex");
+        set => WithProperty("url_regex", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for libraries in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAppEngineStandardAppVersionLibrariesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Name of the library. Example &amp;quot;django&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Version of the library to select, or &amp;quot;latest&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for manual_scaling in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAppEngineStandardAppVersionManualScalingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Number of instances to assign to the service at the start.
+    /// 
+    /// **Note:** When managing the number of instances at runtime through the App Engine Admin API or the (now deprecated) Python 2
+    /// Modules API set_num_instances() you must use &#39;lifecycle.ignore_changes = [&amp;quot;manual_scaling&amp;quot;[0].instances]&#39; to prevent drift detection.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
+    public required TerraformProperty<double> Instances
+    {
+        get => GetProperty<TerraformProperty<double>>("instances");
+        set => WithProperty("instances", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleAppEngineStandardAppVersionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_access_connector in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The egress setting for the connector, controlling what traffic is diverted through it.
+    /// </summary>
+    public TerraformProperty<string>? EgressSetting
+    {
+        get => GetProperty<TerraformProperty<string>>("egress_setting");
+        set => WithProperty("egress_setting", value);
+    }
+
+    /// <summary>
+    /// Full Serverless VPC Access Connector name e.g. /projects/my-project/locations/us-central1/connectors/c1.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_app_engine_standard_app_version resource.
 /// </summary>
 public class GoogleAppEngineStandardAppVersion : TerraformResource
@@ -38,9 +312,9 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// <summary>
     /// Environment variables available to the application.
     /// </summary>
-    public TerraformMapProperty<string>? EnvVariables
+    public Dictionary<string, TerraformProperty<string>>? EnvVariables
     {
-        get => GetProperty<TerraformMapProperty<string>>("env_variables");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("env_variables");
         set => this.WithProperty("env_variables", value);
     }
 
@@ -56,9 +330,9 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// <summary>
     /// A list of the types of messages that this application is able to receive. Possible values: [&amp;quot;INBOUND_SERVICE_MAIL&amp;quot;, &amp;quot;INBOUND_SERVICE_MAIL_BOUNCE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_ERROR&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_MESSAGE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_SUBSCRIBE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_CHANNEL_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_WARMUP&amp;quot;]
     /// </summary>
-    public TerraformProperty<HashSet<string>>? InboundServices
+    public HashSet<TerraformProperty<string>>? InboundServices
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("inbound_services");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("inbound_services");
         set => this.WithProperty("inbound_services", value);
     }
 
@@ -95,7 +369,8 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// <summary>
     /// Desired runtime. Example python27.
     /// </summary>
-    public TerraformProperty<string>? Runtime
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
+    public required TerraformProperty<string> Runtime
     {
         get => GetProperty<TerraformProperty<string>>("runtime");
         set => this.WithProperty("runtime", value);
@@ -115,7 +390,8 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// <summary>
     /// AppEngine service resource
     /// </summary>
-    public TerraformProperty<string>? Service
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
+    public required TerraformProperty<string> Service
     {
         get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
@@ -146,6 +422,104 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("version_id");
         set => this.WithProperty("version_id", value);
+    }
+
+    /// <summary>
+    /// Block for automatic_scaling.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticScaling block(s) allowed")]
+    public List<GoogleAppEngineStandardAppVersionAutomaticScalingBlock>? AutomaticScaling
+    {
+        get => GetProperty<List<GoogleAppEngineStandardAppVersionAutomaticScalingBlock>>("automatic_scaling");
+        set => this.WithProperty("automatic_scaling", value);
+    }
+
+    /// <summary>
+    /// Block for basic_scaling.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicScaling block(s) allowed")]
+    public List<GoogleAppEngineStandardAppVersionBasicScalingBlock>? BasicScaling
+    {
+        get => GetProperty<List<GoogleAppEngineStandardAppVersionBasicScalingBlock>>("basic_scaling");
+        set => this.WithProperty("basic_scaling", value);
+    }
+
+    /// <summary>
+    /// Block for deployment.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Deployment block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deployment block(s) allowed")]
+    public List<GoogleAppEngineStandardAppVersionDeploymentBlock>? Deployment
+    {
+        get => GetProperty<List<GoogleAppEngineStandardAppVersionDeploymentBlock>>("deployment");
+        set => this.WithProperty("deployment", value);
+    }
+
+    /// <summary>
+    /// Block for entrypoint.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entrypoint block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Entrypoint block(s) allowed")]
+    public List<GoogleAppEngineStandardAppVersionEntrypointBlock>? Entrypoint
+    {
+        get => GetProperty<List<GoogleAppEngineStandardAppVersionEntrypointBlock>>("entrypoint");
+        set => this.WithProperty("entrypoint", value);
+    }
+
+    /// <summary>
+    /// Block for handlers.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleAppEngineStandardAppVersionHandlersBlock>? Handlers
+    {
+        get => GetProperty<List<GoogleAppEngineStandardAppVersionHandlersBlock>>("handlers");
+        set => this.WithProperty("handlers", value);
+    }
+
+    /// <summary>
+    /// Block for libraries.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleAppEngineStandardAppVersionLibrariesBlock>? Libraries
+    {
+        get => GetProperty<List<GoogleAppEngineStandardAppVersionLibrariesBlock>>("libraries");
+        set => this.WithProperty("libraries", value);
+    }
+
+    /// <summary>
+    /// Block for manual_scaling.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualScaling block(s) allowed")]
+    public List<GoogleAppEngineStandardAppVersionManualScalingBlock>? ManualScaling
+    {
+        get => GetProperty<List<GoogleAppEngineStandardAppVersionManualScalingBlock>>("manual_scaling");
+        set => this.WithProperty("manual_scaling", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleAppEngineStandardAppVersionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleAppEngineStandardAppVersionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_access_connector.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcAccessConnector block(s) allowed")]
+    public List<GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock>? VpcAccessConnector
+    {
+        get => GetProperty<List<GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock>>("vpc_access_connector");
+        set => this.WithProperty("vpc_access_connector", value);
     }
 
     /// <summary>

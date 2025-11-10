@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNginxConfigurationDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_nginx_configuration.
 /// </summary>
 public class AzurermNginxConfigurationDataSource : TerraformDataSource
@@ -32,10 +49,21 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NginxDeploymentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
+    public required TerraformProperty<string> NginxDeploymentId
     {
         get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNginxConfigurationDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNginxConfigurationDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

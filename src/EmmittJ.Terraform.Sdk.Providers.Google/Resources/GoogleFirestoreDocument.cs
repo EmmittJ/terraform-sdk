@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirestoreDocumentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firestore_document resource.
 /// </summary>
 public class GoogleFirestoreDocument : TerraformResource
@@ -23,7 +58,8 @@ public class GoogleFirestoreDocument : TerraformResource
     /// <summary>
     /// The collection ID, relative to database. For example: chatrooms or chatrooms/my-document/private-messages.
     /// </summary>
-    public TerraformProperty<string>? Collection
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
+    public required TerraformProperty<string> Collection
     {
         get => GetProperty<TerraformProperty<string>>("collection");
         set => this.WithProperty("collection", value);
@@ -41,7 +77,8 @@ public class GoogleFirestoreDocument : TerraformResource
     /// <summary>
     /// The client-assigned document ID to use for this document during creation.
     /// </summary>
-    public TerraformProperty<string>? DocumentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
+    public required TerraformProperty<string> DocumentId
     {
         get => GetProperty<TerraformProperty<string>>("document_id");
         set => this.WithProperty("document_id", value);
@@ -50,7 +87,8 @@ public class GoogleFirestoreDocument : TerraformResource
     /// <summary>
     /// The document&#39;s [fields](https://cloud.google.com/firestore/docs/reference/rest/v1/projects.databases.documents) formated as a json string.
     /// </summary>
-    public TerraformProperty<string>? Fields
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
+    public required TerraformProperty<string> Fields
     {
         get => GetProperty<TerraformProperty<string>>("fields");
         set => this.WithProperty("fields", value);
@@ -72,6 +110,16 @@ public class GoogleFirestoreDocument : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirestoreDocumentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirestoreDocumentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

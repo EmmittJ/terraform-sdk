@@ -20,7 +20,8 @@ public class AwsOpensearchAuthorizeVpcEndpointAccess : TerraformResource
     /// <summary>
     /// The account attribute.
     /// </summary>
-    public TerraformProperty<string>? Account
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Account is required")]
+    public required TerraformProperty<string> Account
     {
         get => GetProperty<TerraformProperty<string>>("account");
         set => this.WithProperty("account", value);
@@ -29,7 +30,8 @@ public class AwsOpensearchAuthorizeVpcEndpointAccess : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);

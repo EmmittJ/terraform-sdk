@@ -38,7 +38,8 @@ public class GoogleCloudRunServiceIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
@@ -56,7 +57,8 @@ public class GoogleCloudRunServiceIamPolicy : TerraformResource
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public TerraformProperty<string>? Service
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
+    public required TerraformProperty<string> Service
     {
         get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);

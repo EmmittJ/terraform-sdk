@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEksAccessEntryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_eks_access_entry resource.
 /// </summary>
 public class AwsEksAccessEntry : TerraformResource
@@ -22,7 +48,8 @@ public class AwsEksAccessEntry : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -40,16 +67,17 @@ public class AwsEksAccessEntry : TerraformResource
     /// <summary>
     /// The kubernetes_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? KubernetesGroups
+    public HashSet<TerraformProperty<string>>? KubernetesGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("kubernetes_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("kubernetes_groups");
         set => this.WithProperty("kubernetes_groups", value);
     }
 
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
+    public required TerraformProperty<string> PrincipalArn
     {
         get => GetProperty<TerraformProperty<string>>("principal_arn");
         set => this.WithProperty("principal_arn", value);
@@ -67,18 +95,18 @@ public class AwsEksAccessEntry : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -98,6 +126,16 @@ public class AwsEksAccessEntry : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEksAccessEntryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEksAccessEntryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

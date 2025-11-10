@@ -3,6 +3,107 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for license_resource in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The number of licenses purchased.
+    /// </summary>
+    public TerraformProperty<string>? Amount
+    {
+        get => GetProperty<TerraformProperty<string>>("amount");
+        set => WithProperty("amount", value);
+    }
+
+    /// <summary>
+    /// Specifies the core range of the instance for which this license applies.
+    /// </summary>
+    public TerraformProperty<string>? CoresPerLicense
+    {
+        get => GetProperty<TerraformProperty<string>>("cores_per_license");
+        set => WithProperty("cores_per_license", value);
+    }
+
+    /// <summary>
+    /// Any applicable license URI.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "License is required")]
+    public required TerraformProperty<string> License
+    {
+        get => GetProperty<TerraformProperty<string>>("license");
+        set => WithProperty("license", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for resources in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionCommitmentResourcesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Name of the accelerator type resource. Applicable only when the type is ACCELERATOR.
+    /// </summary>
+    public TerraformProperty<string>? AcceleratorType
+    {
+        get => GetProperty<TerraformProperty<string>>("accelerator_type");
+        set => WithProperty("accelerator_type", value);
+    }
+
+    /// <summary>
+    /// The amount of the resource purchased (in a type-dependent unit,
+    /// such as bytes). For vCPUs, this can just be an integer. For memory,
+    /// this must be provided in MB. Memory must be a multiple of 256 MB,
+    /// with up to 6.5GB of memory per every vCPU.
+    /// </summary>
+    public TerraformProperty<string>? Amount
+    {
+        get => GetProperty<TerraformProperty<string>>("amount");
+        set => WithProperty("amount", value);
+    }
+
+    /// <summary>
+    /// Type of resource for which this commitment applies.
+    /// Possible values are VCPU, MEMORY, LOCAL_SSD, and ACCELERATOR.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRegionCommitmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_region_commitment resource.
 /// </summary>
 public class GoogleComputeRegionCommitment : TerraformResource
@@ -81,7 +182,8 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -91,7 +193,8 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// The plan for this commitment, which determines duration and discount rate.
     /// The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years). Possible values: [&amp;quot;TWELVE_MONTH&amp;quot;, &amp;quot;THIRTY_SIX_MONTH&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Plan
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
+    public required TerraformProperty<string> Plan
     {
         get => GetProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
@@ -126,6 +229,37 @@ public class GoogleComputeRegionCommitment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for license_resource.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LicenseResource block(s) allowed")]
+    public List<GoogleComputeRegionCommitmentLicenseResourceBlock>? LicenseResource
+    {
+        get => GetProperty<List<GoogleComputeRegionCommitmentLicenseResourceBlock>>("license_resource");
+        set => this.WithProperty("license_resource", value);
+    }
+
+    /// <summary>
+    /// Block for resources.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleComputeRegionCommitmentResourcesBlock>? Resources
+    {
+        get => GetProperty<List<GoogleComputeRegionCommitmentResourcesBlock>>("resources");
+        set => this.WithProperty("resources", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRegionCommitmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRegionCommitmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

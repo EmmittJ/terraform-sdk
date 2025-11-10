@@ -19,7 +19,8 @@ public class AwsEc2ManagedPrefixListEntry : TerraformResource
     /// <summary>
     /// The cidr attribute.
     /// </summary>
-    public TerraformProperty<string>? Cidr
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
+    public required TerraformProperty<string> Cidr
     {
         get => GetProperty<TerraformProperty<string>>("cidr");
         set => this.WithProperty("cidr", value);
@@ -46,7 +47,8 @@ public class AwsEc2ManagedPrefixListEntry : TerraformResource
     /// <summary>
     /// The prefix_list_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrefixListId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixListId is required")]
+    public required TerraformProperty<string> PrefixListId
     {
         get => GetProperty<TerraformProperty<string>>("prefix_list_id");
         set => this.WithProperty("prefix_list_id", value);

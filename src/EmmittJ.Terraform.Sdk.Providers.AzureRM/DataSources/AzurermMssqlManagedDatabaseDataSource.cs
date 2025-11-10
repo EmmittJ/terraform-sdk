@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_mssql_managed_database.
 /// </summary>
 public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
@@ -33,7 +50,8 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedInstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
+    public required TerraformProperty<string> ManagedInstanceId
     {
         get => GetProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
@@ -42,10 +60,21 @@ public class AzurermMssqlManagedDatabaseDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -48,7 +48,8 @@ public class GoogleSecureSourceManagerRepositoryIamPolicyDataSource : TerraformD
     /// <summary>
     /// The repository_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
+    public required TerraformProperty<string> RepositoryId
     {
         get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);

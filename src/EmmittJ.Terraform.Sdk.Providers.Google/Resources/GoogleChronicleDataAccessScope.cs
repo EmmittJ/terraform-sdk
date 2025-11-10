@@ -3,6 +3,139 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for allowed_data_access_labels in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The asset namespace configured in the forwarder
+    /// of the customer&#39;s events.
+    /// </summary>
+    public TerraformProperty<string>? AssetNamespace
+    {
+        get => GetProperty<TerraformProperty<string>>("asset_namespace");
+        set => WithProperty("asset_namespace", value);
+    }
+
+    /// <summary>
+    /// The name of the data access label.
+    /// </summary>
+    public TerraformProperty<string>? DataAccessLabel
+    {
+        get => GetProperty<TerraformProperty<string>>("data_access_label");
+        set => WithProperty("data_access_label", value);
+    }
+
+    /// <summary>
+    /// Output only. The display name of the label.
+    /// Data access label and log types&#39;s name
+    /// will match the display name of the resource.
+    /// The asset namespace will match the namespace itself.
+    /// The ingestion key value pair will match the key of the tuple.
+    /// </summary>
+    public TerraformProperty<string>? DisplayName
+    {
+        get => GetProperty<TerraformProperty<string>>("display_name");
+        set => WithProperty("display_name", value);
+    }
+
+    /// <summary>
+    /// The name of the log type.
+    /// </summary>
+    public TerraformProperty<string>? LogType
+    {
+        get => GetProperty<TerraformProperty<string>>("log_type");
+        set => WithProperty("log_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for denied_data_access_labels in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The asset namespace configured in the forwarder
+    /// of the customer&#39;s events.
+    /// </summary>
+    public TerraformProperty<string>? AssetNamespace
+    {
+        get => GetProperty<TerraformProperty<string>>("asset_namespace");
+        set => WithProperty("asset_namespace", value);
+    }
+
+    /// <summary>
+    /// The name of the data access label.
+    /// </summary>
+    public TerraformProperty<string>? DataAccessLabel
+    {
+        get => GetProperty<TerraformProperty<string>>("data_access_label");
+        set => WithProperty("data_access_label", value);
+    }
+
+    /// <summary>
+    /// Output only. The display name of the label.
+    /// Data access label and log types&#39;s name
+    /// will match the display name of the resource.
+    /// The asset namespace will match the namespace itself.
+    /// The ingestion key value pair will match the key of the tuple.
+    /// </summary>
+    public TerraformProperty<string>? DisplayName
+    {
+        get => GetProperty<TerraformProperty<string>>("display_name");
+        set => WithProperty("display_name", value);
+    }
+
+    /// <summary>
+    /// The name of the log type.
+    /// </summary>
+    public TerraformProperty<string>? LogType
+    {
+        get => GetProperty<TerraformProperty<string>>("log_type");
+        set => WithProperty("log_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_chronicle_data_access_scope resource.
 /// </summary>
 public class GoogleChronicleDataAccessScope : TerraformResource
@@ -43,7 +176,8 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// of the scope resource.
     /// Needs to be compliant with https://google.aip.dev/122
     /// </summary>
-    public TerraformProperty<string>? DataAccessScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessScopeId is required")]
+    public required TerraformProperty<string> DataAccessScopeId
     {
         get => GetProperty<TerraformProperty<string>>("data_access_scope_id");
         set => this.WithProperty("data_access_scope_id", value);
@@ -70,7 +204,8 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -79,7 +214,8 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -92,6 +228,36 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for allowed_data_access_labels.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>? AllowedDataAccessLabels
+    {
+        get => GetProperty<List<GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock>>("allowed_data_access_labels");
+        set => this.WithProperty("allowed_data_access_labels", value);
+    }
+
+    /// <summary>
+    /// Block for denied_data_access_labels.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>? DeniedDataAccessLabels
+    {
+        get => GetProperty<List<GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock>>("denied_data_access_labels");
+        set => this.WithProperty("denied_data_access_labels", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleChronicleDataAccessScopeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleChronicleDataAccessScopeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

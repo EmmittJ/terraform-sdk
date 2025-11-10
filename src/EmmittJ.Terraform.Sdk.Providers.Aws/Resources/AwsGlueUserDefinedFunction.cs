@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for resource_uris in .
+/// Nesting mode: set
+/// </summary>
+public class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlock
+{
+    /// <summary>
+    /// The resource_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
+    public required TerraformProperty<string> ResourceType
+    {
+        get => GetProperty<TerraformProperty<string>>("resource_type");
+        set => WithProperty("resource_type", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformProperty<string> Uri
+    {
+        get => GetProperty<TerraformProperty<string>>("uri");
+        set => WithProperty("uri", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_glue_user_defined_function resource.
 /// </summary>
 public class AwsGlueUserDefinedFunction : TerraformResource
@@ -30,7 +58,8 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     /// <summary>
     /// The class_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClassName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassName is required")]
+    public required TerraformProperty<string> ClassName
     {
         get => GetProperty<TerraformProperty<string>>("class_name");
         set => this.WithProperty("class_name", value);
@@ -39,7 +68,8 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformProperty<string> DatabaseName
     {
         get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
@@ -57,7 +87,8 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,7 +97,8 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     /// <summary>
     /// The owner_name attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerName is required")]
+    public required TerraformProperty<string> OwnerName
     {
         get => GetProperty<TerraformProperty<string>>("owner_name");
         set => this.WithProperty("owner_name", value);
@@ -75,7 +107,8 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     /// <summary>
     /// The owner_type attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnerType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerType is required")]
+    public required TerraformProperty<string> OwnerType
     {
         get => GetProperty<TerraformProperty<string>>("owner_type");
         set => this.WithProperty("owner_type", value);
@@ -88,6 +121,17 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for resource_uris.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1000, ErrorMessage = "Maximum 1000 ResourceUris block(s) allowed")]
+    public HashSet<AwsGlueUserDefinedFunctionResourceUrisBlock>? ResourceUris
+    {
+        get => GetProperty<HashSet<AwsGlueUserDefinedFunctionResourceUrisBlock>>("resource_uris");
+        set => this.WithProperty("resource_uris", value);
     }
 
     /// <summary>

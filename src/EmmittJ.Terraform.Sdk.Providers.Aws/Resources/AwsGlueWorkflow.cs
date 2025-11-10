@@ -20,9 +20,9 @@ public class AwsGlueWorkflow : TerraformResource
     /// <summary>
     /// The default_run_properties attribute.
     /// </summary>
-    public TerraformMapProperty<string>? DefaultRunProperties
+    public Dictionary<string, TerraformProperty<string>>? DefaultRunProperties
     {
-        get => GetProperty<TerraformMapProperty<string>>("default_run_properties");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("default_run_properties");
         set => this.WithProperty("default_run_properties", value);
     }
 
@@ -74,18 +74,18 @@ public class AwsGlueWorkflow : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

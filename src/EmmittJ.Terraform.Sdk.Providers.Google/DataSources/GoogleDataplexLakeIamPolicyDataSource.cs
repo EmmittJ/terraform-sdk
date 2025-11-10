@@ -30,7 +30,8 @@ public class GoogleDataplexLakeIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The lake attribute.
     /// </summary>
-    public TerraformProperty<string>? Lake
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
+    public required TerraformProperty<string> Lake
     {
         get => GetProperty<TerraformProperty<string>>("lake");
         set => this.WithProperty("lake", value);

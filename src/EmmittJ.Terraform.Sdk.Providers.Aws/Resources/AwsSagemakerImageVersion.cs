@@ -23,16 +23,17 @@ public class AwsSagemakerImageVersion : TerraformResource
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Aliases
+    public HashSet<TerraformProperty<string>>? Aliases
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("aliases");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("aliases");
         set => this.WithProperty("aliases", value);
     }
 
     /// <summary>
     /// The base_image attribute.
     /// </summary>
-    public TerraformProperty<string>? BaseImage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseImage is required")]
+    public required TerraformProperty<string> BaseImage
     {
         get => GetProperty<TerraformProperty<string>>("base_image");
         set => this.WithProperty("base_image", value);
@@ -59,7 +60,8 @@ public class AwsSagemakerImageVersion : TerraformResource
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
+    public required TerraformProperty<string> ImageName
     {
         get => GetProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);

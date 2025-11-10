@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for logs in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The send_activity_logs attribute.
+    /// </summary>
+    public TerraformProperty<bool>? SendActivityLogs
+    {
+        get => GetProperty<TerraformProperty<bool>>("send_activity_logs");
+        set => WithProperty("send_activity_logs", value);
+    }
+
+    /// <summary>
+    /// The send_azuread_logs attribute.
+    /// </summary>
+    public TerraformProperty<bool>? SendAzureadLogs
+    {
+        get => GetProperty<TerraformProperty<bool>>("send_azuread_logs");
+        set => WithProperty("send_azuread_logs", value);
+    }
+
+    /// <summary>
+    /// The send_subscription_logs attribute.
+    /// </summary>
+    public TerraformProperty<bool>? SendSubscriptionLogs
+    {
+        get => GetProperty<TerraformProperty<bool>>("send_subscription_logs");
+        set => WithProperty("send_subscription_logs", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_elastic_cloud_elasticsearch resource.
 /// </summary>
 public class AzurermElasticCloudElasticsearch : TerraformResource
@@ -25,7 +104,8 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     /// <summary>
     /// The elastic_cloud_email_address attribute.
     /// </summary>
-    public TerraformProperty<string>? ElasticCloudEmailAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticCloudEmailAddress is required")]
+    public required TerraformProperty<string> ElasticCloudEmailAddress
     {
         get => GetProperty<TerraformProperty<string>>("elastic_cloud_email_address");
         set => this.WithProperty("elastic_cloud_email_address", value);
@@ -43,7 +123,8 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -61,7 +142,8 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -70,7 +152,8 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -79,7 +162,8 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
+    public required TerraformProperty<string> SkuName
     {
         get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
@@ -88,10 +172,31 @@ public class AzurermElasticCloudElasticsearch : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for logs.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
+    public List<AzurermElasticCloudElasticsearchLogsBlock>? Logs
+    {
+        get => GetProperty<List<AzurermElasticCloudElasticsearchLogsBlock>>("logs");
+        set => this.WithProperty("logs", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermElasticCloudElasticsearchTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermElasticCloudElasticsearchTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

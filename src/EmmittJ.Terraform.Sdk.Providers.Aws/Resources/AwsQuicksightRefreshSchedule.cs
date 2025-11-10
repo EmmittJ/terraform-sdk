@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for schedule in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightRefreshScheduleScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The refresh_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshType is required")]
+    public required TerraformProperty<string> RefreshType
+    {
+        get => GetProperty<TerraformProperty<string>>("refresh_type");
+        set => WithProperty("refresh_type", value);
+    }
+
+    /// <summary>
+    /// The start_after_date_time attribute.
+    /// </summary>
+    public TerraformProperty<string>? StartAfterDateTime
+    {
+        get => GetProperty<TerraformProperty<string>>("start_after_date_time");
+        set => WithProperty("start_after_date_time", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_quicksight_refresh_schedule resource.
 /// </summary>
 public class AwsQuicksightRefreshSchedule : TerraformResource
@@ -30,7 +57,8 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
     /// <summary>
     /// The data_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataSetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
+    public required TerraformProperty<string> DataSetId
     {
         get => GetProperty<TerraformProperty<string>>("data_set_id");
         set => this.WithProperty("data_set_id", value);
@@ -48,10 +76,21 @@ public class AwsQuicksightRefreshSchedule : TerraformResource
     /// <summary>
     /// The schedule_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleId is required")]
+    public required TerraformProperty<string> ScheduleId
     {
         get => GetProperty<TerraformProperty<string>>("schedule_id");
         set => this.WithProperty("schedule_id", value);
+    }
+
+    /// <summary>
+    /// Block for schedule.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsQuicksightRefreshScheduleScheduleBlock>? Schedule
+    {
+        get => GetProperty<List<AwsQuicksightRefreshScheduleScheduleBlock>>("schedule");
+        set => this.WithProperty("schedule", value);
     }
 
     /// <summary>

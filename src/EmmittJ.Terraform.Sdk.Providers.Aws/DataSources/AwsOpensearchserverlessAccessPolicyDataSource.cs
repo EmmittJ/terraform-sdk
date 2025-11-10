@@ -23,7 +23,8 @@ public class AwsOpensearchserverlessAccessPolicyDataSource : TerraformDataSource
     /// <summary>
     /// Name of the policy.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,7 +42,8 @@ public class AwsOpensearchserverlessAccessPolicyDataSource : TerraformDataSource
     /// <summary>
     /// Type of access policy. Must be `data`.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);

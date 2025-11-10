@@ -29,7 +29,8 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
+    public required TerraformProperty<string> DiskId
     {
         get => GetProperty<TerraformProperty<string>>("disk_id");
         set => this.WithProperty("disk_id", value);
@@ -38,7 +39,8 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
+    public required TerraformProperty<string> GatewayArn
     {
         get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
@@ -74,7 +76,8 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterfaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
+    public required TerraformProperty<string> NetworkInterfaceId
     {
         get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
@@ -83,7 +86,8 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     /// <summary>
     /// The preserve_existing_data attribute.
     /// </summary>
-    public TerraformProperty<bool>? PreserveExistingData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveExistingData is required")]
+    public required TerraformProperty<bool> PreserveExistingData
     {
         get => GetProperty<TerraformProperty<bool>>("preserve_existing_data");
         set => this.WithProperty("preserve_existing_data", value);
@@ -110,25 +114,26 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
+    public required TerraformProperty<string> TargetName
     {
         get => GetProperty<TerraformProperty<string>>("target_name");
         set => this.WithProperty("target_name", value);

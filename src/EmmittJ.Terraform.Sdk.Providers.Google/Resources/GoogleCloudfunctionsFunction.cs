@@ -3,6 +3,214 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for automatic_update_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for event_trigger in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudfunctionsFunctionEventTriggerBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type of event to observe. For example: &amp;quot;google.storage.object.finalize&amp;quot;. See the documentation on calling Cloud Functions for a full reference of accepted triggers.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
+    public required TerraformProperty<string> EventType
+    {
+        get => GetProperty<TerraformProperty<string>>("event_type");
+        set => WithProperty("event_type", value);
+    }
+
+    /// <summary>
+    /// The name or partial URI of the resource from which to observe events. For example, &amp;quot;myBucket&amp;quot; or &amp;quot;projects/my-project/topics/my-topic&amp;quot;
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
+    public required TerraformProperty<string> Resource
+    {
+        get => GetProperty<TerraformProperty<string>>("resource");
+        set => WithProperty("resource", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for on_deploy_update_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The runtime version which was used during latest function deployment.
+    /// </summary>
+    public TerraformProperty<string>? RuntimeVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("runtime_version");
+        set => WithProperty("runtime_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for secret_environment_variables in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Name of the environment variable.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// Project identifier (due to a known limitation, only project number is supported by this field) of the project that contains the secret. If not set, it will be populated with the function&#39;s project, assuming that the secret exists in the same project as of the function.
+    /// </summary>
+    public TerraformProperty<string>? ProjectId
+    {
+        get => GetProperty<TerraformProperty<string>>("project_id");
+        set => WithProperty("project_id", value);
+    }
+
+    /// <summary>
+    /// ID of the secret in secret manager (not the full resource name).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
+    public required TerraformProperty<string> Secret
+    {
+        get => GetProperty<TerraformProperty<string>>("secret");
+        set => WithProperty("secret", value);
+    }
+
+    /// <summary>
+    /// Version of the secret (version number or the string &amp;quot;latest&amp;quot;). It is recommended to use a numeric version for secret environment variables as any updates to the secret value is not reflected until new clones start.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for secret_volumes in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudfunctionsFunctionSecretVolumesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The path within the container to mount the secret volume. For example, setting the mount_path as &amp;quot;/etc/secrets&amp;quot; would mount the secret value files under the &amp;quot;/etc/secrets&amp;quot; directory. This directory will also be completely shadowed and unavailable to mount any other secrets. Recommended mount paths: &amp;quot;/etc/secrets&amp;quot; Restricted mount paths: &amp;quot;/cloudsql&amp;quot;, &amp;quot;/dev/log&amp;quot;, &amp;quot;/pod&amp;quot;, &amp;quot;/proc&amp;quot;, &amp;quot;/var/log&amp;quot;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
+    public required TerraformProperty<string> MountPath
+    {
+        get => GetProperty<TerraformProperty<string>>("mount_path");
+        set => WithProperty("mount_path", value);
+    }
+
+    /// <summary>
+    /// Project identifier (due to a known limitation, only project number is supported by this field) of the project that contains the secret. If not set, it will be populated with the function&#39;s project, assuming that the secret exists in the same project as of the function.
+    /// </summary>
+    public TerraformProperty<string>? ProjectId
+    {
+        get => GetProperty<TerraformProperty<string>>("project_id");
+        set => WithProperty("project_id", value);
+    }
+
+    /// <summary>
+    /// ID of the secret in secret manager (not the full resource name).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
+    public required TerraformProperty<string> Secret
+    {
+        get => GetProperty<TerraformProperty<string>>("secret");
+        set => WithProperty("secret", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_repository in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudfunctionsFunctionSourceRepositoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// The URL pointing to the hosted repository where the function was defined at the time of deployment.
+    /// </summary>
+    public TerraformProperty<string>? DeployedUrl
+    {
+        get => GetProperty<TerraformProperty<string>>("deployed_url");
+        set => WithProperty("deployed_url", value);
+    }
+
+    /// <summary>
+    /// The URL pointing to the hosted repository where the function is defined.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
+    public required TerraformProperty<string> Url
+    {
+        get => GetProperty<TerraformProperty<string>>("url");
+        set => WithProperty("url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCloudfunctionsFunctionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_cloudfunctions_function resource.
 /// </summary>
 public class GoogleCloudfunctionsFunction : TerraformResource
@@ -32,9 +240,9 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// <summary>
     ///  A set of key/value environment variable pairs available during build time.
     /// </summary>
-    public TerraformMapProperty<string>? BuildEnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>>? BuildEnvironmentVariables
     {
-        get => GetProperty<TerraformMapProperty<string>>("build_environment_variables");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("build_environment_variables");
         set => this.WithProperty("build_environment_variables", value);
     }
 
@@ -95,9 +303,9 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// <summary>
     /// A set of key/value environment variable pairs to assign to the function.
     /// </summary>
-    public TerraformMapProperty<string>? EnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
     {
-        get => GetProperty<TerraformMapProperty<string>>("environment_variables");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 
@@ -152,9 +360,9 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -179,7 +387,8 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// <summary>
     /// A user-defined name of the function. Function names must be unique globally.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -206,7 +415,8 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     /// <summary>
     /// The runtime in which the function is going to run. Eg. &amp;quot;nodejs20&amp;quot;, &amp;quot;python37&amp;quot;, &amp;quot;go111&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Runtime
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
+    public required TerraformProperty<string> Runtime
     {
         get => GetProperty<TerraformProperty<string>>("runtime");
         set => this.WithProperty("runtime", value);
@@ -273,6 +483,80 @@ public class GoogleCloudfunctionsFunction : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpc_connector_egress_settings");
         set => this.WithProperty("vpc_connector_egress_settings", value);
+    }
+
+    /// <summary>
+    /// Block for automatic_update_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticUpdatePolicy block(s) allowed")]
+    public List<GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock>? AutomaticUpdatePolicy
+    {
+        get => GetProperty<List<GoogleCloudfunctionsFunctionAutomaticUpdatePolicyBlock>>("automatic_update_policy");
+        set => this.WithProperty("automatic_update_policy", value);
+    }
+
+    /// <summary>
+    /// Block for event_trigger.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventTrigger block(s) allowed")]
+    public List<GoogleCloudfunctionsFunctionEventTriggerBlock>? EventTrigger
+    {
+        get => GetProperty<List<GoogleCloudfunctionsFunctionEventTriggerBlock>>("event_trigger");
+        set => this.WithProperty("event_trigger", value);
+    }
+
+    /// <summary>
+    /// Block for on_deploy_update_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnDeployUpdatePolicy block(s) allowed")]
+    public List<GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock>? OnDeployUpdatePolicy
+    {
+        get => GetProperty<List<GoogleCloudfunctionsFunctionOnDeployUpdatePolicyBlock>>("on_deploy_update_policy");
+        set => this.WithProperty("on_deploy_update_policy", value);
+    }
+
+    /// <summary>
+    /// Block for secret_environment_variables.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock>? SecretEnvironmentVariables
+    {
+        get => GetProperty<List<GoogleCloudfunctionsFunctionSecretEnvironmentVariablesBlock>>("secret_environment_variables");
+        set => this.WithProperty("secret_environment_variables", value);
+    }
+
+    /// <summary>
+    /// Block for secret_volumes.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleCloudfunctionsFunctionSecretVolumesBlock>? SecretVolumes
+    {
+        get => GetProperty<List<GoogleCloudfunctionsFunctionSecretVolumesBlock>>("secret_volumes");
+        set => this.WithProperty("secret_volumes", value);
+    }
+
+    /// <summary>
+    /// Block for source_repository.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceRepository block(s) allowed")]
+    public List<GoogleCloudfunctionsFunctionSourceRepositoryBlock>? SourceRepository
+    {
+        get => GetProperty<List<GoogleCloudfunctionsFunctionSourceRepositoryBlock>>("source_repository");
+        set => this.WithProperty("source_repository", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCloudfunctionsFunctionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCloudfunctionsFunctionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeNetworkFirewallPolicyAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_network_firewall_policy_association resource.
 /// </summary>
 public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
@@ -20,7 +46,8 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     /// <summary>
     /// The target that the firewall policy is attached to.
     /// </summary>
-    public TerraformProperty<string>? AttachmentTarget
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentTarget is required")]
+    public required TerraformProperty<string> AttachmentTarget
     {
         get => GetProperty<TerraformProperty<string>>("attachment_target");
         set => this.WithProperty("attachment_target", value);
@@ -29,7 +56,8 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     /// <summary>
     /// The firewall policy of the resource.
     /// </summary>
-    public TerraformProperty<string>? FirewallPolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
+    public required TerraformProperty<string> FirewallPolicy
     {
         get => GetProperty<TerraformProperty<string>>("firewall_policy");
         set => this.WithProperty("firewall_policy", value);
@@ -47,7 +75,8 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     /// <summary>
     /// The name for an association.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -60,6 +89,16 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeNetworkFirewallPolicyAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeNetworkFirewallPolicyAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,121 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for analytics_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The application_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? ApplicationArn
+    {
+        get => GetProperty<TerraformProperty<string>>("application_arn");
+        set => WithProperty("application_arn", value);
+    }
+
+    /// <summary>
+    /// The application_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? ApplicationId
+    {
+        get => GetProperty<TerraformProperty<string>>("application_id");
+        set => WithProperty("application_id", value);
+    }
+
+    /// <summary>
+    /// The external_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? ExternalId
+    {
+        get => GetProperty<TerraformProperty<string>>("external_id");
+        set => WithProperty("external_id", value);
+    }
+
+    /// <summary>
+    /// The role_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? RoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("role_arn");
+        set => WithProperty("role_arn", value);
+    }
+
+    /// <summary>
+    /// The user_data_shared attribute.
+    /// </summary>
+    public TerraformProperty<bool>? UserDataShared
+    {
+        get => GetProperty<TerraformProperty<bool>>("user_data_shared");
+        set => WithProperty("user_data_shared", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for refresh_token_rotation in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCognitoUserPoolClientRefreshTokenRotationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The feature attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
+    public required TerraformProperty<string> Feature
+    {
+        get => GetProperty<TerraformProperty<string>>("feature");
+        set => WithProperty("feature", value);
+    }
+
+    /// <summary>
+    /// The retry_grace_period_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? RetryGracePeriodSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("retry_grace_period_seconds");
+        set => WithProperty("retry_grace_period_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for token_validity_units in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The access_token attribute.
+    /// </summary>
+    public TerraformProperty<string>? AccessToken
+    {
+        get => GetProperty<TerraformProperty<string>>("access_token");
+        set => WithProperty("access_token", value);
+    }
+
+    /// <summary>
+    /// The id_token attribute.
+    /// </summary>
+    public TerraformProperty<string>? IdToken
+    {
+        get => GetProperty<TerraformProperty<string>>("id_token");
+        set => WithProperty("id_token", value);
+    }
+
+    /// <summary>
+    /// The refresh_token attribute.
+    /// </summary>
+    public TerraformProperty<string>? RefreshToken
+    {
+        get => GetProperty<TerraformProperty<string>>("refresh_token");
+        set => WithProperty("refresh_token", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cognito_user_pool_client resource.
 /// </summary>
 public class AwsCognitoUserPoolClient : TerraformResource
@@ -30,9 +145,9 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// <summary>
     /// The allowed_oauth_flows attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedOauthFlows
+    public HashSet<TerraformProperty<string>>? AllowedOauthFlows
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_oauth_flows");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_oauth_flows");
         set => this.WithProperty("allowed_oauth_flows", value);
     }
 
@@ -48,9 +163,9 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// <summary>
     /// The allowed_oauth_scopes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedOauthScopes
+    public HashSet<TerraformProperty<string>>? AllowedOauthScopes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_oauth_scopes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_oauth_scopes");
         set => this.WithProperty("allowed_oauth_scopes", value);
     }
 
@@ -66,9 +181,9 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// <summary>
     /// The callback_urls attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CallbackUrls
+    public HashSet<TerraformProperty<string>>? CallbackUrls
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("callback_urls");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("callback_urls");
         set => this.WithProperty("callback_urls", value);
     }
 
@@ -102,9 +217,9 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// <summary>
     /// The explicit_auth_flows attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ExplicitAuthFlows
+    public HashSet<TerraformProperty<string>>? ExplicitAuthFlows
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("explicit_auth_flows");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("explicit_auth_flows");
         set => this.WithProperty("explicit_auth_flows", value);
     }
 
@@ -129,16 +244,17 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// <summary>
     /// The logout_urls attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? LogoutUrls
+    public HashSet<TerraformProperty<string>>? LogoutUrls
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("logout_urls");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("logout_urls");
         set => this.WithProperty("logout_urls", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -156,9 +272,9 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// <summary>
     /// The read_attributes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ReadAttributes
+    public HashSet<TerraformProperty<string>>? ReadAttributes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("read_attributes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("read_attributes");
         set => this.WithProperty("read_attributes", value);
     }
 
@@ -183,16 +299,17 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// <summary>
     /// The supported_identity_providers attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SupportedIdentityProviders
+    public HashSet<TerraformProperty<string>>? SupportedIdentityProviders
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("supported_identity_providers");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("supported_identity_providers");
         set => this.WithProperty("supported_identity_providers", value);
     }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
+    public required TerraformProperty<string> UserPoolId
     {
         get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
@@ -201,10 +318,40 @@ public class AwsCognitoUserPoolClient : TerraformResource
     /// <summary>
     /// The write_attributes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? WriteAttributes
+    public HashSet<TerraformProperty<string>>? WriteAttributes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("write_attributes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("write_attributes");
         set => this.WithProperty("write_attributes", value);
+    }
+
+    /// <summary>
+    /// Block for analytics_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCognitoUserPoolClientAnalyticsConfigurationBlock>? AnalyticsConfiguration
+    {
+        get => GetProperty<List<AwsCognitoUserPoolClientAnalyticsConfigurationBlock>>("analytics_configuration");
+        set => this.WithProperty("analytics_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for refresh_token_rotation.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCognitoUserPoolClientRefreshTokenRotationBlock>? RefreshTokenRotation
+    {
+        get => GetProperty<List<AwsCognitoUserPoolClientRefreshTokenRotationBlock>>("refresh_token_rotation");
+        set => this.WithProperty("refresh_token_rotation", value);
+    }
+
+    /// <summary>
+    /// Block for token_validity_units.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCognitoUserPoolClientTokenValidityUnitsBlock>? TokenValidityUnits
+    {
+        get => GetProperty<List<AwsCognitoUserPoolClientTokenValidityUnitsBlock>>("token_validity_units");
+        set => this.WithProperty("token_validity_units", value);
     }
 
     /// <summary>

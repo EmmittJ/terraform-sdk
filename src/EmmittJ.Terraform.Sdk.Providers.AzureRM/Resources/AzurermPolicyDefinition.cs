@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_policy_definition resource.
 /// </summary>
 public class AzurermPolicyDefinition : TerraformResource
@@ -29,7 +73,8 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -65,7 +110,8 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformProperty<string>? Mode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformProperty<string> Mode
     {
         get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
@@ -74,7 +120,8 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -101,10 +148,21 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
+    public required TerraformProperty<string> PolicyType
     {
         get => GetProperty<TerraformProperty<string>>("policy_type");
         set => this.WithProperty("policy_type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPolicyDefinitionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPolicyDefinitionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

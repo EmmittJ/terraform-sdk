@@ -20,7 +20,8 @@ public class AwsPinpointEmailChannel : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -47,7 +48,8 @@ public class AwsPinpointEmailChannel : TerraformResource
     /// <summary>
     /// The from_address attribute.
     /// </summary>
-    public TerraformProperty<string>? FromAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromAddress is required")]
+    public required TerraformProperty<string> FromAddress
     {
         get => GetProperty<TerraformProperty<string>>("from_address");
         set => this.WithProperty("from_address", value);
@@ -65,7 +67,8 @@ public class AwsPinpointEmailChannel : TerraformResource
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformProperty<string>? Identity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
+    public required TerraformProperty<string> Identity
     {
         get => GetProperty<TerraformProperty<string>>("identity");
         set => this.WithProperty("identity", value);

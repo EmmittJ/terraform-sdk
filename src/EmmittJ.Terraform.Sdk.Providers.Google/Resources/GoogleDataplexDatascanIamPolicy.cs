@@ -20,7 +20,8 @@ public class GoogleDataplexDatascanIamPolicy : TerraformResource
     /// <summary>
     /// The data_scan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataScanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataScanId is required")]
+    public required TerraformProperty<string> DataScanId
     {
         get => GetProperty<TerraformProperty<string>>("data_scan_id");
         set => this.WithProperty("data_scan_id", value);
@@ -47,7 +48,8 @@ public class GoogleDataplexDatascanIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

@@ -29,7 +29,8 @@ public class GoogleAlloydbSupportedDatabaseFlagsDataSource : TerraformDataSource
     /// <summary>
     /// The canonical id for the location. For example: &amp;quot;us-east1&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for authorization in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The role_definition_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
+    public required TerraformProperty<string> RoleDefinitionId
+    {
+        get => GetProperty<TerraformProperty<string>>("role_definition_id");
+        set => WithProperty("role_definition_id", value);
+    }
+
+    /// <summary>
+    /// The service_principal_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
+    public required TerraformProperty<string> ServicePrincipalId
+    {
+        get => GetProperty<TerraformProperty<string>>("service_principal_id");
+        set => WithProperty("service_principal_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_managed_application_definition resource.
 /// </summary>
 public class AzurermManagedApplicationDefinition : TerraformResource
@@ -37,7 +109,8 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -55,7 +128,8 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -64,7 +138,8 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// <summary>
     /// The lock_level attribute.
     /// </summary>
-    public TerraformProperty<string>? LockLevel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LockLevel is required")]
+    public required TerraformProperty<string> LockLevel
     {
         get => GetProperty<TerraformProperty<string>>("lock_level");
         set => this.WithProperty("lock_level", value);
@@ -82,7 +157,8 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -109,7 +185,8 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -118,10 +195,30 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for authorization.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AzurermManagedApplicationDefinitionAuthorizationBlock>? Authorization
+    {
+        get => GetProperty<HashSet<AzurermManagedApplicationDefinitionAuthorizationBlock>>("authorization");
+        set => this.WithProperty("authorization", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermManagedApplicationDefinitionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermManagedApplicationDefinitionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

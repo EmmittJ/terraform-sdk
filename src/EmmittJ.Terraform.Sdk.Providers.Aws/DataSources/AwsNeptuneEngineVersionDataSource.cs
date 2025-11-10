@@ -95,27 +95,27 @@ public class AwsNeptuneEngineVersionDataSource : TerraformDataSource
     /// <summary>
     /// The preferred_major_targets attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredMajorTargets
+    public List<TerraformProperty<string>>? PreferredMajorTargets
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_major_targets");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_major_targets");
         set => this.WithProperty("preferred_major_targets", value);
     }
 
     /// <summary>
     /// The preferred_upgrade_targets attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredUpgradeTargets
+    public List<TerraformProperty<string>>? PreferredUpgradeTargets
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_upgrade_targets");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_upgrade_targets");
         set => this.WithProperty("preferred_upgrade_targets", value);
     }
 
     /// <summary>
     /// The preferred_versions attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredVersions
+    public List<TerraformProperty<string>>? PreferredVersions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_versions");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_versions");
         set => this.WithProperty("preferred_versions", value);
     }
 

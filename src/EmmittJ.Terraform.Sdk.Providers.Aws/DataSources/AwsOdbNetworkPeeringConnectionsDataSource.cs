@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for odb_peering_connections in .
+/// Nesting mode: list
+/// </summary>
+public class AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Retrieves information about a aws_odb_network_peering_connections.
 /// </summary>
 public class AwsOdbNetworkPeeringConnectionsDataSource : TerraformDataSource
@@ -23,6 +31,16 @@ public class AwsOdbNetworkPeeringConnectionsDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for odb_peering_connections.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock>? OdbPeeringConnections
+    {
+        get => GetProperty<List<AwsOdbNetworkPeeringConnectionsDataSourceOdbPeeringConnectionsBlock>>("odb_peering_connections");
+        set => this.WithProperty("odb_peering_connections", value);
     }
 
 }

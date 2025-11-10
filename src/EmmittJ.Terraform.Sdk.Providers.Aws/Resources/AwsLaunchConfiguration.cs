@@ -3,6 +3,229 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for ebs_block_device in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete_on_termination attribute.
+    /// </summary>
+    public TerraformProperty<bool>? DeleteOnTermination
+    {
+        get => GetProperty<TerraformProperty<bool>>("delete_on_termination");
+        set => WithProperty("delete_on_termination", value);
+    }
+
+    /// <summary>
+    /// The device_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
+    public required TerraformProperty<string> DeviceName
+    {
+        get => GetProperty<TerraformProperty<string>>("device_name");
+        set => WithProperty("device_name", value);
+    }
+
+    /// <summary>
+    /// The encrypted attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Encrypted
+    {
+        get => GetProperty<TerraformProperty<bool>>("encrypted");
+        set => WithProperty("encrypted", value);
+    }
+
+    /// <summary>
+    /// The iops attribute.
+    /// </summary>
+    public TerraformProperty<double>? Iops
+    {
+        get => GetProperty<TerraformProperty<double>>("iops");
+        set => WithProperty("iops", value);
+    }
+
+    /// <summary>
+    /// The no_device attribute.
+    /// </summary>
+    public TerraformProperty<bool>? NoDevice
+    {
+        get => GetProperty<TerraformProperty<bool>>("no_device");
+        set => WithProperty("no_device", value);
+    }
+
+    /// <summary>
+    /// The snapshot_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SnapshotId
+    {
+        get => GetProperty<TerraformProperty<string>>("snapshot_id");
+        set => WithProperty("snapshot_id", value);
+    }
+
+    /// <summary>
+    /// The throughput attribute.
+    /// </summary>
+    public TerraformProperty<double>? Throughput
+    {
+        get => GetProperty<TerraformProperty<double>>("throughput");
+        set => WithProperty("throughput", value);
+    }
+
+    /// <summary>
+    /// The volume_size attribute.
+    /// </summary>
+    public TerraformProperty<double>? VolumeSize
+    {
+        get => GetProperty<TerraformProperty<double>>("volume_size");
+        set => WithProperty("volume_size", value);
+    }
+
+    /// <summary>
+    /// The volume_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? VolumeType
+    {
+        get => GetProperty<TerraformProperty<string>>("volume_type");
+        set => WithProperty("volume_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ephemeral_block_device in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLaunchConfigurationEphemeralBlockDeviceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The device_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
+    public required TerraformProperty<string> DeviceName
+    {
+        get => GetProperty<TerraformProperty<string>>("device_name");
+        set => WithProperty("device_name", value);
+    }
+
+    /// <summary>
+    /// The no_device attribute.
+    /// </summary>
+    public TerraformProperty<bool>? NoDevice
+    {
+        get => GetProperty<TerraformProperty<bool>>("no_device");
+        set => WithProperty("no_device", value);
+    }
+
+    /// <summary>
+    /// The virtual_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? VirtualName
+    {
+        get => GetProperty<TerraformProperty<string>>("virtual_name");
+        set => WithProperty("virtual_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for metadata_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLaunchConfigurationMetadataOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The http_endpoint attribute.
+    /// </summary>
+    public TerraformProperty<string>? HttpEndpoint
+    {
+        get => GetProperty<TerraformProperty<string>>("http_endpoint");
+        set => WithProperty("http_endpoint", value);
+    }
+
+    /// <summary>
+    /// The http_put_response_hop_limit attribute.
+    /// </summary>
+    public TerraformProperty<double>? HttpPutResponseHopLimit
+    {
+        get => GetProperty<TerraformProperty<double>>("http_put_response_hop_limit");
+        set => WithProperty("http_put_response_hop_limit", value);
+    }
+
+    /// <summary>
+    /// The http_tokens attribute.
+    /// </summary>
+    public TerraformProperty<string>? HttpTokens
+    {
+        get => GetProperty<TerraformProperty<string>>("http_tokens");
+        set => WithProperty("http_tokens", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for root_block_device in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLaunchConfigurationRootBlockDeviceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete_on_termination attribute.
+    /// </summary>
+    public TerraformProperty<bool>? DeleteOnTermination
+    {
+        get => GetProperty<TerraformProperty<bool>>("delete_on_termination");
+        set => WithProperty("delete_on_termination", value);
+    }
+
+    /// <summary>
+    /// The encrypted attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Encrypted
+    {
+        get => GetProperty<TerraformProperty<bool>>("encrypted");
+        set => WithProperty("encrypted", value);
+    }
+
+    /// <summary>
+    /// The iops attribute.
+    /// </summary>
+    public TerraformProperty<double>? Iops
+    {
+        get => GetProperty<TerraformProperty<double>>("iops");
+        set => WithProperty("iops", value);
+    }
+
+    /// <summary>
+    /// The throughput attribute.
+    /// </summary>
+    public TerraformProperty<double>? Throughput
+    {
+        get => GetProperty<TerraformProperty<double>>("throughput");
+        set => WithProperty("throughput", value);
+    }
+
+    /// <summary>
+    /// The volume_size attribute.
+    /// </summary>
+    public TerraformProperty<double>? VolumeSize
+    {
+        get => GetProperty<TerraformProperty<double>>("volume_size");
+        set => WithProperty("volume_size", value);
+    }
+
+    /// <summary>
+    /// The volume_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? VolumeType
+    {
+        get => GetProperty<TerraformProperty<string>>("volume_type");
+        set => WithProperty("volume_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_launch_configuration resource.
 /// </summary>
 public class AwsLaunchConfiguration : TerraformResource
@@ -65,7 +288,8 @@ public class AwsLaunchConfiguration : TerraformResource
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
+    public required TerraformProperty<string> ImageId
     {
         get => GetProperty<TerraformProperty<string>>("image_id");
         set => this.WithProperty("image_id", value);
@@ -74,7 +298,8 @@ public class AwsLaunchConfiguration : TerraformResource
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
     {
         get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
@@ -128,9 +353,9 @@ public class AwsLaunchConfiguration : TerraformResource
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
@@ -159,6 +384,48 @@ public class AwsLaunchConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_data_base64");
         set => this.WithProperty("user_data_base64", value);
+    }
+
+    /// <summary>
+    /// Block for ebs_block_device.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsLaunchConfigurationEbsBlockDeviceBlock>? EbsBlockDevice
+    {
+        get => GetProperty<HashSet<AwsLaunchConfigurationEbsBlockDeviceBlock>>("ebs_block_device");
+        set => this.WithProperty("ebs_block_device", value);
+    }
+
+    /// <summary>
+    /// Block for ephemeral_block_device.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsLaunchConfigurationEphemeralBlockDeviceBlock>? EphemeralBlockDevice
+    {
+        get => GetProperty<HashSet<AwsLaunchConfigurationEphemeralBlockDeviceBlock>>("ephemeral_block_device");
+        set => this.WithProperty("ephemeral_block_device", value);
+    }
+
+    /// <summary>
+    /// Block for metadata_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataOptions block(s) allowed")]
+    public List<AwsLaunchConfigurationMetadataOptionsBlock>? MetadataOptions
+    {
+        get => GetProperty<List<AwsLaunchConfigurationMetadataOptionsBlock>>("metadata_options");
+        set => this.WithProperty("metadata_options", value);
+    }
+
+    /// <summary>
+    /// Block for root_block_device.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootBlockDevice block(s) allowed")]
+    public List<AwsLaunchConfigurationRootBlockDeviceBlock>? RootBlockDevice
+    {
+        get => GetProperty<List<AwsLaunchConfigurationRootBlockDeviceBlock>>("root_block_device");
+        set => this.WithProperty("root_block_device", value);
     }
 
     /// <summary>

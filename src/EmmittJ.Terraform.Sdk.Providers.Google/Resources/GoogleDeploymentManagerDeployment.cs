@@ -3,6 +3,75 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for labels in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Key for label.
+    /// </summary>
+    public TerraformProperty<string>? Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// Value of label.
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeploymentManagerDeploymentTargetBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_deployment_manager_deployment resource.
 /// </summary>
 public class GoogleDeploymentManagerDeployment : TerraformResource
@@ -67,7 +136,8 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// <summary>
     /// Unique name for the deployment
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -96,6 +166,38 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for labels.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleDeploymentManagerDeploymentLabelsBlock>? Labels
+    {
+        get => GetProperty<HashSet<GoogleDeploymentManagerDeploymentLabelsBlock>>("labels");
+        set => this.WithProperty("labels", value);
+    }
+
+    /// <summary>
+    /// Block for target.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
+    public List<GoogleDeploymentManagerDeploymentTargetBlock>? Target
+    {
+        get => GetProperty<List<GoogleDeploymentManagerDeploymentTargetBlock>>("target");
+        set => this.WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDeploymentManagerDeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDeploymentManagerDeploymentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

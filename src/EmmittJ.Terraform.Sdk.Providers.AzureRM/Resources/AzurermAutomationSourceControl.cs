@@ -3,6 +3,87 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for security in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The refresh_token attribute.
+    /// </summary>
+    public TerraformProperty<string>? RefreshToken
+    {
+        get => GetProperty<TerraformProperty<string>>("refresh_token");
+        set => WithProperty("refresh_token", value);
+    }
+
+    /// <summary>
+    /// The token attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
+    public required TerraformProperty<string> Token
+    {
+        get => GetProperty<TerraformProperty<string>>("token");
+        set => WithProperty("token", value);
+    }
+
+    /// <summary>
+    /// The token_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenType is required")]
+    public required TerraformProperty<string> TokenType
+    {
+        get => GetProperty<TerraformProperty<string>>("token_type");
+        set => WithProperty("token_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_automation_source_control resource.
 /// </summary>
 public class AzurermAutomationSourceControl : TerraformResource
@@ -28,7 +109,8 @@ public class AzurermAutomationSourceControl : TerraformResource
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AutomationAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
+    public required TerraformProperty<string> AutomationAccountId
     {
         get => GetProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
@@ -55,7 +137,8 @@ public class AzurermAutomationSourceControl : TerraformResource
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    public TerraformProperty<string>? FolderPath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderPath is required")]
+    public required TerraformProperty<string> FolderPath
     {
         get => GetProperty<TerraformProperty<string>>("folder_path");
         set => this.WithProperty("folder_path", value);
@@ -73,7 +156,8 @@ public class AzurermAutomationSourceControl : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -91,7 +175,8 @@ public class AzurermAutomationSourceControl : TerraformResource
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryUrl
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
+    public required TerraformProperty<string> RepositoryUrl
     {
         get => GetProperty<TerraformProperty<string>>("repository_url");
         set => this.WithProperty("repository_url", value);
@@ -100,10 +185,33 @@ public class AzurermAutomationSourceControl : TerraformResource
     /// <summary>
     /// The source_control_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceControlType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceControlType is required")]
+    public required TerraformProperty<string> SourceControlType
     {
         get => GetProperty<TerraformProperty<string>>("source_control_type");
         set => this.WithProperty("source_control_type", value);
+    }
+
+    /// <summary>
+    /// Block for security.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Security block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
+    public List<AzurermAutomationSourceControlSecurityBlock>? Security
+    {
+        get => GetProperty<List<AzurermAutomationSourceControlSecurityBlock>>("security");
+        set => this.WithProperty("security", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAutomationSourceControlTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAutomationSourceControlTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

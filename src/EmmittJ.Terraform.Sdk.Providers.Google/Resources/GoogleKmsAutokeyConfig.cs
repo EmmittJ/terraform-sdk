@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleKmsAutokeyConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_kms_autokey_config resource.
 /// </summary>
 public class GoogleKmsAutokeyConfig : TerraformResource
@@ -20,7 +55,8 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     /// <summary>
     /// The folder for which to retrieve config.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
+    public required TerraformProperty<string> Folder
     {
         get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
@@ -44,6 +80,16 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("key_project");
         set => this.WithProperty("key_project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleKmsAutokeyConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleKmsAutokeyConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

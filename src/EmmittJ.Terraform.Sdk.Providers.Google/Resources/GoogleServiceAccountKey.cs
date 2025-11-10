@@ -33,9 +33,9 @@ public class GoogleServiceAccountKey : TerraformResource
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger recreation of resource.
     /// </summary>
-    public TerraformMapProperty<string>? Keepers
+    public Dictionary<string, TerraformProperty<string>>? Keepers
     {
-        get => GetProperty<TerraformMapProperty<string>>("keepers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("keepers");
         set => this.WithProperty("keepers", value);
     }
 
@@ -78,7 +78,8 @@ public class GoogleServiceAccountKey : TerraformResource
     /// <summary>
     /// The ID of the parent service account of the key. This can be a string in the format {ACCOUNT} or projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}, where {ACCOUNT} is the email address or unique id of the service account. If the {ACCOUNT} syntax is used, the project will be inferred from the provider&#39;s configuration.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
+    public required TerraformProperty<string> ServiceAccountId
     {
         get => GetProperty<TerraformProperty<string>>("service_account_id");
         set => this.WithProperty("service_account_id", value);

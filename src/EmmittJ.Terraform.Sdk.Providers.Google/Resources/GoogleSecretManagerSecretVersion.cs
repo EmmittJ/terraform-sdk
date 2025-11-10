@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSecretManagerSecretVersionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_secret_manager_secret_version resource.
 /// </summary>
 public class GoogleSecretManagerSecretVersion : TerraformResource
@@ -64,7 +99,8 @@ public class GoogleSecretManagerSecretVersion : TerraformResource
     /// <summary>
     /// Secret Manager secret resource
     /// </summary>
-    public TerraformProperty<string>? Secret
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
+    public required TerraformProperty<string> Secret
     {
         get => GetProperty<TerraformProperty<string>>("secret");
         set => this.WithProperty("secret", value);
@@ -95,6 +131,16 @@ public class GoogleSecretManagerSecretVersion : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("secret_data_wo_version");
         set => this.WithProperty("secret_data_wo_version", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSecretManagerSecretVersionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSecretManagerSecretVersionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

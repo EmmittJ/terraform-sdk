@@ -713,9 +713,9 @@ public class GoogleProvider : TerraformProvider
     /// The default_labels configuration.
     /// (Optional)
     /// </summary>
-    public TerraformMapProperty<string>? DefaultLabels
+    public Dictionary<string, TerraformProperty<string>>? DefaultLabels
     {
-        get => GetProperty<TerraformMapProperty<string>>("default_labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("default_labels");
         set => this.WithProperty("default_labels", value);
     }
 
@@ -1053,9 +1053,9 @@ public class GoogleProvider : TerraformProvider
     /// The impersonate_service_account_delegates configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<string>>? ImpersonateServiceAccountDelegates
+    public List<TerraformProperty<string>>? ImpersonateServiceAccountDelegates
     {
-        get => GetProperty<TerraformProperty<List<string>>>("impersonate_service_account_delegates");
+        get => GetProperty<List<TerraformProperty<string>>>("impersonate_service_account_delegates");
         set => this.WithProperty("impersonate_service_account_delegates", value);
     }
 
@@ -1503,9 +1503,9 @@ public class GoogleProvider : TerraformProvider
     /// The scopes configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<string>>? Scopes
+    public List<TerraformProperty<string>>? Scopes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("scopes");
+        get => GetProperty<List<TerraformProperty<string>>>("scopes");
         set => this.WithProperty("scopes", value);
     }
 

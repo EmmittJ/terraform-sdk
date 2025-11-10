@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for attributes in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApphubWorkloadAttributesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApphubWorkloadTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apphub_workload resource.
 /// </summary>
 public class GoogleApphubWorkload : TerraformResource
@@ -26,7 +69,8 @@ public class GoogleApphubWorkload : TerraformResource
     /// <summary>
     /// Part of &#39;parent&#39;.  Full resource name of a parent Application. Example: projects/{HOST_PROJECT_ID}/locations/{LOCATION}/applications/{APPLICATION_ID}
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -44,7 +88,8 @@ public class GoogleApphubWorkload : TerraformResource
     /// <summary>
     /// Immutable. The resource name of the original discovered workload.
     /// </summary>
-    public TerraformProperty<string>? DiscoveredWorkload
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveredWorkload is required")]
+    public required TerraformProperty<string> DiscoveredWorkload
     {
         get => GetProperty<TerraformProperty<string>>("discovered_workload");
         set => this.WithProperty("discovered_workload", value);
@@ -71,7 +116,8 @@ public class GoogleApphubWorkload : TerraformResource
     /// <summary>
     /// Part of &#39;parent&#39;.  Full resource name of a parent Application. Example: projects/{HOST_PROJECT_ID}/locations/{LOCATION}/applications/{APPLICATION_ID}
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -89,10 +135,32 @@ public class GoogleApphubWorkload : TerraformResource
     /// <summary>
     /// The Workload identifier.
     /// </summary>
-    public TerraformProperty<string>? WorkloadId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadId is required")]
+    public required TerraformProperty<string> WorkloadId
     {
         get => GetProperty<TerraformProperty<string>>("workload_id");
         set => this.WithProperty("workload_id", value);
+    }
+
+    /// <summary>
+    /// Block for attributes.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
+    public List<GoogleApphubWorkloadAttributesBlock>? Attributes
+    {
+        get => GetProperty<List<GoogleApphubWorkloadAttributesBlock>>("attributes");
+        set => this.WithProperty("attributes", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApphubWorkloadTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApphubWorkloadTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for stream_mode_details in .
+/// Nesting mode: list
+/// </summary>
+public class AwsKinesisStreamStreamModeDetailsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The stream_mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamMode is required")]
+    public required TerraformProperty<string> StreamMode
+    {
+        get => GetProperty<TerraformProperty<string>>("stream_mode");
+        set => WithProperty("stream_mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsKinesisStreamTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_kinesis_stream resource.
 /// </summary>
 public class AwsKinesisStream : TerraformResource
@@ -64,7 +117,8 @@ public class AwsKinesisStream : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,28 +154,49 @@ public class AwsKinesisStream : TerraformResource
     /// <summary>
     /// The shard_level_metrics attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ShardLevelMetrics
+    public HashSet<TerraformProperty<string>>? ShardLevelMetrics
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("shard_level_metrics");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("shard_level_metrics");
         set => this.WithProperty("shard_level_metrics", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for stream_mode_details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamModeDetails block(s) allowed")]
+    public List<AwsKinesisStreamStreamModeDetailsBlock>? StreamModeDetails
+    {
+        get => GetProperty<List<AwsKinesisStreamStreamModeDetailsBlock>>("stream_mode_details");
+        set => this.WithProperty("stream_mode_details", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsKinesisStreamTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsKinesisStreamTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

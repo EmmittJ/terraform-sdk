@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for bgp_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpcRouteServerPeerBgpOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The peer_asn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
+    public required TerraformProperty<double> PeerAsn
+    {
+        get => GetProperty<TerraformProperty<double>>("peer_asn");
+        set => WithProperty("peer_asn", value);
+    }
+
+    /// <summary>
+    /// The peer_liveness_detection attribute.
+    /// </summary>
+    public TerraformProperty<string>? PeerLivenessDetection
+    {
+        get => GetProperty<TerraformProperty<string>>("peer_liveness_detection");
+        set => WithProperty("peer_liveness_detection", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcRouteServerPeerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_route_server_peer resource.
 /// </summary>
 public class AwsVpcRouteServerPeer : TerraformResource
@@ -27,7 +80,8 @@ public class AwsVpcRouteServerPeer : TerraformResource
     /// <summary>
     /// The peer_address attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
+    public required TerraformProperty<string> PeerAddress
     {
         get => GetProperty<TerraformProperty<string>>("peer_address");
         set => this.WithProperty("peer_address", value);
@@ -45,7 +99,8 @@ public class AwsVpcRouteServerPeer : TerraformResource
     /// <summary>
     /// The route_server_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteServerEndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerEndpointId is required")]
+    public required TerraformProperty<string> RouteServerEndpointId
     {
         get => GetProperty<TerraformProperty<string>>("route_server_endpoint_id");
         set => this.WithProperty("route_server_endpoint_id", value);
@@ -54,10 +109,30 @@ public class AwsVpcRouteServerPeer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for bgp_options.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsVpcRouteServerPeerBgpOptionsBlock>? BgpOptions
+    {
+        get => GetProperty<List<AwsVpcRouteServerPeerBgpOptionsBlock>>("bgp_options");
+        set => this.WithProperty("bgp_options", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcRouteServerPeerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcRouteServerPeerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

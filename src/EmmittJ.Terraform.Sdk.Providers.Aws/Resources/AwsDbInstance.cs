@@ -3,6 +3,168 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for blue_green_update in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDbInstanceBlueGreenUpdateBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for restore_to_point_in_time in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDbInstanceRestoreToPointInTimeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The restore_time attribute.
+    /// </summary>
+    public TerraformProperty<string>? RestoreTime
+    {
+        get => GetProperty<TerraformProperty<string>>("restore_time");
+        set => WithProperty("restore_time", value);
+    }
+
+    /// <summary>
+    /// The source_db_instance_automated_backups_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceDbInstanceAutomatedBackupsArn
+    {
+        get => GetProperty<TerraformProperty<string>>("source_db_instance_automated_backups_arn");
+        set => WithProperty("source_db_instance_automated_backups_arn", value);
+    }
+
+    /// <summary>
+    /// The source_db_instance_identifier attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceDbInstanceIdentifier
+    {
+        get => GetProperty<TerraformProperty<string>>("source_db_instance_identifier");
+        set => WithProperty("source_db_instance_identifier", value);
+    }
+
+    /// <summary>
+    /// The source_dbi_resource_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceDbiResourceId
+    {
+        get => GetProperty<TerraformProperty<string>>("source_dbi_resource_id");
+        set => WithProperty("source_dbi_resource_id", value);
+    }
+
+    /// <summary>
+    /// The use_latest_restorable_time attribute.
+    /// </summary>
+    public TerraformProperty<bool>? UseLatestRestorableTime
+    {
+        get => GetProperty<TerraformProperty<bool>>("use_latest_restorable_time");
+        set => WithProperty("use_latest_restorable_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for s3_import in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDbInstanceS3ImportBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        set => WithProperty("bucket_name", value);
+    }
+
+    /// <summary>
+    /// The bucket_prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? BucketPrefix
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_prefix");
+        set => WithProperty("bucket_prefix", value);
+    }
+
+    /// <summary>
+    /// The ingestion_role attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionRole is required")]
+    public required TerraformProperty<string> IngestionRole
+    {
+        get => GetProperty<TerraformProperty<string>>("ingestion_role");
+        set => WithProperty("ingestion_role", value);
+    }
+
+    /// <summary>
+    /// The source_engine attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngine is required")]
+    public required TerraformProperty<string> SourceEngine
+    {
+        get => GetProperty<TerraformProperty<string>>("source_engine");
+        set => WithProperty("source_engine", value);
+    }
+
+    /// <summary>
+    /// The source_engine_version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngineVersion is required")]
+    public required TerraformProperty<string> SourceEngineVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("source_engine_version");
+        set => WithProperty("source_engine_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDbInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_db_instance resource.
 /// </summary>
 public class AwsDbInstance : TerraformResource
@@ -219,9 +381,9 @@ public class AwsDbInstance : TerraformResource
     /// <summary>
     /// The domain_dns_ips attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? DomainDnsIps
+    public List<TerraformProperty<string>>? DomainDnsIps
     {
-        get => GetProperty<TerraformProperty<List<string>>>("domain_dns_ips");
+        get => GetProperty<List<TerraformProperty<string>>>("domain_dns_ips");
         set => this.WithProperty("domain_dns_ips", value);
     }
 
@@ -255,9 +417,9 @@ public class AwsDbInstance : TerraformResource
     /// <summary>
     /// The enabled_cloudwatch_logs_exports attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EnabledCloudwatchLogsExports
+    public HashSet<TerraformProperty<string>>? EnabledCloudwatchLogsExports
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("enabled_cloudwatch_logs_exports");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_cloudwatch_logs_exports");
         set => this.WithProperty("enabled_cloudwatch_logs_exports", value);
     }
 
@@ -336,7 +498,8 @@ public class AwsDbInstance : TerraformResource
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceClass
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceClass is required")]
+    public required TerraformProperty<string> InstanceClass
     {
         get => GetProperty<TerraformProperty<string>>("instance_class");
         set => this.WithProperty("instance_class", value);
@@ -615,18 +778,18 @@ public class AwsDbInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -660,10 +823,53 @@ public class AwsDbInstance : TerraformResource
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
+    }
+
+    /// <summary>
+    /// Block for blue_green_update.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlueGreenUpdate block(s) allowed")]
+    public List<AwsDbInstanceBlueGreenUpdateBlock>? BlueGreenUpdate
+    {
+        get => GetProperty<List<AwsDbInstanceBlueGreenUpdateBlock>>("blue_green_update");
+        set => this.WithProperty("blue_green_update", value);
+    }
+
+    /// <summary>
+    /// Block for restore_to_point_in_time.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreToPointInTime block(s) allowed")]
+    public List<AwsDbInstanceRestoreToPointInTimeBlock>? RestoreToPointInTime
+    {
+        get => GetProperty<List<AwsDbInstanceRestoreToPointInTimeBlock>>("restore_to_point_in_time");
+        set => this.WithProperty("restore_to_point_in_time", value);
+    }
+
+    /// <summary>
+    /// Block for s3_import.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Import block(s) allowed")]
+    public List<AwsDbInstanceS3ImportBlock>? S3Import
+    {
+        get => GetProperty<List<AwsDbInstanceS3ImportBlock>>("s3_import");
+        set => this.WithProperty("s3_import", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDbInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDbInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

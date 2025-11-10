@@ -20,7 +20,8 @@ public class AwsEksAddonVersionDataSource : TerraformDataSource
     /// <summary>
     /// The addon_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AddonName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
+    public required TerraformProperty<string> AddonName
     {
         get => GetProperty<TerraformProperty<string>>("addon_name");
         set => this.WithProperty("addon_name", value);
@@ -38,7 +39,8 @@ public class AwsEksAddonVersionDataSource : TerraformDataSource
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
-    public TerraformProperty<string>? KubernetesVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesVersion is required")]
+    public required TerraformProperty<string> KubernetesVersion
     {
         get => GetProperty<TerraformProperty<string>>("kubernetes_version");
         set => this.WithProperty("kubernetes_version", value);

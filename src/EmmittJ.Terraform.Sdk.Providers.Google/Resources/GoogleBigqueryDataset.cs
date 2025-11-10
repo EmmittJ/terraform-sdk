@@ -3,6 +3,191 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for access in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleBigqueryDatasetAccessBlock : TerraformBlock
+{
+    /// <summary>
+    /// A domain to grant access to. Any users signed in with the
+    /// domain specified will be granted the specified access
+    /// </summary>
+    public TerraformProperty<string>? Domain
+    {
+        get => GetProperty<TerraformProperty<string>>("domain");
+        set => WithProperty("domain", value);
+    }
+
+    /// <summary>
+    /// An email address of a Google Group to grant access to.
+    /// </summary>
+    public TerraformProperty<string>? GroupByEmail
+    {
+        get => GetProperty<TerraformProperty<string>>("group_by_email");
+        set => WithProperty("group_by_email", value);
+    }
+
+    /// <summary>
+    /// Some other type of member that appears in the IAM Policy but isn&#39;t a user,
+    /// group, domain, or special group. For example: &#39;allUsers&#39;
+    /// </summary>
+    public TerraformProperty<string>? IamMember
+    {
+        get => GetProperty<TerraformProperty<string>>("iam_member");
+        set => WithProperty("iam_member", value);
+    }
+
+    /// <summary>
+    /// Describes the rights granted to the user specified by the other
+    /// member of the access object. Basic, predefined, and custom roles
+    /// are supported. Predefined roles that have equivalent basic roles
+    /// are swapped by the API to their basic counterparts. See
+    /// [official docs](https://cloud.google.com/bigquery/docs/access-control).
+    /// </summary>
+    public TerraformProperty<string>? Role
+    {
+        get => GetProperty<TerraformProperty<string>>("role");
+        set => WithProperty("role", value);
+    }
+
+    /// <summary>
+    /// A special group to grant access to. Possible values include:
+    /// * &#39;projectOwners&#39;: Owners of the enclosing project.
+    /// * &#39;projectReaders&#39;: Readers of the enclosing project.
+    /// * &#39;projectWriters&#39;: Writers of the enclosing project.
+    /// * &#39;allAuthenticatedUsers&#39;: All authenticated BigQuery users.
+    /// </summary>
+    public TerraformProperty<string>? SpecialGroup
+    {
+        get => GetProperty<TerraformProperty<string>>("special_group");
+        set => WithProperty("special_group", value);
+    }
+
+    /// <summary>
+    /// An email address of a user to grant access to. For example:
+    /// fred@example.com
+    /// </summary>
+    public TerraformProperty<string>? UserByEmail
+    {
+        get => GetProperty<TerraformProperty<string>>("user_by_email");
+        set => WithProperty("user_by_email", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for default_encryption_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Describes the Cloud KMS encryption key that will be used to protect destination
+    /// BigQuery table. The BigQuery Service Account associated with your project requires
+    /// access to this encryption key.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
+    public required TerraformProperty<string> KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for external_catalog_dataset_options in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The storage location URI for all tables in the dataset. Equivalent to hive metastore&#39;s
+    /// database locationUri. Maximum length of 1024 characters.
+    /// </summary>
+    public TerraformProperty<string>? DefaultStorageLocationUri
+    {
+        get => GetProperty<TerraformProperty<string>>("default_storage_location_uri");
+        set => WithProperty("default_storage_location_uri", value);
+    }
+
+    /// <summary>
+    /// A map of key value pairs defining the parameters and properties of the open source schema.
+    /// Maximum size of 2Mib.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Parameters
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => WithProperty("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for external_dataset_reference in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatasetExternalDatasetReferenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The connection id that is used to access the externalSource.
+    /// Format: projects/{projectId}/locations/{locationId}/connections/{connectionId}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connection is required")]
+    public required TerraformProperty<string> Connection
+    {
+        get => GetProperty<TerraformProperty<string>>("connection");
+        set => WithProperty("connection", value);
+    }
+
+    /// <summary>
+    /// External source that backs this dataset.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalSource is required")]
+    public required TerraformProperty<string> ExternalSource
+    {
+        get => GetProperty<TerraformProperty<string>>("external_source");
+        set => WithProperty("external_source", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigqueryDatasetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_dataset resource.
 /// </summary>
 public class GoogleBigqueryDataset : TerraformResource
@@ -27,7 +212,8 @@ public class GoogleBigqueryDataset : TerraformResource
     /// must contain only letters (a-z, A-Z), numbers (0-9), or
     /// underscores (_). The maximum length is 1,024 characters.
     /// </summary>
-    public TerraformProperty<string>? DatasetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
+    public required TerraformProperty<string> DatasetId
     {
         get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
@@ -148,9 +334,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -195,9 +381,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// to be the short name, for example &amp;quot;Production&amp;quot;. See [Tag definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
     /// for more details.
     /// </summary>
-    public TerraformMapProperty<string>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>>? ResourceTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("resource_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 
@@ -212,6 +398,59 @@ public class GoogleBigqueryDataset : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("storage_billing_model");
         set => this.WithProperty("storage_billing_model", value);
+    }
+
+    /// <summary>
+    /// Block for access.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleBigqueryDatasetAccessBlock>? Access
+    {
+        get => GetProperty<HashSet<GoogleBigqueryDatasetAccessBlock>>("access");
+        set => this.WithProperty("access", value);
+    }
+
+    /// <summary>
+    /// Block for default_encryption_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultEncryptionConfiguration block(s) allowed")]
+    public List<GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock>? DefaultEncryptionConfiguration
+    {
+        get => GetProperty<List<GoogleBigqueryDatasetDefaultEncryptionConfigurationBlock>>("default_encryption_configuration");
+        set => this.WithProperty("default_encryption_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for external_catalog_dataset_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalCatalogDatasetOptions block(s) allowed")]
+    public List<GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock>? ExternalCatalogDatasetOptions
+    {
+        get => GetProperty<List<GoogleBigqueryDatasetExternalCatalogDatasetOptionsBlock>>("external_catalog_dataset_options");
+        set => this.WithProperty("external_catalog_dataset_options", value);
+    }
+
+    /// <summary>
+    /// Block for external_dataset_reference.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalDatasetReference block(s) allowed")]
+    public List<GoogleBigqueryDatasetExternalDatasetReferenceBlock>? ExternalDatasetReference
+    {
+        get => GetProperty<List<GoogleBigqueryDatasetExternalDatasetReferenceBlock>>("external_dataset_reference");
+        set => this.WithProperty("external_dataset_reference", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigqueryDatasetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigqueryDatasetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

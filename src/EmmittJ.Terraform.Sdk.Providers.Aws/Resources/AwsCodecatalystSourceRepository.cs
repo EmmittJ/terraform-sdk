@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsCodecatalystSourceRepositoryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_codecatalyst_source_repository resource.
 /// </summary>
 public class AwsCodecatalystSourceRepository : TerraformResource
@@ -37,7 +72,8 @@ public class AwsCodecatalystSourceRepository : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,7 +82,8 @@ public class AwsCodecatalystSourceRepository : TerraformResource
     /// <summary>
     /// The project_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProjectName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
+    public required TerraformProperty<string> ProjectName
     {
         get => GetProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
@@ -64,10 +101,21 @@ public class AwsCodecatalystSourceRepository : TerraformResource
     /// <summary>
     /// The space_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SpaceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
+    public required TerraformProperty<string> SpaceName
     {
         get => GetProperty<TerraformProperty<string>>("space_name");
         set => this.WithProperty("space_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsCodecatalystSourceRepositoryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsCodecatalystSourceRepositoryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

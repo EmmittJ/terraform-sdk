@@ -37,7 +37,8 @@ public class AwsEbsSnapshotBlockPublicAccess : TerraformResource
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
+    public required TerraformProperty<string> State
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);

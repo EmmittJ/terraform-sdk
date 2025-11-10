@@ -40,7 +40,8 @@ public class AwsSfnAliasDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -58,7 +59,8 @@ public class AwsSfnAliasDataSource : TerraformDataSource
     /// <summary>
     /// The statemachine_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? StatemachineArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatemachineArn is required")]
+    public required TerraformProperty<string> StatemachineArn
     {
         get => GetProperty<TerraformProperty<string>>("statemachine_arn");
         set => this.WithProperty("statemachine_arn", value);

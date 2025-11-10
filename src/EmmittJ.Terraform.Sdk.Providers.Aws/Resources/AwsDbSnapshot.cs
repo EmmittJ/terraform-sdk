@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDbSnapshotTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_db_snapshot resource.
 /// </summary>
 public class AwsDbSnapshot : TerraformResource
@@ -36,7 +53,8 @@ public class AwsDbSnapshot : TerraformResource
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbInstanceIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceIdentifier is required")]
+    public required TerraformProperty<string> DbInstanceIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("db_instance_identifier");
         set => this.WithProperty("db_instance_identifier", value);
@@ -45,7 +63,8 @@ public class AwsDbSnapshot : TerraformResource
     /// <summary>
     /// The db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbSnapshotIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbSnapshotIdentifier is required")]
+    public required TerraformProperty<string> DbSnapshotIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("db_snapshot_identifier");
         set => this.WithProperty("db_snapshot_identifier", value);
@@ -72,28 +91,38 @@ public class AwsDbSnapshot : TerraformResource
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SharedAccounts
+    public HashSet<TerraformProperty<string>>? SharedAccounts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("shared_accounts");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("shared_accounts");
         set => this.WithProperty("shared_accounts", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDbSnapshotTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDbSnapshotTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

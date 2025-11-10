@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for certificate_authority_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key_algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
+    public required TerraformProperty<string> KeyAlgorithm
+    {
+        get => GetProperty<TerraformProperty<string>>("key_algorithm");
+        set => WithProperty("key_algorithm", value);
+    }
+
+    /// <summary>
+    /// The signing_algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
+    public required TerraformProperty<string> SigningAlgorithm
+    {
+        get => GetProperty<TerraformProperty<string>>("signing_algorithm");
+        set => WithProperty("signing_algorithm", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for revocation_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsAcmpcaCertificateAuthorityTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_acmpca_certificate_authority resource.
 /// </summary>
 public class AwsAcmpcaCertificateAuthority : TerraformResource
@@ -71,18 +124,18 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -102,6 +155,39 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("usage_mode");
         set => this.WithProperty("usage_mode", value);
+    }
+
+    /// <summary>
+    /// Block for certificate_authority_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfiguration block(s) allowed")]
+    public List<AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock>? CertificateAuthorityConfiguration
+    {
+        get => GetProperty<List<AwsAcmpcaCertificateAuthorityCertificateAuthorityConfigurationBlock>>("certificate_authority_configuration");
+        set => this.WithProperty("certificate_authority_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for revocation_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RevocationConfiguration block(s) allowed")]
+    public List<AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock>? RevocationConfiguration
+    {
+        get => GetProperty<List<AwsAcmpcaCertificateAuthorityRevocationConfigurationBlock>>("revocation_configuration");
+        set => this.WithProperty("revocation_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsAcmpcaCertificateAuthorityTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsAcmpcaCertificateAuthorityTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

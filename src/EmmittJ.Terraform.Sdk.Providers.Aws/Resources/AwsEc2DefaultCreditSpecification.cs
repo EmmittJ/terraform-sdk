@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEc2DefaultCreditSpecificationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ec2_default_credit_specification resource.
 /// </summary>
 public class AwsEc2DefaultCreditSpecification : TerraformResource
@@ -19,7 +45,8 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     /// <summary>
     /// The cpu_credits attribute.
     /// </summary>
-    public TerraformProperty<string>? CpuCredits
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCredits is required")]
+    public required TerraformProperty<string> CpuCredits
     {
         get => GetProperty<TerraformProperty<string>>("cpu_credits");
         set => this.WithProperty("cpu_credits", value);
@@ -28,7 +55,8 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     /// <summary>
     /// The instance_family attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceFamily
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceFamily is required")]
+    public required TerraformProperty<string> InstanceFamily
     {
         get => GetProperty<TerraformProperty<string>>("instance_family");
         set => this.WithProperty("instance_family", value);
@@ -41,6 +69,16 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEc2DefaultCreditSpecificationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEc2DefaultCreditSpecificationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

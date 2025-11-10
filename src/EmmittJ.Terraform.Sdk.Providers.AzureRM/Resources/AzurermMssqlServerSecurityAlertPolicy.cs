@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_mssql_server_security_alert_policy resource.
 /// </summary>
 public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
@@ -19,9 +63,9 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The disabled_alerts attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DisabledAlerts
+    public HashSet<TerraformProperty<string>>? DisabledAlerts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("disabled_alerts");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("disabled_alerts");
         set => this.WithProperty("disabled_alerts", value);
     }
 
@@ -37,9 +81,9 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EmailAddresses
+    public HashSet<TerraformProperty<string>>? EmailAddresses
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("email_addresses");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("email_addresses");
         set => this.WithProperty("email_addresses", value);
     }
 
@@ -55,7 +99,8 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -73,7 +118,8 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
+    public required TerraformProperty<string> ServerName
     {
         get => GetProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
@@ -82,7 +128,8 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformProperty<string>? State
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
+    public required TerraformProperty<string> State
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
@@ -104,6 +151,16 @@ public class AzurermMssqlServerSecurityAlertPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("storage_endpoint");
         set => this.WithProperty("storage_endpoint", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMssqlServerSecurityAlertPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

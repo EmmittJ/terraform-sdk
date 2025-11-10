@@ -27,7 +27,8 @@ public class AwsLambdaFunctionUrlDataSource : TerraformDataSource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
+    public required TerraformProperty<string> FunctionName
     {
         get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);

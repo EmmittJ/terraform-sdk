@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for conversation_logs in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLexBotAliasConversationLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The iam_role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
+    public required TerraformProperty<string> IamRoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        set => WithProperty("iam_role_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLexBotAliasTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lex_bot_alias resource.
 /// </summary>
 public class AwsLexBotAlias : TerraformResource
@@ -23,7 +76,8 @@ public class AwsLexBotAlias : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BotName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
+    public required TerraformProperty<string> BotName
     {
         get => GetProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
@@ -32,7 +86,8 @@ public class AwsLexBotAlias : TerraformResource
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
-    public TerraformProperty<string>? BotVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
+    public required TerraformProperty<string> BotVersion
     {
         get => GetProperty<TerraformProperty<string>>("bot_version");
         set => this.WithProperty("bot_version", value);
@@ -59,7 +114,8 @@ public class AwsLexBotAlias : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -72,6 +128,27 @@ public class AwsLexBotAlias : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for conversation_logs.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConversationLogs block(s) allowed")]
+    public List<AwsLexBotAliasConversationLogsBlock>? ConversationLogs
+    {
+        get => GetProperty<List<AwsLexBotAliasConversationLogsBlock>>("conversation_logs");
+        set => this.WithProperty("conversation_logs", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLexBotAliasTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLexBotAliasTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

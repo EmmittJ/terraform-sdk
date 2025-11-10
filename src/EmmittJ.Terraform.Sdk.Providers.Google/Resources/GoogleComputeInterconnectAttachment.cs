@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeInterconnectAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_interconnect_attachment resource.
 /// </summary>
 public class GoogleComputeInterconnectAttachment : TerraformResource
@@ -63,9 +98,9 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// fail if all possible /29s are in use on Google&#39;s edge. If not supplied,
     /// Google will randomly select an unused /29 from all of link-local space.
     /// </summary>
-    public TerraformProperty<List<string>>? CandidateSubnets
+    public List<TerraformProperty<string>>? CandidateSubnets
     {
-        get => GetProperty<TerraformProperty<List<string>>>("candidate_subnets");
+        get => GetProperty<List<TerraformProperty<string>>>("candidate_subnets");
         set => this.WithProperty("candidate_subnets", value);
     }
 
@@ -148,9 +183,9 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// interconnect attachment, the HA VPN gateway&#39;s IP address will be
     /// allocated from regional external IP address pool.
     /// </summary>
-    public TerraformProperty<List<string>>? IpsecInternalAddresses
+    public List<TerraformProperty<string>>? IpsecInternalAddresses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ipsec_internal_addresses");
+        get => GetProperty<List<TerraformProperty<string>>>("ipsec_internal_addresses");
         set => this.WithProperty("ipsec_internal_addresses", value);
     }
 
@@ -162,9 +197,9 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -186,7 +221,8 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// lowercase letter, and all following characters must be a dash, lowercase
     /// letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -216,7 +252,8 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// automatically connect the Interconnect to the network &amp;amp; region within which the
     /// Cloud Router is configured.
     /// </summary>
-    public TerraformProperty<string>? Router
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
+    public required TerraformProperty<string> Router
     {
         get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
@@ -266,6 +303,16 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("vlan_tag8021q");
         set => this.WithProperty("vlan_tag8021q", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeInterconnectAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeInterconnectAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -28,7 +28,8 @@ public class AwsLicensemanagerAssociation : TerraformResource
     /// <summary>
     /// The license_configuration_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseConfigurationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseConfigurationArn is required")]
+    public required TerraformProperty<string> LicenseConfigurationArn
     {
         get => GetProperty<TerraformProperty<string>>("license_configuration_arn");
         set => this.WithProperty("license_configuration_arn", value);
@@ -46,7 +47,8 @@ public class AwsLicensemanagerAssociation : TerraformResource
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
+    public required TerraformProperty<string> ResourceArn
     {
         get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);

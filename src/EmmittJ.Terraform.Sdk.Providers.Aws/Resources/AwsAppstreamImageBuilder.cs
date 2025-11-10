@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for access_endpoint in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBlock
+{
+    /// <summary>
+    /// The endpoint_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
+    public required TerraformProperty<string> EndpointType
+    {
+        get => GetProperty<TerraformProperty<string>>("endpoint_type");
+        set => WithProperty("endpoint_type", value);
+    }
+
+    /// <summary>
+    /// The vpce_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? VpceId
+    {
+        get => GetProperty<TerraformProperty<string>>("vpce_id");
+        set => WithProperty("vpce_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for domain_join_info in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBlock
+{
+    /// <summary>
+    /// The directory_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? DirectoryName
+    {
+        get => GetProperty<TerraformProperty<string>>("directory_name");
+        set => WithProperty("directory_name", value);
+    }
+
+    /// <summary>
+    /// The organizational_unit_distinguished_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? OrganizationalUnitDistinguishedName
+    {
+        get => GetProperty<TerraformProperty<string>>("organizational_unit_distinguished_name");
+        set => WithProperty("organizational_unit_distinguished_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The security_group_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => WithProperty("security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SubnetIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => WithProperty("subnet_ids", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appstream_image_builder resource.
 /// </summary>
 public class AwsAppstreamImageBuilder : TerraformResource
@@ -94,7 +173,8 @@ public class AwsAppstreamImageBuilder : TerraformResource
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
     {
         get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
@@ -103,7 +183,8 @@ public class AwsAppstreamImageBuilder : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -121,19 +202,52 @@ public class AwsAppstreamImageBuilder : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for access_endpoint.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 AccessEndpoint block(s) allowed")]
+    public HashSet<AwsAppstreamImageBuilderAccessEndpointBlock>? AccessEndpoint
+    {
+        get => GetProperty<HashSet<AwsAppstreamImageBuilderAccessEndpointBlock>>("access_endpoint");
+        set => this.WithProperty("access_endpoint", value);
+    }
+
+    /// <summary>
+    /// Block for domain_join_info.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainJoinInfo block(s) allowed")]
+    public List<AwsAppstreamImageBuilderDomainJoinInfoBlock>? DomainJoinInfo
+    {
+        get => GetProperty<List<AwsAppstreamImageBuilderDomainJoinInfoBlock>>("domain_join_info");
+        set => this.WithProperty("domain_join_info", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
+    public List<AwsAppstreamImageBuilderVpcConfigBlock>? VpcConfig
+    {
+        get => GetProperty<List<AwsAppstreamImageBuilderVpcConfigBlock>>("vpc_config");
+        set => this.WithProperty("vpc_config", value);
     }
 
     /// <summary>

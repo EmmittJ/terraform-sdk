@@ -29,7 +29,8 @@ public class AwsOrganizationsOrganizationalUnitDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -38,7 +39,8 @@ public class AwsOrganizationsOrganizationalUnitDataSource : TerraformDataSource
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
+    public required TerraformProperty<string> ParentId
     {
         get => GetProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);

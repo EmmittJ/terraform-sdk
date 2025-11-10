@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermContainerAppCustomDomainTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_container_app_custom_domain resource.
 /// </summary>
 public class AzurermContainerAppCustomDomain : TerraformResource
@@ -38,7 +73,8 @@ public class AzurermContainerAppCustomDomain : TerraformResource
     /// <summary>
     /// The container_app_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerAppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppId is required")]
+    public required TerraformProperty<string> ContainerAppId
     {
         get => GetProperty<TerraformProperty<string>>("container_app_id");
         set => this.WithProperty("container_app_id", value);
@@ -56,10 +92,21 @@ public class AzurermContainerAppCustomDomain : TerraformResource
     /// <summary>
     /// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermContainerAppCustomDomainTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermContainerAppCustomDomainTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

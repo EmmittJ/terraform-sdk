@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEc2ClientVpnNetworkAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ec2_client_vpn_network_association resource.
 /// </summary>
 public class AwsEc2ClientVpnNetworkAssociation : TerraformResource
@@ -21,7 +47,8 @@ public class AwsEc2ClientVpnNetworkAssociation : TerraformResource
     /// <summary>
     /// The client_vpn_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientVpnEndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
+    public required TerraformProperty<string> ClientVpnEndpointId
     {
         get => GetProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
         set => this.WithProperty("client_vpn_endpoint_id", value);
@@ -48,10 +75,21 @@ public class AwsEc2ClientVpnNetworkAssociation : TerraformResource
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
     {
         get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEc2ClientVpnNetworkAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEc2ClientVpnNetworkAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

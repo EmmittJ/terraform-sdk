@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for cmek_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Currently in-use KMS key versions (https://cloud.google.com/kms/docs/resource-hierarchy#key_versions).
+    /// During key rotation (https://cloud.google.com/kms/docs/key-rotation), there can be
+    /// multiple in-use key versions.
+    /// 
+    /// The expected format is
+    /// &#39;projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{key_version}&#39;.
+    /// </summary>
+    public List<TerraformProperty<string>>? ActiveKeyVersion
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("active_key_version");
+        set => WithProperty("active_key_version", value);
+    }
+
+    /// <summary>
+    /// The resource ID of a Cloud KMS key. If set, the database created will
+    /// be a Customer-managed Encryption Key (CMEK) database encrypted with
+    /// this key. This feature is allowlist only in initial launch.
+    /// 
+    /// Only keys in the same location as this database are allowed to be used
+    /// for encryption. For Firestore&#39;s nam5 multi-region, this corresponds to Cloud KMS
+    /// multi-region us. For Firestore&#39;s eur3 multi-region, this corresponds to
+    /// Cloud KMS multi-region europe. See https://cloud.google.com/kms/docs/locations.
+    /// 
+    /// This value should be the KMS key resource ID in the format of
+    /// &#39;projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}&#39;.
+    /// How to retrieve this resource ID is listed at
+    /// https://cloud.google.com/kms/docs/getting-resource-ids#getting_the_id_for_a_key_and_version.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
+    public required TerraformProperty<string> KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firestore_database resource.
 /// </summary>
 public class GoogleFirestoreDatabase : TerraformResource
@@ -88,7 +167,8 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// The location of the database. Available locations are listed at
     /// https://cloud.google.com/firestore/docs/locations.
     /// </summary>
-    public TerraformProperty<string>? LocationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
+    public required TerraformProperty<string> LocationId
     {
         get => GetProperty<TerraformProperty<string>>("location_id");
         set => this.WithProperty("location_id", value);
@@ -102,7 +182,8 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
     /// &amp;quot;(default)&amp;quot; database id is also valid.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -138,9 +219,9 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// resource replacement when mutated. To apply tags to an existing resource, see
     /// the &#39;google_tags_tag_value&#39; resource.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -149,10 +230,32 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// See https://cloud.google.com/datastore/docs/firestore-or-datastore
     /// for information about how to choose. Possible values: [&amp;quot;FIRESTORE_NATIVE&amp;quot;, &amp;quot;DATASTORE_MODE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for cmek_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekConfig block(s) allowed")]
+    public List<GoogleFirestoreDatabaseCmekConfigBlock>? CmekConfig
+    {
+        get => GetProperty<List<GoogleFirestoreDatabaseCmekConfigBlock>>("cmek_config");
+        set => this.WithProperty("cmek_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirestoreDatabaseTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirestoreDatabaseTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

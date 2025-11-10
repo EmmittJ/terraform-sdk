@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_datadog_monitor_sso_configuration resource.
 /// </summary>
 public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
@@ -20,7 +64,8 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// <summary>
     /// The datadog_monitor_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DatadogMonitorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
+    public required TerraformProperty<string> DatadogMonitorId
     {
         get => GetProperty<TerraformProperty<string>>("datadog_monitor_id");
         set => this.WithProperty("datadog_monitor_id", value);
@@ -29,7 +74,8 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// <summary>
     /// The enterprise_application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnterpriseApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnterpriseApplicationId is required")]
+    public required TerraformProperty<string> EnterpriseApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("enterprise_application_id");
         set => this.WithProperty("enterprise_application_id", value);
@@ -70,6 +116,16 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("single_sign_on_enabled");
         set => this.WithProperty("single_sign_on_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDatadogMonitorSsoConfigurationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDatadogMonitorSsoConfigurationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

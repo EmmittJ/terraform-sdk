@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_container_registry_scope_map.
 /// </summary>
 public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
@@ -21,7 +38,8 @@ public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
     /// <summary>
     /// The container_registry_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerRegistryName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryName is required")]
+    public required TerraformProperty<string> ContainerRegistryName
     {
         get => GetProperty<TerraformProperty<string>>("container_registry_name");
         set => this.WithProperty("container_registry_name", value);
@@ -39,7 +57,8 @@ public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -48,10 +67,21 @@ public class AzurermContainerRegistryScopeMapDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

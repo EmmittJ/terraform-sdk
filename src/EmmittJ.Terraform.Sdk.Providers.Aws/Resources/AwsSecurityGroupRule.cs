@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSecurityGroupRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_security_group_rule resource.
 /// </summary>
 public class AwsSecurityGroupRule : TerraformResource
@@ -20,9 +37,9 @@ public class AwsSecurityGroupRule : TerraformResource
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? CidrBlocks
+    public List<TerraformProperty<string>>? CidrBlocks
     {
-        get => GetProperty<TerraformProperty<List<string>>>("cidr_blocks");
+        get => GetProperty<List<TerraformProperty<string>>>("cidr_blocks");
         set => this.WithProperty("cidr_blocks", value);
     }
 
@@ -38,7 +55,8 @@ public class AwsSecurityGroupRule : TerraformResource
     /// <summary>
     /// The from_port attribute.
     /// </summary>
-    public TerraformProperty<double>? FromPort
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
+    public required TerraformProperty<double> FromPort
     {
         get => GetProperty<TerraformProperty<double>>("from_port");
         set => this.WithProperty("from_port", value);
@@ -56,25 +74,26 @@ public class AwsSecurityGroupRule : TerraformResource
     /// <summary>
     /// The ipv6_cidr_blocks attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Ipv6CidrBlocks
+    public List<TerraformProperty<string>>? Ipv6CidrBlocks
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ipv6_cidr_blocks");
+        get => GetProperty<List<TerraformProperty<string>>>("ipv6_cidr_blocks");
         set => this.WithProperty("ipv6_cidr_blocks", value);
     }
 
     /// <summary>
     /// The prefix_list_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PrefixListIds
+    public List<TerraformProperty<string>>? PrefixListIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("prefix_list_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("prefix_list_ids");
         set => this.WithProperty("prefix_list_ids", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
     {
         get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
@@ -92,7 +111,8 @@ public class AwsSecurityGroupRule : TerraformResource
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
+    public required TerraformProperty<string> SecurityGroupId
     {
         get => GetProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
@@ -119,7 +139,8 @@ public class AwsSecurityGroupRule : TerraformResource
     /// <summary>
     /// The to_port attribute.
     /// </summary>
-    public TerraformProperty<double>? ToPort
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
+    public required TerraformProperty<double> ToPort
     {
         get => GetProperty<TerraformProperty<double>>("to_port");
         set => this.WithProperty("to_port", value);
@@ -128,10 +149,21 @@ public class AwsSecurityGroupRule : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSecurityGroupRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSecurityGroupRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

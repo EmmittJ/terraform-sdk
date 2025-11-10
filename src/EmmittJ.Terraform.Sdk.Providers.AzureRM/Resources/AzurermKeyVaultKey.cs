@@ -3,6 +3,76 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for rotation_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The expire_after attribute.
+    /// </summary>
+    public TerraformProperty<string>? ExpireAfter
+    {
+        get => GetProperty<TerraformProperty<string>>("expire_after");
+        set => WithProperty("expire_after", value);
+    }
+
+    /// <summary>
+    /// The notify_before_expiry attribute.
+    /// </summary>
+    public TerraformProperty<string>? NotifyBeforeExpiry
+    {
+        get => GetProperty<TerraformProperty<string>>("notify_before_expiry");
+        set => WithProperty("notify_before_expiry", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_key_vault_key resource.
 /// </summary>
 public class AzurermKeyVaultKey : TerraformResource
@@ -56,9 +126,10 @@ public class AzurermKeyVaultKey : TerraformResource
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? KeyOpts
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyOpts is required")]
+    public List<TerraformProperty<string>>? KeyOpts
     {
-        get => GetProperty<TerraformProperty<List<string>>>("key_opts");
+        get => GetProperty<List<TerraformProperty<string>>>("key_opts");
         set => this.WithProperty("key_opts", value);
     }
 
@@ -74,7 +145,8 @@ public class AzurermKeyVaultKey : TerraformResource
     /// <summary>
     /// The key_type attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
+    public required TerraformProperty<string> KeyType
     {
         get => GetProperty<TerraformProperty<string>>("key_type");
         set => this.WithProperty("key_type", value);
@@ -83,7 +155,8 @@ public class AzurermKeyVaultKey : TerraformResource
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
+    public required TerraformProperty<string> KeyVaultId
     {
         get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
@@ -92,7 +165,8 @@ public class AzurermKeyVaultKey : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -110,10 +184,31 @@ public class AzurermKeyVaultKey : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for rotation_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationPolicy block(s) allowed")]
+    public List<AzurermKeyVaultKeyRotationPolicyBlock>? RotationPolicy
+    {
+        get => GetProperty<List<AzurermKeyVaultKeyRotationPolicyBlock>>("rotation_policy");
+        set => this.WithProperty("rotation_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

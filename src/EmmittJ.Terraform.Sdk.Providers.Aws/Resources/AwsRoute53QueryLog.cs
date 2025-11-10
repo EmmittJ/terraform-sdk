@@ -20,7 +20,8 @@ public class AwsRoute53QueryLog : TerraformResource
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudwatchLogGroupArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
+    public required TerraformProperty<string> CloudwatchLogGroupArn
     {
         get => GetProperty<TerraformProperty<string>>("cloudwatch_log_group_arn");
         set => this.WithProperty("cloudwatch_log_group_arn", value);
@@ -38,7 +39,8 @@ public class AwsRoute53QueryLog : TerraformResource
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ZoneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
+    public required TerraformProperty<string> ZoneId
     {
         get => GetProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);

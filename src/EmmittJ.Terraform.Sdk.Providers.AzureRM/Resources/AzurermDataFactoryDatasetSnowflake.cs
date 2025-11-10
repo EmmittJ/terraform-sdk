@@ -3,6 +3,95 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for schema_column in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The precision attribute.
+    /// </summary>
+    public TerraformProperty<double>? Precision
+    {
+        get => GetProperty<TerraformProperty<double>>("precision");
+        set => WithProperty("precision", value);
+    }
+
+    /// <summary>
+    /// The scale attribute.
+    /// </summary>
+    public TerraformProperty<double>? Scale
+    {
+        get => GetProperty<TerraformProperty<double>>("scale");
+        set => WithProperty("scale", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_data_factory_dataset_snowflake resource.
 /// </summary>
 public class AzurermDataFactoryDatasetSnowflake : TerraformResource
@@ -19,25 +108,26 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_properties");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
         set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Annotations
+    public List<TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformProperty<List<string>>>("annotations");
+        get => GetProperty<List<TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataFactoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
+    public required TerraformProperty<string> DataFactoryId
     {
         get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
@@ -73,7 +163,8 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     /// <summary>
     /// The linked_service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkedServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
+    public required TerraformProperty<string> LinkedServiceName
     {
         get => GetProperty<TerraformProperty<string>>("linked_service_name");
         set => this.WithProperty("linked_service_name", value);
@@ -82,7 +173,8 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -91,9 +183,9 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -113,6 +205,26 @@ public class AzurermDataFactoryDatasetSnowflake : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
+    }
+
+    /// <summary>
+    /// Block for schema_column.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock>? SchemaColumn
+    {
+        get => GetProperty<List<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock>>("schema_column");
+        set => this.WithProperty("schema_column", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataFactoryDatasetSnowflakeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataFactoryDatasetSnowflakeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

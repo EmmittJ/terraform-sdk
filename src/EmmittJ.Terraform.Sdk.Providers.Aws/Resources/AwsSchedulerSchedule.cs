@@ -3,6 +3,70 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for flexible_time_window in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum_window_in_minutes attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaximumWindowInMinutes
+    {
+        get => GetProperty<TerraformProperty<double>>("maximum_window_in_minutes");
+        set => WithProperty("maximum_window_in_minutes", value);
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformProperty<string> Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSchedulerScheduleTargetBlock : TerraformBlock
+{
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
+    public required TerraformProperty<string> Arn
+    {
+        get => GetProperty<TerraformProperty<string>>("arn");
+        set => WithProperty("arn", value);
+    }
+
+    /// <summary>
+    /// The input attribute.
+    /// </summary>
+    public TerraformProperty<string>? Input
+    {
+        get => GetProperty<TerraformProperty<string>>("input");
+        set => WithProperty("input", value);
+    }
+
+    /// <summary>
+    /// The role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("role_arn");
+        set => WithProperty("role_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_scheduler_schedule resource.
 /// </summary>
 public class AwsSchedulerSchedule : TerraformResource
@@ -101,7 +165,8 @@ public class AwsSchedulerSchedule : TerraformResource
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduleExpression
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
+    public required TerraformProperty<string> ScheduleExpression
     {
         get => GetProperty<TerraformProperty<string>>("schedule_expression");
         set => this.WithProperty("schedule_expression", value);
@@ -132,6 +197,30 @@ public class AwsSchedulerSchedule : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
+    }
+
+    /// <summary>
+    /// Block for flexible_time_window.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FlexibleTimeWindow block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleTimeWindow block(s) allowed")]
+    public List<AwsSchedulerScheduleFlexibleTimeWindowBlock>? FlexibleTimeWindow
+    {
+        get => GetProperty<List<AwsSchedulerScheduleFlexibleTimeWindowBlock>>("flexible_time_window");
+        set => this.WithProperty("flexible_time_window", value);
+    }
+
+    /// <summary>
+    /// Block for target.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
+    public List<AwsSchedulerScheduleTargetBlock>? Target
+    {
+        get => GetProperty<List<AwsSchedulerScheduleTargetBlock>>("target");
+        set => this.WithProperty("target", value);
     }
 
     /// <summary>

@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for request_parameter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The request_parameter_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestParameterKey is required")]
+    public required TerraformProperty<string> RequestParameterKey
+    {
+        get => GetProperty<TerraformProperty<string>>("request_parameter_key");
+        set => WithProperty("request_parameter_key", value);
+    }
+
+    /// <summary>
+    /// The required attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
+    public required TerraformProperty<bool> Required
+    {
+        get => GetProperty<TerraformProperty<bool>>("required");
+        set => WithProperty("required", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_apigatewayv2_route resource.
 /// </summary>
 public class AwsApigatewayv2Route : TerraformResource
@@ -19,7 +47,8 @@ public class AwsApigatewayv2Route : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -37,9 +66,9 @@ public class AwsApigatewayv2Route : TerraformResource
     /// <summary>
     /// The authorization_scopes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AuthorizationScopes
+    public HashSet<TerraformProperty<string>>? AuthorizationScopes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("authorization_scopes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("authorization_scopes");
         set => this.WithProperty("authorization_scopes", value);
     }
 
@@ -100,16 +129,17 @@ public class AwsApigatewayv2Route : TerraformResource
     /// <summary>
     /// The request_models attribute.
     /// </summary>
-    public TerraformMapProperty<string>? RequestModels
+    public Dictionary<string, TerraformProperty<string>>? RequestModels
     {
-        get => GetProperty<TerraformMapProperty<string>>("request_models");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("request_models");
         set => this.WithProperty("request_models", value);
     }
 
     /// <summary>
     /// The route_key attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
+    public required TerraformProperty<string> RouteKey
     {
         get => GetProperty<TerraformProperty<string>>("route_key");
         set => this.WithProperty("route_key", value);
@@ -131,6 +161,16 @@ public class AwsApigatewayv2Route : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// Block for request_parameter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsApigatewayv2RouteRequestParameterBlock>? RequestParameter
+    {
+        get => GetProperty<HashSet<AwsApigatewayv2RouteRequestParameterBlock>>("request_parameter");
+        set => this.WithProperty("request_parameter", value);
     }
 
 }

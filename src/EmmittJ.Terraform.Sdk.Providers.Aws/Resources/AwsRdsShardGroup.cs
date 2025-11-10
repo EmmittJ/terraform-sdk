@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRdsShardGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rds_shard_group resource.
 /// </summary>
 public class AwsRdsShardGroup : TerraformResource
@@ -32,7 +67,8 @@ public class AwsRdsShardGroup : TerraformResource
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
+    public required TerraformProperty<string> DbClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("db_cluster_identifier");
         set => this.WithProperty("db_cluster_identifier", value);
@@ -41,7 +77,8 @@ public class AwsRdsShardGroup : TerraformResource
     /// <summary>
     /// The db_shard_group_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbShardGroupIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbShardGroupIdentifier is required")]
+    public required TerraformProperty<string> DbShardGroupIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("db_shard_group_identifier");
         set => this.WithProperty("db_shard_group_identifier", value);
@@ -50,7 +87,8 @@ public class AwsRdsShardGroup : TerraformResource
     /// <summary>
     /// The max_acu attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxAcu
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAcu is required")]
+    public required TerraformProperty<double> MaxAcu
     {
         get => GetProperty<TerraformProperty<double>>("max_acu");
         set => this.WithProperty("max_acu", value);
@@ -86,10 +124,20 @@ public class AwsRdsShardGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRdsShardGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRdsShardGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

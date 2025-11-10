@@ -19,7 +19,8 @@ public class AwsDynamodbTableItem : TerraformResource
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
-    public TerraformProperty<string>? HashKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
+    public required TerraformProperty<string> HashKey
     {
         get => GetProperty<TerraformProperty<string>>("hash_key");
         set => this.WithProperty("hash_key", value);
@@ -37,7 +38,8 @@ public class AwsDynamodbTableItem : TerraformResource
     /// <summary>
     /// The item attribute.
     /// </summary>
-    public TerraformProperty<string>? Item
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Item is required")]
+    public required TerraformProperty<string> Item
     {
         get => GetProperty<TerraformProperty<string>>("item");
         set => this.WithProperty("item", value);
@@ -64,7 +66,8 @@ public class AwsDynamodbTableItem : TerraformResource
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
+    public required TerraformProperty<string> TableName
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);

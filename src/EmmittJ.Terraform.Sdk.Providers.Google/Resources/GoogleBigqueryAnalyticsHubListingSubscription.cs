@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for destination_dataset in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock : TerraformBlock
+{
+    /// <summary>
+    /// A user-friendly description of the dataset.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// A descriptive name for the dataset.
+    /// </summary>
+    public TerraformProperty<string>? FriendlyName
+    {
+        get => GetProperty<TerraformProperty<string>>("friendly_name");
+        set => WithProperty("friendly_name", value);
+    }
+
+    /// <summary>
+    /// The labels associated with this dataset. You can use these to
+    /// organize and group your datasets.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Labels
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => WithProperty("labels", value);
+    }
+
+    /// <summary>
+    /// The geographic location where the dataset should reside.
+    /// See https://cloud.google.com/bigquery/docs/locations for supported locations.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_analytics_hub_listing_subscription resource.
 /// </summary>
 public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
@@ -32,7 +105,8 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     /// <summary>
     /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
     /// </summary>
-    public TerraformProperty<string>? DataExchangeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
+    public required TerraformProperty<string> DataExchangeId
     {
         get => GetProperty<TerraformProperty<string>>("data_exchange_id");
         set => this.WithProperty("data_exchange_id", value);
@@ -50,7 +124,8 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     /// <summary>
     /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
     /// </summary>
-    public TerraformProperty<string>? ListingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
+    public required TerraformProperty<string> ListingId
     {
         get => GetProperty<TerraformProperty<string>>("listing_id");
         set => this.WithProperty("listing_id", value);
@@ -59,7 +134,8 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     /// <summary>
     /// The name of the location of the data exchange. Distinct from the location of the destination data set.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -72,6 +148,28 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for destination_dataset.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationDataset block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationDataset block(s) allowed")]
+    public List<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>? DestinationDataset
+    {
+        get => GetProperty<List<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>>("destination_dataset");
+        set => this.WithProperty("destination_dataset", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

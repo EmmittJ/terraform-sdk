@@ -3,6 +3,53 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for storage_location in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGameliftScriptStorageLocationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket");
+        set => WithProperty("bucket", value);
+    }
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The object_version attribute.
+    /// </summary>
+    public TerraformProperty<string>? ObjectVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("object_version");
+        set => WithProperty("object_version", value);
+    }
+
+    /// <summary>
+    /// The role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("role_arn");
+        set => WithProperty("role_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_gamelift_script resource.
 /// </summary>
 public class AwsGameliftScript : TerraformResource
@@ -29,7 +76,8 @@ public class AwsGameliftScript : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,18 +95,18 @@ public class AwsGameliftScript : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -78,6 +126,17 @@ public class AwsGameliftScript : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zip_file");
         set => this.WithProperty("zip_file", value);
+    }
+
+    /// <summary>
+    /// Block for storage_location.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
+    public List<AwsGameliftScriptStorageLocationBlock>? StorageLocation
+    {
+        get => GetProperty<List<AwsGameliftScriptStorageLocationBlock>>("storage_location");
+        set => this.WithProperty("storage_location", value);
     }
 
     /// <summary>

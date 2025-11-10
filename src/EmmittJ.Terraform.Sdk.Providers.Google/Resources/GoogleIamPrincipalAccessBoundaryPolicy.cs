@@ -3,6 +3,61 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for details in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The version number that indicates which Google Cloud services
+    /// are included in the enforcement (e.g. \&amp;quot;latest\&amp;quot;, \&amp;quot;1\&amp;quot;, ...). If empty, the
+    /// PAB policy version will be set to the current latest version, and this version
+    /// won&#39;t get updated when new versions are released.
+    /// </summary>
+    public TerraformProperty<string>? EnforcementVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("enforcement_version");
+        set => WithProperty("enforcement_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_principal_access_boundary_policy resource.
 /// </summary>
 public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
@@ -30,9 +85,9 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -57,7 +112,8 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// <summary>
     /// The location the principal access boundary policy is in.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -66,7 +122,8 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// <summary>
     /// The parent organization of the principal access boundary policy.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -76,10 +133,32 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// The ID to use to create the principal access boundary policy.
     /// This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, hyphens, or dots. Pattern, /a-z{2,62}/.
     /// </summary>
-    public TerraformProperty<string>? PrincipalAccessBoundaryPolicyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalAccessBoundaryPolicyId is required")]
+    public required TerraformProperty<string> PrincipalAccessBoundaryPolicyId
     {
         get => GetProperty<TerraformProperty<string>>("principal_access_boundary_policy_id");
         set => this.WithProperty("principal_access_boundary_policy_id", value);
+    }
+
+    /// <summary>
+    /// Block for details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Details block(s) allowed")]
+    public List<GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock>? Details
+    {
+        get => GetProperty<List<GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock>>("details");
+        set => this.WithProperty("details", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

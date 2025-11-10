@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDsqlClusterPeeringTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dsql_cluster_peering resource.
 /// </summary>
 public class AwsDsqlClusterPeering : TerraformResource
@@ -19,16 +36,18 @@ public class AwsDsqlClusterPeering : TerraformResource
     /// <summary>
     /// The clusters attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Clusters
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Clusters is required")]
+    public HashSet<TerraformProperty<string>>? Clusters
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("clusters");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("clusters");
         set => this.WithProperty("clusters", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? Identifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
+    public required TerraformProperty<string> Identifier
     {
         get => GetProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
@@ -46,10 +65,21 @@ public class AwsDsqlClusterPeering : TerraformResource
     /// <summary>
     /// The witness_region attribute.
     /// </summary>
-    public TerraformProperty<string>? WitnessRegion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WitnessRegion is required")]
+    public required TerraformProperty<string> WitnessRegion
     {
         get => GetProperty<TerraformProperty<string>>("witness_region");
         set => this.WithProperty("witness_region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDsqlClusterPeeringTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDsqlClusterPeeringTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

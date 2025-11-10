@@ -25,27 +25,27 @@ public class AwsCognitoUser : TerraformResource
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Attributes
+    public Dictionary<string, TerraformProperty<string>>? Attributes
     {
-        get => GetProperty<TerraformMapProperty<string>>("attributes");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
         set => this.WithProperty("attributes", value);
     }
 
     /// <summary>
     /// The client_metadata attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ClientMetadata
+    public Dictionary<string, TerraformProperty<string>>? ClientMetadata
     {
-        get => GetProperty<TerraformMapProperty<string>>("client_metadata");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("client_metadata");
         set => this.WithProperty("client_metadata", value);
     }
 
     /// <summary>
     /// The desired_delivery_mediums attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DesiredDeliveryMediums
+    public HashSet<TerraformProperty<string>>? DesiredDeliveryMediums
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("desired_delivery_mediums");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("desired_delivery_mediums");
         set => this.WithProperty("desired_delivery_mediums", value);
     }
 
@@ -115,7 +115,8 @@ public class AwsCognitoUser : TerraformResource
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
+    public required TerraformProperty<string> UserPoolId
     {
         get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
@@ -124,7 +125,8 @@ public class AwsCognitoUser : TerraformResource
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformProperty<string>? Username
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
     {
         get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
@@ -133,9 +135,9 @@ public class AwsCognitoUser : TerraformResource
     /// <summary>
     /// The validation_data attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ValidationData
+    public Dictionary<string, TerraformProperty<string>>? ValidationData
     {
-        get => GetProperty<TerraformMapProperty<string>>("validation_data");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("validation_data");
         set => this.WithProperty("validation_data", value);
     }
 

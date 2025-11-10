@@ -31,7 +31,8 @@ public class AwsDatasyncLocationFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The fsx_filesystem_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? FsxFilesystemArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FsxFilesystemArn is required")]
+    public required TerraformProperty<string> FsxFilesystemArn
     {
         get => GetProperty<TerraformProperty<string>>("fsx_filesystem_arn");
         set => this.WithProperty("fsx_filesystem_arn", value);
@@ -49,7 +50,8 @@ public class AwsDatasyncLocationFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
@@ -67,9 +69,10 @@ public class AwsDatasyncLocationFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The security_group_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupArns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
+    public HashSet<TerraformProperty<string>>? SecurityGroupArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_arns");
         set => this.WithProperty("security_group_arns", value);
     }
 
@@ -85,25 +88,26 @@ public class AwsDatasyncLocationFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    public TerraformProperty<string>? User
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
+    public required TerraformProperty<string> User
     {
         get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);

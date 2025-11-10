@@ -3,6 +3,70 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_peering_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// A free subnet for peering. (CIDR of /29)
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
+    public required TerraformProperty<string> Subnet
+    {
+        get => GetProperty<TerraformProperty<string>>("subnet");
+        set => WithProperty("subnet", value);
+    }
+
+    /// <summary>
+    /// Fully qualified name of the VPC that Database Migration Service will peer to.
+    /// Format: projects/{project}/global/{networks}/{name}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcName is required")]
+    public required TerraformProperty<string> VpcName
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc_name");
+        set => WithProperty("vpc_name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_database_migration_service_private_connection resource.
 /// </summary>
 public class GoogleDatabaseMigrationServicePrivateConnection : TerraformResource
@@ -54,16 +118,17 @@ public class GoogleDatabaseMigrationServicePrivateConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the location this private connection is located in.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -72,7 +137,8 @@ public class GoogleDatabaseMigrationServicePrivateConnection : TerraformResource
     /// <summary>
     /// The private connectivity identifier.
     /// </summary>
-    public TerraformProperty<string>? PrivateConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnectionId is required")]
+    public required TerraformProperty<string> PrivateConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("private_connection_id");
         set => this.WithProperty("private_connection_id", value);
@@ -85,6 +151,28 @@ public class GoogleDatabaseMigrationServicePrivateConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_peering_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcPeeringConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConfig block(s) allowed")]
+    public List<GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBlock>? VpcPeeringConfig
+    {
+        get => GetProperty<List<GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBlock>>("vpc_peering_config");
+        set => this.WithProperty("vpc_peering_config", value);
     }
 
     /// <summary>

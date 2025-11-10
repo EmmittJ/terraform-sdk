@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for create_source in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The source_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceId is required")]
+    public required TerraformProperty<string> SourceId
+    {
+        get => GetProperty<TerraformProperty<string>>("source_id");
+        set => WithProperty("source_id", value);
+    }
+
+    /// <summary>
+    /// The source_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
+    public required TerraformProperty<string> SourceType
+    {
+        get => GetProperty<TerraformProperty<string>>("source_type");
+        set => WithProperty("source_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_elastic_san_volume resource.
 /// </summary>
 public class AzurermElasticSanVolume : TerraformResource
@@ -32,7 +104,8 @@ public class AzurermElasticSanVolume : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,7 +114,8 @@ public class AzurermElasticSanVolume : TerraformResource
     /// <summary>
     /// The size_in_gib attribute.
     /// </summary>
-    public TerraformProperty<double>? SizeInGib
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
+    public required TerraformProperty<double> SizeInGib
     {
         get => GetProperty<TerraformProperty<double>>("size_in_gib");
         set => this.WithProperty("size_in_gib", value);
@@ -50,10 +124,32 @@ public class AzurermElasticSanVolume : TerraformResource
     /// <summary>
     /// The volume_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
+    public required TerraformProperty<string> VolumeGroupId
     {
         get => GetProperty<TerraformProperty<string>>("volume_group_id");
         set => this.WithProperty("volume_group_id", value);
+    }
+
+    /// <summary>
+    /// Block for create_source.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateSource block(s) allowed")]
+    public List<AzurermElasticSanVolumeCreateSourceBlock>? CreateSource
+    {
+        get => GetProperty<List<AzurermElasticSanVolumeCreateSourceBlock>>("create_source");
+        set => this.WithProperty("create_source", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermElasticSanVolumeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermElasticSanVolumeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

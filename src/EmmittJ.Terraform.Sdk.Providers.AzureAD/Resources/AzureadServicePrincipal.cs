@@ -3,6 +3,155 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for feature_tags in .
+/// Nesting mode: list
+/// </summary>
+public class AzureadServicePrincipalFeatureTagsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Whether this service principal represents a custom SAML application
+    /// </summary>
+    public TerraformProperty<bool>? CustomSingleSignOn
+    {
+        get => GetProperty<TerraformProperty<bool>>("custom_single_sign_on");
+        set => WithProperty("custom_single_sign_on", value);
+    }
+
+    /// <summary>
+    /// Whether this service principal represents an Enterprise Application
+    /// </summary>
+    public TerraformProperty<bool>? Enterprise
+    {
+        get => GetProperty<TerraformProperty<bool>>("enterprise");
+        set => WithProperty("enterprise", value);
+    }
+
+    /// <summary>
+    /// Whether this service principal represents a gallery application
+    /// </summary>
+    public TerraformProperty<bool>? Gallery
+    {
+        get => GetProperty<TerraformProperty<bool>>("gallery");
+        set => WithProperty("gallery", value);
+    }
+
+    /// <summary>
+    /// Whether this app is invisible to users in My Apps and Office 365 Launcher
+    /// </summary>
+    public TerraformProperty<bool>? Hide
+    {
+        get => GetProperty<TerraformProperty<bool>>("hide");
+        set => WithProperty("hide", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for features in .
+/// Nesting mode: list
+/// </summary>
+public class AzureadServicePrincipalFeaturesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Whether this service principal represents a custom SAML application
+    /// </summary>
+    public TerraformProperty<bool>? CustomSingleSignOnApp
+    {
+        get => GetProperty<TerraformProperty<bool>>("custom_single_sign_on_app");
+        set => WithProperty("custom_single_sign_on_app", value);
+    }
+
+    /// <summary>
+    /// Whether this service principal represents an Enterprise Application
+    /// </summary>
+    public TerraformProperty<bool>? EnterpriseApplication
+    {
+        get => GetProperty<TerraformProperty<bool>>("enterprise_application");
+        set => WithProperty("enterprise_application", value);
+    }
+
+    /// <summary>
+    /// Whether this service principal represents a gallery application
+    /// </summary>
+    public TerraformProperty<bool>? GalleryApplication
+    {
+        get => GetProperty<TerraformProperty<bool>>("gallery_application");
+        set => WithProperty("gallery_application", value);
+    }
+
+    /// <summary>
+    /// Whether this app is visible to users in My Apps and Office 365 Launcher
+    /// </summary>
+    public TerraformProperty<bool>? VisibleToUsers
+    {
+        get => GetProperty<TerraformProperty<bool>>("visible_to_users");
+        set => WithProperty("visible_to_users", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for saml_single_sign_on in .
+/// Nesting mode: list
+/// </summary>
+public class AzureadServicePrincipalSamlSingleSignOnBlock : TerraformBlock
+{
+    /// <summary>
+    /// The relative URI the service provider would redirect to after completion of the single sign-on flow
+    /// </summary>
+    public TerraformProperty<string>? RelayState
+    {
+        get => GetProperty<TerraformProperty<string>>("relay_state");
+        set => WithProperty("relay_state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadServicePrincipalTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_service_principal resource.
 /// </summary>
 public class AzureadServicePrincipal : TerraformResource
@@ -42,9 +191,9 @@ public class AzureadServicePrincipal : TerraformResource
     /// <summary>
     /// A list of alternative names, used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AlternativeNames
+    public HashSet<TerraformProperty<string>>? AlternativeNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("alternative_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("alternative_names");
         set => this.WithProperty("alternative_names", value);
     }
 
@@ -60,7 +209,8 @@ public class AzureadServicePrincipal : TerraformResource
     /// <summary>
     /// The client ID of the application for which to create a service principal
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
     {
         get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
@@ -105,18 +255,18 @@ public class AzureadServicePrincipal : TerraformResource
     /// <summary>
     /// List of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications
     /// </summary>
-    public TerraformProperty<HashSet<string>>? NotificationEmailAddresses
+    public HashSet<TerraformProperty<string>>? NotificationEmailAddresses
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("notification_email_addresses");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("notification_email_addresses");
         set => this.WithProperty("notification_email_addresses", value);
     }
 
     /// <summary>
     /// A list of object IDs of principals that will be granted ownership of the service principal
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Owners
+    public HashSet<TerraformProperty<string>>? Owners
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("owners");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("owners");
         set => this.WithProperty("owners", value);
     }
 
@@ -132,9 +282,9 @@ public class AzureadServicePrincipal : TerraformResource
     /// <summary>
     /// A set of tags to apply to the service principal
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tags
+    public HashSet<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tags");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -145,6 +295,47 @@ public class AzureadServicePrincipal : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("use_existing");
         set => this.WithProperty("use_existing", value);
+    }
+
+    /// <summary>
+    /// Block for feature_tags.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzureadServicePrincipalFeatureTagsBlock>? FeatureTags
+    {
+        get => GetProperty<List<AzureadServicePrincipalFeatureTagsBlock>>("feature_tags");
+        set => this.WithProperty("feature_tags", value);
+    }
+
+    /// <summary>
+    /// Block for features.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzureadServicePrincipalFeaturesBlock>? Features
+    {
+        get => GetProperty<List<AzureadServicePrincipalFeaturesBlock>>("features");
+        set => this.WithProperty("features", value);
+    }
+
+    /// <summary>
+    /// Block for saml_single_sign_on.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SamlSingleSignOn block(s) allowed")]
+    public List<AzureadServicePrincipalSamlSingleSignOnBlock>? SamlSingleSignOn
+    {
+        get => GetProperty<List<AzureadServicePrincipalSamlSingleSignOnBlock>>("saml_single_sign_on");
+        set => this.WithProperty("saml_single_sign_on", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadServicePrincipalTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadServicePrincipalTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

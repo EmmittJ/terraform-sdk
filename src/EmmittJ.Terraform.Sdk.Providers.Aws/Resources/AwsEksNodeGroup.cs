@@ -3,6 +3,221 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for launch_template in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for node_repair_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEksNodeGroupNodeRepairConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for remote_access in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEksNodeGroupRemoteAccessBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ec2_ssh_key attribute.
+    /// </summary>
+    public TerraformProperty<string>? Ec2SshKey
+    {
+        get => GetProperty<TerraformProperty<string>>("ec2_ssh_key");
+        set => WithProperty("ec2_ssh_key", value);
+    }
+
+    /// <summary>
+    /// The source_security_group_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SourceSecurityGroupIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("source_security_group_ids");
+        set => WithProperty("source_security_group_ids", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for scaling_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The desired_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredSize is required")]
+    public required TerraformProperty<double> DesiredSize
+    {
+        get => GetProperty<TerraformProperty<double>>("desired_size");
+        set => WithProperty("desired_size", value);
+    }
+
+    /// <summary>
+    /// The max_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
+    public required TerraformProperty<double> MaxSize
+    {
+        get => GetProperty<TerraformProperty<double>>("max_size");
+        set => WithProperty("max_size", value);
+    }
+
+    /// <summary>
+    /// The min_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
+    public required TerraformProperty<double> MinSize
+    {
+        get => GetProperty<TerraformProperty<double>>("min_size");
+        set => WithProperty("min_size", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for taint in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEksNodeGroupTaintBlock : TerraformBlock
+{
+    /// <summary>
+    /// The effect attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
+    public required TerraformProperty<string> Effect
+    {
+        get => GetProperty<TerraformProperty<string>>("effect");
+        set => WithProperty("effect", value);
+    }
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for update_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEksNodeGroupUpdateConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The max_unavailable attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxUnavailable
+    {
+        get => GetProperty<TerraformProperty<double>>("max_unavailable");
+        set => WithProperty("max_unavailable", value);
+    }
+
+    /// <summary>
+    /// The max_unavailable_percentage attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxUnavailablePercentage
+    {
+        get => GetProperty<TerraformProperty<double>>("max_unavailable_percentage");
+        set => WithProperty("max_unavailable_percentage", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_eks_node_group resource.
 /// </summary>
 public class AwsEksNodeGroup : TerraformResource
@@ -40,7 +255,8 @@ public class AwsEksNodeGroup : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -76,18 +292,18 @@ public class AwsEksNodeGroup : TerraformResource
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? InstanceTypes
+    public List<TerraformProperty<string>>? InstanceTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("instance_types");
+        get => GetProperty<List<TerraformProperty<string>>>("instance_types");
         set => this.WithProperty("instance_types", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -112,7 +328,8 @@ public class AwsEksNodeGroup : TerraformResource
     /// <summary>
     /// The node_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeRoleArn is required")]
+    public required TerraformProperty<string> NodeRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("node_role_arn");
         set => this.WithProperty("node_role_arn", value);
@@ -139,27 +356,28 @@ public class AwsEksNodeGroup : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -170,6 +388,83 @@ public class AwsEksNodeGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for launch_template.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
+    public List<AwsEksNodeGroupLaunchTemplateBlock>? LaunchTemplate
+    {
+        get => GetProperty<List<AwsEksNodeGroupLaunchTemplateBlock>>("launch_template");
+        set => this.WithProperty("launch_template", value);
+    }
+
+    /// <summary>
+    /// Block for node_repair_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeRepairConfig block(s) allowed")]
+    public List<AwsEksNodeGroupNodeRepairConfigBlock>? NodeRepairConfig
+    {
+        get => GetProperty<List<AwsEksNodeGroupNodeRepairConfigBlock>>("node_repair_config");
+        set => this.WithProperty("node_repair_config", value);
+    }
+
+    /// <summary>
+    /// Block for remote_access.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteAccess block(s) allowed")]
+    public List<AwsEksNodeGroupRemoteAccessBlock>? RemoteAccess
+    {
+        get => GetProperty<List<AwsEksNodeGroupRemoteAccessBlock>>("remote_access");
+        set => this.WithProperty("remote_access", value);
+    }
+
+    /// <summary>
+    /// Block for scaling_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScalingConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfig block(s) allowed")]
+    public List<AwsEksNodeGroupScalingConfigBlock>? ScalingConfig
+    {
+        get => GetProperty<List<AwsEksNodeGroupScalingConfigBlock>>("scaling_config");
+        set => this.WithProperty("scaling_config", value);
+    }
+
+    /// <summary>
+    /// Block for taint.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Taint block(s) allowed")]
+    public HashSet<AwsEksNodeGroupTaintBlock>? Taint
+    {
+        get => GetProperty<HashSet<AwsEksNodeGroupTaintBlock>>("taint");
+        set => this.WithProperty("taint", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEksNodeGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEksNodeGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for update_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpdateConfig block(s) allowed")]
+    public List<AwsEksNodeGroupUpdateConfigBlock>? UpdateConfig
+    {
+        get => GetProperty<List<AwsEksNodeGroupUpdateConfigBlock>>("update_config");
+        set => this.WithProperty("update_config", value);
     }
 
     /// <summary>

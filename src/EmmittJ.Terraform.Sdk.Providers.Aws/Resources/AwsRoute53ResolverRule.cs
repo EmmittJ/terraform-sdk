@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for target_ip in .
+/// Nesting mode: set
+/// </summary>
+public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ip attribute.
+    /// </summary>
+    public TerraformProperty<string>? Ip
+    {
+        get => GetProperty<TerraformProperty<string>>("ip");
+        set => WithProperty("ip", value);
+    }
+
+    /// <summary>
+    /// The ipv6 attribute.
+    /// </summary>
+    public TerraformProperty<string>? Ipv6
+    {
+        get => GetProperty<TerraformProperty<string>>("ipv6");
+        set => WithProperty("ipv6", value);
+    }
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformProperty<double>? Port
+    {
+        get => GetProperty<TerraformProperty<double>>("port");
+        set => WithProperty("port", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    public TerraformProperty<string>? Protocol
+    {
+        get => GetProperty<TerraformProperty<string>>("protocol");
+        set => WithProperty("protocol", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRoute53ResolverRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_route53_resolver_rule resource.
 /// </summary>
 public class AwsRoute53ResolverRule : TerraformResource
@@ -22,7 +101,8 @@ public class AwsRoute53ResolverRule : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -67,7 +147,8 @@ public class AwsRoute53ResolverRule : TerraformResource
     /// <summary>
     /// The rule_type attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
+    public required TerraformProperty<string> RuleType
     {
         get => GetProperty<TerraformProperty<string>>("rule_type");
         set => this.WithProperty("rule_type", value);
@@ -76,19 +157,39 @@ public class AwsRoute53ResolverRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for target_ip.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsRoute53ResolverRuleTargetIpBlock>? TargetIp
+    {
+        get => GetProperty<HashSet<AwsRoute53ResolverRuleTargetIpBlock>>("target_ip");
+        set => this.WithProperty("target_ip", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRoute53ResolverRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRoute53ResolverRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

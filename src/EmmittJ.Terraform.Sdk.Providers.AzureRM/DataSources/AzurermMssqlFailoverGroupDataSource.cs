@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMssqlFailoverGroupDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_mssql_failover_group.
 /// </summary>
 public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
@@ -33,7 +50,8 @@ public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -42,10 +60,21 @@ public class AzurermMssqlFailoverGroupDataSource : TerraformDataSource
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
+    public required TerraformProperty<string> ServerId
     {
         get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMssqlFailoverGroupDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMssqlFailoverGroupDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_sentinel_alert_rule_ms_security_incident resource.
 /// </summary>
 public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
@@ -37,7 +81,8 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -46,18 +91,18 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     /// <summary>
     /// The display_name_exclude_filter attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DisplayNameExcludeFilter
+    public HashSet<TerraformProperty<string>>? DisplayNameExcludeFilter
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("display_name_exclude_filter");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("display_name_exclude_filter");
         set => this.WithProperty("display_name_exclude_filter", value);
     }
 
     /// <summary>
     /// The display_name_filter attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DisplayNameFilter
+    public HashSet<TerraformProperty<string>>? DisplayNameFilter
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("display_name_filter");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("display_name_filter");
         set => this.WithProperty("display_name_filter", value);
     }
 
@@ -82,7 +127,8 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsWorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
+    public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
@@ -91,7 +137,8 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,7 +147,8 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     /// <summary>
     /// The product_filter attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductFilter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductFilter is required")]
+    public required TerraformProperty<string> ProductFilter
     {
         get => GetProperty<TerraformProperty<string>>("product_filter");
         set => this.WithProperty("product_filter", value);
@@ -109,10 +157,21 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     /// <summary>
     /// The severity_filter attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SeverityFilter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityFilter is required")]
+    public HashSet<TerraformProperty<string>>? SeverityFilter
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("severity_filter");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("severity_filter");
         set => this.WithProperty("severity_filter", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSentinelAlertRuleMsSecurityIncidentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -48,7 +48,8 @@ public class GoogleArtifactRegistryRepositoryIamPolicyDataSource : TerraformData
     /// <summary>
     /// The repository attribute.
     /// </summary>
-    public TerraformProperty<string>? Repository
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
+    public required TerraformProperty<string> Repository
     {
         get => GetProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);

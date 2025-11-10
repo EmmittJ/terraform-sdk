@@ -22,7 +22,8 @@ public class AwsS3tablesNamespace : TerraformResource
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? Namespace
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
+    public required TerraformProperty<string> Namespace
     {
         get => GetProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
@@ -40,7 +41,8 @@ public class AwsS3tablesNamespace : TerraformResource
     /// <summary>
     /// The table_bucket_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TableBucketArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
+    public required TerraformProperty<string> TableBucketArn
     {
         get => GetProperty<TerraformProperty<string>>("table_bucket_arn");
         set => this.WithProperty("table_bucket_arn", value);

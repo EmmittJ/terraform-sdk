@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsPrefixListDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsPrefixListDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_prefix_list.
 /// </summary>
 public class AwsPrefixListDataSource : TerraformDataSource
@@ -51,6 +96,26 @@ public class AwsPrefixListDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsPrefixListDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsPrefixListDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsPrefixListDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsPrefixListDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for public_access_block_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The block_public_acls attribute.
+    /// </summary>
+    public TerraformProperty<bool>? BlockPublicAcls
+    {
+        get => GetProperty<TerraformProperty<bool>>("block_public_acls");
+        set => WithProperty("block_public_acls", value);
+    }
+
+    /// <summary>
+    /// The block_public_policy attribute.
+    /// </summary>
+    public TerraformProperty<bool>? BlockPublicPolicy
+    {
+        get => GetProperty<TerraformProperty<bool>>("block_public_policy");
+        set => WithProperty("block_public_policy", value);
+    }
+
+    /// <summary>
+    /// The ignore_public_acls attribute.
+    /// </summary>
+    public TerraformProperty<bool>? IgnorePublicAcls
+    {
+        get => GetProperty<TerraformProperty<bool>>("ignore_public_acls");
+        set => WithProperty("ignore_public_acls", value);
+    }
+
+    /// <summary>
+    /// The restrict_public_buckets attribute.
+    /// </summary>
+    public TerraformProperty<bool>? RestrictPublicBuckets
+    {
+        get => GetProperty<TerraformProperty<bool>>("restrict_public_buckets");
+        set => WithProperty("restrict_public_buckets", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3AccessPointVpcConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The vpc_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        set => WithProperty("vpc_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3_access_point resource.
 /// </summary>
 public class AwsS3AccessPoint : TerraformResource
@@ -34,7 +96,8 @@ public class AwsS3AccessPoint : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -61,7 +124,8 @@ public class AwsS3AccessPoint : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -88,19 +152,41 @@ public class AwsS3AccessPoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for public_access_block_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicAccessBlockConfiguration block(s) allowed")]
+    public List<AwsS3AccessPointPublicAccessBlockConfigurationBlock>? PublicAccessBlockConfiguration
+    {
+        get => GetProperty<List<AwsS3AccessPointPublicAccessBlockConfigurationBlock>>("public_access_block_configuration");
+        set => this.WithProperty("public_access_block_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
+    public List<AwsS3AccessPointVpcConfigurationBlock>? VpcConfiguration
+    {
+        get => GetProperty<List<AwsS3AccessPointVpcConfigurationBlock>>("vpc_configuration");
+        set => this.WithProperty("vpc_configuration", value);
     }
 
     /// <summary>

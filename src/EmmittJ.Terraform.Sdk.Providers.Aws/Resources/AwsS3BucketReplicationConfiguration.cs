@@ -3,6 +3,52 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for rule in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3BucketReplicationConfigurationRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The prefix attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformProperty<string>? Prefix
+    {
+        get => GetProperty<TerraformProperty<string>>("prefix");
+        set => WithProperty("prefix", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    public TerraformProperty<double>? Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
+    public required TerraformProperty<string> Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3_bucket_replication_configuration resource.
 /// </summary>
 public class AwsS3BucketReplicationConfiguration : TerraformResource
@@ -19,7 +65,8 @@ public class AwsS3BucketReplicationConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -46,7 +93,8 @@ public class AwsS3BucketReplicationConfiguration : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
@@ -59,6 +107,18 @@ public class AwsS3BucketReplicationConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
+    }
+
+    /// <summary>
+    /// Block for rule.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1000, ErrorMessage = "Maximum 1000 Rule block(s) allowed")]
+    public List<AwsS3BucketReplicationConfigurationRuleBlock>? Rule
+    {
+        get => GetProperty<List<AwsS3BucketReplicationConfigurationRuleBlock>>("rule");
+        set => this.WithProperty("rule", value);
     }
 
 }

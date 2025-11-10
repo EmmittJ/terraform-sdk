@@ -20,7 +20,8 @@ public class AwsRedshiftUsageLimit : TerraformResource
     /// <summary>
     /// The amount attribute.
     /// </summary>
-    public TerraformProperty<double>? Amount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
+    public required TerraformProperty<double> Amount
     {
         get => GetProperty<TerraformProperty<double>>("amount");
         set => this.WithProperty("amount", value);
@@ -38,7 +39,8 @@ public class AwsRedshiftUsageLimit : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -47,7 +49,8 @@ public class AwsRedshiftUsageLimit : TerraformResource
     /// <summary>
     /// The feature_type attribute.
     /// </summary>
-    public TerraformProperty<string>? FeatureType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureType is required")]
+    public required TerraformProperty<string> FeatureType
     {
         get => GetProperty<TerraformProperty<string>>("feature_type");
         set => this.WithProperty("feature_type", value);
@@ -65,7 +68,8 @@ public class AwsRedshiftUsageLimit : TerraformResource
     /// <summary>
     /// The limit_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LimitType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LimitType is required")]
+    public required TerraformProperty<string> LimitType
     {
         get => GetProperty<TerraformProperty<string>>("limit_type");
         set => this.WithProperty("limit_type", value);
@@ -92,18 +96,18 @@ public class AwsRedshiftUsageLimit : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

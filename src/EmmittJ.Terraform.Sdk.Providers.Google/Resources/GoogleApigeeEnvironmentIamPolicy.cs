@@ -20,7 +20,8 @@ public class GoogleApigeeEnvironmentIamPolicy : TerraformResource
     /// <summary>
     /// The env_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
+    public required TerraformProperty<string> EnvId
     {
         get => GetProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
@@ -38,7 +39,8 @@ public class GoogleApigeeEnvironmentIamPolicy : TerraformResource
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -47,7 +49,8 @@ public class GoogleApigeeEnvironmentIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

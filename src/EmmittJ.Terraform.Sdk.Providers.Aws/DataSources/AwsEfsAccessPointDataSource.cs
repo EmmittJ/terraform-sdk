@@ -25,7 +25,8 @@ public class AwsEfsAccessPointDataSource : TerraformDataSource
     /// <summary>
     /// The access_point_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessPointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPointId is required")]
+    public required TerraformProperty<string> AccessPointId
     {
         get => GetProperty<TerraformProperty<string>>("access_point_id");
         set => this.WithProperty("access_point_id", value);
@@ -52,9 +53,9 @@ public class AwsEfsAccessPointDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIapBrandTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iap_brand resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -22,7 +48,8 @@ public class GoogleIapBrand : TerraformResource
     /// <summary>
     /// Application name displayed on OAuth consent screen.
     /// </summary>
-    public TerraformProperty<string>? ApplicationTitle
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationTitle is required")]
+    public required TerraformProperty<string> ApplicationTitle
     {
         get => GetProperty<TerraformProperty<string>>("application_title");
         set => this.WithProperty("application_title", value);
@@ -53,10 +80,21 @@ public class GoogleIapBrand : TerraformResource
     /// specified, the caller can be either a user or a service account which
     /// is an owner of the specified group in Cloud Identity.
     /// </summary>
-    public TerraformProperty<string>? SupportEmail
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportEmail is required")]
+    public required TerraformProperty<string> SupportEmail
     {
         get => GetProperty<TerraformProperty<string>>("support_email");
         set => this.WithProperty("support_email", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIapBrandTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIapBrandTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

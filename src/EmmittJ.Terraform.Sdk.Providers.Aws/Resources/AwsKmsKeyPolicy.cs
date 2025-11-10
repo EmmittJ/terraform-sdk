@@ -37,7 +37,8 @@ public class AwsKmsKeyPolicy : TerraformResource
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
+    public required TerraformProperty<string> KeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
@@ -46,7 +47,8 @@ public class AwsKmsKeyPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);

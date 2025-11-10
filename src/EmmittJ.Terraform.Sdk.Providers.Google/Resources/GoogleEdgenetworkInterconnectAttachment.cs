@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_edgenetwork_interconnect_attachment resource.
 /// </summary>
 public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
@@ -42,7 +77,8 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// <summary>
     /// The ID of the underlying interconnect that this attachment&#39;s traffic will traverse through.
     /// </summary>
-    public TerraformProperty<string>? Interconnect
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interconnect is required")]
+    public required TerraformProperty<string> Interconnect
     {
         get => GetProperty<TerraformProperty<string>>("interconnect");
         set => this.WithProperty("interconnect", value);
@@ -51,7 +87,8 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// <summary>
     /// A unique ID that identifies this interconnect attachment.
     /// </summary>
-    public TerraformProperty<string>? InterconnectAttachmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectAttachmentId is required")]
+    public required TerraformProperty<string> InterconnectAttachmentId
     {
         get => GetProperty<TerraformProperty<string>>("interconnect_attachment_id");
         set => this.WithProperty("interconnect_attachment_id", value);
@@ -64,16 +101,17 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The Google Cloud region to which the target Distributed Cloud Edge zone belongs.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -92,7 +130,8 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// The ID of the network to which this interconnect attachment belongs.
     /// Must be of the form: &#39;projects/{{project}}/locations/{{location}}/zones/{{zone}}/networks/{{network_id}}&#39;
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -110,7 +149,8 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// <summary>
     /// VLAN ID provided by user. Must be site-wise unique.
     /// </summary>
-    public TerraformProperty<double>? VlanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
+    public required TerraformProperty<double> VlanId
     {
         get => GetProperty<TerraformProperty<double>>("vlan_id");
         set => this.WithProperty("vlan_id", value);
@@ -119,10 +159,21 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// <summary>
     /// The name of the target Distributed Cloud Edge zone.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
+    public required TerraformProperty<string> Zone
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEdgenetworkInterconnectAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

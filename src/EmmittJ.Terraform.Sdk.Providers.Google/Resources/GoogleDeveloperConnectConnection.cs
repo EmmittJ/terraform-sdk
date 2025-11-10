@@ -3,6 +3,344 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for bitbucket_cloud_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook
+    /// events, formatted as &#39;projects/*/secrets/*/versions/*&#39;. This is used to
+    /// validate and create webhooks.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
+    public required TerraformProperty<string> WebhookSecretSecretVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
+        set => WithProperty("webhook_secret_secret_version", value);
+    }
+
+    /// <summary>
+    /// Required. The Bitbucket Cloud Workspace ID to be connected to Google Cloud Platform.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workspace is required")]
+    public required TerraformProperty<string> Workspace
+    {
+        get => GetProperty<TerraformProperty<string>>("workspace");
+        set => WithProperty("workspace", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for bitbucket_data_center_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. The URI of the Bitbucket Data Center host this connection is for.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
+    public required TerraformProperty<string> HostUri
+    {
+        get => GetProperty<TerraformProperty<string>>("host_uri");
+        set => WithProperty("host_uri", value);
+    }
+
+    /// <summary>
+    /// Output only. Version of the Bitbucket Data Center server running on the &#39;host_uri&#39;.
+    /// </summary>
+    public TerraformProperty<string>? ServerVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("server_version");
+        set => WithProperty("server_version", value);
+    }
+
+    /// <summary>
+    /// Optional. SSL certificate authority to trust when making requests to Bitbucket Data
+    /// Center.
+    /// </summary>
+    public TerraformProperty<string>? SslCaCertificate
+    {
+        get => GetProperty<TerraformProperty<string>>("ssl_ca_certificate");
+        set => WithProperty("ssl_ca_certificate", value);
+    }
+
+    /// <summary>
+    /// Required. Immutable. SecretManager resource containing the webhook secret used to verify webhook
+    /// events, formatted as &#39;projects/*/secrets/*/versions/*&#39;. This is used to
+    /// validate webhooks.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
+    public required TerraformProperty<string> WebhookSecretSecretVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
+        set => WithProperty("webhook_secret_secret_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for crypto_key_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectConnectionCryptoKeyConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. The name of the key which is used to encrypt/decrypt customer data. For key
+    /// in Cloud KMS, the key should be in the format of
+    /// &#39;projects/*/locations/*/keyRings/*/cryptoKeys/*&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
+    public required TerraformProperty<string> KeyReference
+    {
+        get => GetProperty<TerraformProperty<string>>("key_reference");
+        set => WithProperty("key_reference", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for github_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectConnectionGithubConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Optional. GitHub App installation id.
+    /// </summary>
+    public TerraformProperty<string>? AppInstallationId
+    {
+        get => GetProperty<TerraformProperty<string>>("app_installation_id");
+        set => WithProperty("app_installation_id", value);
+    }
+
+    /// <summary>
+    /// Required. Immutable. The GitHub Application that was installed to the GitHub user or
+    /// organization.
+    /// Possible values:
+    /// GIT_HUB_APP_UNSPECIFIED
+    /// DEVELOPER_CONNECT
+    /// FIREBASE
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GithubApp is required")]
+    public required TerraformProperty<string> GithubApp
+    {
+        get => GetProperty<TerraformProperty<string>>("github_app");
+        set => WithProperty("github_app", value);
+    }
+
+    /// <summary>
+    /// Output only. The URI to navigate to in order to manage the installation associated
+    /// with this GitHubConfig.
+    /// </summary>
+    public TerraformProperty<string>? InstallationUri
+    {
+        get => GetProperty<TerraformProperty<string>>("installation_uri");
+        set => WithProperty("installation_uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for github_enterprise_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Optional. ID of the GitHub App created from the manifest.
+    /// </summary>
+    public TerraformProperty<string>? AppId
+    {
+        get => GetProperty<TerraformProperty<string>>("app_id");
+        set => WithProperty("app_id", value);
+    }
+
+    /// <summary>
+    /// Optional. ID of the installation of the GitHub App.
+    /// </summary>
+    public TerraformProperty<string>? AppInstallationId
+    {
+        get => GetProperty<TerraformProperty<string>>("app_installation_id");
+        set => WithProperty("app_installation_id", value);
+    }
+
+    /// <summary>
+    /// Output only. The URL-friendly name of the GitHub App.
+    /// </summary>
+    public TerraformProperty<string>? AppSlug
+    {
+        get => GetProperty<TerraformProperty<string>>("app_slug");
+        set => WithProperty("app_slug", value);
+    }
+
+    /// <summary>
+    /// Required. The URI of the GitHub Enterprise host this connection is for.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
+    public required TerraformProperty<string> HostUri
+    {
+        get => GetProperty<TerraformProperty<string>>("host_uri");
+        set => WithProperty("host_uri", value);
+    }
+
+    /// <summary>
+    /// Output only. The URI to navigate to in order to manage the installation associated
+    /// with this GitHubEnterpriseConfig.
+    /// </summary>
+    public TerraformProperty<string>? InstallationUri
+    {
+        get => GetProperty<TerraformProperty<string>>("installation_uri");
+        set => WithProperty("installation_uri", value);
+    }
+
+    /// <summary>
+    /// Optional. SecretManager resource containing the private key of the GitHub App,
+    /// formatted as &#39;projects/*/secrets/*/versions/*&#39;.
+    /// </summary>
+    public TerraformProperty<string>? PrivateKeySecretVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("private_key_secret_version");
+        set => WithProperty("private_key_secret_version", value);
+    }
+
+    /// <summary>
+    /// Output only. GitHub Enterprise version installed at the host_uri.
+    /// </summary>
+    public TerraformProperty<string>? ServerVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("server_version");
+        set => WithProperty("server_version", value);
+    }
+
+    /// <summary>
+    /// Optional. SSL certificate to use for requests to GitHub Enterprise.
+    /// </summary>
+    public TerraformProperty<string>? SslCaCertificate
+    {
+        get => GetProperty<TerraformProperty<string>>("ssl_ca_certificate");
+        set => WithProperty("ssl_ca_certificate", value);
+    }
+
+    /// <summary>
+    /// Optional. SecretManager resource containing the webhook secret of the GitHub App,
+    /// formatted as &#39;projects/*/secrets/*/versions/*&#39;.
+    /// </summary>
+    public TerraformProperty<string>? WebhookSecretSecretVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
+        set => WithProperty("webhook_secret_secret_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for gitlab_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectConnectionGitlabConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,
+    /// formatted as &#39;projects/*/secrets/*/versions/*&#39;. This is used to validate
+    /// webhooks.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
+    public required TerraformProperty<string> WebhookSecretSecretVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
+        set => WithProperty("webhook_secret_secret_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for gitlab_enterprise_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. The URI of the GitLab Enterprise host this connection is for.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
+    public required TerraformProperty<string> HostUri
+    {
+        get => GetProperty<TerraformProperty<string>>("host_uri");
+        set => WithProperty("host_uri", value);
+    }
+
+    /// <summary>
+    /// Output only. Version of the GitLab Enterprise server running on the &#39;host_uri&#39;.
+    /// </summary>
+    public TerraformProperty<string>? ServerVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("server_version");
+        set => WithProperty("server_version", value);
+    }
+
+    /// <summary>
+    /// Optional. SSL Certificate Authority certificate to use for requests to GitLab
+    /// Enterprise instance.
+    /// </summary>
+    public TerraformProperty<string>? SslCaCertificate
+    {
+        get => GetProperty<TerraformProperty<string>>("ssl_ca_certificate");
+        set => WithProperty("ssl_ca_certificate", value);
+    }
+
+    /// <summary>
+    /// Required. Immutable. SecretManager resource containing the webhook secret of a GitLab project,
+    /// formatted as &#39;projects/*/secrets/*/versions/*&#39;. This is used to validate
+    /// webhooks.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
+    public required TerraformProperty<string> WebhookSecretSecretVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("webhook_secret_secret_version");
+        set => WithProperty("webhook_secret_secret_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDeveloperConnectConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_developer_connect_connection resource.
 /// </summary>
 public class GoogleDeveloperConnectConnection : TerraformResource
@@ -32,9 +370,9 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -43,7 +381,8 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// If auto-generating Id server-side, remove this field and
     /// connection_id from the method_signature of Create RPC
     /// </summary>
-    public TerraformProperty<string>? ConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
+    public required TerraformProperty<string> ConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
@@ -86,16 +425,17 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -108,6 +448,93 @@ public class GoogleDeveloperConnectConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for bitbucket_cloud_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketCloudConfig block(s) allowed")]
+    public List<GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock>? BitbucketCloudConfig
+    {
+        get => GetProperty<List<GoogleDeveloperConnectConnectionBitbucketCloudConfigBlock>>("bitbucket_cloud_config");
+        set => this.WithProperty("bitbucket_cloud_config", value);
+    }
+
+    /// <summary>
+    /// Block for bitbucket_data_center_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketDataCenterConfig block(s) allowed")]
+    public List<GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock>? BitbucketDataCenterConfig
+    {
+        get => GetProperty<List<GoogleDeveloperConnectConnectionBitbucketDataCenterConfigBlock>>("bitbucket_data_center_config");
+        set => this.WithProperty("bitbucket_data_center_config", value);
+    }
+
+    /// <summary>
+    /// Block for crypto_key_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CryptoKeyConfig block(s) allowed")]
+    public List<GoogleDeveloperConnectConnectionCryptoKeyConfigBlock>? CryptoKeyConfig
+    {
+        get => GetProperty<List<GoogleDeveloperConnectConnectionCryptoKeyConfigBlock>>("crypto_key_config");
+        set => this.WithProperty("crypto_key_config", value);
+    }
+
+    /// <summary>
+    /// Block for github_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubConfig block(s) allowed")]
+    public List<GoogleDeveloperConnectConnectionGithubConfigBlock>? GithubConfig
+    {
+        get => GetProperty<List<GoogleDeveloperConnectConnectionGithubConfigBlock>>("github_config");
+        set => this.WithProperty("github_config", value);
+    }
+
+    /// <summary>
+    /// Block for github_enterprise_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubEnterpriseConfig block(s) allowed")]
+    public List<GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock>? GithubEnterpriseConfig
+    {
+        get => GetProperty<List<GoogleDeveloperConnectConnectionGithubEnterpriseConfigBlock>>("github_enterprise_config");
+        set => this.WithProperty("github_enterprise_config", value);
+    }
+
+    /// <summary>
+    /// Block for gitlab_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabConfig block(s) allowed")]
+    public List<GoogleDeveloperConnectConnectionGitlabConfigBlock>? GitlabConfig
+    {
+        get => GetProperty<List<GoogleDeveloperConnectConnectionGitlabConfigBlock>>("gitlab_config");
+        set => this.WithProperty("gitlab_config", value);
+    }
+
+    /// <summary>
+    /// Block for gitlab_enterprise_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitlabEnterpriseConfig block(s) allowed")]
+    public List<GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock>? GitlabEnterpriseConfig
+    {
+        get => GetProperty<List<GoogleDeveloperConnectConnectionGitlabEnterpriseConfigBlock>>("gitlab_enterprise_config");
+        set => this.WithProperty("gitlab_enterprise_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDeveloperConnectConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDeveloperConnectConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

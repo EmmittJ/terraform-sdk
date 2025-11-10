@@ -3,6 +3,70 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for cors_rule in .
+/// Nesting mode: set
+/// </summary>
+public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allowed_headers attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowedHeaders
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_headers");
+        set => WithProperty("allowed_headers", value);
+    }
+
+    /// <summary>
+    /// The allowed_methods attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
+    public HashSet<TerraformProperty<string>>? AllowedMethods
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_methods");
+        set => WithProperty("allowed_methods", value);
+    }
+
+    /// <summary>
+    /// The allowed_origins attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
+    public HashSet<TerraformProperty<string>>? AllowedOrigins
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_origins");
+        set => WithProperty("allowed_origins", value);
+    }
+
+    /// <summary>
+    /// The expose_headers attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? ExposeHeaders
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("expose_headers");
+        set => WithProperty("expose_headers", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The max_age_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxAgeSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("max_age_seconds");
+        set => WithProperty("max_age_seconds", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3_bucket_cors_configuration resource.
 /// </summary>
 public class AwsS3BucketCorsConfiguration : TerraformResource
@@ -19,7 +83,8 @@ public class AwsS3BucketCorsConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -50,6 +115,18 @@ public class AwsS3BucketCorsConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for cors_rule.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CorsRule block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CorsRule block(s) allowed")]
+    public HashSet<AwsS3BucketCorsConfigurationCorsRuleBlock>? CorsRule
+    {
+        get => GetProperty<HashSet<AwsS3BucketCorsConfigurationCorsRuleBlock>>("cors_rule");
+        set => this.WithProperty("cors_rule", value);
     }
 
 }

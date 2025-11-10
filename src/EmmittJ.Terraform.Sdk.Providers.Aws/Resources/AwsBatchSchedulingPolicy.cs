@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for fair_share_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBatchSchedulingPolicyFairSharePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The compute_reservation attribute.
+    /// </summary>
+    public TerraformProperty<double>? ComputeReservation
+    {
+        get => GetProperty<TerraformProperty<double>>("compute_reservation");
+        set => WithProperty("compute_reservation", value);
+    }
+
+    /// <summary>
+    /// The share_decay_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? ShareDecaySeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("share_decay_seconds");
+        set => WithProperty("share_decay_seconds", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_batch_scheduling_policy resource.
 /// </summary>
 public class AwsBatchSchedulingPolicy : TerraformResource
@@ -29,7 +55,8 @@ public class AwsBatchSchedulingPolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,19 +74,30 @@ public class AwsBatchSchedulingPolicy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for fair_share_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FairSharePolicy block(s) allowed")]
+    public List<AwsBatchSchedulingPolicyFairSharePolicyBlock>? FairSharePolicy
+    {
+        get => GetProperty<List<AwsBatchSchedulingPolicyFairSharePolicyBlock>>("fair_share_policy");
+        set => this.WithProperty("fair_share_policy", value);
     }
 
     /// <summary>

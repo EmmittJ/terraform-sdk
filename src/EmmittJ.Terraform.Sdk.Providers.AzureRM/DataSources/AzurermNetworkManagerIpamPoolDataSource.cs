@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNetworkManagerIpamPoolDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_network_manager_ipam_pool.
 /// </summary>
 public class AzurermNetworkManagerIpamPoolDataSource : TerraformDataSource
@@ -34,7 +51,8 @@ public class AzurermNetworkManagerIpamPoolDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -43,10 +61,21 @@ public class AzurermNetworkManagerIpamPoolDataSource : TerraformDataSource
     /// <summary>
     /// The network_manager_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkManagerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
+    public required TerraformProperty<string> NetworkManagerId
     {
         get => GetProperty<TerraformProperty<string>>("network_manager_id");
         set => this.WithProperty("network_manager_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNetworkManagerIpamPoolDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNetworkManagerIpamPoolDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -21,7 +21,8 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamPolicyDataSource : Ter
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -48,7 +49,8 @@ public class GoogleBeyondcorpSecurityGatewayApplicationIamPolicyDataSource : Ter
     /// <summary>
     /// The security_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
+    public required TerraformProperty<string> SecurityGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);

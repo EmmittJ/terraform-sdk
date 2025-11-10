@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for constraints in .
+/// Nesting mode: set
+/// </summary>
+public class AwsKmsGrantConstraintsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The encryption_context_equals attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? EncryptionContextEquals
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("encryption_context_equals");
+        set => WithProperty("encryption_context_equals", value);
+    }
+
+    /// <summary>
+    /// The encryption_context_subset attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? EncryptionContextSubset
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("encryption_context_subset");
+        set => WithProperty("encryption_context_subset", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_kms_grant resource.
 /// </summary>
 public class AwsKmsGrant : TerraformResource
@@ -21,16 +47,17 @@ public class AwsKmsGrant : TerraformResource
     /// <summary>
     /// The grant_creation_tokens attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? GrantCreationTokens
+    public HashSet<TerraformProperty<string>>? GrantCreationTokens
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("grant_creation_tokens");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("grant_creation_tokens");
         set => this.WithProperty("grant_creation_tokens", value);
     }
 
     /// <summary>
     /// The grantee_principal attribute.
     /// </summary>
-    public TerraformProperty<string>? GranteePrincipal
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteePrincipal is required")]
+    public required TerraformProperty<string> GranteePrincipal
     {
         get => GetProperty<TerraformProperty<string>>("grantee_principal");
         set => this.WithProperty("grantee_principal", value);
@@ -48,7 +75,8 @@ public class AwsKmsGrant : TerraformResource
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
+    public required TerraformProperty<string> KeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
@@ -66,9 +94,10 @@ public class AwsKmsGrant : TerraformResource
     /// <summary>
     /// The operations attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Operations
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operations is required")]
+    public HashSet<TerraformProperty<string>>? Operations
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("operations");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("operations");
         set => this.WithProperty("operations", value);
     }
 
@@ -97,6 +126,16 @@ public class AwsKmsGrant : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("retiring_principal");
         set => this.WithProperty("retiring_principal", value);
+    }
+
+    /// <summary>
+    /// Block for constraints.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsKmsGrantConstraintsBlock>? Constraints
+    {
+        get => GetProperty<HashSet<AwsKmsGrantConstraintsBlock>>("constraints");
+        set => this.WithProperty("constraints", value);
     }
 
     /// <summary>

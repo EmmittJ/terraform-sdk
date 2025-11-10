@@ -19,7 +19,8 @@ public class AwsLightsailLbHttpsRedirectionPolicy : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -37,7 +38,8 @@ public class AwsLightsailLbHttpsRedirectionPolicy : TerraformResource
     /// <summary>
     /// The lb_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LbName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbName is required")]
+    public required TerraformProperty<string> LbName
     {
         get => GetProperty<TerraformProperty<string>>("lb_name");
         set => this.WithProperty("lb_name", value);

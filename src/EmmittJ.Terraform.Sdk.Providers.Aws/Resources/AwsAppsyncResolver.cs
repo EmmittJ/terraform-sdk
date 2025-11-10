@@ -3,6 +3,103 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for caching_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncResolverCachingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The caching_keys attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? CachingKeys
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("caching_keys");
+        set => WithProperty("caching_keys", value);
+    }
+
+    /// <summary>
+    /// The ttl attribute.
+    /// </summary>
+    public TerraformProperty<double>? Ttl
+    {
+        get => GetProperty<TerraformProperty<double>>("ttl");
+        set => WithProperty("ttl", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for pipeline_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncResolverPipelineConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The functions attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Functions
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("functions");
+        set => WithProperty("functions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for runtime in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncResolverRuntimeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The runtime_version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
+    public required TerraformProperty<string> RuntimeVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("runtime_version");
+        set => WithProperty("runtime_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for sync_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncResolverSyncConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The conflict_detection attribute.
+    /// </summary>
+    public TerraformProperty<string>? ConflictDetection
+    {
+        get => GetProperty<TerraformProperty<string>>("conflict_detection");
+        set => WithProperty("conflict_detection", value);
+    }
+
+    /// <summary>
+    /// The conflict_handler attribute.
+    /// </summary>
+    public TerraformProperty<string>? ConflictHandler
+    {
+        get => GetProperty<TerraformProperty<string>>("conflict_handler");
+        set => WithProperty("conflict_handler", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appsync_resolver resource.
 /// </summary>
 public class AwsAppsyncResolver : TerraformResource
@@ -20,7 +117,8 @@ public class AwsAppsyncResolver : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -47,7 +145,8 @@ public class AwsAppsyncResolver : TerraformResource
     /// <summary>
     /// The field attribute.
     /// </summary>
-    public TerraformProperty<string>? Field
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
+    public required TerraformProperty<string> Field
     {
         get => GetProperty<TerraformProperty<string>>("field");
         set => this.WithProperty("field", value);
@@ -110,10 +209,55 @@ public class AwsAppsyncResolver : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for caching_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CachingConfig block(s) allowed")]
+    public List<AwsAppsyncResolverCachingConfigBlock>? CachingConfig
+    {
+        get => GetProperty<List<AwsAppsyncResolverCachingConfigBlock>>("caching_config");
+        set => this.WithProperty("caching_config", value);
+    }
+
+    /// <summary>
+    /// Block for pipeline_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineConfig block(s) allowed")]
+    public List<AwsAppsyncResolverPipelineConfigBlock>? PipelineConfig
+    {
+        get => GetProperty<List<AwsAppsyncResolverPipelineConfigBlock>>("pipeline_config");
+        set => this.WithProperty("pipeline_config", value);
+    }
+
+    /// <summary>
+    /// Block for runtime.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Runtime block(s) allowed")]
+    public List<AwsAppsyncResolverRuntimeBlock>? Runtime
+    {
+        get => GetProperty<List<AwsAppsyncResolverRuntimeBlock>>("runtime");
+        set => this.WithProperty("runtime", value);
+    }
+
+    /// <summary>
+    /// Block for sync_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
+    public List<AwsAppsyncResolverSyncConfigBlock>? SyncConfig
+    {
+        get => GetProperty<List<AwsAppsyncResolverSyncConfigBlock>>("sync_config");
+        set => this.WithProperty("sync_config", value);
     }
 
     /// <summary>

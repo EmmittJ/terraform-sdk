@@ -20,7 +20,8 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -65,9 +66,9 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     /// <summary>
     /// The extension_headers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ExtensionHeaders
+    public Dictionary<string, TerraformProperty<string>>? ExtensionHeaders
     {
-        get => GetProperty<TerraformMapProperty<string>>("extension_headers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("extension_headers");
         set => this.WithProperty("extension_headers", value);
     }
 
@@ -92,7 +93,8 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformProperty<string> Path
     {
         get => GetProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);

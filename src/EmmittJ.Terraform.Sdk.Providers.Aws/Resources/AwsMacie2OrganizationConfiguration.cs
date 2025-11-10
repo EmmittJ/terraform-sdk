@@ -19,7 +19,8 @@ public class AwsMacie2OrganizationConfiguration : TerraformResource
     /// <summary>
     /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
     /// </summary>
-    public TerraformProperty<bool>? AutoEnable
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
+    public required TerraformProperty<bool> AutoEnable
     {
         get => GetProperty<TerraformProperty<bool>>("auto_enable");
         set => this.WithProperty("auto_enable", value);

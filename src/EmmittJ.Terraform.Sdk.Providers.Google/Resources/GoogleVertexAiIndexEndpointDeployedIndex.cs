@@ -3,6 +3,106 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for automatic_resources in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If maxReplicaCount is not set, the default value is minReplicaCount. The max allowed replica count is 1000.
+    /// 
+    /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale the model to that many replicas is guaranteed (barring service outages). If traffic against the DeployedModel increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, a no upper bound for scaling under heavy traffic will be assume, though Vertex AI may be unable to scale beyond certain replica number.
+    /// </summary>
+    public TerraformProperty<double>? MaxReplicaCount
+    {
+        get => GetProperty<TerraformProperty<double>>("max_replica_count");
+        set => WithProperty("max_replica_count", value);
+    }
+
+    /// <summary>
+    /// The minimum number of replicas this DeployedModel will be always deployed on. If minReplicaCount is not set, the default value is 2 (we don&#39;t provide SLA when minReplicaCount=1).
+    /// 
+    /// If traffic against it increases, it may dynamically be deployed onto more replicas up to [maxReplicaCount](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/AutomaticResources#FIELDS.max_replica_count), and as traffic decreases, some of these extra replicas may be freed. If the requested value is too large, the deployment will error.
+    /// </summary>
+    public TerraformProperty<double>? MinReplicaCount
+    {
+        get => GetProperty<TerraformProperty<double>>("min_replica_count");
+        set => WithProperty("min_replica_count", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for dedicated_resources in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If maxReplicaCount is not set, the default value is minReplicaCount
+    /// </summary>
+    public TerraformProperty<double>? MaxReplicaCount
+    {
+        get => GetProperty<TerraformProperty<double>>("max_replica_count");
+        set => WithProperty("max_replica_count", value);
+    }
+
+    /// <summary>
+    /// The minimum number of machine replicas this DeployedModel will be always deployed on. This value must be greater than or equal to 1.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
+    public required TerraformProperty<double> MinReplicaCount
+    {
+        get => GetProperty<TerraformProperty<double>>("min_replica_count");
+        set => WithProperty("min_replica_count", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for deployed_index_auth_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vertex_ai_index_endpoint_deployed_index resource.
 /// </summary>
 public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
@@ -23,7 +123,8 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// <summary>
     /// The user specified ID of the DeployedIndex. The ID can be up to 128 characters long and must start with a letter and only contain letters, numbers, and underscores. The ID must be unique within the project it is created in.
     /// </summary>
-    public TerraformProperty<string>? DeployedIndexId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployedIndexId is required")]
+    public required TerraformProperty<string> DeployedIndexId
     {
         get => GetProperty<TerraformProperty<string>>("deployed_index_id");
         set => this.WithProperty("deployed_index_id", value);
@@ -70,7 +171,8 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// <summary>
     /// The name of the Index this is the deployment of.
     /// </summary>
-    public TerraformProperty<string>? Index
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
+    public required TerraformProperty<string> Index
     {
         get => GetProperty<TerraformProperty<string>>("index");
         set => this.WithProperty("index", value);
@@ -80,7 +182,8 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// Identifies the index endpoint. Must be in the format
     /// &#39;projects/{{project}}/locations/{{region}}/indexEndpoints/{{indexEndpoint}}&#39;
     /// </summary>
-    public TerraformProperty<string>? IndexEndpoint
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexEndpoint is required")]
+    public required TerraformProperty<string> IndexEndpoint
     {
         get => GetProperty<TerraformProperty<string>>("index_endpoint");
         set => this.WithProperty("index_endpoint", value);
@@ -103,10 +206,53 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// 
     /// For more information about subnets and network IP ranges, please see https://cloud.google.com/vpc/docs/subnets#manually_created_subnet_ip_ranges.
     /// </summary>
-    public TerraformProperty<List<string>>? ReservedIpRanges
+    public List<TerraformProperty<string>>? ReservedIpRanges
     {
-        get => GetProperty<TerraformProperty<List<string>>>("reserved_ip_ranges");
+        get => GetProperty<List<TerraformProperty<string>>>("reserved_ip_ranges");
         set => this.WithProperty("reserved_ip_ranges", value);
+    }
+
+    /// <summary>
+    /// Block for automatic_resources.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticResources block(s) allowed")]
+    public List<GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock>? AutomaticResources
+    {
+        get => GetProperty<List<GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock>>("automatic_resources");
+        set => this.WithProperty("automatic_resources", value);
+    }
+
+    /// <summary>
+    /// Block for dedicated_resources.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedResources block(s) allowed")]
+    public List<GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock>? DedicatedResources
+    {
+        get => GetProperty<List<GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock>>("dedicated_resources");
+        set => this.WithProperty("dedicated_resources", value);
+    }
+
+    /// <summary>
+    /// Block for deployed_index_auth_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeployedIndexAuthConfig block(s) allowed")]
+    public List<GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock>? DeployedIndexAuthConfig
+    {
+        get => GetProperty<List<GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBlock>>("deployed_index_auth_config");
+        set => this.WithProperty("deployed_index_auth_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

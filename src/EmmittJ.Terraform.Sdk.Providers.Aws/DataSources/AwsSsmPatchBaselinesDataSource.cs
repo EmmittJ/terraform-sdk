@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_ssm_patch_baselines.
 /// </summary>
 public class AwsSsmPatchBaselinesDataSource : TerraformDataSource
@@ -33,6 +61,16 @@ public class AwsSsmPatchBaselinesDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSsmPatchBaselinesDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<List<AwsSsmPatchBaselinesDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>

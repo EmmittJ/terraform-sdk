@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMemorydbClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_memorydb_cluster resource.
 /// </summary>
 public class AwsMemorydbCluster : TerraformResource
@@ -23,7 +58,8 @@ public class AwsMemorydbCluster : TerraformResource
     /// <summary>
     /// The acl_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AclName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclName is required")]
+    public required TerraformProperty<string> AclName
     {
         get => GetProperty<TerraformProperty<string>>("acl_name");
         set => this.WithProperty("acl_name", value);
@@ -140,7 +176,8 @@ public class AwsMemorydbCluster : TerraformResource
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
+    public required TerraformProperty<string> NodeType
     {
         get => GetProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
@@ -194,18 +231,18 @@ public class AwsMemorydbCluster : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The snapshot_arns attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SnapshotArns
+    public List<TerraformProperty<string>>? SnapshotArns
     {
-        get => GetProperty<TerraformProperty<List<string>>>("snapshot_arns");
+        get => GetProperty<List<TerraformProperty<string>>>("snapshot_arns");
         set => this.WithProperty("snapshot_arns", value);
     }
 
@@ -257,18 +294,18 @@ public class AwsMemorydbCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -279,6 +316,16 @@ public class AwsMemorydbCluster : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("tls_enabled");
         set => this.WithProperty("tls_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMemorydbClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMemorydbClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -28,7 +28,8 @@ public class AwsEc2Tag : TerraformResource
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
     {
         get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
@@ -46,7 +47,8 @@ public class AwsEc2Tag : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
@@ -55,7 +57,8 @@ public class AwsEc2Tag : TerraformResource
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
     {
         get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);

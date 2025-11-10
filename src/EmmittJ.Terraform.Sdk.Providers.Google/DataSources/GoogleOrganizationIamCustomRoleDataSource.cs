@@ -34,7 +34,8 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
     /// <summary>
     /// The numeric ID of the organization in which you want to create a custom role.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -43,7 +44,8 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
     /// <summary>
     /// The role id to use for this role.
     /// </summary>
-    public TerraformProperty<string>? RoleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
+    public required TerraformProperty<string> RoleId
     {
         get => GetProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);

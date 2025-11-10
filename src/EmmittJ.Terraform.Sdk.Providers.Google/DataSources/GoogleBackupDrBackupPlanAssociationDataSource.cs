@@ -28,7 +28,8 @@ public class GoogleBackupDrBackupPlanAssociationDataSource : TerraformDataSource
     /// <summary>
     /// The id of backupplan association
     /// </summary>
-    public TerraformProperty<string>? BackupPlanAssociationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
+    public required TerraformProperty<string> BackupPlanAssociationId
     {
         get => GetProperty<TerraformProperty<string>>("backup_plan_association_id");
         set => this.WithProperty("backup_plan_association_id", value);
@@ -46,7 +47,8 @@ public class GoogleBackupDrBackupPlanAssociationDataSource : TerraformDataSource
     /// <summary>
     /// The location for the backupplan association
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

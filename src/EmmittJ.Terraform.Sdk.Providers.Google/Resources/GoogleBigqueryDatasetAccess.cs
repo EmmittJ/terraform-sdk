@@ -3,6 +3,179 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatasetAccessConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Description of the expression. This is a longer text which describes the expression,
+    /// e.g. when hovered over it in a UI.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// Textual representation of an expression in Common Expression Language syntax.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// String indicating the location of the expression for error reporting, e.g. a file
+    /// name and a position in the file.
+    /// </summary>
+    public TerraformProperty<string>? Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// Title for the expression, i.e. a short string describing its purpose.
+    /// This can be used e.g. in UIs which allow to enter the expression.
+    /// </summary>
+    public TerraformProperty<string>? Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for dataset in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatasetAccessDatasetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Which resources in the dataset this entry applies to. Currently, only views are supported,
+    /// but additional target types may be added in the future. Possible values: VIEWS
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetTypes is required")]
+    public List<TerraformProperty<string>>? TargetTypes
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("target_types");
+        set => WithProperty("target_types", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for routine in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatasetAccessRoutineBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ID of the dataset containing this table.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
+    public required TerraformProperty<string> DatasetId
+    {
+        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        set => WithProperty("dataset_id", value);
+    }
+
+    /// <summary>
+    /// The ID of the project containing this table.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
+    public required TerraformProperty<string> ProjectId
+    {
+        get => GetProperty<TerraformProperty<string>>("project_id");
+        set => WithProperty("project_id", value);
+    }
+
+    /// <summary>
+    /// The ID of the routine. The ID must contain only letters (a-z,
+    /// A-Z), numbers (0-9), or underscores (_). The maximum length
+    /// is 256 characters.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
+    public required TerraformProperty<string> RoutineId
+    {
+        get => GetProperty<TerraformProperty<string>>("routine_id");
+        set => WithProperty("routine_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigqueryDatasetAccessTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for view in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatasetAccessViewBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ID of the dataset containing this table.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
+    public required TerraformProperty<string> DatasetId
+    {
+        get => GetProperty<TerraformProperty<string>>("dataset_id");
+        set => WithProperty("dataset_id", value);
+    }
+
+    /// <summary>
+    /// The ID of the project containing this table.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
+    public required TerraformProperty<string> ProjectId
+    {
+        get => GetProperty<TerraformProperty<string>>("project_id");
+        set => WithProperty("project_id", value);
+    }
+
+    /// <summary>
+    /// The ID of the table. The ID must contain only letters (a-z,
+    /// A-Z), numbers (0-9), or underscores (_). The maximum length
+    /// is 1,024 characters.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
+    public required TerraformProperty<string> TableId
+    {
+        get => GetProperty<TerraformProperty<string>>("table_id");
+        set => WithProperty("table_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_dataset_access resource.
 /// </summary>
 public class GoogleBigqueryDatasetAccess : TerraformResource
@@ -22,7 +195,8 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// must contain only letters (a-z, A-Z), numbers (0-9), or
     /// underscores (_). The maximum length is 1,024 characters.
     /// </summary>
-    public TerraformProperty<string>? DatasetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
+    public required TerraformProperty<string> DatasetId
     {
         get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
@@ -110,6 +284,60 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_by_email");
         set => this.WithProperty("user_by_email", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleBigqueryDatasetAccessConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleBigqueryDatasetAccessConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
+    }
+
+    /// <summary>
+    /// Block for dataset.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
+    public List<GoogleBigqueryDatasetAccessDatasetBlock>? Dataset
+    {
+        get => GetProperty<List<GoogleBigqueryDatasetAccessDatasetBlock>>("dataset");
+        set => this.WithProperty("dataset", value);
+    }
+
+    /// <summary>
+    /// Block for routine.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routine block(s) allowed")]
+    public List<GoogleBigqueryDatasetAccessRoutineBlock>? Routine
+    {
+        get => GetProperty<List<GoogleBigqueryDatasetAccessRoutineBlock>>("routine");
+        set => this.WithProperty("routine", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigqueryDatasetAccessTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigqueryDatasetAccessTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for view.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 View block(s) allowed")]
+    public List<GoogleBigqueryDatasetAccessViewBlock>? View
+    {
+        get => GetProperty<List<GoogleBigqueryDatasetAccessViewBlock>>("view");
+        set => this.WithProperty("view", value);
     }
 
     /// <summary>

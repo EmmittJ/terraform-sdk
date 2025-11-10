@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for access_log_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The destination_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
+    public required TerraformProperty<string> DestinationArn
+    {
+        get => GetProperty<TerraformProperty<string>>("destination_arn");
+        set => WithProperty("destination_arn", value);
+    }
+
+    /// <summary>
+    /// The format attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
+    public required TerraformProperty<string> Format
+    {
+        get => GetProperty<TerraformProperty<string>>("format");
+        set => WithProperty("format", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for canary_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The deployment_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
+    public required TerraformProperty<string> DeploymentId
+    {
+        get => GetProperty<TerraformProperty<string>>("deployment_id");
+        set => WithProperty("deployment_id", value);
+    }
+
+    /// <summary>
+    /// The percent_traffic attribute.
+    /// </summary>
+    public TerraformProperty<double>? PercentTraffic
+    {
+        get => GetProperty<TerraformProperty<double>>("percent_traffic");
+        set => WithProperty("percent_traffic", value);
+    }
+
+    /// <summary>
+    /// The stage_variable_overrides attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? StageVariableOverrides
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("stage_variable_overrides");
+        set => WithProperty("stage_variable_overrides", value);
+    }
+
+    /// <summary>
+    /// The use_stage_cache attribute.
+    /// </summary>
+    public TerraformProperty<bool>? UseStageCache
+    {
+        get => GetProperty<TerraformProperty<bool>>("use_stage_cache");
+        set => WithProperty("use_stage_cache", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_api_gateway_stage resource.
 /// </summary>
 public class AwsApiGatewayStage : TerraformResource
@@ -50,7 +123,8 @@ public class AwsApiGatewayStage : TerraformResource
     /// <summary>
     /// The deployment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
+    public required TerraformProperty<string> DeploymentId
     {
         get => GetProperty<TerraformProperty<string>>("deployment_id");
         set => this.WithProperty("deployment_id", value);
@@ -95,7 +169,8 @@ public class AwsApiGatewayStage : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
@@ -104,7 +179,8 @@ public class AwsApiGatewayStage : TerraformResource
     /// <summary>
     /// The stage_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StageName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
+    public required TerraformProperty<string> StageName
     {
         get => GetProperty<TerraformProperty<string>>("stage_name");
         set => this.WithProperty("stage_name", value);
@@ -113,27 +189,27 @@ public class AwsApiGatewayStage : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The variables attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Variables
+    public Dictionary<string, TerraformProperty<string>>? Variables
     {
-        get => GetProperty<TerraformMapProperty<string>>("variables");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("variables");
         set => this.WithProperty("variables", value);
     }
 
@@ -144,6 +220,28 @@ public class AwsApiGatewayStage : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("xray_tracing_enabled");
         set => this.WithProperty("xray_tracing_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for access_log_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogSettings block(s) allowed")]
+    public List<AwsApiGatewayStageAccessLogSettingsBlock>? AccessLogSettings
+    {
+        get => GetProperty<List<AwsApiGatewayStageAccessLogSettingsBlock>>("access_log_settings");
+        set => this.WithProperty("access_log_settings", value);
+    }
+
+    /// <summary>
+    /// Block for canary_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CanarySettings block(s) allowed")]
+    public List<AwsApiGatewayStageCanarySettingsBlock>? CanarySettings
+    {
+        get => GetProperty<List<AwsApiGatewayStageCanarySettingsBlock>>("canary_settings");
+        set => this.WithProperty("canary_settings", value);
     }
 
     /// <summary>

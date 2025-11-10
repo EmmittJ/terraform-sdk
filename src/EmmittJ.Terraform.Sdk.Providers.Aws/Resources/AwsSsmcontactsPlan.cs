@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for stage in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmcontactsPlanStageBlock : TerraformBlock
+{
+    /// <summary>
+    /// The duration_in_minutes attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInMinutes is required")]
+    public required TerraformProperty<double> DurationInMinutes
+    {
+        get => GetProperty<TerraformProperty<double>>("duration_in_minutes");
+        set => WithProperty("duration_in_minutes", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssmcontacts_plan resource.
 /// </summary>
 public class AwsSsmcontactsPlan : TerraformResource
@@ -19,7 +37,8 @@ public class AwsSsmcontactsPlan : TerraformResource
     /// <summary>
     /// The contact_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ContactId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
+    public required TerraformProperty<string> ContactId
     {
         get => GetProperty<TerraformProperty<string>>("contact_id");
         set => this.WithProperty("contact_id", value);
@@ -41,6 +60,17 @@ public class AwsSsmcontactsPlan : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for stage.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stage block(s) required")]
+    public List<AwsSsmcontactsPlanStageBlock>? Stage
+    {
+        get => GetProperty<List<AwsSsmcontactsPlanStageBlock>>("stage");
+        set => this.WithProperty("stage", value);
     }
 
 }

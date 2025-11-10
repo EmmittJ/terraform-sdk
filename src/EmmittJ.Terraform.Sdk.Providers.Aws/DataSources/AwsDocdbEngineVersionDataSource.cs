@@ -51,9 +51,9 @@ public class AwsDocdbEngineVersionDataSource : TerraformDataSource
     /// <summary>
     /// The preferred_versions attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredVersions
+    public List<TerraformProperty<string>>? PreferredVersions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_versions");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_versions");
         set => this.WithProperty("preferred_versions", value);
     }
 

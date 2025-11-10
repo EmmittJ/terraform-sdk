@@ -3,6 +3,144 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for connect_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The availability_zones attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AvailabilityZones
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
+        set => WithProperty("availability_zones", value);
+    }
+
+    /// <summary>
+    /// The connect_ips attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? ConnectIps
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("connect_ips");
+        set => WithProperty("connect_ips", value);
+    }
+
+    /// <summary>
+    /// The customer_dns_ips attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerDnsIps is required")]
+    public HashSet<TerraformProperty<string>>? CustomerDnsIps
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("customer_dns_ips");
+        set => WithProperty("customer_dns_ips", value);
+    }
+
+    /// <summary>
+    /// The customer_username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerUsername is required")]
+    public required TerraformProperty<string> CustomerUsername
+    {
+        get => GetProperty<TerraformProperty<string>>("customer_username");
+        set => WithProperty("customer_username", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => WithProperty("subnet_ids", value);
+    }
+
+    /// <summary>
+    /// The vpc_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        set => WithProperty("vpc_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDirectoryServiceDirectoryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The availability_zones attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AvailabilityZones
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
+        set => WithProperty("availability_zones", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => WithProperty("subnet_ids", value);
+    }
+
+    /// <summary>
+    /// The vpc_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        set => WithProperty("vpc_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_directory_service_directory resource.
 /// </summary>
 public class AwsDirectoryServiceDirectory : TerraformResource
@@ -76,7 +214,8 @@ public class AwsDirectoryServiceDirectory : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -85,7 +224,8 @@ public class AwsDirectoryServiceDirectory : TerraformResource
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
@@ -121,18 +261,18 @@ public class AwsDirectoryServiceDirectory : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -143,6 +283,38 @@ public class AwsDirectoryServiceDirectory : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for connect_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectSettings block(s) allowed")]
+    public List<AwsDirectoryServiceDirectoryConnectSettingsBlock>? ConnectSettings
+    {
+        get => GetProperty<List<AwsDirectoryServiceDirectoryConnectSettingsBlock>>("connect_settings");
+        set => this.WithProperty("connect_settings", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDirectoryServiceDirectoryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDirectoryServiceDirectoryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcSettings block(s) allowed")]
+    public List<AwsDirectoryServiceDirectoryVpcSettingsBlock>? VpcSettings
+    {
+        get => GetProperty<List<AwsDirectoryServiceDirectoryVpcSettingsBlock>>("vpc_settings");
+        set => this.WithProperty("vpc_settings", value);
     }
 
     /// <summary>

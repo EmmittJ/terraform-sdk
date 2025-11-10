@@ -37,18 +37,19 @@ public class AwsBackupRegionSettings : TerraformResource
     /// <summary>
     /// The resource_type_management_preference attribute.
     /// </summary>
-    public TerraformMapProperty<bool>? ResourceTypeManagementPreference
+    public Dictionary<string, TerraformProperty<bool>>? ResourceTypeManagementPreference
     {
-        get => GetProperty<TerraformMapProperty<bool>>("resource_type_management_preference");
+        get => GetProperty<Dictionary<string, TerraformProperty<bool>>>("resource_type_management_preference");
         set => this.WithProperty("resource_type_management_preference", value);
     }
 
     /// <summary>
     /// The resource_type_opt_in_preference attribute.
     /// </summary>
-    public TerraformMapProperty<bool>? ResourceTypeOptInPreference
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeOptInPreference is required")]
+    public Dictionary<string, TerraformProperty<bool>>? ResourceTypeOptInPreference
     {
-        get => GetProperty<TerraformMapProperty<bool>>("resource_type_opt_in_preference");
+        get => GetProperty<Dictionary<string, TerraformProperty<bool>>>("resource_type_opt_in_preference");
         set => this.WithProperty("resource_type_opt_in_preference", value);
     }
 

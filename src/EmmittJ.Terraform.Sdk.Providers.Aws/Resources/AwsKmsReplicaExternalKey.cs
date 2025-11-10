@@ -87,7 +87,8 @@ public class AwsKmsReplicaExternalKey : TerraformResource
     /// <summary>
     /// The primary_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PrimaryKeyArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKeyArn is required")]
+    public required TerraformProperty<string> PrimaryKeyArn
     {
         get => GetProperty<TerraformProperty<string>>("primary_key_arn");
         set => this.WithProperty("primary_key_arn", value);
@@ -105,18 +106,18 @@ public class AwsKmsReplicaExternalKey : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSccV2OrganizationSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_scc_v2_organization_source resource.
 /// </summary>
 public class GoogleSccV2OrganizationSource : TerraformResource
@@ -33,7 +68,8 @@ public class GoogleSccV2OrganizationSource : TerraformResource
     /// with a letter or digit, may contain letters, digits, spaces, hyphens,
     /// and underscores, and can be no longer than 32 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -52,10 +88,21 @@ public class GoogleSccV2OrganizationSource : TerraformResource
     /// The organization whose Cloud Security Command Center the Source
     /// lives in.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSccV2OrganizationSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSccV2OrganizationSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

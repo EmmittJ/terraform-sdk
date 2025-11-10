@@ -3,6 +3,101 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for dashboard_publish_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightDashboardDashboardPublishOptionsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for definition in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightDashboardDefinitionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for parameters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightDashboardParametersBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for permissions in .
+/// Nesting mode: set
+/// </summary>
+public class AwsQuicksightDashboardPermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The actions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
+    public HashSet<TerraformProperty<string>>? Actions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
+        set => WithProperty("actions", value);
+    }
+
+    /// <summary>
+    /// The principal attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
+    {
+        get => GetProperty<TerraformProperty<string>>("principal");
+        set => WithProperty("principal", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_entity in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightDashboardSourceEntityBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsQuicksightDashboardTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_quicksight_dashboard resource.
 /// </summary>
 public class AwsQuicksightDashboard : TerraformResource
@@ -35,7 +130,8 @@ public class AwsQuicksightDashboard : TerraformResource
     /// <summary>
     /// The dashboard_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DashboardId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DashboardId is required")]
+    public required TerraformProperty<string> DashboardId
     {
         get => GetProperty<TerraformProperty<string>>("dashboard_id");
         set => this.WithProperty("dashboard_id", value);
@@ -53,7 +149,8 @@ public class AwsQuicksightDashboard : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -71,18 +168,18 @@ public class AwsQuicksightDashboard : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -98,10 +195,76 @@ public class AwsQuicksightDashboard : TerraformResource
     /// <summary>
     /// The version_description attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionDescription
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionDescription is required")]
+    public required TerraformProperty<string> VersionDescription
     {
         get => GetProperty<TerraformProperty<string>>("version_description");
         set => this.WithProperty("version_description", value);
+    }
+
+    /// <summary>
+    /// Block for dashboard_publish_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DashboardPublishOptions block(s) allowed")]
+    public List<AwsQuicksightDashboardDashboardPublishOptionsBlock>? DashboardPublishOptions
+    {
+        get => GetProperty<List<AwsQuicksightDashboardDashboardPublishOptionsBlock>>("dashboard_publish_options");
+        set => this.WithProperty("dashboard_publish_options", value);
+    }
+
+    /// <summary>
+    /// Block for definition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
+    public List<AwsQuicksightDashboardDefinitionBlock>? Definition
+    {
+        get => GetProperty<List<AwsQuicksightDashboardDefinitionBlock>>("definition");
+        set => this.WithProperty("definition", value);
+    }
+
+    /// <summary>
+    /// Block for parameters.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Parameters block(s) allowed")]
+    public List<AwsQuicksightDashboardParametersBlock>? Parameters
+    {
+        get => GetProperty<List<AwsQuicksightDashboardParametersBlock>>("parameters");
+        set => this.WithProperty("parameters", value);
+    }
+
+    /// <summary>
+    /// Block for permissions.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
+    public HashSet<AwsQuicksightDashboardPermissionsBlock>? Permissions
+    {
+        get => GetProperty<HashSet<AwsQuicksightDashboardPermissionsBlock>>("permissions");
+        set => this.WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// Block for source_entity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceEntity block(s) allowed")]
+    public List<AwsQuicksightDashboardSourceEntityBlock>? SourceEntity
+    {
+        get => GetProperty<List<AwsQuicksightDashboardSourceEntityBlock>>("source_entity");
+        set => this.WithProperty("source_entity", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsQuicksightDashboardTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsQuicksightDashboardTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

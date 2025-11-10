@@ -22,7 +22,8 @@ public class AwsApprunnerCustomDomainAssociation : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -58,7 +59,8 @@ public class AwsApprunnerCustomDomainAssociation : TerraformResource
     /// <summary>
     /// The service_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
+    public required TerraformProperty<string> ServiceArn
     {
         get => GetProperty<TerraformProperty<string>>("service_arn");
         set => this.WithProperty("service_arn", value);

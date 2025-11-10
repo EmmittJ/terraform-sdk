@@ -3,6 +3,250 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for restore_to_point_in_time in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRdsClusterRestoreToPointInTimeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The restore_to_time attribute.
+    /// </summary>
+    public TerraformProperty<string>? RestoreToTime
+    {
+        get => GetProperty<TerraformProperty<string>>("restore_to_time");
+        set => WithProperty("restore_to_time", value);
+    }
+
+    /// <summary>
+    /// The restore_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? RestoreType
+    {
+        get => GetProperty<TerraformProperty<string>>("restore_type");
+        set => WithProperty("restore_type", value);
+    }
+
+    /// <summary>
+    /// The source_cluster_identifier attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceClusterIdentifier
+    {
+        get => GetProperty<TerraformProperty<string>>("source_cluster_identifier");
+        set => WithProperty("source_cluster_identifier", value);
+    }
+
+    /// <summary>
+    /// The source_cluster_resource_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceClusterResourceId
+    {
+        get => GetProperty<TerraformProperty<string>>("source_cluster_resource_id");
+        set => WithProperty("source_cluster_resource_id", value);
+    }
+
+    /// <summary>
+    /// The use_latest_restorable_time attribute.
+    /// </summary>
+    public TerraformProperty<bool>? UseLatestRestorableTime
+    {
+        get => GetProperty<TerraformProperty<bool>>("use_latest_restorable_time");
+        set => WithProperty("use_latest_restorable_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for s3_import in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRdsClusterS3ImportBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        set => WithProperty("bucket_name", value);
+    }
+
+    /// <summary>
+    /// The bucket_prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? BucketPrefix
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_prefix");
+        set => WithProperty("bucket_prefix", value);
+    }
+
+    /// <summary>
+    /// The ingestion_role attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionRole is required")]
+    public required TerraformProperty<string> IngestionRole
+    {
+        get => GetProperty<TerraformProperty<string>>("ingestion_role");
+        set => WithProperty("ingestion_role", value);
+    }
+
+    /// <summary>
+    /// The source_engine attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngine is required")]
+    public required TerraformProperty<string> SourceEngine
+    {
+        get => GetProperty<TerraformProperty<string>>("source_engine");
+        set => WithProperty("source_engine", value);
+    }
+
+    /// <summary>
+    /// The source_engine_version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngineVersion is required")]
+    public required TerraformProperty<string> SourceEngineVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("source_engine_version");
+        set => WithProperty("source_engine_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for scaling_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRdsClusterScalingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auto_pause attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AutoPause
+    {
+        get => GetProperty<TerraformProperty<bool>>("auto_pause");
+        set => WithProperty("auto_pause", value);
+    }
+
+    /// <summary>
+    /// The max_capacity attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("max_capacity");
+        set => WithProperty("max_capacity", value);
+    }
+
+    /// <summary>
+    /// The min_capacity attribute.
+    /// </summary>
+    public TerraformProperty<double>? MinCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        set => WithProperty("min_capacity", value);
+    }
+
+    /// <summary>
+    /// The seconds_before_timeout attribute.
+    /// </summary>
+    public TerraformProperty<double>? SecondsBeforeTimeout
+    {
+        get => GetProperty<TerraformProperty<double>>("seconds_before_timeout");
+        set => WithProperty("seconds_before_timeout", value);
+    }
+
+    /// <summary>
+    /// The seconds_until_auto_pause attribute.
+    /// </summary>
+    public TerraformProperty<double>? SecondsUntilAutoPause
+    {
+        get => GetProperty<TerraformProperty<double>>("seconds_until_auto_pause");
+        set => WithProperty("seconds_until_auto_pause", value);
+    }
+
+    /// <summary>
+    /// The timeout_action attribute.
+    /// </summary>
+    public TerraformProperty<string>? TimeoutAction
+    {
+        get => GetProperty<TerraformProperty<string>>("timeout_action");
+        set => WithProperty("timeout_action", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for serverlessv2_scaling_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRdsClusterServerlessv2ScalingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The max_capacity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
+    public required TerraformProperty<double> MaxCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("max_capacity");
+        set => WithProperty("max_capacity", value);
+    }
+
+    /// <summary>
+    /// The min_capacity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
+    public required TerraformProperty<double> MinCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        set => WithProperty("min_capacity", value);
+    }
+
+    /// <summary>
+    /// The seconds_until_auto_pause attribute.
+    /// </summary>
+    public TerraformProperty<double>? SecondsUntilAutoPause
+    {
+        get => GetProperty<TerraformProperty<double>>("seconds_until_auto_pause");
+        set => WithProperty("seconds_until_auto_pause", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRdsClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rds_cluster resource.
 /// </summary>
 public class AwsRdsCluster : TerraformResource
@@ -54,9 +298,9 @@ public class AwsRdsCluster : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AvailabilityZones
+    public HashSet<TerraformProperty<string>>? AvailabilityZones
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("availability_zones");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
         set => this.WithProperty("availability_zones", value);
     }
 
@@ -108,9 +352,9 @@ public class AwsRdsCluster : TerraformResource
     /// <summary>
     /// The cluster_members attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ClusterMembers
+    public HashSet<TerraformProperty<string>>? ClusterMembers
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("cluster_members");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("cluster_members");
         set => this.WithProperty("cluster_members", value);
     }
 
@@ -261,16 +505,17 @@ public class AwsRdsCluster : TerraformResource
     /// <summary>
     /// The enabled_cloudwatch_logs_exports attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EnabledCloudwatchLogsExports
+    public HashSet<TerraformProperty<string>>? EnabledCloudwatchLogsExports
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("enabled_cloudwatch_logs_exports");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_cloudwatch_logs_exports");
         set => this.WithProperty("enabled_cloudwatch_logs_exports", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
+    public required TerraformProperty<string> Engine
     {
         get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
@@ -333,9 +578,9 @@ public class AwsRdsCluster : TerraformResource
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? IamRoles
+    public HashSet<TerraformProperty<string>>? IamRoles
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("iam_roles");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("iam_roles");
         set => this.WithProperty("iam_roles", value);
     }
 
@@ -567,28 +812,82 @@ public class AwsRdsCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
+    }
+
+    /// <summary>
+    /// Block for restore_to_point_in_time.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreToPointInTime block(s) allowed")]
+    public List<AwsRdsClusterRestoreToPointInTimeBlock>? RestoreToPointInTime
+    {
+        get => GetProperty<List<AwsRdsClusterRestoreToPointInTimeBlock>>("restore_to_point_in_time");
+        set => this.WithProperty("restore_to_point_in_time", value);
+    }
+
+    /// <summary>
+    /// Block for s3_import.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Import block(s) allowed")]
+    public List<AwsRdsClusterS3ImportBlock>? S3Import
+    {
+        get => GetProperty<List<AwsRdsClusterS3ImportBlock>>("s3_import");
+        set => this.WithProperty("s3_import", value);
+    }
+
+    /// <summary>
+    /// Block for scaling_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfiguration block(s) allowed")]
+    public List<AwsRdsClusterScalingConfigurationBlock>? ScalingConfiguration
+    {
+        get => GetProperty<List<AwsRdsClusterScalingConfigurationBlock>>("scaling_configuration");
+        set => this.WithProperty("scaling_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for serverlessv2_scaling_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serverlessv2ScalingConfiguration block(s) allowed")]
+    public List<AwsRdsClusterServerlessv2ScalingConfigurationBlock>? Serverlessv2ScalingConfiguration
+    {
+        get => GetProperty<List<AwsRdsClusterServerlessv2ScalingConfigurationBlock>>("serverlessv2_scaling_configuration");
+        set => this.WithProperty("serverlessv2_scaling_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRdsClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRdsClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

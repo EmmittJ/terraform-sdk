@@ -25,7 +25,8 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     /// The name of the canonical service underlying this service.. 
     ///                         Corresponds to the destination_service_name metric label in Istio metrics.
     /// </summary>
-    public TerraformProperty<string>? CanonicalService
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalService is required")]
+    public required TerraformProperty<string> CanonicalService
     {
         get => GetProperty<TerraformProperty<string>>("canonical_service");
         set => this.WithProperty("canonical_service", value);
@@ -35,7 +36,8 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     /// The namespace of the canonical service underlying this service.
     ///                         Corresponds to the destination_service_namespace metric label in Istio metrics.
     /// </summary>
-    public TerraformProperty<string>? CanonicalServiceNamespace
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalServiceNamespace is required")]
+    public required TerraformProperty<string> CanonicalServiceNamespace
     {
         get => GetProperty<TerraformProperty<string>>("canonical_service_namespace");
         set => this.WithProperty("canonical_service_namespace", value);
@@ -54,7 +56,8 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     /// Identifier for the Istio mesh in which this canonical service is defined.
     ///                         Corresponds to the meshUid metric label in Istio metrics.
     /// </summary>
-    public TerraformProperty<string>? MeshUid
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshUid is required")]
+    public required TerraformProperty<string> MeshUid
     {
         get => GetProperty<TerraformProperty<string>>("mesh_uid");
         set => this.WithProperty("mesh_uid", value);

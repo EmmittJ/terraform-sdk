@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for client_authentication in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMskServerlessClusterClientAuthenticationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMskServerlessClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMskServerlessClusterVpcConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The security_group_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => WithProperty("security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => WithProperty("subnet_ids", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_msk_serverless_cluster resource.
 /// </summary>
 public class AwsMskServerlessCluster : TerraformResource
@@ -22,7 +83,8 @@ public class AwsMskServerlessCluster : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -49,19 +111,52 @@ public class AwsMskServerlessCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for client_authentication.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClientAuthentication block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthentication block(s) allowed")]
+    public List<AwsMskServerlessClusterClientAuthenticationBlock>? ClientAuthentication
+    {
+        get => GetProperty<List<AwsMskServerlessClusterClientAuthenticationBlock>>("client_authentication");
+        set => this.WithProperty("client_authentication", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMskServerlessClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMskServerlessClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfig block(s) required")]
+    public List<AwsMskServerlessClusterVpcConfigBlock>? VpcConfig
+    {
+        get => GetProperty<List<AwsMskServerlessClusterVpcConfigBlock>>("vpc_config");
+        set => this.WithProperty("vpc_config", value);
     }
 
     /// <summary>

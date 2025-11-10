@@ -20,7 +20,8 @@ public class AwsElasticacheUserGroup : TerraformResource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
+    public required TerraformProperty<string> Engine
     {
         get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
@@ -47,25 +48,26 @@ public class AwsElasticacheUserGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserGroupId is required")]
+    public required TerraformProperty<string> UserGroupId
     {
         get => GetProperty<TerraformProperty<string>>("user_group_id");
         set => this.WithProperty("user_group_id", value);
@@ -74,9 +76,9 @@ public class AwsElasticacheUserGroup : TerraformResource
     /// <summary>
     /// The user_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? UserIds
+    public HashSet<TerraformProperty<string>>? UserIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("user_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("user_ids");
         set => this.WithProperty("user_ids", value);
     }
 

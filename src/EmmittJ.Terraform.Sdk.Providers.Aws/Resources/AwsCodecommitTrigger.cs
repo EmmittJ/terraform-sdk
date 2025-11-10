@@ -3,6 +3,62 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for trigger in .
+/// Nesting mode: set
+/// </summary>
+public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
+{
+    /// <summary>
+    /// The branches attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Branches
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("branches");
+        set => WithProperty("branches", value);
+    }
+
+    /// <summary>
+    /// The custom_data attribute.
+    /// </summary>
+    public TerraformProperty<string>? CustomData
+    {
+        get => GetProperty<TerraformProperty<string>>("custom_data");
+        set => WithProperty("custom_data", value);
+    }
+
+    /// <summary>
+    /// The destination_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
+    public required TerraformProperty<string> DestinationArn
+    {
+        get => GetProperty<TerraformProperty<string>>("destination_arn");
+        set => WithProperty("destination_arn", value);
+    }
+
+    /// <summary>
+    /// The events attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
+    public List<TerraformProperty<string>>? Events
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("events");
+        set => WithProperty("events", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_codecommit_trigger resource.
 /// </summary>
 public class AwsCodecommitTrigger : TerraformResource
@@ -38,10 +94,23 @@ public class AwsCodecommitTrigger : TerraformResource
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
+    public required TerraformProperty<string> RepositoryName
     {
         get => GetProperty<TerraformProperty<string>>("repository_name");
         set => this.WithProperty("repository_name", value);
+    }
+
+    /// <summary>
+    /// Block for trigger.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Trigger block(s) allowed")]
+    public HashSet<AwsCodecommitTriggerTriggerBlock>? Trigger
+    {
+        get => GetProperty<HashSet<AwsCodecommitTriggerTriggerBlock>>("trigger");
+        set => this.WithProperty("trigger", value);
     }
 
     /// <summary>

@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for parameter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsMemorydbParameterGroupParameterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_memorydb_parameter_group resource.
 /// </summary>
 public class AwsMemorydbParameterGroup : TerraformResource
@@ -29,7 +57,8 @@ public class AwsMemorydbParameterGroup : TerraformResource
     /// <summary>
     /// The family attribute.
     /// </summary>
-    public TerraformProperty<string>? Family
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
+    public required TerraformProperty<string> Family
     {
         get => GetProperty<TerraformProperty<string>>("family");
         set => this.WithProperty("family", value);
@@ -74,19 +103,29 @@ public class AwsMemorydbParameterGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for parameter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsMemorydbParameterGroupParameterBlock>? Parameter
+    {
+        get => GetProperty<HashSet<AwsMemorydbParameterGroupParameterBlock>>("parameter");
+        set => this.WithProperty("parameter", value);
     }
 
     /// <summary>

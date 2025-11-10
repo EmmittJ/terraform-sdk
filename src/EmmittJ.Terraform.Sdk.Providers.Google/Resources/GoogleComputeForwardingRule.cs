@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for service_directory_registrations in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Service Directory namespace to register the forwarding rule under.
+    /// </summary>
+    public TerraformProperty<string>? Namespace
+    {
+        get => GetProperty<TerraformProperty<string>>("namespace");
+        set => WithProperty("namespace", value);
+    }
+
+    /// <summary>
+    /// Service Directory service to register the forwarding rule under.
+    /// </summary>
+    public TerraformProperty<string>? Service
+    {
+        get => GetProperty<TerraformProperty<string>>("service");
+        set => WithProperty("service", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeForwardingRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_forwarding_rule resource.
 /// </summary>
 public class GoogleComputeForwardingRule : TerraformResource
@@ -225,9 +286,9 @@ public class GoogleComputeForwardingRule : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -262,7 +323,8 @@ public class GoogleComputeForwardingRule : TerraformResource
     /// APIs, the forwarding rule name must be a 1-20 characters string with
     /// lowercase letters and numbers and must start with a letter.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -370,9 +432,9 @@ public class GoogleComputeForwardingRule : TerraformResource
     /// 
     /// @pattern: \d+(?:-\d+)?
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Ports
+    public HashSet<TerraformProperty<string>>? Ports
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("ports");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("ports");
         set => this.WithProperty("ports", value);
     }
 
@@ -428,9 +490,9 @@ public class GoogleComputeForwardingRule : TerraformResource
     /// <summary>
     /// If not empty, this Forwarding Rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a Forwarding Rule can only have up to 64 source IP ranges, and this field can only be used with a regional Forwarding Rule whose scheme is EXTERNAL. Each sourceIpRange entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
     /// </summary>
-    public TerraformProperty<List<string>>? SourceIpRanges
+    public List<TerraformProperty<string>>? SourceIpRanges
     {
-        get => GetProperty<TerraformProperty<List<string>>>("source_ip_ranges");
+        get => GetProperty<List<TerraformProperty<string>>>("source_ip_ranges");
         set => this.WithProperty("source_ip_ranges", value);
     }
 
@@ -464,6 +526,27 @@ public class GoogleComputeForwardingRule : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// Block for service_directory_registrations.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDirectoryRegistrations block(s) allowed")]
+    public List<GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlock>? ServiceDirectoryRegistrations
+    {
+        get => GetProperty<List<GoogleComputeForwardingRuleServiceDirectoryRegistrationsBlock>>("service_directory_registrations");
+        set => this.WithProperty("service_directory_registrations", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeForwardingRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeForwardingRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

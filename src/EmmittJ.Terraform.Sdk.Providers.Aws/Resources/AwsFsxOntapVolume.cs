@@ -3,6 +3,147 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for aggregate_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxOntapVolumeAggregateConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The aggregates attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Aggregates
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("aggregates");
+        set => WithProperty("aggregates", value);
+    }
+
+    /// <summary>
+    /// The constituents_per_aggregate attribute.
+    /// </summary>
+    public TerraformProperty<double>? ConstituentsPerAggregate
+    {
+        get => GetProperty<TerraformProperty<double>>("constituents_per_aggregate");
+        set => WithProperty("constituents_per_aggregate", value);
+    }
+
+    /// <summary>
+    /// The total_constituents attribute.
+    /// </summary>
+    public TerraformProperty<double>? TotalConstituents
+    {
+        get => GetProperty<TerraformProperty<double>>("total_constituents");
+        set => WithProperty("total_constituents", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for snaplock_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxOntapVolumeSnaplockConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The audit_log_volume attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AuditLogVolume
+    {
+        get => GetProperty<TerraformProperty<bool>>("audit_log_volume");
+        set => WithProperty("audit_log_volume", value);
+    }
+
+    /// <summary>
+    /// The privileged_delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrivilegedDelete
+    {
+        get => GetProperty<TerraformProperty<string>>("privileged_delete");
+        set => WithProperty("privileged_delete", value);
+    }
+
+    /// <summary>
+    /// The snaplock_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnaplockType is required")]
+    public required TerraformProperty<string> SnaplockType
+    {
+        get => GetProperty<TerraformProperty<string>>("snaplock_type");
+        set => WithProperty("snaplock_type", value);
+    }
+
+    /// <summary>
+    /// The volume_append_mode_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? VolumeAppendModeEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("volume_append_mode_enabled");
+        set => WithProperty("volume_append_mode_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tiering_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxOntapVolumeTieringPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cooling_period attribute.
+    /// </summary>
+    public TerraformProperty<double>? CoolingPeriod
+    {
+        get => GetProperty<TerraformProperty<double>>("cooling_period");
+        set => WithProperty("cooling_period", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFsxOntapVolumeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_fsx_ontap_volume resource.
 /// </summary>
 public class AwsFsxOntapVolume : TerraformResource
@@ -41,9 +182,9 @@ public class AwsFsxOntapVolume : TerraformResource
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? FinalBackupTags
+    public Dictionary<string, TerraformProperty<string>>? FinalBackupTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("final_backup_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
         set => this.WithProperty("final_backup_tags", value);
     }
 
@@ -68,7 +209,8 @@ public class AwsFsxOntapVolume : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -149,7 +291,8 @@ public class AwsFsxOntapVolume : TerraformResource
     /// <summary>
     /// The storage_virtual_machine_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageVirtualMachineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineId is required")]
+    public required TerraformProperty<string> StorageVirtualMachineId
     {
         get => GetProperty<TerraformProperty<string>>("storage_virtual_machine_id");
         set => this.WithProperty("storage_virtual_machine_id", value);
@@ -158,18 +301,18 @@ public class AwsFsxOntapVolume : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -189,6 +332,49 @@ public class AwsFsxOntapVolume : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("volume_type");
         set => this.WithProperty("volume_type", value);
+    }
+
+    /// <summary>
+    /// Block for aggregate_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AggregateConfiguration block(s) allowed")]
+    public List<AwsFsxOntapVolumeAggregateConfigurationBlock>? AggregateConfiguration
+    {
+        get => GetProperty<List<AwsFsxOntapVolumeAggregateConfigurationBlock>>("aggregate_configuration");
+        set => this.WithProperty("aggregate_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for snaplock_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnaplockConfiguration block(s) allowed")]
+    public List<AwsFsxOntapVolumeSnaplockConfigurationBlock>? SnaplockConfiguration
+    {
+        get => GetProperty<List<AwsFsxOntapVolumeSnaplockConfigurationBlock>>("snaplock_configuration");
+        set => this.WithProperty("snaplock_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for tiering_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
+    public List<AwsFsxOntapVolumeTieringPolicyBlock>? TieringPolicy
+    {
+        get => GetProperty<List<AwsFsxOntapVolumeTieringPolicyBlock>>("tiering_policy");
+        set => this.WithProperty("tiering_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFsxOntapVolumeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFsxOntapVolumeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

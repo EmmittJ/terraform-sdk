@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsRdsEngineVersionDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_rds_engine_version.
 /// </summary>
 public class AwsRdsEngineVersionDataSource : TerraformDataSource
@@ -49,7 +77,8 @@ public class AwsRdsEngineVersionDataSource : TerraformDataSource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
+    public required TerraformProperty<string> Engine
     {
         get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
@@ -112,27 +141,27 @@ public class AwsRdsEngineVersionDataSource : TerraformDataSource
     /// <summary>
     /// The preferred_major_targets attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredMajorTargets
+    public List<TerraformProperty<string>>? PreferredMajorTargets
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_major_targets");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_major_targets");
         set => this.WithProperty("preferred_major_targets", value);
     }
 
     /// <summary>
     /// The preferred_upgrade_targets attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredUpgradeTargets
+    public List<TerraformProperty<string>>? PreferredUpgradeTargets
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_upgrade_targets");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_upgrade_targets");
         set => this.WithProperty("preferred_upgrade_targets", value);
     }
 
     /// <summary>
     /// The preferred_versions attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredVersions
+    public List<TerraformProperty<string>>? PreferredVersions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_versions");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_versions");
         set => this.WithProperty("preferred_versions", value);
     }
 
@@ -152,6 +181,16 @@ public class AwsRdsEngineVersionDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsRdsEngineVersionDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsRdsEngineVersionDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>

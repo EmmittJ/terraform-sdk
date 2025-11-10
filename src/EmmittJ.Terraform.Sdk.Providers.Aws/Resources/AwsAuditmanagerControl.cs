@@ -3,6 +3,89 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for control_mapping_sources in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The source_description attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceDescription
+    {
+        get => GetProperty<TerraformProperty<string>>("source_description");
+        set => WithProperty("source_description", value);
+    }
+
+    /// <summary>
+    /// The source_frequency attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceFrequency
+    {
+        get => GetProperty<TerraformProperty<string>>("source_frequency");
+        set => WithProperty("source_frequency", value);
+    }
+
+    /// <summary>
+    /// The source_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceId
+    {
+        get => GetProperty<TerraformProperty<string>>("source_id");
+        set => WithProperty("source_id", value);
+    }
+
+    /// <summary>
+    /// The source_keyword attribute.
+    /// </summary>
+    public List<TerraformProperty<object>>? SourceKeyword
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("source_keyword");
+        set => WithProperty("source_keyword", value);
+    }
+
+    /// <summary>
+    /// The source_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
+    public required TerraformProperty<string> SourceName
+    {
+        get => GetProperty<TerraformProperty<string>>("source_name");
+        set => WithProperty("source_name", value);
+    }
+
+    /// <summary>
+    /// The source_set_up_option attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSetUpOption is required")]
+    public required TerraformProperty<string> SourceSetUpOption
+    {
+        get => GetProperty<TerraformProperty<string>>("source_set_up_option");
+        set => WithProperty("source_set_up_option", value);
+    }
+
+    /// <summary>
+    /// The source_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
+    public required TerraformProperty<string> SourceType
+    {
+        get => GetProperty<TerraformProperty<string>>("source_type");
+        set => WithProperty("source_type", value);
+    }
+
+    /// <summary>
+    /// The troubleshooting_text attribute.
+    /// </summary>
+    public TerraformProperty<string>? TroubleshootingText
+    {
+        get => GetProperty<TerraformProperty<string>>("troubleshooting_text");
+        set => WithProperty("troubleshooting_text", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_auditmanager_control resource.
 /// </summary>
 public class AwsAuditmanagerControl : TerraformResource
@@ -50,7 +133,8 @@ public class AwsAuditmanagerControl : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -68,9 +152,9 @@ public class AwsAuditmanagerControl : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -81,6 +165,16 @@ public class AwsAuditmanagerControl : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("testing_information");
         set => this.WithProperty("testing_information", value);
+    }
+
+    /// <summary>
+    /// Block for control_mapping_sources.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAuditmanagerControlControlMappingSourcesBlock>? ControlMappingSources
+    {
+        get => GetProperty<HashSet<AwsAuditmanagerControlControlMappingSourcesBlock>>("control_mapping_sources");
+        set => this.WithProperty("control_mapping_sources", value);
     }
 
     /// <summary>

@@ -28,7 +28,8 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     /// <summary>
     /// The identity_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
+    public required TerraformProperty<string> IdentityPoolId
     {
         get => GetProperty<TerraformProperty<string>>("identity_pool_id");
         set => this.WithProperty("identity_pool_id", value);
@@ -37,7 +38,8 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     /// <summary>
     /// The identity_provider_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityProviderName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderName is required")]
+    public required TerraformProperty<string> IdentityProviderName
     {
         get => GetProperty<TerraformProperty<string>>("identity_provider_name");
         set => this.WithProperty("identity_provider_name", value);
@@ -46,9 +48,9 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     /// <summary>
     /// The principal_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? PrincipalTags
+    public Dictionary<string, TerraformProperty<string>>? PrincipalTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("principal_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("principal_tags");
         set => this.WithProperty("principal_tags", value);
     }
 

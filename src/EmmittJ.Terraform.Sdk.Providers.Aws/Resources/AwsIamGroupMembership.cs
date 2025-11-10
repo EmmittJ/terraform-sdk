@@ -19,7 +19,8 @@ public class AwsIamGroupMembership : TerraformResource
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformProperty<string>? Group
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
+    public required TerraformProperty<string> Group
     {
         get => GetProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
@@ -37,7 +38,8 @@ public class AwsIamGroupMembership : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,9 +48,10 @@ public class AwsIamGroupMembership : TerraformResource
     /// <summary>
     /// The users attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Users
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Users is required")]
+    public HashSet<TerraformProperty<string>>? Users
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("users");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("users");
         set => this.WithProperty("users", value);
     }
 

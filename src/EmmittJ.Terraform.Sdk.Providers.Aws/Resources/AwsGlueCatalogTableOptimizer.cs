@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGlueCatalogTableOptimizerConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("role_arn");
+        set => WithProperty("role_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_glue_catalog_table_optimizer resource.
 /// </summary>
 public class AwsGlueCatalogTableOptimizer : TerraformResource
@@ -19,7 +47,8 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CatalogId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
+    public required TerraformProperty<string> CatalogId
     {
         get => GetProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
@@ -28,7 +57,8 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformProperty<string> DatabaseName
     {
         get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
@@ -46,7 +76,8 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
+    public required TerraformProperty<string> TableName
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
@@ -55,10 +86,21 @@ public class AwsGlueCatalogTableOptimizer : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsGlueCatalogTableOptimizerConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsGlueCatalogTableOptimizerConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
     }
 
 }

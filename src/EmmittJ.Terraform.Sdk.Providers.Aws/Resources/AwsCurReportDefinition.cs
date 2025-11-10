@@ -20,25 +20,27 @@ public class AwsCurReportDefinition : TerraformResource
     /// <summary>
     /// The additional_artifacts attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdditionalArtifacts
+    public HashSet<TerraformProperty<string>>? AdditionalArtifacts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("additional_artifacts");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("additional_artifacts");
         set => this.WithProperty("additional_artifacts", value);
     }
 
     /// <summary>
     /// The additional_schema_elements attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdditionalSchemaElements
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdditionalSchemaElements is required")]
+    public HashSet<TerraformProperty<string>>? AdditionalSchemaElements
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("additional_schema_elements");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("additional_schema_elements");
         set => this.WithProperty("additional_schema_elements", value);
     }
 
     /// <summary>
     /// The compression attribute.
     /// </summary>
-    public TerraformProperty<string>? Compression
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
+    public required TerraformProperty<string> Compression
     {
         get => GetProperty<TerraformProperty<string>>("compression");
         set => this.WithProperty("compression", value);
@@ -47,7 +49,8 @@ public class AwsCurReportDefinition : TerraformResource
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformProperty<string>? Format
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
+    public required TerraformProperty<string> Format
     {
         get => GetProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
@@ -74,7 +77,8 @@ public class AwsCurReportDefinition : TerraformResource
     /// <summary>
     /// The report_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ReportName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
+    public required TerraformProperty<string> ReportName
     {
         get => GetProperty<TerraformProperty<string>>("report_name");
         set => this.WithProperty("report_name", value);
@@ -92,7 +96,8 @@ public class AwsCurReportDefinition : TerraformResource
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
+    public required TerraformProperty<string> S3Bucket
     {
         get => GetProperty<TerraformProperty<string>>("s3_bucket");
         set => this.WithProperty("s3_bucket", value);
@@ -101,7 +106,8 @@ public class AwsCurReportDefinition : TerraformResource
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Prefix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Prefix is required")]
+    public required TerraformProperty<string> S3Prefix
     {
         get => GetProperty<TerraformProperty<string>>("s3_prefix");
         set => this.WithProperty("s3_prefix", value);
@@ -110,7 +116,8 @@ public class AwsCurReportDefinition : TerraformResource
     /// <summary>
     /// The s3_region attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Region
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Region is required")]
+    public required TerraformProperty<string> S3Region
     {
         get => GetProperty<TerraformProperty<string>>("s3_region");
         set => this.WithProperty("s3_region", value);
@@ -119,25 +126,26 @@ public class AwsCurReportDefinition : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeUnit
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
+    public required TerraformProperty<string> TimeUnit
     {
         get => GetProperty<TerraformProperty<string>>("time_unit");
         set => this.WithProperty("time_unit", value);

@@ -23,7 +23,8 @@ public class AwsIamSessionContextDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
+    public required TerraformProperty<string> Arn
     {
         get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);

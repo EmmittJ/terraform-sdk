@@ -40,7 +40,8 @@ public class AwsSsmActivation : TerraformResource
     /// <summary>
     /// The iam_role attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRole
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
+    public required TerraformProperty<string> IamRole
     {
         get => GetProperty<TerraformProperty<string>>("iam_role");
         set => this.WithProperty("iam_role", value);
@@ -85,18 +86,18 @@ public class AwsSsmActivation : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

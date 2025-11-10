@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsInspector2EnablerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_inspector2_enabler resource.
 /// </summary>
 public class AwsInspector2Enabler : TerraformResource
@@ -19,9 +54,10 @@ public class AwsInspector2Enabler : TerraformResource
     /// <summary>
     /// The account_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AccountIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountIds is required")]
+    public HashSet<TerraformProperty<string>>? AccountIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("account_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("account_ids");
         set => this.WithProperty("account_ids", value);
     }
 
@@ -46,10 +82,21 @@ public class AwsInspector2Enabler : TerraformResource
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ResourceTypes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
+    public HashSet<TerraformProperty<string>>? ResourceTypes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_types");
         set => this.WithProperty("resource_types", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsInspector2EnablerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsInspector2EnablerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

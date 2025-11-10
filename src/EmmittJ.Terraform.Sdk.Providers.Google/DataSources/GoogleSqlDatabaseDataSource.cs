@@ -33,7 +33,8 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// The name of the Cloud SQL instance. This does not include the project
     /// ID.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -43,7 +44,8 @@ public class GoogleSqlDatabaseDataSource : TerraformDataSource
     /// The name of the database in the Cloud SQL instance.
     /// This does not include the project ID or instance name.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

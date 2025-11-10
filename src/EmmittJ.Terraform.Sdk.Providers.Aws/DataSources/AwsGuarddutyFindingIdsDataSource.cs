@@ -22,7 +22,8 @@ public class AwsGuarddutyFindingIdsDataSource : TerraformDataSource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
+    public required TerraformProperty<string> DetectorId
     {
         get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);

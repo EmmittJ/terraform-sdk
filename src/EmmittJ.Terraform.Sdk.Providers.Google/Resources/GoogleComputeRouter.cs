@@ -3,6 +3,165 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for bgp in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouterBgpBlock : TerraformBlock
+{
+    /// <summary>
+    /// User-specified flag to indicate which mode to use for advertisement. Default value: &amp;quot;DEFAULT&amp;quot; Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? AdvertiseMode
+    {
+        get => GetProperty<TerraformProperty<string>>("advertise_mode");
+        set => WithProperty("advertise_mode", value);
+    }
+
+    /// <summary>
+    /// User-specified list of prefix groups to advertise in custom mode.
+    /// This field can only be populated if advertiseMode is CUSTOM and
+    /// is advertised to all peers of the router. These groups will be
+    /// advertised in addition to any specified prefixes. Leave this field
+    /// blank to advertise no custom groups.
+    /// 
+    /// This enum field has the one valid value: ALL_SUBNETS
+    /// </summary>
+    public List<TerraformProperty<string>>? AdvertisedGroups
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("advertised_groups");
+        set => WithProperty("advertised_groups", value);
+    }
+
+    /// <summary>
+    /// Local BGP Autonomous System Number (ASN). Must be an RFC6996
+    /// private ASN, either 16-bit or 32-bit. The value will be fixed for
+    /// this router resource. All VPN tunnels that link to this router
+    /// will have the same local ASN.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
+    public required TerraformProperty<double> Asn
+    {
+        get => GetProperty<TerraformProperty<double>>("asn");
+        set => WithProperty("asn", value);
+    }
+
+    /// <summary>
+    /// Explicitly specifies a range of valid BGP Identifiers for this Router.
+    /// It is provided as a link-local IPv4 range (from 169.254.0.0/16), of
+    /// size at least /30, even if the BGP sessions are over IPv6. It must
+    /// not overlap with any IPv4 BGP session ranges. Other vendors commonly
+    /// call this router ID.
+    /// </summary>
+    public TerraformProperty<string>? IdentifierRange
+    {
+        get => GetProperty<TerraformProperty<string>>("identifier_range");
+        set => WithProperty("identifier_range", value);
+    }
+
+    /// <summary>
+    /// The interval in seconds between BGP keepalive messages that are sent
+    /// to the peer. Hold time is three times the interval at which keepalive
+    /// messages are sent, and the hold time is the maximum number of seconds
+    /// allowed to elapse between successive keepalive messages that BGP
+    /// receives from a peer.
+    /// 
+    /// BGP will use the smaller of either the local hold time value or the
+    /// peer&#39;s hold time value as the hold time for the BGP connection
+    /// between the two peers. If set, this value must be between 20 and 60.
+    /// The default is 20.
+    /// </summary>
+    public TerraformProperty<double>? KeepaliveInterval
+    {
+        get => GetProperty<TerraformProperty<double>>("keepalive_interval");
+        set => WithProperty("keepalive_interval", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for md5_authentication_keys in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
+{
+    /// <summary>
+    /// Value of the key used for MD5 authentication.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// Name used to identify the key. Must be unique within a router.
+    /// Must be referenced by exactly one bgpPeer. Must comply with RFC1035.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for params in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouterParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Resource manager tags to be bound to the router. Tag keys and values have the
+    /// same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},
+    /// and values are in the format tagValues/456.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
+        set => WithProperty("resource_manager_tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_router resource.
 /// </summary>
 public class GoogleComputeRouter : TerraformResource
@@ -54,7 +213,8 @@ public class GoogleComputeRouter : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -85,6 +245,49 @@ public class GoogleComputeRouter : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for bgp.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bgp block(s) allowed")]
+    public List<GoogleComputeRouterBgpBlock>? Bgp
+    {
+        get => GetProperty<List<GoogleComputeRouterBgpBlock>>("bgp");
+        set => this.WithProperty("bgp", value);
+    }
+
+    /// <summary>
+    /// Block for md5_authentication_keys.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKeys block(s) allowed")]
+    public List<GoogleComputeRouterMd5AuthenticationKeysBlock>? Md5AuthenticationKeys
+    {
+        get => GetProperty<List<GoogleComputeRouterMd5AuthenticationKeysBlock>>("md5_authentication_keys");
+        set => this.WithProperty("md5_authentication_keys", value);
+    }
+
+    /// <summary>
+    /// Block for params.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
+    public List<GoogleComputeRouterParamsBlock>? Params
+    {
+        get => GetProperty<List<GoogleComputeRouterParamsBlock>>("params");
+        set => this.WithProperty("params", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRouterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRouterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

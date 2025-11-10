@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeTargetSslProxyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_target_ssl_proxy resource.
 /// </summary>
 public class GoogleComputeTargetSslProxy : TerraformResource
@@ -22,7 +57,8 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// <summary>
     /// A reference to the BackendService resource.
     /// </summary>
-    public TerraformProperty<string>? BackendService
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
+    public required TerraformProperty<string> BackendService
     {
         get => GetProperty<TerraformProperty<string>>("backend_service");
         set => this.WithProperty("backend_service", value);
@@ -66,7 +102,8 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -96,9 +133,9 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// connections between users and the load balancer. At least one
     /// SSL certificate must be specified.
     /// </summary>
-    public TerraformProperty<List<string>>? SslCertificates
+    public List<TerraformProperty<string>>? SslCertificates
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ssl_certificates");
+        get => GetProperty<List<TerraformProperty<string>>>("ssl_certificates");
         set => this.WithProperty("ssl_certificates", value);
     }
 
@@ -111,6 +148,16 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("ssl_policy");
         set => this.WithProperty("ssl_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeTargetSslProxyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeTargetSslProxyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

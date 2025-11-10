@@ -3,6 +3,109 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for agent_runtime_artifact in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for authorizer_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for network_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The network_mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
+    public required TerraformProperty<string> NetworkMode
+    {
+        get => GetProperty<TerraformProperty<string>>("network_mode");
+        set => WithProperty("network_mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for protocol_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The server_protocol attribute.
+    /// </summary>
+    public TerraformProperty<string>? ServerProtocol
+    {
+        get => GetProperty<TerraformProperty<string>>("server_protocol");
+        set => WithProperty("server_protocol", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for request_header_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The request_header_allowlist attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? RequestHeaderAllowlist
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("request_header_allowlist");
+        set => WithProperty("request_header_allowlist", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsBedrockagentcoreAgentRuntimeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_bedrockagentcore_agent_runtime resource.
 /// </summary>
 public class AwsBedrockagentcoreAgentRuntime : TerraformResource
@@ -24,7 +127,8 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
     /// <summary>
     /// The agent_runtime_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentRuntimeName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentRuntimeName is required")]
+    public required TerraformProperty<string> AgentRuntimeName
     {
         get => GetProperty<TerraformProperty<string>>("agent_runtime_name");
         set => this.WithProperty("agent_runtime_name", value);
@@ -42,18 +146,18 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public TerraformMapProperty<string>? EnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
     {
-        get => GetProperty<TerraformMapProperty<string>>("environment_variables");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The lifecycle_configuration attribute.
     /// </summary>
-    public TerraformProperty<List<object>>? LifecycleConfiguration
+    public List<TerraformProperty<object>>? LifecycleConfiguration
     {
-        get => GetProperty<TerraformProperty<List<object>>>("lifecycle_configuration");
+        get => GetProperty<List<TerraformProperty<object>>>("lifecycle_configuration");
         set => this.WithProperty("lifecycle_configuration", value);
     }
 
@@ -69,7 +173,8 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -78,10 +183,70 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for agent_runtime_artifact.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock>? AgentRuntimeArtifact
+    {
+        get => GetProperty<List<AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlock>>("agent_runtime_artifact");
+        set => this.WithProperty("agent_runtime_artifact", value);
+    }
+
+    /// <summary>
+    /// Block for authorizer_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock>? AuthorizerConfiguration
+    {
+        get => GetProperty<List<AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlock>>("authorizer_configuration");
+        set => this.WithProperty("authorizer_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for network_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock>? NetworkConfiguration
+    {
+        get => GetProperty<List<AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock>>("network_configuration");
+        set => this.WithProperty("network_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for protocol_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock>? ProtocolConfiguration
+    {
+        get => GetProperty<List<AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock>>("protocol_configuration");
+        set => this.WithProperty("protocol_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for request_header_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock>? RequestHeaderConfiguration
+    {
+        get => GetProperty<List<AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock>>("request_header_configuration");
+        set => this.WithProperty("request_header_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsBedrockagentcoreAgentRuntimeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsBedrockagentcoreAgentRuntimeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -28,7 +28,8 @@ public class AwsApiGatewayRestApiPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -46,7 +47,8 @@ public class AwsApiGatewayRestApiPolicy : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);

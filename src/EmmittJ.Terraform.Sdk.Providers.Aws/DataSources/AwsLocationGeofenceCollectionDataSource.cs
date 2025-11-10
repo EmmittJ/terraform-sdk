@@ -23,7 +23,8 @@ public class AwsLocationGeofenceCollectionDataSource : TerraformDataSource
     /// <summary>
     /// The collection_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CollectionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionName is required")]
+    public required TerraformProperty<string> CollectionName
     {
         get => GetProperty<TerraformProperty<string>>("collection_name");
         set => this.WithProperty("collection_name", value);
@@ -59,9 +60,9 @@ public class AwsLocationGeofenceCollectionDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

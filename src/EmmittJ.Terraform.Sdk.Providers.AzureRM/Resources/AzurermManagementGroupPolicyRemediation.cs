@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermManagementGroupPolicyRemediationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_management_group_policy_remediation resource.
 /// </summary>
 public class AzurermManagementGroupPolicyRemediation : TerraformResource
@@ -37,16 +81,17 @@ public class AzurermManagementGroupPolicyRemediation : TerraformResource
     /// <summary>
     /// The location_filters attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? LocationFilters
+    public List<TerraformProperty<string>>? LocationFilters
     {
-        get => GetProperty<TerraformProperty<List<string>>>("location_filters");
+        get => GetProperty<List<TerraformProperty<string>>>("location_filters");
         set => this.WithProperty("location_filters", value);
     }
 
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagementGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
+    public required TerraformProperty<string> ManagementGroupId
     {
         get => GetProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
@@ -55,7 +100,8 @@ public class AzurermManagementGroupPolicyRemediation : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,7 +119,8 @@ public class AzurermManagementGroupPolicyRemediation : TerraformResource
     /// <summary>
     /// The policy_assignment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyAssignmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
+    public required TerraformProperty<string> PolicyAssignmentId
     {
         get => GetProperty<TerraformProperty<string>>("policy_assignment_id");
         set => this.WithProperty("policy_assignment_id", value);
@@ -95,6 +142,16 @@ public class AzurermManagementGroupPolicyRemediation : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("resource_count");
         set => this.WithProperty("resource_count", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermManagementGroupPolicyRemediationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermManagementGroupPolicyRemediationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

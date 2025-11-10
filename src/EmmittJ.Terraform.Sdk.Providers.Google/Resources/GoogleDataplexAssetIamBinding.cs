@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataplexAssetIamBindingConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The title attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataplex_asset_iam_binding resource.
 /// </summary>
 public class GoogleDataplexAssetIamBinding : TerraformResource
@@ -20,7 +57,8 @@ public class GoogleDataplexAssetIamBinding : TerraformResource
     /// <summary>
     /// The asset attribute.
     /// </summary>
-    public TerraformProperty<string>? Asset
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asset is required")]
+    public required TerraformProperty<string> Asset
     {
         get => GetProperty<TerraformProperty<string>>("asset");
         set => this.WithProperty("asset", value);
@@ -29,7 +67,8 @@ public class GoogleDataplexAssetIamBinding : TerraformResource
     /// <summary>
     /// The dataplex_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? DataplexZone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataplexZone is required")]
+    public required TerraformProperty<string> DataplexZone
     {
         get => GetProperty<TerraformProperty<string>>("dataplex_zone");
         set => this.WithProperty("dataplex_zone", value);
@@ -47,7 +86,8 @@ public class GoogleDataplexAssetIamBinding : TerraformResource
     /// <summary>
     /// The lake attribute.
     /// </summary>
-    public TerraformProperty<string>? Lake
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
+    public required TerraformProperty<string> Lake
     {
         get => GetProperty<TerraformProperty<string>>("lake");
         set => this.WithProperty("lake", value);
@@ -65,9 +105,10 @@ public class GoogleDataplexAssetIamBinding : TerraformResource
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Members
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
+    public HashSet<TerraformProperty<string>>? Members
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
@@ -83,10 +124,22 @@ public class GoogleDataplexAssetIamBinding : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleDataplexAssetIamBindingConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleDataplexAssetIamBindingConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>

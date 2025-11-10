@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkSecurityMirroringDeploymentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_security_mirroring_deployment resource.
 /// </summary>
 public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
@@ -38,7 +73,8 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// example: &#39;projects/123456789/regions/us-central1/forwardingRules/my-rule&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public TerraformProperty<string>? ForwardingRule
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRule is required")]
+    public required TerraformProperty<string> ForwardingRule
     {
         get => GetProperty<TerraformProperty<string>>("forwarding_rule");
         set => this.WithProperty("forwarding_rule", value);
@@ -59,16 +95,17 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The cloud location of the deployment, e.g. &#39;us-central1-a&#39; or &#39;asia-south1-b&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -79,7 +116,8 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// &#39;projects/123456789/locations/global/mirroringDeploymentGroups/my-dg&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public TerraformProperty<string>? MirroringDeploymentGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringDeploymentGroup is required")]
+    public required TerraformProperty<string> MirroringDeploymentGroup
     {
         get => GetProperty<TerraformProperty<string>>("mirroring_deployment_group");
         set => this.WithProperty("mirroring_deployment_group", value);
@@ -89,7 +127,8 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// The ID to use for the new deployment, which will become the final
     /// component of the deployment&#39;s resource name.
     /// </summary>
-    public TerraformProperty<string>? MirroringDeploymentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringDeploymentId is required")]
+    public required TerraformProperty<string> MirroringDeploymentId
     {
         get => GetProperty<TerraformProperty<string>>("mirroring_deployment_id");
         set => this.WithProperty("mirroring_deployment_id", value);
@@ -102,6 +141,16 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkSecurityMirroringDeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkSecurityMirroringDeploymentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

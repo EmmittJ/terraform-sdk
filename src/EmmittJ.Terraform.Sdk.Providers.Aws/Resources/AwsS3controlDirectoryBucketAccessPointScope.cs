@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for scope in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3controlDirectoryBucketAccessPointScopeScopeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Permissions
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("permissions");
+        set => WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// The prefixes attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Prefixes
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("prefixes");
+        set => WithProperty("prefixes", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3control_directory_bucket_access_point_scope resource.
 /// </summary>
 public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
@@ -19,7 +45,8 @@ public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
+    public required TerraformProperty<string> AccountId
     {
         get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
@@ -28,7 +55,8 @@ public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,6 +69,16 @@ public class AwsS3controlDirectoryBucketAccessPointScope : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for scope.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>? Scope
+    {
+        get => GetProperty<List<AwsS3controlDirectoryBucketAccessPointScopeScopeBlock>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
 }

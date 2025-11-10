@@ -3,6 +3,48 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for eks_properties in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBatchJobDefinitionEksPropertiesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for retry_strategy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBatchJobDefinitionRetryStrategyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The attempts attribute.
+    /// </summary>
+    public TerraformProperty<double>? Attempts
+    {
+        get => GetProperty<TerraformProperty<double>>("attempts");
+        set => WithProperty("attempts", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeout in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBatchJobDefinitionTimeoutBlock : TerraformBlock
+{
+    /// <summary>
+    /// The attempt_duration_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? AttemptDurationSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("attempt_duration_seconds");
+        set => WithProperty("attempt_duration_seconds", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_batch_job_definition resource.
 /// </summary>
 public class AwsBatchJobDefinition : TerraformResource
@@ -58,7 +100,8 @@ public class AwsBatchJobDefinition : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -76,18 +119,18 @@ public class AwsBatchJobDefinition : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The platform_capabilities attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? PlatformCapabilities
+    public HashSet<TerraformProperty<string>>? PlatformCapabilities
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("platform_capabilities");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("platform_capabilities");
         set => this.WithProperty("platform_capabilities", value);
     }
 
@@ -121,28 +164,62 @@ public class AwsBatchJobDefinition : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for eks_properties.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EksProperties block(s) allowed")]
+    public List<AwsBatchJobDefinitionEksPropertiesBlock>? EksProperties
+    {
+        get => GetProperty<List<AwsBatchJobDefinitionEksPropertiesBlock>>("eks_properties");
+        set => this.WithProperty("eks_properties", value);
+    }
+
+    /// <summary>
+    /// Block for retry_strategy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryStrategy block(s) allowed")]
+    public List<AwsBatchJobDefinitionRetryStrategyBlock>? RetryStrategy
+    {
+        get => GetProperty<List<AwsBatchJobDefinitionRetryStrategyBlock>>("retry_strategy");
+        set => this.WithProperty("retry_strategy", value);
+    }
+
+    /// <summary>
+    /// Block for timeout.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
+    public List<AwsBatchJobDefinitionTimeoutBlock>? Timeout
+    {
+        get => GetProperty<List<AwsBatchJobDefinitionTimeoutBlock>>("timeout");
+        set => this.WithProperty("timeout", value);
     }
 
     /// <summary>

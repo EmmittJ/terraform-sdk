@@ -35,7 +35,8 @@ public class AwsConnectUserDataSource : TerraformDataSource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -62,9 +63,9 @@ public class AwsConnectUserDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

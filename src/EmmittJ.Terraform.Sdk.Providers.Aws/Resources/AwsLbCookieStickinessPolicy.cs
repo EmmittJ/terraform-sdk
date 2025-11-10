@@ -37,7 +37,8 @@ public class AwsLbCookieStickinessPolicy : TerraformResource
     /// <summary>
     /// The lb_port attribute.
     /// </summary>
-    public TerraformProperty<double>? LbPort
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
+    public required TerraformProperty<double> LbPort
     {
         get => GetProperty<TerraformProperty<double>>("lb_port");
         set => this.WithProperty("lb_port", value);
@@ -46,7 +47,8 @@ public class AwsLbCookieStickinessPolicy : TerraformResource
     /// <summary>
     /// The load_balancer attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
+    public required TerraformProperty<string> LoadBalancer
     {
         get => GetProperty<TerraformProperty<string>>("load_balancer");
         set => this.WithProperty("load_balancer", value);
@@ -55,7 +57,8 @@ public class AwsLbCookieStickinessPolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

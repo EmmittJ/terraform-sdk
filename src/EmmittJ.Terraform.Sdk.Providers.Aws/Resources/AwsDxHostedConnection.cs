@@ -30,7 +30,8 @@ public class AwsDxHostedConnection : TerraformResource
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
-    public TerraformProperty<string>? Bandwidth
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bandwidth is required")]
+    public required TerraformProperty<string> Bandwidth
     {
         get => GetProperty<TerraformProperty<string>>("bandwidth");
         set => this.WithProperty("bandwidth", value);
@@ -39,7 +40,8 @@ public class AwsDxHostedConnection : TerraformResource
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
+    public required TerraformProperty<string> ConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
@@ -57,7 +59,8 @@ public class AwsDxHostedConnection : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,7 +69,8 @@ public class AwsDxHostedConnection : TerraformResource
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnerAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerAccountId is required")]
+    public required TerraformProperty<string> OwnerAccountId
     {
         get => GetProperty<TerraformProperty<string>>("owner_account_id");
         set => this.WithProperty("owner_account_id", value);
@@ -75,7 +79,8 @@ public class AwsDxHostedConnection : TerraformResource
     /// <summary>
     /// The vlan attribute.
     /// </summary>
-    public TerraformProperty<double>? Vlan
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
+    public required TerraformProperty<double> Vlan
     {
         get => GetProperty<TerraformProperty<double>>("vlan");
         set => this.WithProperty("vlan", value);

@@ -3,6 +3,148 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for provisioning_parameters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsServicecatalogProvisionedProductProvisioningParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The use_previous_value attribute.
+    /// </summary>
+    public TerraformProperty<bool>? UsePreviousValue
+    {
+        get => GetProperty<TerraformProperty<bool>>("use_previous_value");
+        set => WithProperty("use_previous_value", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for stack_set_provisioning_preferences in .
+/// Nesting mode: list
+/// </summary>
+public class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The accounts attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Accounts
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("accounts");
+        set => WithProperty("accounts", value);
+    }
+
+    /// <summary>
+    /// The failure_tolerance_count attribute.
+    /// </summary>
+    public TerraformProperty<double>? FailureToleranceCount
+    {
+        get => GetProperty<TerraformProperty<double>>("failure_tolerance_count");
+        set => WithProperty("failure_tolerance_count", value);
+    }
+
+    /// <summary>
+    /// The failure_tolerance_percentage attribute.
+    /// </summary>
+    public TerraformProperty<double>? FailureTolerancePercentage
+    {
+        get => GetProperty<TerraformProperty<double>>("failure_tolerance_percentage");
+        set => WithProperty("failure_tolerance_percentage", value);
+    }
+
+    /// <summary>
+    /// The max_concurrency_count attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxConcurrencyCount
+    {
+        get => GetProperty<TerraformProperty<double>>("max_concurrency_count");
+        set => WithProperty("max_concurrency_count", value);
+    }
+
+    /// <summary>
+    /// The max_concurrency_percentage attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxConcurrencyPercentage
+    {
+        get => GetProperty<TerraformProperty<double>>("max_concurrency_percentage");
+        set => WithProperty("max_concurrency_percentage", value);
+    }
+
+    /// <summary>
+    /// The regions attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Regions
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("regions");
+        set => WithProperty("regions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServicecatalogProvisionedProductTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_servicecatalog_provisioned_product resource.
 /// </summary>
 public class AwsServicecatalogProvisionedProduct : TerraformResource
@@ -57,7 +199,8 @@ public class AwsServicecatalogProvisionedProduct : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,9 +209,9 @@ public class AwsServicecatalogProvisionedProduct : TerraformResource
     /// <summary>
     /// The notification_arns attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? NotificationArns
+    public List<TerraformProperty<string>>? NotificationArns
     {
-        get => GetProperty<TerraformProperty<List<string>>>("notification_arns");
+        get => GetProperty<List<TerraformProperty<string>>>("notification_arns");
         set => this.WithProperty("notification_arns", value);
     }
 
@@ -147,19 +290,50 @@ public class AwsServicecatalogProvisionedProduct : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for provisioning_parameters.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsServicecatalogProvisionedProductProvisioningParametersBlock>? ProvisioningParameters
+    {
+        get => GetProperty<List<AwsServicecatalogProvisionedProductProvisioningParametersBlock>>("provisioning_parameters");
+        set => this.WithProperty("provisioning_parameters", value);
+    }
+
+    /// <summary>
+    /// Block for stack_set_provisioning_preferences.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StackSetProvisioningPreferences block(s) allowed")]
+    public List<AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesBlock>? StackSetProvisioningPreferences
+    {
+        get => GetProperty<List<AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesBlock>>("stack_set_provisioning_preferences");
+        set => this.WithProperty("stack_set_provisioning_preferences", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServicecatalogProvisionedProductTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServicecatalogProvisionedProductTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

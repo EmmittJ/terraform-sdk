@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNeptuneClusterInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_neptune_cluster_instance resource.
 /// </summary>
 public class AwsNeptuneClusterInstance : TerraformResource
@@ -54,7 +89,8 @@ public class AwsNeptuneClusterInstance : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -108,7 +144,8 @@ public class AwsNeptuneClusterInstance : TerraformResource
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceClass
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceClass is required")]
+    public required TerraformProperty<string> InstanceClass
     {
         get => GetProperty<TerraformProperty<string>>("instance_class");
         set => this.WithProperty("instance_class", value);
@@ -198,19 +235,29 @@ public class AwsNeptuneClusterInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNeptuneClusterInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNeptuneClusterInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

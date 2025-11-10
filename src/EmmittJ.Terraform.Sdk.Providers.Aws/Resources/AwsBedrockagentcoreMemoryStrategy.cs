@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreMemoryStrategyConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_bedrockagentcore_memory_strategy resource.
 /// </summary>
 public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
@@ -38,7 +91,8 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     /// <summary>
     /// The memory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MemoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryId is required")]
+    public required TerraformProperty<string> MemoryId
     {
         get => GetProperty<TerraformProperty<string>>("memory_id");
         set => this.WithProperty("memory_id", value);
@@ -47,7 +101,8 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,9 +111,10 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     /// <summary>
     /// The namespaces attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Namespaces
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespaces is required")]
+    public HashSet<TerraformProperty<string>>? Namespaces
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("namespaces");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("namespaces");
         set => this.WithProperty("namespaces", value);
     }
 
@@ -74,10 +130,31 @@ public class AwsBedrockagentcoreMemoryStrategy : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreMemoryStrategyConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsBedrockagentcoreMemoryStrategyConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsBedrockagentcoreMemoryStrategyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsBedrockagentcoreMemoryStrategyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

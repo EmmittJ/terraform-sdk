@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNetworkmanagerConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_networkmanager_connection resource.
 /// </summary>
 public class AwsNetworkmanagerConnection : TerraformResource
@@ -20,7 +55,8 @@ public class AwsNetworkmanagerConnection : TerraformResource
     /// <summary>
     /// The connected_device_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectedDeviceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectedDeviceId is required")]
+    public required TerraformProperty<string> ConnectedDeviceId
     {
         get => GetProperty<TerraformProperty<string>>("connected_device_id");
         set => this.WithProperty("connected_device_id", value);
@@ -47,7 +83,8 @@ public class AwsNetworkmanagerConnection : TerraformResource
     /// <summary>
     /// The device_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
+    public required TerraformProperty<string> DeviceId
     {
         get => GetProperty<TerraformProperty<string>>("device_id");
         set => this.WithProperty("device_id", value);
@@ -56,7 +93,8 @@ public class AwsNetworkmanagerConnection : TerraformResource
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GlobalNetworkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
+    public required TerraformProperty<string> GlobalNetworkId
     {
         get => GetProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
@@ -83,19 +121,29 @@ public class AwsNetworkmanagerConnection : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNetworkmanagerConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNetworkmanagerConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

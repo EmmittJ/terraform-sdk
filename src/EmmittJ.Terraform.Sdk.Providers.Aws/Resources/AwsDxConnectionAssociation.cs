@@ -19,7 +19,8 @@ public class AwsDxConnectionAssociation : TerraformResource
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
+    public required TerraformProperty<string> ConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
@@ -37,7 +38,8 @@ public class AwsDxConnectionAssociation : TerraformResource
     /// <summary>
     /// The lag_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LagId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LagId is required")]
+    public required TerraformProperty<string> LagId
     {
         get => GetProperty<TerraformProperty<string>>("lag_id");
         set => this.WithProperty("lag_id", value);

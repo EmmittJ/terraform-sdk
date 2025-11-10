@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for routing_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSfnAliasRoutingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The state_machine_version_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateMachineVersionArn is required")]
+    public required TerraformProperty<string> StateMachineVersionArn
+    {
+        get => GetProperty<TerraformProperty<string>>("state_machine_version_arn");
+        set => WithProperty("state_machine_version_arn", value);
+    }
+
+    /// <summary>
+    /// The weight attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
+    public required TerraformProperty<double> Weight
+    {
+        get => GetProperty<TerraformProperty<double>>("weight");
+        set => WithProperty("weight", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSfnAliasTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sfn_alias resource.
 /// </summary>
 public class AwsSfnAlias : TerraformResource
@@ -39,7 +102,8 @@ public class AwsSfnAlias : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -52,6 +116,27 @@ public class AwsSfnAlias : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for routing_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingConfiguration block(s) required")]
+    public List<AwsSfnAliasRoutingConfigurationBlock>? RoutingConfiguration
+    {
+        get => GetProperty<List<AwsSfnAliasRoutingConfigurationBlock>>("routing_configuration");
+        set => this.WithProperty("routing_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSfnAliasTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSfnAliasTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

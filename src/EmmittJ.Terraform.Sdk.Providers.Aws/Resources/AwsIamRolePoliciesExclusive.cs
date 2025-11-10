@@ -19,16 +19,18 @@ public class AwsIamRolePoliciesExclusive : TerraformResource
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? PolicyNames
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
+    public HashSet<TerraformProperty<string>>? PolicyNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("policy_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("policy_names");
         set => this.WithProperty("policy_names", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
+    public required TerraformProperty<string> RoleName
     {
         get => GetProperty<TerraformProperty<string>>("role_name");
         set => this.WithProperty("role_name", value);

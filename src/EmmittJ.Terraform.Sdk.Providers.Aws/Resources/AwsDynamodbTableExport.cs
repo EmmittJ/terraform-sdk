@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for incremental_export_specification in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The export_from_time attribute.
+    /// </summary>
+    public TerraformProperty<string>? ExportFromTime
+    {
+        get => GetProperty<TerraformProperty<string>>("export_from_time");
+        set => WithProperty("export_from_time", value);
+    }
+
+    /// <summary>
+    /// The export_to_time attribute.
+    /// </summary>
+    public TerraformProperty<string>? ExportToTime
+    {
+        get => GetProperty<TerraformProperty<string>>("export_to_time");
+        set => WithProperty("export_to_time", value);
+    }
+
+    /// <summary>
+    /// The export_view_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? ExportViewType
+    {
+        get => GetProperty<TerraformProperty<string>>("export_view_type");
+        set => WithProperty("export_view_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDynamodbTableExportTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dynamodb_table_export resource.
 /// </summary>
 public class AwsDynamodbTableExport : TerraformResource
@@ -71,7 +132,8 @@ public class AwsDynamodbTableExport : TerraformResource
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? S3Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
+    public required TerraformProperty<string> S3Bucket
     {
         get => GetProperty<TerraformProperty<string>>("s3_bucket");
         set => this.WithProperty("s3_bucket", value);
@@ -116,10 +178,32 @@ public class AwsDynamodbTableExport : TerraformResource
     /// <summary>
     /// The table_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TableArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableArn is required")]
+    public required TerraformProperty<string> TableArn
     {
         get => GetProperty<TerraformProperty<string>>("table_arn");
         set => this.WithProperty("table_arn", value);
+    }
+
+    /// <summary>
+    /// Block for incremental_export_specification.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncrementalExportSpecification block(s) allowed")]
+    public List<AwsDynamodbTableExportIncrementalExportSpecificationBlock>? IncrementalExportSpecification
+    {
+        get => GetProperty<List<AwsDynamodbTableExportIncrementalExportSpecificationBlock>>("incremental_export_specification");
+        set => this.WithProperty("incremental_export_specification", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDynamodbTableExportTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDynamodbTableExportTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

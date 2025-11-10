@@ -40,7 +40,8 @@ public class AwsRoute53ResolverDnssecConfig : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);

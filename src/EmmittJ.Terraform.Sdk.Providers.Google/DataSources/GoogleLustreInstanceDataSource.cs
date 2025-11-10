@@ -48,7 +48,8 @@ public class GoogleLustreInstanceDataSource : TerraformDataSource
     /// * Must be between 1-63 characters.
     /// * Must end with a number or a letter.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);

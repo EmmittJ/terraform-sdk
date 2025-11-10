@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for logging_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The log_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
+    public required TerraformProperty<string> LogGroupName
+    {
+        get => GetProperty<TerraformProperty<string>>("log_group_name");
+        set => WithProperty("log_group_name", value);
+    }
+
+    /// <summary>
+    /// The log_role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogRoleArn is required")]
+    public required TerraformProperty<string> LogRoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("log_role_arn");
+        set => WithProperty("log_role_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudformation_type resource.
 /// </summary>
 public class AwsCloudformationType : TerraformResource
@@ -58,7 +86,8 @@ public class AwsCloudformationType : TerraformResource
     /// <summary>
     /// The schema_handler_package attribute.
     /// </summary>
-    public TerraformProperty<string>? SchemaHandlerPackage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaHandlerPackage is required")]
+    public required TerraformProperty<string> SchemaHandlerPackage
     {
         get => GetProperty<TerraformProperty<string>>("schema_handler_package");
         set => this.WithProperty("schema_handler_package", value);
@@ -76,10 +105,22 @@ public class AwsCloudformationType : TerraformResource
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
+    public required TerraformProperty<string> TypeName
     {
         get => GetProperty<TerraformProperty<string>>("type_name");
         set => this.WithProperty("type_name", value);
+    }
+
+    /// <summary>
+    /// Block for logging_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
+    public List<AwsCloudformationTypeLoggingConfigBlock>? LoggingConfig
+    {
+        get => GetProperty<List<AwsCloudformationTypeLoggingConfigBlock>>("logging_config");
+        set => this.WithProperty("logging_config", value);
     }
 
     /// <summary>

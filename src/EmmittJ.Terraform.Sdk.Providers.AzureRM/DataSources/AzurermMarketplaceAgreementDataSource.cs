@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMarketplaceAgreementDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_marketplace_agreement.
 /// </summary>
 public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
@@ -31,7 +48,8 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
     /// <summary>
     /// The offer attribute.
     /// </summary>
-    public TerraformProperty<string>? Offer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
+    public required TerraformProperty<string> Offer
     {
         get => GetProperty<TerraformProperty<string>>("offer");
         set => this.WithProperty("offer", value);
@@ -40,7 +58,8 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    public TerraformProperty<string>? Plan
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
+    public required TerraformProperty<string> Plan
     {
         get => GetProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
@@ -49,10 +68,21 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformProperty<string>? Publisher
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
+    public required TerraformProperty<string> Publisher
     {
         get => GetProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMarketplaceAgreementDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMarketplaceAgreementDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_target_pool resource.
 /// </summary>
 public class GoogleComputeTargetPool : TerraformResource
@@ -47,9 +82,9 @@ public class GoogleComputeTargetPool : TerraformResource
     /// <summary>
     /// List of zero or one health check name or self_link. Only legacy google_compute_http_health_check is supported.
     /// </summary>
-    public TerraformProperty<List<string>>? HealthChecks
+    public List<TerraformProperty<string>>? HealthChecks
     {
-        get => GetProperty<TerraformProperty<List<string>>>("health_checks");
+        get => GetProperty<List<TerraformProperty<string>>>("health_checks");
         set => this.WithProperty("health_checks", value);
     }
 
@@ -65,16 +100,17 @@ public class GoogleComputeTargetPool : TerraformResource
     /// <summary>
     /// List of instances in the pool. They can be given as URLs, or in the form of &amp;quot;zone/name&amp;quot;. Note that the instances need not exist at the time of target pool creation, so there is no need to use the Terraform interpolators to create a dependency on the instances from the target pool.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Instances
+    public HashSet<TerraformProperty<string>>? Instances
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("instances");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("instances");
         set => this.WithProperty("instances", value);
     }
 
     /// <summary>
     /// A unique name for the resource, required by GCE. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -105,6 +141,16 @@ public class GoogleComputeTargetPool : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("session_affinity");
         set => this.WithProperty("session_affinity", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeTargetPoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeTargetPoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

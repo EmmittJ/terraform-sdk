@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for authentication_mode in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMemorydbUserAuthenticationModeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The password_count attribute.
+    /// </summary>
+    public TerraformProperty<double>? PasswordCount
+    {
+        get => GetProperty<TerraformProperty<double>>("password_count");
+        set => WithProperty("password_count", value);
+    }
+
+    /// <summary>
+    /// The passwords attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Passwords
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("passwords");
+        set => WithProperty("passwords", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_memorydb_user resource.
 /// </summary>
 public class AwsMemorydbUser : TerraformResource
@@ -21,7 +57,8 @@ public class AwsMemorydbUser : TerraformResource
     /// <summary>
     /// The access_string attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessString
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessString is required")]
+    public required TerraformProperty<string> AccessString
     {
         get => GetProperty<TerraformProperty<string>>("access_string");
         set => this.WithProperty("access_string", value);
@@ -48,28 +85,41 @@ public class AwsMemorydbUser : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
+    public required TerraformProperty<string> UserName
     {
         get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
+    }
+
+    /// <summary>
+    /// Block for authentication_mode.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationMode block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationMode block(s) allowed")]
+    public List<AwsMemorydbUserAuthenticationModeBlock>? AuthenticationMode
+    {
+        get => GetProperty<List<AwsMemorydbUserAuthenticationModeBlock>>("authentication_mode");
+        set => this.WithProperty("authentication_mode", value);
     }
 
     /// <summary>

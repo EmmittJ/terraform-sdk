@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for s3_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDatasyncLocationS3S3ConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket_access_role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketAccessRoleArn is required")]
+    public required TerraformProperty<string> BucketAccessRoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_access_role_arn");
+        set => WithProperty("bucket_access_role_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_datasync_location_s3 resource.
 /// </summary>
 public class AwsDatasyncLocationS3 : TerraformResource
@@ -21,9 +39,9 @@ public class AwsDatasyncLocationS3 : TerraformResource
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AgentArns
+    public HashSet<TerraformProperty<string>>? AgentArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("agent_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
         set => this.WithProperty("agent_arns", value);
     }
 
@@ -48,7 +66,8 @@ public class AwsDatasyncLocationS3 : TerraformResource
     /// <summary>
     /// The s3_bucket_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? S3BucketArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketArn is required")]
+    public required TerraformProperty<string> S3BucketArn
     {
         get => GetProperty<TerraformProperty<string>>("s3_bucket_arn");
         set => this.WithProperty("s3_bucket_arn", value);
@@ -66,7 +85,8 @@ public class AwsDatasyncLocationS3 : TerraformResource
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformProperty<string>? Subdirectory
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
+    public required TerraformProperty<string> Subdirectory
     {
         get => GetProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
@@ -75,19 +95,31 @@ public class AwsDatasyncLocationS3 : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for s3_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Config block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Config block(s) allowed")]
+    public List<AwsDatasyncLocationS3S3ConfigBlock>? S3Config
+    {
+        get => GetProperty<List<AwsDatasyncLocationS3S3ConfigBlock>>("s3_config");
+        set => this.WithProperty("s3_config", value);
     }
 
     /// <summary>

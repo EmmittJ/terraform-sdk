@@ -20,7 +20,8 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
     /// <summary>
     /// The association_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociationId is required")]
+    public required TerraformProperty<string> AssociationId
     {
         get => GetProperty<TerraformProperty<string>>("association_id");
         set => this.WithProperty("association_id", value);
@@ -38,7 +39,8 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -56,7 +58,8 @@ public class AwsConnectInstanceStorageConfigDataSource : TerraformDataSource
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
+    public required TerraformProperty<string> ResourceType
     {
         get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);

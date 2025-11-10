@@ -3,6 +3,44 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for add_on in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLightsailInstanceAddOnBlock : TerraformBlock
+{
+    /// <summary>
+    /// The snapshot_time attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotTime is required")]
+    public required TerraformProperty<string> SnapshotTime
+    {
+        get => GetProperty<TerraformProperty<string>>("snapshot_time");
+        set => WithProperty("snapshot_time", value);
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
+    public required TerraformProperty<string> Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lightsail_instance resource.
 /// </summary>
 public class AwsLightsailInstance : TerraformResource
@@ -28,7 +66,8 @@ public class AwsLightsailInstance : TerraformResource
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
+    public required TerraformProperty<string> AvailabilityZone
     {
         get => GetProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
@@ -37,7 +76,8 @@ public class AwsLightsailInstance : TerraformResource
     /// <summary>
     /// The blueprint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BlueprintId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintId is required")]
+    public required TerraformProperty<string> BlueprintId
     {
         get => GetProperty<TerraformProperty<string>>("blueprint_id");
         set => this.WithProperty("blueprint_id", value);
@@ -46,7 +86,8 @@ public class AwsLightsailInstance : TerraformResource
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BundleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
+    public required TerraformProperty<string> BundleId
     {
         get => GetProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
@@ -82,7 +123,8 @@ public class AwsLightsailInstance : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,18 +142,18 @@ public class AwsLightsailInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -122,6 +164,17 @@ public class AwsLightsailInstance : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_data");
         set => this.WithProperty("user_data", value);
+    }
+
+    /// <summary>
+    /// Block for add_on.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AddOn block(s) allowed")]
+    public List<AwsLightsailInstanceAddOnBlock>? AddOn
+    {
+        get => GetProperty<List<AwsLightsailInstanceAddOnBlock>>("add_on");
+        set => this.WithProperty("add_on", value);
     }
 
     /// <summary>

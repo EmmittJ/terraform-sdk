@@ -3,6 +3,44 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for target_applications in .
+/// Nesting mode: set
+/// </summary>
+public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The aws_region attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
+    public required TerraformProperty<string> AwsRegion
+    {
+        get => GetProperty<TerraformProperty<string>>("aws_region");
+        set => WithProperty("aws_region", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+    /// <summary>
+    /// The sip_media_application_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SipMediaApplicationId is required")]
+    public required TerraformProperty<string> SipMediaApplicationId
+    {
+        get => GetProperty<TerraformProperty<string>>("sip_media_application_id");
+        set => WithProperty("sip_media_application_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_chimesdkvoice_sip_rule resource.
 /// </summary>
 public class AwsChimesdkvoiceSipRule : TerraformResource
@@ -37,7 +75,8 @@ public class AwsChimesdkvoiceSipRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +94,8 @@ public class AwsChimesdkvoiceSipRule : TerraformResource
     /// <summary>
     /// The trigger_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TriggerType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerType is required")]
+    public required TerraformProperty<string> TriggerType
     {
         get => GetProperty<TerraformProperty<string>>("trigger_type");
         set => this.WithProperty("trigger_type", value);
@@ -64,10 +104,23 @@ public class AwsChimesdkvoiceSipRule : TerraformResource
     /// <summary>
     /// The trigger_value attribute.
     /// </summary>
-    public TerraformProperty<string>? TriggerValue
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerValue is required")]
+    public required TerraformProperty<string> TriggerValue
     {
         get => GetProperty<TerraformProperty<string>>("trigger_value");
         set => this.WithProperty("trigger_value", value);
+    }
+
+    /// <summary>
+    /// Block for target_applications.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetApplications block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(25, ErrorMessage = "Maximum 25 TargetApplications block(s) allowed")]
+    public HashSet<AwsChimesdkvoiceSipRuleTargetApplicationsBlock>? TargetApplications
+    {
+        get => GetProperty<HashSet<AwsChimesdkvoiceSipRuleTargetApplicationsBlock>>("target_applications");
+        set => this.WithProperty("target_applications", value);
     }
 
 }

@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for cidr_authorization_context in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock : TerraformBlock
+{
+    /// <summary>
+    /// The message attribute.
+    /// </summary>
+    public TerraformProperty<string>? Message
+    {
+        get => GetProperty<TerraformProperty<string>>("message");
+        set => WithProperty("message", value);
+    }
+
+    /// <summary>
+    /// The signature attribute.
+    /// </summary>
+    public TerraformProperty<string>? Signature
+    {
+        get => GetProperty<TerraformProperty<string>>("signature");
+        set => WithProperty("signature", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcIpamPoolCidrTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_ipam_pool_cidr resource.
 /// </summary>
 public class AwsVpcIpamPoolCidr : TerraformResource
@@ -38,7 +90,8 @@ public class AwsVpcIpamPoolCidr : TerraformResource
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IpamPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
+    public required TerraformProperty<string> IpamPoolId
     {
         get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
         set => this.WithProperty("ipam_pool_id", value);
@@ -60,6 +113,27 @@ public class AwsVpcIpamPoolCidr : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for cidr_authorization_context.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrAuthorizationContext block(s) allowed")]
+    public List<AwsVpcIpamPoolCidrCidrAuthorizationContextBlock>? CidrAuthorizationContext
+    {
+        get => GetProperty<List<AwsVpcIpamPoolCidrCidrAuthorizationContextBlock>>("cidr_authorization_context");
+        set => this.WithProperty("cidr_authorization_context", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcIpamPoolCidrTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcIpamPoolCidrTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsIvsPlaybackKeyPairTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ivs_playback_key_pair resource.
 /// </summary>
 public class AwsIvsPlaybackKeyPair : TerraformResource
@@ -39,7 +65,8 @@ public class AwsIvsPlaybackKeyPair : TerraformResource
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
+    public required TerraformProperty<string> PublicKey
     {
         get => GetProperty<TerraformProperty<string>>("public_key");
         set => this.WithProperty("public_key", value);
@@ -57,19 +84,29 @@ public class AwsIvsPlaybackKeyPair : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsIvsPlaybackKeyPairTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsIvsPlaybackKeyPairTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -36,7 +36,8 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -45,7 +46,8 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
     /// <summary>
     /// The stage attribute.
     /// </summary>
-    public TerraformProperty<string>? Stage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
+    public required TerraformProperty<string> Stage
     {
         get => GetProperty<TerraformProperty<string>>("stage");
         set => this.WithProperty("stage", value);

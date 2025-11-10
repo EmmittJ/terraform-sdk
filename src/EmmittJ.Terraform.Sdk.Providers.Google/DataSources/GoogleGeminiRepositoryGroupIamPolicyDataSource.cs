@@ -21,7 +21,8 @@ public class GoogleGeminiRepositoryGroupIamPolicyDataSource : TerraformDataSourc
     /// <summary>
     /// The code_repository_index attribute.
     /// </summary>
-    public TerraformProperty<string>? CodeRepositoryIndex
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndex is required")]
+    public required TerraformProperty<string> CodeRepositoryIndex
     {
         get => GetProperty<TerraformProperty<string>>("code_repository_index");
         set => this.WithProperty("code_repository_index", value);
@@ -57,7 +58,8 @@ public class GoogleGeminiRepositoryGroupIamPolicyDataSource : TerraformDataSourc
     /// <summary>
     /// The repository_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryGroupId is required")]
+    public required TerraformProperty<string> RepositoryGroupId
     {
         get => GetProperty<TerraformProperty<string>>("repository_group_id");
         set => this.WithProperty("repository_group_id", value);

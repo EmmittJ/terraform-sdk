@@ -29,7 +29,8 @@ public class AwsSecurityhubInviteAccepter : TerraformResource
     /// <summary>
     /// The master_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterId is required")]
+    public required TerraformProperty<string> MasterId
     {
         get => GetProperty<TerraformProperty<string>>("master_id");
         set => this.WithProperty("master_id", value);

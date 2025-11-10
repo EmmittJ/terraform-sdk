@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for external_connections in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The external_connection_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalConnectionName is required")]
+    public required TerraformProperty<string> ExternalConnectionName
+    {
+        get => GetProperty<TerraformProperty<string>>("external_connection_name");
+        set => WithProperty("external_connection_name", value);
+    }
+
+    /// <summary>
+    /// The package_format attribute.
+    /// </summary>
+    public TerraformProperty<string>? PackageFormat
+    {
+        get => GetProperty<TerraformProperty<string>>("package_format");
+        set => WithProperty("package_format", value);
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformProperty<string>? Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for upstream in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodeartifactRepositoryUpstreamBlock : TerraformBlock
+{
+    /// <summary>
+    /// The repository_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
+    public required TerraformProperty<string> RepositoryName
+    {
+        get => GetProperty<TerraformProperty<string>>("repository_name");
+        set => WithProperty("repository_name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_codeartifact_repository resource.
 /// </summary>
 public class AwsCodeartifactRepository : TerraformResource
@@ -30,7 +84,8 @@ public class AwsCodeartifactRepository : TerraformResource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    public required TerraformProperty<string> Domain
     {
         get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
@@ -66,7 +121,8 @@ public class AwsCodeartifactRepository : TerraformResource
     /// <summary>
     /// The repository attribute.
     /// </summary>
-    public TerraformProperty<string>? Repository
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
+    public required TerraformProperty<string> Repository
     {
         get => GetProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);
@@ -75,19 +131,40 @@ public class AwsCodeartifactRepository : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for external_connections.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalConnections block(s) allowed")]
+    public List<AwsCodeartifactRepositoryExternalConnectionsBlock>? ExternalConnections
+    {
+        get => GetProperty<List<AwsCodeartifactRepositoryExternalConnectionsBlock>>("external_connections");
+        set => this.WithProperty("external_connections", value);
+    }
+
+    /// <summary>
+    /// Block for upstream.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCodeartifactRepositoryUpstreamBlock>? Upstream
+    {
+        get => GetProperty<List<AwsCodeartifactRepositoryUpstreamBlock>>("upstream");
+        set => this.WithProperty("upstream", value);
     }
 
     /// <summary>

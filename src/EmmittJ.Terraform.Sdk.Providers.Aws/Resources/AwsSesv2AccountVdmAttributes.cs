@@ -3,6 +3,40 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for dashboard_attributes in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSesv2AccountVdmAttributesDashboardAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The engagement_metrics attribute.
+    /// </summary>
+    public TerraformProperty<string>? EngagementMetrics
+    {
+        get => GetProperty<TerraformProperty<string>>("engagement_metrics");
+        set => WithProperty("engagement_metrics", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for guardian_attributes in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSesv2AccountVdmAttributesGuardianAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The optimized_shared_delivery attribute.
+    /// </summary>
+    public TerraformProperty<string>? OptimizedSharedDelivery
+    {
+        get => GetProperty<TerraformProperty<string>>("optimized_shared_delivery");
+        set => WithProperty("optimized_shared_delivery", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sesv2_account_vdm_attributes resource.
 /// </summary>
 public class AwsSesv2AccountVdmAttributes : TerraformResource
@@ -37,10 +71,33 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     /// <summary>
     /// The vdm_enabled attribute.
     /// </summary>
-    public TerraformProperty<string>? VdmEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VdmEnabled is required")]
+    public required TerraformProperty<string> VdmEnabled
     {
         get => GetProperty<TerraformProperty<string>>("vdm_enabled");
         set => this.WithProperty("vdm_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for dashboard_attributes.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DashboardAttributes block(s) allowed")]
+    public List<AwsSesv2AccountVdmAttributesDashboardAttributesBlock>? DashboardAttributes
+    {
+        get => GetProperty<List<AwsSesv2AccountVdmAttributesDashboardAttributesBlock>>("dashboard_attributes");
+        set => this.WithProperty("dashboard_attributes", value);
+    }
+
+    /// <summary>
+    /// Block for guardian_attributes.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GuardianAttributes block(s) allowed")]
+    public List<AwsSesv2AccountVdmAttributesGuardianAttributesBlock>? GuardianAttributes
+    {
+        get => GetProperty<List<AwsSesv2AccountVdmAttributesGuardianAttributesBlock>>("guardian_attributes");
+        set => this.WithProperty("guardian_attributes", value);
     }
 
 }

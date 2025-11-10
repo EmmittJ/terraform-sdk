@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for rules in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesGrpcRouteRulesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkServicesGrpcRouteTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_services_grpc_route resource.
 /// </summary>
 public class GoogleNetworkServicesGrpcRoute : TerraformResource
@@ -33,18 +76,19 @@ public class GoogleNetworkServicesGrpcRoute : TerraformResource
     /// <summary>
     /// List of gateways this GrpcRoute is attached to, as one of the routing rules to route the requests served by the gateway.
     /// </summary>
-    public TerraformProperty<List<string>>? Gateways
+    public List<TerraformProperty<string>>? Gateways
     {
-        get => GetProperty<TerraformProperty<List<string>>>("gateways");
+        get => GetProperty<List<TerraformProperty<string>>>("gateways");
         set => this.WithProperty("gateways", value);
     }
 
     /// <summary>
     /// Required. Service hostnames with an optional port for which this route describes traffic.
     /// </summary>
-    public TerraformProperty<List<string>>? Hostnames
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostnames is required")]
+    public List<TerraformProperty<string>>? Hostnames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("hostnames");
+        get => GetProperty<List<TerraformProperty<string>>>("hostnames");
         set => this.WithProperty("hostnames", value);
     }
 
@@ -63,9 +107,9 @@ public class GoogleNetworkServicesGrpcRoute : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -81,16 +125,17 @@ public class GoogleNetworkServicesGrpcRoute : TerraformResource
     /// <summary>
     /// List of meshes this GrpcRoute is attached to, as one of the routing rules to route the requests served by the mesh.
     /// </summary>
-    public TerraformProperty<List<string>>? Meshes
+    public List<TerraformProperty<string>>? Meshes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("meshes");
+        get => GetProperty<List<TerraformProperty<string>>>("meshes");
         set => this.WithProperty("meshes", value);
     }
 
     /// <summary>
     /// Name of the GrpcRoute resource.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -103,6 +148,27 @@ public class GoogleNetworkServicesGrpcRoute : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for rules.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
+    public List<GoogleNetworkServicesGrpcRouteRulesBlock>? Rules
+    {
+        get => GetProperty<List<GoogleNetworkServicesGrpcRouteRulesBlock>>("rules");
+        set => this.WithProperty("rules", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkServicesGrpcRouteTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkServicesGrpcRouteTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

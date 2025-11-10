@@ -3,6 +3,149 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for ephemeral_storage in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlock
+{
+    /// <summary>
+    /// The size_in_gib attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
+    public required TerraformProperty<double> SizeInGib
+    {
+        get => GetProperty<TerraformProperty<double>>("size_in_gib");
+        set => WithProperty("size_in_gib", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for placement_constraints in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    public TerraformProperty<string>? Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for proxy_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The container_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
+    public required TerraformProperty<string> ContainerName
+    {
+        get => GetProperty<TerraformProperty<string>>("container_name");
+        set => WithProperty("container_name", value);
+    }
+
+    /// <summary>
+    /// The properties attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Properties
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
+        set => WithProperty("properties", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for runtime_platform in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cpu_architecture attribute.
+    /// </summary>
+    public TerraformProperty<string>? CpuArchitecture
+    {
+        get => GetProperty<TerraformProperty<string>>("cpu_architecture");
+        set => WithProperty("cpu_architecture", value);
+    }
+
+    /// <summary>
+    /// The operating_system_family attribute.
+    /// </summary>
+    public TerraformProperty<string>? OperatingSystemFamily
+    {
+        get => GetProperty<TerraformProperty<string>>("operating_system_family");
+        set => WithProperty("operating_system_family", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for volume in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The configure_at_launch attribute.
+    /// </summary>
+    public TerraformProperty<bool>? ConfigureAtLaunch
+    {
+        get => GetProperty<TerraformProperty<bool>>("configure_at_launch");
+        set => WithProperty("configure_at_launch", value);
+    }
+
+    /// <summary>
+    /// The host_path attribute.
+    /// </summary>
+    public TerraformProperty<string>? HostPath
+    {
+        get => GetProperty<TerraformProperty<string>>("host_path");
+        set => WithProperty("host_path", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ecs_task_definition resource.
 /// </summary>
 public class AwsEcsTaskDefinition : TerraformResource
@@ -22,7 +165,8 @@ public class AwsEcsTaskDefinition : TerraformResource
     /// <summary>
     /// The container_definitions attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerDefinitions
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerDefinitions is required")]
+    public required TerraformProperty<string> ContainerDefinitions
     {
         get => GetProperty<TerraformProperty<string>>("container_definitions");
         set => this.WithProperty("container_definitions", value);
@@ -58,7 +202,8 @@ public class AwsEcsTaskDefinition : TerraformResource
     /// <summary>
     /// The family attribute.
     /// </summary>
-    public TerraformProperty<string>? Family
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
+    public required TerraformProperty<string> Family
     {
         get => GetProperty<TerraformProperty<string>>("family");
         set => this.WithProperty("family", value);
@@ -121,9 +266,9 @@ public class AwsEcsTaskDefinition : TerraformResource
     /// <summary>
     /// The requires_compatibilities attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RequiresCompatibilities
+    public HashSet<TerraformProperty<string>>? RequiresCompatibilities
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("requires_compatibilities");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("requires_compatibilities");
         set => this.WithProperty("requires_compatibilities", value);
     }
 
@@ -139,18 +284,18 @@ public class AwsEcsTaskDefinition : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -170,6 +315,60 @@ public class AwsEcsTaskDefinition : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("track_latest");
         set => this.WithProperty("track_latest", value);
+    }
+
+    /// <summary>
+    /// Block for ephemeral_storage.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralStorage block(s) allowed")]
+    public List<AwsEcsTaskDefinitionEphemeralStorageBlock>? EphemeralStorage
+    {
+        get => GetProperty<List<AwsEcsTaskDefinitionEphemeralStorageBlock>>("ephemeral_storage");
+        set => this.WithProperty("ephemeral_storage", value);
+    }
+
+    /// <summary>
+    /// Block for placement_constraints.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
+    public HashSet<AwsEcsTaskDefinitionPlacementConstraintsBlock>? PlacementConstraints
+    {
+        get => GetProperty<HashSet<AwsEcsTaskDefinitionPlacementConstraintsBlock>>("placement_constraints");
+        set => this.WithProperty("placement_constraints", value);
+    }
+
+    /// <summary>
+    /// Block for proxy_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyConfiguration block(s) allowed")]
+    public List<AwsEcsTaskDefinitionProxyConfigurationBlock>? ProxyConfiguration
+    {
+        get => GetProperty<List<AwsEcsTaskDefinitionProxyConfigurationBlock>>("proxy_configuration");
+        set => this.WithProperty("proxy_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for runtime_platform.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuntimePlatform block(s) allowed")]
+    public List<AwsEcsTaskDefinitionRuntimePlatformBlock>? RuntimePlatform
+    {
+        get => GetProperty<List<AwsEcsTaskDefinitionRuntimePlatformBlock>>("runtime_platform");
+        set => this.WithProperty("runtime_platform", value);
+    }
+
+    /// <summary>
+    /// Block for volume.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsEcsTaskDefinitionVolumeBlock>? Volume
+    {
+        get => GetProperty<HashSet<AwsEcsTaskDefinitionVolumeBlock>>("volume");
+        set => this.WithProperty("volume", value);
     }
 
     /// <summary>

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsGuarddutyInviteAccepterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_guardduty_invite_accepter resource.
 /// </summary>
 public class AwsGuarddutyInviteAccepter : TerraformResource
@@ -19,7 +36,8 @@ public class AwsGuarddutyInviteAccepter : TerraformResource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
+    public required TerraformProperty<string> DetectorId
     {
         get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
@@ -37,7 +55,8 @@ public class AwsGuarddutyInviteAccepter : TerraformResource
     /// <summary>
     /// The master_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterAccountId is required")]
+    public required TerraformProperty<string> MasterAccountId
     {
         get => GetProperty<TerraformProperty<string>>("master_account_id");
         set => this.WithProperty("master_account_id", value);
@@ -50,6 +69,16 @@ public class AwsGuarddutyInviteAccepter : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsGuarddutyInviteAccepterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsGuarddutyInviteAccepterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

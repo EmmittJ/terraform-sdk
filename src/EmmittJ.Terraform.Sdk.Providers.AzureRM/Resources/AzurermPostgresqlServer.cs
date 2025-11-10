@@ -3,6 +3,157 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for identity in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPostgresqlServerIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrincipalId
+    {
+        get => GetProperty<TerraformProperty<string>>("principal_id");
+        set => WithProperty("principal_id", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for threat_detection_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPostgresqlServerThreatDetectionPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The disabled_alerts attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? DisabledAlerts
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("disabled_alerts");
+        set => WithProperty("disabled_alerts", value);
+    }
+
+    /// <summary>
+    /// The email_account_admins attribute.
+    /// </summary>
+    public TerraformProperty<bool>? EmailAccountAdmins
+    {
+        get => GetProperty<TerraformProperty<bool>>("email_account_admins");
+        set => WithProperty("email_account_admins", value);
+    }
+
+    /// <summary>
+    /// The email_addresses attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? EmailAddresses
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("email_addresses");
+        set => WithProperty("email_addresses", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The retention_days attribute.
+    /// </summary>
+    public TerraformProperty<double>? RetentionDays
+    {
+        get => GetProperty<TerraformProperty<double>>("retention_days");
+        set => WithProperty("retention_days", value);
+    }
+
+    /// <summary>
+    /// The storage_account_access_key attribute.
+    /// </summary>
+    public TerraformProperty<string>? StorageAccountAccessKey
+    {
+        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
+        set => WithProperty("storage_account_access_key", value);
+    }
+
+    /// <summary>
+    /// The storage_endpoint attribute.
+    /// </summary>
+    public TerraformProperty<string>? StorageEndpoint
+    {
+        get => GetProperty<TerraformProperty<string>>("storage_endpoint");
+        set => WithProperty("storage_endpoint", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPostgresqlServerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_postgresql_server resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -120,7 +271,8 @@ public class AzurermPostgresqlServer : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -129,7 +281,8 @@ public class AzurermPostgresqlServer : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -147,7 +300,8 @@ public class AzurermPostgresqlServer : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -165,7 +319,8 @@ public class AzurermPostgresqlServer : TerraformResource
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
+    public required TerraformProperty<string> SkuName
     {
         get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
@@ -174,7 +329,8 @@ public class AzurermPostgresqlServer : TerraformResource
     /// <summary>
     /// The ssl_enforcement_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? SslEnforcementEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslEnforcementEnabled is required")]
+    public required TerraformProperty<bool> SslEnforcementEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("ssl_enforcement_enabled");
         set => this.WithProperty("ssl_enforcement_enabled", value);
@@ -201,19 +357,52 @@ public class AzurermPostgresqlServer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for identity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public List<AzurermPostgresqlServerIdentityBlock>? Identity
+    {
+        get => GetProperty<List<AzurermPostgresqlServerIdentityBlock>>("identity");
+        set => this.WithProperty("identity", value);
+    }
+
+    /// <summary>
+    /// Block for threat_detection_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
+    public List<AzurermPostgresqlServerThreatDetectionPolicyBlock>? ThreatDetectionPolicy
+    {
+        get => GetProperty<List<AzurermPostgresqlServerThreatDetectionPolicyBlock>>("threat_detection_policy");
+        set => this.WithProperty("threat_detection_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPostgresqlServerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPostgresqlServerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

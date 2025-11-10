@@ -3,6 +3,153 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for async_primary_disk in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionDiskAsyncPrimaryDiskBlock : TerraformBlock
+{
+    /// <summary>
+    /// Primary disk for asynchronous disk replication.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
+    public required TerraformProperty<string> Disk
+    {
+        get => GetProperty<TerraformProperty<string>>("disk");
+        set => WithProperty("disk", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for disk_encryption_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionDiskDiskEncryptionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the encryption key that is stored in Google Cloud KMS.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+    /// <summary>
+    /// Specifies a 256-bit customer-supplied encryption key, encoded in
+    /// RFC 4648 base64 to either encrypt or decrypt this resource.
+    /// </summary>
+    public TerraformProperty<string>? RawKey
+    {
+        get => GetProperty<TerraformProperty<string>>("raw_key");
+        set => WithProperty("raw_key", value);
+    }
+
+    /// <summary>
+    /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit
+    /// customer-supplied encryption key to either encrypt or decrypt
+    /// this resource. You can provide either the rawKey or the rsaEncryptedKey.
+    /// </summary>
+    public TerraformProperty<string>? RsaEncryptedKey
+    {
+        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
+        set => WithProperty("rsa_encrypted_key", value);
+    }
+
+    /// <summary>
+    /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied
+    /// encryption key that protects this resource.
+    /// </summary>
+    public TerraformProperty<string>? Sha256
+    {
+        get => GetProperty<TerraformProperty<string>>("sha256");
+        set => WithProperty("sha256", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for guest_os_features in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeRegionDiskGuestOsFeaturesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type of supported feature. Read [Enabling guest operating system features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features) to see a list of available options. Possible values: [&amp;quot;MULTI_IP_SUBNET&amp;quot;, &amp;quot;SECURE_BOOT&amp;quot;, &amp;quot;SEV_CAPABLE&amp;quot;, &amp;quot;UEFI_COMPATIBLE&amp;quot;, &amp;quot;VIRTIO_SCSI_MULTIQUEUE&amp;quot;, &amp;quot;WINDOWS&amp;quot;, &amp;quot;GVNIC&amp;quot;, &amp;quot;SEV_LIVE_MIGRATABLE&amp;quot;, &amp;quot;SEV_SNP_CAPABLE&amp;quot;, &amp;quot;SUSPEND_RESUME_COMPATIBLE&amp;quot;, &amp;quot;TDX_CAPABLE&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_snapshot_encryption_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Specifies a 256-bit customer-supplied encryption key, encoded in
+    /// RFC 4648 base64 to either encrypt or decrypt this resource.
+    /// </summary>
+    public TerraformProperty<string>? RawKey
+    {
+        get => GetProperty<TerraformProperty<string>>("raw_key");
+        set => WithProperty("raw_key", value);
+    }
+
+    /// <summary>
+    /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied
+    /// encryption key that protects this resource.
+    /// </summary>
+    public TerraformProperty<string>? Sha256
+    {
+        get => GetProperty<TerraformProperty<string>>("sha256");
+        set => WithProperty("sha256", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRegionDiskTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_region_disk resource.
 /// </summary>
 public class GoogleComputeRegionDisk : TerraformResource
@@ -87,18 +234,18 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public TerraformProperty<List<string>>? Licenses
+    public List<TerraformProperty<string>>? Licenses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("licenses");
+        get => GetProperty<List<TerraformProperty<string>>>("licenses");
         set => this.WithProperty("licenses", value);
     }
 
@@ -111,7 +258,8 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -172,9 +320,10 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// <summary>
     /// URLs of the zones where the disk should be replicated to.
     /// </summary>
-    public TerraformProperty<List<string>>? ReplicaZones
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicaZones is required")]
+    public List<TerraformProperty<string>>? ReplicaZones
     {
-        get => GetProperty<TerraformProperty<List<string>>>("replica_zones");
+        get => GetProperty<List<TerraformProperty<string>>>("replica_zones");
         set => this.WithProperty("replica_zones", value);
     }
 
@@ -235,6 +384,59 @@ public class GoogleComputeRegionDisk : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for async_primary_disk.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AsyncPrimaryDisk block(s) allowed")]
+    public List<GoogleComputeRegionDiskAsyncPrimaryDiskBlock>? AsyncPrimaryDisk
+    {
+        get => GetProperty<List<GoogleComputeRegionDiskAsyncPrimaryDiskBlock>>("async_primary_disk");
+        set => this.WithProperty("async_primary_disk", value);
+    }
+
+    /// <summary>
+    /// Block for disk_encryption_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskEncryptionKey block(s) allowed")]
+    public List<GoogleComputeRegionDiskDiskEncryptionKeyBlock>? DiskEncryptionKey
+    {
+        get => GetProperty<List<GoogleComputeRegionDiskDiskEncryptionKeyBlock>>("disk_encryption_key");
+        set => this.WithProperty("disk_encryption_key", value);
+    }
+
+    /// <summary>
+    /// Block for guest_os_features.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleComputeRegionDiskGuestOsFeaturesBlock>? GuestOsFeatures
+    {
+        get => GetProperty<HashSet<GoogleComputeRegionDiskGuestOsFeaturesBlock>>("guest_os_features");
+        set => this.WithProperty("guest_os_features", value);
+    }
+
+    /// <summary>
+    /// Block for source_snapshot_encryption_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
+    public List<GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock>? SourceSnapshotEncryptionKey
+    {
+        get => GetProperty<List<GoogleComputeRegionDiskSourceSnapshotEncryptionKeyBlock>>("source_snapshot_encryption_key");
+        set => this.WithProperty("source_snapshot_encryption_key", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRegionDiskTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRegionDiskTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

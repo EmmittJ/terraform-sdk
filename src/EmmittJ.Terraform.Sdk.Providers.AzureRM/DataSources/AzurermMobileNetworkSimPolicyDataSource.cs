@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_mobile_network_sim_policy.
 /// </summary>
 public class AzurermMobileNetworkSimPolicyDataSource : TerraformDataSource
@@ -35,7 +52,8 @@ public class AzurermMobileNetworkSimPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The mobile_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MobileNetworkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
+    public required TerraformProperty<string> MobileNetworkId
     {
         get => GetProperty<TerraformProperty<string>>("mobile_network_id");
         set => this.WithProperty("mobile_network_id", value);
@@ -44,10 +62,21 @@ public class AzurermMobileNetworkSimPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

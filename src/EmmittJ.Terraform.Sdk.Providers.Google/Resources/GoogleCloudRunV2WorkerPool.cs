@@ -3,6 +3,246 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for binary_authorization in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
+{
+    /// <summary>
+    /// If present, indicates to use Breakglass using this justification. If useDefault is False, then it must be empty. For more information on breakglass, see https://cloud.google.com/binary-authorization/docs/using-breakglass
+    /// </summary>
+    public TerraformProperty<string>? BreakglassJustification
+    {
+        get => GetProperty<TerraformProperty<string>>("breakglass_justification");
+        set => WithProperty("breakglass_justification", value);
+    }
+
+    /// <summary>
+    /// The path to a binary authorization policy. Format: projects/{project}/platforms/cloudRun/{policy-name}
+    /// </summary>
+    public TerraformProperty<string>? Policy
+    {
+        get => GetProperty<TerraformProperty<string>>("policy");
+        set => WithProperty("policy", value);
+    }
+
+    /// <summary>
+    /// If True, indicates to use the default project&#39;s binary authorization policy. If False, binary authorization will be disabled.
+    /// </summary>
+    public TerraformProperty<bool>? UseDefault
+    {
+        get => GetProperty<TerraformProperty<bool>>("use_default");
+        set => WithProperty("use_default", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for instance_splits in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Specifies percent of the instance split to this Revision. This defaults to zero if unspecified.
+    /// </summary>
+    public TerraformProperty<double>? Percent
+    {
+        get => GetProperty<TerraformProperty<double>>("percent");
+        set => WithProperty("percent", value);
+    }
+
+    /// <summary>
+    /// Revision to which to assign this portion of instances, if split allocation is by revision.
+    /// </summary>
+    public TerraformProperty<string>? Revision
+    {
+        get => GetProperty<TerraformProperty<string>>("revision");
+        set => WithProperty("revision", value);
+    }
+
+    /// <summary>
+    /// The allocation type for this instance split. Possible values: [&amp;quot;INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST&amp;quot;, &amp;quot;INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for scaling in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The total number of instances in manual scaling mode.
+    /// </summary>
+    public TerraformProperty<double>? ManualInstanceCount
+    {
+        get => GetProperty<TerraformProperty<double>>("manual_instance_count");
+        set => WithProperty("manual_instance_count", value);
+    }
+
+    /// <summary>
+    /// The maximum count of instances distributed among revisions based on the specified instance split percentages.
+    /// </summary>
+    public TerraformProperty<double>? MaxInstanceCount
+    {
+        get => GetProperty<TerraformProperty<double>>("max_instance_count");
+        set => WithProperty("max_instance_count", value);
+    }
+
+    /// <summary>
+    /// The minimum count of instances distributed among revisions based on the specified instance split percentages.
+    /// </summary>
+    public TerraformProperty<double>? MinInstanceCount
+    {
+        get => GetProperty<TerraformProperty<double>>("min_instance_count");
+        set => WithProperty("min_instance_count", value);
+    }
+
+    /// <summary>
+    /// The scaling mode for the worker pool. It defaults to MANUAL. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;MANUAL&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? ScalingMode
+    {
+        get => GetProperty<TerraformProperty<string>>("scaling_mode");
+        set => WithProperty("scaling_mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for template in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
+    /// 
+    /// Cloud Run API v2 does not support annotations with &#39;run.googleapis.com&#39;, &#39;cloud.googleapis.com&#39;, &#39;serving.knative.dev&#39;, or &#39;autoscaling.knative.dev&#39; namespaces, and they will be rejected.
+    /// All system annotations in v1 now have a corresponding field in v2 WorkerPoolRevisionTemplate.
+    /// 
+    /// This field follows Kubernetes annotations&#39; namespacing, limits, and rules.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Annotations
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => WithProperty("annotations", value);
+    }
+
+    /// <summary>
+    /// A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek
+    /// </summary>
+    public TerraformProperty<string>? EncryptionKey
+    {
+        get => GetProperty<TerraformProperty<string>>("encryption_key");
+        set => WithProperty("encryption_key", value);
+    }
+
+    /// <summary>
+    /// The action to take if the encryption key is revoked. Possible values: [&amp;quot;PREVENT_NEW&amp;quot;, &amp;quot;SHUTDOWN&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? EncryptionKeyRevocationAction
+    {
+        get => GetProperty<TerraformProperty<string>>("encryption_key_revocation_action");
+        set => WithProperty("encryption_key_revocation_action", value);
+    }
+
+    /// <summary>
+    /// If encryptionKeyRevocationAction is SHUTDOWN, the duration before shutting down all instances. The minimum increment is 1 hour.
+    /// 
+    /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? EncryptionKeyShutdownDuration
+    {
+        get => GetProperty<TerraformProperty<string>>("encryption_key_shutdown_duration");
+        set => WithProperty("encryption_key_shutdown_duration", value);
+    }
+
+    /// <summary>
+    /// True if GPU zonal redundancy is disabled on this revision.
+    /// </summary>
+    public TerraformProperty<bool>? GpuZonalRedundancyDisabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("gpu_zonal_redundancy_disabled");
+        set => WithProperty("gpu_zonal_redundancy_disabled", value);
+    }
+
+    /// <summary>
+    /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc.
+    /// For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels.
+    /// 
+    /// Cloud Run API v2 does not support labels with &#39;run.googleapis.com&#39;, &#39;cloud.googleapis.com&#39;, &#39;serving.knative.dev&#39;, or &#39;autoscaling.knative.dev&#39; namespaces, and they will be rejected.
+    /// All system labels in v1 now have a corresponding field in v2 WorkerPoolRevisionTemplate.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Labels
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => WithProperty("labels", value);
+    }
+
+    /// <summary>
+    /// The unique name for the revision. If this field is omitted, it will be automatically generated based on the WorkerPool name.
+    /// </summary>
+    public TerraformProperty<string>? Revision
+    {
+        get => GetProperty<TerraformProperty<string>>("revision");
+        set => WithProperty("revision", value);
+    }
+
+    /// <summary>
+    /// Email address of the IAM service account associated with the revision of the WorkerPool. The service account represents the identity of the running revision, and determines what permissions the revision has. If not provided, the revision will use the project&#39;s default service account.
+    /// </summary>
+    public TerraformProperty<string>? ServiceAccount
+    {
+        get => GetProperty<TerraformProperty<string>>("service_account");
+        set => WithProperty("service_account", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_cloud_run_v2_worker_pool resource.
 /// </summary>
 public class GoogleCloudRunV2WorkerPool : TerraformResource
@@ -46,9 +286,9 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -74,9 +314,9 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// One or more custom audiences that you want this worker pool to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
     /// For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences.
     /// </summary>
-    public TerraformProperty<List<string>>? CustomAudiences
+    public List<TerraformProperty<string>>? CustomAudiences
     {
-        get => GetProperty<TerraformProperty<List<string>>>("custom_audiences");
+        get => GetProperty<List<TerraformProperty<string>>>("custom_audiences");
         set => this.WithProperty("custom_audiences", value);
     }
 
@@ -122,9 +362,9 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -143,7 +383,8 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// <summary>
     /// The location of the cloud run worker pool
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -152,7 +393,8 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// <summary>
     /// Name of the WorkerPool.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -165,6 +407,60 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for binary_authorization.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
+    public List<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>? BinaryAuthorization
+    {
+        get => GetProperty<List<GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock>>("binary_authorization");
+        set => this.WithProperty("binary_authorization", value);
+    }
+
+    /// <summary>
+    /// Block for instance_splits.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>? InstanceSplits
+    {
+        get => GetProperty<List<GoogleCloudRunV2WorkerPoolInstanceSplitsBlock>>("instance_splits");
+        set => this.WithProperty("instance_splits", value);
+    }
+
+    /// <summary>
+    /// Block for scaling.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scaling block(s) allowed")]
+    public List<GoogleCloudRunV2WorkerPoolScalingBlock>? Scaling
+    {
+        get => GetProperty<List<GoogleCloudRunV2WorkerPoolScalingBlock>>("scaling");
+        set => this.WithProperty("scaling", value);
+    }
+
+    /// <summary>
+    /// Block for template.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
+    public List<GoogleCloudRunV2WorkerPoolTemplateBlock>? Template
+    {
+        get => GetProperty<List<GoogleCloudRunV2WorkerPoolTemplateBlock>>("template");
+        set => this.WithProperty("template", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCloudRunV2WorkerPoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCloudRunV2WorkerPoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

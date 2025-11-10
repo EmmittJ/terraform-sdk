@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDxPrivateVirtualInterfaceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dx_private_virtual_interface resource.
 /// </summary>
 public class AwsDxPrivateVirtualInterface : TerraformResource
@@ -23,7 +58,8 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     /// <summary>
     /// The address_family attribute.
     /// </summary>
-    public TerraformProperty<string>? AddressFamily
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
+    public required TerraformProperty<string> AddressFamily
     {
         get => GetProperty<TerraformProperty<string>>("address_family");
         set => this.WithProperty("address_family", value);
@@ -41,7 +77,8 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     /// <summary>
     /// The bgp_asn attribute.
     /// </summary>
-    public TerraformProperty<double>? BgpAsn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
+    public required TerraformProperty<double> BgpAsn
     {
         get => GetProperty<TerraformProperty<double>>("bgp_asn");
         set => this.WithProperty("bgp_asn", value);
@@ -59,7 +96,8 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
+    public required TerraformProperty<string> ConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
@@ -104,7 +142,8 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -131,25 +170,26 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vlan attribute.
     /// </summary>
-    public TerraformProperty<double>? Vlan
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
+    public required TerraformProperty<double> Vlan
     {
         get => GetProperty<TerraformProperty<double>>("vlan");
         set => this.WithProperty("vlan", value);
@@ -162,6 +202,16 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpn_gateway_id");
         set => this.WithProperty("vpn_gateway_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDxPrivateVirtualInterfaceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDxPrivateVirtualInterfaceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

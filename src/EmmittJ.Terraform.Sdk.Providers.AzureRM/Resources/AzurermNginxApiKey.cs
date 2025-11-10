@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNginxApiKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_nginx_api_key resource.
 /// </summary>
 public class AzurermNginxApiKey : TerraformResource
@@ -20,7 +64,8 @@ public class AzurermNginxApiKey : TerraformResource
     /// <summary>
     /// The end_date_time attribute.
     /// </summary>
-    public TerraformProperty<string>? EndDateTime
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDateTime is required")]
+    public required TerraformProperty<string> EndDateTime
     {
         get => GetProperty<TerraformProperty<string>>("end_date_time");
         set => this.WithProperty("end_date_time", value);
@@ -38,7 +83,8 @@ public class AzurermNginxApiKey : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,7 +93,8 @@ public class AzurermNginxApiKey : TerraformResource
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NginxDeploymentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
+    public required TerraformProperty<string> NginxDeploymentId
     {
         get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
@@ -56,10 +103,21 @@ public class AzurermNginxApiKey : TerraformResource
     /// <summary>
     /// The secret_text attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretText
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretText is required")]
+    public required TerraformProperty<string> SecretText
     {
         get => GetProperty<TerraformProperty<string>>("secret_text");
         set => this.WithProperty("secret_text", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNginxApiKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNginxApiKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

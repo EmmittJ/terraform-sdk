@@ -19,7 +19,8 @@ public class AwsEc2TransitGatewayMulticastGroupMember : TerraformResource
     /// <summary>
     /// The group_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupIpAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupIpAddress is required")]
+    public required TerraformProperty<string> GroupIpAddress
     {
         get => GetProperty<TerraformProperty<string>>("group_ip_address");
         set => this.WithProperty("group_ip_address", value);
@@ -37,7 +38,8 @@ public class AwsEc2TransitGatewayMulticastGroupMember : TerraformResource
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterfaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
+    public required TerraformProperty<string> NetworkInterfaceId
     {
         get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
@@ -55,7 +57,8 @@ public class AwsEc2TransitGatewayMulticastGroupMember : TerraformResource
     /// <summary>
     /// The transit_gateway_multicast_domain_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TransitGatewayMulticastDomainId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayMulticastDomainId is required")]
+    public required TerraformProperty<string> TransitGatewayMulticastDomainId
     {
         get => GetProperty<TerraformProperty<string>>("transit_gateway_multicast_domain_id");
         set => this.WithProperty("transit_gateway_multicast_domain_id", value);

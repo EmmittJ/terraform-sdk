@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualHubBgpConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_virtual_hub_bgp_connection resource.
 /// </summary>
 public class AzurermVirtualHubBgpConnection : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -37,7 +82,8 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
-    public TerraformProperty<double>? PeerAsn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
+    public required TerraformProperty<double> PeerAsn
     {
         get => GetProperty<TerraformProperty<double>>("peer_asn");
         set => this.WithProperty("peer_asn", value);
@@ -46,7 +92,8 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     /// <summary>
     /// The peer_ip attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerIp
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerIp is required")]
+    public required TerraformProperty<string> PeerIp
     {
         get => GetProperty<TerraformProperty<string>>("peer_ip");
         set => this.WithProperty("peer_ip", value);
@@ -55,7 +102,8 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualHubId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
+    public required TerraformProperty<string> VirtualHubId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
@@ -68,6 +116,16 @@ public class AzurermVirtualHubBgpConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("virtual_network_connection_id");
         set => this.WithProperty("virtual_network_connection_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualHubBgpConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualHubBgpConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -20,9 +20,9 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Delegates
+    public HashSet<TerraformProperty<string>>? Delegates
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("delegates");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
         set => this.WithProperty("delegates", value);
     }
 
@@ -47,7 +47,8 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
     /// <summary>
     /// The target_audience attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetAudience
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAudience is required")]
+    public required TerraformProperty<string> TargetAudience
     {
         get => GetProperty<TerraformProperty<string>>("target_audience");
         set => this.WithProperty("target_audience", value);

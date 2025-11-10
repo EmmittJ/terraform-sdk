@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for attributes in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The flow_logs_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? FlowLogsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("flow_logs_enabled");
+        set => WithProperty("flow_logs_enabled", value);
+    }
+
+    /// <summary>
+    /// The flow_logs_s3_bucket attribute.
+    /// </summary>
+    public TerraformProperty<string>? FlowLogsS3Bucket
+    {
+        get => GetProperty<TerraformProperty<string>>("flow_logs_s3_bucket");
+        set => WithProperty("flow_logs_s3_bucket", value);
+    }
+
+    /// <summary>
+    /// The flow_logs_s3_prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? FlowLogsS3Prefix
+    {
+        get => GetProperty<TerraformProperty<string>>("flow_logs_s3_prefix");
+        set => WithProperty("flow_logs_s3_prefix", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_globalaccelerator_custom_routing_accelerator resource.
 /// </summary>
 public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
@@ -50,16 +111,17 @@ public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? IpAddresses
+    public List<TerraformProperty<string>>? IpAddresses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ip_addresses");
+        get => GetProperty<List<TerraformProperty<string>>>("ip_addresses");
         set => this.WithProperty("ip_addresses", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -68,19 +130,40 @@ public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for attributes.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
+    public List<AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock>? Attributes
+    {
+        get => GetProperty<List<AwsGlobalacceleratorCustomRoutingAcceleratorAttributesBlock>>("attributes");
+        set => this.WithProperty("attributes", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

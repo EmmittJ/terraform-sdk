@@ -22,9 +22,9 @@ public class AwsCloudfrontOriginAccessIdentitiesDataSource : TerraformDataSource
     /// <summary>
     /// The comments attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Comments
+    public HashSet<TerraformProperty<string>>? Comments
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("comments");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("comments");
         set => this.WithProperty("comments", value);
     }
 

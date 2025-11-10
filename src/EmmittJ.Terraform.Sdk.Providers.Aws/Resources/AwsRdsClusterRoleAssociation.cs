@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRdsClusterRoleAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rds_cluster_role_association resource.
 /// </summary>
 public class AwsRdsClusterRoleAssociation : TerraformResource
@@ -19,7 +45,8 @@ public class AwsRdsClusterRoleAssociation : TerraformResource
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
+    public required TerraformProperty<string> DbClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("db_cluster_identifier");
         set => this.WithProperty("db_cluster_identifier", value);
@@ -55,10 +82,21 @@ public class AwsRdsClusterRoleAssociation : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRdsClusterRoleAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRdsClusterRoleAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

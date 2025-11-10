@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for datasources in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGuarddutyOrganizationConfigurationDatasourcesBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_guardduty_organization_configuration resource.
 /// </summary>
 public class AwsGuarddutyOrganizationConfiguration : TerraformResource
@@ -19,7 +27,8 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     /// <summary>
     /// The auto_enable_organization_members attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoEnableOrganizationMembers
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnableOrganizationMembers is required")]
+    public required TerraformProperty<string> AutoEnableOrganizationMembers
     {
         get => GetProperty<TerraformProperty<string>>("auto_enable_organization_members");
         set => this.WithProperty("auto_enable_organization_members", value);
@@ -28,7 +37,8 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
+    public required TerraformProperty<string> DetectorId
     {
         get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
@@ -50,6 +60,17 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for datasources.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Datasources block(s) allowed")]
+    public List<AwsGuarddutyOrganizationConfigurationDatasourcesBlock>? Datasources
+    {
+        get => GetProperty<List<AwsGuarddutyOrganizationConfigurationDatasourcesBlock>>("datasources");
+        set => this.WithProperty("datasources", value);
     }
 
 }

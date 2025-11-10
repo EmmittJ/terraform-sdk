@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermRoleDefinitionDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_role_definition.
 /// </summary>
 public class AzurermRoleDefinitionDataSource : TerraformDataSource
@@ -54,6 +71,16 @@ public class AzurermRoleDefinitionDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermRoleDefinitionDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermRoleDefinitionDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

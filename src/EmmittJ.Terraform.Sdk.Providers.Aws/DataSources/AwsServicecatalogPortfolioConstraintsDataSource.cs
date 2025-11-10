@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServicecatalogPortfolioConstraintsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_servicecatalog_portfolio_constraints.
 /// </summary>
 public class AwsServicecatalogPortfolioConstraintsDataSource : TerraformDataSource
@@ -38,7 +55,8 @@ public class AwsServicecatalogPortfolioConstraintsDataSource : TerraformDataSour
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PortfolioId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
+    public required TerraformProperty<string> PortfolioId
     {
         get => GetProperty<TerraformProperty<string>>("portfolio_id");
         set => this.WithProperty("portfolio_id", value);
@@ -60,6 +78,16 @@ public class AwsServicecatalogPortfolioConstraintsDataSource : TerraformDataSour
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServicecatalogPortfolioConstraintsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServicecatalogPortfolioConstraintsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

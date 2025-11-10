@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_data_share_dataset_blob_storage.
 /// </summary>
 public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
@@ -24,7 +41,8 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
     /// <summary>
     /// The data_share_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataShareId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
+    public required TerraformProperty<string> DataShareId
     {
         get => GetProperty<TerraformProperty<string>>("data_share_id");
         set => this.WithProperty("data_share_id", value);
@@ -42,10 +60,21 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

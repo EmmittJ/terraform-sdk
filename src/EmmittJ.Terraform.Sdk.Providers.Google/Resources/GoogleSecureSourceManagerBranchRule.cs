@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_secure_source_manager_branch_rule resource.
 /// </summary>
 public class GoogleSecureSourceManagerBranchRule : TerraformResource
@@ -32,7 +67,8 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// <summary>
     /// The ID for the BranchRule.
     /// </summary>
-    public TerraformProperty<string>? BranchRuleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchRuleId is required")]
+    public required TerraformProperty<string> BranchRuleId
     {
         get => GetProperty<TerraformProperty<string>>("branch_rule_id");
         set => this.WithProperty("branch_rule_id", value);
@@ -59,7 +95,8 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// <summary>
     /// The BranchRule matches branches based on the specified regular expression. Use .* to match all branches.
     /// </summary>
-    public TerraformProperty<string>? IncludePattern
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludePattern is required")]
+    public required TerraformProperty<string> IncludePattern
     {
         get => GetProperty<TerraformProperty<string>>("include_pattern");
         set => this.WithProperty("include_pattern", value);
@@ -68,7 +105,8 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// <summary>
     /// The location for the Repository.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -104,7 +142,8 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// <summary>
     /// The ID for the Repository.
     /// </summary>
-    public TerraformProperty<string>? RepositoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
+    public required TerraformProperty<string> RepositoryId
     {
         get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
@@ -135,6 +174,16 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("require_pull_request");
         set => this.WithProperty("require_pull_request", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSecureSourceManagerBranchRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSecureSourceManagerBranchRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

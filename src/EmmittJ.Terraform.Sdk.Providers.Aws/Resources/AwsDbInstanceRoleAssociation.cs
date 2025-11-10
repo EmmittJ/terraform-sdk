@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDbInstanceRoleAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_db_instance_role_association resource.
 /// </summary>
 public class AwsDbInstanceRoleAssociation : TerraformResource
@@ -19,7 +45,8 @@ public class AwsDbInstanceRoleAssociation : TerraformResource
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DbInstanceIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceIdentifier is required")]
+    public required TerraformProperty<string> DbInstanceIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("db_instance_identifier");
         set => this.WithProperty("db_instance_identifier", value);
@@ -28,7 +55,8 @@ public class AwsDbInstanceRoleAssociation : TerraformResource
     /// <summary>
     /// The feature_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FeatureName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureName is required")]
+    public required TerraformProperty<string> FeatureName
     {
         get => GetProperty<TerraformProperty<string>>("feature_name");
         set => this.WithProperty("feature_name", value);
@@ -55,10 +83,21 @@ public class AwsDbInstanceRoleAssociation : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDbInstanceRoleAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDbInstanceRoleAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

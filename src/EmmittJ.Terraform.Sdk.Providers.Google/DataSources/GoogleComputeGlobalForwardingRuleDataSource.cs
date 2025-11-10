@@ -65,7 +65,8 @@ public class GoogleComputeGlobalForwardingRuleDataSource : TerraformDataSource
     /// APIs, the forwarding rule name must be a 1-20 characters string with
     /// lowercase letters and numbers and must start with a letter.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

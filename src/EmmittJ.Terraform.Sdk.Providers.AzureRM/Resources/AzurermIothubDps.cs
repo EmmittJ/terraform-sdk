@@ -3,6 +3,180 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for ip_filter_rule in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermIothubDpsIpFilterRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
+    {
+        get => GetProperty<TerraformProperty<string>>("action");
+        set => WithProperty("action", value);
+    }
+
+    /// <summary>
+    /// The ip_mask attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
+    public required TerraformProperty<string> IpMask
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_mask");
+        set => WithProperty("ip_mask", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The target attribute.
+    /// </summary>
+    public TerraformProperty<string>? Target
+    {
+        get => GetProperty<TerraformProperty<string>>("target");
+        set => WithProperty("target", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linked_hub in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermIothubDpsLinkedHubBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allocation_weight attribute.
+    /// </summary>
+    public TerraformProperty<double>? AllocationWeight
+    {
+        get => GetProperty<TerraformProperty<double>>("allocation_weight");
+        set => WithProperty("allocation_weight", value);
+    }
+
+    /// <summary>
+    /// The apply_allocation_policy attribute.
+    /// </summary>
+    public TerraformProperty<bool>? ApplyAllocationPolicy
+    {
+        get => GetProperty<TerraformProperty<bool>>("apply_allocation_policy");
+        set => WithProperty("apply_allocation_policy", value);
+    }
+
+    /// <summary>
+    /// The connection_string attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
+    public required TerraformProperty<string> ConnectionString
+    {
+        get => GetProperty<TerraformProperty<string>>("connection_string");
+        set => WithProperty("connection_string", value);
+    }
+
+    /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    public TerraformProperty<string>? Hostname
+    {
+        get => GetProperty<TerraformProperty<string>>("hostname");
+        set => WithProperty("hostname", value);
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for sku in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermIothubDpsSkuBlock : TerraformBlock
+{
+    /// <summary>
+    /// The capacity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
+    public required TerraformProperty<double> Capacity
+    {
+        get => GetProperty<TerraformProperty<double>>("capacity");
+        set => WithProperty("capacity", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermIothubDpsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_iothub_dps resource.
 /// </summary>
 public class AzurermIothubDps : TerraformResource
@@ -49,7 +223,8 @@ public class AzurermIothubDps : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -58,7 +233,8 @@ public class AzurermIothubDps : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -76,7 +252,8 @@ public class AzurermIothubDps : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -85,10 +262,52 @@ public class AzurermIothubDps : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for ip_filter_rule.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermIothubDpsIpFilterRuleBlock>? IpFilterRule
+    {
+        get => GetProperty<List<AzurermIothubDpsIpFilterRuleBlock>>("ip_filter_rule");
+        set => this.WithProperty("ip_filter_rule", value);
+    }
+
+    /// <summary>
+    /// Block for linked_hub.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermIothubDpsLinkedHubBlock>? LinkedHub
+    {
+        get => GetProperty<List<AzurermIothubDpsLinkedHubBlock>>("linked_hub");
+        set => this.WithProperty("linked_hub", value);
+    }
+
+    /// <summary>
+    /// Block for sku.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
+    public List<AzurermIothubDpsSkuBlock>? Sku
+    {
+        get => GetProperty<List<AzurermIothubDpsSkuBlock>>("sku");
+        set => this.WithProperty("sku", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermIothubDpsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermIothubDpsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

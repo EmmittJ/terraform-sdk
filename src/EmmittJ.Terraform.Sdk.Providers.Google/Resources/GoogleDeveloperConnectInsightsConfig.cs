@@ -3,6 +3,61 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for artifact_configs in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The URI of the artifact that is deployed.
+    /// e.g. &#39;us-docker.pkg.dev/my-project/my-repo/image&#39;.
+    /// The URI does not include the tag / digest because it captures a lineage of
+    /// artifacts.
+    /// </summary>
+    public TerraformProperty<string>? Uri
+    {
+        get => GetProperty<TerraformProperty<string>>("uri");
+        set => WithProperty("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_developer_connect_insights_config resource.
 /// </summary>
 public class GoogleDeveloperConnectInsightsConfig : TerraformResource
@@ -33,9 +88,9 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -44,7 +99,8 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// Format:
     /// projects/{project}/locations/{location}/applications/{application}
     /// </summary>
-    public TerraformProperty<string>? AppHubApplication
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppHubApplication is required")]
+    public required TerraformProperty<string> AppHubApplication
     {
         get => GetProperty<TerraformProperty<string>>("app_hub_application");
         set => this.WithProperty("app_hub_application", value);
@@ -62,7 +118,8 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// <summary>
     /// ID of the requesting InsightsConfig.
     /// </summary>
-    public TerraformProperty<string>? InsightsConfigId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsConfigId is required")]
+    public required TerraformProperty<string> InsightsConfigId
     {
         get => GetProperty<TerraformProperty<string>>("insights_config_id");
         set => this.WithProperty("insights_config_id", value);
@@ -74,16 +131,17 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -96,6 +154,26 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for artifact_configs.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>? ArtifactConfigs
+    {
+        get => GetProperty<List<GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock>>("artifact_configs");
+        set => this.WithProperty("artifact_configs", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDeveloperConnectInsightsConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDeveloperConnectInsightsConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

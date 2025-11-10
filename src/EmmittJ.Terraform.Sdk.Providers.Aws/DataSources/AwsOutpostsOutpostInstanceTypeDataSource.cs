@@ -19,7 +19,8 @@ public class AwsOutpostsOutpostInstanceTypeDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
+    public required TerraformProperty<string> Arn
     {
         get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
@@ -46,9 +47,9 @@ public class AwsOutpostsOutpostInstanceTypeDataSource : TerraformDataSource
     /// <summary>
     /// The preferred_instance_types attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredInstanceTypes
+    public List<TerraformProperty<string>>? PreferredInstanceTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_instance_types");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_instance_types");
         set => this.WithProperty("preferred_instance_types", value);
     }
 

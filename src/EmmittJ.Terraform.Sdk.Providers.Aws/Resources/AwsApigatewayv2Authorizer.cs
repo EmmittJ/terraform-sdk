@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for jwt_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApigatewayv2AuthorizerJwtConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The audience attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Audience
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("audience");
+        set => WithProperty("audience", value);
+    }
+
+    /// <summary>
+    /// The issuer attribute.
+    /// </summary>
+    public TerraformProperty<string>? Issuer
+    {
+        get => GetProperty<TerraformProperty<string>>("issuer");
+        set => WithProperty("issuer", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsApigatewayv2AuthorizerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_apigatewayv2_authorizer resource.
 /// </summary>
 public class AwsApigatewayv2Authorizer : TerraformResource
@@ -19,7 +62,8 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -55,7 +99,8 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     /// <summary>
     /// The authorizer_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizerType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
+    public required TerraformProperty<string> AuthorizerType
     {
         get => GetProperty<TerraformProperty<string>>("authorizer_type");
         set => this.WithProperty("authorizer_type", value);
@@ -91,16 +136,17 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     /// <summary>
     /// The identity_sources attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? IdentitySources
+    public HashSet<TerraformProperty<string>>? IdentitySources
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("identity_sources");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_sources");
         set => this.WithProperty("identity_sources", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -113,6 +159,27 @@ public class AwsApigatewayv2Authorizer : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for jwt_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JwtConfiguration block(s) allowed")]
+    public List<AwsApigatewayv2AuthorizerJwtConfigurationBlock>? JwtConfiguration
+    {
+        get => GetProperty<List<AwsApigatewayv2AuthorizerJwtConfigurationBlock>>("jwt_configuration");
+        set => this.WithProperty("jwt_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsApigatewayv2AuthorizerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsApigatewayv2AuthorizerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -39,7 +39,8 @@ public class AwsCloudwatchLogAnomalyDetector : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -75,9 +76,10 @@ public class AwsCloudwatchLogAnomalyDetector : TerraformResource
     /// <summary>
     /// The log_group_arn_list attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? LogGroupArnList
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArnList is required")]
+    public List<TerraformProperty<string>>? LogGroupArnList
     {
-        get => GetProperty<TerraformProperty<List<string>>>("log_group_arn_list");
+        get => GetProperty<List<TerraformProperty<string>>>("log_group_arn_list");
         set => this.WithProperty("log_group_arn_list", value);
     }
 
@@ -93,9 +95,9 @@ public class AwsCloudwatchLogAnomalyDetector : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

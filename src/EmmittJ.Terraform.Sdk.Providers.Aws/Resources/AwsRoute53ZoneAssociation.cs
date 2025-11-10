@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRoute53ZoneAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_route53_zone_association resource.
 /// </summary>
 public class AwsRoute53ZoneAssociation : TerraformResource
@@ -29,7 +55,8 @@ public class AwsRoute53ZoneAssociation : TerraformResource
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
@@ -47,10 +74,21 @@ public class AwsRoute53ZoneAssociation : TerraformResource
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ZoneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
+    public required TerraformProperty<string> ZoneId
     {
         get => GetProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRoute53ZoneAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRoute53ZoneAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

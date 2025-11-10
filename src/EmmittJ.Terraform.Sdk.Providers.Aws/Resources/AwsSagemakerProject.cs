@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for service_catalog_provisioning_details in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The path_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PathId
+    {
+        get => GetProperty<TerraformProperty<string>>("path_id");
+        set => WithProperty("path_id", value);
+    }
+
+    /// <summary>
+    /// The product_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
+    public required TerraformProperty<string> ProductId
+    {
+        get => GetProperty<TerraformProperty<string>>("product_id");
+        set => WithProperty("product_id", value);
+    }
+
+    /// <summary>
+    /// The provisioning_artifact_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? ProvisioningArtifactId
+    {
+        get => GetProperty<TerraformProperty<string>>("provisioning_artifact_id");
+        set => WithProperty("provisioning_artifact_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_project resource.
 /// </summary>
 public class AwsSagemakerProject : TerraformResource
@@ -39,7 +75,8 @@ public class AwsSagemakerProject : TerraformResource
     /// <summary>
     /// The project_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProjectName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
+    public required TerraformProperty<string> ProjectName
     {
         get => GetProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
@@ -57,19 +94,31 @@ public class AwsSagemakerProject : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for service_catalog_provisioning_details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceCatalogProvisioningDetails block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceCatalogProvisioningDetails block(s) allowed")]
+    public List<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock>? ServiceCatalogProvisioningDetails
+    {
+        get => GetProperty<List<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock>>("service_catalog_provisioning_details");
+        set => this.WithProperty("service_catalog_provisioning_details", value);
     }
 
     /// <summary>

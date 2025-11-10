@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeSyncAuthorizationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_sync_authorization resource.
 /// </summary>
 public class GoogleApigeeSyncAuthorization : TerraformResource
@@ -35,19 +70,31 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
     /// 
     /// The service accounts must have **Apigee Synchronizer Manager** role. See also [Create service accounts](https://cloud.google.com/apigee/docs/hybrid/v1.8/sa-about#create-the-service-accounts).
     /// </summary>
-    public TerraformProperty<List<string>>? Identities
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identities is required")]
+    public List<TerraformProperty<string>>? Identities
     {
-        get => GetProperty<TerraformProperty<List<string>>>("identities");
+        get => GetProperty<List<TerraformProperty<string>>>("identities");
         set => this.WithProperty("identities", value);
     }
 
     /// <summary>
     /// Name of the Apigee organization.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeSyncAuthorizationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeSyncAuthorizationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

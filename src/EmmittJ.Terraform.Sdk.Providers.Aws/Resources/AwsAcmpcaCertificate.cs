@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for validity in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_acmpca_certificate resource.
 /// </summary>
 public class AwsAcmpcaCertificate : TerraformResource
@@ -31,7 +59,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateAuthorityArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
+    public required TerraformProperty<string> CertificateAuthorityArn
     {
         get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
         set => this.WithProperty("certificate_authority_arn", value);
@@ -40,7 +69,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// <summary>
     /// The certificate_signing_request attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateSigningRequest
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateSigningRequest is required")]
+    public required TerraformProperty<string> CertificateSigningRequest
     {
         get => GetProperty<TerraformProperty<string>>("certificate_signing_request");
         set => this.WithProperty("certificate_signing_request", value);
@@ -67,7 +97,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// <summary>
     /// The signing_algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? SigningAlgorithm
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
+    public required TerraformProperty<string> SigningAlgorithm
     {
         get => GetProperty<TerraformProperty<string>>("signing_algorithm");
         set => this.WithProperty("signing_algorithm", value);
@@ -80,6 +111,18 @@ public class AwsAcmpcaCertificate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("template_arn");
         set => this.WithProperty("template_arn", value);
+    }
+
+    /// <summary>
+    /// Block for validity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Validity block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Validity block(s) allowed")]
+    public List<AwsAcmpcaCertificateValidityBlock>? Validity
+    {
+        get => GetProperty<List<AwsAcmpcaCertificateValidityBlock>>("validity");
+        set => this.WithProperty("validity", value);
     }
 
     /// <summary>

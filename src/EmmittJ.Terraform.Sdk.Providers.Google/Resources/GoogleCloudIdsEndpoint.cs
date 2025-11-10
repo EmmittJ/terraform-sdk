@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCloudIdsEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_cloud_ids_endpoint resource.
 /// </summary>
 public class GoogleCloudIdsEndpoint : TerraformResource
@@ -41,7 +76,8 @@ public class GoogleCloudIdsEndpoint : TerraformResource
     /// <summary>
     /// The location for the endpoint.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -50,7 +86,8 @@ public class GoogleCloudIdsEndpoint : TerraformResource
     /// <summary>
     /// Name of the endpoint in the format projects/{project_id}/locations/{locationId}/endpoints/{endpointId}.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -59,7 +96,8 @@ public class GoogleCloudIdsEndpoint : TerraformResource
     /// <summary>
     /// Name of the VPC network that is connected to the IDS endpoint. This can either contain the VPC network name itself (like &amp;quot;src-net&amp;quot;) or the full URL to the network (like &amp;quot;projects/{project_id}/global/networks/src-net&amp;quot;).
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -77,7 +115,8 @@ public class GoogleCloudIdsEndpoint : TerraformResource
     /// <summary>
     /// The minimum alert severity level that is reported by the endpoint. Possible values: [&amp;quot;INFORMATIONAL&amp;quot;, &amp;quot;LOW&amp;quot;, &amp;quot;MEDIUM&amp;quot;, &amp;quot;HIGH&amp;quot;, &amp;quot;CRITICAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Severity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
+    public required TerraformProperty<string> Severity
     {
         get => GetProperty<TerraformProperty<string>>("severity");
         set => this.WithProperty("severity", value);
@@ -86,10 +125,20 @@ public class GoogleCloudIdsEndpoint : TerraformResource
     /// <summary>
     /// Configuration for threat IDs excluded from generating alerts. Limit: 99 IDs.
     /// </summary>
-    public TerraformProperty<List<string>>? ThreatExceptions
+    public List<TerraformProperty<string>>? ThreatExceptions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("threat_exceptions");
+        get => GetProperty<List<TerraformProperty<string>>>("threat_exceptions");
         set => this.WithProperty("threat_exceptions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCloudIdsEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCloudIdsEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

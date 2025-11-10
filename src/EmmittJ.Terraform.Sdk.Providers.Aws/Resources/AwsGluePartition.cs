@@ -3,6 +3,95 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for storage_descriptor in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The additional_locations attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? AdditionalLocations
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("additional_locations");
+        set => WithProperty("additional_locations", value);
+    }
+
+    /// <summary>
+    /// The bucket_columns attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? BucketColumns
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("bucket_columns");
+        set => WithProperty("bucket_columns", value);
+    }
+
+    /// <summary>
+    /// The compressed attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Compressed
+    {
+        get => GetProperty<TerraformProperty<bool>>("compressed");
+        set => WithProperty("compressed", value);
+    }
+
+    /// <summary>
+    /// The input_format attribute.
+    /// </summary>
+    public TerraformProperty<string>? InputFormat
+    {
+        get => GetProperty<TerraformProperty<string>>("input_format");
+        set => WithProperty("input_format", value);
+    }
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformProperty<string>? Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// The number_of_buckets attribute.
+    /// </summary>
+    public TerraformProperty<double>? NumberOfBuckets
+    {
+        get => GetProperty<TerraformProperty<double>>("number_of_buckets");
+        set => WithProperty("number_of_buckets", value);
+    }
+
+    /// <summary>
+    /// The output_format attribute.
+    /// </summary>
+    public TerraformProperty<string>? OutputFormat
+    {
+        get => GetProperty<TerraformProperty<string>>("output_format");
+        set => WithProperty("output_format", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Parameters
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => WithProperty("parameters", value);
+    }
+
+    /// <summary>
+    /// The stored_as_sub_directories attribute.
+    /// </summary>
+    public TerraformProperty<bool>? StoredAsSubDirectories
+    {
+        get => GetProperty<TerraformProperty<bool>>("stored_as_sub_directories");
+        set => WithProperty("stored_as_sub_directories", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_glue_partition resource.
 /// </summary>
 public class AwsGluePartition : TerraformResource
@@ -31,7 +120,8 @@ public class AwsGluePartition : TerraformResource
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformProperty<string> DatabaseName
     {
         get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
@@ -49,18 +139,19 @@ public class AwsGluePartition : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The partition_values attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PartitionValues
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionValues is required")]
+    public List<TerraformProperty<string>>? PartitionValues
     {
-        get => GetProperty<TerraformProperty<List<string>>>("partition_values");
+        get => GetProperty<List<TerraformProperty<string>>>("partition_values");
         set => this.WithProperty("partition_values", value);
     }
 
@@ -76,10 +167,22 @@ public class AwsGluePartition : TerraformResource
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
+    public required TerraformProperty<string> TableName
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
+    }
+
+    /// <summary>
+    /// Block for storage_descriptor.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageDescriptor block(s) allowed")]
+    public List<AwsGluePartitionStorageDescriptorBlock>? StorageDescriptor
+    {
+        get => GetProperty<List<AwsGluePartitionStorageDescriptorBlock>>("storage_descriptor");
+        set => this.WithProperty("storage_descriptor", value);
     }
 
     /// <summary>

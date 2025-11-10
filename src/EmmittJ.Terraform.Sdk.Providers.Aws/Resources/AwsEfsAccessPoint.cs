@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for posix_user in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEfsAccessPointPosixUserBlock : TerraformBlock
+{
+    /// <summary>
+    /// The gid attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
+    public required TerraformProperty<double> Gid
+    {
+        get => GetProperty<TerraformProperty<double>>("gid");
+        set => WithProperty("gid", value);
+    }
+
+    /// <summary>
+    /// The secondary_gids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<double>>? SecondaryGids
+    {
+        get => GetProperty<HashSet<TerraformProperty<double>>>("secondary_gids");
+        set => WithProperty("secondary_gids", value);
+    }
+
+    /// <summary>
+    /// The uid attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
+    public required TerraformProperty<double> Uid
+    {
+        get => GetProperty<TerraformProperty<double>>("uid");
+        set => WithProperty("uid", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for root_directory in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEfsAccessPointRootDirectoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformProperty<string>? Path
+    {
+        get => GetProperty<TerraformProperty<string>>("path");
+        set => WithProperty("path", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_efs_access_point resource.
 /// </summary>
 public class AwsEfsAccessPoint : TerraformResource
@@ -22,7 +76,8 @@ public class AwsEfsAccessPoint : TerraformResource
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
+    public required TerraformProperty<string> FileSystemId
     {
         get => GetProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
@@ -49,19 +104,41 @@ public class AwsEfsAccessPoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for posix_user.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixUser block(s) allowed")]
+    public List<AwsEfsAccessPointPosixUserBlock>? PosixUser
+    {
+        get => GetProperty<List<AwsEfsAccessPointPosixUserBlock>>("posix_user");
+        set => this.WithProperty("posix_user", value);
+    }
+
+    /// <summary>
+    /// Block for root_directory.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootDirectory block(s) allowed")]
+    public List<AwsEfsAccessPointRootDirectoryBlock>? RootDirectory
+    {
+        get => GetProperty<List<AwsEfsAccessPointRootDirectoryBlock>>("root_directory");
+        set => this.WithProperty("root_directory", value);
     }
 
     /// <summary>

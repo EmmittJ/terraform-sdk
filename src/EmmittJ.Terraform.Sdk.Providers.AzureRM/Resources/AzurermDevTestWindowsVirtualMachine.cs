@@ -3,6 +3,135 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for gallery_image_reference in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The offer attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
+    public required TerraformProperty<string> Offer
+    {
+        get => GetProperty<TerraformProperty<string>>("offer");
+        set => WithProperty("offer", value);
+    }
+
+    /// <summary>
+    /// The publisher attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
+    public required TerraformProperty<string> Publisher
+    {
+        get => GetProperty<TerraformProperty<string>>("publisher");
+        set => WithProperty("publisher", value);
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
+    public required TerraformProperty<string> Sku
+    {
+        get => GetProperty<TerraformProperty<string>>("sku");
+        set => WithProperty("sku", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for inbound_nat_rule in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The backend_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
+    public required TerraformProperty<double> BackendPort
+    {
+        get => GetProperty<TerraformProperty<double>>("backend_port");
+        set => WithProperty("backend_port", value);
+    }
+
+    /// <summary>
+    /// The frontend_port attribute.
+    /// </summary>
+    public TerraformProperty<double>? FrontendPort
+    {
+        get => GetProperty<TerraformProperty<double>>("frontend_port");
+        set => WithProperty("frontend_port", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
+    {
+        get => GetProperty<TerraformProperty<string>>("protocol");
+        set => WithProperty("protocol", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDevTestWindowsVirtualMachineTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_dev_test_windows_virtual_machine resource.
 /// </summary>
 public class AzurermDevTestWindowsVirtualMachine : TerraformResource
@@ -48,7 +177,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The lab_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LabName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
+    public required TerraformProperty<string> LabName
     {
         get => GetProperty<TerraformProperty<string>>("lab_name");
         set => this.WithProperty("lab_name", value);
@@ -57,7 +187,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The lab_subnet_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LabSubnetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabSubnetName is required")]
+    public required TerraformProperty<string> LabSubnetName
     {
         get => GetProperty<TerraformProperty<string>>("lab_subnet_name");
         set => this.WithProperty("lab_subnet_name", value);
@@ -66,7 +197,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The lab_virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LabVirtualNetworkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabVirtualNetworkId is required")]
+    public required TerraformProperty<string> LabVirtualNetworkId
     {
         get => GetProperty<TerraformProperty<string>>("lab_virtual_network_id");
         set => this.WithProperty("lab_virtual_network_id", value);
@@ -75,7 +207,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -84,7 +217,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -102,7 +236,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
@@ -111,7 +246,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -120,7 +256,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformProperty<string>? Size
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
+    public required TerraformProperty<string> Size
     {
         get => GetProperty<TerraformProperty<string>>("size");
         set => this.WithProperty("size", value);
@@ -129,7 +266,8 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
+    public required TerraformProperty<string> StorageType
     {
         get => GetProperty<TerraformProperty<string>>("storage_type");
         set => this.WithProperty("storage_type", value);
@@ -138,19 +276,52 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformProperty<string>? Username
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
     {
         get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
+    }
+
+    /// <summary>
+    /// Block for gallery_image_reference.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GalleryImageReference block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GalleryImageReference block(s) allowed")]
+    public List<AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock>? GalleryImageReference
+    {
+        get => GetProperty<List<AzurermDevTestWindowsVirtualMachineGalleryImageReferenceBlock>>("gallery_image_reference");
+        set => this.WithProperty("gallery_image_reference", value);
+    }
+
+    /// <summary>
+    /// Block for inbound_nat_rule.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock>? InboundNatRule
+    {
+        get => GetProperty<HashSet<AzurermDevTestWindowsVirtualMachineInboundNatRuleBlock>>("inbound_nat_rule");
+        set => this.WithProperty("inbound_nat_rule", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDevTestWindowsVirtualMachineTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDevTestWindowsVirtualMachineTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

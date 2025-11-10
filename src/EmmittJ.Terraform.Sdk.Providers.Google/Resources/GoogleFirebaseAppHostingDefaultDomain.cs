@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaseAppHostingDefaultDomainTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebase_app_hosting_default_domain resource.
 /// </summary>
 public class GoogleFirebaseAppHostingDefaultDomain : TerraformResource
@@ -24,7 +59,8 @@ public class GoogleFirebaseAppHostingDefaultDomain : TerraformResource
     /// <summary>
     /// The ID of the Backend that this Domain is associated with
     /// </summary>
-    public TerraformProperty<string>? Backend
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
+    public required TerraformProperty<string> Backend
     {
         get => GetProperty<TerraformProperty<string>>("backend");
         set => this.WithProperty("backend", value);
@@ -42,7 +78,8 @@ public class GoogleFirebaseAppHostingDefaultDomain : TerraformResource
     /// <summary>
     /// Id of the domain. For default domain, it should be {{backend}}--{{project_id}}.{{location}}.hosted.app
     /// </summary>
-    public TerraformProperty<string>? DomainId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
+    public required TerraformProperty<string> DomainId
     {
         get => GetProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
@@ -60,7 +97,8 @@ public class GoogleFirebaseAppHostingDefaultDomain : TerraformResource
     /// <summary>
     /// The location of the Backend that this Domain is associated with
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -73,6 +111,16 @@ public class GoogleFirebaseAppHostingDefaultDomain : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaseAppHostingDefaultDomainTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaseAppHostingDefaultDomainTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

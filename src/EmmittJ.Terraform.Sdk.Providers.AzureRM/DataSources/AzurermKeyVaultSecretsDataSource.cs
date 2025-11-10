@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultSecretsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_key_vault_secrets.
 /// </summary>
 public class AzurermKeyVaultSecretsDataSource : TerraformDataSource
@@ -30,10 +47,21 @@ public class AzurermKeyVaultSecretsDataSource : TerraformDataSource
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
+    public required TerraformProperty<string> KeyVaultId
     {
         get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultSecretsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultSecretsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

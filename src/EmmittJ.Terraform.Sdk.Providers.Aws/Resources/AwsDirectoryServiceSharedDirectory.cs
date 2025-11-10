@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for target in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBlock
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDirectoryServiceSharedDirectoryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_directory_service_shared_directory resource.
 /// </summary>
 public class AwsDirectoryServiceSharedDirectory : TerraformResource
@@ -20,7 +64,8 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DirectoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
+    public required TerraformProperty<string> DirectoryId
     {
         get => GetProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
@@ -60,6 +105,28 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for target.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
+    public List<AwsDirectoryServiceSharedDirectoryTargetBlock>? Target
+    {
+        get => GetProperty<List<AwsDirectoryServiceSharedDirectoryTargetBlock>>("target");
+        set => this.WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDirectoryServiceSharedDirectoryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDirectoryServiceSharedDirectoryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

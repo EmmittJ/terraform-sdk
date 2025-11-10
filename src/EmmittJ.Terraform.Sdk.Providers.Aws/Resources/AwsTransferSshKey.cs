@@ -20,7 +20,8 @@ public class AwsTransferSshKey : TerraformResource
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformProperty<string>? Body
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
+    public required TerraformProperty<string> Body
     {
         get => GetProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
@@ -47,7 +48,8 @@ public class AwsTransferSshKey : TerraformResource
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
+    public required TerraformProperty<string> ServerId
     {
         get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
@@ -56,7 +58,8 @@ public class AwsTransferSshKey : TerraformResource
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
+    public required TerraformProperty<string> UserName
     {
         get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);

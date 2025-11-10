@@ -28,7 +28,8 @@ public class AwsSecurityhubFindingAggregator : TerraformResource
     /// <summary>
     /// The linking_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkingMode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkingMode is required")]
+    public required TerraformProperty<string> LinkingMode
     {
         get => GetProperty<TerraformProperty<string>>("linking_mode");
         set => this.WithProperty("linking_mode", value);
@@ -46,9 +47,9 @@ public class AwsSecurityhubFindingAggregator : TerraformResource
     /// <summary>
     /// The specified_regions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SpecifiedRegions
+    public HashSet<TerraformProperty<string>>? SpecifiedRegions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("specified_regions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("specified_regions");
         set => this.WithProperty("specified_regions", value);
     }
 

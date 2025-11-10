@@ -56,9 +56,9 @@ public class AwsRedshiftOrderableClusterDataSource : TerraformDataSource
     /// <summary>
     /// The preferred_node_types attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredNodeTypes
+    public List<TerraformProperty<string>>? PreferredNodeTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_node_types");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_node_types");
         set => this.WithProperty("preferred_node_types", value);
     }
 

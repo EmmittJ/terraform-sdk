@@ -20,7 +20,8 @@ public class GoogleOracleDatabaseDbServersDataSource : TerraformDataSource
     /// <summary>
     /// exadata
     /// </summary>
-    public TerraformProperty<string>? CloudExadataInfrastructure
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructure is required")]
+    public required TerraformProperty<string> CloudExadataInfrastructure
     {
         get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure");
         set => this.WithProperty("cloud_exadata_infrastructure", value);
@@ -38,7 +39,8 @@ public class GoogleOracleDatabaseDbServersDataSource : TerraformDataSource
     /// <summary>
     /// location
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

@@ -3,6 +3,88 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for ipv4_firewall_rule in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The range_end attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeEnd is required")]
+    public required TerraformProperty<string> RangeEnd
+    {
+        get => GetProperty<TerraformProperty<string>>("range_end");
+        set => WithProperty("range_end", value);
+    }
+
+    /// <summary>
+    /// The range_start attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeStart is required")]
+    public required TerraformProperty<string> RangeStart
+    {
+        get => GetProperty<TerraformProperty<string>>("range_start");
+        set => WithProperty("range_start", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_analysis_services_server resource.
 /// </summary>
 public class AzurermAnalysisServicesServer : TerraformResource
@@ -20,9 +102,9 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// <summary>
     /// The admin_users attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdminUsers
+    public HashSet<TerraformProperty<string>>? AdminUsers
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("admin_users");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("admin_users");
         set => this.WithProperty("admin_users", value);
     }
 
@@ -47,7 +129,8 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -56,7 +139,8 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -83,7 +167,8 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -92,7 +177,8 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
+    public required TerraformProperty<string> Sku
     {
         get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
@@ -101,10 +187,30 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for ipv4_firewall_rule.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>? Ipv4FirewallRule
+    {
+        get => GetProperty<HashSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>>("ipv4_firewall_rule");
+        set => this.WithProperty("ipv4_firewall_rule", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAnalysisServicesServerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAnalysisServicesServerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

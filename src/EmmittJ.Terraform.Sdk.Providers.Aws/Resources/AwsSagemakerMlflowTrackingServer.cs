@@ -21,7 +21,8 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     /// <summary>
     /// The artifact_store_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? ArtifactStoreUri
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactStoreUri is required")]
+    public required TerraformProperty<string> ArtifactStoreUri
     {
         get => GetProperty<TerraformProperty<string>>("artifact_store_uri");
         set => this.WithProperty("artifact_store_uri", value);
@@ -66,7 +67,8 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -75,25 +77,26 @@ public class AwsSagemakerMlflowTrackingServer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tracking_server_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TrackingServerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackingServerName is required")]
+    public required TerraformProperty<string> TrackingServerName
     {
         get => GetProperty<TerraformProperty<string>>("tracking_server_name");
         set => this.WithProperty("tracking_server_name", value);

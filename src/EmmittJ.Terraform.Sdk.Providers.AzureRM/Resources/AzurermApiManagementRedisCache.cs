@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApiManagementRedisCacheTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_api_management_redis_cache resource.
 /// </summary>
 public class AzurermApiManagementRedisCache : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermApiManagementRedisCache : TerraformResource
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiManagementId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
+    public required TerraformProperty<string> ApiManagementId
     {
         get => GetProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
@@ -37,7 +82,8 @@ public class AzurermApiManagementRedisCache : TerraformResource
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
+    public required TerraformProperty<string> ConnectionString
     {
         get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
@@ -64,7 +110,8 @@ public class AzurermApiManagementRedisCache : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -77,6 +124,16 @@ public class AzurermApiManagementRedisCache : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("redis_cache_id");
         set => this.WithProperty("redis_cache_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApiManagementRedisCacheTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApiManagementRedisCacheTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

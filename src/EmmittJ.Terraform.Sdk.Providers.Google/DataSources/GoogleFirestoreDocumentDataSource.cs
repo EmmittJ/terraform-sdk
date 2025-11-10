@@ -24,7 +24,8 @@ public class GoogleFirestoreDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The collection ID, relative to database. For example: chatrooms or chatrooms/my-document/private-messages.
     /// </summary>
-    public TerraformProperty<string>? Collection
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
+    public required TerraformProperty<string> Collection
     {
         get => GetProperty<TerraformProperty<string>>("collection");
         set => this.WithProperty("collection", value);
@@ -33,7 +34,8 @@ public class GoogleFirestoreDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    public TerraformProperty<string>? Database
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
+    public required TerraformProperty<string> Database
     {
         get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
@@ -42,7 +44,8 @@ public class GoogleFirestoreDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The client-assigned document ID to use for this document during creation.
     /// </summary>
-    public TerraformProperty<string>? DocumentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
+    public required TerraformProperty<string> DocumentId
     {
         get => GetProperty<TerraformProperty<string>>("document_id");
         set => this.WithProperty("document_id", value);

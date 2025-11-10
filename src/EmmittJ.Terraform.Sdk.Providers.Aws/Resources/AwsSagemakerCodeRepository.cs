@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for git_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerCodeRepositoryGitConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The branch attribute.
+    /// </summary>
+    public TerraformProperty<string>? Branch
+    {
+        get => GetProperty<TerraformProperty<string>>("branch");
+        set => WithProperty("branch", value);
+    }
+
+    /// <summary>
+    /// The repository_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
+    public required TerraformProperty<string> RepositoryUrl
+    {
+        get => GetProperty<TerraformProperty<string>>("repository_url");
+        set => WithProperty("repository_url", value);
+    }
+
+    /// <summary>
+    /// The secret_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? SecretArn
+    {
+        get => GetProperty<TerraformProperty<string>>("secret_arn");
+        set => WithProperty("secret_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_code_repository resource.
 /// </summary>
 public class AwsSagemakerCodeRepository : TerraformResource
@@ -20,7 +56,8 @@ public class AwsSagemakerCodeRepository : TerraformResource
     /// <summary>
     /// The code_repository_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CodeRepositoryName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryName is required")]
+    public required TerraformProperty<string> CodeRepositoryName
     {
         get => GetProperty<TerraformProperty<string>>("code_repository_name");
         set => this.WithProperty("code_repository_name", value);
@@ -47,19 +84,31 @@ public class AwsSagemakerCodeRepository : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for git_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitConfig block(s) allowed")]
+    public List<AwsSagemakerCodeRepositoryGitConfigBlock>? GitConfig
+    {
+        get => GetProperty<List<AwsSagemakerCodeRepositoryGitConfigBlock>>("git_config");
+        set => this.WithProperty("git_config", value);
     }
 
     /// <summary>

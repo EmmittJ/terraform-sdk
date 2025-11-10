@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for dynamic_membership in .
+/// Nesting mode: list
+/// </summary>
+public class AzureadGroupDynamicMembershipBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// Rule to determine members for a dynamic group. Required when `group_types` contains &#39;DynamicMembership&#39;
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
+    public required TerraformProperty<string> Rule
+    {
+        get => GetProperty<TerraformProperty<string>>("rule");
+        set => WithProperty("rule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_group resource.
 /// </summary>
 public class AzureadGroup : TerraformResource
@@ -28,9 +100,9 @@ public class AzureadGroup : TerraformResource
     /// <summary>
     /// The administrative unit IDs in which the group should be. If empty, the group will be created at the tenant level.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdministrativeUnitIds
+    public HashSet<TerraformProperty<string>>? AdministrativeUnitIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("administrative_unit_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("administrative_unit_ids");
         set => this.WithProperty("administrative_unit_ids", value);
     }
 
@@ -55,9 +127,9 @@ public class AzureadGroup : TerraformResource
     /// <summary>
     /// The group behaviours for a Microsoft 365 group
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Behaviors
+    public HashSet<TerraformProperty<string>>? Behaviors
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("behaviors");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("behaviors");
         set => this.WithProperty("behaviors", value);
     }
 
@@ -73,7 +145,8 @@ public class AzureadGroup : TerraformResource
     /// <summary>
     /// The display name for the group
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -136,9 +209,9 @@ public class AzureadGroup : TerraformResource
     /// <summary>
     /// A set of members who should be present in this group. Supported object types are Users, Groups or Service Principals
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Members
+    public HashSet<TerraformProperty<string>>? Members
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
@@ -154,9 +227,9 @@ public class AzureadGroup : TerraformResource
     /// <summary>
     /// A set of owners who own this group. Supported object types are Users or Service Principals
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Owners
+    public HashSet<TerraformProperty<string>>? Owners
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("owners");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("owners");
         set => this.WithProperty("owners", value);
     }
 
@@ -172,9 +245,9 @@ public class AzureadGroup : TerraformResource
     /// <summary>
     /// The group provisioning options for a Microsoft 365 group
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ProvisioningOptions
+    public HashSet<TerraformProperty<string>>? ProvisioningOptions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("provisioning_options");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("provisioning_options");
         set => this.WithProperty("provisioning_options", value);
     }
 
@@ -199,9 +272,9 @@ public class AzureadGroup : TerraformResource
     /// <summary>
     /// A set of group types to configure for the group. `Unified` specifies a Microsoft 365 group. Required when `mail_enabled` is true
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Types
+    public HashSet<TerraformProperty<string>>? Types
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("types");
         set => this.WithProperty("types", value);
     }
 
@@ -221,6 +294,27 @@ public class AzureadGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("writeback_enabled");
         set => this.WithProperty("writeback_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for dynamic_membership.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamicMembership block(s) allowed")]
+    public List<AzureadGroupDynamicMembershipBlock>? DynamicMembership
+    {
+        get => GetProperty<List<AzureadGroupDynamicMembershipBlock>>("dynamic_membership");
+        set => this.WithProperty("dynamic_membership", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,154 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for exclude_cloud_storage_buckets in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for exclude_cloud_storage_locations in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The list of cloud storage locations to exclude in the DatasetConfig.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
+    public List<TerraformProperty<string>>? Locations
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("locations");
+        set => WithProperty("locations", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for identity in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Name of the identity.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Type of identity to use for the DatasetConfig. Possible values: [&amp;quot;IDENTITY_TYPE_PER_CONFIG&amp;quot;, &amp;quot;IDENTITY_TYPE_PER_PROJECT&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for include_cloud_storage_buckets in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for include_cloud_storage_locations in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The list of cloud storage locations to include in the DatasetConfig.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
+    public List<TerraformProperty<string>>? Locations
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("locations");
+        set => WithProperty("locations", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_folders in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageInsightsDatasetConfigSourceFoldersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The list of folder numbers to include in the DatasetConfig.
+    /// </summary>
+    public List<TerraformProperty<string>>? FolderNumbers
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("folder_numbers");
+        set => WithProperty("folder_numbers", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_projects in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageInsightsDatasetConfigSourceProjectsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The list of project numbers to include in the DatasetConfig.
+    /// </summary>
+    public List<TerraformProperty<string>>? ProjectNumbers
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("project_numbers");
+        set => WithProperty("project_numbers", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleStorageInsightsDatasetConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_storage_insights_dataset_config resource.
 /// </summary>
 public class GoogleStorageInsightsDatasetConfig : TerraformResource
@@ -25,7 +173,8 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// <summary>
     /// The user-defined ID of the DatasetConfig
     /// </summary>
-    public TerraformProperty<string>? DatasetConfigId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetConfigId is required")]
+    public required TerraformProperty<string> DatasetConfigId
     {
         get => GetProperty<TerraformProperty<string>>("dataset_config_id");
         set => this.WithProperty("dataset_config_id", value);
@@ -74,7 +223,8 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// <summary>
     /// The location of the DatasetConfig.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -111,10 +261,99 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// <summary>
     /// Number of days of history that must be retained.
     /// </summary>
-    public TerraformProperty<double>? RetentionPeriodDays
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodDays is required")]
+    public required TerraformProperty<double> RetentionPeriodDays
     {
         get => GetProperty<TerraformProperty<double>>("retention_period_days");
         set => this.WithProperty("retention_period_days", value);
+    }
+
+    /// <summary>
+    /// Block for exclude_cloud_storage_buckets.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeCloudStorageBuckets block(s) allowed")]
+    public List<GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock>? ExcludeCloudStorageBuckets
+    {
+        get => GetProperty<List<GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlock>>("exclude_cloud_storage_buckets");
+        set => this.WithProperty("exclude_cloud_storage_buckets", value);
+    }
+
+    /// <summary>
+    /// Block for exclude_cloud_storage_locations.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeCloudStorageLocations block(s) allowed")]
+    public List<GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock>? ExcludeCloudStorageLocations
+    {
+        get => GetProperty<List<GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock>>("exclude_cloud_storage_locations");
+        set => this.WithProperty("exclude_cloud_storage_locations", value);
+    }
+
+    /// <summary>
+    /// Block for identity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public List<GoogleStorageInsightsDatasetConfigIdentityBlock>? Identity
+    {
+        get => GetProperty<List<GoogleStorageInsightsDatasetConfigIdentityBlock>>("identity");
+        set => this.WithProperty("identity", value);
+    }
+
+    /// <summary>
+    /// Block for include_cloud_storage_buckets.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeCloudStorageBuckets block(s) allowed")]
+    public List<GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock>? IncludeCloudStorageBuckets
+    {
+        get => GetProperty<List<GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlock>>("include_cloud_storage_buckets");
+        set => this.WithProperty("include_cloud_storage_buckets", value);
+    }
+
+    /// <summary>
+    /// Block for include_cloud_storage_locations.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeCloudStorageLocations block(s) allowed")]
+    public List<GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock>? IncludeCloudStorageLocations
+    {
+        get => GetProperty<List<GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock>>("include_cloud_storage_locations");
+        set => this.WithProperty("include_cloud_storage_locations", value);
+    }
+
+    /// <summary>
+    /// Block for source_folders.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceFolders block(s) allowed")]
+    public List<GoogleStorageInsightsDatasetConfigSourceFoldersBlock>? SourceFolders
+    {
+        get => GetProperty<List<GoogleStorageInsightsDatasetConfigSourceFoldersBlock>>("source_folders");
+        set => this.WithProperty("source_folders", value);
+    }
+
+    /// <summary>
+    /// Block for source_projects.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceProjects block(s) allowed")]
+    public List<GoogleStorageInsightsDatasetConfigSourceProjectsBlock>? SourceProjects
+    {
+        get => GetProperty<List<GoogleStorageInsightsDatasetConfigSourceProjectsBlock>>("source_projects");
+        set => this.WithProperty("source_projects", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleStorageInsightsDatasetConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleStorageInsightsDatasetConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

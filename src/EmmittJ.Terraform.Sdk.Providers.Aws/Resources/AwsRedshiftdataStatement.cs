@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for parameters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRedshiftdataStatementParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRedshiftdataStatementTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_redshiftdata_statement resource.
 /// </summary>
 public class AwsRedshiftdataStatement : TerraformResource
@@ -28,7 +73,8 @@ public class AwsRedshiftdataStatement : TerraformResource
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public TerraformProperty<string>? Database
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
+    public required TerraformProperty<string> Database
     {
         get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
@@ -73,7 +119,8 @@ public class AwsRedshiftdataStatement : TerraformResource
     /// <summary>
     /// The sql attribute.
     /// </summary>
-    public TerraformProperty<string>? Sql
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sql is required")]
+    public required TerraformProperty<string> Sql
     {
         get => GetProperty<TerraformProperty<string>>("sql");
         set => this.WithProperty("sql", value);
@@ -104,6 +151,26 @@ public class AwsRedshiftdataStatement : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);
+    }
+
+    /// <summary>
+    /// Block for parameters.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsRedshiftdataStatementParametersBlock>? Parameters
+    {
+        get => GetProperty<List<AwsRedshiftdataStatementParametersBlock>>("parameters");
+        set => this.WithProperty("parameters", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRedshiftdataStatementTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRedshiftdataStatementTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

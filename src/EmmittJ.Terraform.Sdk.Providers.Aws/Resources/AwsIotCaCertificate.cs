@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for registration_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The role_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? RoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("role_arn");
+        set => WithProperty("role_arn", value);
+    }
+
+    /// <summary>
+    /// The template_body attribute.
+    /// </summary>
+    public TerraformProperty<string>? TemplateBody
+    {
+        get => GetProperty<TerraformProperty<string>>("template_body");
+        set => WithProperty("template_body", value);
+    }
+
+    /// <summary>
+    /// The template_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? TemplateName
+    {
+        get => GetProperty<TerraformProperty<string>>("template_name");
+        set => WithProperty("template_name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_iot_ca_certificate resource.
 /// </summary>
 public class AwsIotCaCertificate : TerraformResource
@@ -23,7 +58,8 @@ public class AwsIotCaCertificate : TerraformResource
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformProperty<bool>? Active
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
+    public required TerraformProperty<bool> Active
     {
         get => GetProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
@@ -32,7 +68,8 @@ public class AwsIotCaCertificate : TerraformResource
     /// <summary>
     /// The allow_auto_registration attribute.
     /// </summary>
-    public TerraformProperty<bool>? AllowAutoRegistration
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAutoRegistration is required")]
+    public required TerraformProperty<bool> AllowAutoRegistration
     {
         get => GetProperty<TerraformProperty<bool>>("allow_auto_registration");
         set => this.WithProperty("allow_auto_registration", value);
@@ -41,7 +78,8 @@ public class AwsIotCaCertificate : TerraformResource
     /// <summary>
     /// The ca_certificate_pem attribute.
     /// </summary>
-    public TerraformProperty<string>? CaCertificatePem
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatePem is required")]
+    public required TerraformProperty<string> CaCertificatePem
     {
         get => GetProperty<TerraformProperty<string>>("ca_certificate_pem");
         set => this.WithProperty("ca_certificate_pem", value);
@@ -77,18 +115,18 @@ public class AwsIotCaCertificate : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -99,6 +137,17 @@ public class AwsIotCaCertificate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("verification_certificate_pem");
         set => this.WithProperty("verification_certificate_pem", value);
+    }
+
+    /// <summary>
+    /// Block for registration_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistrationConfig block(s) allowed")]
+    public List<AwsIotCaCertificateRegistrationConfigBlock>? RegistrationConfig
+    {
+        get => GetProperty<List<AwsIotCaCertificateRegistrationConfigBlock>>("registration_config");
+        set => this.WithProperty("registration_config", value);
     }
 
     /// <summary>

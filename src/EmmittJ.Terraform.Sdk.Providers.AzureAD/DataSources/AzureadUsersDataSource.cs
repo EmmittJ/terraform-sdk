@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadUsersDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azuread_users.
 /// </summary>
 public class AzureadUsersDataSource : TerraformDataSource
@@ -20,9 +37,9 @@ public class AzureadUsersDataSource : TerraformDataSource
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public TerraformProperty<List<string>>? EmployeeIds
+    public List<TerraformProperty<string>>? EmployeeIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("employee_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("employee_ids");
         set => this.WithProperty("employee_ids", value);
     }
 
@@ -47,27 +64,27 @@ public class AzureadUsersDataSource : TerraformDataSource
     /// <summary>
     /// The email aliases of the users
     /// </summary>
-    public TerraformProperty<List<string>>? MailNicknames
+    public List<TerraformProperty<string>>? MailNicknames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("mail_nicknames");
+        get => GetProperty<List<TerraformProperty<string>>>("mail_nicknames");
         set => this.WithProperty("mail_nicknames", value);
     }
 
     /// <summary>
     /// The SMTP address of the users
     /// </summary>
-    public TerraformProperty<List<string>>? Mails
+    public List<TerraformProperty<string>>? Mails
     {
-        get => GetProperty<TerraformProperty<List<string>>>("mails");
+        get => GetProperty<List<TerraformProperty<string>>>("mails");
         set => this.WithProperty("mails", value);
     }
 
     /// <summary>
     /// The object IDs of the users
     /// </summary>
-    public TerraformProperty<List<string>>? ObjectIds
+    public List<TerraformProperty<string>>? ObjectIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("object_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("object_ids");
         set => this.WithProperty("object_ids", value);
     }
 
@@ -83,10 +100,20 @@ public class AzureadUsersDataSource : TerraformDataSource
     /// <summary>
     /// The user principal names (UPNs) of the users
     /// </summary>
-    public TerraformProperty<List<string>>? UserPrincipalNames
+    public List<TerraformProperty<string>>? UserPrincipalNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("user_principal_names");
+        get => GetProperty<List<TerraformProperty<string>>>("user_principal_names");
         set => this.WithProperty("user_principal_names", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadUsersDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadUsersDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

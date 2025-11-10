@@ -22,7 +22,8 @@ public class AwsWorkspaceswebUserAccessLoggingSettings : TerraformResource
     /// <summary>
     /// The kinesis_stream_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KinesisStreamArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KinesisStreamArn is required")]
+    public required TerraformProperty<string> KinesisStreamArn
     {
         get => GetProperty<TerraformProperty<string>>("kinesis_stream_arn");
         set => this.WithProperty("kinesis_stream_arn", value);
@@ -40,9 +41,9 @@ public class AwsWorkspaceswebUserAccessLoggingSettings : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

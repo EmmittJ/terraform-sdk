@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for permissions in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermCosmosdbSqlRoleDefinitionPermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The data_actions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataActions is required")]
+    public HashSet<TerraformProperty<string>>? DataActions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("data_actions");
+        set => WithProperty("data_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_cosmosdb_sql_role_definition resource.
 /// </summary>
 public class AzurermCosmosdbSqlRoleDefinition : TerraformResource
@@ -19,7 +81,8 @@ public class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
+    public required TerraformProperty<string> AccountName
     {
         get => GetProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
@@ -28,9 +91,10 @@ public class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AssignableScopes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignableScopes is required")]
+    public HashSet<TerraformProperty<string>>? AssignableScopes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("assignable_scopes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("assignable_scopes");
         set => this.WithProperty("assignable_scopes", value);
     }
 
@@ -46,7 +110,8 @@ public class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +120,8 @@ public class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -77,6 +143,27 @@ public class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for permissions.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
+    public HashSet<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock>? Permissions
+    {
+        get => GetProperty<HashSet<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock>>("permissions");
+        set => this.WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

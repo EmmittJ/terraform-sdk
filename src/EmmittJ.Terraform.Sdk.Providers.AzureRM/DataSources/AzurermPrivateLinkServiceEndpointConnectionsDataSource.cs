@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPrivateLinkServiceEndpointConnectionsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_private_link_service_endpoint_connections.
 /// </summary>
 public class AzurermPrivateLinkServiceEndpointConnectionsDataSource : TerraformDataSource
@@ -31,7 +48,8 @@ public class AzurermPrivateLinkServiceEndpointConnectionsDataSource : TerraformD
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -40,10 +58,21 @@ public class AzurermPrivateLinkServiceEndpointConnectionsDataSource : TerraformD
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
+    public required TerraformProperty<string> ServiceId
     {
         get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPrivateLinkServiceEndpointConnectionsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPrivateLinkServiceEndpointConnectionsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

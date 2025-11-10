@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for endpoints in .
+/// Nesting mode: list
+/// </summary>
+public class AwsChimesdkvoiceSipMediaApplicationEndpointsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The lambda_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
+    public required TerraformProperty<string> LambdaArn
+    {
+        get => GetProperty<TerraformProperty<string>>("lambda_arn");
+        set => WithProperty("lambda_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_chimesdkvoice_sip_media_application resource.
 /// </summary>
 public class AwsChimesdkvoiceSipMediaApplication : TerraformResource
@@ -20,7 +38,8 @@ public class AwsChimesdkvoiceSipMediaApplication : TerraformResource
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsRegion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
+    public required TerraformProperty<string> AwsRegion
     {
         get => GetProperty<TerraformProperty<string>>("aws_region");
         set => this.WithProperty("aws_region", value);
@@ -38,7 +57,8 @@ public class AwsChimesdkvoiceSipMediaApplication : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,19 +76,31 @@ public class AwsChimesdkvoiceSipMediaApplication : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for endpoints.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoints block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoints block(s) allowed")]
+    public List<AwsChimesdkvoiceSipMediaApplicationEndpointsBlock>? Endpoints
+    {
+        get => GetProperty<List<AwsChimesdkvoiceSipMediaApplicationEndpointsBlock>>("endpoints");
+        set => this.WithProperty("endpoints", value);
     }
 
     /// <summary>

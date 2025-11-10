@@ -46,7 +46,8 @@ public class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkgroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
+    public required TerraformProperty<string> WorkgroupName
     {
         get => GetProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);

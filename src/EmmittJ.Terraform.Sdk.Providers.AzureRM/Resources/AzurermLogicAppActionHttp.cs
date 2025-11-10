@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for run_after in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The action_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
+    public required TerraformProperty<string> ActionName
+    {
+        get => GetProperty<TerraformProperty<string>>("action_name");
+        set => WithProperty("action_name", value);
+    }
+
+    /// <summary>
+    /// The action_result attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionResult is required")]
+    public required TerraformProperty<string> ActionResult
+    {
+        get => GetProperty<TerraformProperty<string>>("action_result");
+        set => WithProperty("action_result", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_logic_app_action_http resource.
 /// </summary>
 public class AzurermLogicAppActionHttp : TerraformResource
@@ -28,9 +100,9 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The headers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Headers
+    public Dictionary<string, TerraformProperty<string>>? Headers
     {
-        get => GetProperty<TerraformMapProperty<string>>("headers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("headers");
         set => this.WithProperty("headers", value);
     }
 
@@ -46,7 +118,8 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The logic_app_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogicAppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
+    public required TerraformProperty<string> LogicAppId
     {
         get => GetProperty<TerraformProperty<string>>("logic_app_id");
         set => this.WithProperty("logic_app_id", value);
@@ -55,7 +128,8 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The method attribute.
     /// </summary>
-    public TerraformProperty<string>? Method
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
+    public required TerraformProperty<string> Method
     {
         get => GetProperty<TerraformProperty<string>>("method");
         set => this.WithProperty("method", value);
@@ -64,7 +138,8 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,19 +148,40 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The queries attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Queries
+    public Dictionary<string, TerraformProperty<string>>? Queries
     {
-        get => GetProperty<TerraformMapProperty<string>>("queries");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("queries");
         set => this.WithProperty("queries", value);
     }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformProperty<string>? Uri
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformProperty<string> Uri
     {
         get => GetProperty<TerraformProperty<string>>("uri");
         set => this.WithProperty("uri", value);
+    }
+
+    /// <summary>
+    /// Block for run_after.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AzurermLogicAppActionHttpRunAfterBlock>? RunAfter
+    {
+        get => GetProperty<HashSet<AzurermLogicAppActionHttpRunAfterBlock>>("run_after");
+        set => this.WithProperty("run_after", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermLogicAppActionHttpTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermLogicAppActionHttpTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

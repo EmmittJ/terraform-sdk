@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEdgenetworkSubnetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_edgenetwork_subnet resource.
 /// </summary>
 public class GoogleEdgenetworkSubnet : TerraformResource
@@ -43,18 +78,18 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     /// <summary>
     /// The ranges of ipv4 addresses that are owned by this subnetwork, in CIDR format.
     /// </summary>
-    public TerraformProperty<List<string>>? Ipv4Cidr
+    public List<TerraformProperty<string>>? Ipv4Cidr
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ipv4_cidr");
+        get => GetProperty<List<TerraformProperty<string>>>("ipv4_cidr");
         set => this.WithProperty("ipv4_cidr", value);
     }
 
     /// <summary>
     /// The ranges of ipv6 addresses that are owned by this subnetwork, in CIDR format.
     /// </summary>
-    public TerraformProperty<List<string>>? Ipv6Cidr
+    public List<TerraformProperty<string>>? Ipv6Cidr
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ipv6_cidr");
+        get => GetProperty<List<TerraformProperty<string>>>("ipv6_cidr");
         set => this.WithProperty("ipv6_cidr", value);
     }
 
@@ -65,16 +100,17 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The Google Cloud region to which the target Distributed Cloud Edge zone belongs.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -84,7 +120,8 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     /// The ID of the network to which this router belongs.
     /// Must be of the form: &#39;projects/{{project}}/locations/{{location}}/zones/{{zone}}/networks/{{network_id}}&#39;
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -102,7 +139,8 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     /// <summary>
     /// A unique ID that identifies this subnet.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
     {
         get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
@@ -120,10 +158,21 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     /// <summary>
     /// The name of the target Distributed Cloud Edge zone.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
+    public required TerraformProperty<string> Zone
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEdgenetworkSubnetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEdgenetworkSubnetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

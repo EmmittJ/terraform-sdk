@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNatGatewayTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_nat_gateway resource.
 /// </summary>
 public class AwsNatGateway : TerraformResource
@@ -67,9 +102,9 @@ public class AwsNatGateway : TerraformResource
     /// <summary>
     /// The secondary_allocation_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecondaryAllocationIds
+    public HashSet<TerraformProperty<string>>? SecondaryAllocationIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("secondary_allocation_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("secondary_allocation_ids");
         set => this.WithProperty("secondary_allocation_ids", value);
     }
 
@@ -85,16 +120,17 @@ public class AwsNatGateway : TerraformResource
     /// <summary>
     /// The secondary_private_ip_addresses attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecondaryPrivateIpAddresses
+    public HashSet<TerraformProperty<string>>? SecondaryPrivateIpAddresses
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("secondary_private_ip_addresses");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("secondary_private_ip_addresses");
         set => this.WithProperty("secondary_private_ip_addresses", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
     {
         get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
@@ -103,19 +139,29 @@ public class AwsNatGateway : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNatGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNatGatewayTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

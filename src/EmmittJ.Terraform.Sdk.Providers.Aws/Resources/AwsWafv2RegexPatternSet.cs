@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for regular_expression in .
+/// Nesting mode: set
+/// </summary>
+public class AwsWafv2RegexPatternSetRegularExpressionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The regex_string attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexString is required")]
+    public required TerraformProperty<string> RegexString
+    {
+        get => GetProperty<TerraformProperty<string>>("regex_string");
+        set => WithProperty("regex_string", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_wafv2_regex_pattern_set resource.
 /// </summary>
 public class AwsWafv2RegexPatternSet : TerraformResource
@@ -66,7 +84,8 @@ public class AwsWafv2RegexPatternSet : TerraformResource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
@@ -75,19 +94,29 @@ public class AwsWafv2RegexPatternSet : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for regular_expression.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsWafv2RegexPatternSetRegularExpressionBlock>? RegularExpression
+    {
+        get => GetProperty<HashSet<AwsWafv2RegexPatternSetRegularExpressionBlock>>("regular_expression");
+        set => this.WithProperty("regular_expression", value);
     }
 
     /// <summary>

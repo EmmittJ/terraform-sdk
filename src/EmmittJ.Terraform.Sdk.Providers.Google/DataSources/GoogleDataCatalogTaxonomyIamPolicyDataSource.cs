@@ -48,7 +48,8 @@ public class GoogleDataCatalogTaxonomyIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The taxonomy attribute.
     /// </summary>
-    public TerraformProperty<string>? Taxonomy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Taxonomy is required")]
+    public required TerraformProperty<string> Taxonomy
     {
         get => GetProperty<TerraformProperty<string>>("taxonomy");
         set => this.WithProperty("taxonomy", value);

@@ -21,7 +21,8 @@ public class AwsCodeartifactAuthorizationTokenDataSource : TerraformDataSource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    public required TerraformProperty<string> Domain
     {
         get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);

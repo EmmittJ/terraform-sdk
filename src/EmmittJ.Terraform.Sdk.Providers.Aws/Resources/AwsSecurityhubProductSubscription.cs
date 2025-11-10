@@ -29,7 +29,8 @@ public class AwsSecurityhubProductSubscription : TerraformResource
     /// <summary>
     /// The product_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductArn is required")]
+    public required TerraformProperty<string> ProductArn
     {
         get => GetProperty<TerraformProperty<string>>("product_arn");
         set => this.WithProperty("product_arn", value);

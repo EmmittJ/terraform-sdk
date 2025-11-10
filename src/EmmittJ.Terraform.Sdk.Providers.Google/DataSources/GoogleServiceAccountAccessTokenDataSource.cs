@@ -20,9 +20,9 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Delegates
+    public HashSet<TerraformProperty<string>>? Delegates
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("delegates");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
         set => this.WithProperty("delegates", value);
     }
 
@@ -47,16 +47,18 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Scopes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
+    public HashSet<TerraformProperty<string>>? Scopes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("scopes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("scopes");
         set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetServiceAccount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
+    public required TerraformProperty<string> TargetServiceAccount
     {
         get => GetProperty<TerraformProperty<string>>("target_service_account");
         set => this.WithProperty("target_service_account", value);

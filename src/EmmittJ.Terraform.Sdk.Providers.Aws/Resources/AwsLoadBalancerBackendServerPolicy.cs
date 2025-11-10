@@ -28,7 +28,8 @@ public class AwsLoadBalancerBackendServerPolicy : TerraformResource
     /// <summary>
     /// The instance_port attribute.
     /// </summary>
-    public TerraformProperty<double>? InstancePort
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
+    public required TerraformProperty<double> InstancePort
     {
         get => GetProperty<TerraformProperty<double>>("instance_port");
         set => this.WithProperty("instance_port", value);
@@ -37,7 +38,8 @@ public class AwsLoadBalancerBackendServerPolicy : TerraformResource
     /// <summary>
     /// The load_balancer_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
+    public required TerraformProperty<string> LoadBalancerName
     {
         get => GetProperty<TerraformProperty<string>>("load_balancer_name");
         set => this.WithProperty("load_balancer_name", value);
@@ -46,9 +48,9 @@ public class AwsLoadBalancerBackendServerPolicy : TerraformResource
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? PolicyNames
+    public HashSet<TerraformProperty<string>>? PolicyNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("policy_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("policy_names");
         set => this.WithProperty("policy_names", value);
     }
 

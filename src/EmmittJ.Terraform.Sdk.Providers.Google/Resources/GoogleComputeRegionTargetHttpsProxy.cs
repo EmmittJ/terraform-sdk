@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRegionTargetHttpsProxyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_region_target_https_proxy resource.
 /// </summary>
 public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
@@ -24,9 +59,9 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// sslCertificates and certificateManagerCertificates can&#39;t be defined together.
     /// Accepted format is &#39;//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificates/{resourceName}&#39; or just the self_link &#39;projects/{project}/locations/{location}/certificates/{resourceName}&#39;
     /// </summary>
-    public TerraformProperty<List<string>>? CertificateManagerCertificates
+    public List<TerraformProperty<string>>? CertificateManagerCertificates
     {
-        get => GetProperty<TerraformProperty<List<string>>>("certificate_manager_certificates");
+        get => GetProperty<List<TerraformProperty<string>>>("certificate_manager_certificates");
         set => this.WithProperty("certificate_manager_certificates", value);
     }
 
@@ -70,7 +105,8 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -122,9 +158,9 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// At least one SSL certificate must be specified. Currently, you may specify up to 15 SSL certificates.
     /// sslCertificates do not apply when the load balancing scheme is set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformProperty<List<string>>? SslCertificates
+    public List<TerraformProperty<string>>? SslCertificates
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ssl_certificates");
+        get => GetProperty<List<TerraformProperty<string>>>("ssl_certificates");
         set => this.WithProperty("ssl_certificates", value);
     }
 
@@ -143,10 +179,21 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// A reference to the RegionUrlMap resource that defines the mapping from URL
     /// to the RegionBackendService.
     /// </summary>
-    public TerraformProperty<string>? UrlMap
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
+    public required TerraformProperty<string> UrlMap
     {
         get => GetProperty<TerraformProperty<string>>("url_map");
         set => this.WithProperty("url_map", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRegionTargetHttpsProxyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRegionTargetHttpsProxyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

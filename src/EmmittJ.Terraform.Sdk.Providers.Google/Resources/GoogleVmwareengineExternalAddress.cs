@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVmwareengineExternalAddressTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vmwareengine_external_address resource.
 /// </summary>
 public class GoogleVmwareengineExternalAddress : TerraformResource
@@ -42,7 +77,8 @@ public class GoogleVmwareengineExternalAddress : TerraformResource
     /// <summary>
     /// The internal IP address of a workload VM.
     /// </summary>
-    public TerraformProperty<string>? InternalIp
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternalIp is required")]
+    public required TerraformProperty<string> InternalIp
     {
         get => GetProperty<TerraformProperty<string>>("internal_ip");
         set => this.WithProperty("internal_ip", value);
@@ -51,7 +87,8 @@ public class GoogleVmwareengineExternalAddress : TerraformResource
     /// <summary>
     /// The ID of the external IP Address.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -62,10 +99,21 @@ public class GoogleVmwareengineExternalAddress : TerraformResource
     /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
     /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVmwareengineExternalAddressTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVmwareengineExternalAddressTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

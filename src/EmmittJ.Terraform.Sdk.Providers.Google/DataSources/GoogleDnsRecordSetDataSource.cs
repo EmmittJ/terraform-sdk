@@ -30,7 +30,8 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
     /// <summary>
     /// The managed_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedZone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
+    public required TerraformProperty<string> ManagedZone
     {
         get => GetProperty<TerraformProperty<string>>("managed_zone");
         set => this.WithProperty("managed_zone", value);
@@ -39,7 +40,8 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -57,7 +59,8 @@ public class GoogleDnsRecordSetDataSource : TerraformDataSource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);

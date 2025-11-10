@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for authorizer_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIotDomainConfigurationAuthorizerConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allow_authorizer_override attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AllowAuthorizerOverride
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_authorizer_override");
+        set => WithProperty("allow_authorizer_override", value);
+    }
+
+    /// <summary>
+    /// The default_authorizer_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? DefaultAuthorizerName
+    {
+        get => GetProperty<TerraformProperty<string>>("default_authorizer_name");
+        set => WithProperty("default_authorizer_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tls_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIotDomainConfigurationTlsConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The security_policy attribute.
+    /// </summary>
+    public TerraformProperty<string>? SecurityPolicy
+    {
+        get => GetProperty<TerraformProperty<string>>("security_policy");
+        set => WithProperty("security_policy", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_iot_domain_configuration resource.
 /// </summary>
 public class AwsIotDomainConfiguration : TerraformResource
@@ -57,7 +100,8 @@ public class AwsIotDomainConfiguration : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -75,9 +119,9 @@ public class AwsIotDomainConfiguration : TerraformResource
     /// <summary>
     /// The server_certificate_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ServerCertificateArns
+    public HashSet<TerraformProperty<string>>? ServerCertificateArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("server_certificate_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("server_certificate_arns");
         set => this.WithProperty("server_certificate_arns", value);
     }
 
@@ -102,18 +146,18 @@ public class AwsIotDomainConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -124,6 +168,28 @@ public class AwsIotDomainConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("validation_certificate_arn");
         set => this.WithProperty("validation_certificate_arn", value);
+    }
+
+    /// <summary>
+    /// Block for authorizer_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthorizerConfig block(s) allowed")]
+    public List<AwsIotDomainConfigurationAuthorizerConfigBlock>? AuthorizerConfig
+    {
+        get => GetProperty<List<AwsIotDomainConfigurationAuthorizerConfigBlock>>("authorizer_config");
+        set => this.WithProperty("authorizer_config", value);
+    }
+
+    /// <summary>
+    /// Block for tls_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
+    public List<AwsIotDomainConfigurationTlsConfigBlock>? TlsConfig
+    {
+        get => GetProperty<List<AwsIotDomainConfigurationTlsConfigBlock>>("tls_config");
+        set => this.WithProperty("tls_config", value);
     }
 
     /// <summary>

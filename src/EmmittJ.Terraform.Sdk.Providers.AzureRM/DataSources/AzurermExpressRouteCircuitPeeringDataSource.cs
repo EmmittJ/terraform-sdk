@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_express_route_circuit_peering.
 /// </summary>
 public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
@@ -30,7 +47,8 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The express_route_circuit_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpressRouteCircuitName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
+    public required TerraformProperty<string> ExpressRouteCircuitName
     {
         get => GetProperty<TerraformProperty<string>>("express_route_circuit_name");
         set => this.WithProperty("express_route_circuit_name", value);
@@ -48,7 +66,8 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The peering_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PeeringType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
+    public required TerraformProperty<string> PeeringType
     {
         get => GetProperty<TerraformProperty<string>>("peering_type");
         set => this.WithProperty("peering_type", value);
@@ -57,10 +76,21 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

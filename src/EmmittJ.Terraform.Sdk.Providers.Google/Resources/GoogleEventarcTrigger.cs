@@ -3,6 +3,112 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for destination in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEventarcTriggerDestinationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Cloud Function resource name. Only Cloud Functions V2 is supported. Format projects/{project}/locations/{location}/functions/{function} This is a read-only field. [WARNING] Creating Cloud Functions V2 triggers is only supported via the Cloud Functions product. An error will be returned if the user sets this value.
+    /// </summary>
+    public TerraformProperty<string>? CloudFunction
+    {
+        get => GetProperty<TerraformProperty<string>>("cloud_function");
+        set => WithProperty("cloud_function", value);
+    }
+
+    /// <summary>
+    /// The resource name of the Workflow whose Executions are triggered by the events. The Workflow resource should be deployed in the same project as the trigger. Format: &#39;projects/{project}/locations/{location}/workflows/{workflow}&#39;
+    /// </summary>
+    public TerraformProperty<string>? Workflow
+    {
+        get => GetProperty<TerraformProperty<string>>("workflow");
+        set => WithProperty("workflow", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for matching_criteria in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. The name of a CloudEvents attribute. Currently, only a subset of attributes are supported for filtering. All triggers MUST provide a filter for the &#39;type&#39; attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
+    public required TerraformProperty<string> Attribute
+    {
+        get => GetProperty<TerraformProperty<string>>("attribute");
+        set => WithProperty("attribute", value);
+    }
+
+    /// <summary>
+    /// Optional. The operator used for matching the events with the value of the filter. If not specified, only events that have an exact key-value pair specified in the filter are matched. The only allowed value is &#39;match-path-pattern&#39;.
+    /// </summary>
+    public TerraformProperty<string>? Operator
+    {
+        get => GetProperty<TerraformProperty<string>>("operator");
+        set => WithProperty("operator", value);
+    }
+
+    /// <summary>
+    /// Required. The value for the attribute. See https://cloud.google.com/eventarc/docs/creating-triggers#trigger-gcloud for available values.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEventarcTriggerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for transport in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEventarcTriggerTransportBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a google_eventarc_trigger resource.
 /// </summary>
 public class GoogleEventarcTrigger : TerraformResource
@@ -56,16 +162,17 @@ public class GoogleEventarcTrigger : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -74,7 +181,8 @@ public class GoogleEventarcTrigger : TerraformResource
     /// <summary>
     /// Required. The resource name of the trigger. Must be unique within the location on the project.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -96,6 +204,50 @@ public class GoogleEventarcTrigger : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("service_account");
         set => this.WithProperty("service_account", value);
+    }
+
+    /// <summary>
+    /// Block for destination.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
+    public List<GoogleEventarcTriggerDestinationBlock>? Destination
+    {
+        get => GetProperty<List<GoogleEventarcTriggerDestinationBlock>>("destination");
+        set => this.WithProperty("destination", value);
+    }
+
+    /// <summary>
+    /// Block for matching_criteria.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MatchingCriteria block(s) required")]
+    public HashSet<GoogleEventarcTriggerMatchingCriteriaBlock>? MatchingCriteria
+    {
+        get => GetProperty<HashSet<GoogleEventarcTriggerMatchingCriteriaBlock>>("matching_criteria");
+        set => this.WithProperty("matching_criteria", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEventarcTriggerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEventarcTriggerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for transport.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Transport block(s) allowed")]
+    public List<GoogleEventarcTriggerTransportBlock>? Transport
+    {
+        get => GetProperty<List<GoogleEventarcTriggerTransportBlock>>("transport");
+        set => this.WithProperty("transport", value);
     }
 
     /// <summary>

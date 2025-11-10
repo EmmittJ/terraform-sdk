@@ -29,7 +29,8 @@ public class GoogleComputeImageIamPolicy : TerraformResource
     /// <summary>
     /// The image attribute.
     /// </summary>
-    public TerraformProperty<string>? Image
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
+    public required TerraformProperty<string> Image
     {
         get => GetProperty<TerraformProperty<string>>("image");
         set => this.WithProperty("image", value);
@@ -38,7 +39,8 @@ public class GoogleComputeImageIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

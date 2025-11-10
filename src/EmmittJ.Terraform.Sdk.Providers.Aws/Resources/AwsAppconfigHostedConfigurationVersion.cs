@@ -21,7 +21,8 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -30,7 +31,8 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     /// <summary>
     /// The configuration_profile_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationProfileId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
+    public required TerraformProperty<string> ConfigurationProfileId
     {
         get => GetProperty<TerraformProperty<string>>("configuration_profile_id");
         set => this.WithProperty("configuration_profile_id", value);
@@ -39,7 +41,8 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformProperty<string> Content
     {
         get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
@@ -48,7 +51,8 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
+    public required TerraformProperty<string> ContentType
     {
         get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);

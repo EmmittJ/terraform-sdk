@@ -60,7 +60,8 @@ public class GoogleRedisClusterDataSource : TerraformDataSource
     /// Unique name of the resource in this scope including project and location using the form:
     /// projects/{projectId}/locations/{locationId}/clusters/{clusterId}
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

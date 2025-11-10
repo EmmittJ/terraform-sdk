@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSiteVerificationTokenDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a google_site_verification_token.
 /// </summary>
 public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
@@ -30,7 +47,8 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// The site identifier. If the type is set to SITE, the identifier is a URL. If the type is
     /// set to INET_DOMAIN, the identifier is a domain name.
     /// </summary>
-    public TerraformProperty<string>? Identifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
+    public required TerraformProperty<string> Identifier
     {
         get => GetProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
@@ -39,7 +57,8 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// <summary>
     /// The type of resource to be verified, either a domain or a web site. Possible values: [&amp;quot;INET_DOMAIN&amp;quot;, &amp;quot;SITE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
@@ -49,10 +68,21 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// The verification method for the Site Verification system to use to verify
     /// this site or domain. Possible values: [&amp;quot;ANALYTICS&amp;quot;, &amp;quot;DNS_CNAME&amp;quot;, &amp;quot;DNS_TXT&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;META&amp;quot;, &amp;quot;TAG_MANAGER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? VerificationMethod
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
+    public required TerraformProperty<string> VerificationMethod
     {
         get => GetProperty<TerraformProperty<string>>("verification_method");
         set => this.WithProperty("verification_method", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSiteVerificationTokenDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSiteVerificationTokenDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

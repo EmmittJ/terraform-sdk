@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigqueryCapacityCommitmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_capacity_commitment resource.
 /// </summary>
 public class GoogleBigqueryCapacityCommitment : TerraformResource
@@ -72,7 +107,8 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     /// <summary>
     /// Capacity commitment plan. Valid values are at https://cloud.google.com/bigquery/docs/reference/reservations/rpc/google.cloud.bigquery.reservation.v1#commitmentplan
     /// </summary>
-    public TerraformProperty<string>? Plan
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
+    public required TerraformProperty<string> Plan
     {
         get => GetProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
@@ -99,10 +135,21 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     /// <summary>
     /// Number of slots in this commitment.
     /// </summary>
-    public TerraformProperty<double>? SlotCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCount is required")]
+    public required TerraformProperty<double> SlotCount
     {
         get => GetProperty<TerraformProperty<double>>("slot_count");
         set => this.WithProperty("slot_count", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigqueryCapacityCommitmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigqueryCapacityCommitmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

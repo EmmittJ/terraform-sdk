@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for identities in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightIamPolicyAssignmentIdentitiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The group attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Group
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("group");
+        set => WithProperty("group", value);
+    }
+
+    /// <summary>
+    /// The user attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? User
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("user");
+        set => WithProperty("user", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_quicksight_iam_policy_assignment resource.
 /// </summary>
 public class AwsQuicksightIamPolicyAssignment : TerraformResource
@@ -21,7 +47,8 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     /// <summary>
     /// The assignment_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AssignmentName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentName is required")]
+    public required TerraformProperty<string> AssignmentName
     {
         get => GetProperty<TerraformProperty<string>>("assignment_name");
         set => this.WithProperty("assignment_name", value);
@@ -30,7 +57,8 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     /// <summary>
     /// The assignment_status attribute.
     /// </summary>
-    public TerraformProperty<string>? AssignmentStatus
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentStatus is required")]
+    public required TerraformProperty<string> AssignmentStatus
     {
         get => GetProperty<TerraformProperty<string>>("assignment_status");
         set => this.WithProperty("assignment_status", value);
@@ -70,6 +98,16 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for identities.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsQuicksightIamPolicyAssignmentIdentitiesBlock>? Identities
+    {
+        get => GetProperty<List<AwsQuicksightIamPolicyAssignmentIdentitiesBlock>>("identities");
+        set => this.WithProperty("identities", value);
     }
 
     /// <summary>

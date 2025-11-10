@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for encryption_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The encryption_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? EncryptionType
+    {
+        get => GetProperty<TerraformProperty<string>>("encryption_type");
+        set => WithProperty("encryption_type", value);
+    }
+
+    /// <summary>
+    /// The kms_key attribute.
+    /// </summary>
+    public TerraformProperty<string>? KmsKey
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key");
+        set => WithProperty("kms_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for image_tag_mutability_exclusion_filter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The filter attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
+    public required TerraformProperty<string> Filter
+    {
+        get => GetProperty<TerraformProperty<string>>("filter");
+        set => WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// The filter_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
+    public required TerraformProperty<string> FilterType
+    {
+        get => GetProperty<TerraformProperty<string>>("filter_type");
+        set => WithProperty("filter_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ecr_repository_creation_template resource.
 /// </summary>
 public class AwsEcrRepositoryCreationTemplate : TerraformResource
@@ -20,9 +74,10 @@ public class AwsEcrRepositoryCreationTemplate : TerraformResource
     /// <summary>
     /// The applied_for attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AppliedFor
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppliedFor is required")]
+    public HashSet<TerraformProperty<string>>? AppliedFor
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("applied_for");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("applied_for");
         set => this.WithProperty("applied_for", value);
     }
 
@@ -74,7 +129,8 @@ public class AwsEcrRepositoryCreationTemplate : TerraformResource
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
+    public required TerraformProperty<string> Prefix
     {
         get => GetProperty<TerraformProperty<string>>("prefix");
         set => this.WithProperty("prefix", value);
@@ -101,10 +157,31 @@ public class AwsEcrRepositoryCreationTemplate : TerraformResource
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>>? ResourceTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("resource_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock>? EncryptionConfiguration
+    {
+        get => GetProperty<List<AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock>>("encryption_configuration");
+        set => this.WithProperty("encryption_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for image_tag_mutability_exclusion_filter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ImageTagMutabilityExclusionFilter block(s) allowed")]
+    public List<AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBlock>? ImageTagMutabilityExclusionFilter
+    {
+        get => GetProperty<List<AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBlock>>("image_tag_mutability_exclusion_filter");
+        set => this.WithProperty("image_tag_mutability_exclusion_filter", value);
     }
 
     /// <summary>

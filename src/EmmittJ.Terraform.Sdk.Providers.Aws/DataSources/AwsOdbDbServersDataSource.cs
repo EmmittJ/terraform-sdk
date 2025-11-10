@@ -20,7 +20,8 @@ public class AwsOdbDbServersDataSource : TerraformDataSource
     /// <summary>
     /// The cloud exadata infrastructure ID. Mandatory field.
     /// </summary>
-    public TerraformProperty<string>? CloudExadataInfrastructureId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
+    public required TerraformProperty<string> CloudExadataInfrastructureId
     {
         get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);

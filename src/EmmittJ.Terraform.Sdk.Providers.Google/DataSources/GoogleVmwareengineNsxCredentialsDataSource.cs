@@ -32,7 +32,8 @@ public class GoogleVmwareengineNsxCredentialsDataSource : TerraformDataSource
     /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
     /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);

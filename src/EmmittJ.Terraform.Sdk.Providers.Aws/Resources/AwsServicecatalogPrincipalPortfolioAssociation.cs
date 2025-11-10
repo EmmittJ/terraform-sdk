@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServicecatalogPrincipalPortfolioAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_servicecatalog_principal_portfolio_association resource.
 /// </summary>
 public class AwsServicecatalogPrincipalPortfolioAssociation : TerraformResource
@@ -37,7 +72,8 @@ public class AwsServicecatalogPrincipalPortfolioAssociation : TerraformResource
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PortfolioId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
+    public required TerraformProperty<string> PortfolioId
     {
         get => GetProperty<TerraformProperty<string>>("portfolio_id");
         set => this.WithProperty("portfolio_id", value);
@@ -46,7 +82,8 @@ public class AwsServicecatalogPrincipalPortfolioAssociation : TerraformResource
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
+    public required TerraformProperty<string> PrincipalArn
     {
         get => GetProperty<TerraformProperty<string>>("principal_arn");
         set => this.WithProperty("principal_arn", value);
@@ -68,6 +105,16 @@ public class AwsServicecatalogPrincipalPortfolioAssociation : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServicecatalogPrincipalPortfolioAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServicecatalogPrincipalPortfolioAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

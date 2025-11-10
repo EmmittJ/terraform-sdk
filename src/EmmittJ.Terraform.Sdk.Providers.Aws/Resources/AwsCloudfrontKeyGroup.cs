@@ -38,16 +38,18 @@ public class AwsCloudfrontKeyGroup : TerraformResource
     /// <summary>
     /// The items attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Items
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Items is required")]
+    public HashSet<TerraformProperty<string>>? Items
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("items");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("items");
         set => this.WithProperty("items", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

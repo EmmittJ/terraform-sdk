@@ -22,7 +22,8 @@ public class GoogleStorageNotification : TerraformResource
     /// <summary>
     /// The name of the bucket.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -31,18 +32,18 @@ public class GoogleStorageNotification : TerraformResource
     /// <summary>
     /// A set of key/value attribute pairs to attach to each Cloud Pub/Sub message published for this notification subscription.
     /// </summary>
-    public TerraformMapProperty<string>? CustomAttributes
+    public Dictionary<string, TerraformProperty<string>>? CustomAttributes
     {
-        get => GetProperty<TerraformMapProperty<string>>("custom_attributes");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("custom_attributes");
         set => this.WithProperty("custom_attributes", value);
     }
 
     /// <summary>
     /// List of event type filters for this notification config. If not specified, Cloud Storage will send notifications for all event types. The valid types are: &amp;quot;OBJECT_FINALIZE&amp;quot;, &amp;quot;OBJECT_METADATA_UPDATE&amp;quot;, &amp;quot;OBJECT_DELETE&amp;quot;, &amp;quot;OBJECT_ARCHIVE&amp;quot;
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EventTypes
+    public HashSet<TerraformProperty<string>>? EventTypes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("event_types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("event_types");
         set => this.WithProperty("event_types", value);
     }
 
@@ -58,7 +59,8 @@ public class GoogleStorageNotification : TerraformResource
     /// <summary>
     /// The desired content of the Payload. One of &amp;quot;JSON_API_V1&amp;quot; or &amp;quot;NONE&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? PayloadFormat
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
+    public required TerraformProperty<string> PayloadFormat
     {
         get => GetProperty<TerraformProperty<string>>("payload_format");
         set => this.WithProperty("payload_format", value);
@@ -67,7 +69,8 @@ public class GoogleStorageNotification : TerraformResource
     /// <summary>
     /// The Cloud Pub/Sub topic to which this subscription publishes.
     /// </summary>
-    public TerraformProperty<string>? Topic
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
+    public required TerraformProperty<string> Topic
     {
         get => GetProperty<TerraformProperty<string>>("topic");
         set => this.WithProperty("topic", value);

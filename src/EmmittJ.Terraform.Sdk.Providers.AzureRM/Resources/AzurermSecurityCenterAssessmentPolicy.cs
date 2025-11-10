@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_security_center_assessment_policy resource.
 /// </summary>
 public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
@@ -20,16 +64,17 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The categories attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Categories
+    public HashSet<TerraformProperty<string>>? Categories
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("categories");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("categories");
         set => this.WithProperty("categories", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
+    public required TerraformProperty<string> Description
     {
         get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
@@ -38,7 +83,8 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -83,9 +129,9 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The threats attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Threats
+    public HashSet<TerraformProperty<string>>? Threats
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("threats");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("threats");
         set => this.WithProperty("threats", value);
     }
 
@@ -96,6 +142,16 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_impact");
         set => this.WithProperty("user_impact", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSecurityCenterAssessmentPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSecurityCenterAssessmentPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

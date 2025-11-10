@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for rule in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEcrRegistryScanningConfigurationRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The scan_frequency attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanFrequency is required")]
+    public required TerraformProperty<string> ScanFrequency
+    {
+        get => GetProperty<TerraformProperty<string>>("scan_frequency");
+        set => WithProperty("scan_frequency", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ecr_registry_scanning_configuration resource.
 /// </summary>
 public class AwsEcrRegistryScanningConfiguration : TerraformResource
@@ -38,10 +56,22 @@ public class AwsEcrRegistryScanningConfiguration : TerraformResource
     /// <summary>
     /// The scan_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ScanType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanType is required")]
+    public required TerraformProperty<string> ScanType
     {
         get => GetProperty<TerraformProperty<string>>("scan_type");
         set => this.WithProperty("scan_type", value);
+    }
+
+    /// <summary>
+    /// Block for rule.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Rule block(s) allowed")]
+    public HashSet<AwsEcrRegistryScanningConfigurationRuleBlock>? Rule
+    {
+        get => GetProperty<HashSet<AwsEcrRegistryScanningConfigurationRuleBlock>>("rule");
+        set => this.WithProperty("rule", value);
     }
 
     /// <summary>

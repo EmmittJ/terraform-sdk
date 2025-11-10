@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSentinelAlertRuleThreatIntelligenceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_sentinel_alert_rule_threat_intelligence resource.
 /// </summary>
 public class AzurermSentinelAlertRuleThreatIntelligence : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermSentinelAlertRuleThreatIntelligence : TerraformResource
     /// <summary>
     /// The alert_rule_template_guid attribute.
     /// </summary>
-    public TerraformProperty<string>? AlertRuleTemplateGuid
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertRuleTemplateGuid is required")]
+    public required TerraformProperty<string> AlertRuleTemplateGuid
     {
         get => GetProperty<TerraformProperty<string>>("alert_rule_template_guid");
         set => this.WithProperty("alert_rule_template_guid", value);
@@ -46,7 +91,8 @@ public class AzurermSentinelAlertRuleThreatIntelligence : TerraformResource
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsWorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
+    public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
@@ -55,10 +101,21 @@ public class AzurermSentinelAlertRuleThreatIntelligence : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSentinelAlertRuleThreatIntelligenceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSentinelAlertRuleThreatIntelligenceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

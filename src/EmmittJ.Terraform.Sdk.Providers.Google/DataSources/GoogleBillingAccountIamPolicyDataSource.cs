@@ -21,7 +21,8 @@ public class GoogleBillingAccountIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The billing_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BillingAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountId is required")]
+    public required TerraformProperty<string> BillingAccountId
     {
         get => GetProperty<TerraformProperty<string>>("billing_account_id");
         set => this.WithProperty("billing_account_id", value);

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermServicebusTopicAuthorizationRuleDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_servicebus_topic_authorization_rule.
 /// </summary>
 public class AzurermServicebusTopicAuthorizationRuleDataSource : TerraformDataSource
@@ -37,7 +54,8 @@ public class AzurermServicebusTopicAuthorizationRuleDataSource : TerraformDataSo
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -86,6 +104,16 @@ public class AzurermServicebusTopicAuthorizationRuleDataSource : TerraformDataSo
     {
         get => GetProperty<TerraformProperty<string>>("topic_name");
         set => this.WithProperty("topic_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermServicebusTopicAuthorizationRuleDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermServicebusTopicAuthorizationRuleDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,112 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for app_monitor_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allow_cookies attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AllowCookies
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_cookies");
+        set => WithProperty("allow_cookies", value);
+    }
+
+    /// <summary>
+    /// The enable_xray attribute.
+    /// </summary>
+    public TerraformProperty<bool>? EnableXray
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_xray");
+        set => WithProperty("enable_xray", value);
+    }
+
+    /// <summary>
+    /// The excluded_pages attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? ExcludedPages
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_pages");
+        set => WithProperty("excluded_pages", value);
+    }
+
+    /// <summary>
+    /// The favorite_pages attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? FavoritePages
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("favorite_pages");
+        set => WithProperty("favorite_pages", value);
+    }
+
+    /// <summary>
+    /// The guest_role_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? GuestRoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("guest_role_arn");
+        set => WithProperty("guest_role_arn", value);
+    }
+
+    /// <summary>
+    /// The identity_pool_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? IdentityPoolId
+    {
+        get => GetProperty<TerraformProperty<string>>("identity_pool_id");
+        set => WithProperty("identity_pool_id", value);
+    }
+
+    /// <summary>
+    /// The included_pages attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? IncludedPages
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("included_pages");
+        set => WithProperty("included_pages", value);
+    }
+
+    /// <summary>
+    /// The session_sample_rate attribute.
+    /// </summary>
+    public TerraformProperty<double>? SessionSampleRate
+    {
+        get => GetProperty<TerraformProperty<double>>("session_sample_rate");
+        set => WithProperty("session_sample_rate", value);
+    }
+
+    /// <summary>
+    /// The telemetries attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Telemetries
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("telemetries");
+        set => WithProperty("telemetries", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for custom_events in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRumAppMonitorCustomEventsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformProperty<string>? Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rum_app_monitor resource.
 /// </summary>
 public class AwsRumAppMonitor : TerraformResource
@@ -40,9 +146,9 @@ public class AwsRumAppMonitor : TerraformResource
     /// <summary>
     /// The domain_list attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? DomainList
+    public List<TerraformProperty<string>>? DomainList
     {
-        get => GetProperty<TerraformProperty<List<string>>>("domain_list");
+        get => GetProperty<List<TerraformProperty<string>>>("domain_list");
         set => this.WithProperty("domain_list", value);
     }
 
@@ -58,7 +164,8 @@ public class AwsRumAppMonitor : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -76,19 +183,41 @@ public class AwsRumAppMonitor : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for app_monitor_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppMonitorConfiguration block(s) allowed")]
+    public List<AwsRumAppMonitorAppMonitorConfigurationBlock>? AppMonitorConfiguration
+    {
+        get => GetProperty<List<AwsRumAppMonitorAppMonitorConfigurationBlock>>("app_monitor_configuration");
+        set => this.WithProperty("app_monitor_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for custom_events.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomEvents block(s) allowed")]
+    public List<AwsRumAppMonitorCustomEventsBlock>? CustomEvents
+    {
+        get => GetProperty<List<AwsRumAppMonitorCustomEventsBlock>>("custom_events");
+        set => this.WithProperty("custom_events", value);
     }
 
     /// <summary>

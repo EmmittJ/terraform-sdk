@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsKmsCustomKeyStoreTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for xks_proxy_authentication_credential in .
+/// Nesting mode: list
+/// </summary>
+public class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : TerraformBlock
+{
+    /// <summary>
+    /// The access_key_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
+    public required TerraformProperty<string> AccessKeyId
+    {
+        get => GetProperty<TerraformProperty<string>>("access_key_id");
+        set => WithProperty("access_key_id", value);
+    }
+
+    /// <summary>
+    /// The raw_secret_access_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RawSecretAccessKey is required")]
+    public required TerraformProperty<string> RawSecretAccessKey
+    {
+        get => GetProperty<TerraformProperty<string>>("raw_secret_access_key");
+        set => WithProperty("raw_secret_access_key", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_kms_custom_key_store resource.
 /// </summary>
 public class AwsKmsCustomKeyStore : TerraformResource
@@ -28,7 +91,8 @@ public class AwsKmsCustomKeyStore : TerraformResource
     /// <summary>
     /// The custom_key_store_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomKeyStoreName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomKeyStoreName is required")]
+    public required TerraformProperty<string> CustomKeyStoreName
     {
         get => GetProperty<TerraformProperty<string>>("custom_key_store_name");
         set => this.WithProperty("custom_key_store_name", value);
@@ -113,6 +177,27 @@ public class AwsKmsCustomKeyStore : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("xks_proxy_vpc_endpoint_service_name");
         set => this.WithProperty("xks_proxy_vpc_endpoint_service_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsKmsCustomKeyStoreTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsKmsCustomKeyStoreTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for xks_proxy_authentication_credential.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 XksProxyAuthenticationCredential block(s) allowed")]
+    public List<AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock>? XksProxyAuthenticationCredential
+    {
+        get => GetProperty<List<AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock>>("xks_proxy_authentication_credential");
+        set => this.WithProperty("xks_proxy_authentication_credential", value);
     }
 
 }

@@ -3,6 +3,155 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for accelerators in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type of an accelator for a CDF instance. Possible values: [&amp;quot;CDC&amp;quot;, &amp;quot;HEALTHCARE&amp;quot;, &amp;quot;CCAI_INSIGHTS&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
+    public required TerraformProperty<string> AcceleratorType
+    {
+        get => GetProperty<TerraformProperty<string>>("accelerator_type");
+        set => WithProperty("accelerator_type", value);
+    }
+
+    /// <summary>
+    /// The type of an accelator for a CDF instance. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
+    public required TerraformProperty<string> State
+    {
+        get => GetProperty<TerraformProperty<string>>("state");
+        set => WithProperty("state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for crypto_key_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataFusionInstanceCryptoKeyConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the key which is used to encrypt/decrypt customer data. For key in Cloud KMS, the key should be in the format of projects/*/locations/*/keyRings/*/cryptoKeys/*.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
+    public required TerraformProperty<string> KeyReference
+    {
+        get => GetProperty<TerraformProperty<string>>("key_reference");
+        set => WithProperty("key_reference", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for event_publish_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataFusionInstanceEventPublishConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Option to enable Event Publishing.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The resource name of the Pub/Sub topic. Format: projects/{projectId}/topics/{topic_id}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
+    public required TerraformProperty<string> Topic
+    {
+        get => GetProperty<TerraformProperty<string>>("topic");
+        set => WithProperty("topic", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for network_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Optional. Type of connection for establishing private IP connectivity between the Data Fusion customer project VPC and
+    /// the corresponding tenant project from a predefined list of available connection modes.
+    /// If this field is unspecified for a private instance, VPC peering is used. Possible values: [&amp;quot;VPC_PEERING&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT_INTERFACES&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? ConnectionType
+    {
+        get => GetProperty<TerraformProperty<string>>("connection_type");
+        set => WithProperty("connection_type", value);
+    }
+
+    /// <summary>
+    /// The IP range in CIDR notation to use for the managed Data Fusion instance
+    /// nodes. This range must not overlap with any other ranges used in the Data Fusion instance network.
+    /// </summary>
+    public TerraformProperty<string>? IpAllocation
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_allocation");
+        set => WithProperty("ip_allocation", value);
+    }
+
+    /// <summary>
+    /// Name of the network in the project with which the tenant project
+    /// will be peered for executing pipelines. In case of shared VPC where the network resides in another host
+    /// project the network should specified in the form of projects/{host-project-id}/global/networks/{network}
+    /// </summary>
+    public TerraformProperty<string>? Network
+    {
+        get => GetProperty<TerraformProperty<string>>("network");
+        set => WithProperty("network", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_data_fusion_instance resource.
 /// </summary>
 public class GoogleDataFusionInstance : TerraformResource
@@ -98,16 +247,17 @@ public class GoogleDataFusionInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -116,9 +266,9 @@ public class GoogleDataFusionInstance : TerraformResource
     /// <summary>
     /// Map of additional options used to configure the behavior of Data Fusion instance.
     /// </summary>
-    public TerraformMapProperty<string>? Options
+    public Dictionary<string, TerraformProperty<string>>? Options
     {
-        get => GetProperty<TerraformMapProperty<string>>("options");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("options");
         set => this.WithProperty("options", value);
     }
 
@@ -157,9 +307,9 @@ public class GoogleDataFusionInstance : TerraformResource
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -175,7 +325,8 @@ public class GoogleDataFusionInstance : TerraformResource
     /// with restrictive capabilities. This is to help enterprises design and develop their data ingestion and integration
     /// pipelines at low cost. Possible values: [&amp;quot;BASIC&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;DEVELOPER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
@@ -197,6 +348,59 @@ public class GoogleDataFusionInstance : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for accelerators.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDataFusionInstanceAcceleratorsBlock>? Accelerators
+    {
+        get => GetProperty<List<GoogleDataFusionInstanceAcceleratorsBlock>>("accelerators");
+        set => this.WithProperty("accelerators", value);
+    }
+
+    /// <summary>
+    /// Block for crypto_key_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CryptoKeyConfig block(s) allowed")]
+    public List<GoogleDataFusionInstanceCryptoKeyConfigBlock>? CryptoKeyConfig
+    {
+        get => GetProperty<List<GoogleDataFusionInstanceCryptoKeyConfigBlock>>("crypto_key_config");
+        set => this.WithProperty("crypto_key_config", value);
+    }
+
+    /// <summary>
+    /// Block for event_publish_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventPublishConfig block(s) allowed")]
+    public List<GoogleDataFusionInstanceEventPublishConfigBlock>? EventPublishConfig
+    {
+        get => GetProperty<List<GoogleDataFusionInstanceEventPublishConfigBlock>>("event_publish_config");
+        set => this.WithProperty("event_publish_config", value);
+    }
+
+    /// <summary>
+    /// Block for network_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
+    public List<GoogleDataFusionInstanceNetworkConfigBlock>? NetworkConfig
+    {
+        get => GetProperty<List<GoogleDataFusionInstanceNetworkConfigBlock>>("network_config");
+        set => this.WithProperty("network_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataFusionInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataFusionInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

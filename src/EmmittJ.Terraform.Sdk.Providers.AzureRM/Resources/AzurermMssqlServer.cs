@@ -3,6 +3,141 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for azuread_administrator in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The azuread_authentication_only attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AzureadAuthenticationOnly
+    {
+        get => GetProperty<TerraformProperty<bool>>("azuread_authentication_only");
+        set => WithProperty("azuread_authentication_only", value);
+    }
+
+    /// <summary>
+    /// The login_username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
+    public required TerraformProperty<string> LoginUsername
+    {
+        get => GetProperty<TerraformProperty<string>>("login_username");
+        set => WithProperty("login_username", value);
+    }
+
+    /// <summary>
+    /// The object_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
+    public required TerraformProperty<string> ObjectId
+    {
+        get => GetProperty<TerraformProperty<string>>("object_id");
+        set => WithProperty("object_id", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for identity in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermMssqlServerIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The identity_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? IdentityIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
+        set => WithProperty("identity_ids", value);
+    }
+
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrincipalId
+    {
+        get => GetProperty<TerraformProperty<string>>("principal_id");
+        set => WithProperty("principal_id", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_mssql_server resource.
 /// </summary>
 public class AzurermMssqlServer : TerraformResource
@@ -84,7 +219,8 @@ public class AzurermMssqlServer : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -102,7 +238,8 @@ public class AzurermMssqlServer : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -138,7 +275,8 @@ public class AzurermMssqlServer : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -147,9 +285,9 @@ public class AzurermMssqlServer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -165,10 +303,43 @@ public class AzurermMssqlServer : TerraformResource
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for azuread_administrator.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureadAdministrator block(s) allowed")]
+    public List<AzurermMssqlServerAzureadAdministratorBlock>? AzureadAdministrator
+    {
+        get => GetProperty<List<AzurermMssqlServerAzureadAdministratorBlock>>("azuread_administrator");
+        set => this.WithProperty("azuread_administrator", value);
+    }
+
+    /// <summary>
+    /// Block for identity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public List<AzurermMssqlServerIdentityBlock>? Identity
+    {
+        get => GetProperty<List<AzurermMssqlServerIdentityBlock>>("identity");
+        set => this.WithProperty("identity", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMssqlServerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMssqlServerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

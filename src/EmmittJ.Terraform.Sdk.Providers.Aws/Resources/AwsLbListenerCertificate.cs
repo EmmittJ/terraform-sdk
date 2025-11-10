@@ -19,7 +19,8 @@ public class AwsLbListenerCertificate : TerraformResource
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
+    public required TerraformProperty<string> CertificateArn
     {
         get => GetProperty<TerraformProperty<string>>("certificate_arn");
         set => this.WithProperty("certificate_arn", value);
@@ -37,7 +38,8 @@ public class AwsLbListenerCertificate : TerraformResource
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ListenerArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
+    public required TerraformProperty<string> ListenerArn
     {
         get => GetProperty<TerraformProperty<string>>("listener_arn");
         set => this.WithProperty("listener_arn", value);

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for encryption_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSfnActivityEncryptionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The kms_data_key_reuse_period_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? KmsDataKeyReusePeriodSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("kms_data_key_reuse_period_seconds");
+        set => WithProperty("kms_data_key_reuse_period_seconds", value);
+    }
+
+    /// <summary>
+    /// The kms_key_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyId
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
+        set => WithProperty("kms_key_id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sfn_activity resource.
 /// </summary>
 public class AwsSfnActivity : TerraformResource
@@ -30,7 +65,8 @@ public class AwsSfnActivity : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -48,19 +84,30 @@ public class AwsSfnActivity : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
+    public List<AwsSfnActivityEncryptionConfigurationBlock>? EncryptionConfiguration
+    {
+        get => GetProperty<List<AwsSfnActivityEncryptionConfigurationBlock>>("encryption_configuration");
+        set => this.WithProperty("encryption_configuration", value);
     }
 
     /// <summary>

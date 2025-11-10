@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for fields in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFirestoreIndexFieldsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Indicates that this field supports operations on arrayValues. Only one of &#39;order&#39;, &#39;arrayConfig&#39;, and
+    /// &#39;vectorConfig&#39; can be specified. Possible values: [&amp;quot;CONTAINS&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? ArrayConfig
+    {
+        get => GetProperty<TerraformProperty<string>>("array_config");
+        set => WithProperty("array_config", value);
+    }
+
+    /// <summary>
+    /// Name of the field.
+    /// </summary>
+    public TerraformProperty<string>? FieldPath
+    {
+        get => GetProperty<TerraformProperty<string>>("field_path");
+        set => WithProperty("field_path", value);
+    }
+
+    /// <summary>
+    /// Indicates that this field supports ordering by the specified order or comparing using =, &amp;lt;, &amp;lt;=, &amp;gt;, &amp;gt;=.
+    /// Only one of &#39;order&#39;, &#39;arrayConfig&#39;, and &#39;vectorConfig&#39; can be specified. Possible values: [&amp;quot;ASCENDING&amp;quot;, &amp;quot;DESCENDING&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Order
+    {
+        get => GetProperty<TerraformProperty<string>>("order");
+        set => WithProperty("order", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirestoreIndexTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firestore_index resource.
 /// </summary>
 public class GoogleFirestoreIndex : TerraformResource
@@ -29,7 +92,8 @@ public class GoogleFirestoreIndex : TerraformResource
     /// <summary>
     /// The collection being indexed.
     /// </summary>
-    public TerraformProperty<string>? Collection
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
+    public required TerraformProperty<string> Collection
     {
         get => GetProperty<TerraformProperty<string>>("collection");
         set => this.WithProperty("collection", value);
@@ -96,6 +160,27 @@ public class GoogleFirestoreIndex : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("unique");
         set => this.WithProperty("unique", value);
+    }
+
+    /// <summary>
+    /// Block for fields.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fields block(s) required")]
+    public List<GoogleFirestoreIndexFieldsBlock>? Fields
+    {
+        get => GetProperty<List<GoogleFirestoreIndexFieldsBlock>>("fields");
+        set => this.WithProperty("fields", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirestoreIndexTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirestoreIndexTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

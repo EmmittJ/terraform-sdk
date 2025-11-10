@@ -29,7 +29,8 @@ public class GooglePubsubSubscriptionIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
@@ -47,7 +48,8 @@ public class GooglePubsubSubscriptionIamPolicy : TerraformResource
     /// <summary>
     /// The subscription attribute.
     /// </summary>
-    public TerraformProperty<string>? Subscription
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subscription is required")]
+    public required TerraformProperty<string> Subscription
     {
         get => GetProperty<TerraformProperty<string>>("subscription");
         set => this.WithProperty("subscription", value);

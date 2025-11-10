@@ -23,7 +23,8 @@ public class GoogleIapClientDataSource : TerraformDataSource
     /// is attached to. The format is
     /// &#39;projects/{project_number}/brands/{brand_id}&#39;.
     /// </summary>
-    public TerraformProperty<string>? Brand
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
+    public required TerraformProperty<string> Brand
     {
         get => GetProperty<TerraformProperty<string>>("brand");
         set => this.WithProperty("brand", value);
@@ -32,7 +33,8 @@ public class GoogleIapClientDataSource : TerraformDataSource
     /// <summary>
     /// Output only. Unique identifier of the OAuth client.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
     {
         get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);

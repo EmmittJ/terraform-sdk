@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for additional_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGuarddutyOrganizationConfigurationFeatureAdditionalConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auto_enable attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
+    public required TerraformProperty<string> AutoEnable
+    {
+        get => GetProperty<TerraformProperty<string>>("auto_enable");
+        set => WithProperty("auto_enable", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_guardduty_organization_configuration_feature resource.
 /// </summary>
 public class AwsGuarddutyOrganizationConfigurationFeature : TerraformResource
@@ -19,7 +47,8 @@ public class AwsGuarddutyOrganizationConfigurationFeature : TerraformResource
     /// <summary>
     /// The auto_enable attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoEnable
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
+    public required TerraformProperty<string> AutoEnable
     {
         get => GetProperty<TerraformProperty<string>>("auto_enable");
         set => this.WithProperty("auto_enable", value);
@@ -28,7 +57,8 @@ public class AwsGuarddutyOrganizationConfigurationFeature : TerraformResource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
+    public required TerraformProperty<string> DetectorId
     {
         get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
@@ -46,7 +76,8 @@ public class AwsGuarddutyOrganizationConfigurationFeature : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -59,6 +90,16 @@ public class AwsGuarddutyOrganizationConfigurationFeature : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for additional_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsGuarddutyOrganizationConfigurationFeatureAdditionalConfigurationBlock>? AdditionalConfiguration
+    {
+        get => GetProperty<List<AwsGuarddutyOrganizationConfigurationFeatureAdditionalConfigurationBlock>>("additional_configuration");
+        set => this.WithProperty("additional_configuration", value);
     }
 
 }

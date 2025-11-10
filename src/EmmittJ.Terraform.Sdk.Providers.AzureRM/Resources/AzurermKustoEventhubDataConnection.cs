@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKustoEventhubDataConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_kusto_eventhub_data_connection resource.
 /// </summary>
 public class AzurermKustoEventhubDataConnection : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -37,7 +82,8 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The consumer_group attribute.
     /// </summary>
-    public TerraformProperty<string>? ConsumerGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroup is required")]
+    public required TerraformProperty<string> ConsumerGroup
     {
         get => GetProperty<TerraformProperty<string>>("consumer_group");
         set => this.WithProperty("consumer_group", value);
@@ -55,7 +101,8 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformProperty<string> DatabaseName
     {
         get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
@@ -73,16 +120,17 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The event_system_properties attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? EventSystemProperties
+    public List<TerraformProperty<string>>? EventSystemProperties
     {
-        get => GetProperty<TerraformProperty<List<string>>>("event_system_properties");
+        get => GetProperty<List<TerraformProperty<string>>>("event_system_properties");
         set => this.WithProperty("event_system_properties", value);
     }
 
     /// <summary>
     /// The eventhub_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EventhubId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubId is required")]
+    public required TerraformProperty<string> EventhubId
     {
         get => GetProperty<TerraformProperty<string>>("eventhub_id");
         set => this.WithProperty("eventhub_id", value);
@@ -109,7 +157,8 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -127,7 +176,8 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -136,7 +186,8 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -149,6 +200,16 @@ public class AzurermKustoEventhubDataConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKustoEventhubDataConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKustoEventhubDataConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

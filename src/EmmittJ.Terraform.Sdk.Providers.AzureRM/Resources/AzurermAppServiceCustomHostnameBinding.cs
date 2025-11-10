@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_app_service_custom_hostname_binding resource.
 /// </summary>
 public class AzurermAppServiceCustomHostnameBinding : TerraformResource
@@ -20,7 +55,8 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// <summary>
     /// The app_service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AppServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
+    public required TerraformProperty<string> AppServiceName
     {
         get => GetProperty<TerraformProperty<string>>("app_service_name");
         set => this.WithProperty("app_service_name", value);
@@ -29,7 +65,8 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// <summary>
     /// The hostname attribute.
     /// </summary>
-    public TerraformProperty<string>? Hostname
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
+    public required TerraformProperty<string> Hostname
     {
         get => GetProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
@@ -47,7 +84,8 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -69,6 +107,16 @@ public class AzurermAppServiceCustomHostnameBinding : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("thumbprint");
         set => this.WithProperty("thumbprint", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAppServiceCustomHostnameBindingTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAppServiceCustomHostnameBindingTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

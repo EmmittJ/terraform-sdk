@@ -23,7 +23,8 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     /// <summary>
     /// The account attribute.
     /// </summary>
-    public TerraformProperty<string>? Account
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Account is required")]
+    public required TerraformProperty<string> Account
     {
         get => GetProperty<TerraformProperty<string>>("account");
         set => this.WithProperty("account", value);
@@ -32,7 +33,8 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -68,9 +70,9 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     /// <summary>
     /// The vpc_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcIds
+    public HashSet<TerraformProperty<string>>? VpcIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_ids");
         set => this.WithProperty("vpc_ids", value);
     }
 

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsInspector2MemberAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_inspector2_member_association resource.
 /// </summary>
 public class AwsInspector2MemberAssociation : TerraformResource
@@ -22,7 +48,8 @@ public class AwsInspector2MemberAssociation : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
+    public required TerraformProperty<string> AccountId
     {
         get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
@@ -44,6 +71,16 @@ public class AwsInspector2MemberAssociation : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsInspector2MemberAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsInspector2MemberAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

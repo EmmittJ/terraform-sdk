@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsOpensearchInboundConnectionAccepterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_opensearch_inbound_connection_accepter resource.
 /// </summary>
 public class AwsOpensearchInboundConnectionAccepter : TerraformResource
@@ -20,7 +46,8 @@ public class AwsOpensearchInboundConnectionAccepter : TerraformResource
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
+    public required TerraformProperty<string> ConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
@@ -42,6 +69,16 @@ public class AwsOpensearchInboundConnectionAccepter : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsOpensearchInboundConnectionAccepterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsOpensearchInboundConnectionAccepterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

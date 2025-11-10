@@ -21,7 +21,8 @@ public class GoogleDataCatalogEntryGroupIamPolicyDataSource : TerraformDataSourc
     /// <summary>
     /// The entry_group attribute.
     /// </summary>
-    public TerraformProperty<string>? EntryGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
+    public required TerraformProperty<string> EntryGroup
     {
         get => GetProperty<TerraformProperty<string>>("entry_group");
         set => this.WithProperty("entry_group", value);

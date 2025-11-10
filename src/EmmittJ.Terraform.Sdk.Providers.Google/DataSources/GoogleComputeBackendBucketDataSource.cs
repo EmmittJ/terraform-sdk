@@ -45,7 +45,8 @@ public class GoogleComputeBackendBucketDataSource : TerraformDataSource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

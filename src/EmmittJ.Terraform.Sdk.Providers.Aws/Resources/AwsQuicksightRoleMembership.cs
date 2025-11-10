@@ -28,7 +28,8 @@ public class AwsQuicksightRoleMembership : TerraformResource
     /// <summary>
     /// The member_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MemberName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberName is required")]
+    public required TerraformProperty<string> MemberName
     {
         get => GetProperty<TerraformProperty<string>>("member_name");
         set => this.WithProperty("member_name", value);
@@ -55,7 +56,8 @@ public class AwsQuicksightRoleMembership : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for portal_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsoadminApplicationPortalOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The visibility attribute.
+    /// </summary>
+    public TerraformProperty<string>? Visibility
+    {
+        get => GetProperty<TerraformProperty<string>>("visibility");
+        set => WithProperty("visibility", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssoadmin_application resource.
 /// </summary>
 public class AwsSsoadminApplication : TerraformResource
@@ -24,7 +41,8 @@ public class AwsSsoadminApplication : TerraformResource
     /// <summary>
     /// The application_provider_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationProviderArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationProviderArn is required")]
+    public required TerraformProperty<string> ApplicationProviderArn
     {
         get => GetProperty<TerraformProperty<string>>("application_provider_arn");
         set => this.WithProperty("application_provider_arn", value);
@@ -51,7 +69,8 @@ public class AwsSsoadminApplication : TerraformResource
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
+    public required TerraformProperty<string> InstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
@@ -60,7 +79,8 @@ public class AwsSsoadminApplication : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -87,10 +107,20 @@ public class AwsSsoadminApplication : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for portal_options.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSsoadminApplicationPortalOptionsBlock>? PortalOptions
+    {
+        get => GetProperty<List<AwsSsoadminApplicationPortalOptionsBlock>>("portal_options");
+        set => this.WithProperty("portal_options", value);
     }
 
     /// <summary>

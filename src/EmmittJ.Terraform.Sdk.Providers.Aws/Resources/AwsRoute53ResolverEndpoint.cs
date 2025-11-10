@@ -3,6 +3,86 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for ip_address in .
+/// Nesting mode: set
+/// </summary>
+public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ip attribute.
+    /// </summary>
+    public TerraformProperty<string>? Ip
+    {
+        get => GetProperty<TerraformProperty<string>>("ip");
+        set => WithProperty("ip", value);
+    }
+
+    /// <summary>
+    /// The ip_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? IpId
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_id");
+        set => WithProperty("ip_id", value);
+    }
+
+    /// <summary>
+    /// The ipv6 attribute.
+    /// </summary>
+    public TerraformProperty<string>? Ipv6
+    {
+        get => GetProperty<TerraformProperty<string>>("ipv6");
+        set => WithProperty("ipv6", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
+    {
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        set => WithProperty("subnet_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_route53_resolver_endpoint resource.
 /// </summary>
 public class AwsRoute53ResolverEndpoint : TerraformResource
@@ -21,7 +101,8 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
     /// <summary>
     /// The direction attribute.
     /// </summary>
-    public TerraformProperty<string>? Direction
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
+    public required TerraformProperty<string> Direction
     {
         get => GetProperty<TerraformProperty<string>>("direction");
         set => this.WithProperty("direction", value);
@@ -48,9 +129,9 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Protocols
+    public HashSet<TerraformProperty<string>>? Protocols
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("protocols");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("protocols");
         set => this.WithProperty("protocols", value);
     }
 
@@ -75,28 +156,51 @@ public class AwsRoute53ResolverEndpoint : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for ip_address.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 IpAddress block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 IpAddress block(s) allowed")]
+    public HashSet<AwsRoute53ResolverEndpointIpAddressBlock>? IpAddress
+    {
+        get => GetProperty<HashSet<AwsRoute53ResolverEndpointIpAddressBlock>>("ip_address");
+        set => this.WithProperty("ip_address", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRoute53ResolverEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRoute53ResolverEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

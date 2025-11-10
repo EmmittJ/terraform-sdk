@@ -3,6 +3,76 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for sensitive_labels in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleMonitoringNotificationChannelSensitiveLabelsBlock : TerraformBlock
+{
+    /// <summary>
+    /// An authorization token for a notification channel. Channel types that support this field include: slack
+    /// </summary>
+    public TerraformProperty<string>? AuthToken
+    {
+        get => GetProperty<TerraformProperty<string>>("auth_token");
+        set => WithProperty("auth_token", value);
+    }
+
+    /// <summary>
+    /// An password for a notification channel. Channel types that support this field include: webhook_basicauth
+    /// </summary>
+    public TerraformProperty<string>? Password
+    {
+        get => GetProperty<TerraformProperty<string>>("password");
+        set => WithProperty("password", value);
+    }
+
+    /// <summary>
+    /// An servicekey token for a notification channel. Channel types that support this field include: pagerduty
+    /// </summary>
+    public TerraformProperty<string>? ServiceKey
+    {
+        get => GetProperty<TerraformProperty<string>>("service_key");
+        set => WithProperty("service_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleMonitoringNotificationChannelTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_monitoring_notification_channel resource.
 /// </summary>
 public class GoogleMonitoringNotificationChannel : TerraformResource
@@ -76,9 +146,9 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
     /// determine if there are upstream changes to these fields. They can also be configured via
     /// the sensitive_labels block, but cannot be configured in both places.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -94,7 +164,8 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
     /// <summary>
     /// The type of the notification channel. This field matches the value of the NotificationChannelDescriptor.type field. See https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.notificationChannelDescriptors/list to get the list of valid values such as &amp;quot;email&amp;quot;, &amp;quot;slack&amp;quot;, etc...
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
@@ -103,10 +174,31 @@ public class GoogleMonitoringNotificationChannel : TerraformResource
     /// <summary>
     /// User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor&#39;s schema, unlike the labels field. This field is intended to be used for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
     /// </summary>
-    public TerraformMapProperty<string>? UserLabels
+    public Dictionary<string, TerraformProperty<string>>? UserLabels
     {
-        get => GetProperty<TerraformMapProperty<string>>("user_labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
         set => this.WithProperty("user_labels", value);
+    }
+
+    /// <summary>
+    /// Block for sensitive_labels.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SensitiveLabels block(s) allowed")]
+    public List<GoogleMonitoringNotificationChannelSensitiveLabelsBlock>? SensitiveLabels
+    {
+        get => GetProperty<List<GoogleMonitoringNotificationChannelSensitiveLabelsBlock>>("sensitive_labels");
+        set => this.WithProperty("sensitive_labels", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleMonitoringNotificationChannelTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleMonitoringNotificationChannelTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

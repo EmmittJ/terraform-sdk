@@ -36,7 +36,8 @@ public class AwsVpcIpamDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);

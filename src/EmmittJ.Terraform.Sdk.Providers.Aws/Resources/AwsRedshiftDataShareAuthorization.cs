@@ -31,7 +31,8 @@ public class AwsRedshiftDataShareAuthorization : TerraformResource
     /// <summary>
     /// The consumer_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ConsumerIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerIdentifier is required")]
+    public required TerraformProperty<string> ConsumerIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("consumer_identifier");
         set => this.WithProperty("consumer_identifier", value);
@@ -40,7 +41,8 @@ public class AwsRedshiftDataShareAuthorization : TerraformResource
     /// <summary>
     /// The data_share_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DataShareArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareArn is required")]
+    public required TerraformProperty<string> DataShareArn
     {
         get => GetProperty<TerraformProperty<string>>("data_share_arn");
         set => this.WithProperty("data_share_arn", value);

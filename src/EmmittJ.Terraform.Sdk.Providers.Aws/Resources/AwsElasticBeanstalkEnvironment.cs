@@ -3,6 +3,53 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for setting in .
+/// Nesting mode: set
+/// </summary>
+public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The namespace attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
+    public required TerraformProperty<string> Namespace
+    {
+        get => GetProperty<TerraformProperty<string>>("namespace");
+        set => WithProperty("namespace", value);
+    }
+
+    /// <summary>
+    /// The resource attribute.
+    /// </summary>
+    public TerraformProperty<string>? Resource
+    {
+        get => GetProperty<TerraformProperty<string>>("resource");
+        set => WithProperty("resource", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_elastic_beanstalk_environment resource.
 /// </summary>
 public class AwsElasticBeanstalkEnvironment : TerraformResource
@@ -29,7 +76,8 @@ public class AwsElasticBeanstalkEnvironment : TerraformResource
     /// <summary>
     /// The application attribute.
     /// </summary>
-    public TerraformProperty<string>? Application
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
+    public required TerraformProperty<string> Application
     {
         get => GetProperty<TerraformProperty<string>>("application");
         set => this.WithProperty("application", value);
@@ -65,7 +113,8 @@ public class AwsElasticBeanstalkEnvironment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -110,18 +159,18 @@ public class AwsElasticBeanstalkEnvironment : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -159,6 +208,16 @@ public class AwsElasticBeanstalkEnvironment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("wait_for_ready_timeout");
         set => this.WithProperty("wait_for_ready_timeout", value);
+    }
+
+    /// <summary>
+    /// Block for setting.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsElasticBeanstalkEnvironmentSettingBlock>? Setting
+    {
+        get => GetProperty<HashSet<AwsElasticBeanstalkEnvironmentSettingBlock>>("setting");
+        set => this.WithProperty("setting", value);
     }
 
     /// <summary>

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for saml_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Group attribute for this SAML integration.
+    /// </summary>
+    public TerraformProperty<string>? GroupAttribute
+    {
+        get => GetProperty<TerraformProperty<string>>("group_attribute");
+        set => WithProperty("group_attribute", value);
+    }
+
+    /// <summary>
+    /// The XML IdP metadata file generated from your identity provider.
+    /// </summary>
+    public TerraformProperty<string>? Metadata
+    {
+        get => GetProperty<TerraformProperty<string>>("metadata");
+        set => WithProperty("metadata", value);
+    }
+
+    /// <summary>
+    /// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+    /// </summary>
+    public TerraformProperty<double>? SessionTimeout
+    {
+        get => GetProperty<TerraformProperty<double>>("session_timeout");
+        set => WithProperty("session_timeout", value);
+    }
+
+    /// <summary>
+    /// User attribute for this SAML integration.
+    /// </summary>
+    public TerraformProperty<string>? UserAttribute
+    {
+        get => GetProperty<TerraformProperty<string>>("user_attribute");
+        set => WithProperty("user_attribute", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_opensearchserverless_security_config.
 /// </summary>
 public class AwsOpensearchserverlessSecurityConfigDataSource : TerraformDataSource
@@ -24,7 +68,8 @@ public class AwsOpensearchserverlessSecurityConfigDataSource : TerraformDataSour
     /// <summary>
     /// The unique identifier of the security configuration.
     /// </summary>
-    public TerraformProperty<string>? Id
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
@@ -37,6 +82,16 @@ public class AwsOpensearchserverlessSecurityConfigDataSource : TerraformDataSour
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for saml_options.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock>? SamlOptions
+    {
+        get => GetProperty<List<AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock>>("saml_options");
+        set => this.WithProperty("saml_options", value);
     }
 
     /// <summary>

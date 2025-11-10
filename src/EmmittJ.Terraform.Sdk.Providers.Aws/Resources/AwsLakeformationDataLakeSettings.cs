@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for create_database_default_permissions in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Permissions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("permissions");
+        set => WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// The principal attribute.
+    /// </summary>
+    public TerraformProperty<string>? Principal
+    {
+        get => GetProperty<TerraformProperty<string>>("principal");
+        set => WithProperty("principal", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for create_table_default_permissions in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Permissions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("permissions");
+        set => WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// The principal attribute.
+    /// </summary>
+    public TerraformProperty<string>? Principal
+    {
+        get => GetProperty<TerraformProperty<string>>("principal");
+        set => WithProperty("principal", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lakeformation_data_lake_settings resource.
 /// </summary>
 public class AwsLakeformationDataLakeSettings : TerraformResource
@@ -19,9 +71,9 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     /// <summary>
     /// The admins attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Admins
+    public HashSet<TerraformProperty<string>>? Admins
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("admins");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("admins");
         set => this.WithProperty("admins", value);
     }
 
@@ -46,9 +98,9 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     /// <summary>
     /// The authorized_session_tag_value_list attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? AuthorizedSessionTagValueList
+    public List<TerraformProperty<string>>? AuthorizedSessionTagValueList
     {
-        get => GetProperty<TerraformProperty<List<string>>>("authorized_session_tag_value_list");
+        get => GetProperty<List<TerraformProperty<string>>>("authorized_session_tag_value_list");
         set => this.WithProperty("authorized_session_tag_value_list", value);
     }
 
@@ -64,9 +116,9 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     /// <summary>
     /// The external_data_filtering_allow_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ExternalDataFilteringAllowList
+    public HashSet<TerraformProperty<string>>? ExternalDataFilteringAllowList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("external_data_filtering_allow_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("external_data_filtering_allow_list");
         set => this.WithProperty("external_data_filtering_allow_list", value);
     }
 
@@ -82,18 +134,18 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The read_only_admins attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ReadOnlyAdmins
+    public HashSet<TerraformProperty<string>>? ReadOnlyAdmins
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("read_only_admins");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("read_only_admins");
         set => this.WithProperty("read_only_admins", value);
     }
 
@@ -109,10 +161,32 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     /// <summary>
     /// The trusted_resource_owners attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? TrustedResourceOwners
+    public List<TerraformProperty<string>>? TrustedResourceOwners
     {
-        get => GetProperty<TerraformProperty<List<string>>>("trusted_resource_owners");
+        get => GetProperty<List<TerraformProperty<string>>>("trusted_resource_owners");
         set => this.WithProperty("trusted_resource_owners", value);
+    }
+
+    /// <summary>
+    /// Block for create_database_default_permissions.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 CreateDatabaseDefaultPermissions block(s) allowed")]
+    public List<AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock>? CreateDatabaseDefaultPermissions
+    {
+        get => GetProperty<List<AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlock>>("create_database_default_permissions");
+        set => this.WithProperty("create_database_default_permissions", value);
+    }
+
+    /// <summary>
+    /// Block for create_table_default_permissions.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 CreateTableDefaultPermissions block(s) allowed")]
+    public List<AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock>? CreateTableDefaultPermissions
+    {
+        get => GetProperty<List<AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock>>("create_table_default_permissions");
+        set => this.WithProperty("create_table_default_permissions", value);
     }
 
 }

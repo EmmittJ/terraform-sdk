@@ -32,7 +32,8 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
     /// characters in length. The value must start with a letter and end with
     /// a letter or a number.
     /// </summary>
-    public TerraformProperty<string>? CloudExadataInfrastructureId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
+    public required TerraformProperty<string> CloudExadataInfrastructureId
     {
         get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);
@@ -50,7 +51,8 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbServer&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

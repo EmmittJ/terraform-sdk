@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsCloudhsmV2HsmTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudhsm_v2_hsm resource.
 /// </summary>
 public class AwsCloudhsmV2Hsm : TerraformResource
@@ -31,7 +57,8 @@ public class AwsCloudhsmV2Hsm : TerraformResource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
+    public required TerraformProperty<string> ClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
@@ -71,6 +98,16 @@ public class AwsCloudhsmV2Hsm : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsCloudhsmV2HsmTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsCloudhsmV2HsmTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

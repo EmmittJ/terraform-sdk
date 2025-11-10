@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermWebPubsubPrivateLinkResourceDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_web_pubsub_private_link_resource.
 /// </summary>
 public class AzurermWebPubsubPrivateLinkResourceDataSource : TerraformDataSource
@@ -29,10 +46,21 @@ public class AzurermWebPubsubPrivateLinkResourceDataSource : TerraformDataSource
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WebPubsubId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
+    public required TerraformProperty<string> WebPubsubId
     {
         get => GetProperty<TerraformProperty<string>>("web_pubsub_id");
         set => this.WithProperty("web_pubsub_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermWebPubsubPrivateLinkResourceDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermWebPubsubPrivateLinkResourceDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,317 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for guest_os_features in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeImageGuestOsFeaturesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type of supported feature. Read [Enabling guest operating system features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features) to see a list of available options. Possible values: [&amp;quot;MULTI_IP_SUBNET&amp;quot;, &amp;quot;SECURE_BOOT&amp;quot;, &amp;quot;SEV_CAPABLE&amp;quot;, &amp;quot;UEFI_COMPATIBLE&amp;quot;, &amp;quot;VIRTIO_SCSI_MULTIQUEUE&amp;quot;, &amp;quot;WINDOWS&amp;quot;, &amp;quot;GVNIC&amp;quot;, &amp;quot;IDPF&amp;quot;, &amp;quot;SEV_LIVE_MIGRATABLE&amp;quot;, &amp;quot;SEV_SNP_CAPABLE&amp;quot;, &amp;quot;SUSPEND_RESUME_COMPATIBLE&amp;quot;, &amp;quot;TDX_CAPABLE&amp;quot;, &amp;quot;SEV_LIVE_MIGRATABLE_V2&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for image_encryption_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The self link of the encryption key that is stored in Google Cloud
+    /// KMS.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeySelfLink
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
+        set => WithProperty("kms_key_self_link", value);
+    }
+
+    /// <summary>
+    /// The service account being used for the encryption request for the
+    /// given KMS key. If absent, the Compute Engine default service
+    /// account is used.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyServiceAccount
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
+        set => WithProperty("kms_key_service_account", value);
+    }
+
+    /// <summary>
+    /// Specifies a 256-bit customer-supplied encryption key, encoded in
+    /// RFC 4648 base64 to either encrypt or decrypt this resource.
+    /// </summary>
+    public TerraformProperty<string>? RawKey
+    {
+        get => GetProperty<TerraformProperty<string>>("raw_key");
+        set => WithProperty("raw_key", value);
+    }
+
+    /// <summary>
+    /// Specifies a 256-bit customer-supplied encryption key, encoded in
+    /// RFC 4648 base64 to either encrypt or decrypt this resource.
+    /// </summary>
+    public TerraformProperty<string>? RsaEncryptedKey
+    {
+        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
+        set => WithProperty("rsa_encrypted_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for raw_disk in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeImageRawDiskBlock : TerraformBlock
+{
+    /// <summary>
+    /// The format used to encode and transmit the block device, which
+    /// should be TAR. This is just a container and transmission format
+    /// and not a runtime format. Provided by the client when the disk
+    /// image is created. Default value: &amp;quot;TAR&amp;quot; Possible values: [&amp;quot;TAR&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? ContainerType
+    {
+        get => GetProperty<TerraformProperty<string>>("container_type");
+        set => WithProperty("container_type", value);
+    }
+
+    /// <summary>
+    /// An optional SHA1 checksum of the disk image before unpackaging.
+    /// This is provided by the client when the disk image is created.
+    /// </summary>
+    public TerraformProperty<string>? Sha1
+    {
+        get => GetProperty<TerraformProperty<string>>("sha1");
+        set => WithProperty("sha1", value);
+    }
+
+    /// <summary>
+    /// The full Google Cloud Storage URL where disk storage is stored
+    /// You must provide either this property or the sourceDisk property
+    /// but not both.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformProperty<string> Source
+    {
+        get => GetProperty<TerraformProperty<string>>("source");
+        set => WithProperty("source", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for shielded_instance_initial_state in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeImageShieldedInstanceInitialStateBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for source_disk_encryption_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
+    /// in the cloud console. Your project&#39;s Compute Engine System service account
+    /// (&#39;service-{{PROJECT_NUMBER}}@compute-system.iam.gserviceaccount.com&#39;) must have
+    /// &#39;roles/cloudkms.cryptoKeyEncrypterDecrypter&#39; to use this feature.
+    /// See https://cloud.google.com/compute/docs/disks/customer-managed-encryption#encrypt_a_new_persistent_disk_with_your_own_keys
+    /// </summary>
+    public TerraformProperty<string>? KmsKeySelfLink
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
+        set => WithProperty("kms_key_self_link", value);
+    }
+
+    /// <summary>
+    /// The service account being used for the encryption request for the
+    /// given KMS key. If absent, the Compute Engine default service
+    /// account is used.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyServiceAccount
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
+        set => WithProperty("kms_key_service_account", value);
+    }
+
+    /// <summary>
+    /// Specifies a 256-bit customer-supplied encryption key, encoded in
+    /// RFC 4648 base64 to either encrypt or decrypt this resource.
+    /// </summary>
+    public TerraformProperty<string>? RawKey
+    {
+        get => GetProperty<TerraformProperty<string>>("raw_key");
+        set => WithProperty("raw_key", value);
+    }
+
+    /// <summary>
+    /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit
+    /// customer-supplied encryption key to either encrypt or decrypt
+    /// this resource. You can provide either the rawKey or the rsaEncryptedKey.
+    /// </summary>
+    public TerraformProperty<string>? RsaEncryptedKey
+    {
+        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
+        set => WithProperty("rsa_encrypted_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_image_encryption_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
+    /// in the cloud console. Your project&#39;s Compute Engine System service account
+    /// (&#39;service-{{PROJECT_NUMBER}}@compute-system.iam.gserviceaccount.com&#39;) must have
+    /// &#39;roles/cloudkms.cryptoKeyEncrypterDecrypter&#39; to use this feature.
+    /// See https://cloud.google.com/compute/docs/disks/customer-managed-encryption#encrypt_a_new_persistent_disk_with_your_own_keys
+    /// </summary>
+    public TerraformProperty<string>? KmsKeySelfLink
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
+        set => WithProperty("kms_key_self_link", value);
+    }
+
+    /// <summary>
+    /// The service account being used for the encryption request for the
+    /// given KMS key. If absent, the Compute Engine default service
+    /// account is used.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyServiceAccount
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
+        set => WithProperty("kms_key_service_account", value);
+    }
+
+    /// <summary>
+    /// Specifies a 256-bit customer-supplied encryption key, encoded in
+    /// RFC 4648 base64 to either encrypt or decrypt this resource.
+    /// </summary>
+    public TerraformProperty<string>? RawKey
+    {
+        get => GetProperty<TerraformProperty<string>>("raw_key");
+        set => WithProperty("raw_key", value);
+    }
+
+    /// <summary>
+    /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit
+    /// customer-supplied encryption key to either encrypt or decrypt
+    /// this resource. You can provide either the rawKey or the rsaEncryptedKey.
+    /// </summary>
+    public TerraformProperty<string>? RsaEncryptedKey
+    {
+        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
+        set => WithProperty("rsa_encrypted_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_snapshot_encryption_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
+    /// in the cloud console. Your project&#39;s Compute Engine System service account
+    /// (&#39;service-{{PROJECT_NUMBER}}@compute-system.iam.gserviceaccount.com&#39;) must have
+    /// &#39;roles/cloudkms.cryptoKeyEncrypterDecrypter&#39; to use this feature.
+    /// See https://cloud.google.com/compute/docs/disks/customer-managed-encryption#encrypt_a_new_persistent_disk_with_your_own_keys
+    /// </summary>
+    public TerraformProperty<string>? KmsKeySelfLink
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_self_link");
+        set => WithProperty("kms_key_self_link", value);
+    }
+
+    /// <summary>
+    /// The service account being used for the encryption request for the
+    /// given KMS key. If absent, the Compute Engine default service
+    /// account is used.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyServiceAccount
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_service_account");
+        set => WithProperty("kms_key_service_account", value);
+    }
+
+    /// <summary>
+    /// Specifies a 256-bit customer-supplied encryption key, encoded in
+    /// RFC 4648 base64 to either encrypt or decrypt this resource.
+    /// </summary>
+    public TerraformProperty<string>? RawKey
+    {
+        get => GetProperty<TerraformProperty<string>>("raw_key");
+        set => WithProperty("raw_key", value);
+    }
+
+    /// <summary>
+    /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit
+    /// customer-supplied encryption key to either encrypt or decrypt
+    /// this resource. You can provide either the rawKey or the rsaEncryptedKey.
+    /// </summary>
+    public TerraformProperty<string>? RsaEncryptedKey
+    {
+        get => GetProperty<TerraformProperty<string>>("rsa_encrypted_key");
+        set => WithProperty("rsa_encrypted_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeImageTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_image resource.
 /// </summary>
 public class GoogleComputeImage : TerraformResource
@@ -69,18 +380,18 @@ public class GoogleComputeImage : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public TerraformProperty<List<string>>? Licenses
+    public List<TerraformProperty<string>>? Licenses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("licenses");
+        get => GetProperty<List<TerraformProperty<string>>>("licenses");
         set => this.WithProperty("licenses", value);
     }
 
@@ -93,7 +404,8 @@ public class GoogleComputeImage : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -156,10 +468,96 @@ public class GoogleComputeImage : TerraformResource
     /// (regional or multi-regional).
     /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
     /// </summary>
-    public TerraformProperty<List<string>>? StorageLocations
+    public List<TerraformProperty<string>>? StorageLocations
     {
-        get => GetProperty<TerraformProperty<List<string>>>("storage_locations");
+        get => GetProperty<List<TerraformProperty<string>>>("storage_locations");
         set => this.WithProperty("storage_locations", value);
+    }
+
+    /// <summary>
+    /// Block for guest_os_features.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleComputeImageGuestOsFeaturesBlock>? GuestOsFeatures
+    {
+        get => GetProperty<HashSet<GoogleComputeImageGuestOsFeaturesBlock>>("guest_os_features");
+        set => this.WithProperty("guest_os_features", value);
+    }
+
+    /// <summary>
+    /// Block for image_encryption_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageEncryptionKey block(s) allowed")]
+    public List<GoogleComputeImageImageEncryptionKeyBlock>? ImageEncryptionKey
+    {
+        get => GetProperty<List<GoogleComputeImageImageEncryptionKeyBlock>>("image_encryption_key");
+        set => this.WithProperty("image_encryption_key", value);
+    }
+
+    /// <summary>
+    /// Block for raw_disk.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RawDisk block(s) allowed")]
+    public List<GoogleComputeImageRawDiskBlock>? RawDisk
+    {
+        get => GetProperty<List<GoogleComputeImageRawDiskBlock>>("raw_disk");
+        set => this.WithProperty("raw_disk", value);
+    }
+
+    /// <summary>
+    /// Block for shielded_instance_initial_state.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceInitialState block(s) allowed")]
+    public List<GoogleComputeImageShieldedInstanceInitialStateBlock>? ShieldedInstanceInitialState
+    {
+        get => GetProperty<List<GoogleComputeImageShieldedInstanceInitialStateBlock>>("shielded_instance_initial_state");
+        set => this.WithProperty("shielded_instance_initial_state", value);
+    }
+
+    /// <summary>
+    /// Block for source_disk_encryption_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceDiskEncryptionKey block(s) allowed")]
+    public List<GoogleComputeImageSourceDiskEncryptionKeyBlock>? SourceDiskEncryptionKey
+    {
+        get => GetProperty<List<GoogleComputeImageSourceDiskEncryptionKeyBlock>>("source_disk_encryption_key");
+        set => this.WithProperty("source_disk_encryption_key", value);
+    }
+
+    /// <summary>
+    /// Block for source_image_encryption_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageEncryptionKey block(s) allowed")]
+    public List<GoogleComputeImageSourceImageEncryptionKeyBlock>? SourceImageEncryptionKey
+    {
+        get => GetProperty<List<GoogleComputeImageSourceImageEncryptionKeyBlock>>("source_image_encryption_key");
+        set => this.WithProperty("source_image_encryption_key", value);
+    }
+
+    /// <summary>
+    /// Block for source_snapshot_encryption_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
+    public List<GoogleComputeImageSourceSnapshotEncryptionKeyBlock>? SourceSnapshotEncryptionKey
+    {
+        get => GetProperty<List<GoogleComputeImageSourceSnapshotEncryptionKeyBlock>>("source_snapshot_encryption_key");
+        set => this.WithProperty("source_snapshot_encryption_key", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeImageTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeImageTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

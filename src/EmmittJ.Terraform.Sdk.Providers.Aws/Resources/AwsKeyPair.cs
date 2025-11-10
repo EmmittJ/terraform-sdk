@@ -50,7 +50,8 @@ public class AwsKeyPair : TerraformResource
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PublicKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
+    public required TerraformProperty<string> PublicKey
     {
         get => GetProperty<TerraformProperty<string>>("public_key");
         set => this.WithProperty("public_key", value);
@@ -68,18 +69,18 @@ public class AwsKeyPair : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

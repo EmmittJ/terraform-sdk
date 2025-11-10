@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_redis_cache_access_policy_assignment resource.
 /// </summary>
 public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
@@ -19,7 +54,8 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     /// <summary>
     /// The access_policy_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessPolicyName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicyName is required")]
+    public required TerraformProperty<string> AccessPolicyName
     {
         get => GetProperty<TerraformProperty<string>>("access_policy_name");
         set => this.WithProperty("access_policy_name", value);
@@ -37,7 +73,8 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,7 +83,8 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
+    public required TerraformProperty<string> ObjectId
     {
         get => GetProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
@@ -55,7 +93,8 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     /// <summary>
     /// The object_id_alias attribute.
     /// </summary>
-    public TerraformProperty<string>? ObjectIdAlias
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdAlias is required")]
+    public required TerraformProperty<string> ObjectIdAlias
     {
         get => GetProperty<TerraformProperty<string>>("object_id_alias");
         set => this.WithProperty("object_id_alias", value);
@@ -64,10 +103,21 @@ public class AzurermRedisCacheAccessPolicyAssignment : TerraformResource
     /// <summary>
     /// The redis_cache_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RedisCacheId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
+    public required TerraformProperty<string> RedisCacheId
     {
         get => GetProperty<TerraformProperty<string>>("redis_cache_id");
         set => this.WithProperty("redis_cache_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermRedisCacheAccessPolicyAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for recurrence in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The number_of_on_calls attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfOnCalls is required")]
+    public required TerraformProperty<double> NumberOfOnCalls
+    {
+        get => GetProperty<TerraformProperty<double>>("number_of_on_calls");
+        set => WithProperty("number_of_on_calls", value);
+    }
+
+    /// <summary>
+    /// The recurrence_multiplier attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceMultiplier is required")]
+    public required TerraformProperty<double> RecurrenceMultiplier
+    {
+        get => GetProperty<TerraformProperty<double>>("recurrence_multiplier");
+        set => WithProperty("recurrence_multiplier", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssmcontacts_rotation resource.
 /// </summary>
 public class AwsSsmcontactsRotation : TerraformResource
@@ -22,16 +50,18 @@ public class AwsSsmcontactsRotation : TerraformResource
     /// <summary>
     /// The contact_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ContactIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactIds is required")]
+    public List<TerraformProperty<string>>? ContactIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("contact_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("contact_ids");
         set => this.WithProperty("contact_ids", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -58,19 +88,30 @@ public class AwsSsmcontactsRotation : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The time_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TimeZoneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
+    public required TerraformProperty<string> TimeZoneId
     {
         get => GetProperty<TerraformProperty<string>>("time_zone_id");
         set => this.WithProperty("time_zone_id", value);
+    }
+
+    /// <summary>
+    /// Block for recurrence.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSsmcontactsRotationRecurrenceBlock>? Recurrence
+    {
+        get => GetProperty<List<AwsSsmcontactsRotationRecurrenceBlock>>("recurrence");
+        set => this.WithProperty("recurrence", value);
     }
 
     /// <summary>

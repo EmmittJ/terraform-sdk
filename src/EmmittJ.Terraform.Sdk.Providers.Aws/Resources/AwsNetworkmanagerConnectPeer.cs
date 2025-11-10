@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for bgp_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsNetworkmanagerConnectPeerBgpOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The peer_asn attribute.
+    /// </summary>
+    public TerraformProperty<double>? PeerAsn
+    {
+        get => GetProperty<TerraformProperty<double>>("peer_asn");
+        set => WithProperty("peer_asn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNetworkmanagerConnectPeerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_networkmanager_connect_peer resource.
 /// </summary>
 public class AwsNetworkmanagerConnectPeer : TerraformResource
@@ -26,7 +69,8 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     /// <summary>
     /// The connect_attachment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectAttachmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectAttachmentId is required")]
+    public required TerraformProperty<string> ConnectAttachmentId
     {
         get => GetProperty<TerraformProperty<string>>("connect_attachment_id");
         set => this.WithProperty("connect_attachment_id", value);
@@ -53,16 +97,17 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     /// <summary>
     /// The inside_cidr_blocks attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? InsideCidrBlocks
+    public List<TerraformProperty<string>>? InsideCidrBlocks
     {
-        get => GetProperty<TerraformProperty<List<string>>>("inside_cidr_blocks");
+        get => GetProperty<List<TerraformProperty<string>>>("inside_cidr_blocks");
         set => this.WithProperty("inside_cidr_blocks", value);
     }
 
     /// <summary>
     /// The peer_address attribute.
     /// </summary>
-    public TerraformProperty<string>? PeerAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
+    public required TerraformProperty<string> PeerAddress
     {
         get => GetProperty<TerraformProperty<string>>("peer_address");
         set => this.WithProperty("peer_address", value);
@@ -80,19 +125,40 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for bgp_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpOptions block(s) allowed")]
+    public List<AwsNetworkmanagerConnectPeerBgpOptionsBlock>? BgpOptions
+    {
+        get => GetProperty<List<AwsNetworkmanagerConnectPeerBgpOptionsBlock>>("bgp_options");
+        set => this.WithProperty("bgp_options", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNetworkmanagerConnectPeerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNetworkmanagerConnectPeerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

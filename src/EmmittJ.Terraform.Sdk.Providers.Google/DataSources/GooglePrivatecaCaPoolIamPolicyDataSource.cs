@@ -21,7 +21,8 @@ public class GooglePrivatecaCaPoolIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The ca_pool attribute.
     /// </summary>
-    public TerraformProperty<string>? CaPool
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaPool is required")]
+    public required TerraformProperty<string> CaPool
     {
         get => GetProperty<TerraformProperty<string>>("ca_pool");
         set => this.WithProperty("ca_pool", value);

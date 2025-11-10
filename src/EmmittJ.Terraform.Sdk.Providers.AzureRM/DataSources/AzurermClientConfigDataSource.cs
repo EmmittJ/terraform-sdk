@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermClientConfigDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_client_config.
 /// </summary>
 public class AzurermClientConfigDataSource : TerraformDataSource
@@ -27,6 +44,16 @@ public class AzurermClientConfigDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermClientConfigDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermClientConfigDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

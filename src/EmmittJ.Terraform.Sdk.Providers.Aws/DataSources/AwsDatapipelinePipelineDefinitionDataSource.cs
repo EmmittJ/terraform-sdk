@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for parameter_value in .
+/// Nesting mode: set
+/// </summary>
+public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : TerraformBlock
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The string_value attribute.
+    /// </summary>
+    public TerraformProperty<string>? StringValue
+    {
+        get => GetProperty<TerraformProperty<string>>("string_value");
+        set => WithProperty("string_value", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_datapipeline_pipeline_definition.
 /// </summary>
 public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
@@ -30,7 +56,8 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The pipeline_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PipelineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
+    public required TerraformProperty<string> PipelineId
     {
         get => GetProperty<TerraformProperty<string>>("pipeline_id");
         set => this.WithProperty("pipeline_id", value);
@@ -43,6 +70,16 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for parameter_value.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>? ParameterValue
+    {
+        get => GetProperty<HashSet<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>>("parameter_value");
+        set => this.WithProperty("parameter_value", value);
     }
 
     /// <summary>

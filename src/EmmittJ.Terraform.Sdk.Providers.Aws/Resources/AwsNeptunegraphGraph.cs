@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vector_search_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsNeptunegraphGraphVectorSearchConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Specifies the number of dimensions for vector embeddings.  Value must be between 1 and 65,535.
+    /// </summary>
+    public TerraformProperty<double>? VectorSearchDimension
+    {
+        get => GetProperty<TerraformProperty<double>>("vector_search_dimension");
+        set => WithProperty("vector_search_dimension", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_neptunegraph_graph resource.
 /// </summary>
 public class AwsNeptunegraphGraph : TerraformResource
@@ -63,7 +115,8 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// <summary>
     /// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
     /// </summary>
-    public TerraformProperty<double>? ProvisionedMemory
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedMemory is required")]
+    public required TerraformProperty<double> ProvisionedMemory
     {
         get => GetProperty<TerraformProperty<double>>("provisioned_memory");
         set => this.WithProperty("provisioned_memory", value);
@@ -104,10 +157,30 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNeptunegraphGraphTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNeptunegraphGraphTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vector_search_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsNeptunegraphGraphVectorSearchConfigurationBlock>? VectorSearchConfiguration
+    {
+        get => GetProperty<List<AwsNeptunegraphGraphVectorSearchConfigurationBlock>>("vector_search_configuration");
+        set => this.WithProperty("vector_search_configuration", value);
     }
 
     /// <summary>

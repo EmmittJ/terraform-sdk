@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsRamResourceShareDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public List<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_ram_resource_share.
 /// </summary>
 public class AwsRamResourceShareDataSource : TerraformDataSource
@@ -50,7 +78,8 @@ public class AwsRamResourceShareDataSource : TerraformDataSource
     /// <summary>
     /// The resource_owner attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceOwner
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOwner is required")]
+    public required TerraformProperty<string> ResourceOwner
     {
         get => GetProperty<TerraformProperty<string>>("resource_owner");
         set => this.WithProperty("resource_owner", value);
@@ -68,10 +97,20 @@ public class AwsRamResourceShareDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsRamResourceShareDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsRamResourceShareDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>

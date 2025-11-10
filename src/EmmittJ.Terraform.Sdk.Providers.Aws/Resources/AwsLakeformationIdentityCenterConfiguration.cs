@@ -30,7 +30,8 @@ public class AwsLakeformationIdentityCenterConfiguration : TerraformResource
     /// <summary>
     /// The ARN of the Identity Center instance.
     /// </summary>
-    public TerraformProperty<string>? InstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
+    public required TerraformProperty<string> InstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);

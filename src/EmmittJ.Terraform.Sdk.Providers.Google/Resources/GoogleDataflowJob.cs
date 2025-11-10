@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataflowJobTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataflow_job resource.
 /// </summary>
 public class GoogleDataflowJob : TerraformResource
@@ -24,9 +41,9 @@ public class GoogleDataflowJob : TerraformResource
     /// <summary>
     /// List of experiments that should be used by the job. An example value is [&amp;quot;enable_stackdriver_agent_metrics&amp;quot;].
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdditionalExperiments
+    public HashSet<TerraformProperty<string>>? AdditionalExperiments
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("additional_experiments");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("additional_experiments");
         set => this.WithProperty("additional_experiments", value);
     }
 
@@ -70,9 +87,9 @@ public class GoogleDataflowJob : TerraformResource
     /// User labels to be specified for the job. Keys and values should follow the restrictions specified in the labeling restrictions page. NOTE: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -97,7 +114,8 @@ public class GoogleDataflowJob : TerraformResource
     /// <summary>
     /// A unique name for the resource, required by Dataflow.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -124,9 +142,9 @@ public class GoogleDataflowJob : TerraformResource
     /// <summary>
     /// Key/Value pairs to be passed to the Dataflow job (as used in the template).
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -178,7 +196,8 @@ public class GoogleDataflowJob : TerraformResource
     /// <summary>
     /// A writeable location on Google Cloud Storage for the Dataflow job to dump its temporary data.
     /// </summary>
-    public TerraformProperty<string>? TempGcsLocation
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TempGcsLocation is required")]
+    public required TerraformProperty<string> TempGcsLocation
     {
         get => GetProperty<TerraformProperty<string>>("temp_gcs_location");
         set => this.WithProperty("temp_gcs_location", value);
@@ -187,7 +206,8 @@ public class GoogleDataflowJob : TerraformResource
     /// <summary>
     /// The Google Cloud Storage path to the Dataflow job template.
     /// </summary>
-    public TerraformProperty<string>? TemplateGcsPath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateGcsPath is required")]
+    public required TerraformProperty<string> TemplateGcsPath
     {
         get => GetProperty<TerraformProperty<string>>("template_gcs_path");
         set => this.WithProperty("template_gcs_path", value);
@@ -196,9 +216,9 @@ public class GoogleDataflowJob : TerraformResource
     /// <summary>
     /// Only applicable when updating a pipeline. Map of transform name prefixes of the job to be replaced with the corresponding name prefixes of the new job.
     /// </summary>
-    public TerraformMapProperty<string>? TransformNameMapping
+    public Dictionary<string, TerraformProperty<string>>? TransformNameMapping
     {
-        get => GetProperty<TerraformMapProperty<string>>("transform_name_mapping");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("transform_name_mapping");
         set => this.WithProperty("transform_name_mapping", value);
     }
 
@@ -209,6 +229,16 @@ public class GoogleDataflowJob : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataflowJobTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataflowJobTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

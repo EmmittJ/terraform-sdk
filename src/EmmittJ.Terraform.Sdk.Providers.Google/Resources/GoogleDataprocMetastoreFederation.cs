@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for backend_metastores in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type of the backend metastore. Possible values: [&amp;quot;METASTORE_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;DATAPROC_METASTORE&amp;quot;, &amp;quot;BIGQUERY&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetastoreType is required")]
+    public required TerraformProperty<string> MetastoreType
+    {
+        get => GetProperty<TerraformProperty<string>>("metastore_type");
+        set => WithProperty("metastore_type", value);
+    }
+
+    /// <summary>
+    /// The relative resource name of the metastore that is being federated. The formats of the relative resource names for the currently supported metastores are listed below: Dataplex: projects/{projectId}/locations/{location}/lakes/{lake_id} BigQuery: projects/{projectId} Dataproc Metastore: projects/{projectId}/locations/{location}/services/{serviceId}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The rank attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
+    public required TerraformProperty<string> Rank
+    {
+        get => GetProperty<TerraformProperty<string>>("rank");
+        set => WithProperty("rank", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataproc_metastore_federation resource.
 /// </summary>
 public class GoogleDataprocMetastoreFederation : TerraformResource
@@ -41,7 +114,8 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between
     /// 3 and 63 characters.
     /// </summary>
-    public TerraformProperty<string>? FederationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FederationId is required")]
+    public required TerraformProperty<string> FederationId
     {
         get => GetProperty<TerraformProperty<string>>("federation_id");
         set => this.WithProperty("federation_id", value);
@@ -62,9 +136,9 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -91,19 +165,41 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The Apache Hive metastore version of the federation. All backend metastore versions must be compatible with the federation version.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for backend_metastores.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendMetastores block(s) required")]
+    public HashSet<GoogleDataprocMetastoreFederationBackendMetastoresBlock>? BackendMetastores
+    {
+        get => GetProperty<HashSet<GoogleDataprocMetastoreFederationBackendMetastoresBlock>>("backend_metastores");
+        set => this.WithProperty("backend_metastores", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataprocMetastoreFederationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataprocMetastoreFederationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

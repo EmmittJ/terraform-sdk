@@ -29,7 +29,8 @@ public class AwsApiGatewayResource : TerraformResource
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
+    public required TerraformProperty<string> ParentId
     {
         get => GetProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
@@ -38,7 +39,8 @@ public class AwsApiGatewayResource : TerraformResource
     /// <summary>
     /// The path_part attribute.
     /// </summary>
-    public TerraformProperty<string>? PathPart
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPart is required")]
+    public required TerraformProperty<string> PathPart
     {
         get => GetProperty<TerraformProperty<string>>("path_part");
         set => this.WithProperty("path_part", value);
@@ -56,7 +58,8 @@ public class AwsApiGatewayResource : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);

@@ -40,43 +40,46 @@ public class AwsApprunnerVpcConnector : TerraformResource
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroups
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
+    public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Subnets
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
+    public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnets");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
         set => this.WithProperty("subnets", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_connector_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcConnectorName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConnectorName is required")]
+    public required TerraformProperty<string> VpcConnectorName
     {
         get => GetProperty<TerraformProperty<string>>("vpc_connector_name");
         set => this.WithProperty("vpc_connector_name", value);

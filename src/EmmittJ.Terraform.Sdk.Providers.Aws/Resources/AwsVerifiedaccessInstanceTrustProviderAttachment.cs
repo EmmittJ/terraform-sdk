@@ -37,7 +37,8 @@ public class AwsVerifiedaccessInstanceTrustProviderAttachment : TerraformResourc
     /// <summary>
     /// The verifiedaccess_instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VerifiedaccessInstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
+    public required TerraformProperty<string> VerifiedaccessInstanceId
     {
         get => GetProperty<TerraformProperty<string>>("verifiedaccess_instance_id");
         set => this.WithProperty("verifiedaccess_instance_id", value);
@@ -46,7 +47,8 @@ public class AwsVerifiedaccessInstanceTrustProviderAttachment : TerraformResourc
     /// <summary>
     /// The verifiedaccess_trust_provider_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VerifiedaccessTrustProviderId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessTrustProviderId is required")]
+    public required TerraformProperty<string> VerifiedaccessTrustProviderId
     {
         get => GetProperty<TerraformProperty<string>>("verifiedaccess_trust_provider_id");
         set => this.WithProperty("verifiedaccess_trust_provider_id", value);

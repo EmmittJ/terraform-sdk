@@ -30,7 +30,8 @@ public class GoogleSqlCaCertsDataSource : TerraformDataSource
     /// <summary>
     /// The instance attribute.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);

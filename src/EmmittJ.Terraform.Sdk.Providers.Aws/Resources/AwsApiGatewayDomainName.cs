@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for endpoint_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApiGatewayDomainNameEndpointConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ip_address_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? IpAddressType
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_address_type");
+        set => WithProperty("ip_address_type", value);
+    }
+
+    /// <summary>
+    /// The types attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Types is required")]
+    public List<TerraformProperty<string>>? Types
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("types");
+        set => WithProperty("types", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for mutual_tls_authentication in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The truststore_uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
+    public required TerraformProperty<string> TruststoreUri
+    {
+        get => GetProperty<TerraformProperty<string>>("truststore_uri");
+        set => WithProperty("truststore_uri", value);
+    }
+
+    /// <summary>
+    /// The truststore_version attribute.
+    /// </summary>
+    public TerraformProperty<string>? TruststoreVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("truststore_version");
+        set => WithProperty("truststore_version", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_api_gateway_domain_name resource.
 /// </summary>
 public class AwsApiGatewayDomainName : TerraformResource
@@ -71,7 +125,8 @@ public class AwsApiGatewayDomainName : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -143,19 +198,41 @@ public class AwsApiGatewayDomainName : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for endpoint_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfiguration block(s) allowed")]
+    public List<AwsApiGatewayDomainNameEndpointConfigurationBlock>? EndpointConfiguration
+    {
+        get => GetProperty<List<AwsApiGatewayDomainNameEndpointConfigurationBlock>>("endpoint_configuration");
+        set => this.WithProperty("endpoint_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for mutual_tls_authentication.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MutualTlsAuthentication block(s) allowed")]
+    public List<AwsApiGatewayDomainNameMutualTlsAuthenticationBlock>? MutualTlsAuthentication
+    {
+        get => GetProperty<List<AwsApiGatewayDomainNameMutualTlsAuthenticationBlock>>("mutual_tls_authentication");
+        set => this.WithProperty("mutual_tls_authentication", value);
     }
 
     /// <summary>

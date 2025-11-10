@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for tag_filter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_resourcegroupstaggingapi_resources.
 /// </summary>
 public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSource
@@ -56,19 +83,30 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
     /// <summary>
     /// The resource_arn_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ResourceArnList
+    public HashSet<TerraformProperty<string>>? ResourceArnList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_arn_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_arn_list");
         set => this.WithProperty("resource_arn_list", value);
     }
 
     /// <summary>
     /// The resource_type_filters attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ResourceTypeFilters
+    public HashSet<TerraformProperty<string>>? ResourceTypeFilters
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_type_filters");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_type_filters");
         set => this.WithProperty("resource_type_filters", value);
+    }
+
+    /// <summary>
+    /// Block for tag_filter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 TagFilter block(s) allowed")]
+    public List<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>? TagFilter
+    {
+        get => GetProperty<List<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>>("tag_filter");
+        set => this.WithProperty("tag_filter", value);
     }
 
     /// <summary>

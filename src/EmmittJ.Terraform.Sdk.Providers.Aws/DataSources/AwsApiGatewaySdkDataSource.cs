@@ -31,9 +31,9 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -49,7 +49,8 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
@@ -58,7 +59,8 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
     /// <summary>
     /// The sdk_type attribute.
     /// </summary>
-    public TerraformProperty<string>? SdkType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SdkType is required")]
+    public required TerraformProperty<string> SdkType
     {
         get => GetProperty<TerraformProperty<string>>("sdk_type");
         set => this.WithProperty("sdk_type", value);
@@ -67,7 +69,8 @@ public class AwsApiGatewaySdkDataSource : TerraformDataSource
     /// <summary>
     /// The stage_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StageName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
+    public required TerraformProperty<string> StageName
     {
         get => GetProperty<TerraformProperty<string>>("stage_name");
         set => this.WithProperty("stage_name", value);

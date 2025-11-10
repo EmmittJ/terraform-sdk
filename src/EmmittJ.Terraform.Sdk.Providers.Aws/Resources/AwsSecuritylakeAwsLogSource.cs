@@ -3,6 +3,52 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for source in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The accounts attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Accounts
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("accounts");
+        set => WithProperty("accounts", value);
+    }
+
+    /// <summary>
+    /// The regions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
+    public HashSet<TerraformProperty<string>>? Regions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("regions");
+        set => WithProperty("regions", value);
+    }
+
+    /// <summary>
+    /// The source_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
+    public required TerraformProperty<string> SourceName
+    {
+        get => GetProperty<TerraformProperty<string>>("source_name");
+        set => WithProperty("source_name", value);
+    }
+
+    /// <summary>
+    /// The source_version attribute.
+    /// </summary>
+    public TerraformProperty<string>? SourceVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("source_version");
+        set => WithProperty("source_version", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_securitylake_aws_log_source resource.
 /// </summary>
 public class AwsSecuritylakeAwsLogSource : TerraformResource
@@ -24,6 +70,16 @@ public class AwsSecuritylakeAwsLogSource : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for source.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSecuritylakeAwsLogSourceSourceBlock>? Source
+    {
+        get => GetProperty<List<AwsSecuritylakeAwsLogSourceSourceBlock>>("source");
+        set => this.WithProperty("source", value);
     }
 
     /// <summary>

@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLocationMapConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The style attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Style is required")]
+    public required TerraformProperty<string> Style
+    {
+        get => GetProperty<TerraformProperty<string>>("style");
+        set => WithProperty("style", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_location_map resource.
 /// </summary>
 public class AwsLocationMap : TerraformResource
@@ -40,7 +58,8 @@ public class AwsLocationMap : TerraformResource
     /// <summary>
     /// The map_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MapName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapName is required")]
+    public required TerraformProperty<string> MapName
     {
         get => GetProperty<TerraformProperty<string>>("map_name");
         set => this.WithProperty("map_name", value);
@@ -58,19 +77,31 @@ public class AwsLocationMap : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
+    public List<AwsLocationMapConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsLocationMapConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
     }
 
     /// <summary>

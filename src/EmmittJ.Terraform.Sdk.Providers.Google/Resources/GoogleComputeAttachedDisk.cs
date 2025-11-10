@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeAttachedDiskTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_attached_disk resource.
 /// </summary>
 public class GoogleComputeAttachedDisk : TerraformResource
@@ -28,7 +54,8 @@ public class GoogleComputeAttachedDisk : TerraformResource
     /// <summary>
     /// name or self_link of the disk that will be attached.
     /// </summary>
-    public TerraformProperty<string>? Disk
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
+    public required TerraformProperty<string> Disk
     {
         get => GetProperty<TerraformProperty<string>>("disk");
         set => this.WithProperty("disk", value);
@@ -46,7 +73,8 @@ public class GoogleComputeAttachedDisk : TerraformResource
     /// <summary>
     /// name or self_link of the compute instance that the disk will be attached to. If the self_link is provided then zone and project are extracted from the self link. If only the name is used then zone and project must be defined as properties on the resource or provider.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -86,6 +114,16 @@ public class GoogleComputeAttachedDisk : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeAttachedDiskTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeAttachedDiskTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

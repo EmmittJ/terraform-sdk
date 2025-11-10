@@ -55,7 +55,8 @@ public class AwsTransferWebAppCustomization : TerraformResource
     /// <summary>
     /// The web_app_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WebAppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAppId is required")]
+    public required TerraformProperty<string> WebAppId
     {
         get => GetProperty<TerraformProperty<string>>("web_app_id");
         set => this.WithProperty("web_app_id", value);

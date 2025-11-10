@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for grant in .
+/// Nesting mode: set
+/// </summary>
+public class AwsS3ObjectCopyGrantBlock : TerraformBlock
+{
+    /// <summary>
+    /// The email attribute.
+    /// </summary>
+    public TerraformProperty<string>? Email
+    {
+        get => GetProperty<TerraformProperty<string>>("email");
+        set => WithProperty("email", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
+    public HashSet<TerraformProperty<string>>? Permissions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("permissions");
+        set => WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    public TerraformProperty<string>? Uri
+    {
+        get => GetProperty<TerraformProperty<string>>("uri");
+        set => WithProperty("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for override_provider in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3ObjectCopyOverrideProviderBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_s3_object_copy resource.
 /// </summary>
 public class AwsS3ObjectCopy : TerraformResource
@@ -40,7 +103,8 @@ public class AwsS3ObjectCopy : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -220,7 +284,8 @@ public class AwsS3ObjectCopy : TerraformResource
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
     {
         get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
@@ -247,9 +312,9 @@ public class AwsS3ObjectCopy : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Metadata
+    public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<TerraformMapProperty<string>>("metadata");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
@@ -319,7 +384,8 @@ public class AwsS3ObjectCopy : TerraformResource
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformProperty<string> Source
     {
         get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
@@ -373,18 +439,18 @@ public class AwsS3ObjectCopy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -395,6 +461,27 @@ public class AwsS3ObjectCopy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("website_redirect");
         set => this.WithProperty("website_redirect", value);
+    }
+
+    /// <summary>
+    /// Block for grant.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsS3ObjectCopyGrantBlock>? Grant
+    {
+        get => GetProperty<HashSet<AwsS3ObjectCopyGrantBlock>>("grant");
+        set => this.WithProperty("grant", value);
+    }
+
+    /// <summary>
+    /// Block for override_provider.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OverrideProvider block(s) allowed")]
+    public List<AwsS3ObjectCopyOverrideProviderBlock>? OverrideProvider
+    {
+        get => GetProperty<List<AwsS3ObjectCopyOverrideProviderBlock>>("override_provider");
+        set => this.WithProperty("override_provider", value);
     }
 
     /// <summary>

@@ -20,7 +20,8 @@ public class AwsBackupVaultPolicy : TerraformResource
     /// <summary>
     /// The backup_vault_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupVaultName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultName is required")]
+    public required TerraformProperty<string> BackupVaultName
     {
         get => GetProperty<TerraformProperty<string>>("backup_vault_name");
         set => this.WithProperty("backup_vault_name", value);
@@ -38,7 +39,8 @@ public class AwsBackupVaultPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);

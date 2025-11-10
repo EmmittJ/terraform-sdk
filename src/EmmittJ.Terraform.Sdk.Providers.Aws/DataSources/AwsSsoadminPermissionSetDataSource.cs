@@ -41,7 +41,8 @@ public class AwsSsoadminPermissionSetDataSource : TerraformDataSource
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
+    public required TerraformProperty<string> InstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
@@ -68,9 +69,9 @@ public class AwsSsoadminPermissionSetDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

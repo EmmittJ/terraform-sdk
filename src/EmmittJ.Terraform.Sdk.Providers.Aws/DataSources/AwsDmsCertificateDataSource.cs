@@ -28,7 +28,8 @@ public class AwsDmsCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
+    public required TerraformProperty<string> CertificateId
     {
         get => GetProperty<TerraformProperty<string>>("certificate_id");
         set => this.WithProperty("certificate_id", value);
@@ -55,9 +56,9 @@ public class AwsDmsCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

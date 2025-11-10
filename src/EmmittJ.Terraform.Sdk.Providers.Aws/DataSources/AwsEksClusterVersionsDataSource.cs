@@ -29,9 +29,9 @@ public class AwsEksClusterVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The cluster_versions_only attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ClusterVersionsOnly
+    public List<TerraformProperty<string>>? ClusterVersionsOnly
     {
-        get => GetProperty<TerraformProperty<List<string>>>("cluster_versions_only");
+        get => GetProperty<List<TerraformProperty<string>>>("cluster_versions_only");
         set => this.WithProperty("cluster_versions_only", value);
     }
 

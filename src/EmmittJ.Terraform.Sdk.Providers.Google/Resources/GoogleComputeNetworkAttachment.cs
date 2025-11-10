@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeNetworkAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_network_attachment resource.
 /// </summary>
 public class GoogleComputeNetworkAttachment : TerraformResource
@@ -27,7 +62,8 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     /// <summary>
     /// The connection preference of service attachment. The value can be set to ACCEPT_AUTOMATIC. An ACCEPT_AUTOMATIC service attachment is one that always accepts the connection from consumer forwarding rules. Possible values: [&amp;quot;ACCEPT_AUTOMATIC&amp;quot;, &amp;quot;ACCEPT_MANUAL&amp;quot;, &amp;quot;INVALID&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ConnectionPreference
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
+    public required TerraformProperty<string> ConnectionPreference
     {
         get => GetProperty<TerraformProperty<string>>("connection_preference");
         set => this.WithProperty("connection_preference", value);
@@ -45,7 +81,8 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -54,18 +91,18 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     /// <summary>
     /// Projects that are allowed to connect to this network attachment. The project can be specified using its id or number.
     /// </summary>
-    public TerraformProperty<List<string>>? ProducerAcceptLists
+    public List<TerraformProperty<string>>? ProducerAcceptLists
     {
-        get => GetProperty<TerraformProperty<List<string>>>("producer_accept_lists");
+        get => GetProperty<List<TerraformProperty<string>>>("producer_accept_lists");
         set => this.WithProperty("producer_accept_lists", value);
     }
 
     /// <summary>
     /// Projects that are not allowed to connect to this network attachment. The project can be specified using its id or number.
     /// </summary>
-    public TerraformProperty<List<string>>? ProducerRejectLists
+    public List<TerraformProperty<string>>? ProducerRejectLists
     {
-        get => GetProperty<TerraformProperty<List<string>>>("producer_reject_lists");
+        get => GetProperty<List<TerraformProperty<string>>>("producer_reject_lists");
         set => this.WithProperty("producer_reject_lists", value);
     }
 
@@ -90,10 +127,21 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     /// <summary>
     /// An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment.
     /// </summary>
-    public TerraformProperty<List<string>>? Subnetworks
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetworks is required")]
+    public List<TerraformProperty<string>>? Subnetworks
     {
-        get => GetProperty<TerraformProperty<List<string>>>("subnetworks");
+        get => GetProperty<List<TerraformProperty<string>>>("subnetworks");
         set => this.WithProperty("subnetworks", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeNetworkAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeNetworkAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

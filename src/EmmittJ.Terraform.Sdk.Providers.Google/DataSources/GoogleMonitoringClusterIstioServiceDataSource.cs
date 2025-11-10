@@ -25,7 +25,8 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The name of the Kubernetes cluster in which this Istio service is defined. 
     ///                         Corresponds to the clusterName resource label in k8s_cluster resources.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -44,7 +45,8 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The location of the Kubernetes cluster in which this Istio service is defined. 
     ///                         Corresponds to the location resource label in k8s_cluster resources.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -63,7 +65,8 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The name of the Istio service underlying this service. 
     ///                         Corresponds to the destination_service_name metric label in Istio metrics.
     /// </summary>
-    public TerraformProperty<string>? ServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
+    public required TerraformProperty<string> ServiceName
     {
         get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
@@ -73,7 +76,8 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The namespace of the Istio service underlying this service. 
     ///                         Corresponds to the destination_service_namespace metric label in Istio metrics.
     /// </summary>
-    public TerraformProperty<string>? ServiceNamespace
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
+    public required TerraformProperty<string> ServiceNamespace
     {
         get => GetProperty<TerraformProperty<string>>("service_namespace");
         set => this.WithProperty("service_namespace", value);

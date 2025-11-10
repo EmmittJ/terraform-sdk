@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleChronicleDataAccessLabelTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_chronicle_data_access_label resource.
 /// </summary>
 public class GoogleChronicleDataAccessLabel : TerraformResource
@@ -28,7 +63,8 @@ public class GoogleChronicleDataAccessLabel : TerraformResource
     /// maximum number of characters should be 63. Regex pattern is as per AIP:
     /// https://google.aip.dev/122#resource-id-segments
     /// </summary>
-    public TerraformProperty<string>? DataAccessLabelId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessLabelId is required")]
+    public required TerraformProperty<string> DataAccessLabelId
     {
         get => GetProperty<TerraformProperty<string>>("data_access_label_id");
         set => this.WithProperty("data_access_label_id", value);
@@ -55,7 +91,8 @@ public class GoogleChronicleDataAccessLabel : TerraformResource
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -64,7 +101,8 @@ public class GoogleChronicleDataAccessLabel : TerraformResource
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -82,10 +120,21 @@ public class GoogleChronicleDataAccessLabel : TerraformResource
     /// <summary>
     /// A UDM query over event data.
     /// </summary>
-    public TerraformProperty<string>? UdmQuery
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UdmQuery is required")]
+    public required TerraformProperty<string> UdmQuery
     {
         get => GetProperty<TerraformProperty<string>>("udm_query");
         set => this.WithProperty("udm_query", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleChronicleDataAccessLabelTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleChronicleDataAccessLabelTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

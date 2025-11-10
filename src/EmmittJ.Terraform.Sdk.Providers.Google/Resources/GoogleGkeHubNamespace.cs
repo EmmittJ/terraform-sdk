@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleGkeHubNamespaceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_gke_hub_namespace resource.
 /// </summary>
 public class GoogleGkeHubNamespace : TerraformResource
@@ -40,9 +75,9 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -53,9 +88,9 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// resource) take precedence over Namespace-level labels if they share
     /// a key. Keys and values must be Kubernetes-conformant.
     /// </summary>
-    public TerraformMapProperty<string>? NamespaceLabels
+    public Dictionary<string, TerraformProperty<string>>? NamespaceLabels
     {
-        get => GetProperty<TerraformMapProperty<string>>("namespace_labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("namespace_labels");
         set => this.WithProperty("namespace_labels", value);
     }
 
@@ -71,7 +106,8 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// <summary>
     /// The name of the Scope instance.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
@@ -80,7 +116,8 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// <summary>
     /// Id of the scope
     /// </summary>
-    public TerraformProperty<string>? ScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
+    public required TerraformProperty<string> ScopeId
     {
         get => GetProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
@@ -89,10 +126,21 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// <summary>
     /// The client-provided identifier of the namespace.
     /// </summary>
-    public TerraformProperty<string>? ScopeNamespaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeNamespaceId is required")]
+    public required TerraformProperty<string> ScopeNamespaceId
     {
         get => GetProperty<TerraformProperty<string>>("scope_namespace_id");
         set => this.WithProperty("scope_namespace_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleGkeHubNamespaceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleGkeHubNamespaceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

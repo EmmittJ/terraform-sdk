@@ -37,7 +37,8 @@ public class AwsCognitoUserGroup : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,7 +74,8 @@ public class AwsCognitoUserGroup : TerraformResource
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
+    public required TerraformProperty<string> UserPoolId
     {
         get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);

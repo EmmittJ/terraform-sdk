@@ -3,6 +3,57 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for fleet_default_member_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeHubFeatureFleetDefaultMemberConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for spec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeHubFeatureSpecBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleGkeHubFeatureTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_gke_hub_feature resource.
 /// </summary>
 public class GoogleGkeHubFeature : TerraformResource
@@ -38,16 +89,17 @@ public class GoogleGkeHubFeature : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -69,6 +121,38 @@ public class GoogleGkeHubFeature : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for fleet_default_member_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FleetDefaultMemberConfig block(s) allowed")]
+    public List<GoogleGkeHubFeatureFleetDefaultMemberConfigBlock>? FleetDefaultMemberConfig
+    {
+        get => GetProperty<List<GoogleGkeHubFeatureFleetDefaultMemberConfigBlock>>("fleet_default_member_config");
+        set => this.WithProperty("fleet_default_member_config", value);
+    }
+
+    /// <summary>
+    /// Block for spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
+    public List<GoogleGkeHubFeatureSpecBlock>? Spec
+    {
+        get => GetProperty<List<GoogleGkeHubFeatureSpecBlock>>("spec");
+        set => this.WithProperty("spec", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleGkeHubFeatureTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleGkeHubFeatureTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

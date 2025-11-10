@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPlatformImageDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_platform_image.
 /// </summary>
 public class AzurermPlatformImageDataSource : TerraformDataSource
@@ -28,7 +45,8 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -37,7 +55,8 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     /// <summary>
     /// The offer attribute.
     /// </summary>
-    public TerraformProperty<string>? Offer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
+    public required TerraformProperty<string> Offer
     {
         get => GetProperty<TerraformProperty<string>>("offer");
         set => this.WithProperty("offer", value);
@@ -46,7 +65,8 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformProperty<string>? Publisher
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
+    public required TerraformProperty<string> Publisher
     {
         get => GetProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
@@ -55,7 +75,8 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformProperty<string>? Sku
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
+    public required TerraformProperty<string> Sku
     {
         get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
@@ -68,6 +89,16 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPlatformImageDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPlatformImageDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

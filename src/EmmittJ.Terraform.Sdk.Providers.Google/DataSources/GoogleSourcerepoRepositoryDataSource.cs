@@ -33,7 +33,8 @@ public class GoogleSourcerepoRepositoryDataSource : TerraformDataSource
     /// Resource name of the repository, of the form &#39;{{repo}}&#39;.
     /// The repo name may contain slashes. eg, &#39;name/with/slash&#39;
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

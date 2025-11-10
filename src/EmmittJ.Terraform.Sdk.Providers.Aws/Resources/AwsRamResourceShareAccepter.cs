@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRamResourceShareAccepterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ram_resource_share_accepter resource.
 /// </summary>
 public class AwsRamResourceShareAccepter : TerraformResource
@@ -44,10 +70,21 @@ public class AwsRamResourceShareAccepter : TerraformResource
     /// <summary>
     /// The share_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ShareArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareArn is required")]
+    public required TerraformProperty<string> ShareArn
     {
         get => GetProperty<TerraformProperty<string>>("share_arn");
         set => this.WithProperty("share_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRamResourceShareAccepterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRamResourceShareAccepterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

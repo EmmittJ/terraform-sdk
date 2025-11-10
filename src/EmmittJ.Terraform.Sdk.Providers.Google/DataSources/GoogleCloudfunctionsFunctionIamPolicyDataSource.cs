@@ -21,7 +21,8 @@ public class GoogleCloudfunctionsFunctionIamPolicyDataSource : TerraformDataSour
     /// <summary>
     /// The cloud_function attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudFunction
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudFunction is required")]
+    public required TerraformProperty<string> CloudFunction
     {
         get => GetProperty<TerraformProperty<string>>("cloud_function");
         set => this.WithProperty("cloud_function", value);

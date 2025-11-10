@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for instance_metadata_service_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The minimum_instance_metadata_service_version attribute.
+    /// </summary>
+    public TerraformProperty<string>? MinimumInstanceMetadataServiceVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("minimum_instance_metadata_service_version");
+        set => WithProperty("minimum_instance_metadata_service_version", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_notebook_instance resource.
 /// </summary>
 public class AwsSagemakerNotebookInstance : TerraformResource
@@ -22,9 +39,9 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// <summary>
     /// The additional_code_repositories attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdditionalCodeRepositories
+    public HashSet<TerraformProperty<string>>? AdditionalCodeRepositories
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("additional_code_repositories");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("additional_code_repositories");
         set => this.WithProperty("additional_code_repositories", value);
     }
 
@@ -58,7 +75,8 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
     {
         get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
@@ -85,7 +103,8 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -112,7 +131,8 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -130,9 +150,9 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
@@ -148,18 +168,18 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -170,6 +190,17 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("volume_size");
         set => this.WithProperty("volume_size", value);
+    }
+
+    /// <summary>
+    /// Block for instance_metadata_service_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMetadataServiceConfiguration block(s) allowed")]
+    public List<AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock>? InstanceMetadataServiceConfiguration
+    {
+        get => GetProperty<List<AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock>>("instance_metadata_service_configuration");
+        set => this.WithProperty("instance_metadata_service_configuration", value);
     }
 
     /// <summary>

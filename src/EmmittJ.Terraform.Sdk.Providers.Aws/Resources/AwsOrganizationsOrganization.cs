@@ -27,18 +27,18 @@ public class AwsOrganizationsOrganization : TerraformResource
     /// <summary>
     /// The aws_service_access_principals attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AwsServiceAccessPrincipals
+    public HashSet<TerraformProperty<string>>? AwsServiceAccessPrincipals
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("aws_service_access_principals");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("aws_service_access_principals");
         set => this.WithProperty("aws_service_access_principals", value);
     }
 
     /// <summary>
     /// The enabled_policy_types attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EnabledPolicyTypes
+    public HashSet<TerraformProperty<string>>? EnabledPolicyTypes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("enabled_policy_types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_policy_types");
         set => this.WithProperty("enabled_policy_types", value);
     }
 

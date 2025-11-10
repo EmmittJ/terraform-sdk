@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamOauthClientTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_oauth_client resource.
 /// </summary>
 public class GoogleIamOauthClient : TerraformResource
@@ -23,9 +58,10 @@ public class GoogleIamOauthClient : TerraformResource
     /// <summary>
     /// Required. The list of OAuth grant types is allowed for the OauthClient.
     /// </summary>
-    public TerraformProperty<List<string>>? AllowedGrantTypes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedGrantTypes is required")]
+    public List<TerraformProperty<string>>? AllowedGrantTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("allowed_grant_types");
+        get => GetProperty<List<TerraformProperty<string>>>("allowed_grant_types");
         set => this.WithProperty("allowed_grant_types", value);
     }
 
@@ -33,9 +69,10 @@ public class GoogleIamOauthClient : TerraformResource
     /// Required. The list of redirect uris that is allowed to redirect back
     /// when authorization process is completed.
     /// </summary>
-    public TerraformProperty<List<string>>? AllowedRedirectUris
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedRedirectUris is required")]
+    public List<TerraformProperty<string>>? AllowedRedirectUris
     {
-        get => GetProperty<TerraformProperty<List<string>>>("allowed_redirect_uris");
+        get => GetProperty<List<TerraformProperty<string>>>("allowed_redirect_uris");
         set => this.WithProperty("allowed_redirect_uris", value);
     }
 
@@ -53,9 +90,10 @@ public class GoogleIamOauthClient : TerraformResource
     /// * &#39;email&#39;: The OAuth client can read a federated identity&#39;s email address.
     /// * &#39;groups&#39;: The OAuth client can read a federated identity&#39;s groups.
     /// </summary>
-    public TerraformProperty<List<string>>? AllowedScopes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedScopes is required")]
+    public List<TerraformProperty<string>>? AllowedScopes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("allowed_scopes");
+        get => GetProperty<List<TerraformProperty<string>>>("allowed_scopes");
         set => this.WithProperty("allowed_scopes", value);
     }
 
@@ -118,7 +156,8 @@ public class GoogleIamOauthClient : TerraformResource
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -131,7 +170,8 @@ public class GoogleIamOauthClient : TerraformResource
     /// trailing hyphen. The prefix &#39;gcp-&#39; is reserved for use by Google, and may
     /// not be specified.
     /// </summary>
-    public TerraformProperty<string>? OauthClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientId is required")]
+    public required TerraformProperty<string> OauthClientId
     {
         get => GetProperty<TerraformProperty<string>>("oauth_client_id");
         set => this.WithProperty("oauth_client_id", value);
@@ -144,6 +184,16 @@ public class GoogleIamOauthClient : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamOauthClientTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamOauthClientTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

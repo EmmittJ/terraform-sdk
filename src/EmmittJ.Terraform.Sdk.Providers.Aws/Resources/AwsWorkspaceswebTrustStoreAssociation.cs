@@ -19,7 +19,8 @@ public class AwsWorkspaceswebTrustStoreAssociation : TerraformResource
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PortalArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
+    public required TerraformProperty<string> PortalArn
     {
         get => GetProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
@@ -37,7 +38,8 @@ public class AwsWorkspaceswebTrustStoreAssociation : TerraformResource
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TrustStoreArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustStoreArn is required")]
+    public required TerraformProperty<string> TrustStoreArn
     {
         get => GetProperty<TerraformProperty<string>>("trust_store_arn");
         set => this.WithProperty("trust_store_arn", value);

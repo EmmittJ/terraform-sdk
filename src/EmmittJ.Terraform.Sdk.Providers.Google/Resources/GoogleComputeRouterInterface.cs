@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRouterInterfaceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_router_interface resource.
 /// </summary>
 public class GoogleComputeRouterInterface : TerraformResource
@@ -55,7 +81,8 @@ public class GoogleComputeRouterInterface : TerraformResource
     /// <summary>
     /// A unique name for the interface, required by GCE. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,7 +127,8 @@ public class GoogleComputeRouterInterface : TerraformResource
     /// <summary>
     /// The name of the router this interface will be attached to. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformProperty<string>? Router
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
+    public required TerraformProperty<string> Router
     {
         get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
@@ -122,6 +150,16 @@ public class GoogleComputeRouterInterface : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpn_tunnel");
         set => this.WithProperty("vpn_tunnel", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRouterInterfaceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRouterInterfaceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

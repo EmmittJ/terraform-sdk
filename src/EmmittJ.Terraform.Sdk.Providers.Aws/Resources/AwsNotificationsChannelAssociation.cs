@@ -19,7 +19,8 @@ public class AwsNotificationsChannelAssociation : TerraformResource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
+    public required TerraformProperty<string> Arn
     {
         get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
@@ -28,7 +29,8 @@ public class AwsNotificationsChannelAssociation : TerraformResource
     /// <summary>
     /// The notification_configuration_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationConfigurationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
+    public required TerraformProperty<string> NotificationConfigurationArn
     {
         get => GetProperty<TerraformProperty<string>>("notification_configuration_arn");
         set => this.WithProperty("notification_configuration_arn", value);

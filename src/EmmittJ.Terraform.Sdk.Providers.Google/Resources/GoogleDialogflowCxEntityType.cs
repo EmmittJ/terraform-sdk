@@ -3,6 +3,87 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for entities in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// A collection of value synonyms. For example, if the entity type is vegetable, and value is scallions, a synonym could be green onions.
+    /// For KIND_LIST entity types: This collection must contain exactly one synonym equal to value.
+    /// </summary>
+    public List<TerraformProperty<string>>? Synonyms
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("synonyms");
+        set => WithProperty("synonyms", value);
+    }
+
+    /// <summary>
+    /// The primary value associated with this entity entry. For example, if the entity type is vegetable, the value could be scallions.
+    /// For KIND_MAP entity types: A canonical value to be used in place of synonyms.
+    /// For KIND_LIST entity types: A string that can contain references to other entity types (with or without aliases).
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for excluded_phrases in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The word or phrase to be excluded.
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDialogflowCxEntityTypeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dialogflow_cx_entity_type resource.
 /// </summary>
 public class GoogleDialogflowCxEntityType : TerraformResource
@@ -31,7 +112,8 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// <summary>
     /// The human-readable name of the entity type, unique within the agent.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -61,7 +143,8 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// * KIND_LIST: List entity types contain a set of entries that do not map to canonical values. However, list entity types can contain references to other entity types (with or without aliases).
     /// * KIND_REGEXP: Regexp entity types allow to specify regular expressions in entries values. Possible values: [&amp;quot;KIND_MAP&amp;quot;, &amp;quot;KIND_LIST&amp;quot;, &amp;quot;KIND_REGEXP&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Kind
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
+    public required TerraformProperty<string> Kind
     {
         get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
@@ -97,6 +180,37 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("redact");
         set => this.WithProperty("redact", value);
+    }
+
+    /// <summary>
+    /// Block for entities.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entities block(s) required")]
+    public List<GoogleDialogflowCxEntityTypeEntitiesBlock>? Entities
+    {
+        get => GetProperty<List<GoogleDialogflowCxEntityTypeEntitiesBlock>>("entities");
+        set => this.WithProperty("entities", value);
+    }
+
+    /// <summary>
+    /// Block for excluded_phrases.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDialogflowCxEntityTypeExcludedPhrasesBlock>? ExcludedPhrases
+    {
+        get => GetProperty<List<GoogleDialogflowCxEntityTypeExcludedPhrasesBlock>>("excluded_phrases");
+        set => this.WithProperty("excluded_phrases", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDialogflowCxEntityTypeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDialogflowCxEntityTypeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

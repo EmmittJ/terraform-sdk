@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for key_registration in .
+/// Nesting mode: set
+/// </summary>
+public class AwsQuicksightKeyRegistrationKeyRegistrationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The default_key attribute.
+    /// </summary>
+    public TerraformProperty<bool>? DefaultKey
+    {
+        get => GetProperty<TerraformProperty<bool>>("default_key");
+        set => WithProperty("default_key", value);
+    }
+
+    /// <summary>
+    /// The key_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyArn is required")]
+    public required TerraformProperty<string> KeyArn
+    {
+        get => GetProperty<TerraformProperty<string>>("key_arn");
+        set => WithProperty("key_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_quicksight_key_registration resource.
 /// </summary>
 public class AwsQuicksightKeyRegistration : TerraformResource
@@ -32,6 +59,16 @@ public class AwsQuicksightKeyRegistration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for key_registration.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsQuicksightKeyRegistrationKeyRegistrationBlock>? KeyRegistration
+    {
+        get => GetProperty<HashSet<AwsQuicksightKeyRegistrationKeyRegistrationBlock>>("key_registration");
+        set => this.WithProperty("key_registration", value);
     }
 
 }

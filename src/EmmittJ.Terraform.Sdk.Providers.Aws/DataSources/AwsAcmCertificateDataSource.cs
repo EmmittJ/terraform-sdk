@@ -41,9 +41,9 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The key_types attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? KeyTypes
+    public HashSet<TerraformProperty<string>>? KeyTypes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("key_types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("key_types");
         set => this.WithProperty("key_types", value);
     }
 
@@ -68,27 +68,27 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The statuses attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Statuses
+    public List<TerraformProperty<string>>? Statuses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("statuses");
+        get => GetProperty<List<TerraformProperty<string>>>("statuses");
         set => this.WithProperty("statuses", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The types attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Types
+    public List<TerraformProperty<string>>? Types
     {
-        get => GetProperty<TerraformProperty<List<string>>>("types");
+        get => GetProperty<List<TerraformProperty<string>>>("types");
         set => this.WithProperty("types", value);
     }
 

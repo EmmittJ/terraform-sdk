@@ -19,7 +19,8 @@ public class AwsSsmDefaultPatchBaseline : TerraformResource
     /// <summary>
     /// The baseline_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BaselineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineId is required")]
+    public required TerraformProperty<string> BaselineId
     {
         get => GetProperty<TerraformProperty<string>>("baseline_id");
         set => this.WithProperty("baseline_id", value);
@@ -37,7 +38,8 @@ public class AwsSsmDefaultPatchBaseline : TerraformResource
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
-    public TerraformProperty<string>? OperatingSystem
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatingSystem is required")]
+    public required TerraformProperty<string> OperatingSystem
     {
         get => GetProperty<TerraformProperty<string>>("operating_system");
         set => this.WithProperty("operating_system", value);

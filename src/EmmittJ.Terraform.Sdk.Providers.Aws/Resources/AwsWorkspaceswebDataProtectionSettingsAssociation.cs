@@ -19,7 +19,8 @@ public class AwsWorkspaceswebDataProtectionSettingsAssociation : TerraformResour
     /// <summary>
     /// The data_protection_settings_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DataProtectionSettingsArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataProtectionSettingsArn is required")]
+    public required TerraformProperty<string> DataProtectionSettingsArn
     {
         get => GetProperty<TerraformProperty<string>>("data_protection_settings_arn");
         set => this.WithProperty("data_protection_settings_arn", value);
@@ -28,7 +29,8 @@ public class AwsWorkspaceswebDataProtectionSettingsAssociation : TerraformResour
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PortalArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
+    public required TerraformProperty<string> PortalArn
     {
         get => GetProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);

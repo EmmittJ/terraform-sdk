@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSccV2OrganizationMuteConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_scc_v2_organization_mute_config resource.
 /// </summary>
 public class GoogleSccV2OrganizationMuteConfig : TerraformResource
@@ -36,7 +71,8 @@ public class GoogleSccV2OrganizationMuteConfig : TerraformResource
     /// If a filter contains project = X but is created under the
     /// project = Y scope, it might not match any findings.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
+    public required TerraformProperty<string> Filter
     {
         get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
@@ -63,7 +99,8 @@ public class GoogleSccV2OrganizationMuteConfig : TerraformResource
     /// <summary>
     /// Unique identifier provided by the client within the parent scope.
     /// </summary>
-    public TerraformProperty<string>? MuteConfigId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
+    public required TerraformProperty<string> MuteConfigId
     {
         get => GetProperty<TerraformProperty<string>>("mute_config_id");
         set => this.WithProperty("mute_config_id", value);
@@ -73,7 +110,8 @@ public class GoogleSccV2OrganizationMuteConfig : TerraformResource
     /// The organization whose Cloud Security Command Center the Mute
     /// Config lives in.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -82,10 +120,21 @@ public class GoogleSccV2OrganizationMuteConfig : TerraformResource
     /// <summary>
     /// The type of the mute config.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSccV2OrganizationMuteConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSccV2OrganizationMuteConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataShareDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_data_share.
 /// </summary>
 public class AzurermDataShareDataSource : TerraformDataSource
@@ -23,7 +40,8 @@ public class AzurermDataShareDataSource : TerraformDataSource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
+    public required TerraformProperty<string> AccountId
     {
         get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
@@ -41,10 +59,21 @@ public class AzurermDataShareDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataShareDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataShareDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

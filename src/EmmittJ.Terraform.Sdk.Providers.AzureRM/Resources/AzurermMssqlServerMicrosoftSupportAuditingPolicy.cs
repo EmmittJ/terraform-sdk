@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_mssql_server_microsoft_support_auditing_policy resource.
 /// </summary>
 public class AzurermMssqlServerMicrosoftSupportAuditingPolicy : TerraformResource
@@ -55,7 +99,8 @@ public class AzurermMssqlServerMicrosoftSupportAuditingPolicy : TerraformResourc
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
+    public required TerraformProperty<string> ServerId
     {
         get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
@@ -77,6 +122,16 @@ public class AzurermMssqlServerMicrosoftSupportAuditingPolicy : TerraformResourc
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_subscription_id");
         set => this.WithProperty("storage_account_subscription_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

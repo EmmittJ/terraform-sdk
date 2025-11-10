@@ -39,7 +39,8 @@ public class GoogleOrganizationIamCustomRole : TerraformResource
     /// <summary>
     /// The numeric ID of the organization in which you want to create a custom role.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -48,16 +49,18 @@ public class GoogleOrganizationIamCustomRole : TerraformResource
     /// <summary>
     /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Permissions
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
+    public HashSet<TerraformProperty<string>>? Permissions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("permissions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
     /// <summary>
     /// The role id to use for this role.
     /// </summary>
-    public TerraformProperty<string>? RoleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
+    public required TerraformProperty<string> RoleId
     {
         get => GetProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
@@ -75,7 +78,8 @@ public class GoogleOrganizationIamCustomRole : TerraformResource
     /// <summary>
     /// A human-readable title for the role.
     /// </summary>
-    public TerraformProperty<string>? Title
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
     {
         get => GetProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);

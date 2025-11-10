@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_container_registry_cache_rule.
 /// </summary>
 public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
@@ -22,7 +39,8 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerRegistryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
+    public required TerraformProperty<string> ContainerRegistryId
     {
         get => GetProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
@@ -40,10 +58,21 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

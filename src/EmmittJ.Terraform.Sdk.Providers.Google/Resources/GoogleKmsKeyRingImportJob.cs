@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleKmsKeyRingImportJobTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_kms_key_ring_import_job resource.
 /// </summary>
 public class GoogleKmsKeyRingImportJob : TerraformResource
@@ -33,7 +59,8 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// <summary>
     /// It must be unique within a KeyRing and match the regular expression [a-zA-Z0-9_-]{1,63}
     /// </summary>
-    public TerraformProperty<string>? ImportJobId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportJobId is required")]
+    public required TerraformProperty<string> ImportJobId
     {
         get => GetProperty<TerraformProperty<string>>("import_job_id");
         set => this.WithProperty("import_job_id", value);
@@ -42,7 +69,8 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// <summary>
     /// The wrapping method to be used for incoming key material. Possible values: [&amp;quot;RSA_OAEP_3072_SHA1_AES_256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA1_AES_256&amp;quot;, &amp;quot;RSA_OAEP_3072_SHA256_AES_256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA256_AES_256&amp;quot;, &amp;quot;RSA_OAEP_3072_SHA256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA256&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ImportMethod
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMethod is required")]
+    public required TerraformProperty<string> ImportMethod
     {
         get => GetProperty<TerraformProperty<string>>("import_method");
         set => this.WithProperty("import_method", value);
@@ -52,7 +80,8 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// The KeyRing that this import job belongs to.
     /// Format: &#39;&#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;&#39;.
     /// </summary>
-    public TerraformProperty<string>? KeyRing
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
+    public required TerraformProperty<string> KeyRing
     {
         get => GetProperty<TerraformProperty<string>>("key_ring");
         set => this.WithProperty("key_ring", value);
@@ -62,10 +91,21 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// The protection level of the ImportJob. This must match the protectionLevel of the
     /// versionTemplate on the CryptoKey you attempt to import into. Possible values: [&amp;quot;SOFTWARE&amp;quot;, &amp;quot;HSM&amp;quot;, &amp;quot;EXTERNAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ProtectionLevel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionLevel is required")]
+    public required TerraformProperty<string> ProtectionLevel
     {
         get => GetProperty<TerraformProperty<string>>("protection_level");
         set => this.WithProperty("protection_level", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleKmsKeyRingImportJobTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleKmsKeyRingImportJobTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

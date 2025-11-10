@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for finding_criteria in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGuarddutyFilterFindingCriteriaBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_guardduty_filter resource.
 /// </summary>
 public class AwsGuarddutyFilter : TerraformResource
@@ -20,7 +28,8 @@ public class AwsGuarddutyFilter : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -38,7 +47,8 @@ public class AwsGuarddutyFilter : TerraformResource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
+    public required TerraformProperty<string> DetectorId
     {
         get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
@@ -56,7 +66,8 @@ public class AwsGuarddutyFilter : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -65,7 +76,8 @@ public class AwsGuarddutyFilter : TerraformResource
     /// <summary>
     /// The rank attribute.
     /// </summary>
-    public TerraformProperty<double>? Rank
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
+    public required TerraformProperty<double> Rank
     {
         get => GetProperty<TerraformProperty<double>>("rank");
         set => this.WithProperty("rank", value);
@@ -83,19 +95,31 @@ public class AwsGuarddutyFilter : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for finding_criteria.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FindingCriteria block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FindingCriteria block(s) allowed")]
+    public List<AwsGuarddutyFilterFindingCriteriaBlock>? FindingCriteria
+    {
+        get => GetProperty<List<AwsGuarddutyFilterFindingCriteriaBlock>>("finding_criteria");
+        set => this.WithProperty("finding_criteria", value);
     }
 
     /// <summary>

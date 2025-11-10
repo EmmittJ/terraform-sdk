@@ -29,7 +29,8 @@ public class AwsVpcEndpointAssociationsDataSource : TerraformDataSource
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
+    public required TerraformProperty<string> VpcEndpointId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);

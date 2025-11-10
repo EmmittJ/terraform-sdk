@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAmiDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsAmiDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_ami.
 /// </summary>
 public class AwsAmiDataSource : TerraformDataSource
@@ -60,9 +105,9 @@ public class AwsAmiDataSource : TerraformDataSource
     /// <summary>
     /// The executable_users attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ExecutableUsers
+    public List<TerraformProperty<string>>? ExecutableUsers
     {
-        get => GetProperty<TerraformProperty<List<string>>>("executable_users");
+        get => GetProperty<List<TerraformProperty<string>>>("executable_users");
         set => this.WithProperty("executable_users", value);
     }
 
@@ -105,9 +150,9 @@ public class AwsAmiDataSource : TerraformDataSource
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Owners
+    public List<TerraformProperty<string>>? Owners
     {
-        get => GetProperty<TerraformProperty<List<string>>>("owners");
+        get => GetProperty<List<TerraformProperty<string>>>("owners");
         set => this.WithProperty("owners", value);
     }
 
@@ -123,9 +168,9 @@ public class AwsAmiDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -136,6 +181,26 @@ public class AwsAmiDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("uefi_data");
         set => this.WithProperty("uefi_data", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAmiDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsAmiDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsAmiDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsAmiDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

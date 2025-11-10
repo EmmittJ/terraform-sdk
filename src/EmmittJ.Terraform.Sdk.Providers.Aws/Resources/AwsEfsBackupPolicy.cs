@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for backup_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEfsBackupPolicyBackupPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
+    public required TerraformProperty<string> Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_efs_backup_policy resource.
 /// </summary>
 public class AwsEfsBackupPolicy : TerraformResource
@@ -19,7 +37,8 @@ public class AwsEfsBackupPolicy : TerraformResource
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
+    public required TerraformProperty<string> FileSystemId
     {
         get => GetProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
@@ -41,6 +60,18 @@ public class AwsEfsBackupPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for backup_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackupPolicy block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupPolicy block(s) allowed")]
+    public List<AwsEfsBackupPolicyBackupPolicyBlock>? BackupPolicy
+    {
+        get => GetProperty<List<AwsEfsBackupPolicyBackupPolicyBlock>>("backup_policy");
+        set => this.WithProperty("backup_policy", value);
     }
 
 }

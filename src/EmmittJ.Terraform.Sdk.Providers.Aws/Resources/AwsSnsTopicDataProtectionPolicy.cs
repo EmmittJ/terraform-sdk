@@ -19,7 +19,8 @@ public class AwsSnsTopicDataProtectionPolicy : TerraformResource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
+    public required TerraformProperty<string> Arn
     {
         get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
@@ -37,7 +38,8 @@ public class AwsSnsTopicDataProtectionPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);

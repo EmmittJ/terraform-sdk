@@ -3,6 +3,76 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for quota in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermSpringCloudContainerDeploymentQuotaBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cpu attribute.
+    /// </summary>
+    public TerraformProperty<string>? Cpu
+    {
+        get => GetProperty<TerraformProperty<string>>("cpu");
+        set => WithProperty("cpu", value);
+    }
+
+    /// <summary>
+    /// The memory attribute.
+    /// </summary>
+    public TerraformProperty<string>? Memory
+    {
+        get => GetProperty<TerraformProperty<string>>("memory");
+        set => WithProperty("memory", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSpringCloudContainerDeploymentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_spring_cloud_container_deployment resource.
 /// </summary>
 public class AzurermSpringCloudContainerDeployment : TerraformResource
@@ -28,36 +98,36 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The application_performance_monitoring_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ApplicationPerformanceMonitoringIds
+    public List<TerraformProperty<string>>? ApplicationPerformanceMonitoringIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("application_performance_monitoring_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("application_performance_monitoring_ids");
         set => this.WithProperty("application_performance_monitoring_ids", value);
     }
 
     /// <summary>
     /// The arguments attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Arguments
+    public List<TerraformProperty<string>>? Arguments
     {
-        get => GetProperty<TerraformProperty<List<string>>>("arguments");
+        get => GetProperty<List<TerraformProperty<string>>>("arguments");
         set => this.WithProperty("arguments", value);
     }
 
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Commands
+    public List<TerraformProperty<string>>? Commands
     {
-        get => GetProperty<TerraformProperty<List<string>>>("commands");
+        get => GetProperty<List<TerraformProperty<string>>>("commands");
         set => this.WithProperty("commands", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public TerraformMapProperty<string>? EnvironmentVariables
+    public Dictionary<string, TerraformProperty<string>>? EnvironmentVariables
     {
-        get => GetProperty<TerraformMapProperty<string>>("environment_variables");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 
@@ -73,7 +143,8 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The image attribute.
     /// </summary>
-    public TerraformProperty<string>? Image
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
+    public required TerraformProperty<string> Image
     {
         get => GetProperty<TerraformProperty<string>>("image");
         set => this.WithProperty("image", value);
@@ -100,7 +171,8 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -109,7 +181,8 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The server attribute.
     /// </summary>
-    public TerraformProperty<string>? Server
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
+    public required TerraformProperty<string> Server
     {
         get => GetProperty<TerraformProperty<string>>("server");
         set => this.WithProperty("server", value);
@@ -118,10 +191,32 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SpringCloudAppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
+    public required TerraformProperty<string> SpringCloudAppId
     {
         get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
+    }
+
+    /// <summary>
+    /// Block for quota.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
+    public List<AzurermSpringCloudContainerDeploymentQuotaBlock>? Quota
+    {
+        get => GetProperty<List<AzurermSpringCloudContainerDeploymentQuotaBlock>>("quota");
+        set => this.WithProperty("quota", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSpringCloudContainerDeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSpringCloudContainerDeploymentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

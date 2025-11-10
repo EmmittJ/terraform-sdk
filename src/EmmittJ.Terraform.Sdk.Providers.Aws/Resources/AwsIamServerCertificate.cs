@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsIamServerCertificateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_iam_server_certificate resource.
 /// </summary>
 public class AwsIamServerCertificate : TerraformResource
@@ -22,7 +39,8 @@ public class AwsIamServerCertificate : TerraformResource
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateBody
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
+    public required TerraformProperty<string> CertificateBody
     {
         get => GetProperty<TerraformProperty<string>>("certificate_body");
         set => this.WithProperty("certificate_body", value);
@@ -76,7 +94,8 @@ public class AwsIamServerCertificate : TerraformResource
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
+    public required TerraformProperty<string> PrivateKey
     {
         get => GetProperty<TerraformProperty<string>>("private_key");
         set => this.WithProperty("private_key", value);
@@ -85,19 +104,29 @@ public class AwsIamServerCertificate : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsIamServerCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsIamServerCertificateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -22,7 +22,8 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
     /// <summary>
     /// The log_type attribute.
     /// </summary>
-    public TerraformProperty<string>? LogType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
+    public required TerraformProperty<string> LogType
     {
         get => GetProperty<TerraformProperty<string>>("log_type");
         set => this.WithProperty("log_type", value);
@@ -31,7 +32,8 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -49,7 +51,8 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
+    public required TerraformProperty<string> ResourceArn
     {
         get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
@@ -58,9 +61,9 @@ public class AwsCloudwatchLogDeliverySource : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

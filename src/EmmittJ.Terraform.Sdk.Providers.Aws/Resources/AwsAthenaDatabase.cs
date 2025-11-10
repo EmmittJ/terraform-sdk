@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for acl_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The s3_acl_option attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3AclOption is required")]
+    public required TerraformProperty<string> S3AclOption
+    {
+        get => GetProperty<TerraformProperty<string>>("s3_acl_option");
+        set => WithProperty("s3_acl_option", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for encryption_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The encryption_option attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionOption is required")]
+    public required TerraformProperty<string> EncryptionOption
+    {
+        get => GetProperty<TerraformProperty<string>>("encryption_option");
+        set => WithProperty("encryption_option", value);
+    }
+
+    /// <summary>
+    /// The kms_key attribute.
+    /// </summary>
+    public TerraformProperty<string>? KmsKey
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key");
+        set => WithProperty("kms_key", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_athena_database resource.
 /// </summary>
 public class AwsAthenaDatabase : TerraformResource
@@ -64,7 +109,8 @@ public class AwsAthenaDatabase : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,9 +119,9 @@ public class AwsAthenaDatabase : TerraformResource
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Properties
+    public Dictionary<string, TerraformProperty<string>>? Properties
     {
-        get => GetProperty<TerraformMapProperty<string>>("properties");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("properties");
         set => this.WithProperty("properties", value);
     }
 
@@ -95,6 +141,28 @@ public class AwsAthenaDatabase : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("workgroup");
         set => this.WithProperty("workgroup", value);
+    }
+
+    /// <summary>
+    /// Block for acl_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AclConfiguration block(s) allowed")]
+    public List<AwsAthenaDatabaseAclConfigurationBlock>? AclConfiguration
+    {
+        get => GetProperty<List<AwsAthenaDatabaseAclConfigurationBlock>>("acl_configuration");
+        set => this.WithProperty("acl_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
+    public List<AwsAthenaDatabaseEncryptionConfigurationBlock>? EncryptionConfiguration
+    {
+        get => GetProperty<List<AwsAthenaDatabaseEncryptionConfigurationBlock>>("encryption_configuration");
+        set => this.WithProperty("encryption_configuration", value);
     }
 
 }

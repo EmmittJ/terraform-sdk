@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeNetworkEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_network_endpoint resource.
 /// </summary>
 public class GoogleComputeNetworkEndpoint : TerraformResource
@@ -41,7 +67,8 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// to a VM in GCE (either the primary IP or as part of an aliased IP
     /// range).
     /// </summary>
-    public TerraformProperty<string>? IpAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
+    public required TerraformProperty<string> IpAddress
     {
         get => GetProperty<TerraformProperty<string>>("ip_address");
         set => this.WithProperty("ip_address", value);
@@ -50,7 +77,8 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// <summary>
     /// The network endpoint group this endpoint is part of.
     /// </summary>
-    public TerraformProperty<string>? NetworkEndpointGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointGroup is required")]
+    public required TerraformProperty<string> NetworkEndpointGroup
     {
         get => GetProperty<TerraformProperty<string>>("network_endpoint_group");
         set => this.WithProperty("network_endpoint_group", value);
@@ -83,6 +111,16 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeNetworkEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeNetworkEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

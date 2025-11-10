@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVerifiedpermissionsIdentitySourceConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_verifiedpermissions_identity_source resource.
 /// </summary>
 public class AwsVerifiedpermissionsIdentitySource : TerraformResource
@@ -20,7 +28,8 @@ public class AwsVerifiedpermissionsIdentitySource : TerraformResource
     /// <summary>
     /// The policy_store_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
+    public required TerraformProperty<string> PolicyStoreId
     {
         get => GetProperty<TerraformProperty<string>>("policy_store_id");
         set => this.WithProperty("policy_store_id", value);
@@ -42,6 +51,16 @@ public class AwsVerifiedpermissionsIdentitySource : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsVerifiedpermissionsIdentitySourceConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsVerifiedpermissionsIdentitySourceConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
     }
 
     /// <summary>

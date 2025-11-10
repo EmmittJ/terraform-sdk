@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApiManagementApiOperationPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_api_management_api_operation_policy resource.
 /// </summary>
 public class AzurermApiManagementApiOperationPolicy : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermApiManagementApiOperationPolicy : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiManagementName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
+    public required TerraformProperty<string> ApiManagementName
     {
         get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
@@ -28,7 +73,8 @@ public class AzurermApiManagementApiOperationPolicy : TerraformResource
     /// <summary>
     /// The api_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
+    public required TerraformProperty<string> ApiName
     {
         get => GetProperty<TerraformProperty<string>>("api_name");
         set => this.WithProperty("api_name", value);
@@ -46,7 +92,8 @@ public class AzurermApiManagementApiOperationPolicy : TerraformResource
     /// <summary>
     /// The operation_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OperationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationId is required")]
+    public required TerraformProperty<string> OperationId
     {
         get => GetProperty<TerraformProperty<string>>("operation_id");
         set => this.WithProperty("operation_id", value);
@@ -55,7 +102,8 @@ public class AzurermApiManagementApiOperationPolicy : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -77,6 +125,16 @@ public class AzurermApiManagementApiOperationPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("xml_link");
         set => this.WithProperty("xml_link", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApiManagementApiOperationPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApiManagementApiOperationPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

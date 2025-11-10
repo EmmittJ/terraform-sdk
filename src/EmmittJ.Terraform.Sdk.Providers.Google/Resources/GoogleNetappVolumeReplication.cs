@@ -3,6 +3,86 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for destination_volume_parameters in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Description for the destination volume.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// Share name for destination volume. If not specified, name of source volume&#39;s share name will be used.
+    /// </summary>
+    public TerraformProperty<string>? ShareName
+    {
+        get => GetProperty<TerraformProperty<string>>("share_name");
+        set => WithProperty("share_name", value);
+    }
+
+    /// <summary>
+    /// Name of an existing storage pool for the destination volume with format: &#39;projects/{{project}}/locations/{{location}}/storagePools/{{poolId}}&#39;
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
+    public required TerraformProperty<string> StoragePool
+    {
+        get => GetProperty<TerraformProperty<string>>("storage_pool");
+        set => WithProperty("storage_pool", value);
+    }
+
+    /// <summary>
+    /// Name for the destination volume to be created. If not specified, the name of the source volume will be used.
+    /// </summary>
+    public TerraformProperty<string>? VolumeId
+    {
+        get => GetProperty<TerraformProperty<string>>("volume_id");
+        set => WithProperty("volume_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_netapp_volume_replication resource.
 /// </summary>
 public class GoogleNetappVolumeReplication : TerraformResource
@@ -82,16 +162,17 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of region for this resource. The resource needs to be created in the region of the destination volume.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -100,7 +181,8 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// <summary>
     /// The name of the replication. Needs to be unique per location.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -130,7 +212,8 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// <summary>
     /// Specifies the replication interval. Possible values: [&amp;quot;EVERY_10_MINUTES&amp;quot;, &amp;quot;HOURLY&amp;quot;, &amp;quot;DAILY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ReplicationSchedule
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSchedule is required")]
+    public required TerraformProperty<string> ReplicationSchedule
     {
         get => GetProperty<TerraformProperty<string>>("replication_schedule");
         set => this.WithProperty("replication_schedule", value);
@@ -139,7 +222,8 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// <summary>
     /// The name of the existing source volume.
     /// </summary>
-    public TerraformProperty<string>? VolumeName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
+    public required TerraformProperty<string> VolumeName
     {
         get => GetProperty<TerraformProperty<string>>("volume_name");
         set => this.WithProperty("volume_name", value);
@@ -154,6 +238,27 @@ public class GoogleNetappVolumeReplication : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("wait_for_mirror");
         set => this.WithProperty("wait_for_mirror", value);
+    }
+
+    /// <summary>
+    /// Block for destination_volume_parameters.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationVolumeParameters block(s) allowed")]
+    public List<GoogleNetappVolumeReplicationDestinationVolumeParametersBlock>? DestinationVolumeParameters
+    {
+        get => GetProperty<List<GoogleNetappVolumeReplicationDestinationVolumeParametersBlock>>("destination_volume_parameters");
+        set => this.WithProperty("destination_volume_parameters", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetappVolumeReplicationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetappVolumeReplicationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

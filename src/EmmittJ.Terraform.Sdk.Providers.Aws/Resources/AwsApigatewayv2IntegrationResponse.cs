@@ -19,7 +19,8 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -46,7 +47,8 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
     /// <summary>
     /// The integration_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IntegrationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationId is required")]
+    public required TerraformProperty<string> IntegrationId
     {
         get => GetProperty<TerraformProperty<string>>("integration_id");
         set => this.WithProperty("integration_id", value);
@@ -55,7 +57,8 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
     /// <summary>
     /// The integration_response_key attribute.
     /// </summary>
-    public TerraformProperty<string>? IntegrationResponseKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationResponseKey is required")]
+    public required TerraformProperty<string> IntegrationResponseKey
     {
         get => GetProperty<TerraformProperty<string>>("integration_response_key");
         set => this.WithProperty("integration_response_key", value);
@@ -73,9 +76,9 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
     /// <summary>
     /// The response_templates attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ResponseTemplates
+    public Dictionary<string, TerraformProperty<string>>? ResponseTemplates
     {
-        get => GetProperty<TerraformMapProperty<string>>("response_templates");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("response_templates");
         set => this.WithProperty("response_templates", value);
     }
 

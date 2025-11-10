@@ -24,7 +24,8 @@ public class AwsCodecommitApprovalRuleTemplate : TerraformResource
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformProperty<string> Content
     {
         get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
@@ -51,7 +52,8 @@ public class AwsCodecommitApprovalRuleTemplate : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

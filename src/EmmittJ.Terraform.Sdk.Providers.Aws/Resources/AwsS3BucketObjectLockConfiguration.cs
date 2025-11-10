@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for rule in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3BucketObjectLockConfigurationRuleBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_s3_bucket_object_lock_configuration resource.
 /// </summary>
 public class AwsS3BucketObjectLockConfiguration : TerraformResource
@@ -19,7 +27,8 @@ public class AwsS3BucketObjectLockConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -68,6 +77,17 @@ public class AwsS3BucketObjectLockConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
+    }
+
+    /// <summary>
+    /// Block for rule.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rule block(s) allowed")]
+    public List<AwsS3BucketObjectLockConfigurationRuleBlock>? Rule
+    {
+        get => GetProperty<List<AwsS3BucketObjectLockConfigurationRuleBlock>>("rule");
+        set => this.WithProperty("rule", value);
     }
 
 }

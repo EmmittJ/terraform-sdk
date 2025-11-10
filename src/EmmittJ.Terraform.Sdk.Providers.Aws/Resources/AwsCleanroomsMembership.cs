@@ -3,6 +3,31 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for default_result_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCleanroomsMembershipDefaultResultConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The role_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? RoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("role_arn");
+        set => WithProperty("role_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for payment_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCleanroomsMembershipPaymentConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_cleanrooms_membership resource.
 /// </summary>
 public class AwsCleanroomsMembership : TerraformResource
@@ -30,7 +55,8 @@ public class AwsCleanroomsMembership : TerraformResource
     /// <summary>
     /// The collaboration_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CollaborationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationId is required")]
+    public required TerraformProperty<string> CollaborationId
     {
         get => GetProperty<TerraformProperty<string>>("collaboration_id");
         set => this.WithProperty("collaboration_id", value);
@@ -39,7 +65,8 @@ public class AwsCleanroomsMembership : TerraformResource
     /// <summary>
     /// The query_log_status attribute.
     /// </summary>
-    public TerraformProperty<string>? QueryLogStatus
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
+    public required TerraformProperty<string> QueryLogStatus
     {
         get => GetProperty<TerraformProperty<string>>("query_log_status");
         set => this.WithProperty("query_log_status", value);
@@ -57,10 +84,30 @@ public class AwsCleanroomsMembership : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for default_result_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCleanroomsMembershipDefaultResultConfigurationBlock>? DefaultResultConfiguration
+    {
+        get => GetProperty<List<AwsCleanroomsMembershipDefaultResultConfigurationBlock>>("default_result_configuration");
+        set => this.WithProperty("default_result_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for payment_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCleanroomsMembershipPaymentConfigurationBlock>? PaymentConfiguration
+    {
+        get => GetProperty<List<AwsCleanroomsMembershipPaymentConfigurationBlock>>("payment_configuration");
+        set => this.WithProperty("payment_configuration", value);
     }
 
     /// <summary>

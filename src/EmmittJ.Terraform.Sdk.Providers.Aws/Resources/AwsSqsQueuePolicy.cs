@@ -28,7 +28,8 @@ public class AwsSqsQueuePolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -37,7 +38,8 @@ public class AwsSqsQueuePolicy : TerraformResource
     /// <summary>
     /// The queue_url attribute.
     /// </summary>
-    public TerraformProperty<string>? QueueUrl
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueUrl is required")]
+    public required TerraformProperty<string> QueueUrl
     {
         get => GetProperty<TerraformProperty<string>>("queue_url");
         set => this.WithProperty("queue_url", value);

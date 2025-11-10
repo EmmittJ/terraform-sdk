@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for logging_filter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The default_behavior attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultBehavior is required")]
+    public required TerraformProperty<string> DefaultBehavior
+    {
+        get => GetProperty<TerraformProperty<string>>("default_behavior");
+        set => WithProperty("default_behavior", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for redacted_fields in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_wafv2_web_acl_logging_configuration resource.
 /// </summary>
 public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
@@ -28,9 +54,10 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// <summary>
     /// AWS Kinesis Firehose Delivery Stream ARNs
     /// </summary>
-    public TerraformProperty<HashSet<string>>? LogDestinationConfigs
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestinationConfigs is required")]
+    public HashSet<TerraformProperty<string>>? LogDestinationConfigs
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("log_destination_configs");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("log_destination_configs");
         set => this.WithProperty("log_destination_configs", value);
     }
 
@@ -46,10 +73,33 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// <summary>
     /// AWS WebACL ARN
     /// </summary>
-    public TerraformProperty<string>? ResourceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
+    public required TerraformProperty<string> ResourceArn
     {
         get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
+    }
+
+    /// <summary>
+    /// Block for logging_filter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingFilter block(s) allowed")]
+    public List<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock>? LoggingFilter
+    {
+        get => GetProperty<List<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock>>("logging_filter");
+        set => this.WithProperty("logging_filter", value);
+    }
+
+    /// <summary>
+    /// Block for redacted_fields.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 RedactedFields block(s) allowed")]
+    public List<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock>? RedactedFields
+    {
+        get => GetProperty<List<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock>>("redacted_fields");
+        set => this.WithProperty("redacted_fields", value);
     }
 
 }

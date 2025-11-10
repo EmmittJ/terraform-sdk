@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAdvisorSuppressionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_advisor_suppression resource.
 /// </summary>
 public class AzurermAdvisorSuppression : TerraformResource
@@ -29,7 +64,8 @@ public class AzurermAdvisorSuppression : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -38,7 +74,8 @@ public class AzurermAdvisorSuppression : TerraformResource
     /// <summary>
     /// The recommendation_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RecommendationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecommendationId is required")]
+    public required TerraformProperty<string> RecommendationId
     {
         get => GetProperty<TerraformProperty<string>>("recommendation_id");
         set => this.WithProperty("recommendation_id", value);
@@ -47,7 +84,8 @@ public class AzurermAdvisorSuppression : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
@@ -60,6 +98,16 @@ public class AzurermAdvisorSuppression : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("ttl");
         set => this.WithProperty("ttl", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAdvisorSuppressionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAdvisorSuppressionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

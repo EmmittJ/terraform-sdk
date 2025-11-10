@@ -25,7 +25,8 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
-    public TerraformProperty<string>? Constraint
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
+    public required TerraformProperty<string> Constraint
     {
         get => GetProperty<TerraformProperty<string>>("constraint");
         set => this.WithProperty("constraint", value);
@@ -34,7 +35,8 @@ public class GoogleFolderOrganizationPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The resource name of the folder to set the policy for. Its format is folders/{folder_id}.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
+    public required TerraformProperty<string> Folder
     {
         get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);

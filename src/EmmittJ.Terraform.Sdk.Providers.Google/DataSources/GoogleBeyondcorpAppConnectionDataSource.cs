@@ -36,7 +36,8 @@ public class GoogleBeyondcorpAppConnectionDataSource : TerraformDataSource
     /// <summary>
     /// ID of the AppConnection.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

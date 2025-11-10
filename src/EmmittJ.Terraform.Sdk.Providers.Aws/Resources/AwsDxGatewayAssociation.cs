@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDxGatewayAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dx_gateway_association resource.
 /// </summary>
 public class AwsDxGatewayAssociation : TerraformResource
@@ -23,9 +58,9 @@ public class AwsDxGatewayAssociation : TerraformResource
     /// <summary>
     /// The allowed_prefixes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedPrefixes
+    public HashSet<TerraformProperty<string>>? AllowedPrefixes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_prefixes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_prefixes");
         set => this.WithProperty("allowed_prefixes", value);
     }
 
@@ -50,7 +85,8 @@ public class AwsDxGatewayAssociation : TerraformResource
     /// <summary>
     /// The dx_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DxGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
+    public required TerraformProperty<string> DxGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("dx_gateway_id");
         set => this.WithProperty("dx_gateway_id", value);
@@ -81,6 +117,16 @@ public class AwsDxGatewayAssociation : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDxGatewayAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDxGatewayAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

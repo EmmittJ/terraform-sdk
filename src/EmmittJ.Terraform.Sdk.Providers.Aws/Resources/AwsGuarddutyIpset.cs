@@ -20,7 +20,8 @@ public class AwsGuarddutyIpset : TerraformResource
     /// <summary>
     /// The activate attribute.
     /// </summary>
-    public TerraformProperty<bool>? Activate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Activate is required")]
+    public required TerraformProperty<bool> Activate
     {
         get => GetProperty<TerraformProperty<bool>>("activate");
         set => this.WithProperty("activate", value);
@@ -29,7 +30,8 @@ public class AwsGuarddutyIpset : TerraformResource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
+    public required TerraformProperty<string> DetectorId
     {
         get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
@@ -38,7 +40,8 @@ public class AwsGuarddutyIpset : TerraformResource
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformProperty<string>? Format
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
+    public required TerraformProperty<string> Format
     {
         get => GetProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
@@ -56,7 +59,8 @@ public class AwsGuarddutyIpset : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -65,7 +69,8 @@ public class AwsGuarddutyIpset : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -83,18 +88,18 @@ public class AwsGuarddutyIpset : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

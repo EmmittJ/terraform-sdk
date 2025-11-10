@@ -21,9 +21,9 @@ public class AwsWafv2IpSet : TerraformResource
     /// <summary>
     /// The addresses attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Addresses
+    public HashSet<TerraformProperty<string>>? Addresses
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("addresses");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("addresses");
         set => this.WithProperty("addresses", value);
     }
 
@@ -48,7 +48,8 @@ public class AwsWafv2IpSet : TerraformResource
     /// <summary>
     /// The ip_address_version attribute.
     /// </summary>
-    public TerraformProperty<string>? IpAddressVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddressVersion is required")]
+    public required TerraformProperty<string> IpAddressVersion
     {
         get => GetProperty<TerraformProperty<string>>("ip_address_version");
         set => this.WithProperty("ip_address_version", value);
@@ -84,7 +85,8 @@ public class AwsWafv2IpSet : TerraformResource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
@@ -93,18 +95,18 @@ public class AwsWafv2IpSet : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageContainerDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_storage_container.
 /// </summary>
 public class AzurermStorageContainerDataSource : TerraformDataSource
@@ -34,16 +51,17 @@ public class AzurermStorageContainerDataSource : TerraformDataSource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Metadata
+    public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<TerraformMapProperty<string>>("metadata");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -65,6 +83,16 @@ public class AzurermStorageContainerDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageContainerDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageContainerDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,122 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for discovery_spec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataplexAssetDiscoverySpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. Whether discovery is enabled.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// Optional. The list of patterns to apply for selecting data to exclude during discovery. For Cloud Storage bucket assets, these are interpreted as glob patterns used to match object names. For BigQuery dataset assets, these are interpreted as patterns to match table names.
+    /// </summary>
+    public List<TerraformProperty<string>>? ExcludePatterns
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("exclude_patterns");
+        set => WithProperty("exclude_patterns", value);
+    }
+
+    /// <summary>
+    /// Optional. The list of patterns to apply for selecting data to include during discovery if only a subset of the data should considered. For Cloud Storage bucket assets, these are interpreted as glob patterns used to match object names. For BigQuery dataset assets, these are interpreted as patterns to match table names.
+    /// </summary>
+    public List<TerraformProperty<string>>? IncludePatterns
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("include_patterns");
+        set => WithProperty("include_patterns", value);
+    }
+
+    /// <summary>
+    /// Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running discovery periodically. Successive discovery runs must be scheduled at least 60 minutes apart. The default value is to run discovery every 60 minutes. To explicitly set a timezone to the cron tab, apply a prefix in the cron tab: &amp;quot;CRON_TZ=${IANA_TIME_ZONE}&amp;quot; or TZ=${IANA_TIME_ZONE}&amp;quot;. The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone database. For example, &amp;quot;CRON_TZ=America/New_York 1 * * * *&amp;quot;, or &amp;quot;TZ=America/New_York 1 * * * *&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? Schedule
+    {
+        get => GetProperty<TerraformProperty<string>>("schedule");
+        set => WithProperty("schedule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for resource_spec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataplexAssetResourceSpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// Immutable. Relative name of the cloud resource that contains the data that is being managed within a lake. For example: `projects/{project_number}/buckets/{bucket_id}` `projects/{project_number}/datasets/{dataset_id}`
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Optional. Determines how read permissions are handled for each asset and their associated tables. Only available to storage buckets assets. Possible values: DIRECT, MANAGED
+    /// </summary>
+    public TerraformProperty<string>? ReadAccessMode
+    {
+        get => GetProperty<TerraformProperty<string>>("read_access_mode");
+        set => WithProperty("read_access_mode", value);
+    }
+
+    /// <summary>
+    /// Required. Immutable. Type of resource. Possible values: STORAGE_BUCKET, BIGQUERY_DATASET
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataplexAssetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataplex_asset resource.
 /// </summary>
 public class GoogleDataplexAsset : TerraformResource
@@ -28,7 +144,8 @@ public class GoogleDataplexAsset : TerraformResource
     /// <summary>
     /// The zone for the resource
     /// </summary>
-    public TerraformProperty<string>? DataplexZone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataplexZone is required")]
+    public required TerraformProperty<string> DataplexZone
     {
         get => GetProperty<TerraformProperty<string>>("dataplex_zone");
         set => this.WithProperty("dataplex_zone", value);
@@ -67,16 +184,17 @@ public class GoogleDataplexAsset : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The lake for the resource
     /// </summary>
-    public TerraformProperty<string>? Lake
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
+    public required TerraformProperty<string> Lake
     {
         get => GetProperty<TerraformProperty<string>>("lake");
         set => this.WithProperty("lake", value);
@@ -85,7 +203,8 @@ public class GoogleDataplexAsset : TerraformResource
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -94,7 +213,8 @@ public class GoogleDataplexAsset : TerraformResource
     /// <summary>
     /// The name of the asset.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -107,6 +227,40 @@ public class GoogleDataplexAsset : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for discovery_spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DiscoverySpec block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiscoverySpec block(s) allowed")]
+    public List<GoogleDataplexAssetDiscoverySpecBlock>? DiscoverySpec
+    {
+        get => GetProperty<List<GoogleDataplexAssetDiscoverySpecBlock>>("discovery_spec");
+        set => this.WithProperty("discovery_spec", value);
+    }
+
+    /// <summary>
+    /// Block for resource_spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ResourceSpec block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceSpec block(s) allowed")]
+    public List<GoogleDataplexAssetResourceSpecBlock>? ResourceSpec
+    {
+        get => GetProperty<List<GoogleDataplexAssetResourceSpecBlock>>("resource_spec");
+        set => this.WithProperty("resource_spec", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataplexAssetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataplexAssetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

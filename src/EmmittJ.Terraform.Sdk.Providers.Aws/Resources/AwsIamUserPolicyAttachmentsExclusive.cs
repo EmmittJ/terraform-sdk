@@ -19,16 +19,18 @@ public class AwsIamUserPolicyAttachmentsExclusive : TerraformResource
     /// <summary>
     /// The policy_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? PolicyArns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArns is required")]
+    public HashSet<TerraformProperty<string>>? PolicyArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("policy_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("policy_arns");
         set => this.WithProperty("policy_arns", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
+    public required TerraformProperty<string> UserName
     {
         get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);

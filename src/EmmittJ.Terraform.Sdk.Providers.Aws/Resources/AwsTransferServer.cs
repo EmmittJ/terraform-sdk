@@ -3,6 +3,128 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for endpoint_details in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferServerEndpointDetailsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The address_allocation_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AddressAllocationIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("address_allocation_ids");
+        set => WithProperty("address_allocation_ids", value);
+    }
+
+    /// <summary>
+    /// The security_group_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => WithProperty("security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SubnetIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => WithProperty("subnet_ids", value);
+    }
+
+    /// <summary>
+    /// The vpc_endpoint_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? VpcEndpointId
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
+        set => WithProperty("vpc_endpoint_id", value);
+    }
+
+    /// <summary>
+    /// The vpc_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? VpcId
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        set => WithProperty("vpc_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for protocol_details in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferServerProtocolDetailsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The as2_transports attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? As2Transports
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("as2_transports");
+        set => WithProperty("as2_transports", value);
+    }
+
+    /// <summary>
+    /// The passive_ip attribute.
+    /// </summary>
+    public TerraformProperty<string>? PassiveIp
+    {
+        get => GetProperty<TerraformProperty<string>>("passive_ip");
+        set => WithProperty("passive_ip", value);
+    }
+
+    /// <summary>
+    /// The set_stat_option attribute.
+    /// </summary>
+    public TerraformProperty<string>? SetStatOption
+    {
+        get => GetProperty<TerraformProperty<string>>("set_stat_option");
+        set => WithProperty("set_stat_option", value);
+    }
+
+    /// <summary>
+    /// The tls_session_resumption_mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? TlsSessionResumptionMode
+    {
+        get => GetProperty<TerraformProperty<string>>("tls_session_resumption_mode");
+        set => WithProperty("tls_session_resumption_mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for s3_storage_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferServerS3StorageOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The directory_listing_optimization attribute.
+    /// </summary>
+    public TerraformProperty<string>? DirectoryListingOptimization
+    {
+        get => GetProperty<TerraformProperty<string>>("directory_listing_optimization");
+        set => WithProperty("directory_listing_optimization", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for workflow_details in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferServerWorkflowDetailsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_transfer_server resource.
 /// </summary>
 public class AwsTransferServer : TerraformResource
@@ -139,9 +261,9 @@ public class AwsTransferServer : TerraformResource
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Protocols
+    public HashSet<TerraformProperty<string>>? Protocols
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("protocols");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("protocols");
         set => this.WithProperty("protocols", value);
     }
 
@@ -175,27 +297,27 @@ public class AwsTransferServer : TerraformResource
     /// <summary>
     /// This is a set of arns of destinations that will receive structured logs from the transfer server
     /// </summary>
-    public TerraformProperty<HashSet<string>>? StructuredLogDestinations
+    public HashSet<TerraformProperty<string>>? StructuredLogDestinations
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("structured_log_destinations");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("structured_log_destinations");
         set => this.WithProperty("structured_log_destinations", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -206,6 +328,50 @@ public class AwsTransferServer : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
+    }
+
+    /// <summary>
+    /// Block for endpoint_details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointDetails block(s) allowed")]
+    public List<AwsTransferServerEndpointDetailsBlock>? EndpointDetails
+    {
+        get => GetProperty<List<AwsTransferServerEndpointDetailsBlock>>("endpoint_details");
+        set => this.WithProperty("endpoint_details", value);
+    }
+
+    /// <summary>
+    /// Block for protocol_details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtocolDetails block(s) allowed")]
+    public List<AwsTransferServerProtocolDetailsBlock>? ProtocolDetails
+    {
+        get => GetProperty<List<AwsTransferServerProtocolDetailsBlock>>("protocol_details");
+        set => this.WithProperty("protocol_details", value);
+    }
+
+    /// <summary>
+    /// Block for s3_storage_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3StorageOptions block(s) allowed")]
+    public List<AwsTransferServerS3StorageOptionsBlock>? S3StorageOptions
+    {
+        get => GetProperty<List<AwsTransferServerS3StorageOptionsBlock>>("s3_storage_options");
+        set => this.WithProperty("s3_storage_options", value);
+    }
+
+    /// <summary>
+    /// Block for workflow_details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkflowDetails block(s) allowed")]
+    public List<AwsTransferServerWorkflowDetailsBlock>? WorkflowDetails
+    {
+        get => GetProperty<List<AwsTransferServerWorkflowDetailsBlock>>("workflow_details");
+        set => this.WithProperty("workflow_details", value);
     }
 
     /// <summary>

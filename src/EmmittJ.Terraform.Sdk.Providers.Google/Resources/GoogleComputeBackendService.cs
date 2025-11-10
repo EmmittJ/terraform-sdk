@@ -3,6 +3,793 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for backend in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeBackendServiceBackendBlock : TerraformBlock
+{
+    /// <summary>
+    /// Specifies the balancing mode for this backend.
+    /// 
+    /// For global HTTP(S) or TCP/SSL load balancing, the default is
+    /// UTILIZATION. Valid values are UTILIZATION, RATE (for HTTP(S)),
+    /// CUSTOM_METRICS (for HTTP(s)) and CONNECTION (for TCP/SSL).
+    /// 
+    /// See the [Backend Services Overview](https://cloud.google.com/load-balancing/docs/backend-service#balancing-mode)
+    /// for an explanation of load balancing modes. Default value: &amp;quot;UTILIZATION&amp;quot; Possible values: [&amp;quot;UTILIZATION&amp;quot;, &amp;quot;RATE&amp;quot;, &amp;quot;CONNECTION&amp;quot;, &amp;quot;CUSTOM_METRICS&amp;quot;, &amp;quot;IN_FLIGHT&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? BalancingMode
+    {
+        get => GetProperty<TerraformProperty<string>>("balancing_mode");
+        set => WithProperty("balancing_mode", value);
+    }
+
+    /// <summary>
+    /// A multiplier applied to the group&#39;s maximum servicing capacity
+    /// (based on UTILIZATION, RATE or CONNECTION).
+    /// 
+    /// Default value is 1, which means the group will serve up to 100%
+    /// of its configured capacity (depending on balancingMode). A
+    /// setting of 0 means the group is completely drained, offering
+    /// 0% of its available Capacity. Valid range is [0.0,1.0].
+    /// </summary>
+    public TerraformProperty<double>? CapacityScaler
+    {
+        get => GetProperty<TerraformProperty<double>>("capacity_scaler");
+        set => WithProperty("capacity_scaler", value);
+    }
+
+    /// <summary>
+    /// An optional description of this resource.
+    /// Provide this property when you create the resource.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The fully-qualified URL of an Instance Group or Network Endpoint
+    /// Group resource. In case of instance group this defines the list
+    /// of instances that serve traffic. Member virtual machine
+    /// instances from each instance group must live in the same zone as
+    /// the instance group itself. No two backends in a backend service
+    /// are allowed to use same Instance Group resource.
+    /// 
+    /// For Network Endpoint Groups this defines list of endpoints. All
+    /// endpoints of Network Endpoint Group must be hosted on instances
+    /// located in the same zone as the Network Endpoint Group.
+    /// 
+    /// Backend services cannot mix Instance Group and
+    /// Network Endpoint Group backends.
+    /// 
+    /// Note that you must specify an Instance Group or Network Endpoint
+    /// Group resource using the fully-qualified URL, rather than a
+    /// partial URL.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
+    public required TerraformProperty<string> Group
+    {
+        get => GetProperty<TerraformProperty<string>>("group");
+        set => WithProperty("group", value);
+    }
+
+    /// <summary>
+    /// The max number of simultaneous connections for the group. Can
+    /// be used with either CONNECTION or UTILIZATION balancing modes.
+    /// 
+    /// For CONNECTION mode, either maxConnections or one
+    /// of maxConnectionsPerInstance or maxConnectionsPerEndpoint,
+    /// as appropriate for group type, must be set.
+    /// </summary>
+    public TerraformProperty<double>? MaxConnections
+    {
+        get => GetProperty<TerraformProperty<double>>("max_connections");
+        set => WithProperty("max_connections", value);
+    }
+
+    /// <summary>
+    /// The max number of simultaneous connections that a single backend
+    /// network endpoint can handle. This is used to calculate the
+    /// capacity of the group. Can be used in either CONNECTION or
+    /// UTILIZATION balancing modes.
+    /// 
+    /// For CONNECTION mode, either
+    /// maxConnections or maxConnectionsPerEndpoint must be set.
+    /// </summary>
+    public TerraformProperty<double>? MaxConnectionsPerEndpoint
+    {
+        get => GetProperty<TerraformProperty<double>>("max_connections_per_endpoint");
+        set => WithProperty("max_connections_per_endpoint", value);
+    }
+
+    /// <summary>
+    /// The max number of simultaneous connections that a single
+    /// backend instance can handle. This is used to calculate the
+    /// capacity of the group. Can be used in either CONNECTION or
+    /// UTILIZATION balancing modes.
+    /// 
+    /// For CONNECTION mode, either maxConnections or
+    /// maxConnectionsPerInstance must be set.
+    /// </summary>
+    public TerraformProperty<double>? MaxConnectionsPerInstance
+    {
+        get => GetProperty<TerraformProperty<double>>("max_connections_per_instance");
+        set => WithProperty("max_connections_per_instance", value);
+    }
+
+    /// <summary>
+    /// The max requests per second (RPS) of the group.
+    /// 
+    /// Can be used with either RATE or UTILIZATION balancing modes,
+    /// but required if RATE mode. For RATE mode, either maxRate or one
+    /// of maxRatePerInstance or maxRatePerEndpoint, as appropriate for
+    /// group type, must be set.
+    /// </summary>
+    public TerraformProperty<double>? MaxRate
+    {
+        get => GetProperty<TerraformProperty<double>>("max_rate");
+        set => WithProperty("max_rate", value);
+    }
+
+    /// <summary>
+    /// The max requests per second (RPS) that a single backend network
+    /// endpoint can handle. This is used to calculate the capacity of
+    /// the group. Can be used in either balancing mode. For RATE mode,
+    /// either maxRate or maxRatePerEndpoint must be set.
+    /// </summary>
+    public TerraformProperty<double>? MaxRatePerEndpoint
+    {
+        get => GetProperty<TerraformProperty<double>>("max_rate_per_endpoint");
+        set => WithProperty("max_rate_per_endpoint", value);
+    }
+
+    /// <summary>
+    /// The max requests per second (RPS) that a single backend
+    /// instance can handle. This is used to calculate the capacity of
+    /// the group. Can be used in either balancing mode. For RATE mode,
+    /// either maxRate or maxRatePerInstance must be set.
+    /// </summary>
+    public TerraformProperty<double>? MaxRatePerInstance
+    {
+        get => GetProperty<TerraformProperty<double>>("max_rate_per_instance");
+        set => WithProperty("max_rate_per_instance", value);
+    }
+
+    /// <summary>
+    /// Used when balancingMode is UTILIZATION. This ratio defines the
+    /// CPU utilization target for the group. Valid range is [0.0, 1.0].
+    /// </summary>
+    public TerraformProperty<double>? MaxUtilization
+    {
+        get => GetProperty<TerraformProperty<double>>("max_utilization");
+        set => WithProperty("max_utilization", value);
+    }
+
+    /// <summary>
+    /// This field indicates whether this backend should be fully utilized before sending traffic to backends
+    /// with default preference. This field cannot be set when loadBalancingScheme is set to &#39;EXTERNAL&#39;. The possible values are:
+    ///   - PREFERRED: Backends with this preference level will be filled up to their capacity limits first,
+    ///     based on RTT.
+    ///   - DEFAULT: If preferred backends don&#39;t have enough capacity, backends in this layer would be used and
+    ///     traffic would be assigned based on the load balancing algorithm you use. This is the default Possible values: [&amp;quot;PREFERRED&amp;quot;, &amp;quot;DEFAULT&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Preference
+    {
+        get => GetProperty<TerraformProperty<string>>("preference");
+        set => WithProperty("preference", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for cdn_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceCdnPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Specifies the cache setting for all responses from this backend.
+    /// The possible values are: USE_ORIGIN_HEADERS, FORCE_CACHE_ALL and CACHE_ALL_STATIC Possible values: [&amp;quot;USE_ORIGIN_HEADERS&amp;quot;, &amp;quot;FORCE_CACHE_ALL&amp;quot;, &amp;quot;CACHE_ALL_STATIC&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? CacheMode
+    {
+        get => GetProperty<TerraformProperty<string>>("cache_mode");
+        set => WithProperty("cache_mode", value);
+    }
+
+    /// <summary>
+    /// Specifies the maximum allowed TTL for cached content served by this origin.
+    /// </summary>
+    public TerraformProperty<double>? ClientTtl
+    {
+        get => GetProperty<TerraformProperty<double>>("client_ttl");
+        set => WithProperty("client_ttl", value);
+    }
+
+    /// <summary>
+    /// Specifies the default TTL for cached content served by this origin for responses
+    /// that do not have an existing valid TTL (max-age or s-max-age).
+    /// </summary>
+    public TerraformProperty<double>? DefaultTtl
+    {
+        get => GetProperty<TerraformProperty<double>>("default_ttl");
+        set => WithProperty("default_ttl", value);
+    }
+
+    /// <summary>
+    /// Specifies the maximum allowed TTL for cached content served by this origin.
+    /// </summary>
+    public TerraformProperty<double>? MaxTtl
+    {
+        get => GetProperty<TerraformProperty<double>>("max_ttl");
+        set => WithProperty("max_ttl", value);
+    }
+
+    /// <summary>
+    /// Negative caching allows per-status code TTLs to be set, in order to apply fine-grained caching for common errors or redirects.
+    /// </summary>
+    public TerraformProperty<bool>? NegativeCaching
+    {
+        get => GetProperty<TerraformProperty<bool>>("negative_caching");
+        set => WithProperty("negative_caching", value);
+    }
+
+    /// <summary>
+    /// If true then Cloud CDN will combine multiple concurrent cache fill requests into a small number of requests
+    /// to the origin.
+    /// </summary>
+    public TerraformProperty<bool>? RequestCoalescing
+    {
+        get => GetProperty<TerraformProperty<bool>>("request_coalescing");
+        set => WithProperty("request_coalescing", value);
+    }
+
+    /// <summary>
+    /// Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache.
+    /// </summary>
+    public TerraformProperty<double>? ServeWhileStale
+    {
+        get => GetProperty<TerraformProperty<double>>("serve_while_stale");
+        set => WithProperty("serve_while_stale", value);
+    }
+
+    /// <summary>
+    /// Maximum number of seconds the response to a signed URL request
+    /// will be considered fresh, defaults to 1hr (3600s). After this
+    /// time period, the response will be revalidated before
+    /// being served.
+    /// 
+    /// When serving responses to signed URL requests, Cloud CDN will
+    /// internally behave as though all responses from this backend had a
+    /// &amp;quot;Cache-Control: public, max-age=[TTL]&amp;quot; header, regardless of any
+    /// existing Cache-Control header. The actual headers served in
+    /// responses will not be altered.
+    /// </summary>
+    public TerraformProperty<double>? SignedUrlCacheMaxAgeSec
+    {
+        get => GetProperty<TerraformProperty<double>>("signed_url_cache_max_age_sec");
+        set => WithProperty("signed_url_cache_max_age_sec", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for circuit_breakers in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceCircuitBreakersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum number of connections to the backend cluster.
+    /// Defaults to 1024.
+    /// </summary>
+    public TerraformProperty<double>? MaxConnections
+    {
+        get => GetProperty<TerraformProperty<double>>("max_connections");
+        set => WithProperty("max_connections", value);
+    }
+
+    /// <summary>
+    /// The maximum number of pending requests to the backend cluster.
+    /// Defaults to 1024.
+    /// </summary>
+    public TerraformProperty<double>? MaxPendingRequests
+    {
+        get => GetProperty<TerraformProperty<double>>("max_pending_requests");
+        set => WithProperty("max_pending_requests", value);
+    }
+
+    /// <summary>
+    /// The maximum number of parallel requests to the backend cluster.
+    /// Defaults to 1024.
+    /// </summary>
+    public TerraformProperty<double>? MaxRequests
+    {
+        get => GetProperty<TerraformProperty<double>>("max_requests");
+        set => WithProperty("max_requests", value);
+    }
+
+    /// <summary>
+    /// Maximum requests for a single backend connection. This parameter
+    /// is respected by both the HTTP/1.1 and HTTP/2 implementations. If
+    /// not specified, there is no limit. Setting this parameter to 1
+    /// will effectively disable keep alive.
+    /// </summary>
+    public TerraformProperty<double>? MaxRequestsPerConnection
+    {
+        get => GetProperty<TerraformProperty<double>>("max_requests_per_connection");
+        set => WithProperty("max_requests_per_connection", value);
+    }
+
+    /// <summary>
+    /// The maximum number of parallel retries to the backend cluster.
+    /// Defaults to 3.
+    /// </summary>
+    public TerraformProperty<double>? MaxRetries
+    {
+        get => GetProperty<TerraformProperty<double>>("max_retries");
+        set => WithProperty("max_retries", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for consistent_hash in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceConsistentHashBlock : TerraformBlock
+{
+    /// <summary>
+    /// The hash based on the value of the specified header field.
+    /// This field is applicable if the sessionAffinity is set to HEADER_FIELD.
+    /// </summary>
+    public TerraformProperty<string>? HttpHeaderName
+    {
+        get => GetProperty<TerraformProperty<string>>("http_header_name");
+        set => WithProperty("http_header_name", value);
+    }
+
+    /// <summary>
+    /// The minimum number of virtual nodes to use for the hash ring.
+    /// Larger ring sizes result in more granular load
+    /// distributions. If the number of hosts in the load balancing pool
+    /// is larger than the ring size, each host will be assigned a single
+    /// virtual node.
+    /// Defaults to 1024.
+    /// </summary>
+    public TerraformProperty<double>? MinimumRingSize
+    {
+        get => GetProperty<TerraformProperty<double>>("minimum_ring_size");
+        set => WithProperty("minimum_ring_size", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for custom_metrics in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceCustomMetricsBlock : TerraformBlock
+{
+    /// <summary>
+    /// If true, the metric data is not used for load balancing.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DryRun is required")]
+    public required TerraformProperty<bool> DryRun
+    {
+        get => GetProperty<TerraformProperty<bool>>("dry_run");
+        set => WithProperty("dry_run", value);
+    }
+
+    /// <summary>
+    /// Name of a custom utilization signal. The name must be 1-64 characters
+    /// long and match the regular expression [a-z]([-_.a-z0-9]*[a-z0-9])? which
+    /// means the first character must be a lowercase letter, and all following
+    /// characters must be a dash, period, underscore, lowercase letter, or
+    /// digit, except the last character, which cannot be a dash, period, or
+    /// underscore. For usage guidelines, see Custom Metrics balancing mode. This
+    /// field can only be used for a global or regional backend service with the
+    /// loadBalancingScheme set to &amp;lt;code&amp;gt;EXTERNAL_MANAGED&amp;lt;/code&amp;gt;,
+    /// &amp;lt;code&amp;gt;INTERNAL_MANAGED&amp;lt;/code&amp;gt; &amp;lt;code&amp;gt;INTERNAL_SELF_MANAGED&amp;lt;/code&amp;gt;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for iap in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceIapBlock : TerraformBlock
+{
+    /// <summary>
+    /// Whether the serving infrastructure will authenticate and authorize all incoming requests.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// OAuth2 Client ID for IAP
+    /// </summary>
+    public TerraformProperty<string>? Oauth2ClientId
+    {
+        get => GetProperty<TerraformProperty<string>>("oauth2_client_id");
+        set => WithProperty("oauth2_client_id", value);
+    }
+
+    /// <summary>
+    /// OAuth2 Client Secret for IAP
+    /// </summary>
+    public TerraformProperty<string>? Oauth2ClientSecret
+    {
+        get => GetProperty<TerraformProperty<string>>("oauth2_client_secret");
+        set => WithProperty("oauth2_client_secret", value);
+    }
+
+    /// <summary>
+    /// OAuth2 Client Secret SHA-256 for IAP
+    /// </summary>
+    public TerraformProperty<string>? Oauth2ClientSecretSha256
+    {
+        get => GetProperty<TerraformProperty<string>>("oauth2_client_secret_sha256");
+        set => WithProperty("oauth2_client_secret_sha256", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for locality_lb_policies in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceLocalityLbPoliciesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for log_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceLogConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Whether to enable logging for the load balancer traffic served by this backend service.
+    /// </summary>
+    public TerraformProperty<bool>? Enable
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable");
+        set => WithProperty("enable", value);
+    }
+
+    /// <summary>
+    /// This field can only be specified if logging is enabled for this backend service and &amp;quot;logConfig.optionalMode&amp;quot;
+    /// was set to CUSTOM. Contains a list of optional fields you want to include in the logs.
+    /// For example: serverInstance, serverGkeDetails.cluster, serverGkeDetails.pod.podNamespace
+    /// For example: orca_load_report, tls.protocol
+    /// </summary>
+    public List<TerraformProperty<string>>? OptionalFields
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("optional_fields");
+        set => WithProperty("optional_fields", value);
+    }
+
+    /// <summary>
+    /// Specifies the optional logging mode for the load balancer traffic.
+    /// Supported values: INCLUDE_ALL_OPTIONAL, EXCLUDE_ALL_OPTIONAL, CUSTOM. Possible values: [&amp;quot;INCLUDE_ALL_OPTIONAL&amp;quot;, &amp;quot;EXCLUDE_ALL_OPTIONAL&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? OptionalMode
+    {
+        get => GetProperty<TerraformProperty<string>>("optional_mode");
+        set => WithProperty("optional_mode", value);
+    }
+
+    /// <summary>
+    /// This field can only be specified if logging is enabled for this backend service. The value of
+    /// the field must be in [0, 1]. This configures the sampling rate of requests to the load balancer
+    /// where 1.0 means all logged requests are reported and 0.0 means no logged requests are reported.
+    /// The default value is 1.0.
+    /// </summary>
+    public TerraformProperty<double>? SampleRate
+    {
+        get => GetProperty<TerraformProperty<double>>("sample_rate");
+        set => WithProperty("sample_rate", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for max_stream_duration in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceMaxStreamDurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Span of time that&#39;s a fraction of a second at nanosecond resolution.
+    /// Durations less than one second are represented with a 0 seconds field and a positive nanos field.
+    /// Must be from 0 to 999,999,999 inclusive.
+    /// </summary>
+    public TerraformProperty<double>? Nanos
+    {
+        get => GetProperty<TerraformProperty<double>>("nanos");
+        set => WithProperty("nanos", value);
+    }
+
+    /// <summary>
+    /// Span of time at a resolution of a second. Must be from 0 to 315,576,000,000 inclusive. (int64 format)
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
+    public required TerraformProperty<string> Seconds
+    {
+        get => GetProperty<TerraformProperty<string>>("seconds");
+        set => WithProperty("seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for outlier_detection in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceOutlierDetectionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Number of errors before a host is ejected from the connection pool. When the
+    /// backend host is accessed over HTTP, a 5xx return code qualifies as an error.
+    /// Defaults to 5.
+    /// </summary>
+    public TerraformProperty<double>? ConsecutiveErrors
+    {
+        get => GetProperty<TerraformProperty<double>>("consecutive_errors");
+        set => WithProperty("consecutive_errors", value);
+    }
+
+    /// <summary>
+    /// The number of consecutive gateway failures (502, 503, 504 status or connection
+    /// errors that are mapped to one of those status codes) before a consecutive
+    /// gateway failure ejection occurs. Defaults to 5.
+    /// </summary>
+    public TerraformProperty<double>? ConsecutiveGatewayFailure
+    {
+        get => GetProperty<TerraformProperty<double>>("consecutive_gateway_failure");
+        set => WithProperty("consecutive_gateway_failure", value);
+    }
+
+    /// <summary>
+    /// The percentage chance that a host will be actually ejected when an outlier
+    /// status is detected through consecutive 5xx. This setting can be used to disable
+    /// ejection or to ramp it up slowly. Defaults to 100.
+    /// </summary>
+    public TerraformProperty<double>? EnforcingConsecutiveErrors
+    {
+        get => GetProperty<TerraformProperty<double>>("enforcing_consecutive_errors");
+        set => WithProperty("enforcing_consecutive_errors", value);
+    }
+
+    /// <summary>
+    /// The percentage chance that a host will be actually ejected when an outlier
+    /// status is detected through consecutive gateway failures. This setting can be
+    /// used to disable ejection or to ramp it up slowly. Defaults to 0.
+    /// </summary>
+    public TerraformProperty<double>? EnforcingConsecutiveGatewayFailure
+    {
+        get => GetProperty<TerraformProperty<double>>("enforcing_consecutive_gateway_failure");
+        set => WithProperty("enforcing_consecutive_gateway_failure", value);
+    }
+
+    /// <summary>
+    /// The percentage chance that a host will be actually ejected when an outlier
+    /// status is detected through success rate statistics. This setting can be used to
+    /// disable ejection or to ramp it up slowly. Defaults to 100.
+    /// </summary>
+    public TerraformProperty<double>? EnforcingSuccessRate
+    {
+        get => GetProperty<TerraformProperty<double>>("enforcing_success_rate");
+        set => WithProperty("enforcing_success_rate", value);
+    }
+
+    /// <summary>
+    /// Maximum percentage of hosts in the load balancing pool for the backend service
+    /// that can be ejected. Defaults to 10%.
+    /// </summary>
+    public TerraformProperty<double>? MaxEjectionPercent
+    {
+        get => GetProperty<TerraformProperty<double>>("max_ejection_percent");
+        set => WithProperty("max_ejection_percent", value);
+    }
+
+    /// <summary>
+    /// The number of hosts in a cluster that must have enough request volume to detect
+    /// success rate outliers. If the number of hosts is less than this setting, outlier
+    /// detection via success rate statistics is not performed for any host in the
+    /// cluster. Defaults to 5.
+    /// </summary>
+    public TerraformProperty<double>? SuccessRateMinimumHosts
+    {
+        get => GetProperty<TerraformProperty<double>>("success_rate_minimum_hosts");
+        set => WithProperty("success_rate_minimum_hosts", value);
+    }
+
+    /// <summary>
+    /// The minimum number of total requests that must be collected in one interval (as
+    /// defined by the interval duration above) to include this host in success rate
+    /// based outlier detection. If the volume is lower than this setting, outlier
+    /// detection via success rate statistics is not performed for that host. Defaults
+    /// to 100.
+    /// </summary>
+    public TerraformProperty<double>? SuccessRateRequestVolume
+    {
+        get => GetProperty<TerraformProperty<double>>("success_rate_request_volume");
+        set => WithProperty("success_rate_request_volume", value);
+    }
+
+    /// <summary>
+    /// This factor is used to determine the ejection threshold for success rate outlier
+    /// ejection. The ejection threshold is the difference between the mean success
+    /// rate, and the product of this factor and the standard deviation of the mean
+    /// success rate: mean - (stdev * success_rate_stdev_factor). This factor is divided
+    /// by a thousand to get a double. That is, if the desired factor is 1.9, the
+    /// runtime value should be 1900. Defaults to 1900.
+    /// </summary>
+    public TerraformProperty<double>? SuccessRateStdevFactor
+    {
+        get => GetProperty<TerraformProperty<double>>("success_rate_stdev_factor");
+        set => WithProperty("success_rate_stdev_factor", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for params in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Resource manager tags to be bound to the backend service. Tag keys and values have the
+    /// same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},
+    /// and values are in the format tagValues/456.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
+        set => WithProperty("resource_manager_tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for security_settings in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceSecuritySettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// ClientTlsPolicy is a resource that specifies how a client should authenticate
+    /// connections to backends of a service. This resource itself does not affect
+    /// configuration unless it is attached to a backend service resource.
+    /// </summary>
+    public TerraformProperty<string>? ClientTlsPolicy
+    {
+        get => GetProperty<TerraformProperty<string>>("client_tls_policy");
+        set => WithProperty("client_tls_policy", value);
+    }
+
+    /// <summary>
+    /// A list of alternate names to verify the subject identity in the certificate.
+    /// If specified, the client will verify that the server certificate&#39;s subject
+    /// alt name matches one of the specified values.
+    /// </summary>
+    public List<TerraformProperty<string>>? SubjectAltNames
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("subject_alt_names");
+        set => WithProperty("subject_alt_names", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for strong_session_affinity_cookie in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceStrongSessionAffinityCookieBlock : TerraformBlock
+{
+    /// <summary>
+    /// Name of the cookie.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Path to set for the cookie.
+    /// </summary>
+    public TerraformProperty<string>? Path
+    {
+        get => GetProperty<TerraformProperty<string>>("path");
+        set => WithProperty("path", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeBackendServiceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tls_settings in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeBackendServiceTlsSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Reference to the BackendAuthenticationConfig resource from the networksecurity.googleapis.com namespace.
+    /// Can be used in authenticating TLS connections to the backend, as specified by the authenticationMode field.
+    /// Can only be specified if authenticationMode is not NONE.
+    /// </summary>
+    public TerraformProperty<string>? AuthenticationConfig
+    {
+        get => GetProperty<TerraformProperty<string>>("authentication_config");
+        set => WithProperty("authentication_config", value);
+    }
+
+    /// <summary>
+    /// Server Name Indication - see RFC3546 section 3.1. If set, the load balancer sends this string as the SNI hostname in the
+    /// TLS connection to the backend, and requires that this string match a Subject Alternative Name (SAN) in the backend&#39;s
+    /// server certificate. With a Regional Internet NEG backend, if the SNI is specified here, the load balancer uses it
+    /// regardless of whether the Regional Internet NEG is specified with FQDN or IP address and port.
+    /// </summary>
+    public TerraformProperty<string>? Sni
+    {
+        get => GetProperty<TerraformProperty<string>>("sni");
+        set => WithProperty("sni", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_backend_service resource.
 /// </summary>
 public class GoogleComputeBackendService : TerraformResource
@@ -57,9 +844,9 @@ public class GoogleComputeBackendService : TerraformResource
     /// Headers that the HTTP/S load balancer should add to proxied
     /// requests.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CustomRequestHeaders
+    public HashSet<TerraformProperty<string>>? CustomRequestHeaders
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("custom_request_headers");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("custom_request_headers");
         set => this.WithProperty("custom_request_headers", value);
     }
 
@@ -67,9 +854,9 @@ public class GoogleComputeBackendService : TerraformResource
     /// Headers that the HTTP/S load balancer should add to proxied
     /// responses.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CustomResponseHeaders
+    public HashSet<TerraformProperty<string>>? CustomResponseHeaders
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("custom_response_headers");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("custom_response_headers");
         set => this.WithProperty("custom_response_headers", value);
     }
 
@@ -148,9 +935,9 @@ public class GoogleComputeBackendService : TerraformResource
     /// 
     /// For internal load balancing, a URL to a HealthCheck resource must be specified instead.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? HealthChecks
+    public HashSet<TerraformProperty<string>>? HealthChecks
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("health_checks");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("health_checks");
         set => this.WithProperty("health_checks", value);
     }
 
@@ -264,7 +1051,8 @@ public class GoogleComputeBackendService : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -342,6 +1130,167 @@ public class GoogleComputeBackendService : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("timeout_sec");
         set => this.WithProperty("timeout_sec", value);
+    }
+
+    /// <summary>
+    /// Block for backend.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleComputeBackendServiceBackendBlock>? Backend
+    {
+        get => GetProperty<HashSet<GoogleComputeBackendServiceBackendBlock>>("backend");
+        set => this.WithProperty("backend", value);
+    }
+
+    /// <summary>
+    /// Block for cdn_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnPolicy block(s) allowed")]
+    public List<GoogleComputeBackendServiceCdnPolicyBlock>? CdnPolicy
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceCdnPolicyBlock>>("cdn_policy");
+        set => this.WithProperty("cdn_policy", value);
+    }
+
+    /// <summary>
+    /// Block for circuit_breakers.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CircuitBreakers block(s) allowed")]
+    public List<GoogleComputeBackendServiceCircuitBreakersBlock>? CircuitBreakers
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceCircuitBreakersBlock>>("circuit_breakers");
+        set => this.WithProperty("circuit_breakers", value);
+    }
+
+    /// <summary>
+    /// Block for consistent_hash.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConsistentHash block(s) allowed")]
+    public List<GoogleComputeBackendServiceConsistentHashBlock>? ConsistentHash
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceConsistentHashBlock>>("consistent_hash");
+        set => this.WithProperty("consistent_hash", value);
+    }
+
+    /// <summary>
+    /// Block for custom_metrics.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleComputeBackendServiceCustomMetricsBlock>? CustomMetrics
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceCustomMetricsBlock>>("custom_metrics");
+        set => this.WithProperty("custom_metrics", value);
+    }
+
+    /// <summary>
+    /// Block for iap.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Iap block(s) allowed")]
+    public List<GoogleComputeBackendServiceIapBlock>? Iap
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceIapBlock>>("iap");
+        set => this.WithProperty("iap", value);
+    }
+
+    /// <summary>
+    /// Block for locality_lb_policies.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleComputeBackendServiceLocalityLbPoliciesBlock>? LocalityLbPolicies
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceLocalityLbPoliciesBlock>>("locality_lb_policies");
+        set => this.WithProperty("locality_lb_policies", value);
+    }
+
+    /// <summary>
+    /// Block for log_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
+    public List<GoogleComputeBackendServiceLogConfigBlock>? LogConfig
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceLogConfigBlock>>("log_config");
+        set => this.WithProperty("log_config", value);
+    }
+
+    /// <summary>
+    /// Block for max_stream_duration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxStreamDuration block(s) allowed")]
+    public List<GoogleComputeBackendServiceMaxStreamDurationBlock>? MaxStreamDuration
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceMaxStreamDurationBlock>>("max_stream_duration");
+        set => this.WithProperty("max_stream_duration", value);
+    }
+
+    /// <summary>
+    /// Block for outlier_detection.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutlierDetection block(s) allowed")]
+    public List<GoogleComputeBackendServiceOutlierDetectionBlock>? OutlierDetection
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceOutlierDetectionBlock>>("outlier_detection");
+        set => this.WithProperty("outlier_detection", value);
+    }
+
+    /// <summary>
+    /// Block for params.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
+    public List<GoogleComputeBackendServiceParamsBlock>? Params
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceParamsBlock>>("params");
+        set => this.WithProperty("params", value);
+    }
+
+    /// <summary>
+    /// Block for security_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecuritySettings block(s) allowed")]
+    public List<GoogleComputeBackendServiceSecuritySettingsBlock>? SecuritySettings
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceSecuritySettingsBlock>>("security_settings");
+        set => this.WithProperty("security_settings", value);
+    }
+
+    /// <summary>
+    /// Block for strong_session_affinity_cookie.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StrongSessionAffinityCookie block(s) allowed")]
+    public List<GoogleComputeBackendServiceStrongSessionAffinityCookieBlock>? StrongSessionAffinityCookie
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceStrongSessionAffinityCookieBlock>>("strong_session_affinity_cookie");
+        set => this.WithProperty("strong_session_affinity_cookie", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeBackendServiceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeBackendServiceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for tls_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsSettings block(s) allowed")]
+    public List<GoogleComputeBackendServiceTlsSettingsBlock>? TlsSettings
+    {
+        get => GetProperty<List<GoogleComputeBackendServiceTlsSettingsBlock>>("tls_settings");
+        set => this.WithProperty("tls_settings", value);
     }
 
     /// <summary>

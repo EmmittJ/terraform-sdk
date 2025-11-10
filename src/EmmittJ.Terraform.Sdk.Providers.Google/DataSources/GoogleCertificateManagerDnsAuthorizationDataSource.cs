@@ -27,7 +27,8 @@ public class GoogleCertificateManagerDnsAuthorizationDataSource : TerraformDataS
     /// single domain and its wildcard, e.g. authorization for &amp;quot;example.com&amp;quot; can
     /// be used to issue certificates for &amp;quot;example.com&amp;quot; and &amp;quot;*.example.com&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    public required TerraformProperty<string> Domain
     {
         get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
@@ -56,7 +57,8 @@ public class GoogleCertificateManagerDnsAuthorizationDataSource : TerraformDataS
     /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
     /// and all following characters must be a dash, underscore, letter or digit.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

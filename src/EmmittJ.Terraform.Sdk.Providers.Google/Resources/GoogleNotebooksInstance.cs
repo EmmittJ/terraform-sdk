@@ -3,6 +3,212 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for accelerator_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Count of cores of this accelerator.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreCount is required")]
+    public required TerraformProperty<double> CoreCount
+    {
+        get => GetProperty<TerraformProperty<double>>("core_count");
+        set => WithProperty("core_count", value);
+    }
+
+    /// <summary>
+    /// Type of this accelerator. Possible values: [&amp;quot;ACCELERATOR_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;NVIDIA_TESLA_K80&amp;quot;, &amp;quot;NVIDIA_TESLA_P100&amp;quot;, &amp;quot;NVIDIA_TESLA_V100&amp;quot;, &amp;quot;NVIDIA_TESLA_P4&amp;quot;, &amp;quot;NVIDIA_TESLA_T4&amp;quot;, &amp;quot;NVIDIA_TESLA_T4_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_P100_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_P4_VWS&amp;quot;, &amp;quot;NVIDIA_TESLA_A100&amp;quot;, &amp;quot;TPU_V2&amp;quot;, &amp;quot;TPU_V3&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for container_image in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
+{
+    /// <summary>
+    /// The path to the container image repository.
+    /// For example: gcr.io/{project_id}/{imageName}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
+    public required TerraformProperty<string> Repository
+    {
+        get => GetProperty<TerraformProperty<string>>("repository");
+        set => WithProperty("repository", value);
+    }
+
+    /// <summary>
+    /// The tag of the container image. If not specified, this defaults to the latest tag.
+    /// </summary>
+    public TerraformProperty<string>? Tag
+    {
+        get => GetProperty<TerraformProperty<string>>("tag");
+        set => WithProperty("tag", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for reservation_affinity in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type of Compute Reservation. Possible values: [&amp;quot;NO_RESERVATION&amp;quot;, &amp;quot;ANY_RESERVATION&amp;quot;, &amp;quot;SPECIFIC_RESERVATION&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumeReservationType is required")]
+    public required TerraformProperty<string> ConsumeReservationType
+    {
+        get => GetProperty<TerraformProperty<string>>("consume_reservation_type");
+        set => WithProperty("consume_reservation_type", value);
+    }
+
+    /// <summary>
+    /// Corresponds to the label key of reservation resource.
+    /// </summary>
+    public TerraformProperty<string>? Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// Corresponds to the label values of reservation resource.
+    /// </summary>
+    public List<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for shielded_instance_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Defines whether the instance has integrity monitoring enabled. Enables monitoring and attestation of the
+    /// boot integrity of the instance. The attestation is performed against the integrity policy baseline.
+    /// This baseline is initially derived from the implicitly trusted boot image when the instance is created.
+    /// Enabled by default.
+    /// </summary>
+    public TerraformProperty<bool>? EnableIntegrityMonitoring
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_integrity_monitoring");
+        set => WithProperty("enable_integrity_monitoring", value);
+    }
+
+    /// <summary>
+    /// Defines whether the instance has Secure Boot enabled. Secure Boot helps ensure that the system only runs
+    /// authentic software by verifying the digital signature of all boot components, and halting the boot process
+    /// if signature verification fails.
+    /// Disabled by default.
+    /// </summary>
+    public TerraformProperty<bool>? EnableSecureBoot
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_secure_boot");
+        set => WithProperty("enable_secure_boot", value);
+    }
+
+    /// <summary>
+    /// Defines whether the instance has the vTPM enabled.
+    /// Enabled by default.
+    /// </summary>
+    public TerraformProperty<bool>? EnableVtpm
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_vtpm");
+        set => WithProperty("enable_vtpm", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vm_image in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNotebooksInstanceVmImageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Use this VM image family to find the image; the newest image in this family will be used.
+    /// </summary>
+    public TerraformProperty<string>? ImageFamily
+    {
+        get => GetProperty<TerraformProperty<string>>("image_family");
+        set => WithProperty("image_family", value);
+    }
+
+    /// <summary>
+    /// Use VM image name to find the image.
+    /// </summary>
+    public TerraformProperty<string>? ImageName
+    {
+        get => GetProperty<TerraformProperty<string>>("image_name");
+        set => WithProperty("image_name", value);
+    }
+
+    /// <summary>
+    /// The name of the Google Cloud project that this VM image belongs to.
+    /// Format: projects/{project_id}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
+    {
+        get => GetProperty<TerraformProperty<string>>("project");
+        set => WithProperty("project", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_notebooks_instance resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -126,9 +332,9 @@ public class GoogleNotebooksInstance : TerraformResource
     /// If not specified, all of the service account users of
     /// your VM instance&#39;s service account can use the instance.
     /// </summary>
-    public TerraformProperty<List<string>>? InstanceOwners
+    public List<TerraformProperty<string>>? InstanceOwners
     {
-        get => GetProperty<TerraformProperty<List<string>>>("instance_owners");
+        get => GetProperty<List<TerraformProperty<string>>>("instance_owners");
         set => this.WithProperty("instance_owners", value);
     }
 
@@ -150,16 +356,17 @@ public class GoogleNotebooksInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// A reference to the zone where the machine resides.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -168,7 +375,8 @@ public class GoogleNotebooksInstance : TerraformResource
     /// <summary>
     /// A reference to a machine type which defines VM kind.
     /// </summary>
-    public TerraformProperty<string>? MachineType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
+    public required TerraformProperty<string> MachineType
     {
         get => GetProperty<TerraformProperty<string>>("machine_type");
         set => this.WithProperty("machine_type", value);
@@ -178,16 +386,17 @@ public class GoogleNotebooksInstance : TerraformResource
     /// Custom metadata to apply to this instance.
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformMapProperty<string>? Metadata
+    public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<TerraformMapProperty<string>>("metadata");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name specified for the Notebook instance.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -278,9 +487,9 @@ public class GoogleNotebooksInstance : TerraformResource
     /// - https://www.googleapis.com/auth/cloud-platform
     /// - https://www.googleapis.com/auth/userinfo.email
     /// </summary>
-    public TerraformProperty<List<string>>? ServiceAccountScopes
+    public List<TerraformProperty<string>>? ServiceAccountScopes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("service_account_scopes");
+        get => GetProperty<List<TerraformProperty<string>>>("service_account_scopes");
         set => this.WithProperty("service_account_scopes", value);
     }
 
@@ -297,9 +506,9 @@ public class GoogleNotebooksInstance : TerraformResource
     /// <summary>
     /// The Compute Engine tags to add to instance.
     /// </summary>
-    public TerraformProperty<List<string>>? Tags
+    public List<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformProperty<List<string>>>("tags");
+        get => GetProperty<List<TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -310,6 +519,71 @@ public class GoogleNotebooksInstance : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("update_time");
         set => this.WithProperty("update_time", value);
+    }
+
+    /// <summary>
+    /// Block for accelerator_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AcceleratorConfig block(s) allowed")]
+    public List<GoogleNotebooksInstanceAcceleratorConfigBlock>? AcceleratorConfig
+    {
+        get => GetProperty<List<GoogleNotebooksInstanceAcceleratorConfigBlock>>("accelerator_config");
+        set => this.WithProperty("accelerator_config", value);
+    }
+
+    /// <summary>
+    /// Block for container_image.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerImage block(s) allowed")]
+    public List<GoogleNotebooksInstanceContainerImageBlock>? ContainerImage
+    {
+        get => GetProperty<List<GoogleNotebooksInstanceContainerImageBlock>>("container_image");
+        set => this.WithProperty("container_image", value);
+    }
+
+    /// <summary>
+    /// Block for reservation_affinity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReservationAffinity block(s) allowed")]
+    public List<GoogleNotebooksInstanceReservationAffinityBlock>? ReservationAffinity
+    {
+        get => GetProperty<List<GoogleNotebooksInstanceReservationAffinityBlock>>("reservation_affinity");
+        set => this.WithProperty("reservation_affinity", value);
+    }
+
+    /// <summary>
+    /// Block for shielded_instance_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceConfig block(s) allowed")]
+    public List<GoogleNotebooksInstanceShieldedInstanceConfigBlock>? ShieldedInstanceConfig
+    {
+        get => GetProperty<List<GoogleNotebooksInstanceShieldedInstanceConfigBlock>>("shielded_instance_config");
+        set => this.WithProperty("shielded_instance_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNotebooksInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNotebooksInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vm_image.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VmImage block(s) allowed")]
+    public List<GoogleNotebooksInstanceVmImageBlock>? VmImage
+    {
+        get => GetProperty<List<GoogleNotebooksInstanceVmImageBlock>>("vm_image");
+        set => this.WithProperty("vm_image", value);
     }
 
     /// <summary>

@@ -48,7 +48,8 @@ public class GoogleDataprocMetastoreServiceIamPolicyDataSource : TerraformDataSo
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
+    public required TerraformProperty<string> ServiceId
     {
         get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);

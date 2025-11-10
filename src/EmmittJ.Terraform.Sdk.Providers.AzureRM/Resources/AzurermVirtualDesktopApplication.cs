@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_virtual_desktop_application resource.
 /// </summary>
 public class AzurermVirtualDesktopApplication : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The application_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
+    public required TerraformProperty<string> ApplicationGroupId
     {
         get => GetProperty<TerraformProperty<string>>("application_group_id");
         set => this.WithProperty("application_group_id", value);
@@ -28,7 +73,8 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The command_line_argument_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? CommandLineArgumentPolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLineArgumentPolicy is required")]
+    public required TerraformProperty<string> CommandLineArgumentPolicy
     {
         get => GetProperty<TerraformProperty<string>>("command_line_argument_policy");
         set => this.WithProperty("command_line_argument_policy", value);
@@ -91,7 +137,8 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,7 +147,8 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformProperty<string> Path
     {
         get => GetProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);
@@ -113,6 +161,16 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("show_in_portal");
         set => this.WithProperty("show_in_portal", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualDesktopApplicationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualDesktopApplicationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

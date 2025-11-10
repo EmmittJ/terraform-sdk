@@ -3,6 +3,88 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for initial_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Default branch name of the repository.
+    /// </summary>
+    public TerraformProperty<string>? DefaultBranch
+    {
+        get => GetProperty<TerraformProperty<string>>("default_branch");
+        set => WithProperty("default_branch", value);
+    }
+
+    /// <summary>
+    /// List of gitignore template names user can choose from.
+    /// Valid values can be viewed at https://cloud.google.com/secure-source-manager/docs/reference/rest/v1/projects.locations.repositories#initialconfig.
+    /// </summary>
+    public List<TerraformProperty<string>>? Gitignores
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("gitignores");
+        set => WithProperty("gitignores", value);
+    }
+
+    /// <summary>
+    /// License template name user can choose from.
+    /// Valid values can be viewed at https://cloud.google.com/secure-source-manager/docs/reference/rest/v1/projects.locations.repositories#initialconfig.
+    /// </summary>
+    public TerraformProperty<string>? License
+    {
+        get => GetProperty<TerraformProperty<string>>("license");
+        set => WithProperty("license", value);
+    }
+
+    /// <summary>
+    /// README template name.
+    /// Valid values can be viewed at https://cloud.google.com/secure-source-manager/docs/reference/rest/v1/projects.locations.repositories#initialconfig.
+    /// </summary>
+    public TerraformProperty<string>? Readme
+    {
+        get => GetProperty<TerraformProperty<string>>("readme");
+        set => WithProperty("readme", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_secure_source_manager_repository resource.
 /// </summary>
 public class GoogleSecureSourceManagerRepository : TerraformResource
@@ -58,7 +140,8 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     /// <summary>
     /// The name of the instance in which the repository is hosted.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -67,7 +150,8 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     /// <summary>
     /// The location for the Repository.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -85,10 +169,32 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     /// <summary>
     /// The ID for the Repository.
     /// </summary>
-    public TerraformProperty<string>? RepositoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
+    public required TerraformProperty<string> RepositoryId
     {
         get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
+    }
+
+    /// <summary>
+    /// Block for initial_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialConfig block(s) allowed")]
+    public List<GoogleSecureSourceManagerRepositoryInitialConfigBlock>? InitialConfig
+    {
+        get => GetProperty<List<GoogleSecureSourceManagerRepositoryInitialConfigBlock>>("initial_config");
+        set => this.WithProperty("initial_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSecureSourceManagerRepositoryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSecureSourceManagerRepositoryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

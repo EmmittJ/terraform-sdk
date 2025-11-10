@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_scc_management_organization_event_threat_detection_custom_module resource.
 /// </summary>
 public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : TerraformResource
@@ -68,7 +103,8 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     /// <summary>
     /// Numerical ID of the parent organization.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -81,6 +117,16 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

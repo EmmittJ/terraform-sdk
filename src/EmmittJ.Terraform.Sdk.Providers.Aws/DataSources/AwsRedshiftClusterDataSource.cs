@@ -57,7 +57,8 @@ public class AwsRedshiftClusterDataSource : TerraformDataSource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -84,9 +85,9 @@ public class AwsRedshiftClusterDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

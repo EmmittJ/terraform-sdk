@@ -58,7 +58,8 @@ public class AwsLambdaLayerVersionDataSource : TerraformDataSource
     /// <summary>
     /// The layer_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LayerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
+    public required TerraformProperty<string> LayerName
     {
         get => GetProperty<TerraformProperty<string>>("layer_name");
         set => this.WithProperty("layer_name", value);

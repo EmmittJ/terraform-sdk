@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for control_sets in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAuditmanagerFrameworkControlSetsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_auditmanager_framework resource.
 /// </summary>
 public class AwsAuditmanagerFramework : TerraformResource
@@ -41,7 +68,8 @@ public class AwsAuditmanagerFramework : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -59,10 +87,20 @@ public class AwsAuditmanagerFramework : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for control_sets.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAuditmanagerFrameworkControlSetsBlock>? ControlSets
+    {
+        get => GetProperty<HashSet<AwsAuditmanagerFrameworkControlSetsBlock>>("control_sets");
+        set => this.WithProperty("control_sets", value);
     }
 
     /// <summary>

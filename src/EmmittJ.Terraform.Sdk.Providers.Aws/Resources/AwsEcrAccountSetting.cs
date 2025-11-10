@@ -19,7 +19,8 @@ public class AwsEcrAccountSetting : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -37,7 +38,8 @@ public class AwsEcrAccountSetting : TerraformResource
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<string>? Value
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
     {
         get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);

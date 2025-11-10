@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for cookie_synchronization_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for toolbar_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The hidden_toolbar_items attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? HiddenToolbarItems
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("hidden_toolbar_items");
+        set => WithProperty("hidden_toolbar_items", value);
+    }
+
+    /// <summary>
+    /// The max_display_resolution attribute.
+    /// </summary>
+    public TerraformProperty<string>? MaxDisplayResolution
+    {
+        get => GetProperty<TerraformProperty<string>>("max_display_resolution");
+        set => WithProperty("max_display_resolution", value);
+    }
+
+    /// <summary>
+    /// The toolbar_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? ToolbarType
+    {
+        get => GetProperty<TerraformProperty<string>>("toolbar_type");
+        set => WithProperty("toolbar_type", value);
+    }
+
+    /// <summary>
+    /// The visual_mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? VisualMode
+    {
+        get => GetProperty<TerraformProperty<string>>("visual_mode");
+        set => WithProperty("visual_mode", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_workspacesweb_user_settings resource.
 /// </summary>
 public class AwsWorkspaceswebUserSettings : TerraformResource
@@ -22,16 +74,17 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_encryption_context");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The copy_allowed attribute.
     /// </summary>
-    public TerraformProperty<string>? CopyAllowed
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyAllowed is required")]
+    public required TerraformProperty<string> CopyAllowed
     {
         get => GetProperty<TerraformProperty<string>>("copy_allowed");
         set => this.WithProperty("copy_allowed", value);
@@ -67,7 +120,8 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     /// <summary>
     /// The download_allowed attribute.
     /// </summary>
-    public TerraformProperty<string>? DownloadAllowed
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DownloadAllowed is required")]
+    public required TerraformProperty<string> DownloadAllowed
     {
         get => GetProperty<TerraformProperty<string>>("download_allowed");
         set => this.WithProperty("download_allowed", value);
@@ -85,7 +139,8 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     /// <summary>
     /// The paste_allowed attribute.
     /// </summary>
-    public TerraformProperty<string>? PasteAllowed
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasteAllowed is required")]
+    public required TerraformProperty<string> PasteAllowed
     {
         get => GetProperty<TerraformProperty<string>>("paste_allowed");
         set => this.WithProperty("paste_allowed", value);
@@ -94,7 +149,8 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     /// <summary>
     /// The print_allowed attribute.
     /// </summary>
-    public TerraformProperty<string>? PrintAllowed
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrintAllowed is required")]
+    public required TerraformProperty<string> PrintAllowed
     {
         get => GetProperty<TerraformProperty<string>>("print_allowed");
         set => this.WithProperty("print_allowed", value);
@@ -112,19 +168,40 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The upload_allowed attribute.
     /// </summary>
-    public TerraformProperty<string>? UploadAllowed
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UploadAllowed is required")]
+    public required TerraformProperty<string> UploadAllowed
     {
         get => GetProperty<TerraformProperty<string>>("upload_allowed");
         set => this.WithProperty("upload_allowed", value);
+    }
+
+    /// <summary>
+    /// Block for cookie_synchronization_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock>? CookieSynchronizationConfiguration
+    {
+        get => GetProperty<List<AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock>>("cookie_synchronization_configuration");
+        set => this.WithProperty("cookie_synchronization_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for toolbar_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsWorkspaceswebUserSettingsToolbarConfigurationBlock>? ToolbarConfiguration
+    {
+        get => GetProperty<List<AwsWorkspaceswebUserSettingsToolbarConfigurationBlock>>("toolbar_configuration");
+        set => this.WithProperty("toolbar_configuration", value);
     }
 
     /// <summary>

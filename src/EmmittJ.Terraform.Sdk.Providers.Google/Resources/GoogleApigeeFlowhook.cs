@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeFlowhookTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_flowhook resource.
 /// </summary>
 public class GoogleApigeeFlowhook : TerraformResource
@@ -37,7 +63,8 @@ public class GoogleApigeeFlowhook : TerraformResource
     /// <summary>
     /// The resource ID of the environment.
     /// </summary>
-    public TerraformProperty<string>? Environment
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
+    public required TerraformProperty<string> Environment
     {
         get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
@@ -46,7 +73,8 @@ public class GoogleApigeeFlowhook : TerraformResource
     /// <summary>
     /// Where in the API call flow the flow hook is invoked. Must be one of PreProxyFlowHook, PostProxyFlowHook, PreTargetFlowHook, or PostTargetFlowHook.
     /// </summary>
-    public TerraformProperty<string>? FlowHookPoint
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowHookPoint is required")]
+    public required TerraformProperty<string> FlowHookPoint
     {
         get => GetProperty<TerraformProperty<string>>("flow_hook_point");
         set => this.WithProperty("flow_hook_point", value);
@@ -64,7 +92,8 @@ public class GoogleApigeeFlowhook : TerraformResource
     /// <summary>
     /// The Apigee Organization associated with the environment
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -73,10 +102,21 @@ public class GoogleApigeeFlowhook : TerraformResource
     /// <summary>
     /// Id of the Sharedflow attaching to a flowhook point.
     /// </summary>
-    public TerraformProperty<string>? Sharedflow
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sharedflow is required")]
+    public required TerraformProperty<string> Sharedflow
     {
         get => GetProperty<TerraformProperty<string>>("sharedflow");
         set => this.WithProperty("sharedflow", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeFlowhookTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeFlowhookTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

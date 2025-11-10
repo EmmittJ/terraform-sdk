@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for provider_oauth_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. User selected scopes to apply to the Oauth config
+    /// In the event of changing scopes, user records under AccountConnector will
+    /// be deleted and users will re-auth again.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
+    public List<TerraformProperty<string>>? Scopes
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("scopes");
+        set => WithProperty("scopes", value);
+    }
+
+    /// <summary>
+    /// List of providers that are owned by Developer Connect.
+    /// 
+    /// Possible values:
+    /// GITHUB
+    /// GITLAB
+    /// GOOGLE
+    /// SENTRY
+    /// ROVO
+    /// NEW_RELIC
+    /// DATASTAX
+    /// </summary>
+    public TerraformProperty<string>? SystemProviderId
+    {
+        get => GetProperty<TerraformProperty<string>>("system_provider_id");
+        set => WithProperty("system_provider_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDeveloperConnectAccountConnectorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_developer_connect_account_connector resource.
 /// </summary>
 public class GoogleDeveloperConnectAccountConnector : TerraformResource
@@ -29,7 +102,8 @@ public class GoogleDeveloperConnectAccountConnector : TerraformResource
     /// to https://google.aip.dev/122#resource-id-segments Names must be unique
     /// per-project per-location.
     /// </summary>
-    public TerraformProperty<string>? AccountConnectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountConnectorId is required")]
+    public required TerraformProperty<string> AccountConnectorId
     {
         get => GetProperty<TerraformProperty<string>>("account_connector_id");
         set => this.WithProperty("account_connector_id", value);
@@ -41,9 +115,9 @@ public class GoogleDeveloperConnectAccountConnector : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -62,16 +136,17 @@ public class GoogleDeveloperConnectAccountConnector : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -84,6 +159,27 @@ public class GoogleDeveloperConnectAccountConnector : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for provider_oauth_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProviderOauthConfig block(s) allowed")]
+    public List<GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock>? ProviderOauthConfig
+    {
+        get => GetProperty<List<GoogleDeveloperConnectAccountConnectorProviderOauthConfigBlock>>("provider_oauth_config");
+        set => this.WithProperty("provider_oauth_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDeveloperConnectAccountConnectorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDeveloperConnectAccountConnectorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,111 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for disk_iops_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The iops attribute.
+    /// </summary>
+    public TerraformProperty<double>? Iops
+    {
+        get => GetProperty<TerraformProperty<double>>("iops");
+        set => WithProperty("iops", value);
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for root_volume_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The copy_tags_to_snapshots attribute.
+    /// </summary>
+    public TerraformProperty<bool>? CopyTagsToSnapshots
+    {
+        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_snapshots");
+        set => WithProperty("copy_tags_to_snapshots", value);
+    }
+
+    /// <summary>
+    /// The data_compression_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? DataCompressionType
+    {
+        get => GetProperty<TerraformProperty<string>>("data_compression_type");
+        set => WithProperty("data_compression_type", value);
+    }
+
+    /// <summary>
+    /// The read_only attribute.
+    /// </summary>
+    public TerraformProperty<bool>? ReadOnly
+    {
+        get => GetProperty<TerraformProperty<bool>>("read_only");
+        set => WithProperty("read_only", value);
+    }
+
+    /// <summary>
+    /// The record_size_kib attribute.
+    /// </summary>
+    public TerraformProperty<double>? RecordSizeKib
+    {
+        get => GetProperty<TerraformProperty<double>>("record_size_kib");
+        set => WithProperty("record_size_kib", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFsxOpenzfsFileSystemTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_fsx_openzfs_file_system resource.
 /// </summary>
 public class AwsFsxOpenzfsFileSystem : TerraformResource
@@ -71,16 +176,17 @@ public class AwsFsxOpenzfsFileSystem : TerraformResource
     /// <summary>
     /// The delete_options attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DeleteOptions
+    public HashSet<TerraformProperty<string>>? DeleteOptions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("delete_options");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("delete_options");
         set => this.WithProperty("delete_options", value);
     }
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
+    public required TerraformProperty<string> DeploymentType
     {
         get => GetProperty<TerraformProperty<string>>("deployment_type");
         set => this.WithProperty("deployment_type", value);
@@ -98,9 +204,9 @@ public class AwsFsxOpenzfsFileSystem : TerraformResource
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? FinalBackupTags
+    public Dictionary<string, TerraformProperty<string>>? FinalBackupTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("final_backup_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
         set => this.WithProperty("final_backup_tags", value);
     }
 
@@ -143,18 +249,18 @@ public class AwsFsxOpenzfsFileSystem : TerraformResource
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RouteTableIds
+    public HashSet<TerraformProperty<string>>? RouteTableIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("route_table_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("route_table_ids");
         set => this.WithProperty("route_table_ids", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
@@ -188,34 +294,36 @@ public class AwsFsxOpenzfsFileSystem : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public List<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("subnet_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? ThroughputCapacity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
+    public required TerraformProperty<double> ThroughputCapacity
     {
         get => GetProperty<TerraformProperty<double>>("throughput_capacity");
         set => this.WithProperty("throughput_capacity", value);
@@ -228,6 +336,38 @@ public class AwsFsxOpenzfsFileSystem : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
         set => this.WithProperty("weekly_maintenance_start_time", value);
+    }
+
+    /// <summary>
+    /// Block for disk_iops_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
+    public List<AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock>? DiskIopsConfiguration
+    {
+        get => GetProperty<List<AwsFsxOpenzfsFileSystemDiskIopsConfigurationBlock>>("disk_iops_configuration");
+        set => this.WithProperty("disk_iops_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for root_volume_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootVolumeConfiguration block(s) allowed")]
+    public List<AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock>? RootVolumeConfiguration
+    {
+        get => GetProperty<List<AwsFsxOpenzfsFileSystemRootVolumeConfigurationBlock>>("root_volume_configuration");
+        set => this.WithProperty("root_volume_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFsxOpenzfsFileSystemTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFsxOpenzfsFileSystemTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -35,7 +35,8 @@ public class GoogleMonitoringAppEngineServiceDataSource : TerraformDataSource
     /// Corresponds to the &#39;moduleId&#39; resource label for a &#39;gae_app&#39;
     /// monitored resource(see https://cloud.google.com/monitoring/api/resources#tag_gae_app)
     /// </summary>
-    public TerraformProperty<string>? ModuleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModuleId is required")]
+    public required TerraformProperty<string> ModuleId
     {
         get => GetProperty<TerraformProperty<string>>("module_id");
         set => this.WithProperty("module_id", value);

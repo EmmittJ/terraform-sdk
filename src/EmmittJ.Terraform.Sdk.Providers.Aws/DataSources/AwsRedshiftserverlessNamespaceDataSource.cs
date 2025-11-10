@@ -36,7 +36,8 @@ public class AwsRedshiftserverlessNamespaceDataSource : TerraformDataSource
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespaceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
+    public required TerraformProperty<string> NamespaceName
     {
         get => GetProperty<TerraformProperty<string>>("namespace_name");
         set => this.WithProperty("namespace_name", value);

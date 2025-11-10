@@ -29,7 +29,8 @@ public class AwsNotificationsEventRule : TerraformResource
     /// <summary>
     /// The event_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EventType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
+    public required TerraformProperty<string> EventType
     {
         get => GetProperty<TerraformProperty<string>>("event_type");
         set => this.WithProperty("event_type", value);
@@ -38,7 +39,8 @@ public class AwsNotificationsEventRule : TerraformResource
     /// <summary>
     /// The notification_configuration_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationConfigurationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
+    public required TerraformProperty<string> NotificationConfigurationArn
     {
         get => GetProperty<TerraformProperty<string>>("notification_configuration_arn");
         set => this.WithProperty("notification_configuration_arn", value);
@@ -47,16 +49,18 @@ public class AwsNotificationsEventRule : TerraformResource
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Regions
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
+    public HashSet<TerraformProperty<string>>? Regions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("regions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformProperty<string> Source
     {
         get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);

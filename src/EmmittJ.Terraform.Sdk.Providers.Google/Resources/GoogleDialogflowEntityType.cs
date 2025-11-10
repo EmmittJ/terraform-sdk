@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for entities in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// A collection of value synonyms. For example, if the entity type is vegetable, and value is scallions, a synonym
+    /// could be green onions.
+    /// For KIND_LIST entity types:
+    /// * This collection must contain exactly one synonym equal to value.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Synonyms is required")]
+    public List<TerraformProperty<string>>? Synonyms
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("synonyms");
+        set => WithProperty("synonyms", value);
+    }
+
+    /// <summary>
+    /// The primary value associated with this entity entry. For example, if the entity type is vegetable, the value
+    /// could be scallions.
+    /// For KIND_MAP entity types:
+    /// * A reference value to be used in place of synonyms.
+    /// For KIND_LIST entity types:
+    /// * A string that can contain references to other entity types (with or without aliases).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dialogflow_entity_type resource.
 /// </summary>
 public class GoogleDialogflowEntityType : TerraformResource
@@ -20,7 +91,8 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// <summary>
     /// The name of this entity type to be displayed on the console.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -51,7 +123,8 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// types can contain references to other entity types (with or without aliases).
     /// * KIND_REGEXP: Regexp entity types allow to specify regular expressions in entries values. Possible values: [&amp;quot;KIND_MAP&amp;quot;, &amp;quot;KIND_LIST&amp;quot;, &amp;quot;KIND_REGEXP&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Kind
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
+    public required TerraformProperty<string> Kind
     {
         get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
@@ -64,6 +137,26 @@ public class GoogleDialogflowEntityType : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for entities.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDialogflowEntityTypeEntitiesBlock>? Entities
+    {
+        get => GetProperty<List<GoogleDialogflowEntityTypeEntitiesBlock>>("entities");
+        set => this.WithProperty("entities", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDialogflowEntityTypeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDialogflowEntityTypeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

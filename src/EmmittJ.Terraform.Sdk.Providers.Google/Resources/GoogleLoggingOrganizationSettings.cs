@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleLoggingOrganizationSettingsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_logging_organization_settings resource.
 /// </summary>
 public class GoogleLoggingOrganizationSettings : TerraformResource
@@ -49,7 +84,8 @@ public class GoogleLoggingOrganizationSettings : TerraformResource
     /// <summary>
     /// The organization for which to retrieve or configure settings.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -62,6 +98,16 @@ public class GoogleLoggingOrganizationSettings : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("storage_location");
         set => this.WithProperty("storage_location", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleLoggingOrganizationSettingsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleLoggingOrganizationSettingsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

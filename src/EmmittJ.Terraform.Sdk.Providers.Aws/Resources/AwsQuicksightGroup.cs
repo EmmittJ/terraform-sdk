@@ -38,7 +38,8 @@ public class AwsQuicksightGroup : TerraformResource
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
+    public required TerraformProperty<string> GroupName
     {
         get => GetProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);

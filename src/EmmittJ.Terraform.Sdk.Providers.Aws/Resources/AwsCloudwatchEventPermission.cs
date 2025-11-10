@@ -3,6 +3,44 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudwatch_event_permission resource.
 /// </summary>
 public class AwsCloudwatchEventPermission : TerraformResource
@@ -46,7 +84,8 @@ public class AwsCloudwatchEventPermission : TerraformResource
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformProperty<string>? Principal
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
     {
         get => GetProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
@@ -64,10 +103,22 @@ public class AwsCloudwatchEventPermission : TerraformResource
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StatementId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
+    public required TerraformProperty<string> StatementId
     {
         get => GetProperty<TerraformProperty<string>>("statement_id");
         set => this.WithProperty("statement_id", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<AwsCloudwatchEventPermissionConditionBlock>? Condition
+    {
+        get => GetProperty<List<AwsCloudwatchEventPermissionConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
 }

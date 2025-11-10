@@ -27,18 +27,18 @@ public class AwsLambdaLayerVersion : TerraformResource
     /// <summary>
     /// The compatible_architectures attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CompatibleArchitectures
+    public HashSet<TerraformProperty<string>>? CompatibleArchitectures
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("compatible_architectures");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("compatible_architectures");
         set => this.WithProperty("compatible_architectures", value);
     }
 
     /// <summary>
     /// The compatible_runtimes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CompatibleRuntimes
+    public HashSet<TerraformProperty<string>>? CompatibleRuntimes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("compatible_runtimes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("compatible_runtimes");
         set => this.WithProperty("compatible_runtimes", value);
     }
 
@@ -72,7 +72,8 @@ public class AwsLambdaLayerVersion : TerraformResource
     /// <summary>
     /// The layer_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LayerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
+    public required TerraformProperty<string> LayerName
     {
         get => GetProperty<TerraformProperty<string>>("layer_name");
         set => this.WithProperty("layer_name", value);

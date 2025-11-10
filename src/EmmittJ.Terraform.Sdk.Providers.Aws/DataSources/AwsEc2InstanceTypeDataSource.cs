@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEc2InstanceTypeDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_ec2_instance_type.
 /// </summary>
 public class AwsEc2InstanceTypeDataSource : TerraformDataSource
@@ -90,7 +107,8 @@ public class AwsEc2InstanceTypeDataSource : TerraformDataSource
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
     {
         get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
@@ -103,6 +121,16 @@ public class AwsEc2InstanceTypeDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEc2InstanceTypeDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEc2InstanceTypeDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

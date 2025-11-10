@@ -27,7 +27,8 @@ public class AwsApiGatewayApiKeyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
@@ -45,9 +46,9 @@ public class AwsApiGatewayApiKeyDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

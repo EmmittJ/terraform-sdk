@@ -21,7 +21,8 @@ public class AwsRoute53recoverycontrolconfigRoutingControl : TerraformResource
     /// <summary>
     /// The cluster_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
+    public required TerraformProperty<string> ClusterArn
     {
         get => GetProperty<TerraformProperty<string>>("cluster_arn");
         set => this.WithProperty("cluster_arn", value);
@@ -48,7 +49,8 @@ public class AwsRoute53recoverycontrolconfigRoutingControl : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

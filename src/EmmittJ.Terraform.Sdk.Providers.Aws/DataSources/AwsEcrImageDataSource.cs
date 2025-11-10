@@ -77,7 +77,8 @@ public class AwsEcrImageDataSource : TerraformDataSource
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
+    public required TerraformProperty<string> RepositoryName
     {
         get => GetProperty<TerraformProperty<string>>("repository_name");
         set => this.WithProperty("repository_name", value);

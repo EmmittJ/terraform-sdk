@@ -31,7 +31,8 @@ public class AwsSesv2DedicatedIpPoolDataSource : TerraformDataSource
     /// <summary>
     /// The pool_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PoolName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
+    public required TerraformProperty<string> PoolName
     {
         get => GetProperty<TerraformProperty<string>>("pool_name");
         set => this.WithProperty("pool_name", value);
@@ -49,9 +50,9 @@ public class AwsSesv2DedicatedIpPoolDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

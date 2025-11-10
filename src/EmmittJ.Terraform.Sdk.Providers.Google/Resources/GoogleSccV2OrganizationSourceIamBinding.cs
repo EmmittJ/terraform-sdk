@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleSccV2OrganizationSourceIamBindingConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The title attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_scc_v2_organization_source_iam_binding resource.
 /// </summary>
 public class GoogleSccV2OrganizationSourceIamBinding : TerraformResource
@@ -29,16 +66,18 @@ public class GoogleSccV2OrganizationSourceIamBinding : TerraformResource
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Members
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
+    public HashSet<TerraformProperty<string>>? Members
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -47,7 +86,8 @@ public class GoogleSccV2OrganizationSourceIamBinding : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
@@ -56,10 +96,22 @@ public class GoogleSccV2OrganizationSourceIamBinding : TerraformResource
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformProperty<string> Source
     {
         get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleSccV2OrganizationSourceIamBindingConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleSccV2OrganizationSourceIamBindingConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>

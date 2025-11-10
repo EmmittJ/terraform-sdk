@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for event_subscription in .
+/// Nesting mode: set
+/// </summary>
+public class AwsInspectorAssessmentTemplateEventSubscriptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The event attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Event is required")]
+    public required TerraformProperty<string> Event
+    {
+        get => GetProperty<TerraformProperty<string>>("event");
+        set => WithProperty("event", value);
+    }
+
+    /// <summary>
+    /// The topic_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
+    public required TerraformProperty<string> TopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        set => WithProperty("topic_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_inspector_assessment_template resource.
 /// </summary>
 public class AwsInspectorAssessmentTemplate : TerraformResource
@@ -20,7 +48,8 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformProperty<double>? Duration
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
+    public required TerraformProperty<double> Duration
     {
         get => GetProperty<TerraformProperty<double>>("duration");
         set => this.WithProperty("duration", value);
@@ -38,7 +67,8 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,37 +86,49 @@ public class AwsInspectorAssessmentTemplate : TerraformResource
     /// <summary>
     /// The rules_package_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RulesPackageArns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulesPackageArns is required")]
+    public HashSet<TerraformProperty<string>>? RulesPackageArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("rules_package_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("rules_package_arns");
         set => this.WithProperty("rules_package_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
+    public required TerraformProperty<string> TargetArn
     {
         get => GetProperty<TerraformProperty<string>>("target_arn");
         set => this.WithProperty("target_arn", value);
+    }
+
+    /// <summary>
+    /// Block for event_subscription.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsInspectorAssessmentTemplateEventSubscriptionBlock>? EventSubscription
+    {
+        get => GetProperty<HashSet<AwsInspectorAssessmentTemplateEventSubscriptionBlock>>("event_subscription");
+        set => this.WithProperty("event_subscription", value);
     }
 
     /// <summary>

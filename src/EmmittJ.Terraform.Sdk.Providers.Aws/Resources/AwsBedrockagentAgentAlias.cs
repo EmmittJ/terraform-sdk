@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsBedrockagentAgentAliasTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_bedrockagent_agent_alias resource.
 /// </summary>
 public class AwsBedrockagentAgentAlias : TerraformResource
@@ -23,7 +58,8 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     /// <summary>
     /// The agent_alias_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentAliasName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAliasName is required")]
+    public required TerraformProperty<string> AgentAliasName
     {
         get => GetProperty<TerraformProperty<string>>("agent_alias_name");
         set => this.WithProperty("agent_alias_name", value);
@@ -32,7 +68,8 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
+    public required TerraformProperty<string> AgentId
     {
         get => GetProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
@@ -59,19 +96,29 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     /// <summary>
     /// The routing_configuration attribute.
     /// </summary>
-    public TerraformProperty<List<object>>? RoutingConfiguration
+    public List<TerraformProperty<object>>? RoutingConfiguration
     {
-        get => GetProperty<TerraformProperty<List<object>>>("routing_configuration");
+        get => GetProperty<List<TerraformProperty<object>>>("routing_configuration");
         set => this.WithProperty("routing_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsBedrockagentAgentAliasTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsBedrockagentAgentAliasTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

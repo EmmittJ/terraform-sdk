@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_cognitive_account_customer_managed_key resource.
 /// </summary>
 public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CognitiveAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
+    public required TerraformProperty<string> CognitiveAccountId
     {
         get => GetProperty<TerraformProperty<string>>("cognitive_account_id");
         set => this.WithProperty("cognitive_account_id", value);
@@ -46,10 +91,21 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
+    public required TerraformProperty<string> KeyVaultKeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -23,7 +23,8 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
     /// <summary>
     /// The endpoint_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointName is required")]
+    public required TerraformProperty<string> EndpointName
     {
         get => GetProperty<TerraformProperty<string>>("endpoint_name");
         set => this.WithProperty("endpoint_name", value);
@@ -59,25 +60,27 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkgroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
+    public required TerraformProperty<string> WorkgroupName
     {
         get => GetProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);

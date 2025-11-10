@@ -32,7 +32,8 @@ public class AwsBackupPlanDataSource : TerraformDataSource
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PlanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
+    public required TerraformProperty<string> PlanId
     {
         get => GetProperty<TerraformProperty<string>>("plan_id");
         set => this.WithProperty("plan_id", value);
@@ -50,9 +51,9 @@ public class AwsBackupPlanDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

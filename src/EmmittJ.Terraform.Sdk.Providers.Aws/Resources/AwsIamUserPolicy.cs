@@ -46,7 +46,8 @@ public class AwsIamUserPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -55,7 +56,8 @@ public class AwsIamUserPolicy : TerraformResource
     /// <summary>
     /// The user attribute.
     /// </summary>
-    public TerraformProperty<string>? User
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
+    public required TerraformProperty<string> User
     {
         get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);

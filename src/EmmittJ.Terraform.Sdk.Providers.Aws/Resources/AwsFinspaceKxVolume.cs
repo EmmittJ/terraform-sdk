@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for nas1_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxVolumeNas1ConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
+    public required TerraformProperty<double> Size
+    {
+        get => GetProperty<TerraformProperty<double>>("size");
+        set => WithProperty("size", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFinspaceKxVolumeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_finspace_kx_volume resource.
 /// </summary>
 public class AwsFinspaceKxVolume : TerraformResource
@@ -25,16 +88,18 @@ public class AwsFinspaceKxVolume : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? AvailabilityZones
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZones is required")]
+    public List<TerraformProperty<string>>? AvailabilityZones
     {
-        get => GetProperty<TerraformProperty<List<string>>>("availability_zones");
+        get => GetProperty<List<TerraformProperty<string>>>("availability_zones");
         set => this.WithProperty("availability_zones", value);
     }
 
     /// <summary>
     /// The az_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AzMode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
+    public required TerraformProperty<string> AzMode
     {
         get => GetProperty<TerraformProperty<string>>("az_mode");
         set => this.WithProperty("az_mode", value);
@@ -52,7 +117,8 @@ public class AwsFinspaceKxVolume : TerraformResource
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvironmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
+    public required TerraformProperty<string> EnvironmentId
     {
         get => GetProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
@@ -70,7 +136,8 @@ public class AwsFinspaceKxVolume : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -88,28 +155,49 @@ public class AwsFinspaceKxVolume : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for nas1_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsFinspaceKxVolumeNas1ConfigurationBlock>? Nas1Configuration
+    {
+        get => GetProperty<List<AwsFinspaceKxVolumeNas1ConfigurationBlock>>("nas1_configuration");
+        set => this.WithProperty("nas1_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFinspaceKxVolumeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFinspaceKxVolumeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

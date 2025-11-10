@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for resource in .
+/// Nesting mode: set
+/// </summary>
+public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cidr_block attribute.
+    /// </summary>
+    public TerraformProperty<string>? CidrBlock
+    {
+        get => GetProperty<TerraformProperty<string>>("cidr_block");
+        set => WithProperty("cidr_block", value);
+    }
+
+    /// <summary>
+    /// The endpoint_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? EndpointId
+    {
+        get => GetProperty<TerraformProperty<string>>("endpoint_id");
+        set => WithProperty("endpoint_id", value);
+    }
+
+    /// <summary>
+    /// The region attribute.
+    /// </summary>
+    public TerraformProperty<string>? Region
+    {
+        get => GetProperty<TerraformProperty<string>>("region");
+        set => WithProperty("region", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_globalaccelerator_cross_account_attachment resource.
 /// </summary>
 public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
@@ -24,7 +59,8 @@ public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -33,19 +69,29 @@ public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
     /// <summary>
     /// The principals attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Principals
+    public HashSet<TerraformProperty<string>>? Principals
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("principals");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("principals");
         set => this.WithProperty("principals", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for resource.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock>? Resource
+    {
+        get => GetProperty<HashSet<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock>>("resource");
+        set => this.WithProperty("resource", value);
     }
 
     /// <summary>

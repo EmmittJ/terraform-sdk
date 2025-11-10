@@ -19,7 +19,8 @@ public class AwsPrometheusAlertManagerDefinition : TerraformResource
     /// <summary>
     /// The definition attribute.
     /// </summary>
-    public TerraformProperty<string>? Definition
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
+    public required TerraformProperty<string> Definition
     {
         get => GetProperty<TerraformProperty<string>>("definition");
         set => this.WithProperty("definition", value);
@@ -46,7 +47,8 @@ public class AwsPrometheusAlertManagerDefinition : TerraformResource
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    public required TerraformProperty<string> WorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);

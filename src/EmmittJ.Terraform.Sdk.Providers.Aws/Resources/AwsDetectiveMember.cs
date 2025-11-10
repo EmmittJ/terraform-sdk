@@ -25,7 +25,8 @@ public class AwsDetectiveMember : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
+    public required TerraformProperty<string> AccountId
     {
         get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
@@ -43,7 +44,8 @@ public class AwsDetectiveMember : TerraformResource
     /// <summary>
     /// The email_address attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
+    public required TerraformProperty<string> EmailAddress
     {
         get => GetProperty<TerraformProperty<string>>("email_address");
         set => this.WithProperty("email_address", value);
@@ -52,7 +54,8 @@ public class AwsDetectiveMember : TerraformResource
     /// <summary>
     /// The graph_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GraphArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GraphArn is required")]
+    public required TerraformProperty<string> GraphArn
     {
         get => GetProperty<TerraformProperty<string>>("graph_arn");
         set => this.WithProperty("graph_arn", value);

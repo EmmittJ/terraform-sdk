@@ -3,6 +3,99 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for entities in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The full resource name of the associated data store for the source
+    /// entity.
+    /// Format: &#39;projects/*/locations/*/collections/*/dataStores/*&#39;.
+    /// When the connector is initialized by the DataConnectorService.SetUpDataConnector
+    /// method, a DataStore is automatically created for each source entity.
+    /// </summary>
+    public TerraformProperty<string>? DataStore
+    {
+        get => GetProperty<TerraformProperty<string>>("data_store");
+        set => WithProperty("data_store", value);
+    }
+
+    /// <summary>
+    /// The name of the entity. Supported values by data source:
+    /// * Salesforce: &#39;Lead&#39;, &#39;Opportunity&#39;, &#39;Contact&#39;, &#39;Account&#39;, &#39;Case&#39;, &#39;Contract&#39;, &#39;Campaign&#39;
+    /// * Jira: project, issue, attachment, comment, worklog
+    /// * Confluence: &#39;Content&#39;, &#39;Space&#39;
+    /// </summary>
+    public TerraformProperty<string>? EntityName
+    {
+        get => GetProperty<TerraformProperty<string>>("entity_name");
+        set => WithProperty("entity_name", value);
+    }
+
+    /// <summary>
+    /// Attributes for indexing.
+    /// Key: Field name.
+    /// Value: The key property to map a field to, such as &#39;title&#39;, and
+    /// &#39;description&#39;. Supported key properties:
+    /// * &#39;title&#39;: The title for data record. This would be displayed on search
+    ///   results.
+    /// * &#39;description&#39;: The description for data record. This would be displayed
+    ///   on search results.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? KeyPropertyMappings
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("key_property_mappings");
+        set => WithProperty("key_property_mappings", value);
+    }
+
+    /// <summary>
+    /// The parameters for the entity to facilitate data ingestion.
+    /// </summary>
+    public TerraformProperty<string>? Params
+    {
+        get => GetProperty<TerraformProperty<string>>("params");
+        set => WithProperty("params", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_discovery_engine_data_connector resource.
 /// </summary>
 public class GoogleDiscoveryEngineDataConnector : TerraformResource
@@ -43,7 +136,8 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// Should be human readable, used to display collections in the Console
     /// Dashboard. UTF-8 encoded string with limit of 1024 characters.
     /// </summary>
-    public TerraformProperty<string>? CollectionDisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionDisplayName is required")]
+    public required TerraformProperty<string> CollectionDisplayName
     {
         get => GetProperty<TerraformProperty<string>>("collection_display_name");
         set => this.WithProperty("collection_display_name", value);
@@ -58,7 +152,8 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// standard with a length limit of 63 characters. Otherwise, an
     /// INVALID_ARGUMENT error is returned.
     /// </summary>
-    public TerraformProperty<string>? CollectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
+    public required TerraformProperty<string> CollectionId
     {
         get => GetProperty<TerraformProperty<string>>("collection_id");
         set => this.WithProperty("collection_id", value);
@@ -69,9 +164,9 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// &#39;DATA_INGESTION&#39;, &#39;ACTIONS&#39;, &#39;FEDERATED&#39;
     /// &#39;EUA&#39;, &#39;FEDERATED_AND_EUA&#39;.
     /// </summary>
-    public TerraformProperty<List<string>>? ConnectorModes
+    public List<TerraformProperty<string>>? ConnectorModes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("connector_modes");
+        get => GetProperty<List<TerraformProperty<string>>>("connector_modes");
         set => this.WithProperty("connector_modes", value);
     }
 
@@ -79,7 +174,8 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// The name of the data source.
     /// Supported values: &#39;salesforce&#39;, &#39;jira&#39;, &#39;confluence&#39;, &#39;bigquery&#39;.
     /// </summary>
-    public TerraformProperty<string>? DataSource
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
+    public required TerraformProperty<string> DataSource
     {
         get => GetProperty<TerraformProperty<string>>("data_source");
         set => this.WithProperty("data_source", value);
@@ -143,7 +239,8 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -152,9 +249,9 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// <summary>
     /// Params needed to access the source in the format of String-to-String (Key, Value) pairs.
     /// </summary>
-    public TerraformMapProperty<string>? Params
+    public Dictionary<string, TerraformProperty<string>>? Params
     {
-        get => GetProperty<TerraformMapProperty<string>>("params");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("params");
         set => this.WithProperty("params", value);
     }
 
@@ -174,7 +271,8 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// set to the same value as the incremental refresh interval, incremental
     /// sync will be disabled.
     /// </summary>
-    public TerraformProperty<string>? RefreshInterval
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshInterval is required")]
+    public required TerraformProperty<string> RefreshInterval
     {
         get => GetProperty<TerraformProperty<string>>("refresh_interval");
         set => this.WithProperty("refresh_interval", value);
@@ -197,6 +295,26 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("sync_mode");
         set => this.WithProperty("sync_mode", value);
+    }
+
+    /// <summary>
+    /// Block for entities.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDiscoveryEngineDataConnectorEntitiesBlock>? Entities
+    {
+        get => GetProperty<List<GoogleDiscoveryEngineDataConnectorEntitiesBlock>>("entities");
+        set => this.WithProperty("entities", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDiscoveryEngineDataConnectorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDiscoveryEngineDataConnectorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

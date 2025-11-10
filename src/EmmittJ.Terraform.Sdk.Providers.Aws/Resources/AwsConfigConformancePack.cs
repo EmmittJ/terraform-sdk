@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for input_parameter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsConfigConformancePackInputParameterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The parameter_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
+    public required TerraformProperty<string> ParameterName
+    {
+        get => GetProperty<TerraformProperty<string>>("parameter_name");
+        set => WithProperty("parameter_name", value);
+    }
+
+    /// <summary>
+    /// The parameter_value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
+    public required TerraformProperty<string> ParameterValue
+    {
+        get => GetProperty<TerraformProperty<string>>("parameter_value");
+        set => WithProperty("parameter_value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_config_conformance_pack resource.
 /// </summary>
 public class AwsConfigConformancePack : TerraformResource
@@ -47,7 +75,8 @@ public class AwsConfigConformancePack : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -78,6 +107,17 @@ public class AwsConfigConformancePack : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("template_s3_uri");
         set => this.WithProperty("template_s3_uri", value);
+    }
+
+    /// <summary>
+    /// Block for input_parameter.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(60, ErrorMessage = "Maximum 60 InputParameter block(s) allowed")]
+    public HashSet<AwsConfigConformancePackInputParameterBlock>? InputParameter
+    {
+        get => GetProperty<HashSet<AwsConfigConformancePackInputParameterBlock>>("input_parameter");
+        set => this.WithProperty("input_parameter", value);
     }
 
     /// <summary>

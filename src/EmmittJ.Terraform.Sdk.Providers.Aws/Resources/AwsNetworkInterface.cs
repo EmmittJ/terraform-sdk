@@ -3,6 +3,52 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for attachment in .
+/// Nesting mode: set
+/// </summary>
+public class AwsNetworkInterfaceAttachmentBlock : TerraformBlock
+{
+    /// <summary>
+    /// The attachment_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? AttachmentId
+    {
+        get => GetProperty<TerraformProperty<string>>("attachment_id");
+        set => WithProperty("attachment_id", value);
+    }
+
+    /// <summary>
+    /// The device_index attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
+    public required TerraformProperty<double> DeviceIndex
+    {
+        get => GetProperty<TerraformProperty<double>>("device_index");
+        set => WithProperty("device_index", value);
+    }
+
+    /// <summary>
+    /// The instance attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
+    {
+        get => GetProperty<TerraformProperty<string>>("instance");
+        set => WithProperty("instance", value);
+    }
+
+    /// <summary>
+    /// The network_card_index attribute.
+    /// </summary>
+    public TerraformProperty<double>? NetworkCardIndex
+    {
+        get => GetProperty<TerraformProperty<double>>("network_card_index");
+        set => WithProperty("network_card_index", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_network_interface resource.
 /// </summary>
 public class AwsNetworkInterface : TerraformResource
@@ -69,9 +115,9 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The ipv4_prefixes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Ipv4Prefixes
+    public HashSet<TerraformProperty<string>>? Ipv4Prefixes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("ipv4_prefixes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv4_prefixes");
         set => this.WithProperty("ipv4_prefixes", value);
     }
 
@@ -87,9 +133,9 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The ipv6_address_list attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Ipv6AddressList
+    public List<TerraformProperty<string>>? Ipv6AddressList
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ipv6_address_list");
+        get => GetProperty<List<TerraformProperty<string>>>("ipv6_address_list");
         set => this.WithProperty("ipv6_address_list", value);
     }
 
@@ -105,9 +151,9 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Ipv6Addresses
+    public HashSet<TerraformProperty<string>>? Ipv6Addresses
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("ipv6_addresses");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv6_addresses");
         set => this.WithProperty("ipv6_addresses", value);
     }
 
@@ -123,9 +169,9 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The ipv6_prefixes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Ipv6Prefixes
+    public HashSet<TerraformProperty<string>>? Ipv6Prefixes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("ipv6_prefixes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv6_prefixes");
         set => this.WithProperty("ipv6_prefixes", value);
     }
 
@@ -141,9 +187,9 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The private_ip_list attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PrivateIpList
+    public List<TerraformProperty<string>>? PrivateIpList
     {
-        get => GetProperty<TerraformProperty<List<string>>>("private_ip_list");
+        get => GetProperty<List<TerraformProperty<string>>>("private_ip_list");
         set => this.WithProperty("private_ip_list", value);
     }
 
@@ -159,9 +205,9 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? PrivateIps
+    public HashSet<TerraformProperty<string>>? PrivateIps
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("private_ips");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("private_ips");
         set => this.WithProperty("private_ips", value);
     }
 
@@ -186,9 +232,9 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
@@ -204,7 +250,8 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
     {
         get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
@@ -213,19 +260,29 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for attachment.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsNetworkInterfaceAttachmentBlock>? Attachment
+    {
+        get => GetProperty<HashSet<AwsNetworkInterfaceAttachmentBlock>>("attachment");
+        set => this.WithProperty("attachment", value);
     }
 
     /// <summary>

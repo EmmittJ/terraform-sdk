@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadApplicationPasswordTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_application_password resource.
 /// </summary>
 public class AzureadApplicationPassword : TerraformResource
@@ -21,7 +65,8 @@ public class AzureadApplicationPassword : TerraformResource
     /// <summary>
     /// The resource ID of the application for which this password should be created
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -67,9 +112,9 @@ public class AzureadApplicationPassword : TerraformResource
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger rotation of the password
     /// </summary>
-    public TerraformMapProperty<string>? RotateWhenChanged
+    public Dictionary<string, TerraformProperty<string>>? RotateWhenChanged
     {
-        get => GetProperty<TerraformMapProperty<string>>("rotate_when_changed");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("rotate_when_changed");
         set => this.WithProperty("rotate_when_changed", value);
     }
 
@@ -80,6 +125,16 @@ public class AzureadApplicationPassword : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("start_date");
         set => this.WithProperty("start_date", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadApplicationPasswordTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadApplicationPasswordTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

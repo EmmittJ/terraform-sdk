@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_project_default_service_accounts resource.
 /// </summary>
 public class GoogleProjectDefaultServiceAccounts : TerraformResource
@@ -21,7 +56,8 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     /// The action to be performed in the default service accounts. Valid values are: DEPRIVILEGE, DELETE, DISABLE.
     /// 				Note that DEPRIVILEGE action will ignore the REVERT configuration in the restore_policy.
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -39,7 +75,8 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     /// <summary>
     /// The project ID where service accounts are created.
     /// </summary>
-    public TerraformProperty<string>? Project
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
@@ -53,6 +90,16 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("restore_policy");
         set => this.WithProperty("restore_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleProjectDefaultServiceAccountsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleProjectDefaultServiceAccountsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

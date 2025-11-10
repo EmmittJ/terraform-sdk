@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for rbac_authorization in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
+    {
+        get => GetProperty<TerraformProperty<string>>("resource_id");
+        set => WithProperty("resource_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_data_factory_integration_runtime_self_hosted resource.
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
@@ -21,7 +83,8 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataFactoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
+    public required TerraformProperty<string> DataFactoryId
     {
         get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
@@ -48,7 +111,8 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -61,6 +125,26 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHosted : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("self_contained_interactive_authoring_enabled");
         set => this.WithProperty("self_contained_interactive_authoring_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for rbac_authorization.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>? RbacAuthorization
+    {
+        get => GetProperty<HashSet<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>>("rbac_authorization");
+        set => this.WithProperty("rbac_authorization", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

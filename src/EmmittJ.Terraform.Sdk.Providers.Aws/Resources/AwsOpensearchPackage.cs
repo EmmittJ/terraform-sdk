@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for package_source in .
+/// Nesting mode: list
+/// </summary>
+public class AwsOpensearchPackagePackageSourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The s3_bucket_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
+    public required TerraformProperty<string> S3BucketName
+    {
+        get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
+        set => WithProperty("s3_bucket_name", value);
+    }
+
+    /// <summary>
+    /// The s3_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
+    public required TerraformProperty<string> S3Key
+    {
+        get => GetProperty<TerraformProperty<string>>("s3_key");
+        set => WithProperty("s3_key", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_opensearch_package resource.
 /// </summary>
 public class AwsOpensearchPackage : TerraformResource
@@ -48,7 +76,8 @@ public class AwsOpensearchPackage : TerraformResource
     /// <summary>
     /// The package_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PackageName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
+    public required TerraformProperty<string> PackageName
     {
         get => GetProperty<TerraformProperty<string>>("package_name");
         set => this.WithProperty("package_name", value);
@@ -57,7 +86,8 @@ public class AwsOpensearchPackage : TerraformResource
     /// <summary>
     /// The package_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PackageType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageType is required")]
+    public required TerraformProperty<string> PackageType
     {
         get => GetProperty<TerraformProperty<string>>("package_type");
         set => this.WithProperty("package_type", value);
@@ -70,6 +100,18 @@ public class AwsOpensearchPackage : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for package_source.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PackageSource block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PackageSource block(s) allowed")]
+    public List<AwsOpensearchPackagePackageSourceBlock>? PackageSource
+    {
+        get => GetProperty<List<AwsOpensearchPackagePackageSourceBlock>>("package_source");
+        set => this.WithProperty("package_source", value);
     }
 
     /// <summary>

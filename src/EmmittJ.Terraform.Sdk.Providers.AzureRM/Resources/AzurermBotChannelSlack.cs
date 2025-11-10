@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermBotChannelSlackTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_bot_channel_slack resource.
 /// </summary>
 public class AzurermBotChannelSlack : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermBotChannelSlack : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BotName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
+    public required TerraformProperty<string> BotName
     {
         get => GetProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
@@ -28,7 +73,8 @@ public class AzurermBotChannelSlack : TerraformResource
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
     {
         get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
@@ -37,7 +83,8 @@ public class AzurermBotChannelSlack : TerraformResource
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientSecret
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
+    public required TerraformProperty<string> ClientSecret
     {
         get => GetProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
@@ -64,7 +111,8 @@ public class AzurermBotChannelSlack : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -73,7 +121,8 @@ public class AzurermBotChannelSlack : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -91,10 +140,21 @@ public class AzurermBotChannelSlack : TerraformResource
     /// <summary>
     /// The verification_token attribute.
     /// </summary>
-    public TerraformProperty<string>? VerificationToken
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationToken is required")]
+    public required TerraformProperty<string> VerificationToken
     {
         get => GetProperty<TerraformProperty<string>>("verification_token");
         set => this.WithProperty("verification_token", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermBotChannelSlackTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermBotChannelSlackTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

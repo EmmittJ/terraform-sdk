@@ -37,7 +37,8 @@ public class AwsSagemakerServicecatalogPortfolioStatus : TerraformResource
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
+    public required TerraformProperty<string> Status
     {
         get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);

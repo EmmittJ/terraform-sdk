@@ -21,7 +21,8 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CacheNodeType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNodeType is required")]
+    public required TerraformProperty<string> CacheNodeType
     {
         get => GetProperty<TerraformProperty<string>>("cache_node_type");
         set => this.WithProperty("cache_node_type", value);
@@ -30,7 +31,8 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformProperty<string>? Duration
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
+    public required TerraformProperty<string> Duration
     {
         get => GetProperty<TerraformProperty<string>>("duration");
         set => this.WithProperty("duration", value);
@@ -39,7 +41,8 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
-    public TerraformProperty<string>? OfferingType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
+    public required TerraformProperty<string> OfferingType
     {
         get => GetProperty<TerraformProperty<string>>("offering_type");
         set => this.WithProperty("offering_type", value);
@@ -48,7 +51,8 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     /// <summary>
     /// The product_description attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductDescription
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
+    public required TerraformProperty<string> ProductDescription
     {
         get => GetProperty<TerraformProperty<string>>("product_description");
         set => this.WithProperty("product_description", value);

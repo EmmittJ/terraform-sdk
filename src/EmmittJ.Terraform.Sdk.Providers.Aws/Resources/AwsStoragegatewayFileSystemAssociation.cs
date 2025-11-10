@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for cache_attributes in .
+/// Nesting mode: list
+/// </summary>
+public class AwsStoragegatewayFileSystemAssociationCacheAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cache_stale_timeout_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? CacheStaleTimeoutInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("cache_stale_timeout_in_seconds");
+        set => WithProperty("cache_stale_timeout_in_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsStoragegatewayFileSystemAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_storagegateway_file_system_association resource.
 /// </summary>
 public class AwsStoragegatewayFileSystemAssociation : TerraformResource
@@ -29,7 +81,8 @@ public class AwsStoragegatewayFileSystemAssociation : TerraformResource
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
+    public required TerraformProperty<string> GatewayArn
     {
         get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
@@ -47,7 +100,8 @@ public class AwsStoragegatewayFileSystemAssociation : TerraformResource
     /// <summary>
     /// The location_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LocationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
+    public required TerraformProperty<string> LocationArn
     {
         get => GetProperty<TerraformProperty<string>>("location_arn");
         set => this.WithProperty("location_arn", value);
@@ -56,7 +110,8 @@ public class AwsStoragegatewayFileSystemAssociation : TerraformResource
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
@@ -74,28 +129,50 @@ public class AwsStoragegatewayFileSystemAssociation : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformProperty<string>? Username
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
     {
         get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
+    }
+
+    /// <summary>
+    /// Block for cache_attributes.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheAttributes block(s) allowed")]
+    public List<AwsStoragegatewayFileSystemAssociationCacheAttributesBlock>? CacheAttributes
+    {
+        get => GetProperty<List<AwsStoragegatewayFileSystemAssociationCacheAttributesBlock>>("cache_attributes");
+        set => this.WithProperty("cache_attributes", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsStoragegatewayFileSystemAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsStoragegatewayFileSystemAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

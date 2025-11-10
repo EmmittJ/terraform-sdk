@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRegionNetworkEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_region_network_endpoint resource.
 /// </summary>
 public class GoogleComputeRegionNetworkEndpoint : TerraformResource
@@ -51,7 +77,8 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// <summary>
     /// Port number of network endpoint.
     /// </summary>
-    public TerraformProperty<double>? Port
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformProperty<double> Port
     {
         get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
@@ -78,10 +105,21 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// <summary>
     /// The network endpoint group this endpoint is part of.
     /// </summary>
-    public TerraformProperty<string>? RegionNetworkEndpointGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionNetworkEndpointGroup is required")]
+    public required TerraformProperty<string> RegionNetworkEndpointGroup
     {
         get => GetProperty<TerraformProperty<string>>("region_network_endpoint_group");
         set => this.WithProperty("region_network_endpoint_group", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRegionNetworkEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRegionNetworkEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

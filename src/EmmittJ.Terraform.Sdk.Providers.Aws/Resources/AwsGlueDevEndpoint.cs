@@ -28,9 +28,9 @@ public class AwsGlueDevEndpoint : TerraformResource
     /// <summary>
     /// The arguments attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Arguments
+    public Dictionary<string, TerraformProperty<string>>? Arguments
     {
-        get => GetProperty<TerraformMapProperty<string>>("arguments");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("arguments");
         set => this.WithProperty("arguments", value);
     }
 
@@ -73,7 +73,8 @@ public class AwsGlueDevEndpoint : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -109,9 +110,9 @@ public class AwsGlueDevEndpoint : TerraformResource
     /// <summary>
     /// The public_keys attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? PublicKeys
+    public HashSet<TerraformProperty<string>>? PublicKeys
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("public_keys");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("public_keys");
         set => this.WithProperty("public_keys", value);
     }
 
@@ -127,7 +128,8 @@ public class AwsGlueDevEndpoint : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -145,9 +147,9 @@ public class AwsGlueDevEndpoint : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
@@ -163,18 +165,18 @@ public class AwsGlueDevEndpoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAppConfigurationKeyDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_app_configuration_key.
 /// </summary>
 public class AzurermAppConfigurationKeyDataSource : TerraformDataSource
@@ -26,7 +43,8 @@ public class AzurermAppConfigurationKeyDataSource : TerraformDataSource
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
+    public required TerraformProperty<string> ConfigurationStoreId
     {
         get => GetProperty<TerraformProperty<string>>("configuration_store_id");
         set => this.WithProperty("configuration_store_id", value);
@@ -44,7 +62,8 @@ public class AzurermAppConfigurationKeyDataSource : TerraformDataSource
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
     {
         get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
@@ -57,6 +76,16 @@ public class AzurermAppConfigurationKeyDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("label");
         set => this.WithProperty("label", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAppConfigurationKeyDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAppConfigurationKeyDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIdentityPlatformDefaultSupportedIdpConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_identity_platform_default_supported_idp_config resource.
 /// </summary>
 public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
@@ -20,7 +55,8 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     /// <summary>
     /// OAuth client ID
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
     {
         get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
@@ -29,7 +65,8 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     /// <summary>
     /// OAuth client secret
     /// </summary>
-    public TerraformProperty<string>? ClientSecret
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
+    public required TerraformProperty<string> ClientSecret
     {
         get => GetProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
@@ -76,7 +113,8 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     /// 
     /// * &#39;yahoo.com&#39;
     /// </summary>
-    public TerraformProperty<string>? IdpId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpId is required")]
+    public required TerraformProperty<string> IdpId
     {
         get => GetProperty<TerraformProperty<string>>("idp_id");
         set => this.WithProperty("idp_id", value);
@@ -89,6 +127,16 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIdentityPlatformDefaultSupportedIdpConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIdentityPlatformDefaultSupportedIdpConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

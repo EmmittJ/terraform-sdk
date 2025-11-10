@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_identity_platform_tenant_oauth_idp_config resource.
 /// </summary>
 public class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResource
@@ -19,7 +54,8 @@ public class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResource
     /// <summary>
     /// The client id of an OAuth client.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
     {
         get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
@@ -37,7 +73,8 @@ public class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResource
     /// <summary>
     /// Human friendly display name.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -64,7 +101,8 @@ public class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResource
     /// <summary>
     /// For OIDC Idps, the issuer identifier.
     /// </summary>
-    public TerraformProperty<string>? Issuer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
+    public required TerraformProperty<string> Issuer
     {
         get => GetProperty<TerraformProperty<string>>("issuer");
         set => this.WithProperty("issuer", value);
@@ -73,7 +111,8 @@ public class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResource
     /// <summary>
     /// The name of the OauthIdpConfig. Must start with &#39;oidc.&#39;.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -91,10 +130,21 @@ public class GoogleIdentityPlatformTenantOauthIdpConfig : TerraformResource
     /// <summary>
     /// The name of the tenant where this OIDC IDP configuration resource exists
     /// </summary>
-    public TerraformProperty<string>? Tenant
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
+    public required TerraformProperty<string> Tenant
     {
         get => GetProperty<TerraformProperty<string>>("tenant");
         set => this.WithProperty("tenant", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIdentityPlatformTenantOauthIdpConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

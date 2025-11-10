@@ -44,7 +44,8 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
     /// <summary>
     /// Required. ID of the requesting object.
     /// </summary>
-    public TerraformProperty<string>? BackupVaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
+    public required TerraformProperty<string> BackupVaultId
     {
         get => GetProperty<TerraformProperty<string>>("backup_vault_id");
         set => this.WithProperty("backup_vault_id", value);
@@ -62,7 +63,8 @@ public class GoogleBackupDrBackupVaultDataSource : TerraformDataSource
     /// <summary>
     /// The GCP location for the backup vault.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

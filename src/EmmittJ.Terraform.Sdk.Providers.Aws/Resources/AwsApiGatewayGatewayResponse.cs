@@ -37,25 +37,26 @@ public class AwsApiGatewayGatewayResponse : TerraformResource
     /// <summary>
     /// The response_parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ResponseParameters
+    public Dictionary<string, TerraformProperty<string>>? ResponseParameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("response_parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("response_parameters");
         set => this.WithProperty("response_parameters", value);
     }
 
     /// <summary>
     /// The response_templates attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ResponseTemplates
+    public Dictionary<string, TerraformProperty<string>>? ResponseTemplates
     {
-        get => GetProperty<TerraformMapProperty<string>>("response_templates");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("response_templates");
         set => this.WithProperty("response_templates", value);
     }
 
     /// <summary>
     /// The response_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResponseType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseType is required")]
+    public required TerraformProperty<string> ResponseType
     {
         get => GetProperty<TerraformProperty<string>>("response_type");
         set => this.WithProperty("response_type", value);
@@ -64,7 +65,8 @@ public class AwsApiGatewayGatewayResponse : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);

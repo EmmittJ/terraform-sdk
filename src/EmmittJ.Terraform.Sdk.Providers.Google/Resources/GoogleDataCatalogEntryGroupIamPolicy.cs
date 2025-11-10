@@ -20,7 +20,8 @@ public class GoogleDataCatalogEntryGroupIamPolicy : TerraformResource
     /// <summary>
     /// The entry_group attribute.
     /// </summary>
-    public TerraformProperty<string>? EntryGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
+    public required TerraformProperty<string> EntryGroup
     {
         get => GetProperty<TerraformProperty<string>>("entry_group");
         set => this.WithProperty("entry_group", value);
@@ -38,7 +39,8 @@ public class GoogleDataCatalogEntryGroupIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

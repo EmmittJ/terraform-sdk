@@ -3,6 +3,122 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The destination IP range of outgoing packets that this policy-based route applies to. Default is &amp;quot;0.0.0.0/0&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? DestRange
+    {
+        get => GetProperty<TerraformProperty<string>>("dest_range");
+        set => WithProperty("dest_range", value);
+    }
+
+    /// <summary>
+    /// The IP protocol that this policy-based route applies to. Valid values are &#39;TCP&#39;, &#39;UDP&#39;, and &#39;ALL&#39;. Default is &#39;ALL&#39;.
+    /// </summary>
+    public TerraformProperty<string>? IpProtocol
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_protocol");
+        set => WithProperty("ip_protocol", value);
+    }
+
+    /// <summary>
+    /// Internet protocol versions this policy-based route applies to. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolVersion is required")]
+    public required TerraformProperty<string> ProtocolVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("protocol_version");
+        set => WithProperty("protocol_version", value);
+    }
+
+    /// <summary>
+    /// The source IP range of outgoing packets that this policy-based route applies to. Default is &amp;quot;0.0.0.0/0&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? SrcRange
+    {
+        get => GetProperty<TerraformProperty<string>>("src_range");
+        set => WithProperty("src_range", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for interconnect_attachment in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock : TerraformBlock
+{
+    /// <summary>
+    /// Cloud region to install this policy-based route on for Interconnect attachments. Use &#39;all&#39; to install it on all Interconnect attachments.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
+    public required TerraformProperty<string> Region
+    {
+        get => GetProperty<TerraformProperty<string>>("region");
+        set => WithProperty("region", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for virtual_machine in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock : TerraformBlock
+{
+    /// <summary>
+    /// A list of VM instance tags that this policy-based route applies to. VM instances that have ANY of tags specified here will install this PBR.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tags is required")]
+    public List<TerraformProperty<string>>? Tags
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("tags");
+        set => WithProperty("tags", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_connectivity_policy_based_route resource.
 /// </summary>
 public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
@@ -47,16 +163,17 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the policy based route.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -65,7 +182,8 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     /// <summary>
     /// Fully-qualified URL of the network that this route applies to, for example: projects/my-project/global/networks/my-network.
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -105,6 +223,50 @@ public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
+    public List<GoogleNetworkConnectivityPolicyBasedRouteFilterBlock>? Filter
+    {
+        get => GetProperty<List<GoogleNetworkConnectivityPolicyBasedRouteFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// Block for interconnect_attachment.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InterconnectAttachment block(s) allowed")]
+    public List<GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock>? InterconnectAttachment
+    {
+        get => GetProperty<List<GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBlock>>("interconnect_attachment");
+        set => this.WithProperty("interconnect_attachment", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for virtual_machine.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachine block(s) allowed")]
+    public List<GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock>? VirtualMachine
+    {
+        get => GetProperty<List<GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock>>("virtual_machine");
+        set => this.WithProperty("virtual_machine", value);
     }
 
     /// <summary>

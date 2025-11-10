@@ -34,7 +34,8 @@ public class GoogleLoggingOrganizationSettingsDataSource : TerraformDataSource
     /// <summary>
     /// The organization for which to retrieve settings.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);

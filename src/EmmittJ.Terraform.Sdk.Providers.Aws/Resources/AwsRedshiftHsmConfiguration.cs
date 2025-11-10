@@ -20,7 +20,8 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
+    public required TerraformProperty<string> Description
     {
         get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
@@ -29,7 +30,8 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     /// <summary>
     /// The hsm_configuration_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? HsmConfigurationIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmConfigurationIdentifier is required")]
+    public required TerraformProperty<string> HsmConfigurationIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("hsm_configuration_identifier");
         set => this.WithProperty("hsm_configuration_identifier", value);
@@ -38,7 +40,8 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     /// <summary>
     /// The hsm_ip_address attribute.
     /// </summary>
-    public TerraformProperty<string>? HsmIpAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmIpAddress is required")]
+    public required TerraformProperty<string> HsmIpAddress
     {
         get => GetProperty<TerraformProperty<string>>("hsm_ip_address");
         set => this.WithProperty("hsm_ip_address", value);
@@ -47,7 +50,8 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     /// <summary>
     /// The hsm_partition_name attribute.
     /// </summary>
-    public TerraformProperty<string>? HsmPartitionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmPartitionName is required")]
+    public required TerraformProperty<string> HsmPartitionName
     {
         get => GetProperty<TerraformProperty<string>>("hsm_partition_name");
         set => this.WithProperty("hsm_partition_name", value);
@@ -56,7 +60,8 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     /// <summary>
     /// The hsm_partition_password attribute.
     /// </summary>
-    public TerraformProperty<string>? HsmPartitionPassword
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmPartitionPassword is required")]
+    public required TerraformProperty<string> HsmPartitionPassword
     {
         get => GetProperty<TerraformProperty<string>>("hsm_partition_password");
         set => this.WithProperty("hsm_partition_password", value);
@@ -65,7 +70,8 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     /// <summary>
     /// The hsm_server_public_certificate attribute.
     /// </summary>
-    public TerraformProperty<string>? HsmServerPublicCertificate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmServerPublicCertificate is required")]
+    public required TerraformProperty<string> HsmServerPublicCertificate
     {
         get => GetProperty<TerraformProperty<string>>("hsm_server_public_certificate");
         set => this.WithProperty("hsm_server_public_certificate", value);
@@ -92,18 +98,18 @@ public class AwsRedshiftHsmConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

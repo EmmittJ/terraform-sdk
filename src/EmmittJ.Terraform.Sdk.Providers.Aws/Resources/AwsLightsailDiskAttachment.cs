@@ -19,7 +19,8 @@ public class AwsLightsailDiskAttachment : TerraformResource
     /// <summary>
     /// The disk_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskName is required")]
+    public required TerraformProperty<string> DiskName
     {
         get => GetProperty<TerraformProperty<string>>("disk_name");
         set => this.WithProperty("disk_name", value);
@@ -28,7 +29,8 @@ public class AwsLightsailDiskAttachment : TerraformResource
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskPath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskPath is required")]
+    public required TerraformProperty<string> DiskPath
     {
         get => GetProperty<TerraformProperty<string>>("disk_path");
         set => this.WithProperty("disk_path", value);
@@ -46,7 +48,8 @@ public class AwsLightsailDiskAttachment : TerraformResource
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
+    public required TerraformProperty<string> InstanceName
     {
         get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);

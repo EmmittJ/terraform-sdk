@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for handler_configs in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncChannelNamespaceHandlerConfigsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for publish_auth_mode in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncChannelNamespacePublishAuthModeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auth_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
+    public required TerraformProperty<string> AuthType
+    {
+        get => GetProperty<TerraformProperty<string>>("auth_type");
+        set => WithProperty("auth_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for subscribe_auth_mode in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncChannelNamespaceSubscribeAuthModeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auth_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
+    public required TerraformProperty<string> AuthType
+    {
+        get => GetProperty<TerraformProperty<string>>("auth_type");
+        set => WithProperty("auth_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appsync_channel_namespace resource.
 /// </summary>
 public class AwsAppsyncChannelNamespace : TerraformResource
@@ -21,7 +65,8 @@ public class AwsAppsyncChannelNamespace : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -39,7 +84,8 @@ public class AwsAppsyncChannelNamespace : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -57,10 +103,40 @@ public class AwsAppsyncChannelNamespace : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for handler_configs.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsAppsyncChannelNamespaceHandlerConfigsBlock>? HandlerConfigs
+    {
+        get => GetProperty<List<AwsAppsyncChannelNamespaceHandlerConfigsBlock>>("handler_configs");
+        set => this.WithProperty("handler_configs", value);
+    }
+
+    /// <summary>
+    /// Block for publish_auth_mode.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsAppsyncChannelNamespacePublishAuthModeBlock>? PublishAuthMode
+    {
+        get => GetProperty<List<AwsAppsyncChannelNamespacePublishAuthModeBlock>>("publish_auth_mode");
+        set => this.WithProperty("publish_auth_mode", value);
+    }
+
+    /// <summary>
+    /// Block for subscribe_auth_mode.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsAppsyncChannelNamespaceSubscribeAuthModeBlock>? SubscribeAuthMode
+    {
+        get => GetProperty<List<AwsAppsyncChannelNamespaceSubscribeAuthModeBlock>>("subscribe_auth_mode");
+        set => this.WithProperty("subscribe_auth_mode", value);
     }
 
     /// <summary>

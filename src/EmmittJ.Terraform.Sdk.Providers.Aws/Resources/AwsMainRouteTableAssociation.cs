@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMainRouteTableAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_main_route_table_association resource.
 /// </summary>
 public class AwsMainRouteTableAssociation : TerraformResource
@@ -38,7 +73,8 @@ public class AwsMainRouteTableAssociation : TerraformResource
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteTableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
+    public required TerraformProperty<string> RouteTableId
     {
         get => GetProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
@@ -47,10 +83,21 @@ public class AwsMainRouteTableAssociation : TerraformResource
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMainRouteTableAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMainRouteTableAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

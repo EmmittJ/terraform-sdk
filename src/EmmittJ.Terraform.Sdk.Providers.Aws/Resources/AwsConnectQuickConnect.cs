@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for quick_connect_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsConnectQuickConnectQuickConnectConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The quick_connect_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuickConnectType is required")]
+    public required TerraformProperty<string> QuickConnectType
+    {
+        get => GetProperty<TerraformProperty<string>>("quick_connect_type");
+        set => WithProperty("quick_connect_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_connect_quick_connect resource.
 /// </summary>
 public class AwsConnectQuickConnect : TerraformResource
@@ -39,7 +57,8 @@ public class AwsConnectQuickConnect : TerraformResource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -48,7 +67,8 @@ public class AwsConnectQuickConnect : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,19 +86,31 @@ public class AwsConnectQuickConnect : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for quick_connect_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QuickConnectConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuickConnectConfig block(s) allowed")]
+    public List<AwsConnectQuickConnectQuickConnectConfigBlock>? QuickConnectConfig
+    {
+        get => GetProperty<List<AwsConnectQuickConnectQuickConnectConfigBlock>>("quick_connect_config");
+        set => this.WithProperty("quick_connect_config", value);
     }
 
     /// <summary>

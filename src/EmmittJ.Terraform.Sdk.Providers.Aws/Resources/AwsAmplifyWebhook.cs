@@ -21,7 +21,8 @@ public class AwsAmplifyWebhook : TerraformResource
     /// <summary>
     /// The app_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
+    public required TerraformProperty<string> AppId
     {
         get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
@@ -30,7 +31,8 @@ public class AwsAmplifyWebhook : TerraformResource
     /// <summary>
     /// The branch_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BranchName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
+    public required TerraformProperty<string> BranchName
     {
         get => GetProperty<TerraformProperty<string>>("branch_name");
         set => this.WithProperty("branch_name", value);

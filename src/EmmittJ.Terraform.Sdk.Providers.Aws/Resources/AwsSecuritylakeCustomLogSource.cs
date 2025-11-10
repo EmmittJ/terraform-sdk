@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSecuritylakeCustomLogSourceConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_securitylake_custom_log_source resource.
 /// </summary>
 public class AwsSecuritylakeCustomLogSource : TerraformResource
@@ -22,9 +30,9 @@ public class AwsSecuritylakeCustomLogSource : TerraformResource
     /// <summary>
     /// The event_classes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EventClasses
+    public HashSet<TerraformProperty<string>>? EventClasses
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("event_classes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("event_classes");
         set => this.WithProperty("event_classes", value);
     }
 
@@ -40,7 +48,8 @@ public class AwsSecuritylakeCustomLogSource : TerraformResource
     /// <summary>
     /// The source_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
+    public required TerraformProperty<string> SourceName
     {
         get => GetProperty<TerraformProperty<string>>("source_name");
         set => this.WithProperty("source_name", value);
@@ -53,6 +62,16 @@ public class AwsSecuritylakeCustomLogSource : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("source_version");
         set => this.WithProperty("source_version", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSecuritylakeCustomLogSourceConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsSecuritylakeCustomLogSourceConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
     }
 
     /// <summary>

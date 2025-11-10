@@ -19,7 +19,8 @@ public class AwsPinpointEventStream : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -28,7 +29,8 @@ public class AwsPinpointEventStream : TerraformResource
     /// <summary>
     /// The destination_stream_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationStreamArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationStreamArn is required")]
+    public required TerraformProperty<string> DestinationStreamArn
     {
         get => GetProperty<TerraformProperty<string>>("destination_stream_arn");
         set => this.WithProperty("destination_stream_arn", value);
@@ -55,7 +57,8 @@ public class AwsPinpointEventStream : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);

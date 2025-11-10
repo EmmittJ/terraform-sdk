@@ -3,6 +3,237 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for authentication in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPostgresqlFlexibleServerAuthenticationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The active_directory_auth_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? ActiveDirectoryAuthEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("active_directory_auth_enabled");
+        set => WithProperty("active_directory_auth_enabled", value);
+    }
+
+    /// <summary>
+    /// The password_auth_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? PasswordAuthEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("password_auth_enabled");
+        set => WithProperty("password_auth_enabled", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for customer_managed_key in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The geo_backup_key_vault_key_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? GeoBackupKeyVaultKeyId
+    {
+        get => GetProperty<TerraformProperty<string>>("geo_backup_key_vault_key_id");
+        set => WithProperty("geo_backup_key_vault_key_id", value);
+    }
+
+    /// <summary>
+    /// The geo_backup_user_assigned_identity_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? GeoBackupUserAssignedIdentityId
+    {
+        get => GetProperty<TerraformProperty<string>>("geo_backup_user_assigned_identity_id");
+        set => WithProperty("geo_backup_user_assigned_identity_id", value);
+    }
+
+    /// <summary>
+    /// The key_vault_key_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
+    public required TerraformProperty<string> KeyVaultKeyId
+    {
+        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
+        set => WithProperty("key_vault_key_id", value);
+    }
+
+    /// <summary>
+    /// The primary_user_assigned_identity_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrimaryUserAssignedIdentityId
+    {
+        get => GetProperty<TerraformProperty<string>>("primary_user_assigned_identity_id");
+        set => WithProperty("primary_user_assigned_identity_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for high_availability in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPostgresqlFlexibleServerHighAvailabilityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformProperty<string> Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+    /// <summary>
+    /// The standby_availability_zone attribute.
+    /// </summary>
+    public TerraformProperty<string>? StandbyAvailabilityZone
+    {
+        get => GetProperty<TerraformProperty<string>>("standby_availability_zone");
+        set => WithProperty("standby_availability_zone", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for identity in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPostgresqlFlexibleServerIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The identity_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? IdentityIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
+        set => WithProperty("identity_ids", value);
+    }
+
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrincipalId
+    {
+        get => GetProperty<TerraformProperty<string>>("principal_id");
+        set => WithProperty("principal_id", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for maintenance_window in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermPostgresqlFlexibleServerMaintenanceWindowBlock : TerraformBlock
+{
+    /// <summary>
+    /// The day_of_week attribute.
+    /// </summary>
+    public TerraformProperty<double>? DayOfWeek
+    {
+        get => GetProperty<TerraformProperty<double>>("day_of_week");
+        set => WithProperty("day_of_week", value);
+    }
+
+    /// <summary>
+    /// The start_hour attribute.
+    /// </summary>
+    public TerraformProperty<double>? StartHour
+    {
+        get => GetProperty<TerraformProperty<double>>("start_hour");
+        set => WithProperty("start_hour", value);
+    }
+
+    /// <summary>
+    /// The start_minute attribute.
+    /// </summary>
+    public TerraformProperty<double>? StartMinute
+    {
+        get => GetProperty<TerraformProperty<double>>("start_minute");
+        set => WithProperty("start_minute", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPostgresqlFlexibleServerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_postgresql_flexible_server resource.
 /// </summary>
 public class AzurermPostgresqlFlexibleServer : TerraformResource
@@ -110,7 +341,8 @@ public class AzurermPostgresqlFlexibleServer : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -119,7 +351,8 @@ public class AzurermPostgresqlFlexibleServer : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -164,7 +397,8 @@ public class AzurermPostgresqlFlexibleServer : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -209,9 +443,9 @@ public class AzurermPostgresqlFlexibleServer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -231,6 +465,71 @@ public class AzurermPostgresqlFlexibleServer : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for authentication.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
+    public List<AzurermPostgresqlFlexibleServerAuthenticationBlock>? Authentication
+    {
+        get => GetProperty<List<AzurermPostgresqlFlexibleServerAuthenticationBlock>>("authentication");
+        set => this.WithProperty("authentication", value);
+    }
+
+    /// <summary>
+    /// Block for customer_managed_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
+    public List<AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock>? CustomerManagedKey
+    {
+        get => GetProperty<List<AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock>>("customer_managed_key");
+        set => this.WithProperty("customer_managed_key", value);
+    }
+
+    /// <summary>
+    /// Block for high_availability.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighAvailability block(s) allowed")]
+    public List<AzurermPostgresqlFlexibleServerHighAvailabilityBlock>? HighAvailability
+    {
+        get => GetProperty<List<AzurermPostgresqlFlexibleServerHighAvailabilityBlock>>("high_availability");
+        set => this.WithProperty("high_availability", value);
+    }
+
+    /// <summary>
+    /// Block for identity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public List<AzurermPostgresqlFlexibleServerIdentityBlock>? Identity
+    {
+        get => GetProperty<List<AzurermPostgresqlFlexibleServerIdentityBlock>>("identity");
+        set => this.WithProperty("identity", value);
+    }
+
+    /// <summary>
+    /// Block for maintenance_window.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
+    public List<AzurermPostgresqlFlexibleServerMaintenanceWindowBlock>? MaintenanceWindow
+    {
+        get => GetProperty<List<AzurermPostgresqlFlexibleServerMaintenanceWindowBlock>>("maintenance_window");
+        set => this.WithProperty("maintenance_window", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPostgresqlFlexibleServerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPostgresqlFlexibleServerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

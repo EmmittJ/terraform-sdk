@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVmwareengineSubnetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vmwareengine_subnet resource.
 /// </summary>
 public class GoogleVmwareengineSubnet : TerraformResource
@@ -38,7 +73,8 @@ public class GoogleVmwareengineSubnet : TerraformResource
     /// <summary>
     /// The IP address range of the subnet in CIDR format.
     /// </summary>
-    public TerraformProperty<string>? IpCidrRange
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
+    public required TerraformProperty<string> IpCidrRange
     {
         get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
@@ -48,7 +84,8 @@ public class GoogleVmwareengineSubnet : TerraformResource
     /// The ID of the subnet. For userDefined subnets, this name should be in the format of &amp;quot;service-n&amp;quot;,
     /// where n ranges from 1 to 5.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -59,10 +96,21 @@ public class GoogleVmwareengineSubnet : TerraformResource
     /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
     /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVmwareengineSubnetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVmwareengineSubnetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

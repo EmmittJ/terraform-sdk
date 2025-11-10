@@ -28,7 +28,8 @@ public class AwsAccountPrimaryContact : TerraformResource
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
-    public TerraformProperty<string>? AddressLine1
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressLine1 is required")]
+    public required TerraformProperty<string> AddressLine1
     {
         get => GetProperty<TerraformProperty<string>>("address_line_1");
         set => this.WithProperty("address_line_1", value);
@@ -55,7 +56,8 @@ public class AwsAccountPrimaryContact : TerraformResource
     /// <summary>
     /// The city attribute.
     /// </summary>
-    public TerraformProperty<string>? City
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "City is required")]
+    public required TerraformProperty<string> City
     {
         get => GetProperty<TerraformProperty<string>>("city");
         set => this.WithProperty("city", value);
@@ -73,7 +75,8 @@ public class AwsAccountPrimaryContact : TerraformResource
     /// <summary>
     /// The country_code attribute.
     /// </summary>
-    public TerraformProperty<string>? CountryCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCode is required")]
+    public required TerraformProperty<string> CountryCode
     {
         get => GetProperty<TerraformProperty<string>>("country_code");
         set => this.WithProperty("country_code", value);
@@ -91,7 +94,8 @@ public class AwsAccountPrimaryContact : TerraformResource
     /// <summary>
     /// The full_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FullName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullName is required")]
+    public required TerraformProperty<string> FullName
     {
         get => GetProperty<TerraformProperty<string>>("full_name");
         set => this.WithProperty("full_name", value);
@@ -109,7 +113,8 @@ public class AwsAccountPrimaryContact : TerraformResource
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? PhoneNumber
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
+    public required TerraformProperty<string> PhoneNumber
     {
         get => GetProperty<TerraformProperty<string>>("phone_number");
         set => this.WithProperty("phone_number", value);
@@ -118,7 +123,8 @@ public class AwsAccountPrimaryContact : TerraformResource
     /// <summary>
     /// The postal_code attribute.
     /// </summary>
-    public TerraformProperty<string>? PostalCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostalCode is required")]
+    public required TerraformProperty<string> PostalCode
     {
         get => GetProperty<TerraformProperty<string>>("postal_code");
         set => this.WithProperty("postal_code", value);

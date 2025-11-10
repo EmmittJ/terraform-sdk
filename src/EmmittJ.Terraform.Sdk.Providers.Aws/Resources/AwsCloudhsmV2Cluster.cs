@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsCloudhsmV2ClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudhsm_v2_cluster resource.
 /// </summary>
 public class AwsCloudhsmV2Cluster : TerraformResource
@@ -24,7 +59,8 @@ public class AwsCloudhsmV2Cluster : TerraformResource
     /// <summary>
     /// The hsm_type attribute.
     /// </summary>
-    public TerraformProperty<string>? HsmType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmType is required")]
+    public required TerraformProperty<string> HsmType
     {
         get => GetProperty<TerraformProperty<string>>("hsm_type");
         set => this.WithProperty("hsm_type", value);
@@ -69,28 +105,39 @@ public class AwsCloudhsmV2Cluster : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsCloudhsmV2ClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsCloudhsmV2ClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

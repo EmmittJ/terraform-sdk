@@ -3,6 +3,76 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for advanced_event_selector in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudtrailAdvancedEventSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for event_selector in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudtrailEventSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The exclude_management_event_sources attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? ExcludeManagementEventSources
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("exclude_management_event_sources");
+        set => WithProperty("exclude_management_event_sources", value);
+    }
+
+    /// <summary>
+    /// The include_management_events attribute.
+    /// </summary>
+    public TerraformProperty<bool>? IncludeManagementEvents
+    {
+        get => GetProperty<TerraformProperty<bool>>("include_management_events");
+        set => WithProperty("include_management_events", value);
+    }
+
+    /// <summary>
+    /// The read_write_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? ReadWriteType
+    {
+        get => GetProperty<TerraformProperty<string>>("read_write_type");
+        set => WithProperty("read_write_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for insight_selector in .
+/// Nesting mode: set
+/// </summary>
+public class AwsCloudtrailInsightSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The insight_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightType is required")]
+    public required TerraformProperty<string> InsightType
+    {
+        get => GetProperty<TerraformProperty<string>>("insight_type");
+        set => WithProperty("insight_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudtrail resource.
 /// </summary>
 public class AwsCloudtrail : TerraformResource
@@ -103,7 +173,8 @@ public class AwsCloudtrail : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -121,7 +192,8 @@ public class AwsCloudtrail : TerraformResource
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
-    public TerraformProperty<string>? S3BucketName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
+    public required TerraformProperty<string> S3BucketName
     {
         get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
         set => this.WithProperty("s3_bucket_name", value);
@@ -148,19 +220,50 @@ public class AwsCloudtrail : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for advanced_event_selector.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCloudtrailAdvancedEventSelectorBlock>? AdvancedEventSelector
+    {
+        get => GetProperty<List<AwsCloudtrailAdvancedEventSelectorBlock>>("advanced_event_selector");
+        set => this.WithProperty("advanced_event_selector", value);
+    }
+
+    /// <summary>
+    /// Block for event_selector.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 EventSelector block(s) allowed")]
+    public List<AwsCloudtrailEventSelectorBlock>? EventSelector
+    {
+        get => GetProperty<List<AwsCloudtrailEventSelectorBlock>>("event_selector");
+        set => this.WithProperty("event_selector", value);
+    }
+
+    /// <summary>
+    /// Block for insight_selector.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsCloudtrailInsightSelectorBlock>? InsightSelector
+    {
+        get => GetProperty<HashSet<AwsCloudtrailInsightSelectorBlock>>("insight_selector");
+        set => this.WithProperty("insight_selector", value);
     }
 
     /// <summary>

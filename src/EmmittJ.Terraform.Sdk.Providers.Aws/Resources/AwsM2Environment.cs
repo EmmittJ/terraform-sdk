@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for high_availability_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsM2EnvironmentHighAvailabilityConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The desired_capacity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredCapacity is required")]
+    public required TerraformProperty<double> DesiredCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("desired_capacity");
+        set => WithProperty("desired_capacity", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for storage_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsM2EnvironmentStorageConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsM2EnvironmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_m2_environment resource.
 /// </summary>
 public class AwsM2Environment : TerraformResource
@@ -42,7 +103,8 @@ public class AwsM2Environment : TerraformResource
     /// <summary>
     /// The engine_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
+    public required TerraformProperty<string> EngineType
     {
         get => GetProperty<TerraformProperty<string>>("engine_type");
         set => this.WithProperty("engine_type", value);
@@ -69,7 +131,8 @@ public class AwsM2Environment : TerraformResource
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
     {
         get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
@@ -87,7 +150,8 @@ public class AwsM2Environment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -123,28 +187,58 @@ public class AwsM2Environment : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for high_availability_config.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsM2EnvironmentHighAvailabilityConfigBlock>? HighAvailabilityConfig
+    {
+        get => GetProperty<List<AwsM2EnvironmentHighAvailabilityConfigBlock>>("high_availability_config");
+        set => this.WithProperty("high_availability_config", value);
+    }
+
+    /// <summary>
+    /// Block for storage_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsM2EnvironmentStorageConfigurationBlock>? StorageConfiguration
+    {
+        get => GetProperty<List<AwsM2EnvironmentStorageConfigurationBlock>>("storage_configuration");
+        set => this.WithProperty("storage_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsM2EnvironmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsM2EnvironmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_backend_service_signed_url_key resource.
 /// </summary>
 public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
@@ -19,7 +45,8 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     /// <summary>
     /// The backend service this signed URL key belongs.
     /// </summary>
-    public TerraformProperty<string>? BackendService
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
+    public required TerraformProperty<string> BackendService
     {
         get => GetProperty<TerraformProperty<string>>("backend_service");
         set => this.WithProperty("backend_service", value);
@@ -38,7 +65,8 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     /// 128-bit key value used for signing the URL. The key value must be a
     /// valid RFC 4648 Section 5 base64url encoded string.
     /// </summary>
-    public TerraformProperty<string>? KeyValue
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValue is required")]
+    public required TerraformProperty<string> KeyValue
     {
         get => GetProperty<TerraformProperty<string>>("key_value");
         set => this.WithProperty("key_value", value);
@@ -47,7 +75,8 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     /// <summary>
     /// Name of the signed URL key.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -60,6 +89,16 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

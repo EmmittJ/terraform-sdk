@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadUserDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azuread_user.
 /// </summary>
 public class AzureadUserDataSource : TerraformDataSource
@@ -107,6 +124,16 @@ public class AzureadUserDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("user_principal_name");
         set => this.WithProperty("user_principal_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadUserDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadUserDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

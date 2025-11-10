@@ -3,6 +3,57 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for rules in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleClouddeployDeployPolicyRulesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for selectors in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleClouddeployDeployPolicySelectorsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleClouddeployDeployPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_clouddeploy_deploy_policy resource.
 /// </summary>
 public class GoogleClouddeployDeployPolicy : TerraformResource
@@ -29,9 +80,9 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -59,16 +110,17 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -77,7 +129,8 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     /// <summary>
     /// Name of the &#39;DeployPolicy&#39;.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -99,6 +152,38 @@ public class GoogleClouddeployDeployPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("suspended");
         set => this.WithProperty("suspended", value);
+    }
+
+    /// <summary>
+    /// Block for rules.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
+    public List<GoogleClouddeployDeployPolicyRulesBlock>? Rules
+    {
+        get => GetProperty<List<GoogleClouddeployDeployPolicyRulesBlock>>("rules");
+        set => this.WithProperty("rules", value);
+    }
+
+    /// <summary>
+    /// Block for selectors.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selectors block(s) required")]
+    public List<GoogleClouddeployDeployPolicySelectorsBlock>? Selectors
+    {
+        get => GetProperty<List<GoogleClouddeployDeployPolicySelectorsBlock>>("selectors");
+        set => this.WithProperty("selectors", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleClouddeployDeployPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleClouddeployDeployPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

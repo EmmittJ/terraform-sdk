@@ -22,7 +22,8 @@ public class AwsResourceexplorer2SearchDataSource : TerraformDataSource
     /// <summary>
     /// The query_string attribute.
     /// </summary>
-    public TerraformProperty<string>? QueryString
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
+    public required TerraformProperty<string> QueryString
     {
         get => GetProperty<TerraformProperty<string>>("query_string");
         set => this.WithProperty("query_string", value);

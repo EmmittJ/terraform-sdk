@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for connector_profile_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppflowConnectorProfileConnectorProfileConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_appflow_connector_profile resource.
 /// </summary>
 public class AwsAppflowConnectorProfile : TerraformResource
@@ -21,7 +29,8 @@ public class AwsAppflowConnectorProfile : TerraformResource
     /// <summary>
     /// The connection_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionMode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionMode is required")]
+    public required TerraformProperty<string> ConnectionMode
     {
         get => GetProperty<TerraformProperty<string>>("connection_mode");
         set => this.WithProperty("connection_mode", value);
@@ -39,7 +48,8 @@ public class AwsAppflowConnectorProfile : TerraformResource
     /// <summary>
     /// The connector_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectorType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
+    public required TerraformProperty<string> ConnectorType
     {
         get => GetProperty<TerraformProperty<string>>("connector_type");
         set => this.WithProperty("connector_type", value);
@@ -66,7 +76,8 @@ public class AwsAppflowConnectorProfile : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -79,6 +90,18 @@ public class AwsAppflowConnectorProfile : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for connector_profile_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectorProfileConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectorProfileConfig block(s) allowed")]
+    public List<AwsAppflowConnectorProfileConnectorProfileConfigBlock>? ConnectorProfileConfig
+    {
+        get => GetProperty<List<AwsAppflowConnectorProfileConnectorProfileConfigBlock>>("connector_profile_config");
+        set => this.WithProperty("connector_profile_config", value);
     }
 
     /// <summary>

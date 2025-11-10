@@ -21,7 +21,8 @@ public class AwsQuicksightTemplateAlias : TerraformResource
     /// <summary>
     /// The alias_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AliasName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
+    public required TerraformProperty<string> AliasName
     {
         get => GetProperty<TerraformProperty<string>>("alias_name");
         set => this.WithProperty("alias_name", value);
@@ -48,7 +49,8 @@ public class AwsQuicksightTemplateAlias : TerraformResource
     /// <summary>
     /// The template_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
+    public required TerraformProperty<string> TemplateId
     {
         get => GetProperty<TerraformProperty<string>>("template_id");
         set => this.WithProperty("template_id", value);
@@ -57,7 +59,8 @@ public class AwsQuicksightTemplateAlias : TerraformResource
     /// <summary>
     /// The template_version_number attribute.
     /// </summary>
-    public TerraformProperty<double>? TemplateVersionNumber
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateVersionNumber is required")]
+    public required TerraformProperty<double> TemplateVersionNumber
     {
         get => GetProperty<TerraformProperty<double>>("template_version_number");
         set => this.WithProperty("template_version_number", value);

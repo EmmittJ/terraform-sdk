@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLakeformationOptInConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    public TerraformProperty<string>? Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for principal in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLakeformationOptInPrincipalBlock : TerraformBlock
+{
+    /// <summary>
+    /// The data_lake_principal_identifier attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLakePrincipalIdentifier is required")]
+    public required TerraformProperty<string> DataLakePrincipalIdentifier
+    {
+        get => GetProperty<TerraformProperty<string>>("data_lake_principal_identifier");
+        set => WithProperty("data_lake_principal_identifier", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for resource_data in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLakeformationOptInResourceDataBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_lakeformation_opt_in resource.
 /// </summary>
 public class AwsLakeformationOptIn : TerraformResource
@@ -25,6 +68,36 @@ public class AwsLakeformationOptIn : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLakeformationOptInConditionBlock>? Condition
+    {
+        get => GetProperty<List<AwsLakeformationOptInConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
+    }
+
+    /// <summary>
+    /// Block for principal.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLakeformationOptInPrincipalBlock>? Principal
+    {
+        get => GetProperty<List<AwsLakeformationOptInPrincipalBlock>>("principal");
+        set => this.WithProperty("principal", value);
+    }
+
+    /// <summary>
+    /// Block for resource_data.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLakeformationOptInResourceDataBlock>? ResourceData
+    {
+        get => GetProperty<List<AwsLakeformationOptInResourceDataBlock>>("resource_data");
+        set => this.WithProperty("resource_data", value);
     }
 
     /// <summary>

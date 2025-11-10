@@ -3,6 +3,22 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for tunnel1_log_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpnConnectionTunnel1LogOptionsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for tunnel2_log_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpnConnectionTunnel2LogOptionsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_vpn_connection resource.
 /// </summary>
 public class AwsVpnConnection : TerraformResource
@@ -37,7 +53,8 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The customer_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerGatewayId is required")]
+    public required TerraformProperty<string> CustomerGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("customer_gateway_id");
         set => this.WithProperty("customer_gateway_id", value);
@@ -136,18 +153,18 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -199,9 +216,9 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The tunnel1_ike_versions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel1IkeVersions
+    public HashSet<TerraformProperty<string>>? Tunnel1IkeVersions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_ike_versions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel1_ike_versions");
         set => this.WithProperty("tunnel1_ike_versions", value);
     }
 
@@ -226,27 +243,27 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The tunnel1_phase1_dh_group_numbers attribute.
     /// </summary>
-    public TerraformProperty<HashSet<double>>? Tunnel1Phase1DhGroupNumbers
+    public HashSet<TerraformProperty<double>>? Tunnel1Phase1DhGroupNumbers
     {
-        get => GetProperty<TerraformProperty<HashSet<double>>>("tunnel1_phase1_dh_group_numbers");
+        get => GetProperty<HashSet<TerraformProperty<double>>>("tunnel1_phase1_dh_group_numbers");
         set => this.WithProperty("tunnel1_phase1_dh_group_numbers", value);
     }
 
     /// <summary>
     /// The tunnel1_phase1_encryption_algorithms attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel1Phase1EncryptionAlgorithms
+    public HashSet<TerraformProperty<string>>? Tunnel1Phase1EncryptionAlgorithms
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_phase1_encryption_algorithms");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel1_phase1_encryption_algorithms");
         set => this.WithProperty("tunnel1_phase1_encryption_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel1_phase1_integrity_algorithms attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel1Phase1IntegrityAlgorithms
+    public HashSet<TerraformProperty<string>>? Tunnel1Phase1IntegrityAlgorithms
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_phase1_integrity_algorithms");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel1_phase1_integrity_algorithms");
         set => this.WithProperty("tunnel1_phase1_integrity_algorithms", value);
     }
 
@@ -262,27 +279,27 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The tunnel1_phase2_dh_group_numbers attribute.
     /// </summary>
-    public TerraformProperty<HashSet<double>>? Tunnel1Phase2DhGroupNumbers
+    public HashSet<TerraformProperty<double>>? Tunnel1Phase2DhGroupNumbers
     {
-        get => GetProperty<TerraformProperty<HashSet<double>>>("tunnel1_phase2_dh_group_numbers");
+        get => GetProperty<HashSet<TerraformProperty<double>>>("tunnel1_phase2_dh_group_numbers");
         set => this.WithProperty("tunnel1_phase2_dh_group_numbers", value);
     }
 
     /// <summary>
     /// The tunnel1_phase2_encryption_algorithms attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel1Phase2EncryptionAlgorithms
+    public HashSet<TerraformProperty<string>>? Tunnel1Phase2EncryptionAlgorithms
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_phase2_encryption_algorithms");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel1_phase2_encryption_algorithms");
         set => this.WithProperty("tunnel1_phase2_encryption_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel1_phase2_integrity_algorithms attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel1Phase2IntegrityAlgorithms
+    public HashSet<TerraformProperty<string>>? Tunnel1Phase2IntegrityAlgorithms
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_phase2_integrity_algorithms");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel1_phase2_integrity_algorithms");
         set => this.WithProperty("tunnel1_phase2_integrity_algorithms", value);
     }
 
@@ -370,9 +387,9 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The tunnel2_ike_versions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel2IkeVersions
+    public HashSet<TerraformProperty<string>>? Tunnel2IkeVersions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_ike_versions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel2_ike_versions");
         set => this.WithProperty("tunnel2_ike_versions", value);
     }
 
@@ -397,27 +414,27 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The tunnel2_phase1_dh_group_numbers attribute.
     /// </summary>
-    public TerraformProperty<HashSet<double>>? Tunnel2Phase1DhGroupNumbers
+    public HashSet<TerraformProperty<double>>? Tunnel2Phase1DhGroupNumbers
     {
-        get => GetProperty<TerraformProperty<HashSet<double>>>("tunnel2_phase1_dh_group_numbers");
+        get => GetProperty<HashSet<TerraformProperty<double>>>("tunnel2_phase1_dh_group_numbers");
         set => this.WithProperty("tunnel2_phase1_dh_group_numbers", value);
     }
 
     /// <summary>
     /// The tunnel2_phase1_encryption_algorithms attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel2Phase1EncryptionAlgorithms
+    public HashSet<TerraformProperty<string>>? Tunnel2Phase1EncryptionAlgorithms
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_phase1_encryption_algorithms");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel2_phase1_encryption_algorithms");
         set => this.WithProperty("tunnel2_phase1_encryption_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel2_phase1_integrity_algorithms attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel2Phase1IntegrityAlgorithms
+    public HashSet<TerraformProperty<string>>? Tunnel2Phase1IntegrityAlgorithms
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_phase1_integrity_algorithms");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel2_phase1_integrity_algorithms");
         set => this.WithProperty("tunnel2_phase1_integrity_algorithms", value);
     }
 
@@ -433,27 +450,27 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The tunnel2_phase2_dh_group_numbers attribute.
     /// </summary>
-    public TerraformProperty<HashSet<double>>? Tunnel2Phase2DhGroupNumbers
+    public HashSet<TerraformProperty<double>>? Tunnel2Phase2DhGroupNumbers
     {
-        get => GetProperty<TerraformProperty<HashSet<double>>>("tunnel2_phase2_dh_group_numbers");
+        get => GetProperty<HashSet<TerraformProperty<double>>>("tunnel2_phase2_dh_group_numbers");
         set => this.WithProperty("tunnel2_phase2_dh_group_numbers", value);
     }
 
     /// <summary>
     /// The tunnel2_phase2_encryption_algorithms attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel2Phase2EncryptionAlgorithms
+    public HashSet<TerraformProperty<string>>? Tunnel2Phase2EncryptionAlgorithms
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_phase2_encryption_algorithms");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel2_phase2_encryption_algorithms");
         set => this.WithProperty("tunnel2_phase2_encryption_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel2_phase2_integrity_algorithms attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tunnel2Phase2IntegrityAlgorithms
+    public HashSet<TerraformProperty<string>>? Tunnel2Phase2IntegrityAlgorithms
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_phase2_integrity_algorithms");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tunnel2_phase2_integrity_algorithms");
         set => this.WithProperty("tunnel2_phase2_integrity_algorithms", value);
     }
 
@@ -523,7 +540,8 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
@@ -536,6 +554,28 @@ public class AwsVpnConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpn_gateway_id");
         set => this.WithProperty("vpn_gateway_id", value);
+    }
+
+    /// <summary>
+    /// Block for tunnel1_log_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tunnel1LogOptions block(s) allowed")]
+    public List<AwsVpnConnectionTunnel1LogOptionsBlock>? Tunnel1LogOptions
+    {
+        get => GetProperty<List<AwsVpnConnectionTunnel1LogOptionsBlock>>("tunnel1_log_options");
+        set => this.WithProperty("tunnel1_log_options", value);
+    }
+
+    /// <summary>
+    /// Block for tunnel2_log_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tunnel2LogOptions block(s) allowed")]
+    public List<AwsVpnConnectionTunnel2LogOptionsBlock>? Tunnel2LogOptions
+    {
+        get => GetProperty<List<AwsVpnConnectionTunnel2LogOptionsBlock>>("tunnel2_log_options");
+        set => this.WithProperty("tunnel2_log_options", value);
     }
 
     /// <summary>

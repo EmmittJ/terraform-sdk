@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for sas_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDatasyncLocationAzureBlobSasConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The token attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
+    public required TerraformProperty<string> Token
+    {
+        get => GetProperty<TerraformProperty<string>>("token");
+        set => WithProperty("token", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_datasync_location_azure_blob resource.
 /// </summary>
 public class AwsDatasyncLocationAzureBlob : TerraformResource
@@ -30,16 +48,18 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AgentArns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
+    public HashSet<TerraformProperty<string>>? AgentArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("agent_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
         set => this.WithProperty("agent_arns", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
+    public required TerraformProperty<string> AuthenticationType
     {
         get => GetProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
@@ -57,7 +77,8 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
     /// <summary>
     /// The container_url attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerUrl
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerUrl is required")]
+    public required TerraformProperty<string> ContainerUrl
     {
         get => GetProperty<TerraformProperty<string>>("container_url");
         set => this.WithProperty("container_url", value);
@@ -93,19 +114,30 @@ public class AwsDatasyncLocationAzureBlob : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for sas_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SasConfiguration block(s) allowed")]
+    public List<AwsDatasyncLocationAzureBlobSasConfigurationBlock>? SasConfiguration
+    {
+        get => GetProperty<List<AwsDatasyncLocationAzureBlobSasConfigurationBlock>>("sas_configuration");
+        set => this.WithProperty("sas_configuration", value);
     }
 
     /// <summary>

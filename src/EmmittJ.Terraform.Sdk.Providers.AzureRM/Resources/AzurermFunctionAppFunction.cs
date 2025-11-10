@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for file in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
+{
+    /// <summary>
+    /// The content of the file.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformProperty<string> Content
+    {
+        get => GetProperty<TerraformProperty<string>>("content");
+        set => WithProperty("content", value);
+    }
+
+    /// <summary>
+    /// The filename of the file to be uploaded.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_function_app_function resource.
 /// </summary>
 public class AzurermFunctionAppFunction : TerraformResource
@@ -26,7 +98,8 @@ public class AzurermFunctionAppFunction : TerraformResource
     /// <summary>
     /// The config for this Function in JSON format.
     /// </summary>
-    public TerraformProperty<string>? ConfigJson
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigJson is required")]
+    public required TerraformProperty<string> ConfigJson
     {
         get => GetProperty<TerraformProperty<string>>("config_json");
         set => this.WithProperty("config_json", value);
@@ -44,7 +117,8 @@ public class AzurermFunctionAppFunction : TerraformResource
     /// <summary>
     /// The ID of the Function App in which this function should reside.
     /// </summary>
-    public TerraformProperty<string>? FunctionAppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
+    public required TerraformProperty<string> FunctionAppId
     {
         get => GetProperty<TerraformProperty<string>>("function_app_id");
         set => this.WithProperty("function_app_id", value);
@@ -71,7 +145,8 @@ public class AzurermFunctionAppFunction : TerraformResource
     /// <summary>
     /// The name of the function.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -84,6 +159,26 @@ public class AzurermFunctionAppFunction : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("test_data");
         set => this.WithProperty("test_data", value);
+    }
+
+    /// <summary>
+    /// Block for file.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermFunctionAppFunctionFileBlock>? File
+    {
+        get => GetProperty<List<AzurermFunctionAppFunctionFileBlock>>("file");
+        set => this.WithProperty("file", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermFunctionAppFunctionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermFunctionAppFunctionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

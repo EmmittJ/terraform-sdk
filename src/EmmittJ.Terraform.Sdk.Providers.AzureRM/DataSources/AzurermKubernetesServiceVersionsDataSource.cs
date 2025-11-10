@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_kubernetes_service_versions.
 /// </summary>
 public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
@@ -40,7 +57,8 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -53,6 +71,16 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("version_prefix");
         set => this.WithProperty("version_prefix", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

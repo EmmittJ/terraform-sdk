@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for agent_orchestration_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The profiling_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfilingEnabled is required")]
+    public required TerraformProperty<bool> ProfilingEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("profiling_enabled");
+        set => WithProperty("profiling_enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_codeguruprofiler_profiling_group resource.
 /// </summary>
 public class AwsCodeguruprofilerProfilingGroup : TerraformResource
@@ -31,7 +49,8 @@ public class AwsCodeguruprofilerProfilingGroup : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -49,10 +68,20 @@ public class AwsCodeguruprofilerProfilingGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for agent_orchestration_config.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock>? AgentOrchestrationConfig
+    {
+        get => GetProperty<List<AwsCodeguruprofilerProfilingGroupAgentOrchestrationConfigBlock>>("agent_orchestration_config");
+        set => this.WithProperty("agent_orchestration_config", value);
     }
 
     /// <summary>

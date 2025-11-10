@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermHpcCacheBlobNfsTargetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_hpc_cache_blob_nfs_target resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -29,7 +73,8 @@ public class AzurermHpcCacheBlobNfsTarget : TerraformResource
     /// <summary>
     /// The cache_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CacheName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
+    public required TerraformProperty<string> CacheName
     {
         get => GetProperty<TerraformProperty<string>>("cache_name");
         set => this.WithProperty("cache_name", value);
@@ -47,7 +92,8 @@ public class AzurermHpcCacheBlobNfsTarget : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,7 +102,8 @@ public class AzurermHpcCacheBlobNfsTarget : TerraformResource
     /// <summary>
     /// The namespace_path attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespacePath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
+    public required TerraformProperty<string> NamespacePath
     {
         get => GetProperty<TerraformProperty<string>>("namespace_path");
         set => this.WithProperty("namespace_path", value);
@@ -65,7 +112,8 @@ public class AzurermHpcCacheBlobNfsTarget : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -74,7 +122,8 @@ public class AzurermHpcCacheBlobNfsTarget : TerraformResource
     /// <summary>
     /// The storage_container_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageContainerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
+    public required TerraformProperty<string> StorageContainerId
     {
         get => GetProperty<TerraformProperty<string>>("storage_container_id");
         set => this.WithProperty("storage_container_id", value);
@@ -83,7 +132,8 @@ public class AzurermHpcCacheBlobNfsTarget : TerraformResource
     /// <summary>
     /// The usage_model attribute.
     /// </summary>
-    public TerraformProperty<string>? UsageModel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageModel is required")]
+    public required TerraformProperty<string> UsageModel
     {
         get => GetProperty<TerraformProperty<string>>("usage_model");
         set => this.WithProperty("usage_model", value);
@@ -105,6 +155,16 @@ public class AzurermHpcCacheBlobNfsTarget : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("write_back_timer_in_seconds");
         set => this.WithProperty("write_back_timer_in_seconds", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermHpcCacheBlobNfsTargetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermHpcCacheBlobNfsTargetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

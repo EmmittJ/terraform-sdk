@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for user_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auto_mount_home_efs attribute.
+    /// </summary>
+    public TerraformProperty<string>? AutoMountHomeEfs
+    {
+        get => GetProperty<TerraformProperty<string>>("auto_mount_home_efs");
+        set => WithProperty("auto_mount_home_efs", value);
+    }
+
+    /// <summary>
+    /// The default_landing_uri attribute.
+    /// </summary>
+    public TerraformProperty<string>? DefaultLandingUri
+    {
+        get => GetProperty<TerraformProperty<string>>("default_landing_uri");
+        set => WithProperty("default_landing_uri", value);
+    }
+
+    /// <summary>
+    /// The execution_role attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
+    public required TerraformProperty<string> ExecutionRole
+    {
+        get => GetProperty<TerraformProperty<string>>("execution_role");
+        set => WithProperty("execution_role", value);
+    }
+
+    /// <summary>
+    /// The security_groups attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SecurityGroups
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
+        set => WithProperty("security_groups", value);
+    }
+
+    /// <summary>
+    /// The studio_web_portal attribute.
+    /// </summary>
+    public TerraformProperty<string>? StudioWebPortal
+    {
+        get => GetProperty<TerraformProperty<string>>("studio_web_portal");
+        set => WithProperty("studio_web_portal", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_user_profile resource.
 /// </summary>
 public class AwsSagemakerUserProfile : TerraformResource
@@ -21,7 +75,8 @@ public class AwsSagemakerUserProfile : TerraformResource
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
+    public required TerraformProperty<string> DomainId
     {
         get => GetProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
@@ -66,28 +121,40 @@ public class AwsSagemakerUserProfile : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_profile_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserProfileName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserProfileName is required")]
+    public required TerraformProperty<string> UserProfileName
     {
         get => GetProperty<TerraformProperty<string>>("user_profile_name");
         set => this.WithProperty("user_profile_name", value);
+    }
+
+    /// <summary>
+    /// Block for user_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserSettings block(s) allowed")]
+    public List<AwsSagemakerUserProfileUserSettingsBlock>? UserSettings
+    {
+        get => GetProperty<List<AwsSagemakerUserProfileUserSettingsBlock>>("user_settings");
+        set => this.WithProperty("user_settings", value);
     }
 
     /// <summary>

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermRoleAssignmentsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_role_assignments.
 /// </summary>
 public class AzurermRoleAssignmentsDataSource : TerraformDataSource
@@ -47,7 +64,8 @@ public class AzurermRoleAssignmentsDataSource : TerraformDataSource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
@@ -60,6 +78,16 @@ public class AzurermRoleAssignmentsDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermRoleAssignmentsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermRoleAssignmentsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

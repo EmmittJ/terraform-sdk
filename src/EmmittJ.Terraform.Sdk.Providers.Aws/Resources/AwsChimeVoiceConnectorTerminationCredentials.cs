@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for credentials in .
+/// Nesting mode: set
+/// </summary>
+public class AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
+    {
+        get => GetProperty<TerraformProperty<string>>("password");
+        set => WithProperty("password", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
+    {
+        get => GetProperty<TerraformProperty<string>>("username");
+        set => WithProperty("username", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_chime_voice_connector_termination_credentials resource.
 /// </summary>
 public class AwsChimeVoiceConnectorTerminationCredentials : TerraformResource
@@ -37,10 +65,23 @@ public class AwsChimeVoiceConnectorTerminationCredentials : TerraformResource
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VoiceConnectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
+    public required TerraformProperty<string> VoiceConnectorId
     {
         get => GetProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);
+    }
+
+    /// <summary>
+    /// Block for credentials.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Credentials block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Credentials block(s) allowed")]
+    public HashSet<AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock>? Credentials
+    {
+        get => GetProperty<HashSet<AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock>>("credentials");
+        set => this.WithProperty("credentials", value);
     }
 
 }

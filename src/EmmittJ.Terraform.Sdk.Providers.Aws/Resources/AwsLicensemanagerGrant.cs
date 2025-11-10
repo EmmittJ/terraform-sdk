@@ -24,9 +24,10 @@ public class AwsLicensemanagerGrant : TerraformResource
     /// <summary>
     /// Allowed operations for the grant. This is a subset of the allowed operations on the license.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedOperations
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOperations is required")]
+    public HashSet<TerraformProperty<string>>? AllowedOperations
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_operations");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_operations");
         set => this.WithProperty("allowed_operations", value);
     }
 
@@ -42,7 +43,8 @@ public class AwsLicensemanagerGrant : TerraformResource
     /// <summary>
     /// License ARN.
     /// </summary>
-    public TerraformProperty<string>? LicenseArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
+    public required TerraformProperty<string> LicenseArn
     {
         get => GetProperty<TerraformProperty<string>>("license_arn");
         set => this.WithProperty("license_arn", value);
@@ -51,7 +53,8 @@ public class AwsLicensemanagerGrant : TerraformResource
     /// <summary>
     /// Name of the grant.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -60,7 +63,8 @@ public class AwsLicensemanagerGrant : TerraformResource
     /// <summary>
     /// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
     /// </summary>
-    public TerraformProperty<string>? Principal
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
     {
         get => GetProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);

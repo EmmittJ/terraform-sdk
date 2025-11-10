@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for mount_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDatasyncLocationNfsMountOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformProperty<string>? Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for on_prem_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDatasyncLocationNfsOnPremConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The agent_arns attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
+    public HashSet<TerraformProperty<string>>? AgentArns
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
+        set => WithProperty("agent_arns", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_datasync_location_nfs resource.
 /// </summary>
 public class AwsDatasyncLocationNfs : TerraformResource
@@ -39,7 +74,8 @@ public class AwsDatasyncLocationNfs : TerraformResource
     /// <summary>
     /// The server_hostname attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerHostname
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
+    public required TerraformProperty<string> ServerHostname
     {
         get => GetProperty<TerraformProperty<string>>("server_hostname");
         set => this.WithProperty("server_hostname", value);
@@ -48,7 +84,8 @@ public class AwsDatasyncLocationNfs : TerraformResource
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformProperty<string>? Subdirectory
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
+    public required TerraformProperty<string> Subdirectory
     {
         get => GetProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
@@ -57,19 +94,42 @@ public class AwsDatasyncLocationNfs : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for mount_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MountOptions block(s) allowed")]
+    public List<AwsDatasyncLocationNfsMountOptionsBlock>? MountOptions
+    {
+        get => GetProperty<List<AwsDatasyncLocationNfsMountOptionsBlock>>("mount_options");
+        set => this.WithProperty("mount_options", value);
+    }
+
+    /// <summary>
+    /// Block for on_prem_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OnPremConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnPremConfig block(s) allowed")]
+    public List<AwsDatasyncLocationNfsOnPremConfigBlock>? OnPremConfig
+    {
+        get => GetProperty<List<AwsDatasyncLocationNfsOnPremConfigBlock>>("on_prem_config");
+        set => this.WithProperty("on_prem_config", value);
     }
 
     /// <summary>

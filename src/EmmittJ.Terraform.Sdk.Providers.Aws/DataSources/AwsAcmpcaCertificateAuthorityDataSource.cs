@@ -30,7 +30,8 @@ public class AwsAcmpcaCertificateAuthorityDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
+    public required TerraformProperty<string> Arn
     {
         get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
@@ -57,9 +58,9 @@ public class AwsAcmpcaCertificateAuthorityDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for rule in .
+/// Nesting mode: set
+/// </summary>
+public class AwsS3BucketServerSideEncryptionConfigurationRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket_key_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? BucketKeyEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("bucket_key_enabled");
+        set => WithProperty("bucket_key_enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3_bucket_server_side_encryption_configuration resource.
 /// </summary>
 public class AwsS3BucketServerSideEncryptionConfiguration : TerraformResource
@@ -19,7 +36,8 @@ public class AwsS3BucketServerSideEncryptionConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -50,6 +68,17 @@ public class AwsS3BucketServerSideEncryptionConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for rule.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
+    public HashSet<AwsS3BucketServerSideEncryptionConfigurationRuleBlock>? Rule
+    {
+        get => GetProperty<HashSet<AwsS3BucketServerSideEncryptionConfigurationRuleBlock>>("rule");
+        set => this.WithProperty("rule", value);
     }
 
 }

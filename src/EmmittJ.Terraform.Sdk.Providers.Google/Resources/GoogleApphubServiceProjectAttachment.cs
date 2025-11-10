@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApphubServiceProjectAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apphub_service_project_attachment resource.
 /// </summary>
 public class GoogleApphubServiceProjectAttachment : TerraformResource
@@ -52,10 +78,21 @@ public class GoogleApphubServiceProjectAttachment : TerraformResource
     /// <summary>
     /// Required. The service project attachment identifier must contain the project_id of the service project specified in the service_project_attachment.service_project field. Hint: &amp;quot;projects/{project_id}&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? ServiceProjectAttachmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProjectAttachmentId is required")]
+    public required TerraformProperty<string> ServiceProjectAttachmentId
     {
         get => GetProperty<TerraformProperty<string>>("service_project_attachment_id");
         set => this.WithProperty("service_project_attachment_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApphubServiceProjectAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApphubServiceProjectAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcEndpointServiceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_endpoint_service resource.
 /// </summary>
 public class AwsVpcEndpointService : TerraformResource
@@ -27,7 +62,8 @@ public class AwsVpcEndpointService : TerraformResource
     /// <summary>
     /// The acceptance_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? AcceptanceRequired
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptanceRequired is required")]
+    public required TerraformProperty<bool> AcceptanceRequired
     {
         get => GetProperty<TerraformProperty<bool>>("acceptance_required");
         set => this.WithProperty("acceptance_required", value);
@@ -36,18 +72,18 @@ public class AwsVpcEndpointService : TerraformResource
     /// <summary>
     /// The allowed_principals attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedPrincipals
+    public HashSet<TerraformProperty<string>>? AllowedPrincipals
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_principals");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_principals");
         set => this.WithProperty("allowed_principals", value);
     }
 
     /// <summary>
     /// The gateway_load_balancer_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? GatewayLoadBalancerArns
+    public HashSet<TerraformProperty<string>>? GatewayLoadBalancerArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("gateway_load_balancer_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("gateway_load_balancer_arns");
         set => this.WithProperty("gateway_load_balancer_arns", value);
     }
 
@@ -63,9 +99,9 @@ public class AwsVpcEndpointService : TerraformResource
     /// <summary>
     /// The network_load_balancer_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? NetworkLoadBalancerArns
+    public HashSet<TerraformProperty<string>>? NetworkLoadBalancerArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("network_load_balancer_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("network_load_balancer_arns");
         set => this.WithProperty("network_load_balancer_arns", value);
     }
 
@@ -90,37 +126,47 @@ public class AwsVpcEndpointService : TerraformResource
     /// <summary>
     /// The supported_ip_address_types attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SupportedIpAddressTypes
+    public HashSet<TerraformProperty<string>>? SupportedIpAddressTypes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("supported_ip_address_types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("supported_ip_address_types");
         set => this.WithProperty("supported_ip_address_types", value);
     }
 
     /// <summary>
     /// The supported_regions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SupportedRegions
+    public HashSet<TerraformProperty<string>>? SupportedRegions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("supported_regions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("supported_regions");
         set => this.WithProperty("supported_regions", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcEndpointServiceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcEndpointServiceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

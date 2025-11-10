@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for instance_type_configs in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bid_price attribute.
+    /// </summary>
+    public TerraformProperty<string>? BidPrice
+    {
+        get => GetProperty<TerraformProperty<string>>("bid_price");
+        set => WithProperty("bid_price", value);
+    }
+
+    /// <summary>
+    /// The bid_price_as_percentage_of_on_demand_price attribute.
+    /// </summary>
+    public TerraformProperty<double>? BidPriceAsPercentageOfOnDemandPrice
+    {
+        get => GetProperty<TerraformProperty<double>>("bid_price_as_percentage_of_on_demand_price");
+        set => WithProperty("bid_price_as_percentage_of_on_demand_price", value);
+    }
+
+    /// <summary>
+    /// The instance_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
+    {
+        get => GetProperty<TerraformProperty<string>>("instance_type");
+        set => WithProperty("instance_type", value);
+    }
+
+    /// <summary>
+    /// The weighted_capacity attribute.
+    /// </summary>
+    public TerraformProperty<double>? WeightedCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("weighted_capacity");
+        set => WithProperty("weighted_capacity", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for launch_specifications in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEmrInstanceFleetLaunchSpecificationsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_emr_instance_fleet resource.
 /// </summary>
 public class AwsEmrInstanceFleet : TerraformResource
@@ -21,7 +74,8 @@ public class AwsEmrInstanceFleet : TerraformResource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
+    public required TerraformProperty<string> ClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
@@ -70,6 +124,27 @@ public class AwsEmrInstanceFleet : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("target_spot_capacity");
         set => this.WithProperty("target_spot_capacity", value);
+    }
+
+    /// <summary>
+    /// Block for instance_type_configs.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsEmrInstanceFleetInstanceTypeConfigsBlock>? InstanceTypeConfigs
+    {
+        get => GetProperty<HashSet<AwsEmrInstanceFleetInstanceTypeConfigsBlock>>("instance_type_configs");
+        set => this.WithProperty("instance_type_configs", value);
+    }
+
+    /// <summary>
+    /// Block for launch_specifications.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchSpecifications block(s) allowed")]
+    public List<AwsEmrInstanceFleetLaunchSpecificationsBlock>? LaunchSpecifications
+    {
+        get => GetProperty<List<AwsEmrInstanceFleetLaunchSpecificationsBlock>>("launch_specifications");
+        set => this.WithProperty("launch_specifications", value);
     }
 
     /// <summary>

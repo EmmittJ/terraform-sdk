@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for regex_match_tuple in .
+/// Nesting mode: set
+/// </summary>
+public class AwsWafregionalRegexMatchSetRegexMatchTupleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The regex_pattern_set_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexPatternSetId is required")]
+    public required TerraformProperty<string> RegexPatternSetId
+    {
+        get => GetProperty<TerraformProperty<string>>("regex_pattern_set_id");
+        set => WithProperty("regex_pattern_set_id", value);
+    }
+
+    /// <summary>
+    /// The text_transformation attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
+    public required TerraformProperty<string> TextTransformation
+    {
+        get => GetProperty<TerraformProperty<string>>("text_transformation");
+        set => WithProperty("text_transformation", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_wafregional_regex_match_set resource.
 /// </summary>
 public class AwsWafregionalRegexMatchSet : TerraformResource
@@ -28,7 +56,8 @@ public class AwsWafregionalRegexMatchSet : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,6 +70,16 @@ public class AwsWafregionalRegexMatchSet : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for regex_match_tuple.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsWafregionalRegexMatchSetRegexMatchTupleBlock>? RegexMatchTuple
+    {
+        get => GetProperty<HashSet<AwsWafregionalRegexMatchSetRegexMatchTupleBlock>>("regex_match_tuple");
+        set => this.WithProperty("regex_match_tuple", value);
     }
 
 }

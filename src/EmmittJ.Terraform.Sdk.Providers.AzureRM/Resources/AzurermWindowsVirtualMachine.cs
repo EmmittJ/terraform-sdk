@@ -3,6 +3,494 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for additional_capabilities in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The hibernation_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? HibernationEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("hibernation_enabled");
+        set => WithProperty("hibernation_enabled", value);
+    }
+
+    /// <summary>
+    /// The ultra_ssd_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? UltraSsdEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("ultra_ssd_enabled");
+        set => WithProperty("ultra_ssd_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for additional_unattend_content in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock : TerraformBlock
+{
+    /// <summary>
+    /// The content attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformProperty<string> Content
+    {
+        get => GetProperty<TerraformProperty<string>>("content");
+        set => WithProperty("content", value);
+    }
+
+    /// <summary>
+    /// The setting attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Setting is required")]
+    public required TerraformProperty<string> Setting
+    {
+        get => GetProperty<TerraformProperty<string>>("setting");
+        set => WithProperty("setting", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for boot_diagnostics in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineBootDiagnosticsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The storage_account_uri attribute.
+    /// </summary>
+    public TerraformProperty<string>? StorageAccountUri
+    {
+        get => GetProperty<TerraformProperty<string>>("storage_account_uri");
+        set => WithProperty("storage_account_uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for gallery_application in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineGalleryApplicationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The automatic_upgrade_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AutomaticUpgradeEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("automatic_upgrade_enabled");
+        set => WithProperty("automatic_upgrade_enabled", value);
+    }
+
+    /// <summary>
+    /// The configuration_blob_uri attribute.
+    /// </summary>
+    public TerraformProperty<string>? ConfigurationBlobUri
+    {
+        get => GetProperty<TerraformProperty<string>>("configuration_blob_uri");
+        set => WithProperty("configuration_blob_uri", value);
+    }
+
+    /// <summary>
+    /// The order attribute.
+    /// </summary>
+    public TerraformProperty<double>? Order
+    {
+        get => GetProperty<TerraformProperty<double>>("order");
+        set => WithProperty("order", value);
+    }
+
+    /// <summary>
+    /// The tag attribute.
+    /// </summary>
+    public TerraformProperty<string>? Tag
+    {
+        get => GetProperty<TerraformProperty<string>>("tag");
+        set => WithProperty("tag", value);
+    }
+
+    /// <summary>
+    /// The treat_failure_as_deployment_failure_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? TreatFailureAsDeploymentFailureEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("treat_failure_as_deployment_failure_enabled");
+        set => WithProperty("treat_failure_as_deployment_failure_enabled", value);
+    }
+
+    /// <summary>
+    /// The version_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
+    public required TerraformProperty<string> VersionId
+    {
+        get => GetProperty<TerraformProperty<string>>("version_id");
+        set => WithProperty("version_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for identity in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The identity_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? IdentityIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
+        set => WithProperty("identity_ids", value);
+    }
+
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrincipalId
+    {
+        get => GetProperty<TerraformProperty<string>>("principal_id");
+        set => WithProperty("principal_id", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for os_disk in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineOsDiskBlock : TerraformBlock
+{
+    /// <summary>
+    /// The caching attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
+    public required TerraformProperty<string> Caching
+    {
+        get => GetProperty<TerraformProperty<string>>("caching");
+        set => WithProperty("caching", value);
+    }
+
+    /// <summary>
+    /// The disk_encryption_set_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? DiskEncryptionSetId
+    {
+        get => GetProperty<TerraformProperty<string>>("disk_encryption_set_id");
+        set => WithProperty("disk_encryption_set_id", value);
+    }
+
+    /// <summary>
+    /// The disk_size_gb attribute.
+    /// </summary>
+    public TerraformProperty<double>? DiskSizeGb
+    {
+        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
+        set => WithProperty("disk_size_gb", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The secure_vm_disk_encryption_set_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SecureVmDiskEncryptionSetId
+    {
+        get => GetProperty<TerraformProperty<string>>("secure_vm_disk_encryption_set_id");
+        set => WithProperty("secure_vm_disk_encryption_set_id", value);
+    }
+
+    /// <summary>
+    /// The security_encryption_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? SecurityEncryptionType
+    {
+        get => GetProperty<TerraformProperty<string>>("security_encryption_type");
+        set => WithProperty("security_encryption_type", value);
+    }
+
+    /// <summary>
+    /// The storage_account_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? StorageAccountType
+    {
+        get => GetProperty<TerraformProperty<string>>("storage_account_type");
+        set => WithProperty("storage_account_type", value);
+    }
+
+    /// <summary>
+    /// The write_accelerator_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? WriteAcceleratorEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("write_accelerator_enabled");
+        set => WithProperty("write_accelerator_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for os_image_notification in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineOsImageNotificationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The timeout attribute.
+    /// </summary>
+    public TerraformProperty<string>? Timeout
+    {
+        get => GetProperty<TerraformProperty<string>>("timeout");
+        set => WithProperty("timeout", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for plan in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachinePlanBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The product attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
+    public required TerraformProperty<string> Product
+    {
+        get => GetProperty<TerraformProperty<string>>("product");
+        set => WithProperty("product", value);
+    }
+
+    /// <summary>
+    /// The publisher attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
+    public required TerraformProperty<string> Publisher
+    {
+        get => GetProperty<TerraformProperty<string>>("publisher");
+        set => WithProperty("publisher", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for secret in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineSecretBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key_vault_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
+    public required TerraformProperty<string> KeyVaultId
+    {
+        get => GetProperty<TerraformProperty<string>>("key_vault_id");
+        set => WithProperty("key_vault_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_image_reference in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The offer attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
+    public required TerraformProperty<string> Offer
+    {
+        get => GetProperty<TerraformProperty<string>>("offer");
+        set => WithProperty("offer", value);
+    }
+
+    /// <summary>
+    /// The publisher attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
+    public required TerraformProperty<string> Publisher
+    {
+        get => GetProperty<TerraformProperty<string>>("publisher");
+        set => WithProperty("publisher", value);
+    }
+
+    /// <summary>
+    /// The sku attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
+    public required TerraformProperty<string> Sku
+    {
+        get => GetProperty<TerraformProperty<string>>("sku");
+        set => WithProperty("sku", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for termination_notification in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineTerminationNotificationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The timeout attribute.
+    /// </summary>
+    public TerraformProperty<string>? Timeout
+    {
+        get => GetProperty<TerraformProperty<string>>("timeout");
+        set => WithProperty("timeout", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermWindowsVirtualMachineTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for winrm_listener in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermWindowsVirtualMachineWinrmListenerBlock : TerraformBlock
+{
+    /// <summary>
+    /// The certificate_url attribute.
+    /// </summary>
+    public TerraformProperty<string>? CertificateUrl
+    {
+        get => GetProperty<TerraformProperty<string>>("certificate_url");
+        set => WithProperty("certificate_url", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
+    {
+        get => GetProperty<TerraformProperty<string>>("protocol");
+        set => WithProperty("protocol", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_windows_virtual_machine resource.
 /// </summary>
 public class AzurermWindowsVirtualMachine : TerraformResource
@@ -205,7 +693,8 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -223,7 +712,8 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -232,9 +722,10 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? NetworkInterfaceIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceIds is required")]
+    public List<TerraformProperty<string>>? NetworkInterfaceIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("network_interface_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("network_interface_ids");
         set => this.WithProperty("network_interface_ids", value);
     }
 
@@ -313,7 +804,8 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -331,7 +823,8 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformProperty<string>? Size
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
+    public required TerraformProperty<string> Size
     {
         get => GetProperty<TerraformProperty<string>>("size");
         set => this.WithProperty("size", value);
@@ -349,9 +842,9 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -408,6 +901,146 @@ public class AzurermWindowsVirtualMachine : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for additional_capabilities.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
+    public List<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock>? AdditionalCapabilities
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock>>("additional_capabilities");
+        set => this.WithProperty("additional_capabilities", value);
+    }
+
+    /// <summary>
+    /// Block for additional_unattend_content.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock>? AdditionalUnattendContent
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock>>("additional_unattend_content");
+        set => this.WithProperty("additional_unattend_content", value);
+    }
+
+    /// <summary>
+    /// Block for boot_diagnostics.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
+    public List<AzurermWindowsVirtualMachineBootDiagnosticsBlock>? BootDiagnostics
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineBootDiagnosticsBlock>>("boot_diagnostics");
+        set => this.WithProperty("boot_diagnostics", value);
+    }
+
+    /// <summary>
+    /// Block for gallery_application.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 GalleryApplication block(s) allowed")]
+    public List<AzurermWindowsVirtualMachineGalleryApplicationBlock>? GalleryApplication
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineGalleryApplicationBlock>>("gallery_application");
+        set => this.WithProperty("gallery_application", value);
+    }
+
+    /// <summary>
+    /// Block for identity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public List<AzurermWindowsVirtualMachineIdentityBlock>? Identity
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineIdentityBlock>>("identity");
+        set => this.WithProperty("identity", value);
+    }
+
+    /// <summary>
+    /// Block for os_disk.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsDisk block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
+    public List<AzurermWindowsVirtualMachineOsDiskBlock>? OsDisk
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineOsDiskBlock>>("os_disk");
+        set => this.WithProperty("os_disk", value);
+    }
+
+    /// <summary>
+    /// Block for os_image_notification.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsImageNotification block(s) allowed")]
+    public List<AzurermWindowsVirtualMachineOsImageNotificationBlock>? OsImageNotification
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineOsImageNotificationBlock>>("os_image_notification");
+        set => this.WithProperty("os_image_notification", value);
+    }
+
+    /// <summary>
+    /// Block for plan.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
+    public List<AzurermWindowsVirtualMachinePlanBlock>? Plan
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachinePlanBlock>>("plan");
+        set => this.WithProperty("plan", value);
+    }
+
+    /// <summary>
+    /// Block for secret.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermWindowsVirtualMachineSecretBlock>? Secret
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineSecretBlock>>("secret");
+        set => this.WithProperty("secret", value);
+    }
+
+    /// <summary>
+    /// Block for source_image_reference.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
+    public List<AzurermWindowsVirtualMachineSourceImageReferenceBlock>? SourceImageReference
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineSourceImageReferenceBlock>>("source_image_reference");
+        set => this.WithProperty("source_image_reference", value);
+    }
+
+    /// <summary>
+    /// Block for termination_notification.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
+    public List<AzurermWindowsVirtualMachineTerminationNotificationBlock>? TerminationNotification
+    {
+        get => GetProperty<List<AzurermWindowsVirtualMachineTerminationNotificationBlock>>("termination_notification");
+        set => this.WithProperty("termination_notification", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermWindowsVirtualMachineTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermWindowsVirtualMachineTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for winrm_listener.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AzurermWindowsVirtualMachineWinrmListenerBlock>? WinrmListener
+    {
+        get => GetProperty<HashSet<AzurermWindowsVirtualMachineWinrmListenerBlock>>("winrm_listener");
+        set => this.WithProperty("winrm_listener", value);
     }
 
     /// <summary>

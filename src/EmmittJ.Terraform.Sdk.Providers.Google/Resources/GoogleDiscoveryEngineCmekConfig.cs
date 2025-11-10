@@ -3,6 +3,61 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for single_region_keys in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock : TerraformBlock
+{
+    /// <summary>
+    /// Single-regional kms key resource name which will be used to encrypt
+    /// resources
+    /// &#39;projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
+    public required TerraformProperty<string> KmsKey
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key");
+        set => WithProperty("kms_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_discovery_engine_cmek_config resource.
 /// </summary>
 public class GoogleDiscoveryEngineCmekConfig : TerraformResource
@@ -44,7 +99,8 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// KMS key resource name which will be used to encrypt resources
     /// &#39;projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}&#39;.
     /// </summary>
-    public TerraformProperty<string>? KmsKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
+    public required TerraformProperty<string> KmsKey
     {
         get => GetProperty<TerraformProperty<string>>("kms_key");
         set => this.WithProperty("kms_key", value);
@@ -54,7 +110,8 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// The geographic location where the CMEK config should reside. The value can
     /// only be one of &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -77,6 +134,26 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("set_default");
         set => this.WithProperty("set_default", value);
+    }
+
+    /// <summary>
+    /// Block for single_region_keys.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock>? SingleRegionKeys
+    {
+        get => GetProperty<List<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock>>("single_region_keys");
+        set => this.WithProperty("single_region_keys", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDiscoveryEngineCmekConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDiscoveryEngineCmekConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

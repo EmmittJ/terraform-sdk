@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for lex_bot in .
+/// Nesting mode: list
+/// </summary>
+public class AwsConnectBotAssociationDataSourceLexBotBlock : TerraformBlock
+{
+    /// <summary>
+    /// The lex_region attribute.
+    /// </summary>
+    public TerraformProperty<string>? LexRegion
+    {
+        get => GetProperty<TerraformProperty<string>>("lex_region");
+        set => WithProperty("lex_region", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_connect_bot_association.
 /// </summary>
 public class AwsConnectBotAssociationDataSource : TerraformDataSource
@@ -28,7 +55,8 @@ public class AwsConnectBotAssociationDataSource : TerraformDataSource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -41,6 +69,18 @@ public class AwsConnectBotAssociationDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for lex_bot.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LexBot block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LexBot block(s) allowed")]
+    public List<AwsConnectBotAssociationDataSourceLexBotBlock>? LexBot
+    {
+        get => GetProperty<List<AwsConnectBotAssociationDataSourceLexBotBlock>>("lex_bot");
+        set => this.WithProperty("lex_bot", value);
     }
 
 }

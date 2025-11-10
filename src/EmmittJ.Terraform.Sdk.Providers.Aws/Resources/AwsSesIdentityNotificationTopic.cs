@@ -28,7 +28,8 @@ public class AwsSesIdentityNotificationTopic : TerraformResource
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformProperty<string>? Identity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
+    public required TerraformProperty<string> Identity
     {
         get => GetProperty<TerraformProperty<string>>("identity");
         set => this.WithProperty("identity", value);
@@ -46,7 +47,8 @@ public class AwsSesIdentityNotificationTopic : TerraformResource
     /// <summary>
     /// The notification_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
+    public required TerraformProperty<string> NotificationType
     {
         get => GetProperty<TerraformProperty<string>>("notification_type");
         set => this.WithProperty("notification_type", value);

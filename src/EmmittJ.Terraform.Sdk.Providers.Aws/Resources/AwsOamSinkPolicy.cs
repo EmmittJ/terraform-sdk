@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsOamSinkPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_oam_sink_policy resource.
 /// </summary>
 public class AwsOamSinkPolicy : TerraformResource
@@ -30,7 +65,8 @@ public class AwsOamSinkPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -48,10 +84,21 @@ public class AwsOamSinkPolicy : TerraformResource
     /// <summary>
     /// The sink_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SinkIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
+    public required TerraformProperty<string> SinkIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("sink_identifier");
         set => this.WithProperty("sink_identifier", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsOamSinkPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsOamSinkPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

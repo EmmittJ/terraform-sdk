@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for link_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsOamLinkLinkConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsOamLinkTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_oam_link resource.
 /// </summary>
 public class AwsOamLink : TerraformResource
@@ -32,7 +75,8 @@ public class AwsOamLink : TerraformResource
     /// <summary>
     /// The label_template attribute.
     /// </summary>
-    public TerraformProperty<string>? LabelTemplate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelTemplate is required")]
+    public required TerraformProperty<string> LabelTemplate
     {
         get => GetProperty<TerraformProperty<string>>("label_template");
         set => this.WithProperty("label_template", value);
@@ -50,16 +94,18 @@ public class AwsOamLink : TerraformResource
     /// <summary>
     /// The resource_types attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ResourceTypes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
+    public HashSet<TerraformProperty<string>>? ResourceTypes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_types");
         set => this.WithProperty("resource_types", value);
     }
 
     /// <summary>
     /// The sink_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SinkIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
+    public required TerraformProperty<string> SinkIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("sink_identifier");
         set => this.WithProperty("sink_identifier", value);
@@ -68,19 +114,40 @@ public class AwsOamLink : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for link_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkConfiguration block(s) allowed")]
+    public List<AwsOamLinkLinkConfigurationBlock>? LinkConfiguration
+    {
+        get => GetProperty<List<AwsOamLinkLinkConfigurationBlock>>("link_configuration");
+        set => this.WithProperty("link_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsOamLinkTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsOamLinkTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

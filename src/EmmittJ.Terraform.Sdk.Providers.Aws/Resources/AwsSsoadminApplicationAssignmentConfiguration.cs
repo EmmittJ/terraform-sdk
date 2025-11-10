@@ -20,7 +20,8 @@ public class AwsSsoadminApplicationAssignmentConfiguration : TerraformResource
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
+    public required TerraformProperty<string> ApplicationArn
     {
         get => GetProperty<TerraformProperty<string>>("application_arn");
         set => this.WithProperty("application_arn", value);
@@ -29,7 +30,8 @@ public class AwsSsoadminApplicationAssignmentConfiguration : TerraformResource
     /// <summary>
     /// The assignment_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? AssignmentRequired
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentRequired is required")]
+    public required TerraformProperty<bool> AssignmentRequired
     {
         get => GetProperty<TerraformProperty<bool>>("assignment_required");
         set => this.WithProperty("assignment_required", value);

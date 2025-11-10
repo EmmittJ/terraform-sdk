@@ -29,7 +29,8 @@ public class AwsQuicksightFolderMembership : TerraformResource
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FolderId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
+    public required TerraformProperty<string> FolderId
     {
         get => GetProperty<TerraformProperty<string>>("folder_id");
         set => this.WithProperty("folder_id", value);
@@ -38,7 +39,8 @@ public class AwsQuicksightFolderMembership : TerraformResource
     /// <summary>
     /// The member_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MemberId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberId is required")]
+    public required TerraformProperty<string> MemberId
     {
         get => GetProperty<TerraformProperty<string>>("member_id");
         set => this.WithProperty("member_id", value);
@@ -47,7 +49,8 @@ public class AwsQuicksightFolderMembership : TerraformResource
     /// <summary>
     /// The member_type attribute.
     /// </summary>
-    public TerraformProperty<string>? MemberType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberType is required")]
+    public required TerraformProperty<string> MemberType
     {
         get => GetProperty<TerraformProperty<string>>("member_type");
         set => this.WithProperty("member_type", value);

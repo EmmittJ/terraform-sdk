@@ -3,6 +3,22 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for action in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDataexchangeEventActionActionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for event in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDataexchangeEventActionEventBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_dataexchange_event_action resource.
 /// </summary>
 public class AwsDataexchangeEventAction : TerraformResource
@@ -27,6 +43,26 @@ public class AwsDataexchangeEventAction : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for action.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsDataexchangeEventActionActionBlock>? Action
+    {
+        get => GetProperty<List<AwsDataexchangeEventActionActionBlock>>("action");
+        set => this.WithProperty("action", value);
+    }
+
+    /// <summary>
+    /// Block for event.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsDataexchangeEventActionEventBlock>? Event
+    {
+        get => GetProperty<List<AwsDataexchangeEventActionEventBlock>>("event");
+        set => this.WithProperty("event", value);
     }
 
     /// <summary>

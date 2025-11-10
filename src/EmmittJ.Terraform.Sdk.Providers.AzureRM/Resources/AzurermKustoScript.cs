@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_kusto_script resource.
 /// </summary>
 public class AzurermKustoScript : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermKustoScript : TerraformResource
     /// <summary>
     /// The database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
+    public required TerraformProperty<string> DatabaseId
     {
         get => GetProperty<TerraformProperty<string>>("database_id");
         set => this.WithProperty("database_id", value);
@@ -55,7 +100,8 @@ public class AzurermKustoScript : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -86,6 +132,16 @@ public class AzurermKustoScript : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKustoScriptTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKustoScriptTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

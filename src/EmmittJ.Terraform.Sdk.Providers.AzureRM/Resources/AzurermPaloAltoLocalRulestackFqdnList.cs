@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_palo_alto_local_rulestack_fqdn_list resource.
 /// </summary>
 public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
@@ -37,9 +81,10 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// <summary>
     /// The fully_qualified_domain_names attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? FullyQualifiedDomainNames
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullyQualifiedDomainNames is required")]
+    public List<TerraformProperty<string>>? FullyQualifiedDomainNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("fully_qualified_domain_names");
+        get => GetProperty<List<TerraformProperty<string>>>("fully_qualified_domain_names");
         set => this.WithProperty("fully_qualified_domain_names", value);
     }
 
@@ -55,7 +100,8 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,10 +110,21 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// <summary>
     /// The rulestack_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RulestackId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
+    public required TerraformProperty<string> RulestackId
     {
         get => GetProperty<TerraformProperty<string>>("rulestack_id");
         set => this.WithProperty("rulestack_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleOrgPolicyCustomConstraintTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_org_policy_custom_constraint resource.
 /// </summary>
 public class GoogleOrgPolicyCustomConstraint : TerraformResource
@@ -20,7 +55,8 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     /// <summary>
     /// The action to take if the condition is met. Possible values: [&amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ActionType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
+    public required TerraformProperty<string> ActionType
     {
         get => GetProperty<TerraformProperty<string>>("action_type");
         set => this.WithProperty("action_type", value);
@@ -29,7 +65,8 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     /// <summary>
     /// A CEL condition that refers to a supported service resource, for example &#39;resource.management.autoUpgrade == false&#39;. For details about CEL usage, see [Common Expression Language](https://cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language).
     /// </summary>
-    public TerraformProperty<string>? Condition
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Condition is required")]
+    public required TerraformProperty<string> Condition
     {
         get => GetProperty<TerraformProperty<string>>("condition");
         set => this.WithProperty("condition", value);
@@ -65,16 +102,18 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     /// <summary>
     /// A list of RESTful methods for which to enforce the constraint. Can be &#39;CREATE&#39;, &#39;UPDATE&#39;, or both. Not all Google Cloud services support both methods. To see supported methods for each service, find the service in [Supported services](https://cloud.google.com/resource-manager/docs/organization-policy/custom-constraint-supported-services).
     /// </summary>
-    public TerraformProperty<List<string>>? MethodTypes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MethodTypes is required")]
+    public List<TerraformProperty<string>>? MethodTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("method_types");
+        get => GetProperty<List<TerraformProperty<string>>>("method_types");
         set => this.WithProperty("method_types", value);
     }
 
     /// <summary>
     /// Immutable. The name of the custom constraint. This is unique within the organization.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -83,7 +122,8 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     /// <summary>
     /// The parent of the resource, an organization. Format should be &#39;organizations/{organization_id}&#39;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -92,10 +132,21 @@ public class GoogleOrgPolicyCustomConstraint : TerraformResource
     /// <summary>
     /// Immutable. The fully qualified name of the Google Cloud REST resource containing the object and field you want to restrict. For example, &#39;container.googleapis.com/NodePool&#39;.
     /// </summary>
-    public TerraformProperty<List<string>>? ResourceTypes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
+    public List<TerraformProperty<string>>? ResourceTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("resource_types");
+        get => GetProperty<List<TerraformProperty<string>>>("resource_types");
         set => this.WithProperty("resource_types", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleOrgPolicyCustomConstraintTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleOrgPolicyCustomConstraintTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

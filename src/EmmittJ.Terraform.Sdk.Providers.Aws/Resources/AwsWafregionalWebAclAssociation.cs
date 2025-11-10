@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsWafregionalWebAclAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_wafregional_web_acl_association resource.
 /// </summary>
 public class AwsWafregionalWebAclAssociation : TerraformResource
@@ -37,7 +54,8 @@ public class AwsWafregionalWebAclAssociation : TerraformResource
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
+    public required TerraformProperty<string> ResourceArn
     {
         get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
@@ -46,10 +64,21 @@ public class AwsWafregionalWebAclAssociation : TerraformResource
     /// <summary>
     /// The web_acl_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WebAclId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAclId is required")]
+    public required TerraformProperty<string> WebAclId
     {
         get => GetProperty<TerraformProperty<string>>("web_acl_id");
         set => this.WithProperty("web_acl_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsWafregionalWebAclAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsWafregionalWebAclAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -79,9 +79,9 @@ public class AwsNeptuneOrderableDbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The preferred_instance_classes attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredInstanceClasses
+    public List<TerraformProperty<string>>? PreferredInstanceClasses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_instance_classes");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_instance_classes");
         set => this.WithProperty("preferred_instance_classes", value);
     }
 

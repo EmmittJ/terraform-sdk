@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_api_management_gateway_certificate_authority resource.
 /// </summary>
 public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiManagementId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
+    public required TerraformProperty<string> ApiManagementId
     {
         get => GetProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
@@ -28,7 +73,8 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
+    public required TerraformProperty<string> CertificateName
     {
         get => GetProperty<TerraformProperty<string>>("certificate_name");
         set => this.WithProperty("certificate_name", value);
@@ -37,7 +83,8 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     /// <summary>
     /// The gateway_name attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
+    public required TerraformProperty<string> GatewayName
     {
         get => GetProperty<TerraformProperty<string>>("gateway_name");
         set => this.WithProperty("gateway_name", value);
@@ -59,6 +106,16 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("is_trusted");
         set => this.WithProperty("is_trusted", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

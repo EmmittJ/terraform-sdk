@@ -3,6 +3,195 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for aws_v4_authentication in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The access key ID your origin uses to identify the key.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
+    public required TerraformProperty<string> AccessKeyId
+    {
+        get => GetProperty<TerraformProperty<string>>("access_key_id");
+        set => WithProperty("access_key_id", value);
+    }
+
+    /// <summary>
+    /// The name of the AWS region that your origin is in.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginRegion is required")]
+    public required TerraformProperty<string> OriginRegion
+    {
+        get => GetProperty<TerraformProperty<string>>("origin_region");
+        set => WithProperty("origin_region", value);
+    }
+
+    /// <summary>
+    /// The Secret Manager secret version of the secret access key used by your origin.
+    /// 
+    /// This is the resource name of the secret version in the format &#39;projects/*/secrets/*/versions/*&#39; where the &#39;*&#39; values are replaced by the project, secret, and version you require.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKeyVersion is required")]
+    public required TerraformProperty<string> SecretAccessKeyVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("secret_access_key_version");
+        set => WithProperty("secret_access_key_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for flex_shielding in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Whenever possible, content will be fetched from origin and cached in or
+    /// near the specified origin. Best effort.
+    /// 
+    /// You must specify exactly one FlexShieldingRegion. Possible values: [&amp;quot;AFRICA_SOUTH1&amp;quot;, &amp;quot;ME_CENTRAL1&amp;quot;]
+    /// </summary>
+    public List<TerraformProperty<string>>? FlexShieldingRegions
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("flex_shielding_regions");
+        set => WithProperty("flex_shielding_regions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for origin_override_action in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for origin_redirect in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock : TerraformBlock
+{
+    /// <summary>
+    /// The set of redirect response codes that the CDN
+    /// follows. Values of
+    /// [RedirectConditions](https://cloud.google.com/media-cdn/docs/reference/rest/v1/projects.locations.edgeCacheOrigins#redirectconditions)
+    /// are accepted.
+    /// </summary>
+    public List<TerraformProperty<string>>? RedirectConditions
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("redirect_conditions");
+        set => WithProperty("redirect_conditions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeout in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum duration to wait for a single origin connection to be established, including DNS lookup, TLS handshake and TCP/QUIC connection establishment.
+    /// 
+    /// Defaults to 5 seconds. The timeout must be a value between 1s and 15s.
+    /// 
+    /// The connectTimeout capped by the deadline set by the request&#39;s maxAttemptsTimeout.  The last connection attempt may have a smaller connectTimeout in order to adhere to the overall maxAttemptsTimeout.
+    /// </summary>
+    public TerraformProperty<string>? ConnectTimeout
+    {
+        get => GetProperty<TerraformProperty<string>>("connect_timeout");
+        set => WithProperty("connect_timeout", value);
+    }
+
+    /// <summary>
+    /// The maximum time across all connection attempts to the origin, including failover origins, before returning an error to the client. A HTTP 504 will be returned if the timeout is reached before a response is returned.
+    /// 
+    /// Defaults to 15 seconds. The timeout must be a value between 1s and 30s.
+    /// 
+    /// If a failoverOrigin is specified, the maxAttemptsTimeout of the first configured origin sets the deadline for all connection attempts across all failoverOrigins.
+    /// </summary>
+    public TerraformProperty<string>? MaxAttemptsTimeout
+    {
+        get => GetProperty<TerraformProperty<string>>("max_attempts_timeout");
+        set => WithProperty("max_attempts_timeout", value);
+    }
+
+    /// <summary>
+    /// The maximum duration to wait between reads of a single HTTP connection/stream.
+    /// 
+    /// Defaults to 15 seconds.  The timeout must be a value between 1s and 30s.
+    /// 
+    /// The readTimeout is capped by the responseTimeout.  All reads of the HTTP connection/stream must be completed by the deadline set by the responseTimeout.
+    /// 
+    /// If the response headers have already been written to the connection, the response will be truncated and logged.
+    /// </summary>
+    public TerraformProperty<string>? ReadTimeout
+    {
+        get => GetProperty<TerraformProperty<string>>("read_timeout");
+        set => WithProperty("read_timeout", value);
+    }
+
+    /// <summary>
+    /// The maximum duration to wait for the last byte of a response to arrive when reading from the HTTP connection/stream.
+    /// 
+    /// Defaults to 30 seconds. The timeout must be a value between 1s and 120s.
+    /// 
+    /// The responseTimeout starts after the connection has been established.
+    /// 
+    /// This also applies to HTTP Chunked Transfer Encoding responses, and/or when an open-ended Range request is made to the origin. Origins that take longer to write additional bytes to the response than the configured responseTimeout will result in an error being returned to the client.
+    /// 
+    /// If the response headers have already been written to the connection, the response will be truncated and logged.
+    /// </summary>
+    public TerraformProperty<string>? ResponseTimeout
+    {
+        get => GetProperty<TerraformProperty<string>>("response_timeout");
+        set => WithProperty("response_timeout", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_services_edge_cache_origin resource.
 /// </summary>
 public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
@@ -55,9 +244,9 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -86,7 +275,8 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
     /// and all following characters must be a dash, underscore, letter or digit.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,7 +290,8 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// When providing an FQDN (hostname), it must be publicly resolvable (e.g. via Google public DNS) and IP addresses must be publicly routable.  It must not contain a protocol (e.g., https://) and it must not contain any slashes.
     /// If a Cloud Storage bucket is provided, it must be in the canonical &amp;quot;gs://bucketname&amp;quot; format. Other forms, such as &amp;quot;storage.googleapis.com&amp;quot;, will be rejected.
     /// </summary>
-    public TerraformProperty<string>? OriginAddress
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAddress is required")]
+    public required TerraformProperty<string> OriginAddress
     {
         get => GetProperty<TerraformProperty<string>>("origin_address");
         set => this.WithProperty("origin_address", value);
@@ -156,10 +347,75 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// - NOT_FOUND: Retry if the origin returns a HTTP 404 (Not Found). This can be useful when generating video content, and the segment is not available yet.
     /// - FORBIDDEN: Retry if the origin returns a HTTP 403 (Forbidden). Possible values: [&amp;quot;CONNECT_FAILURE&amp;quot;, &amp;quot;HTTP_5XX&amp;quot;, &amp;quot;GATEWAY_ERROR&amp;quot;, &amp;quot;RETRIABLE_4XX&amp;quot;, &amp;quot;NOT_FOUND&amp;quot;, &amp;quot;FORBIDDEN&amp;quot;]
     /// </summary>
-    public TerraformProperty<List<string>>? RetryConditions
+    public List<TerraformProperty<string>>? RetryConditions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("retry_conditions");
+        get => GetProperty<List<TerraformProperty<string>>>("retry_conditions");
         set => this.WithProperty("retry_conditions", value);
+    }
+
+    /// <summary>
+    /// Block for aws_v4_authentication.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AwsV4Authentication block(s) allowed")]
+    public List<GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock>? AwsV4Authentication
+    {
+        get => GetProperty<List<GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock>>("aws_v4_authentication");
+        set => this.WithProperty("aws_v4_authentication", value);
+    }
+
+    /// <summary>
+    /// Block for flex_shielding.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexShielding block(s) allowed")]
+    public List<GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock>? FlexShielding
+    {
+        get => GetProperty<List<GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock>>("flex_shielding");
+        set => this.WithProperty("flex_shielding", value);
+    }
+
+    /// <summary>
+    /// Block for origin_override_action.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginOverrideAction block(s) allowed")]
+    public List<GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock>? OriginOverrideAction
+    {
+        get => GetProperty<List<GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlock>>("origin_override_action");
+        set => this.WithProperty("origin_override_action", value);
+    }
+
+    /// <summary>
+    /// Block for origin_redirect.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginRedirect block(s) allowed")]
+    public List<GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock>? OriginRedirect
+    {
+        get => GetProperty<List<GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock>>("origin_redirect");
+        set => this.WithProperty("origin_redirect", value);
+    }
+
+    /// <summary>
+    /// Block for timeout.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
+    public List<GoogleNetworkServicesEdgeCacheOriginTimeoutBlock>? Timeout
+    {
+        get => GetProperty<List<GoogleNetworkServicesEdgeCacheOriginTimeoutBlock>>("timeout");
+        set => this.WithProperty("timeout", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

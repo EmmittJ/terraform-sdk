@@ -20,16 +20,18 @@ public class AwsBackupVaultNotifications : TerraformResource
     /// <summary>
     /// The backup_vault_events attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? BackupVaultEvents
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultEvents is required")]
+    public HashSet<TerraformProperty<string>>? BackupVaultEvents
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("backup_vault_events");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("backup_vault_events");
         set => this.WithProperty("backup_vault_events", value);
     }
 
     /// <summary>
     /// The backup_vault_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupVaultName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultName is required")]
+    public required TerraformProperty<string> BackupVaultName
     {
         get => GetProperty<TerraformProperty<string>>("backup_vault_name");
         set => this.WithProperty("backup_vault_name", value);
@@ -56,7 +58,8 @@ public class AwsBackupVaultNotifications : TerraformResource
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SnsTopicArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopicArn is required")]
+    public required TerraformProperty<string> SnsTopicArn
     {
         get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
         set => this.WithProperty("sns_topic_arn", value);

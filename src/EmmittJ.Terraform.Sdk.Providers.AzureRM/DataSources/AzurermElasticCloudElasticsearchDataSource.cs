@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for logs in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The filtering_tag attribute.
+    /// </summary>
+    public List<TerraformProperty<object>>? FilteringTag
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("filtering_tag");
+        set => WithProperty("filtering_tag", value);
+    }
+
+    /// <summary>
+    /// The send_activity_logs attribute.
+    /// </summary>
+    public TerraformProperty<bool>? SendActivityLogs
+    {
+        get => GetProperty<TerraformProperty<bool>>("send_activity_logs");
+        set => WithProperty("send_activity_logs", value);
+    }
+
+    /// <summary>
+    /// The send_azuread_logs attribute.
+    /// </summary>
+    public TerraformProperty<bool>? SendAzureadLogs
+    {
+        get => GetProperty<TerraformProperty<bool>>("send_azuread_logs");
+        set => WithProperty("send_azuread_logs", value);
+    }
+
+    /// <summary>
+    /// The send_subscription_logs attribute.
+    /// </summary>
+    public TerraformProperty<bool>? SendSubscriptionLogs
+    {
+        get => GetProperty<TerraformProperty<bool>>("send_subscription_logs");
+        set => WithProperty("send_subscription_logs", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_elastic_cloud_elasticsearch.
 /// </summary>
 public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
@@ -39,7 +100,8 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -48,10 +110,31 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// Block for logs.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermElasticCloudElasticsearchDataSourceLogsBlock>? Logs
+    {
+        get => GetProperty<List<AzurermElasticCloudElasticsearchDataSourceLogsBlock>>("logs");
+        set => this.WithProperty("logs", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

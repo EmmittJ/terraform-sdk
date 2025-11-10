@@ -28,7 +28,8 @@ public class AwsQuicksightAnalysisDataSource : TerraformDataSource
     /// <summary>
     /// The analysis_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AnalysisId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalysisId is required")]
+    public required TerraformProperty<string> AnalysisId
     {
         get => GetProperty<TerraformProperty<string>>("analysis_id");
         set => this.WithProperty("analysis_id", value);
@@ -64,9 +65,9 @@ public class AwsQuicksightAnalysisDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

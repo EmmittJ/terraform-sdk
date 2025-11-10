@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_mobile_network_attached_data_network.
 /// </summary>
 public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSource
@@ -38,7 +55,8 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
     /// <summary>
     /// The mobile_network_data_network_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MobileNetworkDataNetworkName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkDataNetworkName is required")]
+    public required TerraformProperty<string> MobileNetworkDataNetworkName
     {
         get => GetProperty<TerraformProperty<string>>("mobile_network_data_network_name");
         set => this.WithProperty("mobile_network_data_network_name", value);
@@ -47,10 +65,21 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
     /// <summary>
     /// The mobile_network_packet_core_data_plane_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MobileNetworkPacketCoreDataPlaneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreDataPlaneId is required")]
+    public required TerraformProperty<string> MobileNetworkPacketCoreDataPlaneId
     {
         get => GetProperty<TerraformProperty<string>>("mobile_network_packet_core_data_plane_id");
         set => this.WithProperty("mobile_network_packet_core_data_plane_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

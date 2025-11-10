@@ -39,7 +39,8 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -48,7 +49,8 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     /// <summary>
     /// The origin_access_control_origin_type attribute.
     /// </summary>
-    public TerraformProperty<string>? OriginAccessControlOriginType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAccessControlOriginType is required")]
+    public required TerraformProperty<string> OriginAccessControlOriginType
     {
         get => GetProperty<TerraformProperty<string>>("origin_access_control_origin_type");
         set => this.WithProperty("origin_access_control_origin_type", value);
@@ -57,7 +59,8 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     /// <summary>
     /// The signing_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? SigningBehavior
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningBehavior is required")]
+    public required TerraformProperty<string> SigningBehavior
     {
         get => GetProperty<TerraformProperty<string>>("signing_behavior");
         set => this.WithProperty("signing_behavior", value);
@@ -66,7 +69,8 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     /// <summary>
     /// The signing_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? SigningProtocol
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProtocol is required")]
+    public required TerraformProperty<string> SigningProtocol
     {
         get => GetProperty<TerraformProperty<string>>("signing_protocol");
         set => this.WithProperty("signing_protocol", value);

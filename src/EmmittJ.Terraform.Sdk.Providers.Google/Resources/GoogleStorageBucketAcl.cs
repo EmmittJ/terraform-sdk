@@ -19,7 +19,8 @@ public class GoogleStorageBucketAcl : TerraformResource
     /// <summary>
     /// The name of the bucket it applies to.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -55,9 +56,9 @@ public class GoogleStorageBucketAcl : TerraformResource
     /// <summary>
     /// List of role/entity pairs in the form ROLE:entity. See GCS Bucket ACL documentation  for more details. Must be set if predefined_acl is not.
     /// </summary>
-    public TerraformProperty<List<string>>? RoleEntity
+    public List<TerraformProperty<string>>? RoleEntity
     {
-        get => GetProperty<TerraformProperty<List<string>>>("role_entity");
+        get => GetProperty<List<TerraformProperty<string>>>("role_entity");
         set => this.WithProperty("role_entity", value);
     }
 

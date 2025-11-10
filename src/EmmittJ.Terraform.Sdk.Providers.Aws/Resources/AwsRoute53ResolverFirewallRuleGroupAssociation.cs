@@ -20,7 +20,8 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociation : TerraformResource
     /// <summary>
     /// The firewall_rule_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FirewallRuleGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
+    public required TerraformProperty<string> FirewallRuleGroupId
     {
         get => GetProperty<TerraformProperty<string>>("firewall_rule_group_id");
         set => this.WithProperty("firewall_rule_group_id", value);
@@ -47,7 +48,8 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociation : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,7 +58,8 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociation : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
     {
         get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
@@ -74,25 +77,26 @@ public class AwsRoute53ResolverFirewallRuleGroupAssociation : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);

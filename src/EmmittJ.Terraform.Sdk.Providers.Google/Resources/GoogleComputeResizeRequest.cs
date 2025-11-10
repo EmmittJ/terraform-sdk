@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for requested_run_duration in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeResizeRequestRequestedRunDurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Span of time that&#39;s a fraction of a second at nanosecond resolution. Durations less than one second are represented with a 0 seconds field and a positive nanos field. Must be from 0 to 999,999,999 inclusive.
+    /// </summary>
+    public TerraformProperty<double>? Nanos
+    {
+        get => GetProperty<TerraformProperty<double>>("nanos");
+        set => WithProperty("nanos", value);
+    }
+
+    /// <summary>
+    /// Span of time at a resolution of a second. Must be from 600 to 604800 inclusive. Note: minimum and maximum allowed range for requestedRunDuration is 10 minutes (600 seconds) and 7 days(604800 seconds) correspondingly.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
+    public required TerraformProperty<string> Seconds
+    {
+        get => GetProperty<TerraformProperty<string>>("seconds");
+        set => WithProperty("seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeResizeRequestTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_resize_request resource.
 /// </summary>
 public class GoogleComputeResizeRequest : TerraformResource
@@ -40,7 +93,8 @@ public class GoogleComputeResizeRequest : TerraformResource
     /// <summary>
     /// The reference of the instance group manager this ResizeRequest is a part of.
     /// </summary>
-    public TerraformProperty<string>? InstanceGroupManager
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
+    public required TerraformProperty<string> InstanceGroupManager
     {
         get => GetProperty<TerraformProperty<string>>("instance_group_manager");
         set => this.WithProperty("instance_group_manager", value);
@@ -49,7 +103,8 @@ public class GoogleComputeResizeRequest : TerraformResource
     /// <summary>
     /// The name of this resize request. The name must be 1-63 characters long, and comply with RFC1035.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -67,7 +122,8 @@ public class GoogleComputeResizeRequest : TerraformResource
     /// <summary>
     /// The number of instances to be created by this resize request. The group&#39;s target size will be increased by this number.
     /// </summary>
-    public TerraformProperty<double>? ResizeBy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResizeBy is required")]
+    public required TerraformProperty<double> ResizeBy
     {
         get => GetProperty<TerraformProperty<double>>("resize_by");
         set => this.WithProperty("resize_by", value);
@@ -80,6 +136,27 @@ public class GoogleComputeResizeRequest : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for requested_run_duration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestedRunDuration block(s) allowed")]
+    public List<GoogleComputeResizeRequestRequestedRunDurationBlock>? RequestedRunDuration
+    {
+        get => GetProperty<List<GoogleComputeResizeRequestRequestedRunDurationBlock>>("requested_run_duration");
+        set => this.WithProperty("requested_run_duration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeResizeRequestTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeResizeRequestTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadGroupDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azuread_group.
 /// </summary>
 public class AzureadGroupDataSource : TerraformDataSource
@@ -101,6 +118,16 @@ public class AzureadGroupDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<bool>>("security_enabled");
         set => this.WithProperty("security_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadGroupDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadGroupDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

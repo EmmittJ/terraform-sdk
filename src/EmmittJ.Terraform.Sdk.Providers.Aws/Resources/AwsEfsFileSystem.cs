@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for lifecycle_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The transition_to_archive attribute.
+    /// </summary>
+    public TerraformProperty<string>? TransitionToArchive
+    {
+        get => GetProperty<TerraformProperty<string>>("transition_to_archive");
+        set => WithProperty("transition_to_archive", value);
+    }
+
+    /// <summary>
+    /// The transition_to_ia attribute.
+    /// </summary>
+    public TerraformProperty<string>? TransitionToIa
+    {
+        get => GetProperty<TerraformProperty<string>>("transition_to_ia");
+        set => WithProperty("transition_to_ia", value);
+    }
+
+    /// <summary>
+    /// The transition_to_primary_storage_class attribute.
+    /// </summary>
+    public TerraformProperty<string>? TransitionToPrimaryStorageClass
+    {
+        get => GetProperty<TerraformProperty<string>>("transition_to_primary_storage_class");
+        set => WithProperty("transition_to_primary_storage_class", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for protection in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEfsFileSystemProtectionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The replication_overwrite attribute.
+    /// </summary>
+    public TerraformProperty<string>? ReplicationOverwrite
+    {
+        get => GetProperty<TerraformProperty<string>>("replication_overwrite");
+        set => WithProperty("replication_overwrite", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_efs_file_system resource.
 /// </summary>
 public class AwsEfsFileSystem : TerraformResource
@@ -98,18 +150,18 @@ public class AwsEfsFileSystem : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -120,6 +172,28 @@ public class AwsEfsFileSystem : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("throughput_mode");
         set => this.WithProperty("throughput_mode", value);
+    }
+
+    /// <summary>
+    /// Block for lifecycle_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 LifecyclePolicy block(s) allowed")]
+    public List<AwsEfsFileSystemLifecyclePolicyBlock>? LifecyclePolicy
+    {
+        get => GetProperty<List<AwsEfsFileSystemLifecyclePolicyBlock>>("lifecycle_policy");
+        set => this.WithProperty("lifecycle_policy", value);
+    }
+
+    /// <summary>
+    /// Block for protection.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protection block(s) allowed")]
+    public List<AwsEfsFileSystemProtectionBlock>? Protection
+    {
+        get => GetProperty<List<AwsEfsFileSystemProtectionBlock>>("protection");
+        set => this.WithProperty("protection", value);
     }
 
     /// <summary>

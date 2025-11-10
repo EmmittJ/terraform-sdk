@@ -20,16 +20,18 @@ public class AwsRoute53CidrLocation : TerraformResource
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CidrBlocks
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlocks is required")]
+    public HashSet<TerraformProperty<string>>? CidrBlocks
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("cidr_blocks");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("cidr_blocks");
         set => this.WithProperty("cidr_blocks", value);
     }
 
     /// <summary>
     /// The cidr_collection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CidrCollectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrCollectionId is required")]
+    public required TerraformProperty<string> CidrCollectionId
     {
         get => GetProperty<TerraformProperty<string>>("cidr_collection_id");
         set => this.WithProperty("cidr_collection_id", value);
@@ -38,7 +40,8 @@ public class AwsRoute53CidrLocation : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

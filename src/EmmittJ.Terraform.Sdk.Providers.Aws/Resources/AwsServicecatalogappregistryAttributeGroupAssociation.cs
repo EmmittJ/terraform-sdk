@@ -19,7 +19,8 @@ public class AwsServicecatalogappregistryAttributeGroupAssociation : TerraformRe
     /// <summary>
     /// ID of the application.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -28,7 +29,8 @@ public class AwsServicecatalogappregistryAttributeGroupAssociation : TerraformRe
     /// <summary>
     /// ID of the attribute group to associate with the application.
     /// </summary>
-    public TerraformProperty<string>? AttributeGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeGroupId is required")]
+    public required TerraformProperty<string> AttributeGroupId
     {
         get => GetProperty<TerraformProperty<string>>("attribute_group_id");
         set => this.WithProperty("attribute_group_id", value);

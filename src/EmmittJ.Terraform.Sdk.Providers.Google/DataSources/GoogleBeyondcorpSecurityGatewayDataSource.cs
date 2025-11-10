@@ -51,7 +51,8 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     /// * Must contain between 4-63 characters from &#39;/a-z-/&#39;.
     /// * Must end with a number or letter.
     /// </summary>
-    public TerraformProperty<string>? SecurityGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
+    public required TerraformProperty<string> SecurityGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);

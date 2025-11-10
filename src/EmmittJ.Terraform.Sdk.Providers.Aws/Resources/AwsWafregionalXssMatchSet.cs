@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for xss_match_tuple in .
+/// Nesting mode: set
+/// </summary>
+public class AwsWafregionalXssMatchSetXssMatchTupleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The text_transformation attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
+    public required TerraformProperty<string> TextTransformation
+    {
+        get => GetProperty<TerraformProperty<string>>("text_transformation");
+        set => WithProperty("text_transformation", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_wafregional_xss_match_set resource.
 /// </summary>
 public class AwsWafregionalXssMatchSet : TerraformResource
@@ -28,7 +46,8 @@ public class AwsWafregionalXssMatchSet : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,6 +60,16 @@ public class AwsWafregionalXssMatchSet : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for xss_match_tuple.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsWafregionalXssMatchSetXssMatchTupleBlock>? XssMatchTuple
+    {
+        get => GetProperty<HashSet<AwsWafregionalXssMatchSetXssMatchTupleBlock>>("xss_match_tuple");
+        set => this.WithProperty("xss_match_tuple", value);
     }
 
 }

@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for endpoint_matcher in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for traffic_port_selector in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// List of ports. Can be port numbers or port range (example, [80-90] specifies all ports from 80 to 90, including 80 and 90) or named ports or * to specify all ports. If the list is empty, all ports are selected.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
+    public List<TerraformProperty<string>>? Ports
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("ports");
+        set => WithProperty("ports", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_services_endpoint_policy resource.
 /// </summary>
 public class GoogleNetworkServicesEndpointPolicy : TerraformResource
@@ -62,16 +123,17 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of the EndpointPolicy resource.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -98,10 +160,44 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// <summary>
     /// The type of endpoint policy. This is primarily used to validate the configuration. Possible values: [&amp;quot;SIDECAR_PROXY&amp;quot;, &amp;quot;GRPC_SERVER&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for endpoint_matcher.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EndpointMatcher block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointMatcher block(s) allowed")]
+    public List<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock>? EndpointMatcher
+    {
+        get => GetProperty<List<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock>>("endpoint_matcher");
+        set => this.WithProperty("endpoint_matcher", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkServicesEndpointPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkServicesEndpointPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for traffic_port_selector.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficPortSelector block(s) allowed")]
+    public List<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock>? TrafficPortSelector
+    {
+        get => GetProperty<List<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock>>("traffic_port_selector");
+        set => this.WithProperty("traffic_port_selector", value);
     }
 
     /// <summary>

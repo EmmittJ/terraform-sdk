@@ -3,6 +3,62 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for asset in .
+/// Nesting mode: set
+/// </summary>
+public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bytes attribute.
+    /// </summary>
+    public TerraformProperty<string>? Bytes
+    {
+        get => GetProperty<TerraformProperty<string>>("bytes");
+        set => WithProperty("bytes", value);
+    }
+
+    /// <summary>
+    /// The category attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
+    public required TerraformProperty<string> Category
+    {
+        get => GetProperty<TerraformProperty<string>>("category");
+        set => WithProperty("category", value);
+    }
+
+    /// <summary>
+    /// The color_mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColorMode is required")]
+    public required TerraformProperty<string> ColorMode
+    {
+        get => GetProperty<TerraformProperty<string>>("color_mode");
+        set => WithProperty("color_mode", value);
+    }
+
+    /// <summary>
+    /// The extension attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Extension is required")]
+    public required TerraformProperty<string> Extension
+    {
+        get => GetProperty<TerraformProperty<string>>("extension");
+        set => WithProperty("extension", value);
+    }
+
+    /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? ResourceId
+    {
+        get => GetProperty<TerraformProperty<string>>("resource_id");
+        set => WithProperty("resource_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cognito_managed_login_branding resource.
 /// </summary>
 public class AwsCognitoManagedLoginBranding : TerraformResource
@@ -21,7 +77,8 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
     {
         get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
@@ -57,10 +114,21 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
+    public required TerraformProperty<string> UserPoolId
     {
         get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
+    }
+
+    /// <summary>
+    /// Block for asset.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsCognitoManagedLoginBrandingAssetBlock>? Asset
+    {
+        get => GetProperty<HashSet<AwsCognitoManagedLoginBrandingAssetBlock>>("asset");
+        set => this.WithProperty("asset", value);
     }
 
     /// <summary>

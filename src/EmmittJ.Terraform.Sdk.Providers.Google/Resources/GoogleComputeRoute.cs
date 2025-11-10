@@ -3,6 +3,54 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for params in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouteParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Resource manager tags to be bound to the route. Tag keys and values have the
+    /// same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},
+    /// and values are in the format tagValues/456. The field is ignored when empty.
+    /// The field is immutable and causes resource replacement when mutated. This field is only
+    /// set at create time and modifying this field after creation will trigger recreation.
+    /// To apply tags to an existing resource, see the google_tags_tag_binding resource.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
+        set => WithProperty("resource_manager_tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRouteTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_route resource.
 /// </summary>
 public class GoogleComputeRoute : TerraformResource
@@ -42,7 +90,8 @@ public class GoogleComputeRoute : TerraformResource
     /// The destination range of outgoing packets that this route applies to.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformProperty<string>? DestRange
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestRange is required")]
+    public required TerraformProperty<string> DestRange
     {
         get => GetProperty<TerraformProperty<string>>("dest_range");
         set => this.WithProperty("dest_range", value);
@@ -66,7 +115,8 @@ public class GoogleComputeRoute : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -75,7 +125,8 @@ public class GoogleComputeRoute : TerraformResource
     /// <summary>
     /// The network that this route applies to.
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -188,10 +239,31 @@ public class GoogleComputeRoute : TerraformResource
     /// <summary>
     /// A list of instance tags to which this route applies.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Tags
+    public HashSet<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("tags");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for params.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
+    public List<GoogleComputeRouteParamsBlock>? Params
+    {
+        get => GetProperty<List<GoogleComputeRouteParamsBlock>>("params");
+        set => this.WithProperty("params", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRouteTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRouteTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -46,7 +46,8 @@ public class AwsOdbDbNodeDataSource : TerraformDataSource
     /// <summary>
     /// The cloud_vm_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CloudVmClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
+    public required TerraformProperty<string> CloudVmClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
         set => this.WithProperty("cloud_vm_cluster_id", value);
@@ -55,7 +56,8 @@ public class AwsOdbDbNodeDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);

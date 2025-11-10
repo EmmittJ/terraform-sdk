@@ -3,6 +3,182 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for cleanup_policies in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Policy action. Possible values: [&amp;quot;DELETE&amp;quot;, &amp;quot;KEEP&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Action
+    {
+        get => GetProperty<TerraformProperty<string>>("action");
+        set => WithProperty("action", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for docker_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleArtifactRegistryRepositoryDockerConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The repository which enabled this flag prevents all tags from being modified, moved or deleted. This does not prevent tags from being created.
+    /// </summary>
+    public TerraformProperty<bool>? ImmutableTags
+    {
+        get => GetProperty<TerraformProperty<bool>>("immutable_tags");
+        set => WithProperty("immutable_tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for maven_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleArtifactRegistryRepositoryMavenConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The repository with this flag will allow publishing the same
+    /// snapshot versions.
+    /// </summary>
+    public TerraformProperty<bool>? AllowSnapshotOverwrites
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_snapshot_overwrites");
+        set => WithProperty("allow_snapshot_overwrites", value);
+    }
+
+    /// <summary>
+    /// Version policy defines the versions that the registry will accept. Default value: &amp;quot;VERSION_POLICY_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;VERSION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;RELEASE&amp;quot;, &amp;quot;SNAPSHOT&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? VersionPolicy
+    {
+        get => GetProperty<TerraformProperty<string>>("version_policy");
+        set => WithProperty("version_policy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for remote_repository_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description of the remote source.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// If true, the remote repository upstream and upstream credentials will
+    /// not be validated.
+    /// </summary>
+    public TerraformProperty<bool>? DisableUpstreamValidation
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_upstream_validation");
+        set => WithProperty("disable_upstream_validation", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for virtual_repository_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for vulnerability_scanning_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// This configures whether vulnerability scanning is automatically performed for artifacts pushed to this repository. Possible values: [&amp;quot;INHERITED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? EnablementConfig
+    {
+        get => GetProperty<TerraformProperty<string>>("enablement_config");
+        set => WithProperty("enablement_config", value);
+    }
+
+    /// <summary>
+    /// This field returns whether scanning is active for this repository.
+    /// </summary>
+    public TerraformProperty<string>? EnablementState
+    {
+        get => GetProperty<TerraformProperty<string>>("enablement_state");
+        set => WithProperty("enablement_state", value);
+    }
+
+    /// <summary>
+    /// This provides an explanation for the state of scanning on this repository.
+    /// </summary>
+    public TerraformProperty<string>? EnablementStateReason
+    {
+        get => GetProperty<TerraformProperty<string>>("enablement_state_reason");
+        set => WithProperty("enablement_state_reason", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_artifact_registry_repository resource.
 /// </summary>
 public class GoogleArtifactRegistryRepository : TerraformResource
@@ -47,7 +223,8 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// You can only create alpha formats if you are a member of the
     /// [alpha user group](https://cloud.google.com/artifact-registry/docs/supported-formats#alpha-access).
     /// </summary>
-    public TerraformProperty<string>? Format
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
+    public required TerraformProperty<string> Format
     {
         get => GetProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
@@ -85,9 +262,9 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -127,10 +304,86 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// The last part of the repository name, for example:
     /// &amp;quot;repo1&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? RepositoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
+    public required TerraformProperty<string> RepositoryId
     {
         get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
+    }
+
+    /// <summary>
+    /// Block for cleanup_policies.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>? CleanupPolicies
+    {
+        get => GetProperty<HashSet<GoogleArtifactRegistryRepositoryCleanupPoliciesBlock>>("cleanup_policies");
+        set => this.WithProperty("cleanup_policies", value);
+    }
+
+    /// <summary>
+    /// Block for docker_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerConfig block(s) allowed")]
+    public List<GoogleArtifactRegistryRepositoryDockerConfigBlock>? DockerConfig
+    {
+        get => GetProperty<List<GoogleArtifactRegistryRepositoryDockerConfigBlock>>("docker_config");
+        set => this.WithProperty("docker_config", value);
+    }
+
+    /// <summary>
+    /// Block for maven_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MavenConfig block(s) allowed")]
+    public List<GoogleArtifactRegistryRepositoryMavenConfigBlock>? MavenConfig
+    {
+        get => GetProperty<List<GoogleArtifactRegistryRepositoryMavenConfigBlock>>("maven_config");
+        set => this.WithProperty("maven_config", value);
+    }
+
+    /// <summary>
+    /// Block for remote_repository_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RemoteRepositoryConfig block(s) allowed")]
+    public List<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>? RemoteRepositoryConfig
+    {
+        get => GetProperty<List<GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock>>("remote_repository_config");
+        set => this.WithProperty("remote_repository_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleArtifactRegistryRepositoryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleArtifactRegistryRepositoryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for virtual_repository_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualRepositoryConfig block(s) allowed")]
+    public List<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>? VirtualRepositoryConfig
+    {
+        get => GetProperty<List<GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlock>>("virtual_repository_config");
+        set => this.WithProperty("virtual_repository_config", value);
+    }
+
+    /// <summary>
+    /// Block for vulnerability_scanning_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VulnerabilityScanningConfig block(s) allowed")]
+    public List<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>? VulnerabilityScanningConfig
+    {
+        get => GetProperty<List<GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock>>("vulnerability_scanning_config");
+        set => this.WithProperty("vulnerability_scanning_config", value);
     }
 
     /// <summary>

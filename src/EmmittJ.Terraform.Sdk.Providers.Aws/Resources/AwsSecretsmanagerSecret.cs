@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for replica in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
+{
+    /// <summary>
+    /// The kms_key_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyId
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
+        set => WithProperty("kms_key_id", value);
+    }
+
+    /// <summary>
+    /// The last_accessed_date attribute.
+    /// </summary>
+    public TerraformProperty<string>? LastAccessedDate
+    {
+        get => GetProperty<TerraformProperty<string>>("last_accessed_date");
+        set => WithProperty("last_accessed_date", value);
+    }
+
+    /// <summary>
+    /// The region attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
+    public required TerraformProperty<string> Region
+    {
+        get => GetProperty<TerraformProperty<string>>("region");
+        set => WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformProperty<string>? Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+    /// <summary>
+    /// The status_message attribute.
+    /// </summary>
+    public TerraformProperty<string>? StatusMessage
+    {
+        get => GetProperty<TerraformProperty<string>>("status_message");
+        set => WithProperty("status_message", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_secretsmanager_secret resource.
 /// </summary>
 public class AwsSecretsmanagerSecret : TerraformResource
@@ -101,19 +155,29 @@ public class AwsSecretsmanagerSecret : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for replica.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSecretsmanagerSecretReplicaBlock>? Replica
+    {
+        get => GetProperty<HashSet<AwsSecretsmanagerSecretReplicaBlock>>("replica");
+        set => this.WithProperty("replica", value);
     }
 
     /// <summary>

@@ -24,7 +24,8 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -33,7 +34,8 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvironmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
+    public required TerraformProperty<string> EnvironmentId
     {
         get => GetProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
@@ -60,9 +62,9 @@ public class AwsAppconfigEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

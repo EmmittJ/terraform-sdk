@@ -3,6 +3,132 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for ip_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The gateway_load_balancer_frontend_ip_configuration_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? GatewayLoadBalancerFrontendIpConfigurationId
+    {
+        get => GetProperty<TerraformProperty<string>>("gateway_load_balancer_frontend_ip_configuration_id");
+        set => WithProperty("gateway_load_balancer_frontend_ip_configuration_id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The primary attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Primary
+    {
+        get => GetProperty<TerraformProperty<bool>>("primary");
+        set => WithProperty("primary", value);
+    }
+
+    /// <summary>
+    /// The private_ip_address attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrivateIpAddress
+    {
+        get => GetProperty<TerraformProperty<string>>("private_ip_address");
+        set => WithProperty("private_ip_address", value);
+    }
+
+    /// <summary>
+    /// The private_ip_address_allocation attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddressAllocation is required")]
+    public required TerraformProperty<string> PrivateIpAddressAllocation
+    {
+        get => GetProperty<TerraformProperty<string>>("private_ip_address_allocation");
+        set => WithProperty("private_ip_address_allocation", value);
+    }
+
+    /// <summary>
+    /// The private_ip_address_version attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrivateIpAddressVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("private_ip_address_version");
+        set => WithProperty("private_ip_address_version", value);
+    }
+
+    /// <summary>
+    /// The public_ip_address_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PublicIpAddressId
+    {
+        get => GetProperty<TerraformProperty<string>>("public_ip_address_id");
+        set => WithProperty("public_ip_address_id", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SubnetId
+    {
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        set => WithProperty("subnet_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_network_interface resource.
 /// </summary>
 public class AzurermNetworkInterface : TerraformResource
@@ -52,9 +178,9 @@ public class AzurermNetworkInterface : TerraformResource
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? DnsServers
+    public List<TerraformProperty<string>>? DnsServers
     {
-        get => GetProperty<TerraformProperty<List<string>>>("dns_servers");
+        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
         set => this.WithProperty("dns_servers", value);
     }
 
@@ -97,7 +223,8 @@ public class AzurermNetworkInterface : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -106,7 +233,8 @@ public class AzurermNetworkInterface : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -115,7 +243,8 @@ public class AzurermNetworkInterface : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -124,10 +253,31 @@ public class AzurermNetworkInterface : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for ip_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
+    public List<AzurermNetworkInterfaceIpConfigurationBlock>? IpConfiguration
+    {
+        get => GetProperty<List<AzurermNetworkInterfaceIpConfigurationBlock>>("ip_configuration");
+        set => this.WithProperty("ip_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNetworkInterfaceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNetworkInterfaceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

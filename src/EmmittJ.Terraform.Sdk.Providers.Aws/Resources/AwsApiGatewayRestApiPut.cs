@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsApiGatewayRestApiPutTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_api_gateway_rest_api_put resource.
 /// </summary>
 public class AwsApiGatewayRestApiPut : TerraformResource
@@ -19,7 +36,8 @@ public class AwsApiGatewayRestApiPut : TerraformResource
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformProperty<string>? Body
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
+    public required TerraformProperty<string> Body
     {
         get => GetProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
@@ -37,9 +55,9 @@ public class AwsApiGatewayRestApiPut : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -55,7 +73,8 @@ public class AwsApiGatewayRestApiPut : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
@@ -64,10 +83,20 @@ public class AwsApiGatewayRestApiPut : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Triggers
+    public Dictionary<string, TerraformProperty<string>>? Triggers
     {
-        get => GetProperty<TerraformMapProperty<string>>("triggers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
         set => this.WithProperty("triggers", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsApiGatewayRestApiPutTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsApiGatewayRestApiPutTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

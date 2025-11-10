@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServicecatalogProvisioningArtifactTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_servicecatalog_provisioning_artifact resource.
 /// </summary>
 public class AwsServicecatalogProvisioningArtifact : TerraformResource
@@ -84,7 +128,8 @@ public class AwsServicecatalogProvisioningArtifact : TerraformResource
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
+    public required TerraformProperty<string> ProductId
     {
         get => GetProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
@@ -124,6 +169,16 @@ public class AwsServicecatalogProvisioningArtifact : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServicecatalogProvisioningArtifactTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServicecatalogProvisioningArtifactTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

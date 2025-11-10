@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEbsSnapshotDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEbsSnapshotDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_ebs_snapshot.
 /// </summary>
 public class AwsEbsSnapshotDataSource : TerraformDataSource
@@ -51,9 +96,9 @@ public class AwsEbsSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Owners
+    public List<TerraformProperty<string>>? Owners
     {
-        get => GetProperty<TerraformProperty<List<string>>>("owners");
+        get => GetProperty<List<TerraformProperty<string>>>("owners");
         set => this.WithProperty("owners", value);
     }
 
@@ -69,28 +114,48 @@ public class AwsEbsSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The restorable_by_user_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? RestorableByUserIds
+    public List<TerraformProperty<string>>? RestorableByUserIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("restorable_by_user_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("restorable_by_user_ids");
         set => this.WithProperty("restorable_by_user_ids", value);
     }
 
     /// <summary>
     /// The snapshot_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SnapshotIds
+    public List<TerraformProperty<string>>? SnapshotIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("snapshot_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("snapshot_ids");
         set => this.WithProperty("snapshot_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsEbsSnapshotDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsEbsSnapshotDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEbsSnapshotDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEbsSnapshotDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

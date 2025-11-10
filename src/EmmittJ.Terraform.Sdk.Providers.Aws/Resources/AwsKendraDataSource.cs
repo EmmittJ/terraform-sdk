@@ -3,6 +3,66 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsKendraDataSourceConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for custom_document_enrichment_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The role_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? RoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("role_arn");
+        set => WithProperty("role_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsKendraDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_kendra_data_source resource.
 /// </summary>
 public class AwsKendraDataSource : TerraformResource
@@ -43,7 +103,8 @@ public class AwsKendraDataSource : TerraformResource
     /// <summary>
     /// The index_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IndexId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
+    public required TerraformProperty<string> IndexId
     {
         get => GetProperty<TerraformProperty<string>>("index_id");
         set => this.WithProperty("index_id", value);
@@ -61,7 +122,8 @@ public class AwsKendraDataSource : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -97,28 +159,61 @@ public class AwsKendraDataSource : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
+    public List<AwsKendraDataSourceConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsKendraDataSourceConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
+    }
+
+    /// <summary>
+    /// Block for custom_document_enrichment_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDocumentEnrichmentConfiguration block(s) allowed")]
+    public List<AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock>? CustomDocumentEnrichmentConfiguration
+    {
+        get => GetProperty<List<AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock>>("custom_document_enrichment_configuration");
+        set => this.WithProperty("custom_document_enrichment_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsKendraDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsKendraDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

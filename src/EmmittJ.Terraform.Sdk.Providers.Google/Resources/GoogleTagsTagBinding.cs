@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleTagsTagBindingTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_tags_tag_binding resource.
 /// </summary>
 public class GoogleTagsTagBinding : TerraformResource
@@ -29,7 +55,8 @@ public class GoogleTagsTagBinding : TerraformResource
     /// <summary>
     /// The full resource name of the resource the TagValue is bound to. E.g. //cloudresourcemanager.googleapis.com/projects/123
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -38,10 +65,21 @@ public class GoogleTagsTagBinding : TerraformResource
     /// <summary>
     /// The TagValue of the TagBinding. Must be of the form tagValues/456.
     /// </summary>
-    public TerraformProperty<string>? TagValue
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValue is required")]
+    public required TerraformProperty<string> TagValue
     {
         get => GetProperty<TerraformProperty<string>>("tag_value");
         set => this.WithProperty("tag_value", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleTagsTagBindingTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleTagsTagBindingTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_databricks_workspace_private_endpoint_connection.
 /// </summary>
 public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : TerraformDataSource
@@ -29,7 +46,8 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     /// <summary>
     /// The private_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateEndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
+    public required TerraformProperty<string> PrivateEndpointId
     {
         get => GetProperty<TerraformProperty<string>>("private_endpoint_id");
         set => this.WithProperty("private_endpoint_id", value);
@@ -38,10 +56,21 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSource : Ter
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    public required TerraformProperty<string> WorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

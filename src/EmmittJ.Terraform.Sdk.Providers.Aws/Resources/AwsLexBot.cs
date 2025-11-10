@@ -3,6 +3,113 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for abort_statement in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLexBotAbortStatementBlock : TerraformBlock
+{
+    /// <summary>
+    /// The response_card attribute.
+    /// </summary>
+    public TerraformProperty<string>? ResponseCard
+    {
+        get => GetProperty<TerraformProperty<string>>("response_card");
+        set => WithProperty("response_card", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for clarification_prompt in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLexBotClarificationPromptBlock : TerraformBlock
+{
+    /// <summary>
+    /// The max_attempts attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
+    public required TerraformProperty<double> MaxAttempts
+    {
+        get => GetProperty<TerraformProperty<double>>("max_attempts");
+        set => WithProperty("max_attempts", value);
+    }
+
+    /// <summary>
+    /// The response_card attribute.
+    /// </summary>
+    public TerraformProperty<string>? ResponseCard
+    {
+        get => GetProperty<TerraformProperty<string>>("response_card");
+        set => WithProperty("response_card", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for intent in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLexBotIntentBlock : TerraformBlock
+{
+    /// <summary>
+    /// The intent_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentName is required")]
+    public required TerraformProperty<string> IntentName
+    {
+        get => GetProperty<TerraformProperty<string>>("intent_name");
+        set => WithProperty("intent_name", value);
+    }
+
+    /// <summary>
+    /// The intent_version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentVersion is required")]
+    public required TerraformProperty<string> IntentVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("intent_version");
+        set => WithProperty("intent_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLexBotTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lex_bot resource.
 /// </summary>
 public class AwsLexBot : TerraformResource
@@ -26,7 +133,8 @@ public class AwsLexBot : TerraformResource
     /// <summary>
     /// The child_directed attribute.
     /// </summary>
-    public TerraformProperty<bool>? ChildDirected
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
+    public required TerraformProperty<bool> ChildDirected
     {
         get => GetProperty<TerraformProperty<bool>>("child_directed");
         set => this.WithProperty("child_directed", value);
@@ -98,7 +206,8 @@ public class AwsLexBot : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -138,6 +247,51 @@ public class AwsLexBot : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("voice_id");
         set => this.WithProperty("voice_id", value);
+    }
+
+    /// <summary>
+    /// Block for abort_statement.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AbortStatement block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AbortStatement block(s) allowed")]
+    public List<AwsLexBotAbortStatementBlock>? AbortStatement
+    {
+        get => GetProperty<List<AwsLexBotAbortStatementBlock>>("abort_statement");
+        set => this.WithProperty("abort_statement", value);
+    }
+
+    /// <summary>
+    /// Block for clarification_prompt.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClarificationPrompt block(s) allowed")]
+    public List<AwsLexBotClarificationPromptBlock>? ClarificationPrompt
+    {
+        get => GetProperty<List<AwsLexBotClarificationPromptBlock>>("clarification_prompt");
+        set => this.WithProperty("clarification_prompt", value);
+    }
+
+    /// <summary>
+    /// Block for intent.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(250, ErrorMessage = "Maximum 250 Intent block(s) allowed")]
+    public HashSet<AwsLexBotIntentBlock>? Intent
+    {
+        get => GetProperty<HashSet<AwsLexBotIntentBlock>>("intent");
+        set => this.WithProperty("intent", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLexBotTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLexBotTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSecurityhubConfigurationPolicyAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_securityhub_configuration_policy_association resource.
 /// </summary>
 public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
@@ -28,7 +54,8 @@ public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
     /// <summary>
     /// The universally unique identifier (UUID) of the configuration policy.
     /// </summary>
-    public TerraformProperty<string>? PolicyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
+    public required TerraformProperty<string> PolicyId
     {
         get => GetProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
@@ -46,10 +73,21 @@ public class AwsSecurityhubConfigurationPolicyAssociation : TerraformResource
     /// <summary>
     /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
     /// </summary>
-    public TerraformProperty<string>? TargetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
+    public required TerraformProperty<string> TargetId
     {
         get => GetProperty<TerraformProperty<string>>("target_id");
         set => this.WithProperty("target_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSecurityhubConfigurationPolicyAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSecurityhubConfigurationPolicyAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

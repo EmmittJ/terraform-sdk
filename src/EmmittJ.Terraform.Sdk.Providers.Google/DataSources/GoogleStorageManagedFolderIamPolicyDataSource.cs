@@ -21,7 +21,8 @@ public class GoogleStorageManagedFolderIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -39,7 +40,8 @@ public class GoogleStorageManagedFolderIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The managed_folder attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedFolder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedFolder is required")]
+    public required TerraformProperty<string> ManagedFolder
     {
         get => GetProperty<TerraformProperty<string>>("managed_folder");
         set => this.WithProperty("managed_folder", value);

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAppServiceCertificateBindingTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_app_service_certificate_binding resource.
 /// </summary>
 public class AzurermAppServiceCertificateBinding : TerraformResource
@@ -22,7 +57,8 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
+    public required TerraformProperty<string> CertificateId
     {
         get => GetProperty<TerraformProperty<string>>("certificate_id");
         set => this.WithProperty("certificate_id", value);
@@ -31,7 +67,8 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     /// <summary>
     /// The hostname_binding_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HostnameBindingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnameBindingId is required")]
+    public required TerraformProperty<string> HostnameBindingId
     {
         get => GetProperty<TerraformProperty<string>>("hostname_binding_id");
         set => this.WithProperty("hostname_binding_id", value);
@@ -49,10 +86,21 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public TerraformProperty<string>? SslState
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslState is required")]
+    public required TerraformProperty<string> SslState
     {
         get => GetProperty<TerraformProperty<string>>("ssl_state");
         set => this.WithProperty("ssl_state", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAppServiceCertificateBindingTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAppServiceCertificateBindingTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

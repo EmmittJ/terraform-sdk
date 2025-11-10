@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputePublicAdvertisedPrefixTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_public_advertised_prefix resource.
 /// </summary>
 public class GoogleComputePublicAdvertisedPrefix : TerraformResource
@@ -30,7 +56,8 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// <summary>
     /// The IPv4 address to be used for reverse DNS verification.
     /// </summary>
-    public TerraformProperty<string>? DnsVerificationIp
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsVerificationIp is required")]
+    public required TerraformProperty<string> DnsVerificationIp
     {
         get => GetProperty<TerraformProperty<string>>("dns_verification_ip");
         set => this.WithProperty("dns_verification_ip", value);
@@ -48,7 +75,8 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// <summary>
     /// The address range, in CIDR format, represented by this public advertised prefix.
     /// </summary>
-    public TerraformProperty<string>? IpCidrRange
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
+    public required TerraformProperty<string> IpCidrRange
     {
         get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
@@ -62,7 +90,8 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -89,6 +118,16 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputePublicAdvertisedPrefixTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputePublicAdvertisedPrefixTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

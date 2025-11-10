@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsConnectVocabularyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_connect_vocabulary resource.
 /// </summary>
 public class AwsConnectVocabulary : TerraformResource
@@ -24,7 +50,8 @@ public class AwsConnectVocabulary : TerraformResource
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformProperty<string> Content
     {
         get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
@@ -42,7 +69,8 @@ public class AwsConnectVocabulary : TerraformResource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -51,7 +79,8 @@ public class AwsConnectVocabulary : TerraformResource
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
+    public required TerraformProperty<string> LanguageCode
     {
         get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
@@ -60,7 +89,8 @@ public class AwsConnectVocabulary : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -78,19 +108,29 @@ public class AwsConnectVocabulary : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsConnectVocabularyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsConnectVocabularyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

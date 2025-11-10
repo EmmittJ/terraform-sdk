@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultSecretDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_key_vault_secret.
 /// </summary>
 public class AzurermKeyVaultSecretDataSource : TerraformDataSource
@@ -36,7 +53,8 @@ public class AzurermKeyVaultSecretDataSource : TerraformDataSource
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
+    public required TerraformProperty<string> KeyVaultId
     {
         get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
@@ -45,7 +63,8 @@ public class AzurermKeyVaultSecretDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -58,6 +77,16 @@ public class AzurermKeyVaultSecretDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultSecretDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultSecretDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -57,7 +57,8 @@ public class AwsKinesisStreamConsumerDataSource : TerraformDataSource
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? StreamArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
+    public required TerraformProperty<string> StreamArn
     {
         get => GetProperty<TerraformProperty<string>>("stream_arn");
         set => this.WithProperty("stream_arn", value);
@@ -66,9 +67,9 @@ public class AwsKinesisStreamConsumerDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

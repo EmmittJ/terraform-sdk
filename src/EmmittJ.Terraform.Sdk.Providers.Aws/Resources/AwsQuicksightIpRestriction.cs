@@ -28,7 +28,8 @@ public class AwsQuicksightIpRestriction : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -37,9 +38,9 @@ public class AwsQuicksightIpRestriction : TerraformResource
     /// <summary>
     /// The ip_restriction_rule_map attribute.
     /// </summary>
-    public TerraformMapProperty<string>? IpRestrictionRuleMap
+    public Dictionary<string, TerraformProperty<string>>? IpRestrictionRuleMap
     {
-        get => GetProperty<TerraformMapProperty<string>>("ip_restriction_rule_map");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("ip_restriction_rule_map");
         set => this.WithProperty("ip_restriction_rule_map", value);
     }
 
@@ -55,18 +56,18 @@ public class AwsQuicksightIpRestriction : TerraformResource
     /// <summary>
     /// The vpc_endpoint_id_restriction_rule_map attribute.
     /// </summary>
-    public TerraformMapProperty<string>? VpcEndpointIdRestrictionRuleMap
+    public Dictionary<string, TerraformProperty<string>>? VpcEndpointIdRestrictionRuleMap
     {
-        get => GetProperty<TerraformMapProperty<string>>("vpc_endpoint_id_restriction_rule_map");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("vpc_endpoint_id_restriction_rule_map");
         set => this.WithProperty("vpc_endpoint_id_restriction_rule_map", value);
     }
 
     /// <summary>
     /// The vpc_id_restriction_rule_map attribute.
     /// </summary>
-    public TerraformMapProperty<string>? VpcIdRestrictionRuleMap
+    public Dictionary<string, TerraformProperty<string>>? VpcIdRestrictionRuleMap
     {
-        get => GetProperty<TerraformMapProperty<string>>("vpc_id_restriction_rule_map");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("vpc_id_restriction_rule_map");
         set => this.WithProperty("vpc_id_restriction_rule_map", value);
     }
 

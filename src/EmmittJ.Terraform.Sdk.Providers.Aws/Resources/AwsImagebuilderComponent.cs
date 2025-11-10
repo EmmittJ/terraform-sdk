@@ -69,7 +69,8 @@ public class AwsImagebuilderComponent : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -78,7 +79,8 @@ public class AwsImagebuilderComponent : TerraformResource
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    public TerraformProperty<string>? Platform
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platform is required")]
+    public required TerraformProperty<string> Platform
     {
         get => GetProperty<TerraformProperty<string>>("platform");
         set => this.WithProperty("platform", value);
@@ -105,27 +107,27 @@ public class AwsImagebuilderComponent : TerraformResource
     /// <summary>
     /// The supported_os_versions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SupportedOsVersions
+    public HashSet<TerraformProperty<string>>? SupportedOsVersions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("supported_os_versions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("supported_os_versions");
         set => this.WithProperty("supported_os_versions", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -141,7 +143,8 @@ public class AwsImagebuilderComponent : TerraformResource
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);

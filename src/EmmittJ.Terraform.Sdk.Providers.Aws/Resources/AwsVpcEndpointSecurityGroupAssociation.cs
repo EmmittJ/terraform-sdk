@@ -46,7 +46,8 @@ public class AwsVpcEndpointSecurityGroupAssociation : TerraformResource
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
+    public required TerraformProperty<string> SecurityGroupId
     {
         get => GetProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
@@ -55,7 +56,8 @@ public class AwsVpcEndpointSecurityGroupAssociation : TerraformResource
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
+    public required TerraformProperty<string> VpcEndpointId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);

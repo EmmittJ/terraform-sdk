@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for customer_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDiscoveryEngineAssistantCustomerPolicyBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for generation_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDiscoveryEngineAssistantGenerationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The default language to use for the generation of the assistant response.
+    /// Use an ISO 639-1 language code such as &#39;en&#39;.
+    /// If not specified, the language will be automatically detected.
+    /// </summary>
+    public TerraformProperty<string>? DefaultLanguage
+    {
+        get => GetProperty<TerraformProperty<string>>("default_language");
+        set => WithProperty("default_language", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_discovery_engine_assistant resource.
 /// </summary>
 public class GoogleDiscoveryEngineAssistant : TerraformResource
@@ -20,7 +82,8 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     /// <summary>
     /// The unique id of the assistant.
     /// </summary>
-    public TerraformProperty<string>? AssistantId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssistantId is required")]
+    public required TerraformProperty<string> AssistantId
     {
         get => GetProperty<TerraformProperty<string>>("assistant_id");
         set => this.WithProperty("assistant_id", value);
@@ -29,7 +92,8 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     /// <summary>
     /// The unique id of the collection.
     /// </summary>
-    public TerraformProperty<string>? CollectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
+    public required TerraformProperty<string> CollectionId
     {
         get => GetProperty<TerraformProperty<string>>("collection_id");
         set => this.WithProperty("collection_id", value);
@@ -50,7 +114,8 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     /// 
     /// It must be a UTF-8 encoded string with a length limit of 128 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -59,7 +124,8 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     /// <summary>
     /// The unique id of the engine.
     /// </summary>
-    public TerraformProperty<string>? EngineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
+    public required TerraformProperty<string> EngineId
     {
         get => GetProperty<TerraformProperty<string>>("engine_id");
         set => this.WithProperty("engine_id", value);
@@ -78,7 +144,8 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -101,6 +168,38 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("web_grounding_type");
         set => this.WithProperty("web_grounding_type", value);
+    }
+
+    /// <summary>
+    /// Block for customer_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerPolicy block(s) allowed")]
+    public List<GoogleDiscoveryEngineAssistantCustomerPolicyBlock>? CustomerPolicy
+    {
+        get => GetProperty<List<GoogleDiscoveryEngineAssistantCustomerPolicyBlock>>("customer_policy");
+        set => this.WithProperty("customer_policy", value);
+    }
+
+    /// <summary>
+    /// Block for generation_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GenerationConfig block(s) allowed")]
+    public List<GoogleDiscoveryEngineAssistantGenerationConfigBlock>? GenerationConfig
+    {
+        get => GetProperty<List<GoogleDiscoveryEngineAssistantGenerationConfigBlock>>("generation_config");
+        set => this.WithProperty("generation_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDiscoveryEngineAssistantTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDiscoveryEngineAssistantTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

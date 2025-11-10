@@ -36,7 +36,8 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     /// <summary>
     /// The image name to fetch.
     /// </summary>
-    public TerraformProperty<string>? ImageName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
+    public required TerraformProperty<string> ImageName
     {
         get => GetProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
@@ -45,7 +46,8 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     /// <summary>
     /// The region of the artifact registry repository. For example, &amp;quot;us-west1&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -63,7 +65,8 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     /// <summary>
     /// The last part of the repository name to fetch from.
     /// </summary>
-    public TerraformProperty<string>? RepositoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
+    public required TerraformProperty<string> RepositoryId
     {
         get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);

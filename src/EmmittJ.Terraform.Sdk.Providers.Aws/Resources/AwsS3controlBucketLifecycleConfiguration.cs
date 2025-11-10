@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for rule in .
+/// Nesting mode: set
+/// </summary>
+public class AwsS3controlBucketLifecycleConfigurationRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformProperty<string>? Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3control_bucket_lifecycle_configuration resource.
 /// </summary>
 public class AwsS3controlBucketLifecycleConfiguration : TerraformResource
@@ -19,7 +46,8 @@ public class AwsS3controlBucketLifecycleConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -41,6 +69,17 @@ public class AwsS3controlBucketLifecycleConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for rule.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
+    public HashSet<AwsS3controlBucketLifecycleConfigurationRuleBlock>? Rule
+    {
+        get => GetProperty<HashSet<AwsS3controlBucketLifecycleConfigurationRuleBlock>>("rule");
+        set => this.WithProperty("rule", value);
     }
 
 }

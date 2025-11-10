@@ -38,7 +38,8 @@ public class AwsLocationTrackerAssociationsDataSource : TerraformDataSource
     /// <summary>
     /// The tracker_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TrackerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackerName is required")]
+    public required TerraformProperty<string> TrackerName
     {
         get => GetProperty<TerraformProperty<string>>("tracker_name");
         set => this.WithProperty("tracker_name", value);

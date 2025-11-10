@@ -3,6 +3,105 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for permission_scope in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The resource_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
+    public required TerraformProperty<string> ResourceName
+    {
+        get => GetProperty<TerraformProperty<string>>("resource_name");
+        set => WithProperty("resource_name", value);
+    }
+
+    /// <summary>
+    /// The service attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
+    public required TerraformProperty<string> Service
+    {
+        get => GetProperty<TerraformProperty<string>>("service");
+        set => WithProperty("service", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ssh_authorized_key in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_storage_account_local_user resource.
 /// </summary>
 public class AzurermStorageAccountLocalUser : TerraformResource
@@ -39,7 +138,8 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,10 +166,41 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
+    public required TerraformProperty<string> StorageAccountId
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
+    }
+
+    /// <summary>
+    /// Block for permission_scope.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermStorageAccountLocalUserPermissionScopeBlock>? PermissionScope
+    {
+        get => GetProperty<List<AzurermStorageAccountLocalUserPermissionScopeBlock>>("permission_scope");
+        set => this.WithProperty("permission_scope", value);
+    }
+
+    /// <summary>
+    /// Block for ssh_authorized_key.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>? SshAuthorizedKey
+    {
+        get => GetProperty<List<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>>("ssh_authorized_key");
+        set => this.WithProperty("ssh_authorized_key", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageAccountLocalUserTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageAccountLocalUserTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadAdministrativeUnitTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_administrative_unit resource.
 /// </summary>
 public class AzureadAdministrativeUnit : TerraformResource
@@ -29,7 +73,8 @@ public class AzureadAdministrativeUnit : TerraformResource
     /// <summary>
     /// The display name for the administrative unit
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -56,9 +101,9 @@ public class AzureadAdministrativeUnit : TerraformResource
     /// <summary>
     /// A set of object IDs of members who should be present in this administrative unit. Supported object types are Users or Groups
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Members
+    public HashSet<TerraformProperty<string>>? Members
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
@@ -69,6 +114,16 @@ public class AzureadAdministrativeUnit : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("prevent_duplicate_names");
         set => this.WithProperty("prevent_duplicate_names", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadAdministrativeUnitTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadAdministrativeUnitTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

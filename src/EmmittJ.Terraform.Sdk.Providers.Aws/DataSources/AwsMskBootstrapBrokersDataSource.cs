@@ -29,7 +29,8 @@ public class AwsMskBootstrapBrokersDataSource : TerraformDataSource
     /// <summary>
     /// The cluster_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
+    public required TerraformProperty<string> ClusterArn
     {
         get => GetProperty<TerraformProperty<string>>("cluster_arn");
         set => this.WithProperty("cluster_arn", value);

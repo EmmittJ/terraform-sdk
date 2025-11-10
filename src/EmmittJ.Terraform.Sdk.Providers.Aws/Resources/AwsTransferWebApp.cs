@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for identity_provider_details in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferWebAppIdentityProviderDetailsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_transfer_web_app resource.
 /// </summary>
 public class AwsTransferWebApp : TerraformResource
@@ -40,9 +48,9 @@ public class AwsTransferWebApp : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -58,10 +66,20 @@ public class AwsTransferWebApp : TerraformResource
     /// <summary>
     /// The web_app_units attribute.
     /// </summary>
-    public TerraformProperty<List<object>>? WebAppUnits
+    public List<TerraformProperty<object>>? WebAppUnits
     {
-        get => GetProperty<TerraformProperty<List<object>>>("web_app_units");
+        get => GetProperty<List<TerraformProperty<object>>>("web_app_units");
         set => this.WithProperty("web_app_units", value);
+    }
+
+    /// <summary>
+    /// Block for identity_provider_details.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsTransferWebAppIdentityProviderDetailsBlock>? IdentityProviderDetails
+    {
+        get => GetProperty<List<AwsTransferWebAppIdentityProviderDetailsBlock>>("identity_provider_details");
+        set => this.WithProperty("identity_provider_details", value);
     }
 
     /// <summary>

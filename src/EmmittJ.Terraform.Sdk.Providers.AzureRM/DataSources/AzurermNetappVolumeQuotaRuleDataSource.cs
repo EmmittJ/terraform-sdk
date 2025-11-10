@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_netapp_volume_quota_rule.
 /// </summary>
 public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
@@ -32,7 +49,8 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,10 +59,21 @@ public class AzurermNetappVolumeQuotaRuleDataSource : TerraformDataSource
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
+    public required TerraformProperty<string> VolumeId
     {
         get => GetProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

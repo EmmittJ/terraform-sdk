@@ -23,7 +23,8 @@ public class AwsCloudfrontFunction : TerraformResource
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public TerraformProperty<string>? Code
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
+    public required TerraformProperty<string> Code
     {
         get => GetProperty<TerraformProperty<string>>("code");
         set => this.WithProperty("code", value);
@@ -50,16 +51,17 @@ public class AwsCloudfrontFunction : TerraformResource
     /// <summary>
     /// The key_value_store_associations attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? KeyValueStoreAssociations
+    public HashSet<TerraformProperty<string>>? KeyValueStoreAssociations
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("key_value_store_associations");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("key_value_store_associations");
         set => this.WithProperty("key_value_store_associations", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -77,7 +79,8 @@ public class AwsCloudfrontFunction : TerraformResource
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public TerraformProperty<string>? Runtime
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
+    public required TerraformProperty<string> Runtime
     {
         get => GetProperty<TerraformProperty<string>>("runtime");
         set => this.WithProperty("runtime", value);

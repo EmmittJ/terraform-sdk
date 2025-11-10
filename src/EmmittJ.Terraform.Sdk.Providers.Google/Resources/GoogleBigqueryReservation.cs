@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for autoscale in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryReservationAutoscaleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The slot capacity added to this reservation when autoscale happens. Will be between [0, max_slots].
+    /// </summary>
+    public TerraformProperty<double>? CurrentSlots
+    {
+        get => GetProperty<TerraformProperty<double>>("current_slots");
+        set => WithProperty("current_slots", value);
+    }
+
+    /// <summary>
+    /// Number of slots to be scaled when needed.
+    /// </summary>
+    public TerraformProperty<double>? MaxSlots
+    {
+        get => GetProperty<TerraformProperty<double>>("max_slots");
+        set => WithProperty("max_slots", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_reservation resource.
 /// </summary>
 public class GoogleBigqueryReservation : TerraformResource
@@ -70,7 +131,8 @@ public class GoogleBigqueryReservation : TerraformResource
     /// <summary>
     /// The name of the reservation. This field must only contain alphanumeric characters or dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -101,10 +163,32 @@ public class GoogleBigqueryReservation : TerraformResource
     /// Minimum slots available to this reservation. A slot is a unit of computational power in BigQuery, and serves as the
     /// unit of parallelism. Queries using this reservation might use more slots during runtime if ignoreIdleSlots is set to false.
     /// </summary>
-    public TerraformProperty<double>? SlotCapacity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCapacity is required")]
+    public required TerraformProperty<double> SlotCapacity
     {
         get => GetProperty<TerraformProperty<double>>("slot_capacity");
         set => this.WithProperty("slot_capacity", value);
+    }
+
+    /// <summary>
+    /// Block for autoscale.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscale block(s) allowed")]
+    public List<GoogleBigqueryReservationAutoscaleBlock>? Autoscale
+    {
+        get => GetProperty<List<GoogleBigqueryReservationAutoscaleBlock>>("autoscale");
+        set => this.WithProperty("autoscale", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigqueryReservationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigqueryReservationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

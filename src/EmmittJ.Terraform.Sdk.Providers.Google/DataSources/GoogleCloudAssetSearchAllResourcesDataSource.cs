@@ -20,9 +20,9 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
     /// <summary>
     /// The asset_types attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? AssetTypes
+    public List<TerraformProperty<string>>? AssetTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("asset_types");
+        get => GetProperty<List<TerraformProperty<string>>>("asset_types");
         set => this.WithProperty("asset_types", value);
     }
 
@@ -47,7 +47,8 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);

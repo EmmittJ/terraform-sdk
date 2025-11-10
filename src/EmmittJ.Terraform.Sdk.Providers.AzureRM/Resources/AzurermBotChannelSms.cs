@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermBotChannelSmsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_bot_channel_sms resource.
 /// </summary>
 public class AzurermBotChannelSms : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermBotChannelSms : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BotName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
+    public required TerraformProperty<string> BotName
     {
         get => GetProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
@@ -37,7 +82,8 @@ public class AzurermBotChannelSms : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -46,7 +92,8 @@ public class AzurermBotChannelSms : TerraformResource
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformProperty<string>? PhoneNumber
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
+    public required TerraformProperty<string> PhoneNumber
     {
         get => GetProperty<TerraformProperty<string>>("phone_number");
         set => this.WithProperty("phone_number", value);
@@ -55,7 +102,8 @@ public class AzurermBotChannelSms : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -64,7 +112,8 @@ public class AzurermBotChannelSms : TerraformResource
     /// <summary>
     /// The sms_channel_account_security_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SmsChannelAccountSecurityId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmsChannelAccountSecurityId is required")]
+    public required TerraformProperty<string> SmsChannelAccountSecurityId
     {
         get => GetProperty<TerraformProperty<string>>("sms_channel_account_security_id");
         set => this.WithProperty("sms_channel_account_security_id", value);
@@ -73,10 +122,21 @@ public class AzurermBotChannelSms : TerraformResource
     /// <summary>
     /// The sms_channel_auth_token attribute.
     /// </summary>
-    public TerraformProperty<string>? SmsChannelAuthToken
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmsChannelAuthToken is required")]
+    public required TerraformProperty<string> SmsChannelAuthToken
     {
         get => GetProperty<TerraformProperty<string>>("sms_channel_auth_token");
         set => this.WithProperty("sms_channel_auth_token", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermBotChannelSmsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermBotChannelSmsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

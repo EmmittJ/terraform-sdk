@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageSyncServerEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_storage_sync_server_endpoint resource.
 /// </summary>
 public class AzurermStorageSyncServerEndpoint : TerraformResource
@@ -55,7 +99,8 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,7 +109,8 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     /// <summary>
     /// The registered_server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RegisteredServerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegisteredServerId is required")]
+    public required TerraformProperty<string> RegisteredServerId
     {
         get => GetProperty<TerraformProperty<string>>("registered_server_id");
         set => this.WithProperty("registered_server_id", value);
@@ -73,7 +119,8 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     /// <summary>
     /// The server_local_path attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerLocalPath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerLocalPath is required")]
+    public required TerraformProperty<string> ServerLocalPath
     {
         get => GetProperty<TerraformProperty<string>>("server_local_path");
         set => this.WithProperty("server_local_path", value);
@@ -82,7 +129,8 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     /// <summary>
     /// The storage_sync_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageSyncGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncGroupId is required")]
+    public required TerraformProperty<string> StorageSyncGroupId
     {
         get => GetProperty<TerraformProperty<string>>("storage_sync_group_id");
         set => this.WithProperty("storage_sync_group_id", value);
@@ -104,6 +152,16 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("volume_free_space_percent");
         set => this.WithProperty("volume_free_space_percent", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageSyncServerEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageSyncServerEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

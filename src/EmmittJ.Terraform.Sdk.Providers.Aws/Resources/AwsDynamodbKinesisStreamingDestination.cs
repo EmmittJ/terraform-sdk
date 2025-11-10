@@ -46,7 +46,8 @@ public class AwsDynamodbKinesisStreamingDestination : TerraformResource
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? StreamArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
+    public required TerraformProperty<string> StreamArn
     {
         get => GetProperty<TerraformProperty<string>>("stream_arn");
         set => this.WithProperty("stream_arn", value);
@@ -55,7 +56,8 @@ public class AwsDynamodbKinesisStreamingDestination : TerraformResource
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
+    public required TerraformProperty<string> TableName
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);

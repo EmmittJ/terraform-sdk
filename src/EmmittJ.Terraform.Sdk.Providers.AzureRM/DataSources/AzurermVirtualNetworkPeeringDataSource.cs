@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_virtual_network_peering.
 /// </summary>
 public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
@@ -35,7 +52,8 @@ public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -44,10 +62,21 @@ public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualNetworkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
+    public required TerraformProperty<string> VirtualNetworkId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_network_id");
         set => this.WithProperty("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

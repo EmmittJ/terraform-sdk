@@ -21,7 +21,8 @@ public class GoogleBigqueryConnectionIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
+    public required TerraformProperty<string> ConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);

@@ -3,6 +3,86 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for module in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The args attribute.
+    /// </summary>
+    public TerraformProperty<string>? Args
+    {
+        get => GetProperty<TerraformProperty<string>>("args");
+        set => WithProperty("args", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformProperty<string>? Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_redis_enterprise_database resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -31,7 +111,8 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
+    public required TerraformProperty<string> ClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
@@ -76,9 +157,9 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? LinkedDatabaseId
+    public HashSet<TerraformProperty<string>>? LinkedDatabaseId
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("linked_database_id");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("linked_database_id");
         set => this.WithProperty("linked_database_id", value);
     }
 
@@ -98,6 +179,27 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
+    }
+
+    /// <summary>
+    /// Block for module.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 Module block(s) allowed")]
+    public List<AzurermRedisEnterpriseDatabaseModuleBlock>? Module
+    {
+        get => GetProperty<List<AzurermRedisEnterpriseDatabaseModuleBlock>>("module");
+        set => this.WithProperty("module", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermRedisEnterpriseDatabaseTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermRedisEnterpriseDatabaseTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

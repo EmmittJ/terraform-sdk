@@ -27,7 +27,8 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
+    public required TerraformProperty<string> ContainerName
     {
         get => GetProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
@@ -54,7 +55,8 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
-    public TerraformProperty<string>? TaskDefinition
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
+    public required TerraformProperty<string> TaskDefinition
     {
         get => GetProperty<TerraformProperty<string>>("task_definition");
         set => this.WithProperty("task_definition", value);

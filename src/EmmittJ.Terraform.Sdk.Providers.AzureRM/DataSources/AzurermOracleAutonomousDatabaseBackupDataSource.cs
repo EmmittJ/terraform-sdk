@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermOracleAutonomousDatabaseBackupDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_oracle_autonomous_database_backup.
 /// </summary>
 public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSource
@@ -36,7 +53,8 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
     /// <summary>
     /// The autonomous_database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AutonomousDatabaseId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
+    public required TerraformProperty<string> AutonomousDatabaseId
     {
         get => GetProperty<TerraformProperty<string>>("autonomous_database_id");
         set => this.WithProperty("autonomous_database_id", value);
@@ -45,10 +63,21 @@ public class AzurermOracleAutonomousDatabaseBackupDataSource : TerraformDataSour
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermOracleAutonomousDatabaseBackupDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermOracleAutonomousDatabaseBackupDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

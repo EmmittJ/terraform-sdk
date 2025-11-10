@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNetappAccountEncryptionDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_netapp_account_encryption.
 /// </summary>
 public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
@@ -33,10 +50,21 @@ public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
     /// <summary>
     /// The ID of the NetApp Account where encryption will be set.
     /// </summary>
-    public TerraformProperty<string>? NetappAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
+    public required TerraformProperty<string> NetappAccountId
     {
         get => GetProperty<TerraformProperty<string>>("netapp_account_id");
         set => this.WithProperty("netapp_account_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNetappAccountEncryptionDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNetappAccountEncryptionDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

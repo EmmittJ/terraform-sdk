@@ -29,7 +29,8 @@ public class GoogleSqlDatabasesDataSource : TerraformDataSource
     /// <summary>
     /// The name of the Cloud SQL database instance in which the database belongs.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);

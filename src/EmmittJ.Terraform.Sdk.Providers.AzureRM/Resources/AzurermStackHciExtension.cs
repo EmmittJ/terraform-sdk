@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStackHciExtensionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_stack_hci_extension resource.
 /// </summary>
 public class AzurermStackHciExtension : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermStackHciExtension : TerraformResource
     /// <summary>
     /// The arc_setting_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ArcSettingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcSettingId is required")]
+    public required TerraformProperty<string> ArcSettingId
     {
         get => GetProperty<TerraformProperty<string>>("arc_setting_id");
         set => this.WithProperty("arc_setting_id", value);
@@ -55,7 +100,8 @@ public class AzurermStackHciExtension : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,7 +119,8 @@ public class AzurermStackHciExtension : TerraformResource
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformProperty<string>? Publisher
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
+    public required TerraformProperty<string> Publisher
     {
         get => GetProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
@@ -91,7 +138,8 @@ public class AzurermStackHciExtension : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
@@ -104,6 +152,16 @@ public class AzurermStackHciExtension : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type_handler_version");
         set => this.WithProperty("type_handler_version", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStackHciExtensionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStackHciExtensionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

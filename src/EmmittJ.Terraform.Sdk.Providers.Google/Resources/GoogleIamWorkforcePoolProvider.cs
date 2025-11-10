@@ -3,6 +3,228 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for extended_attributes_oauth2_client in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock : TerraformBlock
+{
+    /// <summary>
+    /// Represents the IdP and type of claims that should be fetched.
+    /// * AZURE_AD_GROUPS_ID:  Used to get the user&#39;s group claims from the Azure AD identity provider
+    /// using configuration provided in ExtendedAttributesOAuth2Client and &#39;id&#39;
+    /// property of the &#39;microsoft.graph.group&#39; object is used for claim mapping. See
+    /// https://learn.microsoft.com/en-us/graph/api/resources/group?view=graph-rest-1.0#properties
+    /// for more details on &#39;microsoft.graph.group&#39; properties. The
+    /// group IDs obtained from Azure AD are present in &#39;assertion.groups&#39; for
+    /// OIDC providers and &#39;assertion.attributes.groups&#39; for SAML providers for
+    /// attribute mapping. Possible values: [&amp;quot;AZURE_AD_GROUPS_ID&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
+    public required TerraformProperty<string> AttributesType
+    {
+        get => GetProperty<TerraformProperty<string>>("attributes_type");
+        set => WithProperty("attributes_type", value);
+    }
+
+    /// <summary>
+    /// The OAuth 2.0 client ID for retrieving extended attributes from the identity provider. Required to get the Access Token using client credentials grant flow.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
+    {
+        get => GetProperty<TerraformProperty<string>>("client_id");
+        set => WithProperty("client_id", value);
+    }
+
+    /// <summary>
+    /// The OIDC identity provider&#39;s issuer URI. Must be a valid URI using the &#39;https&#39; scheme. Required to get the OIDC discovery document.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
+    public required TerraformProperty<string> IssuerUri
+    {
+        get => GetProperty<TerraformProperty<string>>("issuer_uri");
+        set => WithProperty("issuer_uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for extra_attributes_oauth2_client in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : TerraformBlock
+{
+    /// <summary>
+    /// Represents the IdP and type of claims that should be fetched.
+    /// * AZURE_AD_GROUPS_MAIL: Used to get the user&#39;s group claims from the Azure AD identity provider using configuration provided
+    /// in ExtraAttributesOAuth2Client and &#39;mail&#39; property of the &#39;microsoft.graph.group&#39; object is used for claim mapping.
+    /// See https://learn.microsoft.com/en-us/graph/api/resources/group?view=graph-rest-1.0#properties for more details on
+    /// &#39;microsoft.graph.group&#39; properties. The attributes obtained from idntity provider are mapped to &#39;assertion.groups&#39;.
+    /// * AZURE_AD_GROUPS_ID:  Used to get the user&#39;s group claims from the Azure AD identity provider
+    /// using configuration provided in ExtraAttributesOAuth2Client and &#39;id&#39;
+    /// property of the &#39;microsoft.graph.group&#39; object is used for claim mapping. See
+    /// https://learn.microsoft.com/en-us/graph/api/resources/group?view=graph-rest-1.0#properties
+    /// for more details on &#39;microsoft.graph.group&#39; properties. The
+    /// group IDs obtained from Azure AD are present in &#39;assertion.groups&#39; for
+    /// OIDC providers and &#39;assertion.attributes.groups&#39; for SAML providers for
+    /// attribute mapping. Possible values: [&amp;quot;AZURE_AD_GROUPS_MAIL&amp;quot;, &amp;quot;AZURE_AD_GROUPS_ID&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
+    public required TerraformProperty<string> AttributesType
+    {
+        get => GetProperty<TerraformProperty<string>>("attributes_type");
+        set => WithProperty("attributes_type", value);
+    }
+
+    /// <summary>
+    /// The OAuth 2.0 client ID for retrieving extra attributes from the identity provider. Required to get the Access Token using client credentials grant flow.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
+    {
+        get => GetProperty<TerraformProperty<string>>("client_id");
+        set => WithProperty("client_id", value);
+    }
+
+    /// <summary>
+    /// The OIDC identity provider&#39;s issuer URI. Must be a valid URI using the &#39;https&#39; scheme. Required to get the OIDC discovery document.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
+    public required TerraformProperty<string> IssuerUri
+    {
+        get => GetProperty<TerraformProperty<string>>("issuer_uri");
+        set => WithProperty("issuer_uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for oidc in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
+{
+    /// <summary>
+    /// The client ID. Must match the audience claim of the JWT issued by the identity provider.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
+    {
+        get => GetProperty<TerraformProperty<string>>("client_id");
+        set => WithProperty("client_id", value);
+    }
+
+    /// <summary>
+    /// The OIDC issuer URI. Must be a valid URI using the &#39;https&#39; scheme.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
+    public required TerraformProperty<string> IssuerUri
+    {
+        get => GetProperty<TerraformProperty<string>>("issuer_uri");
+        set => WithProperty("issuer_uri", value);
+    }
+
+    /// <summary>
+    /// OIDC JWKs in JSON String format. For details on definition of a
+    /// JWK, see https:tools.ietf.org/html/rfc7517. If not set, then we
+    /// use the &#39;jwks_uri&#39; from the discovery document fetched from the
+    /// .well-known path for the &#39;issuer_uri&#39;. Currently, RSA and EC asymmetric
+    /// keys are supported. The JWK must use following format and include only
+    /// the following fields:
+    /// &#39;&#39;&#39;
+    /// {
+    ///   &amp;quot;keys&amp;quot;: [
+    ///     {
+    ///           &amp;quot;kty&amp;quot;: &amp;quot;RSA/EC&amp;quot;,
+    ///           &amp;quot;alg&amp;quot;: &amp;quot;&amp;lt;algorithm&amp;gt;&amp;quot;,
+    ///           &amp;quot;use&amp;quot;: &amp;quot;sig&amp;quot;,
+    ///           &amp;quot;kid&amp;quot;: &amp;quot;&amp;lt;key-id&amp;gt;&amp;quot;,
+    ///           &amp;quot;n&amp;quot;: &amp;quot;&amp;quot;,
+    ///           &amp;quot;e&amp;quot;: &amp;quot;&amp;quot;,
+    ///           &amp;quot;x&amp;quot;: &amp;quot;&amp;quot;,
+    ///           &amp;quot;y&amp;quot;: &amp;quot;&amp;quot;,
+    ///           &amp;quot;crv&amp;quot;: &amp;quot;&amp;quot;
+    ///     }
+    ///   ]
+    /// }
+    /// &#39;&#39;&#39;
+    /// </summary>
+    public TerraformProperty<string>? JwksJson
+    {
+        get => GetProperty<TerraformProperty<string>>("jwks_json");
+        set => WithProperty("jwks_json", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for saml in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkforcePoolProviderSamlBlock : TerraformBlock
+{
+    /// <summary>
+    /// SAML Identity provider configuration metadata xml doc.
+    /// The xml document should comply with [SAML 2.0 specification](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+    /// The max size of the acceptable xml document will be bounded to 128k characters.
+    /// 
+    /// The metadata xml document should satisfy the following constraints:
+    /// 1) Must contain an Identity Provider Entity ID.
+    /// 2) Must contain at least one non-expired signing key certificate.
+    /// 3) For each signing key:
+    ///   a) Valid from should be no more than 7 days from now.
+    ///   b) Valid to should be no more than 10 years in the future.
+    /// 4) Up to 3 IdP signing keys are allowed in the metadata xml.
+    /// 
+    /// When updating the provider&#39;s metadata xml, at least one non-expired signing key
+    /// must overlap with the existing metadata. This requirement is skipped if there are
+    /// no non-expired signing keys present in the existing metadata.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
+    public required TerraformProperty<string> IdpMetadataXml
+    {
+        get => GetProperty<TerraformProperty<string>>("idp_metadata_xml");
+        set => WithProperty("idp_metadata_xml", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamWorkforcePoolProviderTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_workforce_pool_provider resource.
 /// </summary>
 public class GoogleIamWorkforcePoolProvider : TerraformResource
@@ -98,9 +320,9 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// An object containing a list of &#39;&amp;quot;key&amp;quot;: value&#39; pairs.
     /// Example: &#39;{ &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }&#39;.
     /// </summary>
-    public TerraformMapProperty<string>? AttributeMapping
+    public Dictionary<string, TerraformProperty<string>>? AttributeMapping
     {
-        get => GetProperty<TerraformMapProperty<string>>("attribute_mapping");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
         set => this.WithProperty("attribute_mapping", value);
     }
 
@@ -144,7 +366,8 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -155,7 +378,8 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// This value must be 4-32 characters, and may contain the characters [a-z0-9-].
     /// The prefix &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformProperty<string>? ProviderId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
+    public required TerraformProperty<string> ProviderId
     {
         get => GetProperty<TerraformProperty<string>>("provider_id");
         set => this.WithProperty("provider_id", value);
@@ -185,10 +409,65 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// It must start with a letter, and cannot have a trailing hyphen.
     /// The prefix &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformProperty<string>? WorkforcePoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
+    public required TerraformProperty<string> WorkforcePoolId
     {
         get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
+    }
+
+    /// <summary>
+    /// Block for extended_attributes_oauth2_client.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtendedAttributesOauth2Client block(s) allowed")]
+    public List<GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock>? ExtendedAttributesOauth2Client
+    {
+        get => GetProperty<List<GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock>>("extended_attributes_oauth2_client");
+        set => this.WithProperty("extended_attributes_oauth2_client", value);
+    }
+
+    /// <summary>
+    /// Block for extra_attributes_oauth2_client.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtraAttributesOauth2Client block(s) allowed")]
+    public List<GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock>? ExtraAttributesOauth2Client
+    {
+        get => GetProperty<List<GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock>>("extra_attributes_oauth2_client");
+        set => this.WithProperty("extra_attributes_oauth2_client", value);
+    }
+
+    /// <summary>
+    /// Block for oidc.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
+    public List<GoogleIamWorkforcePoolProviderOidcBlock>? Oidc
+    {
+        get => GetProperty<List<GoogleIamWorkforcePoolProviderOidcBlock>>("oidc");
+        set => this.WithProperty("oidc", value);
+    }
+
+    /// <summary>
+    /// Block for saml.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Saml block(s) allowed")]
+    public List<GoogleIamWorkforcePoolProviderSamlBlock>? Saml
+    {
+        get => GetProperty<List<GoogleIamWorkforcePoolProviderSamlBlock>>("saml");
+        set => this.WithProperty("saml", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamWorkforcePoolProviderTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamWorkforcePoolProviderTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

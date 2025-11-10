@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for replication_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcrReplicationConfigurationReplicationConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_ecr_replication_configuration resource.
 /// </summary>
 public class AwsEcrReplicationConfiguration : TerraformResource
@@ -33,6 +41,17 @@ public class AwsEcrReplicationConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for replication_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfiguration block(s) allowed")]
+    public List<AwsEcrReplicationConfigurationReplicationConfigurationBlock>? ReplicationConfiguration
+    {
+        get => GetProperty<List<AwsEcrReplicationConfigurationReplicationConfigurationBlock>>("replication_configuration");
+        set => this.WithProperty("replication_configuration", value);
     }
 
     /// <summary>

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for suspended_state in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlock
+{
+    /// <summary>
+    /// The dynamic_scaling_in_suspended attribute.
+    /// </summary>
+    public TerraformProperty<bool>? DynamicScalingInSuspended
+    {
+        get => GetProperty<TerraformProperty<bool>>("dynamic_scaling_in_suspended");
+        set => WithProperty("dynamic_scaling_in_suspended", value);
+    }
+
+    /// <summary>
+    /// The dynamic_scaling_out_suspended attribute.
+    /// </summary>
+    public TerraformProperty<bool>? DynamicScalingOutSuspended
+    {
+        get => GetProperty<TerraformProperty<bool>>("dynamic_scaling_out_suspended");
+        set => WithProperty("dynamic_scaling_out_suspended", value);
+    }
+
+    /// <summary>
+    /// The scheduled_scaling_suspended attribute.
+    /// </summary>
+    public TerraformProperty<bool>? ScheduledScalingSuspended
+    {
+        get => GetProperty<TerraformProperty<bool>>("scheduled_scaling_suspended");
+        set => WithProperty("scheduled_scaling_suspended", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appautoscaling_target resource.
 /// </summary>
 public class AwsAppautoscalingTarget : TerraformResource
@@ -29,7 +64,8 @@ public class AwsAppautoscalingTarget : TerraformResource
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxCapacity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
+    public required TerraformProperty<double> MaxCapacity
     {
         get => GetProperty<TerraformProperty<double>>("max_capacity");
         set => this.WithProperty("max_capacity", value);
@@ -38,7 +74,8 @@ public class AwsAppautoscalingTarget : TerraformResource
     /// <summary>
     /// The min_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? MinCapacity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
+    public required TerraformProperty<double> MinCapacity
     {
         get => GetProperty<TerraformProperty<double>>("min_capacity");
         set => this.WithProperty("min_capacity", value);
@@ -56,7 +93,8 @@ public class AwsAppautoscalingTarget : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
@@ -74,7 +112,8 @@ public class AwsAppautoscalingTarget : TerraformResource
     /// <summary>
     /// The scalable_dimension attribute.
     /// </summary>
-    public TerraformProperty<string>? ScalableDimension
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
+    public required TerraformProperty<string> ScalableDimension
     {
         get => GetProperty<TerraformProperty<string>>("scalable_dimension");
         set => this.WithProperty("scalable_dimension", value);
@@ -83,7 +122,8 @@ public class AwsAppautoscalingTarget : TerraformResource
     /// <summary>
     /// The service_namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceNamespace
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
+    public required TerraformProperty<string> ServiceNamespace
     {
         get => GetProperty<TerraformProperty<string>>("service_namespace");
         set => this.WithProperty("service_namespace", value);
@@ -92,19 +132,30 @@ public class AwsAppautoscalingTarget : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for suspended_state.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SuspendedState block(s) allowed")]
+    public List<AwsAppautoscalingTargetSuspendedStateBlock>? SuspendedState
+    {
+        get => GetProperty<List<AwsAppautoscalingTargetSuspendedStateBlock>>("suspended_state");
+        set => this.WithProperty("suspended_state", value);
     }
 
     /// <summary>

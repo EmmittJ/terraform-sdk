@@ -20,9 +20,9 @@ public class AwsKmsCiphertext : TerraformResource
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Context
+    public Dictionary<string, TerraformProperty<string>>? Context
     {
-        get => GetProperty<TerraformMapProperty<string>>("context");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("context");
         set => this.WithProperty("context", value);
     }
 
@@ -38,7 +38,8 @@ public class AwsKmsCiphertext : TerraformResource
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
+    public required TerraformProperty<string> KeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
@@ -47,7 +48,8 @@ public class AwsKmsCiphertext : TerraformResource
     /// <summary>
     /// The plaintext attribute.
     /// </summary>
-    public TerraformProperty<string>? Plaintext
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
+    public required TerraformProperty<string> Plaintext
     {
         get => GetProperty<TerraformProperty<string>>("plaintext");
         set => this.WithProperty("plaintext", value);

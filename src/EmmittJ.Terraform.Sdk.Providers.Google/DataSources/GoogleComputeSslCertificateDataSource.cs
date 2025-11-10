@@ -44,7 +44,8 @@ public class GoogleComputeSslCertificateDataSource : TerraformDataSource
     /// 
     /// These are in the same namespace as the managed SSL certificates.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

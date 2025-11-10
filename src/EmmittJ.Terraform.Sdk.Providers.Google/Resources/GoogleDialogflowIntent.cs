@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDialogflowIntentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dialogflow_intent resource.
 /// </summary>
 public class GoogleDialogflowIntent : TerraformResource
@@ -33,16 +68,17 @@ public class GoogleDialogflowIntent : TerraformResource
     /// The list of platforms for which the first responses will be copied from the messages in PLATFORM_UNSPECIFIED
     /// (i.e. default platform). Possible values: [&amp;quot;FACEBOOK&amp;quot;, &amp;quot;SLACK&amp;quot;, &amp;quot;TELEGRAM&amp;quot;, &amp;quot;KIK&amp;quot;, &amp;quot;SKYPE&amp;quot;, &amp;quot;LINE&amp;quot;, &amp;quot;VIBER&amp;quot;, &amp;quot;ACTIONS_ON_GOOGLE&amp;quot;, &amp;quot;GOOGLE_HANGOUTS&amp;quot;]
     /// </summary>
-    public TerraformProperty<List<string>>? DefaultResponsePlatforms
+    public List<TerraformProperty<string>>? DefaultResponsePlatforms
     {
-        get => GetProperty<TerraformProperty<List<string>>>("default_response_platforms");
+        get => GetProperty<List<TerraformProperty<string>>>("default_response_platforms");
         set => this.WithProperty("default_response_platforms", value);
     }
 
     /// <summary>
     /// The name of this intent to be displayed on the console.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -53,9 +89,9 @@ public class GoogleDialogflowIntent : TerraformResource
     /// the contexts must be present in the active user session for an event to trigger this intent. See the
     /// [events reference](https://cloud.google.com/dialogflow/docs/events-overview) for more details.
     /// </summary>
-    public TerraformProperty<List<string>>? Events
+    public List<TerraformProperty<string>>? Events
     {
-        get => GetProperty<TerraformProperty<List<string>>>("events");
+        get => GetProperty<List<TerraformProperty<string>>>("events");
         set => this.WithProperty("events", value);
     }
 
@@ -72,9 +108,9 @@ public class GoogleDialogflowIntent : TerraformResource
     /// The list of context names required for this intent to be triggered.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/agent/sessions/-/contexts/&amp;lt;Context ID&amp;gt;.
     /// </summary>
-    public TerraformProperty<List<string>>? InputContextNames
+    public List<TerraformProperty<string>>? InputContextNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("input_context_names");
+        get => GetProperty<List<TerraformProperty<string>>>("input_context_names");
         set => this.WithProperty("input_context_names", value);
     }
 
@@ -148,6 +184,16 @@ public class GoogleDialogflowIntent : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("webhook_state");
         set => this.WithProperty("webhook_state", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDialogflowIntentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDialogflowIntentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

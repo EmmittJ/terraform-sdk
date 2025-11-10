@@ -19,7 +19,8 @@ public class AwsWorkspaceswebUserAccessLoggingSettingsAssociation : TerraformRes
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PortalArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
+    public required TerraformProperty<string> PortalArn
     {
         get => GetProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
@@ -37,7 +38,8 @@ public class AwsWorkspaceswebUserAccessLoggingSettingsAssociation : TerraformRes
     /// <summary>
     /// The user_access_logging_settings_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? UserAccessLoggingSettingsArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAccessLoggingSettingsArn is required")]
+    public required TerraformProperty<string> UserAccessLoggingSettingsArn
     {
         get => GetProperty<TerraformProperty<string>>("user_access_logging_settings_arn");
         set => this.WithProperty("user_access_logging_settings_arn", value);

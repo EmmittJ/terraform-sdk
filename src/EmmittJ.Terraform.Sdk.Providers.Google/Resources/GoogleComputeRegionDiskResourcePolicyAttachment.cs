@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRegionDiskResourcePolicyAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_region_disk_resource_policy_attachment resource.
 /// </summary>
 public class GoogleComputeRegionDiskResourcePolicyAttachment : TerraformResource
@@ -19,7 +45,8 @@ public class GoogleComputeRegionDiskResourcePolicyAttachment : TerraformResource
     /// <summary>
     /// The name of the regional disk in which the resource policies are attached to.
     /// </summary>
-    public TerraformProperty<string>? Disk
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
+    public required TerraformProperty<string> Disk
     {
         get => GetProperty<TerraformProperty<string>>("disk");
         set => this.WithProperty("disk", value);
@@ -38,7 +65,8 @@ public class GoogleComputeRegionDiskResourcePolicyAttachment : TerraformResource
     /// The resource policy to be attached to the disk for scheduling snapshot
     /// creation. Do not specify the self link.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -60,6 +88,16 @@ public class GoogleComputeRegionDiskResourcePolicyAttachment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRegionDiskResourcePolicyAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRegionDiskResourcePolicyAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

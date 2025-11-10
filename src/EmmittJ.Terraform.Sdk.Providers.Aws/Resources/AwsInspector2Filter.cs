@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter_criteria in .
+/// Nesting mode: list
+/// </summary>
+public class AwsInspector2FilterFilterCriteriaBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_inspector2_filter resource.
 /// </summary>
 public class AwsInspector2Filter : TerraformResource
@@ -21,7 +29,8 @@ public class AwsInspector2Filter : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -39,7 +48,8 @@ public class AwsInspector2Filter : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,10 +76,20 @@ public class AwsInspector2Filter : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for filter_criteria.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsInspector2FilterFilterCriteriaBlock>? FilterCriteria
+    {
+        get => GetProperty<List<AwsInspector2FilterFilterCriteriaBlock>>("filter_criteria");
+        set => this.WithProperty("filter_criteria", value);
     }
 
     /// <summary>

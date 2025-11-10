@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleActiveDirectoryDomainTrustTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_active_directory_domain_trust resource.
 /// </summary>
 public class GoogleActiveDirectoryDomainTrust : TerraformResource
@@ -20,7 +55,8 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     /// The fully qualified domain name. e.g. mydomain.myorganization.com, with the restrictions
     /// of https://cloud.google.com/managed-microsoft-ad/reference/rest/v1/projects.locations.global.domains.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    public required TerraformProperty<string> Domain
     {
         get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
@@ -56,16 +92,18 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     /// <summary>
     /// The target DNS server IP addresses which can resolve the remote domain involved in the trust.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? TargetDnsIpAddresses
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDnsIpAddresses is required")]
+    public HashSet<TerraformProperty<string>>? TargetDnsIpAddresses
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("target_dns_ip_addresses");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("target_dns_ip_addresses");
         set => this.WithProperty("target_dns_ip_addresses", value);
     }
 
     /// <summary>
     /// The fully qualified target domain name which will be in trust with the current domain.
     /// </summary>
-    public TerraformProperty<string>? TargetDomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDomainName is required")]
+    public required TerraformProperty<string> TargetDomainName
     {
         get => GetProperty<TerraformProperty<string>>("target_domain_name");
         set => this.WithProperty("target_domain_name", value);
@@ -74,7 +112,8 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     /// <summary>
     /// The trust direction, which decides if the current domain is trusted, trusting, or both. Possible values: [&amp;quot;INBOUND&amp;quot;, &amp;quot;OUTBOUND&amp;quot;, &amp;quot;BIDIRECTIONAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? TrustDirection
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustDirection is required")]
+    public required TerraformProperty<string> TrustDirection
     {
         get => GetProperty<TerraformProperty<string>>("trust_direction");
         set => this.WithProperty("trust_direction", value);
@@ -83,7 +122,8 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     /// <summary>
     /// The trust secret used for the handshake with the target domain. This will not be stored.
     /// </summary>
-    public TerraformProperty<string>? TrustHandshakeSecret
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustHandshakeSecret is required")]
+    public required TerraformProperty<string> TrustHandshakeSecret
     {
         get => GetProperty<TerraformProperty<string>>("trust_handshake_secret");
         set => this.WithProperty("trust_handshake_secret", value);
@@ -92,10 +132,21 @@ public class GoogleActiveDirectoryDomainTrust : TerraformResource
     /// <summary>
     /// The type of trust represented by the trust resource. Possible values: [&amp;quot;FOREST&amp;quot;, &amp;quot;EXTERNAL&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? TrustType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustType is required")]
+    public required TerraformProperty<string> TrustType
     {
         get => GetProperty<TerraformProperty<string>>("trust_type");
         set => this.WithProperty("trust_type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleActiveDirectoryDomainTrustTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleActiveDirectoryDomainTrustTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

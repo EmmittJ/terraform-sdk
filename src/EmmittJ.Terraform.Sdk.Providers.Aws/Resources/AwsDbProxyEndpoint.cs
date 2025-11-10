@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDbProxyEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_db_proxy_endpoint resource.
 /// </summary>
 public class AwsDbProxyEndpoint : TerraformResource
@@ -23,7 +58,8 @@ public class AwsDbProxyEndpoint : TerraformResource
     /// <summary>
     /// The db_proxy_endpoint_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DbProxyEndpointName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyEndpointName is required")]
+    public required TerraformProperty<string> DbProxyEndpointName
     {
         get => GetProperty<TerraformProperty<string>>("db_proxy_endpoint_name");
         set => this.WithProperty("db_proxy_endpoint_name", value);
@@ -32,7 +68,8 @@ public class AwsDbProxyEndpoint : TerraformResource
     /// <summary>
     /// The db_proxy_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DbProxyName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
+    public required TerraformProperty<string> DbProxyName
     {
         get => GetProperty<TerraformProperty<string>>("db_proxy_name");
         set => this.WithProperty("db_proxy_name", value);
@@ -59,18 +96,18 @@ public class AwsDbProxyEndpoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -86,19 +123,30 @@ public class AwsDbProxyEndpoint : TerraformResource
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
     /// The vpc_subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? VpcSubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
         set => this.WithProperty("vpc_subnet_ids", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDbProxyEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDbProxyEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

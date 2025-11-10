@@ -43,7 +43,8 @@ public class GoogleProjectIamCustomRoleDataSource : TerraformDataSource
     /// <summary>
     /// The camel case role id to use for this role. Cannot contain - characters.
     /// </summary>
-    public TerraformProperty<string>? RoleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
+    public required TerraformProperty<string> RoleId
     {
         get => GetProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);

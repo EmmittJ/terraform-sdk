@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for orchestrated_resource in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleOsConfigV2PolicyOrchestratorOrchestratedResourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Optional. ID of the resource to be used while generating set of affected resources.
+    /// 
+    /// For UPSERT action the value is auto-generated during PolicyOrchestrator
+    /// creation when not set. When the value is set it should following next
+    /// restrictions:
+    /// 
+    /// * Must contain only lowercase letters, numbers, and hyphens.
+    /// * Must start with a letter.
+    /// * Must be between 1-63 characters.
+    /// * Must end with a number or a letter.
+    /// * Must be unique within the project.
+    /// 
+    /// For DELETE action, ID must be specified explicitly during
+    /// PolicyOrchestrator creation.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for orchestration_scope in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleOsConfigV2PolicyOrchestratorOrchestrationScopeBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleOsConfigV2PolicyOrchestratorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_os_config_v2_policy_orchestrator resource.
 /// </summary>
 public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
@@ -30,7 +103,8 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     /// - &#39;UPSERT&#39; - Orchestrator will create or update target resources.
     /// - &#39;DELETE&#39; - Orchestrator will delete target resources, if they exist
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -60,9 +134,9 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -76,7 +150,8 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     /// * Must end with a number or a letter.
     /// * Must be unique within the parent.
     /// </summary>
-    public TerraformProperty<string>? PolicyOrchestratorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyOrchestratorId is required")]
+    public required TerraformProperty<string> PolicyOrchestratorId
     {
         get => GetProperty<TerraformProperty<string>>("policy_orchestrator_id");
         set => this.WithProperty("policy_orchestrator_id", value);
@@ -105,6 +180,39 @@ public class GoogleOsConfigV2PolicyOrchestrator : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
+    }
+
+    /// <summary>
+    /// Block for orchestrated_resource.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OrchestratedResource block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestratedResource block(s) allowed")]
+    public List<GoogleOsConfigV2PolicyOrchestratorOrchestratedResourceBlock>? OrchestratedResource
+    {
+        get => GetProperty<List<GoogleOsConfigV2PolicyOrchestratorOrchestratedResourceBlock>>("orchestrated_resource");
+        set => this.WithProperty("orchestrated_resource", value);
+    }
+
+    /// <summary>
+    /// Block for orchestration_scope.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OrchestrationScope block(s) allowed")]
+    public List<GoogleOsConfigV2PolicyOrchestratorOrchestrationScopeBlock>? OrchestrationScope
+    {
+        get => GetProperty<List<GoogleOsConfigV2PolicyOrchestratorOrchestrationScopeBlock>>("orchestration_scope");
+        set => this.WithProperty("orchestration_scope", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleOsConfigV2PolicyOrchestratorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleOsConfigV2PolicyOrchestratorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

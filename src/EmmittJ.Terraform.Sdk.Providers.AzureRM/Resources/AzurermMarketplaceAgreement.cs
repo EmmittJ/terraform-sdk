@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMarketplaceAgreementTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_marketplace_agreement resource.
 /// </summary>
 public class AzurermMarketplaceAgreement : TerraformResource
@@ -30,7 +65,8 @@ public class AzurermMarketplaceAgreement : TerraformResource
     /// <summary>
     /// The offer attribute.
     /// </summary>
-    public TerraformProperty<string>? Offer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
+    public required TerraformProperty<string> Offer
     {
         get => GetProperty<TerraformProperty<string>>("offer");
         set => this.WithProperty("offer", value);
@@ -39,7 +75,8 @@ public class AzurermMarketplaceAgreement : TerraformResource
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    public TerraformProperty<string>? Plan
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
+    public required TerraformProperty<string> Plan
     {
         get => GetProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
@@ -48,10 +85,21 @@ public class AzurermMarketplaceAgreement : TerraformResource
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformProperty<string>? Publisher
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
+    public required TerraformProperty<string> Publisher
     {
         get => GetProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMarketplaceAgreementTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMarketplaceAgreementTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

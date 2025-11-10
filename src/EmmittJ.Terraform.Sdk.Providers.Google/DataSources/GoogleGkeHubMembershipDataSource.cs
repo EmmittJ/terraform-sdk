@@ -35,7 +35,8 @@ public class GoogleGkeHubMembershipDataSource : TerraformDataSource
     /// Location of the membership.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -44,7 +45,8 @@ public class GoogleGkeHubMembershipDataSource : TerraformDataSource
     /// <summary>
     /// The client-provided identifier of the membership.
     /// </summary>
-    public TerraformProperty<string>? MembershipId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
+    public required TerraformProperty<string> MembershipId
     {
         get => GetProperty<TerraformProperty<string>>("membership_id");
         set => this.WithProperty("membership_id", value);

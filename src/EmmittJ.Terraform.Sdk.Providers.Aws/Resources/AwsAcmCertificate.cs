@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAcmCertificateOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The certificate_transparency_logging_preference attribute.
+    /// </summary>
+    public TerraformProperty<string>? CertificateTransparencyLoggingPreference
+    {
+        get => GetProperty<TerraformProperty<string>>("certificate_transparency_logging_preference");
+        set => WithProperty("certificate_transparency_logging_preference", value);
+    }
+
+    /// <summary>
+    /// The export attribute.
+    /// </summary>
+    public TerraformProperty<string>? Export
+    {
+        get => GetProperty<TerraformProperty<string>>("export");
+        set => WithProperty("export", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for validation_option in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The domain_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
+    {
+        get => GetProperty<TerraformProperty<string>>("domain_name");
+        set => WithProperty("domain_name", value);
+    }
+
+    /// <summary>
+    /// The validation_domain attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationDomain is required")]
+    public required TerraformProperty<string> ValidationDomain
+    {
+        get => GetProperty<TerraformProperty<string>>("validation_domain");
+        set => WithProperty("validation_domain", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_acm_certificate resource.
 /// </summary>
 public class AwsAcmCertificate : TerraformResource
@@ -110,27 +164,27 @@ public class AwsAcmCertificate : TerraformResource
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubjectAlternativeNames
+    public HashSet<TerraformProperty<string>>? SubjectAlternativeNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subject_alternative_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subject_alternative_names");
         set => this.WithProperty("subject_alternative_names", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -141,6 +195,27 @@ public class AwsAcmCertificate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("validation_method");
         set => this.WithProperty("validation_method", value);
+    }
+
+    /// <summary>
+    /// Block for options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Options block(s) allowed")]
+    public List<AwsAcmCertificateOptionsBlock>? Options
+    {
+        get => GetProperty<List<AwsAcmCertificateOptionsBlock>>("options");
+        set => this.WithProperty("options", value);
+    }
+
+    /// <summary>
+    /// Block for validation_option.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAcmCertificateValidationOptionBlock>? ValidationOption
+    {
+        get => GetProperty<HashSet<AwsAcmCertificateValidationOptionBlock>>("validation_option");
+        set => this.WithProperty("validation_option", value);
     }
 
     /// <summary>

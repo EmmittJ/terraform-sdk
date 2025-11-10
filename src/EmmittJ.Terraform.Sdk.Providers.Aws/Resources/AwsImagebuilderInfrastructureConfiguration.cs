@@ -3,6 +3,84 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for instance_metadata_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The http_put_response_hop_limit attribute.
+    /// </summary>
+    public TerraformProperty<double>? HttpPutResponseHopLimit
+    {
+        get => GetProperty<TerraformProperty<double>>("http_put_response_hop_limit");
+        set => WithProperty("http_put_response_hop_limit", value);
+    }
+
+    /// <summary>
+    /// The http_tokens attribute.
+    /// </summary>
+    public TerraformProperty<string>? HttpTokens
+    {
+        get => GetProperty<TerraformProperty<string>>("http_tokens");
+        set => WithProperty("http_tokens", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for logging in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderInfrastructureConfigurationLoggingBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for placement in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : TerraformBlock
+{
+    /// <summary>
+    /// The availability_zone attribute.
+    /// </summary>
+    public TerraformProperty<string>? AvailabilityZone
+    {
+        get => GetProperty<TerraformProperty<string>>("availability_zone");
+        set => WithProperty("availability_zone", value);
+    }
+
+    /// <summary>
+    /// The host_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? HostId
+    {
+        get => GetProperty<TerraformProperty<string>>("host_id");
+        set => WithProperty("host_id", value);
+    }
+
+    /// <summary>
+    /// The host_resource_group_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? HostResourceGroupArn
+    {
+        get => GetProperty<TerraformProperty<string>>("host_resource_group_arn");
+        set => WithProperty("host_resource_group_arn", value);
+    }
+
+    /// <summary>
+    /// The tenancy attribute.
+    /// </summary>
+    public TerraformProperty<string>? Tenancy
+    {
+        get => GetProperty<TerraformProperty<string>>("tenancy");
+        set => WithProperty("tenancy", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_imagebuilder_infrastructure_configuration resource.
 /// </summary>
 public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
@@ -40,7 +118,8 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The instance_profile_name attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceProfileName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfileName is required")]
+    public required TerraformProperty<string> InstanceProfileName
     {
         get => GetProperty<TerraformProperty<string>>("instance_profile_name");
         set => this.WithProperty("instance_profile_name", value);
@@ -49,9 +128,9 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? InstanceTypes
+    public HashSet<TerraformProperty<string>>? InstanceTypes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("instance_types");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("instance_types");
         set => this.WithProperty("instance_types", value);
     }
 
@@ -67,7 +146,8 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -85,18 +165,18 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>>? ResourceTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("resource_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
@@ -121,18 +201,18 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -143,6 +223,39 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("terminate_instance_on_failure");
         set => this.WithProperty("terminate_instance_on_failure", value);
+    }
+
+    /// <summary>
+    /// Block for instance_metadata_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMetadataOptions block(s) allowed")]
+    public List<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock>? InstanceMetadataOptions
+    {
+        get => GetProperty<List<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock>>("instance_metadata_options");
+        set => this.WithProperty("instance_metadata_options", value);
+    }
+
+    /// <summary>
+    /// Block for logging.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
+    public List<AwsImagebuilderInfrastructureConfigurationLoggingBlock>? Logging
+    {
+        get => GetProperty<List<AwsImagebuilderInfrastructureConfigurationLoggingBlock>>("logging");
+        set => this.WithProperty("logging", value);
+    }
+
+    /// <summary>
+    /// Block for placement.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
+    public List<AwsImagebuilderInfrastructureConfigurationPlacementBlock>? Placement
+    {
+        get => GetProperty<List<AwsImagebuilderInfrastructureConfigurationPlacementBlock>>("placement");
+        set => this.WithProperty("placement", value);
     }
 
     /// <summary>

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_netapp_active_directory resource.
 /// </summary>
 public class GoogleNetappActiveDirectory : TerraformResource
@@ -24,9 +59,9 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// Domain user accounts to be added to the local Administrators group of the SMB service. Comma-separated list of domain users or groups. The Domain Admin group is automatically added when the service joins your domain as a hidden group.
     /// </summary>
-    public TerraformProperty<List<string>>? Administrators
+    public List<TerraformProperty<string>>? Administrators
     {
-        get => GetProperty<TerraformProperty<List<string>>>("administrators");
+        get => GetProperty<List<TerraformProperty<string>>>("administrators");
         set => this.WithProperty("administrators", value);
     }
 
@@ -42,9 +77,9 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// Domain user/group accounts to be added to the Backup Operators group of the SMB service. The Backup Operators group allows members to backup and restore files regardless of whether they have read or write access to the files. Comma-separated list.
     /// </summary>
-    public TerraformProperty<List<string>>? BackupOperators
+    public List<TerraformProperty<string>>? BackupOperators
     {
-        get => GetProperty<TerraformProperty<List<string>>>("backup_operators");
+        get => GetProperty<List<TerraformProperty<string>>>("backup_operators");
         set => this.WithProperty("backup_operators", value);
     }
 
@@ -60,7 +95,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// Comma separated list of DNS server IP addresses for the Active Directory domain.
     /// </summary>
-    public TerraformProperty<string>? Dns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
+    public required TerraformProperty<string> Dns
     {
         get => GetProperty<TerraformProperty<string>>("dns");
         set => this.WithProperty("dns", value);
@@ -69,7 +105,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// Fully qualified domain name for the Active Directory domain.
     /// </summary>
-    public TerraformProperty<string>? Domain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    public required TerraformProperty<string> Domain
     {
         get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
@@ -118,9 +155,9 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -136,7 +173,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// Name of the region for the policy to apply to.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -145,7 +183,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// The resource name of the Active Directory pool. Needs to be unique per location.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -156,7 +195,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// A five-character random ID is generated automatically, for example, -6f9a, and appended to the prefix. The full UNC share path will have the following format:
     /// &#39;\\NetBIOS_PREFIX-ABCD.DOMAIN_NAME\SHARE_NAME&#39;
     /// </summary>
-    public TerraformProperty<string>? NetBiosPrefix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetBiosPrefix is required")]
+    public required TerraformProperty<string> NetBiosPrefix
     {
         get => GetProperty<TerraformProperty<string>>("net_bios_prefix");
         set => this.WithProperty("net_bios_prefix", value);
@@ -185,7 +225,8 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// Password for specified username. Note - Manual changes done to the password will not be detected. Terraform will not re-apply the password, unless you use a new password in Terraform.
     /// </summary>
-    public TerraformProperty<string>? Password
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
@@ -203,9 +244,9 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// Domain accounts that require elevated privileges such as &#39;SeSecurityPrivilege&#39; to manage security logs. Comma-separated list.
     /// </summary>
-    public TerraformProperty<List<string>>? SecurityOperators
+    public List<TerraformProperty<string>>? SecurityOperators
     {
-        get => GetProperty<TerraformProperty<List<string>>>("security_operators");
+        get => GetProperty<List<TerraformProperty<string>>>("security_operators");
         set => this.WithProperty("security_operators", value);
     }
 
@@ -222,10 +263,21 @@ public class GoogleNetappActiveDirectory : TerraformResource
     /// <summary>
     /// Username for the Active Directory account with permissions to create the compute account within the specified organizational unit.
     /// </summary>
-    public TerraformProperty<string>? Username
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
     {
         get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetappActiveDirectoryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetappActiveDirectoryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

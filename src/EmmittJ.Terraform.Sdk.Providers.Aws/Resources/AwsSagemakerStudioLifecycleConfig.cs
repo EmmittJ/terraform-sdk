@@ -38,7 +38,8 @@ public class AwsSagemakerStudioLifecycleConfig : TerraformResource
     /// <summary>
     /// The studio_lifecycle_config_app_type attribute.
     /// </summary>
-    public TerraformProperty<string>? StudioLifecycleConfigAppType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigAppType is required")]
+    public required TerraformProperty<string> StudioLifecycleConfigAppType
     {
         get => GetProperty<TerraformProperty<string>>("studio_lifecycle_config_app_type");
         set => this.WithProperty("studio_lifecycle_config_app_type", value);
@@ -47,7 +48,8 @@ public class AwsSagemakerStudioLifecycleConfig : TerraformResource
     /// <summary>
     /// The studio_lifecycle_config_content attribute.
     /// </summary>
-    public TerraformProperty<string>? StudioLifecycleConfigContent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigContent is required")]
+    public required TerraformProperty<string> StudioLifecycleConfigContent
     {
         get => GetProperty<TerraformProperty<string>>("studio_lifecycle_config_content");
         set => this.WithProperty("studio_lifecycle_config_content", value);
@@ -56,7 +58,8 @@ public class AwsSagemakerStudioLifecycleConfig : TerraformResource
     /// <summary>
     /// The studio_lifecycle_config_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StudioLifecycleConfigName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigName is required")]
+    public required TerraformProperty<string> StudioLifecycleConfigName
     {
         get => GetProperty<TerraformProperty<string>>("studio_lifecycle_config_name");
         set => this.WithProperty("studio_lifecycle_config_name", value);
@@ -65,18 +68,18 @@ public class AwsSagemakerStudioLifecycleConfig : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

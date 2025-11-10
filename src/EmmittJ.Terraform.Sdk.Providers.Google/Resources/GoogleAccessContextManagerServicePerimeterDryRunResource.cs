@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_access_context_manager_service_perimeter_dry_run_resource resource.
 /// </summary>
 public class GoogleAccessContextManagerServicePerimeterDryRunResource : TerraformResource
@@ -30,7 +56,8 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResource : Terrafor
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
-    public TerraformProperty<string>? PerimeterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerimeterName is required")]
+    public required TerraformProperty<string> PerimeterName
     {
         get => GetProperty<TerraformProperty<string>>("perimeter_name");
         set => this.WithProperty("perimeter_name", value);
@@ -41,10 +68,21 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResource : Terrafor
     /// Currently only projects are allowed.
     /// Format: projects/{project_number}
     /// </summary>
-    public TerraformProperty<string>? Resource
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
+    public required TerraformProperty<string> Resource
     {
         get => GetProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

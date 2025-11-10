@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for cache_attributes in .
+/// Nesting mode: list
+/// </summary>
+public class AwsStoragegatewaySmbFileShareCacheAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cache_stale_timeout_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? CacheStaleTimeoutInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("cache_stale_timeout_in_seconds");
+        set => WithProperty("cache_stale_timeout_in_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsStoragegatewaySmbFileShareTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_storagegateway_smb_file_share resource.
 /// </summary>
 public class AwsStoragegatewaySmbFileShare : TerraformResource
@@ -31,9 +83,9 @@ public class AwsStoragegatewaySmbFileShare : TerraformResource
     /// <summary>
     /// The admin_user_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdminUserList
+    public HashSet<TerraformProperty<string>>? AdminUserList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("admin_user_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("admin_user_list");
         set => this.WithProperty("admin_user_list", value);
     }
 
@@ -94,7 +146,8 @@ public class AwsStoragegatewaySmbFileShare : TerraformResource
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
+    public required TerraformProperty<string> GatewayArn
     {
         get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
@@ -121,9 +174,9 @@ public class AwsStoragegatewaySmbFileShare : TerraformResource
     /// <summary>
     /// The invalid_user_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? InvalidUserList
+    public HashSet<TerraformProperty<string>>? InvalidUserList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("invalid_user_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("invalid_user_list");
         set => this.WithProperty("invalid_user_list", value);
     }
 
@@ -148,7 +201,8 @@ public class AwsStoragegatewaySmbFileShare : TerraformResource
     /// <summary>
     /// The location_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LocationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
+    public required TerraformProperty<string> LocationArn
     {
         get => GetProperty<TerraformProperty<string>>("location_arn");
         set => this.WithProperty("location_arn", value);
@@ -211,7 +265,8 @@ public class AwsStoragegatewaySmbFileShare : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -229,27 +284,27 @@ public class AwsStoragegatewaySmbFileShare : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The valid_user_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ValidUserList
+    public HashSet<TerraformProperty<string>>? ValidUserList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("valid_user_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("valid_user_list");
         set => this.WithProperty("valid_user_list", value);
     }
 
@@ -260,6 +315,27 @@ public class AwsStoragegatewaySmbFileShare : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpc_endpoint_dns_name");
         set => this.WithProperty("vpc_endpoint_dns_name", value);
+    }
+
+    /// <summary>
+    /// Block for cache_attributes.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheAttributes block(s) allowed")]
+    public List<AwsStoragegatewaySmbFileShareCacheAttributesBlock>? CacheAttributes
+    {
+        get => GetProperty<List<AwsStoragegatewaySmbFileShareCacheAttributesBlock>>("cache_attributes");
+        set => this.WithProperty("cache_attributes", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsStoragegatewaySmbFileShareTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsStoragegatewaySmbFileShareTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

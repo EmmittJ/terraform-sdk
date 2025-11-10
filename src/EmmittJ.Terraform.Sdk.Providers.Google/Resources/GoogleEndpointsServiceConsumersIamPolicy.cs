@@ -20,7 +20,8 @@ public class GoogleEndpointsServiceConsumersIamPolicy : TerraformResource
     /// <summary>
     /// The consumer_project attribute.
     /// </summary>
-    public TerraformProperty<string>? ConsumerProject
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerProject is required")]
+    public required TerraformProperty<string> ConsumerProject
     {
         get => GetProperty<TerraformProperty<string>>("consumer_project");
         set => this.WithProperty("consumer_project", value);
@@ -38,7 +39,8 @@ public class GoogleEndpointsServiceConsumersIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
@@ -47,7 +49,8 @@ public class GoogleEndpointsServiceConsumersIamPolicy : TerraformResource
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
+    public required TerraformProperty<string> ServiceName
     {
         get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);

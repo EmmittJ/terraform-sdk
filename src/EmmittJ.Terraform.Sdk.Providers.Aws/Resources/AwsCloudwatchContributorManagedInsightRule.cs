@@ -31,7 +31,8 @@ public class AwsCloudwatchContributorManagedInsightRule : TerraformResource
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
+    public required TerraformProperty<string> ResourceArn
     {
         get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
@@ -49,16 +50,17 @@ public class AwsCloudwatchContributorManagedInsightRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The template_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
+    public required TerraformProperty<string> TemplateName
     {
         get => GetProperty<TerraformProperty<string>>("template_name");
         set => this.WithProperty("template_name", value);

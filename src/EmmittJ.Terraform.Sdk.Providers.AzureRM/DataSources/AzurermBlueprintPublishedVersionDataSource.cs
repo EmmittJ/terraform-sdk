@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_blueprint_published_version.
 /// </summary>
 public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
@@ -25,7 +42,8 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
     /// <summary>
     /// The blueprint_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BlueprintName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintName is required")]
+    public required TerraformProperty<string> BlueprintName
     {
         get => GetProperty<TerraformProperty<string>>("blueprint_name");
         set => this.WithProperty("blueprint_name", value);
@@ -43,7 +61,8 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
     /// <summary>
     /// The scope_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
+    public required TerraformProperty<string> ScopeId
     {
         get => GetProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
@@ -52,10 +71,21 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

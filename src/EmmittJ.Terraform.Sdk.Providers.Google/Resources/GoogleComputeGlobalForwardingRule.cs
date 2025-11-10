@@ -3,6 +3,94 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for metadata_filters in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeGlobalForwardingRuleMetadataFiltersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Specifies how individual filterLabel matches within the list of
+    /// filterLabels contribute towards the overall metadataFilter match.
+    /// 
+    /// MATCH_ANY - At least one of the filterLabels must have a matching
+    /// label in the provided metadata.
+    /// MATCH_ALL - All filterLabels must have matching labels in the
+    /// provided metadata. Possible values: [&amp;quot;MATCH_ANY&amp;quot;, &amp;quot;MATCH_ALL&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterMatchCriteria is required")]
+    public required TerraformProperty<string> FilterMatchCriteria
+    {
+        get => GetProperty<TerraformProperty<string>>("filter_match_criteria");
+        set => WithProperty("filter_match_criteria", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for service_directory_registrations in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Service Directory namespace to register the forwarding rule under.
+    /// </summary>
+    public TerraformProperty<string>? Namespace
+    {
+        get => GetProperty<TerraformProperty<string>>("namespace");
+        set => WithProperty("namespace", value);
+    }
+
+    /// <summary>
+    /// [Optional] Service Directory region to register this global forwarding rule under.
+    /// Default to &amp;quot;us-central1&amp;quot;. Only used for PSC for Google APIs. All PSC for
+    /// Google APIs Forwarding Rules on the same network should use the same Service
+    /// Directory region.
+    /// </summary>
+    public TerraformProperty<string>? ServiceDirectoryRegion
+    {
+        get => GetProperty<TerraformProperty<string>>("service_directory_region");
+        set => WithProperty("service_directory_region", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeGlobalForwardingRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_global_forwarding_rule resource.
 /// </summary>
 public class GoogleComputeGlobalForwardingRule : TerraformResource
@@ -159,9 +247,9 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -192,7 +280,8 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// APIs, the forwarding rule name must be a 1-20 characters string with
     /// lowercase letters and numbers and must start with a letter.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -284,9 +373,9 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// <summary>
     /// If not empty, this Forwarding Rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a Forwarding Rule can only have up to 64 source IP ranges, and this field can only be used with a regional Forwarding Rule whose scheme is EXTERNAL. Each sourceIpRange entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
     /// </summary>
-    public TerraformProperty<List<string>>? SourceIpRanges
+    public List<TerraformProperty<string>>? SourceIpRanges
     {
-        get => GetProperty<TerraformProperty<List<string>>>("source_ip_ranges");
+        get => GetProperty<List<TerraformProperty<string>>>("source_ip_ranges");
         set => this.WithProperty("source_ip_ranges", value);
     }
 
@@ -319,10 +408,42 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// 
     /// For Private Service Connect forwarding rules that forward traffic to managed services, the target must be a service attachment.
     /// </summary>
-    public TerraformProperty<string>? Target
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
+    public required TerraformProperty<string> Target
     {
         get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// Block for metadata_filters.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleComputeGlobalForwardingRuleMetadataFiltersBlock>? MetadataFilters
+    {
+        get => GetProperty<List<GoogleComputeGlobalForwardingRuleMetadataFiltersBlock>>("metadata_filters");
+        set => this.WithProperty("metadata_filters", value);
+    }
+
+    /// <summary>
+    /// Block for service_directory_registrations.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDirectoryRegistrations block(s) allowed")]
+    public List<GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock>? ServiceDirectoryRegistrations
+    {
+        get => GetProperty<List<GoogleComputeGlobalForwardingRuleServiceDirectoryRegistrationsBlock>>("service_directory_registrations");
+        set => this.WithProperty("service_directory_registrations", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeGlobalForwardingRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeGlobalForwardingRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

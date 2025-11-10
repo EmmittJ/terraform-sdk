@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaserulesReleaseTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebaserules_release resource.
 /// </summary>
 public class GoogleFirebaserulesRelease : TerraformResource
@@ -31,7 +57,8 @@ public class GoogleFirebaserulesRelease : TerraformResource
     /// <summary>
     /// Format: `projects/{project_id}/releases/{release_id}`\Firestore Rules Releases will **always** have the name &#39;cloud.firestore&#39;
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -49,10 +76,21 @@ public class GoogleFirebaserulesRelease : TerraformResource
     /// <summary>
     /// Name of the `Ruleset` referred to by this `Release`. The `Ruleset` must exist for the `Release` to be created.
     /// </summary>
-    public TerraformProperty<string>? RulesetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulesetName is required")]
+    public required TerraformProperty<string> RulesetName
     {
         get => GetProperty<TerraformProperty<string>>("ruleset_name");
         set => this.WithProperty("ruleset_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaserulesReleaseTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaserulesReleaseTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

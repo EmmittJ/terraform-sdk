@@ -3,6 +3,103 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for labels in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A human-readable description for the label.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The key for this label. The key must not exceed 100 characters. The first character of the key must be an upper- or lower-case letter, the remaining characters must be letters, digits or underscores, and the key must match the regular expression [a-zA-Z][a-zA-Z0-9_]*
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The type of data that can be assigned to the label. Default value: &amp;quot;STRING&amp;quot; Possible values: [&amp;quot;STRING&amp;quot;, &amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? ValueType
+    {
+        get => GetProperty<TerraformProperty<string>>("value_type");
+        set => WithProperty("value_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for metadata in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleMonitoringMetricDescriptorMetadataBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delay of data points caused by ingestion. Data points older than this age are guaranteed to be ingested and available to be read, excluding data loss due to errors. In &#39;[duration format](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf?&amp;amp;_ga=2.264881487.1507873253.1593446723-935052455.1591817775#google.protobuf.Duration)&#39;.
+    /// </summary>
+    public TerraformProperty<string>? IngestDelay
+    {
+        get => GetProperty<TerraformProperty<string>>("ingest_delay");
+        set => WithProperty("ingest_delay", value);
+    }
+
+    /// <summary>
+    /// The sampling period of metric data points. For metrics which are written periodically, consecutive data points are stored at this time interval, excluding data loss due to errors. Metrics with a higher granularity have a smaller sampling period. In &#39;[duration format](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf?&amp;amp;_ga=2.264881487.1507873253.1593446723-935052455.1591817775#google.protobuf.Duration)&#39;.
+    /// </summary>
+    public TerraformProperty<string>? SamplePeriod
+    {
+        get => GetProperty<TerraformProperty<string>>("sample_period");
+        set => WithProperty("sample_period", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_monitoring_metric_descriptor resource.
 /// </summary>
 public class GoogleMonitoringMetricDescriptor : TerraformResource
@@ -57,7 +154,8 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// <summary>
     /// Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metricKind and valueType might not be supported. Possible values: [&amp;quot;METRIC_KIND_UNSPECIFIED&amp;quot;, &amp;quot;GAUGE&amp;quot;, &amp;quot;DELTA&amp;quot;, &amp;quot;CUMULATIVE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? MetricKind
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
+    public required TerraformProperty<string> MetricKind
     {
         get => GetProperty<TerraformProperty<string>>("metric_kind");
         set => this.WithProperty("metric_kind", value);
@@ -75,7 +173,8 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// <summary>
     /// The metric type, including its DNS name prefix. The type is not URL-encoded. All service defined metrics must be prefixed with the service name, in the format of {service name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must have only upper and lower-case letters, digits, &#39;/&#39; and underscores &#39;_&#39; are allowed. Additionally, the maximum number of characters allowed for the relative_metric_name is 100. All user-defined metric types have the DNS name custom.googleapis.com, external.googleapis.com, or logging.googleapis.com/user/.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
@@ -112,10 +211,42 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// <summary>
     /// Whether the measurement is an integer, a floating-point number, etc. Some combinations of metricKind and valueType might not be supported. Possible values: [&amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;, &amp;quot;DOUBLE&amp;quot;, &amp;quot;STRING&amp;quot;, &amp;quot;DISTRIBUTION&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ValueType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
+    public required TerraformProperty<string> ValueType
     {
         get => GetProperty<TerraformProperty<string>>("value_type");
         set => this.WithProperty("value_type", value);
+    }
+
+    /// <summary>
+    /// Block for labels.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleMonitoringMetricDescriptorLabelsBlock>? Labels
+    {
+        get => GetProperty<HashSet<GoogleMonitoringMetricDescriptorLabelsBlock>>("labels");
+        set => this.WithProperty("labels", value);
+    }
+
+    /// <summary>
+    /// Block for metadata.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
+    public List<GoogleMonitoringMetricDescriptorMetadataBlock>? Metadata
+    {
+        get => GetProperty<List<GoogleMonitoringMetricDescriptorMetadataBlock>>("metadata");
+        set => this.WithProperty("metadata", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleMonitoringMetricDescriptorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleMonitoringMetricDescriptorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

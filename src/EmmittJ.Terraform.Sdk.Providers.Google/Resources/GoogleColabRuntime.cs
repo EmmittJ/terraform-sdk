@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for notebook_runtime_template_ref in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : TerraformBlock
+{
+    /// <summary>
+    /// The resource name of the NotebookRuntimeTemplate based on which a NotebookRuntime will be created.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotebookRuntimeTemplate is required")]
+    public required TerraformProperty<string> NotebookRuntimeTemplate
+    {
+        get => GetProperty<TerraformProperty<string>>("notebook_runtime_template");
+        set => WithProperty("notebook_runtime_template", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleColabRuntimeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_colab_runtime resource.
 /// </summary>
 public class GoogleColabRuntime : TerraformResource
@@ -50,7 +103,8 @@ public class GoogleColabRuntime : TerraformResource
     /// <summary>
     /// Required. The display name of the Runtime.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -68,7 +122,8 @@ public class GoogleColabRuntime : TerraformResource
     /// <summary>
     /// The location for the resource: https://cloud.google.com/colab/docs/locations
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -95,10 +150,32 @@ public class GoogleColabRuntime : TerraformResource
     /// <summary>
     /// The user email of the NotebookRuntime.
     /// </summary>
-    public TerraformProperty<string>? RuntimeUser
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeUser is required")]
+    public required TerraformProperty<string> RuntimeUser
     {
         get => GetProperty<TerraformProperty<string>>("runtime_user");
         set => this.WithProperty("runtime_user", value);
+    }
+
+    /// <summary>
+    /// Block for notebook_runtime_template_ref.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotebookRuntimeTemplateRef block(s) allowed")]
+    public List<GoogleColabRuntimeNotebookRuntimeTemplateRefBlock>? NotebookRuntimeTemplateRef
+    {
+        get => GetProperty<List<GoogleColabRuntimeNotebookRuntimeTemplateRefBlock>>("notebook_runtime_template_ref");
+        set => this.WithProperty("notebook_runtime_template_ref", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleColabRuntimeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleColabRuntimeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

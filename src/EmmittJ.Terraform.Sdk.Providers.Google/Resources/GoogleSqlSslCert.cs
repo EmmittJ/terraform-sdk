@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSqlSslCertTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_sql_ssl_cert resource.
 /// </summary>
 public class GoogleSqlSslCert : TerraformResource
@@ -26,7 +52,8 @@ public class GoogleSqlSslCert : TerraformResource
     /// <summary>
     /// The common name to be used in the certificate to identify the client. Constrained to [a-zA-Z.-_ ]+. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? CommonName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
+    public required TerraformProperty<string> CommonName
     {
         get => GetProperty<TerraformProperty<string>>("common_name");
         set => this.WithProperty("common_name", value);
@@ -44,7 +71,8 @@ public class GoogleSqlSslCert : TerraformResource
     /// <summary>
     /// The name of the Cloud SQL instance. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -57,6 +85,16 @@ public class GoogleSqlSslCert : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSqlSslCertTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSqlSslCertTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

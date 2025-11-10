@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightThemeConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for permissions in .
+/// Nesting mode: set
+/// </summary>
+public class AwsQuicksightThemePermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The actions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
+    public HashSet<TerraformProperty<string>>? Actions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
+        set => WithProperty("actions", value);
+    }
+
+    /// <summary>
+    /// The principal attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
+    {
+        get => GetProperty<TerraformProperty<string>>("principal");
+        set => WithProperty("principal", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsQuicksightThemeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_quicksight_theme resource.
 /// </summary>
 public class AwsQuicksightTheme : TerraformResource
@@ -33,7 +104,8 @@ public class AwsQuicksightTheme : TerraformResource
     /// <summary>
     /// The base_theme_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BaseThemeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseThemeId is required")]
+    public required TerraformProperty<string> BaseThemeId
     {
         get => GetProperty<TerraformProperty<string>>("base_theme_id");
         set => this.WithProperty("base_theme_id", value);
@@ -51,7 +123,8 @@ public class AwsQuicksightTheme : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -69,25 +142,26 @@ public class AwsQuicksightTheme : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The theme_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ThemeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
+    public required TerraformProperty<string> ThemeId
     {
         get => GetProperty<TerraformProperty<string>>("theme_id");
         set => this.WithProperty("theme_id", value);
@@ -100,6 +174,38 @@ public class AwsQuicksightTheme : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("version_description");
         set => this.WithProperty("version_description", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
+    public List<AwsQuicksightThemeConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsQuicksightThemeConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
+    }
+
+    /// <summary>
+    /// Block for permissions.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
+    public HashSet<AwsQuicksightThemePermissionsBlock>? Permissions
+    {
+        get => GetProperty<HashSet<AwsQuicksightThemePermissionsBlock>>("permissions");
+        set => this.WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsQuicksightThemeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsQuicksightThemeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

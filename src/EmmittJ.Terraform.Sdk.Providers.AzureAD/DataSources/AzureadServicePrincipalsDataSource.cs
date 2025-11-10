@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadServicePrincipalsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azuread_service_principals.
 /// </summary>
 public class AzureadServicePrincipalsDataSource : TerraformDataSource
@@ -20,18 +37,18 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
     /// <summary>
     /// The client IDs of the applications associated with the service principals
     /// </summary>
-    public TerraformProperty<List<string>>? ClientIds
+    public List<TerraformProperty<string>>? ClientIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("client_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("client_ids");
         set => this.WithProperty("client_ids", value);
     }
 
     /// <summary>
     /// The display names of the applications associated with the service principals
     /// </summary>
-    public TerraformProperty<List<string>>? DisplayNames
+    public List<TerraformProperty<string>>? DisplayNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("display_names");
+        get => GetProperty<List<TerraformProperty<string>>>("display_names");
         set => this.WithProperty("display_names", value);
     }
 
@@ -56,9 +73,9 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
     /// <summary>
     /// The object IDs of the service principals
     /// </summary>
-    public TerraformProperty<List<string>>? ObjectIds
+    public List<TerraformProperty<string>>? ObjectIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("object_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("object_ids");
         set => this.WithProperty("object_ids", value);
     }
 
@@ -69,6 +86,16 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<bool>>("return_all");
         set => this.WithProperty("return_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadServicePrincipalsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadServicePrincipalsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

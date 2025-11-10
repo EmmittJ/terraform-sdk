@@ -3,6 +3,57 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for action in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpclatticeListenerRuleActionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for match in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpclatticeListenerRuleMatchBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpclatticeListenerRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpclattice_listener_rule resource.
 /// </summary>
 public class AwsVpclatticeListenerRule : TerraformResource
@@ -30,7 +81,8 @@ public class AwsVpclatticeListenerRule : TerraformResource
     /// <summary>
     /// The listener_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ListenerIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerIdentifier is required")]
+    public required TerraformProperty<string> ListenerIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("listener_identifier");
         set => this.WithProperty("listener_identifier", value);
@@ -39,7 +91,8 @@ public class AwsVpclatticeListenerRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -48,7 +101,8 @@ public class AwsVpclatticeListenerRule : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
     {
         get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
@@ -66,7 +120,8 @@ public class AwsVpclatticeListenerRule : TerraformResource
     /// <summary>
     /// The service_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
+    public required TerraformProperty<string> ServiceIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("service_identifier");
         set => this.WithProperty("service_identifier", value);
@@ -75,19 +130,53 @@ public class AwsVpclatticeListenerRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for action.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
+    public List<AwsVpclatticeListenerRuleActionBlock>? Action
+    {
+        get => GetProperty<List<AwsVpclatticeListenerRuleActionBlock>>("action");
+        set => this.WithProperty("action", value);
+    }
+
+    /// <summary>
+    /// Block for match.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Match block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
+    public List<AwsVpclatticeListenerRuleMatchBlock>? Match
+    {
+        get => GetProperty<List<AwsVpclatticeListenerRuleMatchBlock>>("match");
+        set => this.WithProperty("match", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpclatticeListenerRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpclatticeListenerRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,179 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for log_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouterNatLogConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Indicates whether or not to export logs.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
+    public required TerraformProperty<bool> Enable
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable");
+        set => WithProperty("enable", value);
+    }
+
+    /// <summary>
+    /// Specifies the desired filtering of logs on this NAT. Possible values: [&amp;quot;ERRORS_ONLY&amp;quot;, &amp;quot;TRANSLATIONS_ONLY&amp;quot;, &amp;quot;ALL&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
+    public required TerraformProperty<string> Filter
+    {
+        get => GetProperty<TerraformProperty<string>>("filter");
+        set => WithProperty("filter", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for nat64_subnetwork in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeRouterNatNat64SubnetworkBlock : TerraformBlock
+{
+    /// <summary>
+    /// Self-link of the subnetwork resource that will use NAT64
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rules in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeRouterNatRulesBlock : TerraformBlock
+{
+    /// <summary>
+    /// An optional description of this rule.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// CEL expression that specifies the match condition that egress traffic from a VM is evaluated against.
+    /// If it evaluates to true, the corresponding action is enforced.
+    /// 
+    /// The following examples are valid match expressions for public NAT:
+    /// 
+    /// &amp;quot;inIpRange(destination.ip, &#39;1.1.0.0/16&#39;) || inIpRange(destination.ip, &#39;2.2.0.0/16&#39;)&amp;quot;
+    /// 
+    /// &amp;quot;destination.ip == &#39;1.1.0.1&#39; || destination.ip == &#39;8.8.8.8&#39;&amp;quot;
+    /// 
+    /// The following example is a valid match expression for private NAT:
+    /// 
+    /// &amp;quot;nexthop.hub == &#39;https://networkconnectivity.googleapis.com/v1alpha1/projects/my-project/global/hub/hub-1&#39;&amp;quot;
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Match is required")]
+    public required TerraformProperty<string> Match
+    {
+        get => GetProperty<TerraformProperty<string>>("match");
+        set => WithProperty("match", value);
+    }
+
+    /// <summary>
+    /// An integer uniquely identifying a rule in the list.
+    /// The rule number must be a positive value between 0 and 65000, and must be unique among rules within a NAT.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
+    public required TerraformProperty<double> RuleNumber
+    {
+        get => GetProperty<TerraformProperty<double>>("rule_number");
+        set => WithProperty("rule_number", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for subnetwork in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeRouterNatSubnetworkBlock : TerraformBlock
+{
+    /// <summary>
+    /// Self-link of subnetwork to NAT
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// List of the secondary ranges of the subnetwork that are allowed
+    /// to use NAT. This can be populated only if
+    /// &#39;LIST_OF_SECONDARY_IP_RANGES&#39; is one of the values in
+    /// sourceIpRangesToNat
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SecondaryIpRangeNames
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("secondary_ip_range_names");
+        set => WithProperty("secondary_ip_range_names", value);
+    }
+
+    /// <summary>
+    /// List of options for which source IPs in the subnetwork
+    /// should have NAT enabled. Supported values include:
+    /// &#39;ALL_IP_RANGES&#39;, &#39;LIST_OF_SECONDARY_IP_RANGES&#39;,
+    /// &#39;PRIMARY_IP_RANGE&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIpRangesToNat is required")]
+    public HashSet<TerraformProperty<string>>? SourceIpRangesToNat
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("source_ip_ranges_to_nat");
+        set => WithProperty("source_ip_ranges_to_nat", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRouterNatTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_router_nat resource.
 /// </summary>
 public class GoogleComputeRouterNat : TerraformResource
@@ -31,9 +204,9 @@ public class GoogleComputeRouterNat : TerraformResource
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DrainNatIps
+    public HashSet<TerraformProperty<string>>? DrainNatIps
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("drain_nat_ips");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("drain_nat_ips");
         set => this.WithProperty("drain_nat_ips", value);
     }
 
@@ -68,9 +241,9 @@ public class GoogleComputeRouterNat : TerraformResource
     ///       &#39;ENDPOINT_TYPE_VM&#39;, &#39;ENDPOINT_TYPE_SWG&#39;,
     ///       &#39;ENDPOINT_TYPE_MANAGED_PROXY_LB&#39;.
     /// </summary>
-    public TerraformProperty<List<string>>? EndpointTypes
+    public List<TerraformProperty<string>>? EndpointTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("endpoint_types");
+        get => GetProperty<List<TerraformProperty<string>>>("endpoint_types");
         set => this.WithProperty("endpoint_types", value);
     }
 
@@ -96,9 +269,9 @@ public class GoogleComputeRouterNat : TerraformResource
     /// Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.
     /// Conflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? InitialNatIps
+    public HashSet<TerraformProperty<string>>? InitialNatIps
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("initial_nat_ips");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("initial_nat_ips");
         set => this.WithProperty("initial_nat_ips", value);
     }
 
@@ -125,7 +298,8 @@ public class GoogleComputeRouterNat : TerraformResource
     /// Name of the NAT service. The name must be 1-63 characters long and
     /// comply with RFC1035.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -149,9 +323,9 @@ public class GoogleComputeRouterNat : TerraformResource
     /// the access level resource for the address resource must have a &#39;lifecycle&#39; block with &#39;create_before_destroy = true&#39; so
     /// the number of resources can be increased/decreased without triggering the &#39;resourceInUseByAnotherResource&#39; error.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? NatIps
+    public HashSet<TerraformProperty<string>>? NatIps
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("nat_ips");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("nat_ips");
         set => this.WithProperty("nat_ips", value);
     }
 
@@ -176,7 +350,8 @@ public class GoogleComputeRouterNat : TerraformResource
     /// <summary>
     /// The name of the Cloud Router in which this NAT will be configured.
     /// </summary>
-    public TerraformProperty<string>? Router
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
+    public required TerraformProperty<string> Router
     {
         get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
@@ -194,7 +369,8 @@ public class GoogleComputeRouterNat : TerraformResource
     /// ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any
     /// other RouterNat section in any Router for this network in this region. Possible values: [&amp;quot;ALL_SUBNETWORKS_ALL_IP_RANGES&amp;quot;, &amp;quot;ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES&amp;quot;, &amp;quot;LIST_OF_SUBNETWORKS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? SourceSubnetworkIpRangesToNat
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSubnetworkIpRangesToNat is required")]
+    public required TerraformProperty<string> SourceSubnetworkIpRangesToNat
     {
         get => GetProperty<TerraformProperty<string>>("source_subnetwork_ip_ranges_to_nat");
         set => this.WithProperty("source_subnetwork_ip_ranges_to_nat", value);
@@ -262,6 +438,57 @@ public class GoogleComputeRouterNat : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("udp_idle_timeout_sec");
         set => this.WithProperty("udp_idle_timeout_sec", value);
+    }
+
+    /// <summary>
+    /// Block for log_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
+    public List<GoogleComputeRouterNatLogConfigBlock>? LogConfig
+    {
+        get => GetProperty<List<GoogleComputeRouterNatLogConfigBlock>>("log_config");
+        set => this.WithProperty("log_config", value);
+    }
+
+    /// <summary>
+    /// Block for nat64_subnetwork.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleComputeRouterNatNat64SubnetworkBlock>? Nat64Subnetwork
+    {
+        get => GetProperty<HashSet<GoogleComputeRouterNatNat64SubnetworkBlock>>("nat64_subnetwork");
+        set => this.WithProperty("nat64_subnetwork", value);
+    }
+
+    /// <summary>
+    /// Block for rules.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleComputeRouterNatRulesBlock>? Rules
+    {
+        get => GetProperty<HashSet<GoogleComputeRouterNatRulesBlock>>("rules");
+        set => this.WithProperty("rules", value);
+    }
+
+    /// <summary>
+    /// Block for subnetwork.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleComputeRouterNatSubnetworkBlock>? Subnetwork
+    {
+        get => GetProperty<HashSet<GoogleComputeRouterNatSubnetworkBlock>>("subnetwork");
+        set => this.WithProperty("subnetwork", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRouterNatTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRouterNatTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebase_app_check_device_check_config resource.
 /// </summary>
 public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
@@ -22,7 +57,8 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// The ID of an
     /// [Apple App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.iosApps#IosApp.FIELDS.app_id).
     /// </summary>
-    public TerraformProperty<string>? AppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
+    public required TerraformProperty<string> AppId
     {
         get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
@@ -40,7 +76,8 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// <summary>
     /// The key identifier of a private key enabled with DeviceCheck, created in your Apple Developer account.
     /// </summary>
-    public TerraformProperty<string>? KeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
+    public required TerraformProperty<string> KeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
@@ -49,7 +86,8 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// <summary>
     /// The contents of the private key (.p8) file associated with the key specified by keyId.
     /// </summary>
-    public TerraformProperty<string>? PrivateKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
+    public required TerraformProperty<string> PrivateKey
     {
         get => GetProperty<TerraformProperty<string>>("private_key");
         set => this.WithProperty("private_key", value);
@@ -74,6 +112,16 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("token_ttl");
         set => this.WithProperty("token_ttl", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

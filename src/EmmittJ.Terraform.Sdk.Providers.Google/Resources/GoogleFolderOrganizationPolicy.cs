@@ -3,6 +3,112 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for boolean_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFolderOrganizationPolicyBooleanPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// If true, then the Policy is enforced. If false, then any configuration is acceptable.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforced is required")]
+    public required TerraformProperty<bool> Enforced
+    {
+        get => GetProperty<TerraformProperty<bool>>("enforced");
+        set => WithProperty("enforced", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for list_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFolderOrganizationPolicyListPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// If set to true, the values from the effective Policy of the parent resource are inherited, meaning the values set in this Policy are added to the values inherited up the hierarchy.
+    /// </summary>
+    public TerraformProperty<bool>? InheritFromParent
+    {
+        get => GetProperty<TerraformProperty<bool>>("inherit_from_parent");
+        set => WithProperty("inherit_from_parent", value);
+    }
+
+    /// <summary>
+    /// The Google Cloud Console will try to default to a configuration that matches the value specified in this field.
+    /// </summary>
+    public TerraformProperty<string>? SuggestedValue
+    {
+        get => GetProperty<TerraformProperty<string>>("suggested_value");
+        set => WithProperty("suggested_value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for restore_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFolderOrganizationPolicyRestorePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// May only be set to true. If set, then the default Policy is restored.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Default is required")]
+    public required TerraformProperty<bool> Default
+    {
+        get => GetProperty<TerraformProperty<bool>>("default");
+        set => WithProperty("default", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFolderOrganizationPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_folder_organization_policy resource.
 /// </summary>
 public class GoogleFolderOrganizationPolicy : TerraformResource
@@ -21,7 +127,8 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     /// <summary>
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
-    public TerraformProperty<string>? Constraint
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
+    public required TerraformProperty<string> Constraint
     {
         get => GetProperty<TerraformProperty<string>>("constraint");
         set => this.WithProperty("constraint", value);
@@ -30,7 +137,8 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     /// <summary>
     /// The resource name of the folder to set the policy for. Its format is folders/{folder_id}.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
+    public required TerraformProperty<string> Folder
     {
         get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
@@ -52,6 +160,49 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for boolean_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BooleanPolicy block(s) allowed")]
+    public List<GoogleFolderOrganizationPolicyBooleanPolicyBlock>? BooleanPolicy
+    {
+        get => GetProperty<List<GoogleFolderOrganizationPolicyBooleanPolicyBlock>>("boolean_policy");
+        set => this.WithProperty("boolean_policy", value);
+    }
+
+    /// <summary>
+    /// Block for list_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ListPolicy block(s) allowed")]
+    public List<GoogleFolderOrganizationPolicyListPolicyBlock>? ListPolicy
+    {
+        get => GetProperty<List<GoogleFolderOrganizationPolicyListPolicyBlock>>("list_policy");
+        set => this.WithProperty("list_policy", value);
+    }
+
+    /// <summary>
+    /// Block for restore_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
+    public List<GoogleFolderOrganizationPolicyRestorePolicyBlock>? RestorePolicy
+    {
+        get => GetProperty<List<GoogleFolderOrganizationPolicyRestorePolicyBlock>>("restore_policy");
+        set => this.WithProperty("restore_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFolderOrganizationPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFolderOrganizationPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

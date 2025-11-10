@@ -3,6 +3,138 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for dump_flags in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for performance_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Initial dump parallelism level. Possible values: [&amp;quot;MIN&amp;quot;, &amp;quot;OPTIMAL&amp;quot;, &amp;quot;MAX&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? DumpParallelLevel
+    {
+        get => GetProperty<TerraformProperty<string>>("dump_parallel_level");
+        set => WithProperty("dump_parallel_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for reverse_ssh_connectivity in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the virtual machine (Compute Engine) used as the bastion server
+    /// for the SSH tunnel.
+    /// </summary>
+    public TerraformProperty<string>? Vm
+    {
+        get => GetProperty<TerraformProperty<string>>("vm");
+        set => WithProperty("vm", value);
+    }
+
+    /// <summary>
+    /// The IP of the virtual machine (Compute Engine) used as the bastion server
+    /// for the SSH tunnel.
+    /// </summary>
+    public TerraformProperty<string>? VmIp
+    {
+        get => GetProperty<TerraformProperty<string>>("vm_ip");
+        set => WithProperty("vm_ip", value);
+    }
+
+    /// <summary>
+    /// The forwarding port of the virtual machine (Compute Engine) used as the
+    /// bastion server for the SSH tunnel.
+    /// </summary>
+    public TerraformProperty<double>? VmPort
+    {
+        get => GetProperty<TerraformProperty<double>>("vm_port");
+        set => WithProperty("vm_port", value);
+    }
+
+    /// <summary>
+    /// The name of the VPC to peer with the Cloud SQL private network.
+    /// </summary>
+    public TerraformProperty<string>? Vpc
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc");
+        set => WithProperty("vpc", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for static_ip_connectivity in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_peering_connectivity in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the VPC network to peer with the Cloud SQL private network.
+    /// </summary>
+    public TerraformProperty<string>? Vpc
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc");
+        set => WithProperty("vpc", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_database_migration_service_migration_job resource.
 /// </summary>
 public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
@@ -26,7 +158,8 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// <summary>
     /// The name of the destination connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{destinationConnectionProfile}.
     /// </summary>
-    public TerraformProperty<string>? Destination
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
+    public required TerraformProperty<string> Destination
     {
         get => GetProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
@@ -78,9 +211,9 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -96,7 +229,8 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// <summary>
     /// The ID of the migration job.
     /// </summary>
-    public TerraformProperty<string>? MigrationJobId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MigrationJobId is required")]
+    public required TerraformProperty<string> MigrationJobId
     {
         get => GetProperty<TerraformProperty<string>>("migration_job_id");
         set => this.WithProperty("migration_job_id", value);
@@ -114,7 +248,8 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// <summary>
     /// The name of the source connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{sourceConnectionProfile}.
     /// </summary>
-    public TerraformProperty<string>? Source
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformProperty<string> Source
     {
         get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
@@ -123,10 +258,76 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// <summary>
     /// The type of the migration job. Possible values: [&amp;quot;ONE_TIME&amp;quot;, &amp;quot;CONTINUOUS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for dump_flags.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DumpFlags block(s) allowed")]
+    public List<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>? DumpFlags
+    {
+        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlock>>("dump_flags");
+        set => this.WithProperty("dump_flags", value);
+    }
+
+    /// <summary>
+    /// Block for performance_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerformanceConfig block(s) allowed")]
+    public List<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>? PerformanceConfig
+    {
+        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock>>("performance_config");
+        set => this.WithProperty("performance_config", value);
+    }
+
+    /// <summary>
+    /// Block for reverse_ssh_connectivity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseSshConnectivity block(s) allowed")]
+    public List<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>? ReverseSshConnectivity
+    {
+        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlock>>("reverse_ssh_connectivity");
+        set => this.WithProperty("reverse_ssh_connectivity", value);
+    }
+
+    /// <summary>
+    /// Block for static_ip_connectivity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticIpConnectivity block(s) allowed")]
+    public List<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>? StaticIpConnectivity
+    {
+        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobStaticIpConnectivityBlock>>("static_ip_connectivity");
+        set => this.WithProperty("static_ip_connectivity", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_peering_connectivity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcPeeringConnectivity block(s) allowed")]
+    public List<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>? VpcPeeringConnectivity
+    {
+        get => GetProperty<List<GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlock>>("vpc_peering_connectivity");
+        set => this.WithProperty("vpc_peering_connectivity", value);
     }
 
     /// <summary>

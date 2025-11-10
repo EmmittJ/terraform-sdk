@@ -3,6 +3,76 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for encryption_spec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiFeaturestoreEncryptionSpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key. The key needs to be in the same region as where the compute resource is created.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
+    public required TerraformProperty<string> KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for online_serving_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiFeaturestoreOnlineServingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The number of nodes for each cluster. The number of nodes will not scale automatically but can be scaled manually by providing different values when updating.
+    /// </summary>
+    public TerraformProperty<double>? FixedNodeCount
+    {
+        get => GetProperty<TerraformProperty<double>>("fixed_node_count");
+        set => WithProperty("fixed_node_count", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVertexAiFeaturestoreTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vertex_ai_featurestore resource.
 /// </summary>
 public class GoogleVertexAiFeaturestore : TerraformResource
@@ -46,9 +116,9 @@ public class GoogleVertexAiFeaturestore : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -77,6 +147,38 @@ public class GoogleVertexAiFeaturestore : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
+    public List<GoogleVertexAiFeaturestoreEncryptionSpecBlock>? EncryptionSpec
+    {
+        get => GetProperty<List<GoogleVertexAiFeaturestoreEncryptionSpecBlock>>("encryption_spec");
+        set => this.WithProperty("encryption_spec", value);
+    }
+
+    /// <summary>
+    /// Block for online_serving_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OnlineServingConfig block(s) allowed")]
+    public List<GoogleVertexAiFeaturestoreOnlineServingConfigBlock>? OnlineServingConfig
+    {
+        get => GetProperty<List<GoogleVertexAiFeaturestoreOnlineServingConfigBlock>>("online_serving_config");
+        set => this.WithProperty("online_serving_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVertexAiFeaturestoreTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVertexAiFeaturestoreTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

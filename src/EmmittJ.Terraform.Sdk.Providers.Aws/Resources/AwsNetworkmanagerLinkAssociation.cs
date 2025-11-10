@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNetworkmanagerLinkAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_networkmanager_link_association resource.
 /// </summary>
 public class AwsNetworkmanagerLinkAssociation : TerraformResource
@@ -19,7 +45,8 @@ public class AwsNetworkmanagerLinkAssociation : TerraformResource
     /// <summary>
     /// The device_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
+    public required TerraformProperty<string> DeviceId
     {
         get => GetProperty<TerraformProperty<string>>("device_id");
         set => this.WithProperty("device_id", value);
@@ -28,7 +55,8 @@ public class AwsNetworkmanagerLinkAssociation : TerraformResource
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GlobalNetworkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
+    public required TerraformProperty<string> GlobalNetworkId
     {
         get => GetProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
@@ -46,10 +74,21 @@ public class AwsNetworkmanagerLinkAssociation : TerraformResource
     /// <summary>
     /// The link_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
+    public required TerraformProperty<string> LinkId
     {
         get => GetProperty<TerraformProperty<string>>("link_id");
         set => this.WithProperty("link_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNetworkmanagerLinkAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNetworkmanagerLinkAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

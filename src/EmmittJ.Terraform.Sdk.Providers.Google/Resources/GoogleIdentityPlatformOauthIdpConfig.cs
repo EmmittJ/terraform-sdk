@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for response_type in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock : TerraformBlock
+{
+    /// <summary>
+    /// If true, authorization code is returned from IdP&#39;s authorization endpoint.
+    /// </summary>
+    public TerraformProperty<bool>? Code
+    {
+        get => GetProperty<TerraformProperty<bool>>("code");
+        set => WithProperty("code", value);
+    }
+
+    /// <summary>
+    /// If true, ID token is returned from IdP&#39;s authorization endpoint.
+    /// </summary>
+    public TerraformProperty<bool>? IdToken
+    {
+        get => GetProperty<TerraformProperty<bool>>("id_token");
+        set => WithProperty("id_token", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_identity_platform_oauth_idp_config resource.
 /// </summary>
 public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
@@ -19,7 +80,8 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     /// <summary>
     /// The client id of an OAuth client.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
     {
         get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
@@ -64,7 +126,8 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     /// <summary>
     /// For OIDC Idps, the issuer identifier.
     /// </summary>
-    public TerraformProperty<string>? Issuer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
+    public required TerraformProperty<string> Issuer
     {
         get => GetProperty<TerraformProperty<string>>("issuer");
         set => this.WithProperty("issuer", value);
@@ -73,7 +136,8 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     /// <summary>
     /// The name of the OauthIdpConfig. Must start with &#39;oidc.&#39;.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -86,6 +150,27 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for response_type.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResponseType block(s) allowed")]
+    public List<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock>? ResponseType
+    {
+        get => GetProperty<List<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock>>("response_type");
+        set => this.WithProperty("response_type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

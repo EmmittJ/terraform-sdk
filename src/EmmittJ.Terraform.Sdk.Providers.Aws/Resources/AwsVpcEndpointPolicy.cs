@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcEndpointPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_endpoint_policy resource.
 /// </summary>
 public class AwsVpcEndpointPolicy : TerraformResource
@@ -46,10 +72,21 @@ public class AwsVpcEndpointPolicy : TerraformResource
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
+    public required TerraformProperty<string> VpcEndpointId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcEndpointPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcEndpointPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

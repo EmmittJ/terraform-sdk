@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_iotcentral_organization resource.
 /// </summary>
 public class AzurermIotcentralOrganization : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -37,7 +82,8 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// <summary>
     /// The iotcentral_application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IotcentralApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
+    public required TerraformProperty<string> IotcentralApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("iotcentral_application_id");
         set => this.WithProperty("iotcentral_application_id", value);
@@ -46,7 +92,8 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OrganizationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
+    public required TerraformProperty<string> OrganizationId
     {
         get => GetProperty<TerraformProperty<string>>("organization_id");
         set => this.WithProperty("organization_id", value);
@@ -59,6 +106,16 @@ public class AzurermIotcentralOrganization : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("parent_organization_id");
         set => this.WithProperty("parent_organization_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermIotcentralOrganizationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermIotcentralOrganizationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

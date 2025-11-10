@@ -3,6 +3,273 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for azure_devops_repo in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
+{
+    /// <summary>
+    /// The account_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
+    public required TerraformProperty<string> AccountName
+    {
+        get => GetProperty<TerraformProperty<string>>("account_name");
+        set => WithProperty("account_name", value);
+    }
+
+    /// <summary>
+    /// The branch_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
+    public required TerraformProperty<string> BranchName
+    {
+        get => GetProperty<TerraformProperty<string>>("branch_name");
+        set => WithProperty("branch_name", value);
+    }
+
+    /// <summary>
+    /// The last_commit_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? LastCommitId
+    {
+        get => GetProperty<TerraformProperty<string>>("last_commit_id");
+        set => WithProperty("last_commit_id", value);
+    }
+
+    /// <summary>
+    /// The project_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
+    public required TerraformProperty<string> ProjectName
+    {
+        get => GetProperty<TerraformProperty<string>>("project_name");
+        set => WithProperty("project_name", value);
+    }
+
+    /// <summary>
+    /// The repository_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
+    public required TerraformProperty<string> RepositoryName
+    {
+        get => GetProperty<TerraformProperty<string>>("repository_name");
+        set => WithProperty("repository_name", value);
+    }
+
+    /// <summary>
+    /// The root_folder attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
+    public required TerraformProperty<string> RootFolder
+    {
+        get => GetProperty<TerraformProperty<string>>("root_folder");
+        set => WithProperty("root_folder", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for customer_managed_key in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? KeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("key_name");
+        set => WithProperty("key_name", value);
+    }
+
+    /// <summary>
+    /// The key_versionless_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVersionlessId is required")]
+    public required TerraformProperty<string> KeyVersionlessId
+    {
+        get => GetProperty<TerraformProperty<string>>("key_versionless_id");
+        set => WithProperty("key_versionless_id", value);
+    }
+
+    /// <summary>
+    /// The user_assigned_identity_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? UserAssignedIdentityId
+    {
+        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
+        set => WithProperty("user_assigned_identity_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for github_repo in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
+{
+    /// <summary>
+    /// The account_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
+    public required TerraformProperty<string> AccountName
+    {
+        get => GetProperty<TerraformProperty<string>>("account_name");
+        set => WithProperty("account_name", value);
+    }
+
+    /// <summary>
+    /// The branch_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
+    public required TerraformProperty<string> BranchName
+    {
+        get => GetProperty<TerraformProperty<string>>("branch_name");
+        set => WithProperty("branch_name", value);
+    }
+
+    /// <summary>
+    /// The git_url attribute.
+    /// </summary>
+    public TerraformProperty<string>? GitUrl
+    {
+        get => GetProperty<TerraformProperty<string>>("git_url");
+        set => WithProperty("git_url", value);
+    }
+
+    /// <summary>
+    /// The last_commit_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? LastCommitId
+    {
+        get => GetProperty<TerraformProperty<string>>("last_commit_id");
+        set => WithProperty("last_commit_id", value);
+    }
+
+    /// <summary>
+    /// The repository_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
+    public required TerraformProperty<string> RepositoryName
+    {
+        get => GetProperty<TerraformProperty<string>>("repository_name");
+        set => WithProperty("repository_name", value);
+    }
+
+    /// <summary>
+    /// The root_folder attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
+    public required TerraformProperty<string> RootFolder
+    {
+        get => GetProperty<TerraformProperty<string>>("root_folder");
+        set => WithProperty("root_folder", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for identity in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The identity_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? IdentityIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("identity_ids");
+        set => WithProperty("identity_ids", value);
+    }
+
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrincipalId
+    {
+        get => GetProperty<TerraformProperty<string>>("principal_id");
+        set => WithProperty("principal_id", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_synapse_workspace resource.
 /// </summary>
 public class AzurermSynapseWorkspace : TerraformResource
@@ -56,16 +323,17 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// <summary>
     /// The linking_allowed_for_aad_tenant_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? LinkingAllowedForAadTenantIds
+    public List<TerraformProperty<string>>? LinkingAllowedForAadTenantIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("linking_allowed_for_aad_tenant_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("linking_allowed_for_aad_tenant_ids");
         set => this.WithProperty("linking_allowed_for_aad_tenant_ids", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -92,7 +360,8 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -119,7 +388,8 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -155,7 +425,8 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// <summary>
     /// The storage_data_lake_gen2_filesystem_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageDataLakeGen2FilesystemId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageDataLakeGen2FilesystemId is required")]
+    public required TerraformProperty<string> StorageDataLakeGen2FilesystemId
     {
         get => GetProperty<TerraformProperty<string>>("storage_data_lake_gen2_filesystem_id");
         set => this.WithProperty("storage_data_lake_gen2_filesystem_id", value);
@@ -164,10 +435,64 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for azure_devops_repo.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureDevopsRepo block(s) allowed")]
+    public List<AzurermSynapseWorkspaceAzureDevopsRepoBlock>? AzureDevopsRepo
+    {
+        get => GetProperty<List<AzurermSynapseWorkspaceAzureDevopsRepoBlock>>("azure_devops_repo");
+        set => this.WithProperty("azure_devops_repo", value);
+    }
+
+    /// <summary>
+    /// Block for customer_managed_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
+    public List<AzurermSynapseWorkspaceCustomerManagedKeyBlock>? CustomerManagedKey
+    {
+        get => GetProperty<List<AzurermSynapseWorkspaceCustomerManagedKeyBlock>>("customer_managed_key");
+        set => this.WithProperty("customer_managed_key", value);
+    }
+
+    /// <summary>
+    /// Block for github_repo.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubRepo block(s) allowed")]
+    public List<AzurermSynapseWorkspaceGithubRepoBlock>? GithubRepo
+    {
+        get => GetProperty<List<AzurermSynapseWorkspaceGithubRepoBlock>>("github_repo");
+        set => this.WithProperty("github_repo", value);
+    }
+
+    /// <summary>
+    /// Block for identity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public List<AzurermSynapseWorkspaceIdentityBlock>? Identity
+    {
+        get => GetProperty<List<AzurermSynapseWorkspaceIdentityBlock>>("identity");
+        set => this.WithProperty("identity", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSynapseWorkspaceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSynapseWorkspaceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

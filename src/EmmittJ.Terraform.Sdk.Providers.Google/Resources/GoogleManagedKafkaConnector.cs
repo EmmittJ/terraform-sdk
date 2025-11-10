@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for task_restart_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum amount of time to wait before retrying a failed task. This sets an upper bound for the backoff delay.
+    /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? MaximumBackoff
+    {
+        get => GetProperty<TerraformProperty<string>>("maximum_backoff");
+        set => WithProperty("maximum_backoff", value);
+    }
+
+    /// <summary>
+    /// The minimum amount of time to wait before retrying a failed task. This sets a lower bound for the backoff delay.
+    /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? MinimumBackoff
+    {
+        get => GetProperty<TerraformProperty<string>>("minimum_backoff");
+        set => WithProperty("minimum_backoff", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_managed_kafka_connector resource.
 /// </summary>
 public class GoogleManagedKafkaConnector : TerraformResource
@@ -21,16 +84,17 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// <summary>
     /// Connector config as keys/values. The keys of the map are connector property names, for example: &#39;connector.class&#39;, &#39;tasks.max&#39;, &#39;key.converter&#39;.
     /// </summary>
-    public TerraformMapProperty<string>? Configs
+    public Dictionary<string, TerraformProperty<string>>? Configs
     {
-        get => GetProperty<TerraformMapProperty<string>>("configs");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("configs");
         set => this.WithProperty("configs", value);
     }
 
     /// <summary>
     /// The connect cluster name.
     /// </summary>
-    public TerraformProperty<string>? ConnectCluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectCluster is required")]
+    public required TerraformProperty<string> ConnectCluster
     {
         get => GetProperty<TerraformProperty<string>>("connect_cluster");
         set => this.WithProperty("connect_cluster", value);
@@ -39,7 +103,8 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// <summary>
     /// The ID to use for the connector, which will become the final component of the connector&#39;s name. This value is structured like: &#39;my-connector-id&#39;.
     /// </summary>
-    public TerraformProperty<string>? ConnectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorId is required")]
+    public required TerraformProperty<string> ConnectorId
     {
         get => GetProperty<TerraformProperty<string>>("connector_id");
         set => this.WithProperty("connector_id", value);
@@ -57,7 +122,8 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// <summary>
     /// ID of the location of the Kafka Connect resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -70,6 +136,27 @@ public class GoogleManagedKafkaConnector : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for task_restart_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskRestartPolicy block(s) allowed")]
+    public List<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>? TaskRestartPolicy
+    {
+        get => GetProperty<List<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>>("task_restart_policy");
+        set => this.WithProperty("task_restart_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleManagedKafkaConnectorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleManagedKafkaConnectorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

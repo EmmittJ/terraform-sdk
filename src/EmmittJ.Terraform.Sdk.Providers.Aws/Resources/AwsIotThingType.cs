@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for properties in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIotThingTypePropertiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The searchable_attributes attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SearchableAttributes
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("searchable_attributes");
+        set => WithProperty("searchable_attributes", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_iot_thing_type resource.
 /// </summary>
 public class AwsIotThingType : TerraformResource
@@ -38,7 +64,8 @@ public class AwsIotThingType : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,19 +83,30 @@ public class AwsIotThingType : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for properties.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
+    public List<AwsIotThingTypePropertiesBlock>? Properties
+    {
+        get => GetProperty<List<AwsIotThingTypePropertiesBlock>>("properties");
+        set => this.WithProperty("properties", value);
     }
 
     /// <summary>

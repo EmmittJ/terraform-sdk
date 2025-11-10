@@ -33,7 +33,8 @@ public class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// <summary>
     /// The location of the cloud run instance. eg us-central1
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -45,7 +46,8 @@ public class GoogleCloudRunServiceDataSource : TerraformDataSource
     /// for creation idempotence and configuration definition. Cannot be updated.
     /// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

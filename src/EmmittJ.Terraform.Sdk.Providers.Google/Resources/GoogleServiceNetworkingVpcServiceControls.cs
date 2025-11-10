@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_service_networking_vpc_service_controls resource.
 /// </summary>
 public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
@@ -20,7 +55,8 @@ public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
     /// Desired VPC Service Controls state service producer VPC network, as
     /// described at the top of this page.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -38,7 +74,8 @@ public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
     /// <summary>
     /// The network that the consumer is using to connect with services.
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -58,10 +95,21 @@ public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
     /// producer&#39;s organization. For Google services that support this
     /// functionality, this value is &#39;servicenetworking.googleapis.com&#39;.
     /// </summary>
-    public TerraformProperty<string>? Service
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
+    public required TerraformProperty<string> Service
     {
         get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

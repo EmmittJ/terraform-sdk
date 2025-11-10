@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDnsSoaRecordDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_dns_soa_record.
 /// </summary>
 public class AzurermDnsSoaRecordDataSource : TerraformDataSource
@@ -47,7 +64,8 @@ public class AzurermDnsSoaRecordDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -56,10 +74,21 @@ public class AzurermDnsSoaRecordDataSource : TerraformDataSource
     /// <summary>
     /// The zone_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ZoneName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
+    public required TerraformProperty<string> ZoneName
     {
         get => GetProperty<TerraformProperty<string>>("zone_name");
         set => this.WithProperty("zone_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDnsSoaRecordDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDnsSoaRecordDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

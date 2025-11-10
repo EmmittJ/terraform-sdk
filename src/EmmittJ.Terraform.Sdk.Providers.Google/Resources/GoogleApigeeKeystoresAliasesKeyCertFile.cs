@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// An alias from a key/cert file.
 /// </summary>
 public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
@@ -22,7 +66,8 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     /// <summary>
     /// Alias Name.
     /// </summary>
-    public TerraformProperty<string>? Alias
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
+    public required TerraformProperty<string> Alias
     {
         get => GetProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
@@ -31,7 +76,8 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     /// <summary>
     /// Cert content.
     /// </summary>
-    public TerraformProperty<string>? Cert
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cert is required")]
+    public required TerraformProperty<string> Cert
     {
         get => GetProperty<TerraformProperty<string>>("cert");
         set => this.WithProperty("cert", value);
@@ -40,7 +86,8 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     /// <summary>
     /// Environment associated with the alias.
     /// </summary>
-    public TerraformProperty<string>? Environment
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
+    public required TerraformProperty<string> Environment
     {
         get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
@@ -58,7 +105,8 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     /// <summary>
     /// Keystore Name.
     /// </summary>
-    public TerraformProperty<string>? Keystore
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
+    public required TerraformProperty<string> Keystore
     {
         get => GetProperty<TerraformProperty<string>>("keystore");
         set => this.WithProperty("keystore", value);
@@ -67,7 +115,8 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     /// <summary>
     /// Organization ID associated with the alias.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -80,6 +129,16 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeKeystoresAliasesKeyCertFileTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

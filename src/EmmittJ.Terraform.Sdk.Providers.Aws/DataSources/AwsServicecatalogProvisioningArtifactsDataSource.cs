@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_servicecatalog_provisioning_artifacts.
 /// </summary>
 public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSource
@@ -38,7 +55,8 @@ public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSou
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
+    public required TerraformProperty<string> ProductId
     {
         get => GetProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
@@ -51,6 +69,16 @@ public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSou
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

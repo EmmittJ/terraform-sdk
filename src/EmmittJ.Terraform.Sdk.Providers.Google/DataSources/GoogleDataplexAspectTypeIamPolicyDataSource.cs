@@ -21,7 +21,8 @@ public class GoogleDataplexAspectTypeIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The aspect_type_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AspectTypeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AspectTypeId is required")]
+    public required TerraformProperty<string> AspectTypeId
     {
         get => GetProperty<TerraformProperty<string>>("aspect_type_id");
         set => this.WithProperty("aspect_type_id", value);

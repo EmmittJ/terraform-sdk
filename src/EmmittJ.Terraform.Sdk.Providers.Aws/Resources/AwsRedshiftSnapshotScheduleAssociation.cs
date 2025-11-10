@@ -19,7 +19,8 @@ public class AwsRedshiftSnapshotScheduleAssociation : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -46,7 +47,8 @@ public class AwsRedshiftSnapshotScheduleAssociation : TerraformResource
     /// <summary>
     /// The schedule_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ScheduleIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleIdentifier is required")]
+    public required TerraformProperty<string> ScheduleIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("schedule_identifier");
         set => this.WithProperty("schedule_identifier", value);

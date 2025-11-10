@@ -49,7 +49,8 @@ public class AwsSecretsmanagerSecretVersion : TerraformResource
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
+    public required TerraformProperty<string> SecretId
     {
         get => GetProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);
@@ -85,9 +86,9 @@ public class AwsSecretsmanagerSecretVersion : TerraformResource
     /// <summary>
     /// The version_stages attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VersionStages
+    public HashSet<TerraformProperty<string>>? VersionStages
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("version_stages");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("version_stages");
         set => this.WithProperty("version_stages", value);
     }
 

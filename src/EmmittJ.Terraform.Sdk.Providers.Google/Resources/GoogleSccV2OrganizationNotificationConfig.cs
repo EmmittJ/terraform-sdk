@@ -3,6 +3,83 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for streaming_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Expression that defines the filter to apply across create/update
+    /// events of assets or findings as specified by the event type. The
+    /// expression is a list of zero or more restrictions combined via
+    /// logical operators AND and OR. Parentheses are supported, and OR
+    /// has higher precedence than AND.
+    /// 
+    /// Restrictions have the form &amp;lt;field&amp;gt; &amp;lt;operator&amp;gt; &amp;lt;value&amp;gt; and may have
+    /// a - character in front of them to indicate negation. The fields
+    /// map to those defined in the corresponding resource.
+    /// 
+    /// The supported operators are:
+    /// 
+    /// * = for all value types.
+    /// * &amp;gt;, &amp;lt;, &amp;gt;=, &amp;lt;= for integer values.
+    /// * :, meaning substring matching, for strings.
+    /// 
+    /// The supported value types are:
+    /// 
+    /// * string literals in quotes.
+    /// * integer literals without quotes.
+    /// * boolean literals true and false without quotes.
+    /// 
+    /// See
+    /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
+    /// for information on how to write a filter.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
+    public required TerraformProperty<string> Filter
+    {
+        get => GetProperty<TerraformProperty<string>>("filter");
+        set => WithProperty("filter", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSccV2OrganizationNotificationConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_scc_v2_organization_notification_config resource.
 /// </summary>
 public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
@@ -21,7 +98,8 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
-    public TerraformProperty<string>? ConfigId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
+    public required TerraformProperty<string> ConfigId
     {
         get => GetProperty<TerraformProperty<string>>("config_id");
         set => this.WithProperty("config_id", value);
@@ -58,7 +136,8 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
     /// The organization whose Cloud Security Command Center the Notification
     /// Config lives in.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -68,10 +147,33 @@ public class GoogleSccV2OrganizationNotificationConfig : TerraformResource
     /// The Pub/Sub topic to send notifications to. Its format is
     /// &amp;quot;projects/[project_id]/topics/[topic]&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? PubsubTopic
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
+    public required TerraformProperty<string> PubsubTopic
     {
         get => GetProperty<TerraformProperty<string>>("pubsub_topic");
         set => this.WithProperty("pubsub_topic", value);
+    }
+
+    /// <summary>
+    /// Block for streaming_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StreamingConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StreamingConfig block(s) allowed")]
+    public List<GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock>? StreamingConfig
+    {
+        get => GetProperty<List<GoogleSccV2OrganizationNotificationConfigStreamingConfigBlock>>("streaming_config");
+        set => this.WithProperty("streaming_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSccV2OrganizationNotificationConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSccV2OrganizationNotificationConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

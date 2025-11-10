@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_postgresql_flexible_server_database resource.
 /// </summary>
 public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
@@ -46,7 +81,8 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,10 +91,21 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
+    public required TerraformProperty<string> ServerId
     {
         get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -20,7 +20,8 @@ public class AwsMskVpcConnection : TerraformResource
     /// <summary>
     /// The authentication attribute.
     /// </summary>
-    public TerraformProperty<string>? Authentication
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
+    public required TerraformProperty<string> Authentication
     {
         get => GetProperty<TerraformProperty<string>>("authentication");
         set => this.WithProperty("authentication", value);
@@ -29,9 +30,10 @@ public class AwsMskVpcConnection : TerraformResource
     /// <summary>
     /// The client_subnets attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ClientSubnets
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSubnets is required")]
+    public HashSet<TerraformProperty<string>>? ClientSubnets
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("client_subnets");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("client_subnets");
         set => this.WithProperty("client_subnets", value);
     }
 
@@ -56,34 +58,36 @@ public class AwsMskVpcConnection : TerraformResource
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroups
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
+    public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_cluster_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetClusterArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetClusterArn is required")]
+    public required TerraformProperty<string> TargetClusterArn
     {
         get => GetProperty<TerraformProperty<string>>("target_cluster_arn");
         set => this.WithProperty("target_cluster_arn", value);
@@ -92,7 +96,8 @@ public class AwsMskVpcConnection : TerraformResource
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);

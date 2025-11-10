@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDirectoryServiceRadiusSettingsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_directory_service_radius_settings resource.
 /// </summary>
 public class AwsDirectoryServiceRadiusSettings : TerraformResource
@@ -19,7 +45,8 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// <summary>
     /// The authentication_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationProtocol
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProtocol is required")]
+    public required TerraformProperty<string> AuthenticationProtocol
     {
         get => GetProperty<TerraformProperty<string>>("authentication_protocol");
         set => this.WithProperty("authentication_protocol", value);
@@ -28,7 +55,8 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DirectoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
+    public required TerraformProperty<string> DirectoryId
     {
         get => GetProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
@@ -37,7 +65,8 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// <summary>
     /// The display_label attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayLabel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayLabel is required")]
+    public required TerraformProperty<string> DisplayLabel
     {
         get => GetProperty<TerraformProperty<string>>("display_label");
         set => this.WithProperty("display_label", value);
@@ -55,7 +84,8 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// <summary>
     /// The radius_port attribute.
     /// </summary>
-    public TerraformProperty<double>? RadiusPort
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusPort is required")]
+    public required TerraformProperty<double> RadiusPort
     {
         get => GetProperty<TerraformProperty<double>>("radius_port");
         set => this.WithProperty("radius_port", value);
@@ -64,7 +94,8 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// <summary>
     /// The radius_retries attribute.
     /// </summary>
-    public TerraformProperty<double>? RadiusRetries
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusRetries is required")]
+    public required TerraformProperty<double> RadiusRetries
     {
         get => GetProperty<TerraformProperty<double>>("radius_retries");
         set => this.WithProperty("radius_retries", value);
@@ -73,16 +104,18 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// <summary>
     /// The radius_servers attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RadiusServers
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusServers is required")]
+    public HashSet<TerraformProperty<string>>? RadiusServers
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("radius_servers");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("radius_servers");
         set => this.WithProperty("radius_servers", value);
     }
 
     /// <summary>
     /// The radius_timeout attribute.
     /// </summary>
-    public TerraformProperty<double>? RadiusTimeout
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusTimeout is required")]
+    public required TerraformProperty<double> RadiusTimeout
     {
         get => GetProperty<TerraformProperty<double>>("radius_timeout");
         set => this.WithProperty("radius_timeout", value);
@@ -100,7 +133,8 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// <summary>
     /// The shared_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? SharedSecret
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedSecret is required")]
+    public required TerraformProperty<string> SharedSecret
     {
         get => GetProperty<TerraformProperty<string>>("shared_secret");
         set => this.WithProperty("shared_secret", value);
@@ -113,6 +147,16 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("use_same_username");
         set => this.WithProperty("use_same_username", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDirectoryServiceRadiusSettingsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDirectoryServiceRadiusSettingsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

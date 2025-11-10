@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_advisor_recommendations.
 /// </summary>
 public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
@@ -20,18 +37,18 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
     /// <summary>
     /// The filter_by_category attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? FilterByCategory
+    public HashSet<TerraformProperty<string>>? FilterByCategory
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("filter_by_category");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("filter_by_category");
         set => this.WithProperty("filter_by_category", value);
     }
 
     /// <summary>
     /// The filter_by_resource_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? FilterByResourceGroups
+    public HashSet<TerraformProperty<string>>? FilterByResourceGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("filter_by_resource_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("filter_by_resource_groups");
         set => this.WithProperty("filter_by_resource_groups", value);
     }
 
@@ -42,6 +59,16 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAdvisorRecommendationsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAdvisorRecommendationsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -20,7 +20,8 @@ public class GoogleComposerUserWorkloadsSecretDataSource : TerraformDataSource
     /// <summary>
     /// Name of the environment.
     /// </summary>
-    public TerraformProperty<string>? Environment
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
+    public required TerraformProperty<string> Environment
     {
         get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
@@ -38,7 +39,8 @@ public class GoogleComposerUserWorkloadsSecretDataSource : TerraformDataSource
     /// <summary>
     /// Name of the secret.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

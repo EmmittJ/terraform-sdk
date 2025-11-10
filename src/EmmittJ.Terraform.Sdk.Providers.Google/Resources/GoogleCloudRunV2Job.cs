@@ -3,6 +3,130 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for binary_authorization in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudRunV2JobBinaryAuthorizationBlock : TerraformBlock
+{
+    /// <summary>
+    /// If present, indicates to use Breakglass using this justification. If useDefault is False, then it must be empty. For more information on breakglass, see https://cloud.google.com/binary-authorization/docs/using-breakglass
+    /// </summary>
+    public TerraformProperty<string>? BreakglassJustification
+    {
+        get => GetProperty<TerraformProperty<string>>("breakglass_justification");
+        set => WithProperty("breakglass_justification", value);
+    }
+
+    /// <summary>
+    /// The path to a binary authorization policy. Format: projects/{project}/platforms/cloudRun/{policy-name}
+    /// </summary>
+    public TerraformProperty<string>? Policy
+    {
+        get => GetProperty<TerraformProperty<string>>("policy");
+        set => WithProperty("policy", value);
+    }
+
+    /// <summary>
+    /// If True, indicates to use the default project&#39;s binary authorization policy. If False, binary authorization will be disabled.
+    /// </summary>
+    public TerraformProperty<bool>? UseDefault
+    {
+        get => GetProperty<TerraformProperty<bool>>("use_default");
+        set => WithProperty("use_default", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for template in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudRunV2JobTemplateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects.
+    /// 
+    /// Cloud Run API v2 does not support annotations with &#39;run.googleapis.com&#39;, &#39;cloud.googleapis.com&#39;, &#39;serving.knative.dev&#39;, or &#39;autoscaling.knative.dev&#39; namespaces, and they will be rejected.
+    /// All system annotations in v1 now have a corresponding field in v2 ExecutionTemplate.
+    /// 
+    /// This field follows Kubernetes annotations&#39; namespacing, limits, and rules.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Annotations
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => WithProperty("annotations", value);
+    }
+
+    /// <summary>
+    /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter,
+    /// or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+    /// https://cloud.google.com/run/docs/configuring/labels.
+    /// 
+    /// Cloud Run API v2 does not support labels with &#39;run.googleapis.com&#39;, &#39;cloud.googleapis.com&#39;, &#39;serving.knative.dev&#39;, or &#39;autoscaling.knative.dev&#39; namespaces, and they will be rejected.
+    /// All system labels in v1 now have a corresponding field in v2 ExecutionTemplate.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Labels
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => WithProperty("labels", value);
+    }
+
+    /// <summary>
+    /// Specifies the maximum desired number of tasks the execution should run at given time. Must be &amp;lt;= taskCount. When the job is run, if this field is 0 or unset, the maximum possible value will be used for that execution. The actual number of tasks running in steady state will be less than this number when there are fewer tasks waiting to be completed remaining, i.e. when the work left to do is less than max parallelism.
+    /// </summary>
+    public TerraformProperty<double>? Parallelism
+    {
+        get => GetProperty<TerraformProperty<double>>("parallelism");
+        set => WithProperty("parallelism", value);
+    }
+
+    /// <summary>
+    /// Specifies the desired number of tasks the execution should run. Setting to 1 means that parallelism is limited to 1 and the success of that task signals the success of the execution. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
+    /// </summary>
+    public TerraformProperty<double>? TaskCount
+    {
+        get => GetProperty<TerraformProperty<double>>("task_count");
+        set => WithProperty("task_count", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCloudRunV2JobTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_cloud_run_v2_job resource.
 /// </summary>
 public class GoogleCloudRunV2Job : TerraformResource
@@ -45,9 +169,9 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -102,9 +226,9 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -123,7 +247,8 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// <summary>
     /// The location of the cloud run job
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -132,7 +257,8 @@ public class GoogleCloudRunV2Job : TerraformResource
     /// <summary>
     /// Name of the Job.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -145,6 +271,39 @@ public class GoogleCloudRunV2Job : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for binary_authorization.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
+    public List<GoogleCloudRunV2JobBinaryAuthorizationBlock>? BinaryAuthorization
+    {
+        get => GetProperty<List<GoogleCloudRunV2JobBinaryAuthorizationBlock>>("binary_authorization");
+        set => this.WithProperty("binary_authorization", value);
+    }
+
+    /// <summary>
+    /// Block for template.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
+    public List<GoogleCloudRunV2JobTemplateBlock>? Template
+    {
+        get => GetProperty<List<GoogleCloudRunV2JobTemplateBlock>>("template");
+        set => this.WithProperty("template", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCloudRunV2JobTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCloudRunV2JobTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

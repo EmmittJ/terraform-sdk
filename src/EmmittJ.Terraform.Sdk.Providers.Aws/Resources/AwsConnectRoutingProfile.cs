@@ -3,6 +3,100 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for media_concurrencies in .
+/// Nesting mode: set
+/// </summary>
+public class AwsConnectRoutingProfileMediaConcurrenciesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The channel attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
+    public required TerraformProperty<string> Channel
+    {
+        get => GetProperty<TerraformProperty<string>>("channel");
+        set => WithProperty("channel", value);
+    }
+
+    /// <summary>
+    /// The concurrency attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Concurrency is required")]
+    public required TerraformProperty<double> Concurrency
+    {
+        get => GetProperty<TerraformProperty<double>>("concurrency");
+        set => WithProperty("concurrency", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for queue_configs in .
+/// Nesting mode: set
+/// </summary>
+public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The channel attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
+    public required TerraformProperty<string> Channel
+    {
+        get => GetProperty<TerraformProperty<string>>("channel");
+        set => WithProperty("channel", value);
+    }
+
+    /// <summary>
+    /// The delay attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delay is required")]
+    public required TerraformProperty<double> Delay
+    {
+        get => GetProperty<TerraformProperty<double>>("delay");
+        set => WithProperty("delay", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+    /// <summary>
+    /// The queue_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? QueueArn
+    {
+        get => GetProperty<TerraformProperty<string>>("queue_arn");
+        set => WithProperty("queue_arn", value);
+    }
+
+    /// <summary>
+    /// The queue_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueId is required")]
+    public required TerraformProperty<string> QueueId
+    {
+        get => GetProperty<TerraformProperty<string>>("queue_id");
+        set => WithProperty("queue_id", value);
+    }
+
+    /// <summary>
+    /// The queue_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? QueueName
+    {
+        get => GetProperty<TerraformProperty<string>>("queue_name");
+        set => WithProperty("queue_name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_connect_routing_profile resource.
 /// </summary>
 public class AwsConnectRoutingProfile : TerraformResource
@@ -21,7 +115,8 @@ public class AwsConnectRoutingProfile : TerraformResource
     /// <summary>
     /// The default_outbound_queue_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultOutboundQueueId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultOutboundQueueId is required")]
+    public required TerraformProperty<string> DefaultOutboundQueueId
     {
         get => GetProperty<TerraformProperty<string>>("default_outbound_queue_id");
         set => this.WithProperty("default_outbound_queue_id", value);
@@ -30,7 +125,8 @@ public class AwsConnectRoutingProfile : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
+    public required TerraformProperty<string> Description
     {
         get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
@@ -48,7 +144,8 @@ public class AwsConnectRoutingProfile : TerraformResource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -57,7 +154,8 @@ public class AwsConnectRoutingProfile : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -75,19 +173,40 @@ public class AwsConnectRoutingProfile : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for media_concurrencies.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MediaConcurrencies block(s) required")]
+    public HashSet<AwsConnectRoutingProfileMediaConcurrenciesBlock>? MediaConcurrencies
+    {
+        get => GetProperty<HashSet<AwsConnectRoutingProfileMediaConcurrenciesBlock>>("media_concurrencies");
+        set => this.WithProperty("media_concurrencies", value);
+    }
+
+    /// <summary>
+    /// Block for queue_configs.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsConnectRoutingProfileQueueConfigsBlock>? QueueConfigs
+    {
+        get => GetProperty<HashSet<AwsConnectRoutingProfileQueueConfigsBlock>>("queue_configs");
+        set => this.WithProperty("queue_configs", value);
     }
 
     /// <summary>

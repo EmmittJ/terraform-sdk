@@ -56,16 +56,17 @@ public class AwsQuicksightThemeDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The theme_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ThemeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
+    public required TerraformProperty<string> ThemeId
     {
         get => GetProperty<TerraformProperty<string>>("theme_id");
         set => this.WithProperty("theme_id", value);

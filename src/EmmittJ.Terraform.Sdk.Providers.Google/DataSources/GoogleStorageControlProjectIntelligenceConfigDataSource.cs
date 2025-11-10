@@ -33,7 +33,8 @@ public class GoogleStorageControlProjectIntelligenceConfigDataSource : Terraform
     /// <summary>
     /// Identifier of the GCP project. For GCP project, this field can be project name or project number.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

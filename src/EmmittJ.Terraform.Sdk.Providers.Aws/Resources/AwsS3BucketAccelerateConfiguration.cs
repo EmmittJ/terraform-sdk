@@ -19,7 +19,8 @@ public class AwsS3BucketAccelerateConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -55,7 +56,8 @@ public class AwsS3BucketAccelerateConfiguration : TerraformResource
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
+    public required TerraformProperty<string> Status
     {
         get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);

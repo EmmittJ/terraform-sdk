@@ -3,6 +3,96 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for customer_encryption in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The encryption algorithm. Default: AES256
+    /// </summary>
+    public TerraformProperty<string>? EncryptionAlgorithm
+    {
+        get => GetProperty<TerraformProperty<string>>("encryption_algorithm");
+        set => WithProperty("encryption_algorithm", value);
+    }
+
+    /// <summary>
+    /// Base64 encoded customer supplied encryption key.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
+    public required TerraformProperty<string> EncryptionKey
+    {
+        get => GetProperty<TerraformProperty<string>>("encryption_key");
+        set => WithProperty("encryption_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for retention in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The object retention mode. Supported values include: &amp;quot;Unlocked&amp;quot;, &amp;quot;Locked&amp;quot;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformProperty<string> Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+    /// <summary>
+    /// Time in RFC 3339 (e.g. 2030-01-01T02:03:04Z) until which object retention protects this object.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetainUntilTime is required")]
+    public required TerraformProperty<string> RetainUntilTime
+    {
+        get => GetProperty<TerraformProperty<string>>("retain_until_time");
+        set => WithProperty("retain_until_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_storage_bucket_object resource.
 /// </summary>
 public class GoogleStorageBucketObject : TerraformResource
@@ -26,7 +116,8 @@ public class GoogleStorageBucketObject : TerraformResource
     /// <summary>
     /// The name of the containing bucket.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -143,16 +234,17 @@ public class GoogleStorageBucketObject : TerraformResource
     /// <summary>
     /// User-provided metadata, in key/value pairs.
     /// </summary>
-    public TerraformMapProperty<string>? Metadata
+    public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<TerraformMapProperty<string>>("metadata");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name of the object. If you&#39;re interpolating the name of this object, see output_name instead.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -192,6 +284,38 @@ public class GoogleStorageBucketObject : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("temporary_hold");
         set => this.WithProperty("temporary_hold", value);
+    }
+
+    /// <summary>
+    /// Block for customer_encryption.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerEncryption block(s) allowed")]
+    public List<GoogleStorageBucketObjectCustomerEncryptionBlock>? CustomerEncryption
+    {
+        get => GetProperty<List<GoogleStorageBucketObjectCustomerEncryptionBlock>>("customer_encryption");
+        set => this.WithProperty("customer_encryption", value);
+    }
+
+    /// <summary>
+    /// Block for retention.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Retention block(s) allowed")]
+    public List<GoogleStorageBucketObjectRetentionBlock>? Retention
+    {
+        get => GetProperty<List<GoogleStorageBucketObjectRetentionBlock>>("retention");
+        set => this.WithProperty("retention", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleStorageBucketObjectTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleStorageBucketObjectTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

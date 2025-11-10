@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadApplicationFromTemplateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_application_from_template resource.
 /// </summary>
 public class AzureadApplicationFromTemplate : TerraformResource
@@ -23,7 +67,8 @@ public class AzureadApplicationFromTemplate : TerraformResource
     /// <summary>
     /// The display name for the application
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -41,10 +86,21 @@ public class AzureadApplicationFromTemplate : TerraformResource
     /// <summary>
     /// The UUID of the template to instantiate for this application
     /// </summary>
-    public TerraformProperty<string>? TemplateId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
+    public required TerraformProperty<string> TemplateId
     {
         get => GetProperty<TerraformProperty<string>>("template_id");
         set => this.WithProperty("template_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadApplicationFromTemplateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadApplicationFromTemplateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

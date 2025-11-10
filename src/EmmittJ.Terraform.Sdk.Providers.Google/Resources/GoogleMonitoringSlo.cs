@@ -3,6 +3,131 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for basic_sli in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
+{
+    /// <summary>
+    /// An optional set of locations to which this SLI is relevant.
+    /// Telemetry from other locations will not be used to calculate
+    /// performance for this SLI. If omitted, this SLI applies to all
+    /// locations in which the Service has activity. For service types
+    /// that don&#39;t support breaking down by location, setting this
+    /// field will result in an error.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Location
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("location");
+        set => WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// An optional set of RPCs to which this SLI is relevant.
+    /// Telemetry from other methods will not be used to calculate
+    /// performance for this SLI. If omitted, this SLI applies to all
+    /// the Service&#39;s methods. For service types that don&#39;t support
+    /// breaking down by method, setting this field will result in an
+    /// error.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Method
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("method");
+        set => WithProperty("method", value);
+    }
+
+    /// <summary>
+    /// The set of API versions to which this SLI is relevant.
+    /// Telemetry from other API versions will not be used to
+    /// calculate performance for this SLI. If omitted,
+    /// this SLI applies to all API versions. For service types
+    /// that don&#39;t support breaking down by version, setting this
+    /// field will result in an error.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Version
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for request_based_sli in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleMonitoringSloRequestBasedSliBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for windows_based_sli in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlock
+{
+    /// <summary>
+    /// A TimeSeries [monitoring filter](https://cloud.google.com/monitoring/api/v3/filters)
+    /// with ValueType = BOOL. The window is good if any true values
+    /// appear in the window. One of &#39;good_bad_metric_filter&#39;,
+    /// &#39;good_total_ratio_threshold&#39;, &#39;metric_mean_in_range&#39;,
+    /// &#39;metric_sum_in_range&#39; must be set for &#39;windows_based_sli&#39;.
+    /// </summary>
+    public TerraformProperty<string>? GoodBadMetricFilter
+    {
+        get => GetProperty<TerraformProperty<string>>("good_bad_metric_filter");
+        set => WithProperty("good_bad_metric_filter", value);
+    }
+
+    /// <summary>
+    /// Duration over which window quality is evaluated, given as a
+    /// duration string &amp;quot;{X}s&amp;quot; representing X seconds. Must be an
+    /// integer fraction of a day and at least 60s.
+    /// </summary>
+    public TerraformProperty<string>? WindowPeriod
+    {
+        get => GetProperty<TerraformProperty<string>>("window_period");
+        set => WithProperty("window_period", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_monitoring_slo resource.
 /// </summary>
 public class GoogleMonitoringSlo : TerraformResource
@@ -40,7 +165,8 @@ public class GoogleMonitoringSlo : TerraformResource
     /// The fraction of service that must be good in order for this objective
     /// to be met. 0 &amp;lt; goal &amp;lt;= 0.999
     /// </summary>
-    public TerraformProperty<double>? Goal
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
+    public required TerraformProperty<double> Goal
     {
         get => GetProperty<TerraformProperty<double>>("goal");
         set => this.WithProperty("goal", value);
@@ -77,7 +203,8 @@ public class GoogleMonitoringSlo : TerraformResource
     /// <summary>
     /// ID of the service to which this SLO belongs.
     /// </summary>
-    public TerraformProperty<string>? Service
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
+    public required TerraformProperty<string> Service
     {
         get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
@@ -99,10 +226,53 @@ public class GoogleMonitoringSlo : TerraformResource
     /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
     /// must begin with a letter.
     /// </summary>
-    public TerraformMapProperty<string>? UserLabels
+    public Dictionary<string, TerraformProperty<string>>? UserLabels
     {
-        get => GetProperty<TerraformMapProperty<string>>("user_labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
         set => this.WithProperty("user_labels", value);
+    }
+
+    /// <summary>
+    /// Block for basic_sli.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicSli block(s) allowed")]
+    public List<GoogleMonitoringSloBasicSliBlock>? BasicSli
+    {
+        get => GetProperty<List<GoogleMonitoringSloBasicSliBlock>>("basic_sli");
+        set => this.WithProperty("basic_sli", value);
+    }
+
+    /// <summary>
+    /// Block for request_based_sli.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RequestBasedSli block(s) allowed")]
+    public List<GoogleMonitoringSloRequestBasedSliBlock>? RequestBasedSli
+    {
+        get => GetProperty<List<GoogleMonitoringSloRequestBasedSliBlock>>("request_based_sli");
+        set => this.WithProperty("request_based_sli", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleMonitoringSloTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleMonitoringSloTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for windows_based_sli.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsBasedSli block(s) allowed")]
+    public List<GoogleMonitoringSloWindowsBasedSliBlock>? WindowsBasedSli
+    {
+        get => GetProperty<List<GoogleMonitoringSloWindowsBasedSliBlock>>("windows_based_sli");
+        set => this.WithProperty("windows_based_sli", value);
     }
 
     /// <summary>

@@ -3,6 +3,87 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for static_ip_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The attached_data_network_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachedDataNetworkId is required")]
+    public required TerraformProperty<string> AttachedDataNetworkId
+    {
+        get => GetProperty<TerraformProperty<string>>("attached_data_network_id");
+        set => WithProperty("attached_data_network_id", value);
+    }
+
+    /// <summary>
+    /// The slice_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
+    public required TerraformProperty<string> SliceId
+    {
+        get => GetProperty<TerraformProperty<string>>("slice_id");
+        set => WithProperty("slice_id", value);
+    }
+
+    /// <summary>
+    /// The static_ipv4_address attribute.
+    /// </summary>
+    public TerraformProperty<string>? StaticIpv4Address
+    {
+        get => GetProperty<TerraformProperty<string>>("static_ipv4_address");
+        set => WithProperty("static_ipv4_address", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_mobile_network_sim resource.
 /// </summary>
 public class AzurermMobileNetworkSim : TerraformResource
@@ -22,7 +103,8 @@ public class AzurermMobileNetworkSim : TerraformResource
     /// <summary>
     /// The authentication_key attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationKey is required")]
+    public required TerraformProperty<string> AuthenticationKey
     {
         get => GetProperty<TerraformProperty<string>>("authentication_key");
         set => this.WithProperty("authentication_key", value);
@@ -49,7 +131,8 @@ public class AzurermMobileNetworkSim : TerraformResource
     /// <summary>
     /// The integrated_circuit_card_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? IntegratedCircuitCardIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegratedCircuitCardIdentifier is required")]
+    public required TerraformProperty<string> IntegratedCircuitCardIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("integrated_circuit_card_identifier");
         set => this.WithProperty("integrated_circuit_card_identifier", value);
@@ -58,7 +141,8 @@ public class AzurermMobileNetworkSim : TerraformResource
     /// <summary>
     /// The international_mobile_subscriber_identity attribute.
     /// </summary>
-    public TerraformProperty<string>? InternationalMobileSubscriberIdentity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternationalMobileSubscriberIdentity is required")]
+    public required TerraformProperty<string> InternationalMobileSubscriberIdentity
     {
         get => GetProperty<TerraformProperty<string>>("international_mobile_subscriber_identity");
         set => this.WithProperty("international_mobile_subscriber_identity", value);
@@ -67,7 +151,8 @@ public class AzurermMobileNetworkSim : TerraformResource
     /// <summary>
     /// The mobile_network_sim_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MobileNetworkSimGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
+    public required TerraformProperty<string> MobileNetworkSimGroupId
     {
         get => GetProperty<TerraformProperty<string>>("mobile_network_sim_group_id");
         set => this.WithProperty("mobile_network_sim_group_id", value);
@@ -76,7 +161,8 @@ public class AzurermMobileNetworkSim : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -85,7 +171,8 @@ public class AzurermMobileNetworkSim : TerraformResource
     /// <summary>
     /// The operator_key_code attribute.
     /// </summary>
-    public TerraformProperty<string>? OperatorKeyCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorKeyCode is required")]
+    public required TerraformProperty<string> OperatorKeyCode
     {
         get => GetProperty<TerraformProperty<string>>("operator_key_code");
         set => this.WithProperty("operator_key_code", value);
@@ -98,6 +185,26 @@ public class AzurermMobileNetworkSim : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("sim_policy_id");
         set => this.WithProperty("sim_policy_id", value);
+    }
+
+    /// <summary>
+    /// Block for static_ip_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermMobileNetworkSimStaticIpConfigurationBlock>? StaticIpConfiguration
+    {
+        get => GetProperty<List<AzurermMobileNetworkSimStaticIpConfigurationBlock>>("static_ip_configuration");
+        set => this.WithProperty("static_ip_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMobileNetworkSimTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMobileNetworkSimTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

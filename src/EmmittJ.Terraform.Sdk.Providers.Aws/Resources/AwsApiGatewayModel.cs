@@ -19,7 +19,8 @@ public class AwsApiGatewayModel : TerraformResource
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
+    public required TerraformProperty<string> ContentType
     {
         get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
@@ -46,7 +47,8 @@ public class AwsApiGatewayModel : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,7 +66,8 @@ public class AwsApiGatewayModel : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);

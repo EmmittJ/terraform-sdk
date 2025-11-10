@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for certificate_authority_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_certificate_manager_certificate_issuance_config resource.
 /// </summary>
 public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResource
@@ -41,7 +84,8 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// <summary>
     /// Key algorithm to use when generating the private key. Possible values: [&amp;quot;RSA_2048&amp;quot;, &amp;quot;ECDSA_P256&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? KeyAlgorithm
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
+    public required TerraformProperty<string> KeyAlgorithm
     {
         get => GetProperty<TerraformProperty<string>>("key_algorithm");
         set => this.WithProperty("key_algorithm", value);
@@ -55,9 +99,9 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -65,7 +109,8 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// Lifetime of issued certificates. A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;.
     /// Example: &amp;quot;1814400s&amp;quot;. Valid values are from 21 days (1814400s) to 30 days (2592000s)
     /// </summary>
-    public TerraformProperty<string>? Lifetime
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lifetime is required")]
+    public required TerraformProperty<string> Lifetime
     {
         get => GetProperty<TerraformProperty<string>>("lifetime");
         set => this.WithProperty("lifetime", value);
@@ -84,7 +129,8 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// A user-defined name of the certificate issuance config.
     /// CertificateIssuanceConfig names must be unique globally.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -105,10 +151,33 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// You must set the rotation window percentage in relation to the certificate lifetime so that certificate renewal occurs at least 7 days after
     /// the certificate has been issued and at least 7 days before it expires.
     /// </summary>
-    public TerraformProperty<double>? RotationWindowPercentage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationWindowPercentage is required")]
+    public required TerraformProperty<double> RotationWindowPercentage
     {
         get => GetProperty<TerraformProperty<double>>("rotation_window_percentage");
         set => this.WithProperty("rotation_window_percentage", value);
+    }
+
+    /// <summary>
+    /// Block for certificate_authority_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfig block(s) allowed")]
+    public List<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock>? CertificateAuthorityConfig
+    {
+        get => GetProperty<List<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock>>("certificate_authority_config");
+        set => this.WithProperty("certificate_authority_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

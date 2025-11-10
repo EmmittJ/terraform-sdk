@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for telemetry in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleMonitoringCustomServiceTelemetryBlock : TerraformBlock
+{
+    /// <summary>
+    /// The full name of the resource that defines this service.
+    /// Formatted as described in
+    /// https://cloud.google.com/apis/design/resource_names.
+    /// </summary>
+    public TerraformProperty<string>? ResourceName
+    {
+        get => GetProperty<TerraformProperty<string>>("resource_name");
+        set => WithProperty("resource_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleMonitoringCustomServiceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_monitoring_custom_service resource.
 /// </summary>
 public class GoogleMonitoringCustomService : TerraformResource
@@ -62,10 +116,31 @@ public class GoogleMonitoringCustomService : TerraformResource
     /// label entries may be stored. For labels which do not have a semantic value,
     /// the empty string may be supplied for the label value.
     /// </summary>
-    public TerraformMapProperty<string>? UserLabels
+    public Dictionary<string, TerraformProperty<string>>? UserLabels
     {
-        get => GetProperty<TerraformMapProperty<string>>("user_labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("user_labels");
         set => this.WithProperty("user_labels", value);
+    }
+
+    /// <summary>
+    /// Block for telemetry.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Telemetry block(s) allowed")]
+    public List<GoogleMonitoringCustomServiceTelemetryBlock>? Telemetry
+    {
+        get => GetProperty<List<GoogleMonitoringCustomServiceTelemetryBlock>>("telemetry");
+        set => this.WithProperty("telemetry", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleMonitoringCustomServiceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleMonitoringCustomServiceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

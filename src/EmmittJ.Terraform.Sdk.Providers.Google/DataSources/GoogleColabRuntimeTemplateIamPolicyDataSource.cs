@@ -48,7 +48,8 @@ public class GoogleColabRuntimeTemplateIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The runtime_template attribute.
     /// </summary>
-    public TerraformProperty<string>? RuntimeTemplate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeTemplate is required")]
+    public required TerraformProperty<string> RuntimeTemplate
     {
         get => GetProperty<TerraformProperty<string>>("runtime_template");
         set => this.WithProperty("runtime_template", value);

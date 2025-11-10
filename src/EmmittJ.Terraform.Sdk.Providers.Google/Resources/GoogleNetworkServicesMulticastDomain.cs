@@ -3,6 +3,74 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for connection_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesMulticastDomainConnectionConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The VPC connection type.
+    /// Possible values:
+    /// NCC
+    /// SAME_VPC
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionType is required")]
+    public required TerraformProperty<string> ConnectionType
+    {
+        get => GetProperty<TerraformProperty<string>>("connection_type");
+        set => WithProperty("connection_type", value);
+    }
+
+    /// <summary>
+    /// The resource name of the
+    /// [NCC](https://cloud.google.com/network-connectivity-center) hub.
+    /// Use the following format:
+    /// &#39;projects/{project}/locations/global/hubs/{hub}&#39;.
+    /// </summary>
+    public TerraformProperty<string>? NccHub
+    {
+        get => GetProperty<TerraformProperty<string>>("ncc_hub");
+        set => WithProperty("ncc_hub", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkServicesMulticastDomainTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_services_multicast_domain resource.
 /// </summary>
 public class GoogleNetworkServicesMulticastDomain : TerraformResource
@@ -27,7 +95,8 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// Use the following format:
     /// &#39;projects/{project}/locations/global/networks/{network}&#39;.
     /// </summary>
-    public TerraformProperty<string>? AdminNetwork
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminNetwork is required")]
+    public required TerraformProperty<string> AdminNetwork
     {
         get => GetProperty<TerraformProperty<string>>("admin_network");
         set => this.WithProperty("admin_network", value);
@@ -57,16 +126,17 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -89,7 +159,8 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// character a letter, and the last a letter or a number. The name must not
     /// exceed 48 characters.
     /// </summary>
-    public TerraformProperty<string>? MulticastDomainId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MulticastDomainId is required")]
+    public required TerraformProperty<string> MulticastDomainId
     {
         get => GetProperty<TerraformProperty<string>>("multicast_domain_id");
         set => this.WithProperty("multicast_domain_id", value);
@@ -102,6 +173,28 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for connection_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionConfig block(s) allowed")]
+    public List<GoogleNetworkServicesMulticastDomainConnectionConfigBlock>? ConnectionConfig
+    {
+        get => GetProperty<List<GoogleNetworkServicesMulticastDomainConnectionConfigBlock>>("connection_config");
+        set => this.WithProperty("connection_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkServicesMulticastDomainTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkServicesMulticastDomainTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

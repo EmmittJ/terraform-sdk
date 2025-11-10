@@ -3,6 +3,66 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for entity_population_mechanism in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleChronicleWatchlistEntityPopulationMechanismBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for watchlist_user_preferences in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleChronicleWatchlistWatchlistUserPreferencesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Optional. Whether the watchlist is pinned on the dashboard.
+    /// </summary>
+    public TerraformProperty<bool>? Pinned
+    {
+        get => GetProperty<TerraformProperty<bool>>("pinned");
+        set => WithProperty("pinned", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_chronicle_watchlist resource.
 /// </summary>
 public class GoogleChronicleWatchlist : TerraformResource
@@ -34,7 +94,8 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// Note that it must be at least one character and less than 63 characters
     /// (https://google.aip.dev/148).
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -52,7 +113,8 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -61,7 +123,8 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -97,6 +160,39 @@ public class GoogleChronicleWatchlist : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("watchlist_id");
         set => this.WithProperty("watchlist_id", value);
+    }
+
+    /// <summary>
+    /// Block for entity_population_mechanism.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntityPopulationMechanism block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EntityPopulationMechanism block(s) allowed")]
+    public List<GoogleChronicleWatchlistEntityPopulationMechanismBlock>? EntityPopulationMechanism
+    {
+        get => GetProperty<List<GoogleChronicleWatchlistEntityPopulationMechanismBlock>>("entity_population_mechanism");
+        set => this.WithProperty("entity_population_mechanism", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleChronicleWatchlistTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleChronicleWatchlistTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for watchlist_user_preferences.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WatchlistUserPreferences block(s) allowed")]
+    public List<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>? WatchlistUserPreferences
+    {
+        get => GetProperty<List<GoogleChronicleWatchlistWatchlistUserPreferencesBlock>>("watchlist_user_preferences");
+        set => this.WithProperty("watchlist_user_preferences", value);
     }
 
     /// <summary>

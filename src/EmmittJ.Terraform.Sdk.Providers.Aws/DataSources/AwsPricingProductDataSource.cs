@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsPricingProductDataSourceFiltersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The field attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
+    public required TerraformProperty<string> Field
+    {
+        get => GetProperty<TerraformProperty<string>>("field");
+        set => WithProperty("field", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_pricing_product.
 /// </summary>
 public class AwsPricingProductDataSource : TerraformDataSource
@@ -29,10 +57,22 @@ public class AwsPricingProductDataSource : TerraformDataSource
     /// <summary>
     /// The service_code attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
+    public required TerraformProperty<string> ServiceCode
     {
         get => GetProperty<TerraformProperty<string>>("service_code");
         set => this.WithProperty("service_code", value);
+    }
+
+    /// <summary>
+    /// Block for filters.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filters block(s) required")]
+    public List<AwsPricingProductDataSourceFiltersBlock>? Filters
+    {
+        get => GetProperty<List<AwsPricingProductDataSourceFiltersBlock>>("filters");
+        set => this.WithProperty("filters", value);
     }
 
     /// <summary>

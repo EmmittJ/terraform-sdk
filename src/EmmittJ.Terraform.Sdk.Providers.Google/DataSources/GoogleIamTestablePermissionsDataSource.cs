@@ -29,7 +29,8 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
     /// <summary>
     /// The full_resource_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FullResourceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullResourceName is required")]
+    public required TerraformProperty<string> FullResourceName
     {
         get => GetProperty<TerraformProperty<string>>("full_resource_name");
         set => this.WithProperty("full_resource_name", value);
@@ -47,9 +48,9 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
     /// <summary>
     /// The stages attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Stages
+    public List<TerraformProperty<string>>? Stages
     {
-        get => GetProperty<TerraformProperty<List<string>>>("stages");
+        get => GetProperty<List<TerraformProperty<string>>>("stages");
         set => this.WithProperty("stages", value);
     }
 

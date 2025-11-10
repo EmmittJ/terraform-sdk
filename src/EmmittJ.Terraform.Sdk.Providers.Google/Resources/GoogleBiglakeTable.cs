@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for hive_options in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBiglakeTableHiveOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Stores user supplied Hive table parameters. An object containing a
+    /// list of &amp;quot;key&amp;quot;: value pairs.
+    /// Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Parameters
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => WithProperty("parameters", value);
+    }
+
+    /// <summary>
+    /// Hive table type. For example, MANAGED_TABLE, EXTERNAL_TABLE.
+    /// </summary>
+    public TerraformProperty<string>? TableType
+    {
+        get => GetProperty<TerraformProperty<string>>("table_type");
+        set => WithProperty("table_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBiglakeTableTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_biglake_table resource.
 /// </summary>
 public class GoogleBiglakeTable : TerraformResource
@@ -43,7 +106,8 @@ public class GoogleBiglakeTable : TerraformResource
     /// Output only. The name of the Table. Format:
     /// projects/{project_id_or_number}/locations/{locationId}/catalogs/{catalogId}/databases/{databaseId}/tables/{tableId}
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,6 +120,27 @@ public class GoogleBiglakeTable : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for hive_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveOptions block(s) allowed")]
+    public List<GoogleBiglakeTableHiveOptionsBlock>? HiveOptions
+    {
+        get => GetProperty<List<GoogleBiglakeTableHiveOptionsBlock>>("hive_options");
+        set => this.WithProperty("hive_options", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBiglakeTableTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBiglakeTableTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -30,7 +30,8 @@ public class GoogleAccessApprovalOrganizationServiceAccountDataSource : Terrafor
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OrganizationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
+    public required TerraformProperty<string> OrganizationId
     {
         get => GetProperty<TerraformProperty<string>>("organization_id");
         set => this.WithProperty("organization_id", value);

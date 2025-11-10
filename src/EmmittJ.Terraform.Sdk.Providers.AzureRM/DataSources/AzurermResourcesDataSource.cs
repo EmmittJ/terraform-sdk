@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermResourcesDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_resources.
 /// </summary>
 public class AzurermResourcesDataSource : TerraformDataSource
@@ -38,9 +55,9 @@ public class AzurermResourcesDataSource : TerraformDataSource
     /// <summary>
     /// The required_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? RequiredTags
+    public Dictionary<string, TerraformProperty<string>>? RequiredTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("required_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("required_tags");
         set => this.WithProperty("required_tags", value);
     }
 
@@ -60,6 +77,16 @@ public class AzurermResourcesDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermResourcesDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermResourcesDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

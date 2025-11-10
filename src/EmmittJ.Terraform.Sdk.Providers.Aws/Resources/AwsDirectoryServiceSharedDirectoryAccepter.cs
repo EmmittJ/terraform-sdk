@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_directory_service_shared_directory_accepter resource.
 /// </summary>
 public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
@@ -41,10 +67,21 @@ public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
     /// <summary>
     /// The shared_directory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SharedDirectoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedDirectoryId is required")]
+    public required TerraformProperty<string> SharedDirectoryId
     {
         get => GetProperty<TerraformProperty<string>>("shared_directory_id");
         set => this.WithProperty("shared_directory_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

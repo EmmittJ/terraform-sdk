@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcIpv4CidrBlockAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_ipv4_cidr_block_association resource.
 /// </summary>
 public class AwsVpcIpv4CidrBlockAssociation : TerraformResource
@@ -64,10 +90,21 @@ public class AwsVpcIpv4CidrBlockAssociation : TerraformResource
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcIpv4CidrBlockAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcIpv4CidrBlockAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

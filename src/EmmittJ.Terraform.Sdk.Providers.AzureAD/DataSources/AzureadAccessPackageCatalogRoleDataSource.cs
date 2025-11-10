@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azuread_access_package_catalog_role.
 /// </summary>
 public class AzureadAccessPackageCatalogRoleDataSource : TerraformDataSource
@@ -43,6 +60,16 @@ public class AzureadAccessPackageCatalogRoleDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

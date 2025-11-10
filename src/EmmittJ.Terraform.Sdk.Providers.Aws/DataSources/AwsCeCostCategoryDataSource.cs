@@ -26,7 +26,8 @@ public class AwsCeCostCategoryDataSource : TerraformDataSource
     /// <summary>
     /// The cost_category_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CostCategoryArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CostCategoryArn is required")]
+    public required TerraformProperty<string> CostCategoryArn
     {
         get => GetProperty<TerraformProperty<string>>("cost_category_arn");
         set => this.WithProperty("cost_category_arn", value);
@@ -44,9 +45,9 @@ public class AwsCeCostCategoryDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

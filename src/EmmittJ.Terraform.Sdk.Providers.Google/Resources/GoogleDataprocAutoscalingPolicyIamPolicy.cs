@@ -38,7 +38,8 @@ public class GoogleDataprocAutoscalingPolicyIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
@@ -47,7 +48,8 @@ public class GoogleDataprocAutoscalingPolicyIamPolicy : TerraformResource
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
+    public required TerraformProperty<string> PolicyId
     {
         get => GetProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);

@@ -26,7 +26,8 @@ public class AwsEcsServiceDataSource : TerraformDataSource
     /// <summary>
     /// The cluster_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
+    public required TerraformProperty<string> ClusterArn
     {
         get => GetProperty<TerraformProperty<string>>("cluster_arn");
         set => this.WithProperty("cluster_arn", value);
@@ -53,7 +54,8 @@ public class AwsEcsServiceDataSource : TerraformDataSource
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
+    public required TerraformProperty<string> ServiceName
     {
         get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
@@ -62,9 +64,9 @@ public class AwsEcsServiceDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

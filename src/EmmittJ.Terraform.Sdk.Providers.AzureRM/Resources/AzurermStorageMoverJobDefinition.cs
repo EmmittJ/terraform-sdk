@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageMoverJobDefinitionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_storage_mover_job_definition resource.
 /// </summary>
 public class AzurermStorageMoverJobDefinition : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     /// <summary>
     /// The copy_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? CopyMode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyMode is required")]
+    public required TerraformProperty<string> CopyMode
     {
         get => GetProperty<TerraformProperty<string>>("copy_mode");
         set => this.WithProperty("copy_mode", value);
@@ -55,7 +100,8 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,7 +110,8 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     /// <summary>
     /// The source_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
+    public required TerraformProperty<string> SourceName
     {
         get => GetProperty<TerraformProperty<string>>("source_name");
         set => this.WithProperty("source_name", value);
@@ -82,7 +129,8 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     /// <summary>
     /// The storage_mover_project_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageMoverProjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageMoverProjectId is required")]
+    public required TerraformProperty<string> StorageMoverProjectId
     {
         get => GetProperty<TerraformProperty<string>>("storage_mover_project_id");
         set => this.WithProperty("storage_mover_project_id", value);
@@ -91,7 +139,8 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     /// <summary>
     /// The target_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
+    public required TerraformProperty<string> TargetName
     {
         get => GetProperty<TerraformProperty<string>>("target_name");
         set => this.WithProperty("target_name", value);
@@ -104,6 +153,16 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("target_sub_path");
         set => this.WithProperty("target_sub_path", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageMoverJobDefinitionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageMoverJobDefinitionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

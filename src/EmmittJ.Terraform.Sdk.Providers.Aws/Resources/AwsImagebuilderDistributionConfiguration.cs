@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for distribution in .
+/// Nesting mode: set
+/// </summary>
+public class AwsImagebuilderDistributionConfigurationDistributionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The license_configuration_arns attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? LicenseConfigurationArns
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("license_configuration_arns");
+        set => WithProperty("license_configuration_arns", value);
+    }
+
+    /// <summary>
+    /// The region attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
+    public required TerraformProperty<string> Region
+    {
+        get => GetProperty<TerraformProperty<string>>("region");
+        set => WithProperty("region", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_imagebuilder_distribution_configuration resource.
 /// </summary>
 public class AwsImagebuilderDistributionConfiguration : TerraformResource
@@ -40,7 +67,8 @@ public class AwsImagebuilderDistributionConfiguration : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -58,19 +86,30 @@ public class AwsImagebuilderDistributionConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for distribution.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Distribution block(s) required")]
+    public HashSet<AwsImagebuilderDistributionConfigurationDistributionBlock>? Distribution
+    {
+        get => GetProperty<HashSet<AwsImagebuilderDistributionConfigurationDistributionBlock>>("distribution");
+        set => this.WithProperty("distribution", value);
     }
 
     /// <summary>

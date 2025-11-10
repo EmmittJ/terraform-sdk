@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for managed in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeManagedSslCertificateManagedBlock : TerraformBlock
+{
+    /// <summary>
+    /// Domains for which a managed SSL certificate will be valid.  Currently,
+    /// there can be up to 100 domains in this list.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domains is required")]
+    public List<TerraformProperty<string>>? Domains
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("domains");
+        set => WithProperty("domains", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeManagedSslCertificateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_managed_ssl_certificate resource.
 /// </summary>
 public class GoogleComputeManagedSslCertificate : TerraformResource
@@ -73,6 +118,27 @@ public class GoogleComputeManagedSslCertificate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for managed.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
+    public List<GoogleComputeManagedSslCertificateManagedBlock>? Managed
+    {
+        get => GetProperty<List<GoogleComputeManagedSslCertificateManagedBlock>>("managed");
+        set => this.WithProperty("managed", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeManagedSslCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeManagedSslCertificateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

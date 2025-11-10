@@ -23,7 +23,8 @@ public class AwsTransferCertificate : TerraformResource
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public TerraformProperty<string>? Certificate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
+    public required TerraformProperty<string> Certificate
     {
         get => GetProperty<TerraformProperty<string>>("certificate");
         set => this.WithProperty("certificate", value);
@@ -77,25 +78,26 @@ public class AwsTransferCertificate : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The usage attribute.
     /// </summary>
-    public TerraformProperty<string>? Usage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
+    public required TerraformProperty<string> Usage
     {
         get => GetProperty<TerraformProperty<string>>("usage");
         set => this.WithProperty("usage", value);

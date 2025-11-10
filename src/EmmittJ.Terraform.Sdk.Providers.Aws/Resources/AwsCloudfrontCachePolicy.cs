@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for parameters_in_cache_key_and_forwarded_to_origin in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enable_accept_encoding_brotli attribute.
+    /// </summary>
+    public TerraformProperty<bool>? EnableAcceptEncodingBrotli
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_accept_encoding_brotli");
+        set => WithProperty("enable_accept_encoding_brotli", value);
+    }
+
+    /// <summary>
+    /// The enable_accept_encoding_gzip attribute.
+    /// </summary>
+    public TerraformProperty<bool>? EnableAcceptEncodingGzip
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_accept_encoding_gzip");
+        set => WithProperty("enable_accept_encoding_gzip", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudfront_cache_policy resource.
 /// </summary>
 public class AwsCloudfrontCachePolicy : TerraformResource
@@ -66,10 +92,23 @@ public class AwsCloudfrontCachePolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for parameters_in_cache_key_and_forwarded_to_origin.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ParametersInCacheKeyAndForwardedToOrigin block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParametersInCacheKeyAndForwardedToOrigin block(s) allowed")]
+    public List<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>? ParametersInCacheKeyAndForwardedToOrigin
+    {
+        get => GetProperty<List<AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlock>>("parameters_in_cache_key_and_forwarded_to_origin");
+        set => this.WithProperty("parameters_in_cache_key_and_forwarded_to_origin", value);
     }
 
     /// <summary>

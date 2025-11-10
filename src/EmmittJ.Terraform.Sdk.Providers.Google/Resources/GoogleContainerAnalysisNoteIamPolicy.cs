@@ -29,7 +29,8 @@ public class GoogleContainerAnalysisNoteIamPolicy : TerraformResource
     /// <summary>
     /// The note attribute.
     /// </summary>
-    public TerraformProperty<string>? Note
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Note is required")]
+    public required TerraformProperty<string> Note
     {
         get => GetProperty<TerraformProperty<string>>("note");
         set => this.WithProperty("note", value);
@@ -38,7 +39,8 @@ public class GoogleContainerAnalysisNoteIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

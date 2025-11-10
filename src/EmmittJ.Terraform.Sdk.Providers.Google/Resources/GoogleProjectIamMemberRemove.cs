@@ -28,7 +28,8 @@ public class GoogleProjectIamMemberRemove : TerraformResource
     /// <summary>
     /// The IAM principal that should not have the target role.
     /// </summary>
-    public TerraformProperty<string>? Member
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
+    public required TerraformProperty<string> Member
     {
         get => GetProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
@@ -37,7 +38,8 @@ public class GoogleProjectIamMemberRemove : TerraformResource
     /// <summary>
     /// The project id of the target project.
     /// </summary>
-    public TerraformProperty<string>? Project
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
@@ -46,7 +48,8 @@ public class GoogleProjectIamMemberRemove : TerraformResource
     /// <summary>
     /// The target role that should be removed.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);

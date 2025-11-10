@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for permissions in .
+/// Nesting mode: set
+/// </summary>
+public class AzureadCustomDirectoryRolePermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Set of tasks that can be performed on a resource
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedResourceActions is required")]
+    public HashSet<TerraformProperty<string>>? AllowedResourceActions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_resource_actions");
+        set => WithProperty("allowed_resource_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_custom_directory_role resource.
 /// </summary>
 public class AzureadCustomDirectoryRole : TerraformResource
@@ -29,7 +91,8 @@ public class AzureadCustomDirectoryRole : TerraformResource
     /// <summary>
     /// The display name of the custom directory role
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -38,7 +101,8 @@ public class AzureadCustomDirectoryRole : TerraformResource
     /// <summary>
     /// Indicates whether the role is enabled for assignment
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -65,10 +129,32 @@ public class AzureadCustomDirectoryRole : TerraformResource
     /// <summary>
     /// The version of the role definition.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for permissions.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
+    public HashSet<AzureadCustomDirectoryRolePermissionsBlock>? Permissions
+    {
+        get => GetProperty<HashSet<AzureadCustomDirectoryRolePermissionsBlock>>("permissions");
+        set => this.WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadCustomDirectoryRoleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadCustomDirectoryRoleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

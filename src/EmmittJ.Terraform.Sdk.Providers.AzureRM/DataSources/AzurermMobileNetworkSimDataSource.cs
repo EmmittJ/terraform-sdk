@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMobileNetworkSimDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_mobile_network_sim.
 /// </summary>
 public class AzurermMobileNetworkSimDataSource : TerraformDataSource
@@ -36,7 +53,8 @@ public class AzurermMobileNetworkSimDataSource : TerraformDataSource
     /// <summary>
     /// The mobile_network_sim_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MobileNetworkSimGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
+    public required TerraformProperty<string> MobileNetworkSimGroupId
     {
         get => GetProperty<TerraformProperty<string>>("mobile_network_sim_group_id");
         set => this.WithProperty("mobile_network_sim_group_id", value);
@@ -45,10 +63,21 @@ public class AzurermMobileNetworkSimDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMobileNetworkSimDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMobileNetworkSimDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

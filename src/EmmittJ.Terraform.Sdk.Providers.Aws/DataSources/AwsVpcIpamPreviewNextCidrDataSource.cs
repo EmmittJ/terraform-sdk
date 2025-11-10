@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcIpamPreviewNextCidrDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_vpc_ipam_preview_next_cidr.
 /// </summary>
 public class AwsVpcIpamPreviewNextCidrDataSource : TerraformDataSource
@@ -20,9 +37,9 @@ public class AwsVpcIpamPreviewNextCidrDataSource : TerraformDataSource
     /// <summary>
     /// The disallowed_cidrs attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DisallowedCidrs
+    public HashSet<TerraformProperty<string>>? DisallowedCidrs
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("disallowed_cidrs");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("disallowed_cidrs");
         set => this.WithProperty("disallowed_cidrs", value);
     }
 
@@ -38,7 +55,8 @@ public class AwsVpcIpamPreviewNextCidrDataSource : TerraformDataSource
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IpamPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
+    public required TerraformProperty<string> IpamPoolId
     {
         get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
         set => this.WithProperty("ipam_pool_id", value);
@@ -60,6 +78,16 @@ public class AwsVpcIpamPreviewNextCidrDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcIpamPreviewNextCidrDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcIpamPreviewNextCidrDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -38,7 +38,8 @@ public class GoogleGkeHubMembershipBindingDataSource : TerraformDataSource
     /// <summary>
     /// Location of the membership
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -47,7 +48,8 @@ public class GoogleGkeHubMembershipBindingDataSource : TerraformDataSource
     /// <summary>
     /// The client-provided identifier of the membership binding.
     /// </summary>
-    public TerraformProperty<string>? MembershipBindingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipBindingId is required")]
+    public required TerraformProperty<string> MembershipBindingId
     {
         get => GetProperty<TerraformProperty<string>>("membership_binding_id");
         set => this.WithProperty("membership_binding_id", value);
@@ -56,7 +58,8 @@ public class GoogleGkeHubMembershipBindingDataSource : TerraformDataSource
     /// <summary>
     /// Id of the membership
     /// </summary>
-    public TerraformProperty<string>? MembershipId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
+    public required TerraformProperty<string> MembershipId
     {
         get => GetProperty<TerraformProperty<string>>("membership_id");
         set => this.WithProperty("membership_id", value);

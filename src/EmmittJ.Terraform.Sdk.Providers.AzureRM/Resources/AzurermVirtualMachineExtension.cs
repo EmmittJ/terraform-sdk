@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for protected_settings_from_key_vault in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock : TerraformBlock
+{
+    /// <summary>
+    /// The secret_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
+    public required TerraformProperty<string> SecretUrl
+    {
+        get => GetProperty<TerraformProperty<string>>("secret_url");
+        set => WithProperty("secret_url", value);
+    }
+
+    /// <summary>
+    /// The source_vault_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
+    public required TerraformProperty<string> SourceVaultId
+    {
+        get => GetProperty<TerraformProperty<string>>("source_vault_id");
+        set => WithProperty("source_vault_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualMachineExtensionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_virtual_machine_extension resource.
 /// </summary>
 public class AzurermVirtualMachineExtension : TerraformResource
@@ -55,7 +127,8 @@ public class AzurermVirtualMachineExtension : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,16 +146,17 @@ public class AzurermVirtualMachineExtension : TerraformResource
     /// <summary>
     /// The provision_after_extensions attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ProvisionAfterExtensions
+    public List<TerraformProperty<string>>? ProvisionAfterExtensions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("provision_after_extensions");
+        get => GetProperty<List<TerraformProperty<string>>>("provision_after_extensions");
         set => this.WithProperty("provision_after_extensions", value);
     }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformProperty<string>? Publisher
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
+    public required TerraformProperty<string> Publisher
     {
         get => GetProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
@@ -100,16 +174,17 @@ public class AzurermVirtualMachineExtension : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
@@ -118,7 +193,8 @@ public class AzurermVirtualMachineExtension : TerraformResource
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeHandlerVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
+    public required TerraformProperty<string> TypeHandlerVersion
     {
         get => GetProperty<TerraformProperty<string>>("type_handler_version");
         set => this.WithProperty("type_handler_version", value);
@@ -127,10 +203,32 @@ public class AzurermVirtualMachineExtension : TerraformResource
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualMachineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
+    public required TerraformProperty<string> VirtualMachineId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
+    }
+
+    /// <summary>
+    /// Block for protected_settings_from_key_vault.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtectedSettingsFromKeyVault block(s) allowed")]
+    public List<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock>? ProtectedSettingsFromKeyVault
+    {
+        get => GetProperty<List<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock>>("protected_settings_from_key_vault");
+        set => this.WithProperty("protected_settings_from_key_vault", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualMachineExtensionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualMachineExtensionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

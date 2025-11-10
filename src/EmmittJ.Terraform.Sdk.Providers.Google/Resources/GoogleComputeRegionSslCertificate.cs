@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRegionSslCertificateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_region_ssl_certificate resource.
 /// </summary>
 public class GoogleComputeRegionSslCertificate : TerraformResource
@@ -25,7 +51,8 @@ public class GoogleComputeRegionSslCertificate : TerraformResource
     /// The certificate chain must be no greater than 5 certs long.
     /// The chain must include at least one intermediate cert.
     /// </summary>
-    public TerraformProperty<string>? Certificate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
+    public required TerraformProperty<string> Certificate
     {
         get => GetProperty<TerraformProperty<string>>("certificate");
         set => this.WithProperty("certificate", value);
@@ -78,7 +105,8 @@ public class GoogleComputeRegionSslCertificate : TerraformResource
     /// <summary>
     /// The write-only private key in PEM format.
     /// </summary>
-    public TerraformProperty<string>? PrivateKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
+    public required TerraformProperty<string> PrivateKey
     {
         get => GetProperty<TerraformProperty<string>>("private_key");
         set => this.WithProperty("private_key", value);
@@ -101,6 +129,16 @@ public class GoogleComputeRegionSslCertificate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRegionSslCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRegionSslCertificateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

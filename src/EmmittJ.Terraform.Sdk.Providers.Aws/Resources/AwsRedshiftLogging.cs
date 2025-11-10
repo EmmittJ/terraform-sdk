@@ -29,7 +29,8 @@ public class AwsRedshiftLogging : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -47,9 +48,9 @@ public class AwsRedshiftLogging : TerraformResource
     /// <summary>
     /// The log_exports attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? LogExports
+    public HashSet<TerraformProperty<string>>? LogExports
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("log_exports");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("log_exports");
         set => this.WithProperty("log_exports", value);
     }
 

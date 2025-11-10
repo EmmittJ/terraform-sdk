@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_aadb2c_directory resource.
 /// </summary>
 public class AzurermAadb2cDirectory : TerraformResource
@@ -31,7 +75,8 @@ public class AzurermAadb2cDirectory : TerraformResource
     /// <summary>
     /// Location in which the B2C tenant is hosted and data resides. See https://aka.ms/B2CDataResidency for more information.
     /// </summary>
-    public TerraformProperty<string>? DataResidencyLocation
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataResidencyLocation is required")]
+    public required TerraformProperty<string> DataResidencyLocation
     {
         get => GetProperty<TerraformProperty<string>>("data_residency_location");
         set => this.WithProperty("data_residency_location", value);
@@ -49,7 +94,8 @@ public class AzurermAadb2cDirectory : TerraformResource
     /// <summary>
     /// Domain name of the B2C tenant, including onmicrosoft.com suffix.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -67,7 +113,8 @@ public class AzurermAadb2cDirectory : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -76,7 +123,8 @@ public class AzurermAadb2cDirectory : TerraformResource
     /// <summary>
     /// Billing SKU for the B2C tenant. See https://aka.ms/b2cBilling for more information.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
+    public required TerraformProperty<string> SkuName
     {
         get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
@@ -85,10 +133,20 @@ public class AzurermAadb2cDirectory : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAadb2cDirectoryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAadb2cDirectoryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

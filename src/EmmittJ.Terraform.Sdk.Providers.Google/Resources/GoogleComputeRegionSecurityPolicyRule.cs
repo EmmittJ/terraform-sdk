@@ -3,6 +3,207 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for match in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionSecurityPolicyRuleMatchBlock : TerraformBlock
+{
+    /// <summary>
+    /// Preconfigured versioned expression. If this field is specified, config must also be specified.
+    /// Available preconfigured expressions along with their requirements are: SRC_IPS_V1 - must specify the corresponding srcIpRange field in config. Possible values: [&amp;quot;SRC_IPS_V1&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? VersionedExpr
+    {
+        get => GetProperty<TerraformProperty<string>>("versioned_expr");
+        set => WithProperty("versioned_expr", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for network_match in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock : TerraformBlock
+{
+    /// <summary>
+    /// Destination IPv4/IPv6 addresses or CIDR prefixes, in standard text format.
+    /// </summary>
+    public List<TerraformProperty<string>>? DestIpRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("dest_ip_ranges");
+        set => WithProperty("dest_ip_ranges", value);
+    }
+
+    /// <summary>
+    /// Destination port numbers for TCP/UDP/SCTP. Each element can be a 16-bit unsigned decimal number (e.g. &amp;quot;80&amp;quot;) or range (e.g. &amp;quot;0-1023&amp;quot;).
+    /// </summary>
+    public List<TerraformProperty<string>>? DestPorts
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("dest_ports");
+        set => WithProperty("dest_ports", value);
+    }
+
+    /// <summary>
+    /// IPv4 protocol / IPv6 next header (after extension headers). Each element can be an 8-bit unsigned decimal number (e.g. &amp;quot;6&amp;quot;), range (e.g. &amp;quot;253-254&amp;quot;), or one of the following protocol names: &amp;quot;tcp&amp;quot;, &amp;quot;udp&amp;quot;, &amp;quot;icmp&amp;quot;, &amp;quot;esp&amp;quot;, &amp;quot;ah&amp;quot;, &amp;quot;ipip&amp;quot;, or &amp;quot;sctp&amp;quot;.
+    /// </summary>
+    public List<TerraformProperty<string>>? IpProtocols
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("ip_protocols");
+        set => WithProperty("ip_protocols", value);
+    }
+
+    /// <summary>
+    /// BGP Autonomous System Number associated with the source IP address.
+    /// </summary>
+    public List<TerraformProperty<double>>? SrcAsns
+    {
+        get => GetProperty<List<TerraformProperty<double>>>("src_asns");
+        set => WithProperty("src_asns", value);
+    }
+
+    /// <summary>
+    /// Source IPv4/IPv6 addresses or CIDR prefixes, in standard text format.
+    /// </summary>
+    public List<TerraformProperty<string>>? SrcIpRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("src_ip_ranges");
+        set => WithProperty("src_ip_ranges", value);
+    }
+
+    /// <summary>
+    /// Source port numbers for TCP/UDP/SCTP. Each element can be a 16-bit unsigned decimal number (e.g. &amp;quot;80&amp;quot;) or range (e.g. &amp;quot;0-1023&amp;quot;).
+    /// </summary>
+    public List<TerraformProperty<string>>? SrcPorts
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("src_ports");
+        set => WithProperty("src_ports", value);
+    }
+
+    /// <summary>
+    /// Two-letter ISO 3166-1 alpha-2 country code associated with the source IP address.
+    /// </summary>
+    public List<TerraformProperty<string>>? SrcRegionCodes
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("src_region_codes");
+        set => WithProperty("src_region_codes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for preconfigured_waf_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for rate_limit_options in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Can only be specified if the action for the rule is &amp;quot;rate_based_ban&amp;quot;.
+    /// If specified, determines the time (in seconds) the traffic will continue to be banned by the rate limit after the rate falls below the threshold.
+    /// </summary>
+    public TerraformProperty<double>? BanDurationSec
+    {
+        get => GetProperty<TerraformProperty<double>>("ban_duration_sec");
+        set => WithProperty("ban_duration_sec", value);
+    }
+
+    /// <summary>
+    /// Action to take for requests that are under the configured rate limit threshold.
+    /// Valid option is &amp;quot;allow&amp;quot; only.
+    /// </summary>
+    public TerraformProperty<string>? ConformAction
+    {
+        get => GetProperty<TerraformProperty<string>>("conform_action");
+        set => WithProperty("conform_action", value);
+    }
+
+    /// <summary>
+    /// Determines the key to enforce the rateLimitThreshold on. Possible values are:
+    /// * ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if &amp;quot;enforceOnKey&amp;quot; is not configured.
+    /// * IP: The source IP address of the request is the key. Each IP has this limit enforced separately.
+    /// * HTTP_HEADER: The value of the HTTP header whose name is configured under &amp;quot;enforceOnKeyName&amp;quot;. The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL.
+    /// * XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP.
+    /// * HTTP_COOKIE: The value of the HTTP cookie whose name is configured under &amp;quot;enforceOnKeyName&amp;quot;. The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+    /// * HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes.
+    /// * SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session.
+    /// * REGION_CODE: The country/region from which the request originates.
+    /// * TLS_JA3_FINGERPRINT: JA3 TLS/SSL fingerprint if the client connects using HTTPS, HTTP/2 or HTTP/3. If not available, the key type defaults to ALL.
+    /// * TLS_JA4_FINGERPRINT: JA4 TLS/SSL fingerprint if the client connects using HTTPS, HTTP/2 or HTTP/3. If not available, the key type defaults to ALL.
+    /// * USER_IP: The IP address of the originating client, which is resolved based on &amp;quot;userIpRequestHeaders&amp;quot; configured with the security policy. If there is no &amp;quot;userIpRequestHeaders&amp;quot; configuration or an IP address cannot be resolved from it, the key type defaults to IP. Possible values: [&amp;quot;ALL&amp;quot;, &amp;quot;IP&amp;quot;, &amp;quot;HTTP_HEADER&amp;quot;, &amp;quot;XFF_IP&amp;quot;, &amp;quot;HTTP_COOKIE&amp;quot;, &amp;quot;HTTP_PATH&amp;quot;, &amp;quot;SNI&amp;quot;, &amp;quot;REGION_CODE&amp;quot;, &amp;quot;TLS_JA3_FINGERPRINT&amp;quot;, &amp;quot;TLS_JA4_FINGERPRINT&amp;quot;, &amp;quot;USER_IP&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? EnforceOnKey
+    {
+        get => GetProperty<TerraformProperty<string>>("enforce_on_key");
+        set => WithProperty("enforce_on_key", value);
+    }
+
+    /// <summary>
+    /// Rate limit key name applicable only for the following key types:
+    /// HTTP_HEADER -- Name of the HTTP header whose value is taken as the key value.
+    /// HTTP_COOKIE -- Name of the HTTP cookie whose value is taken as the key value.
+    /// </summary>
+    public TerraformProperty<string>? EnforceOnKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("enforce_on_key_name");
+        set => WithProperty("enforce_on_key_name", value);
+    }
+
+    /// <summary>
+    /// Action to take for requests that are above the configured rate limit threshold, to deny with a specified HTTP response code.
+    /// Valid options are deny(STATUS), where valid values for STATUS are 403, 404, 429, and 502.
+    /// </summary>
+    public TerraformProperty<string>? ExceedAction
+    {
+        get => GetProperty<TerraformProperty<string>>("exceed_action");
+        set => WithProperty("exceed_action", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_region_security_policy_rule resource.
 /// </summary>
 public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
@@ -29,7 +230,8 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// 
     /// * throttle: limit client traffic to the configured threshold. Configure parameters for this action in rateLimitOptions. Requires rateLimitOptions to be set for this.
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -67,7 +269,8 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// The priority must be a positive value between 0 and 2147483647.
     /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest priority.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
     {
         get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
@@ -85,7 +288,8 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// <summary>
     /// The Region in which the created Region Security Policy rule should reside.
     /// </summary>
-    public TerraformProperty<string>? Region
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
+    public required TerraformProperty<string> Region
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
@@ -94,10 +298,65 @@ public class GoogleComputeRegionSecurityPolicyRule : TerraformResource
     /// <summary>
     /// The name of the security policy this rule belongs to.
     /// </summary>
-    public TerraformProperty<string>? SecurityPolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
+    public required TerraformProperty<string> SecurityPolicy
     {
         get => GetProperty<TerraformProperty<string>>("security_policy");
         set => this.WithProperty("security_policy", value);
+    }
+
+    /// <summary>
+    /// Block for match.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
+    public List<GoogleComputeRegionSecurityPolicyRuleMatchBlock>? Match
+    {
+        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRuleMatchBlock>>("match");
+        set => this.WithProperty("match", value);
+    }
+
+    /// <summary>
+    /// Block for network_match.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkMatch block(s) allowed")]
+    public List<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>? NetworkMatch
+    {
+        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRuleNetworkMatchBlock>>("network_match");
+        set => this.WithProperty("network_match", value);
+    }
+
+    /// <summary>
+    /// Block for preconfigured_waf_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreconfiguredWafConfig block(s) allowed")]
+    public List<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>? PreconfiguredWafConfig
+    {
+        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRulePreconfiguredWafConfigBlock>>("preconfigured_waf_config");
+        set => this.WithProperty("preconfigured_waf_config", value);
+    }
+
+    /// <summary>
+    /// Block for rate_limit_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimitOptions block(s) allowed")]
+    public List<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>? RateLimitOptions
+    {
+        get => GetProperty<List<GoogleComputeRegionSecurityPolicyRuleRateLimitOptionsBlock>>("rate_limit_options");
+        set => this.WithProperty("rate_limit_options", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRegionSecurityPolicyRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

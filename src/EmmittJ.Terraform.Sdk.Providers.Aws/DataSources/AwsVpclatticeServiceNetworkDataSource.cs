@@ -44,7 +44,8 @@ public class AwsVpclatticeServiceNetworkDataSource : TerraformDataSource
     /// <summary>
     /// The service_network_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceNetworkIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
+    public required TerraformProperty<string> ServiceNetworkIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("service_network_identifier");
         set => this.WithProperty("service_network_identifier", value);
@@ -53,9 +54,9 @@ public class AwsVpclatticeServiceNetworkDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

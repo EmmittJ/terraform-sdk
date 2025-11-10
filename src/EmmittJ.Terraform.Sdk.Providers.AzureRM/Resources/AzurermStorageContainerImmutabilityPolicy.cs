@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_storage_container_immutability_policy resource.
 /// </summary>
 public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
     /// <summary>
     /// The immutability_period_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? ImmutabilityPeriodInDays
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImmutabilityPeriodInDays is required")]
+    public required TerraformProperty<double> ImmutabilityPeriodInDays
     {
         get => GetProperty<TerraformProperty<double>>("immutability_period_in_days");
         set => this.WithProperty("immutability_period_in_days", value);
@@ -64,10 +109,21 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
     /// <summary>
     /// The storage_container_resource_manager_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageContainerResourceManagerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerResourceManagerId is required")]
+    public required TerraformProperty<string> StorageContainerResourceManagerId
     {
         get => GetProperty<TerraformProperty<string>>("storage_container_resource_manager_id");
         set => this.WithProperty("storage_container_resource_manager_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageContainerImmutabilityPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageContainerImmutabilityPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

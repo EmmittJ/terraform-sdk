@@ -30,16 +30,17 @@ public class AwsDatasyncLocationObjectStorage : TerraformResource
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AgentArns
+    public HashSet<TerraformProperty<string>>? AgentArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("agent_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
         set => this.WithProperty("agent_arns", value);
     }
 
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BucketName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
     {
         get => GetProperty<TerraformProperty<string>>("bucket_name");
         set => this.WithProperty("bucket_name", value);
@@ -84,7 +85,8 @@ public class AwsDatasyncLocationObjectStorage : TerraformResource
     /// <summary>
     /// The server_hostname attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerHostname
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
+    public required TerraformProperty<string> ServerHostname
     {
         get => GetProperty<TerraformProperty<string>>("server_hostname");
         set => this.WithProperty("server_hostname", value);
@@ -120,18 +122,18 @@ public class AwsDatasyncLocationObjectStorage : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

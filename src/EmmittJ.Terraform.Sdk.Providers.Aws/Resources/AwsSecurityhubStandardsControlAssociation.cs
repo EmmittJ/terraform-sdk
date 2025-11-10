@@ -20,7 +20,8 @@ public class AwsSecurityhubStandardsControlAssociation : TerraformResource
     /// <summary>
     /// The association_status attribute.
     /// </summary>
-    public TerraformProperty<string>? AssociationStatus
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociationStatus is required")]
+    public required TerraformProperty<string> AssociationStatus
     {
         get => GetProperty<TerraformProperty<string>>("association_status");
         set => this.WithProperty("association_status", value);
@@ -38,7 +39,8 @@ public class AwsSecurityhubStandardsControlAssociation : TerraformResource
     /// <summary>
     /// The security_control_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityControlId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
+    public required TerraformProperty<string> SecurityControlId
     {
         get => GetProperty<TerraformProperty<string>>("security_control_id");
         set => this.WithProperty("security_control_id", value);
@@ -47,7 +49,8 @@ public class AwsSecurityhubStandardsControlAssociation : TerraformResource
     /// <summary>
     /// The standards_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? StandardsArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StandardsArn is required")]
+    public required TerraformProperty<string> StandardsArn
     {
         get => GetProperty<TerraformProperty<string>>("standards_arn");
         set => this.WithProperty("standards_arn", value);

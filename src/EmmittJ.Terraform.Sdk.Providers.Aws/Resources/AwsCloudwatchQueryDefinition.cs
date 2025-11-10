@@ -29,16 +29,17 @@ public class AwsCloudwatchQueryDefinition : TerraformResource
     /// <summary>
     /// The log_group_names attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? LogGroupNames
+    public List<TerraformProperty<string>>? LogGroupNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("log_group_names");
+        get => GetProperty<List<TerraformProperty<string>>>("log_group_names");
         set => this.WithProperty("log_group_names", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,7 +48,8 @@ public class AwsCloudwatchQueryDefinition : TerraformResource
     /// <summary>
     /// The query_string attribute.
     /// </summary>
-    public TerraformProperty<string>? QueryString
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
+    public required TerraformProperty<string> QueryString
     {
         get => GetProperty<TerraformProperty<string>>("query_string");
         set => this.WithProperty("query_string", value);

@@ -3,6 +3,93 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for external_ip in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVmwareengineNetworkPolicyExternalIpBlock : TerraformBlock
+{
+    /// <summary>
+    /// True if the service is enabled; false otherwise.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// State of the service. New values may be added to this enum when appropriate.
+    /// </summary>
+    public TerraformProperty<string>? State
+    {
+        get => GetProperty<TerraformProperty<string>>("state");
+        set => WithProperty("state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for internet_access in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVmwareengineNetworkPolicyInternetAccessBlock : TerraformBlock
+{
+    /// <summary>
+    /// True if the service is enabled; false otherwise.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// State of the service. New values may be added to this enum when appropriate.
+    /// </summary>
+    public TerraformProperty<string>? State
+    {
+        get => GetProperty<TerraformProperty<string>>("state");
+        set => WithProperty("state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVmwareengineNetworkPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vmwareengine_network_policy resource.
 /// </summary>
 public class GoogleVmwareengineNetworkPolicy : TerraformResource
@@ -34,7 +121,8 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// An RFC 1918 CIDR block, with a &amp;quot;/26&amp;quot; prefix, is required. The range cannot overlap with any
     /// prefixes either in the consumer VPC network or in use by the private clouds attached to that VPC network.
     /// </summary>
-    public TerraformProperty<string>? EdgeServicesCidr
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeServicesCidr is required")]
+    public required TerraformProperty<string> EdgeServicesCidr
     {
         get => GetProperty<TerraformProperty<string>>("edge_services_cidr");
         set => this.WithProperty("edge_services_cidr", value);
@@ -54,7 +142,8 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
     /// For example: projects/my-project/locations/us-central1
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -63,7 +152,8 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// <summary>
     /// The ID of the Network Policy.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -83,10 +173,43 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// projects/{project}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId} where {project}
     /// can either be a project number or a project ID.
     /// </summary>
-    public TerraformProperty<string>? VmwareEngineNetwork
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareEngineNetwork is required")]
+    public required TerraformProperty<string> VmwareEngineNetwork
     {
         get => GetProperty<TerraformProperty<string>>("vmware_engine_network");
         set => this.WithProperty("vmware_engine_network", value);
+    }
+
+    /// <summary>
+    /// Block for external_ip.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalIp block(s) allowed")]
+    public List<GoogleVmwareengineNetworkPolicyExternalIpBlock>? ExternalIp
+    {
+        get => GetProperty<List<GoogleVmwareengineNetworkPolicyExternalIpBlock>>("external_ip");
+        set => this.WithProperty("external_ip", value);
+    }
+
+    /// <summary>
+    /// Block for internet_access.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InternetAccess block(s) allowed")]
+    public List<GoogleVmwareengineNetworkPolicyInternetAccessBlock>? InternetAccess
+    {
+        get => GetProperty<List<GoogleVmwareengineNetworkPolicyInternetAccessBlock>>("internet_access");
+        set => this.WithProperty("internet_access", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVmwareengineNetworkPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVmwareengineNetworkPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,70 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for assessment_reports_destination in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The destination attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
+    public required TerraformProperty<string> Destination
+    {
+        get => GetProperty<TerraformProperty<string>>("destination");
+        set => WithProperty("destination", value);
+    }
+
+    /// <summary>
+    /// The destination_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
+    public required TerraformProperty<string> DestinationType
+    {
+        get => GetProperty<TerraformProperty<string>>("destination_type");
+        set => WithProperty("destination_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for roles in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAuditmanagerAssessmentRolesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("role_arn");
+        set => WithProperty("role_arn", value);
+    }
+
+    /// <summary>
+    /// The role_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
+    public required TerraformProperty<string> RoleType
+    {
+        get => GetProperty<TerraformProperty<string>>("role_type");
+        set => WithProperty("role_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for scope in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAuditmanagerAssessmentScopeBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_auditmanager_assessment resource.
 /// </summary>
 public class AwsAuditmanagerAssessment : TerraformResource
@@ -33,7 +97,8 @@ public class AwsAuditmanagerAssessment : TerraformResource
     /// <summary>
     /// The framework_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FrameworkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
+    public required TerraformProperty<string> FrameworkId
     {
         get => GetProperty<TerraformProperty<string>>("framework_id");
         set => this.WithProperty("framework_id", value);
@@ -42,7 +107,8 @@ public class AwsAuditmanagerAssessment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -60,10 +126,40 @@ public class AwsAuditmanagerAssessment : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for assessment_reports_destination.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>? AssessmentReportsDestination
+    {
+        get => GetProperty<List<AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock>>("assessment_reports_destination");
+        set => this.WithProperty("assessment_reports_destination", value);
+    }
+
+    /// <summary>
+    /// Block for roles.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAuditmanagerAssessmentRolesBlock>? Roles
+    {
+        get => GetProperty<HashSet<AwsAuditmanagerAssessmentRolesBlock>>("roles");
+        set => this.WithProperty("roles", value);
+    }
+
+    /// <summary>
+    /// Block for scope.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsAuditmanagerAssessmentScopeBlock>? Scope
+    {
+        get => GetProperty<List<AwsAuditmanagerAssessmentScopeBlock>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>

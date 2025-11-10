@@ -19,7 +19,8 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -37,7 +38,8 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformProperty<string>? Principal
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
     {
         get => GetProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
@@ -46,7 +48,8 @@ public class AwsSignerSigningProfilePermission : TerraformResource
     /// <summary>
     /// The profile_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProfileName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
+    public required TerraformProperty<string> ProfileName
     {
         get => GetProperty<TerraformProperty<string>>("profile_name");
         set => this.WithProperty("profile_name", value);

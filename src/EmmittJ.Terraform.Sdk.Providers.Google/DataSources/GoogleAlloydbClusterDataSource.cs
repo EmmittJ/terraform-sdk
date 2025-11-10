@@ -51,7 +51,8 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
     /// <summary>
     /// The ID of the alloydb cluster.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
+    public required TerraformProperty<string> ClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);

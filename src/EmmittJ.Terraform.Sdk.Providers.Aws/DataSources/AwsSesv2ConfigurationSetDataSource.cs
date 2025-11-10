@@ -26,7 +26,8 @@ public class AwsSesv2ConfigurationSetDataSource : TerraformDataSource
     /// <summary>
     /// The configuration_set_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationSetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
+    public required TerraformProperty<string> ConfigurationSetName
     {
         get => GetProperty<TerraformProperty<string>>("configuration_set_name");
         set => this.WithProperty("configuration_set_name", value);
@@ -53,9 +54,9 @@ public class AwsSesv2ConfigurationSetDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

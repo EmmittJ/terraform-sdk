@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for logging_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_networkfirewall_logging_configuration resource.
 /// </summary>
 public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
@@ -28,7 +36,8 @@ public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     /// <summary>
     /// The firewall_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? FirewallArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
+    public required TerraformProperty<string> FirewallArn
     {
         get => GetProperty<TerraformProperty<string>>("firewall_arn");
         set => this.WithProperty("firewall_arn", value);
@@ -50,6 +59,18 @@ public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for logging_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoggingConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
+    public List<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>? LoggingConfiguration
+    {
+        get => GetProperty<List<AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock>>("logging_configuration");
+        set => this.WithProperty("logging_configuration", value);
     }
 
 }

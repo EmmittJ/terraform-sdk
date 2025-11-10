@@ -39,7 +39,8 @@ public class GoogleGkeHubScopeIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The scope_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
+    public required TerraformProperty<string> ScopeId
     {
         get => GetProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);

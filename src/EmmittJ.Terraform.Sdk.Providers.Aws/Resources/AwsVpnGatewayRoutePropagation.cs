@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpnGatewayRoutePropagationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpn_gateway_route_propagation resource.
 /// </summary>
 public class AwsVpnGatewayRoutePropagation : TerraformResource
@@ -37,7 +63,8 @@ public class AwsVpnGatewayRoutePropagation : TerraformResource
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteTableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
+    public required TerraformProperty<string> RouteTableId
     {
         get => GetProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
@@ -46,10 +73,21 @@ public class AwsVpnGatewayRoutePropagation : TerraformResource
     /// <summary>
     /// The vpn_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpnGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
+    public required TerraformProperty<string> VpnGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("vpn_gateway_id");
         set => this.WithProperty("vpn_gateway_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpnGatewayRoutePropagationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpnGatewayRoutePropagationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

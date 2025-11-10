@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_private_dns_resolver_forwarding_rule.
 /// </summary>
 public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSource
@@ -23,7 +40,8 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
     /// <summary>
     /// The dns_forwarding_ruleset_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DnsForwardingRulesetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
+    public required TerraformProperty<string> DnsForwardingRulesetId
     {
         get => GetProperty<TerraformProperty<string>>("dns_forwarding_ruleset_id");
         set => this.WithProperty("dns_forwarding_ruleset_id", value);
@@ -41,10 +59,21 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSource : TerraformDataSo
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

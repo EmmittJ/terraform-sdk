@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSecuritylakeSubscriberNotificationConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_securitylake_subscriber_notification resource.
 /// </summary>
 public class AwsSecuritylakeSubscriberNotification : TerraformResource
@@ -31,10 +39,21 @@ public class AwsSecuritylakeSubscriberNotification : TerraformResource
     /// <summary>
     /// The subscriber_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriberId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriberId is required")]
+    public required TerraformProperty<string> SubscriberId
     {
         get => GetProperty<TerraformProperty<string>>("subscriber_id");
         set => this.WithProperty("subscriber_id", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSecuritylakeSubscriberNotificationConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsSecuritylakeSubscriberNotificationConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
     }
 
     /// <summary>

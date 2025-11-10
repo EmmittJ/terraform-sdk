@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDxHostedTransitVirtualInterfaceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dx_hosted_transit_virtual_interface resource.
 /// </summary>
 public class AwsDxHostedTransitVirtualInterface : TerraformResource
@@ -23,7 +49,8 @@ public class AwsDxHostedTransitVirtualInterface : TerraformResource
     /// <summary>
     /// The address_family attribute.
     /// </summary>
-    public TerraformProperty<string>? AddressFamily
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
+    public required TerraformProperty<string> AddressFamily
     {
         get => GetProperty<TerraformProperty<string>>("address_family");
         set => this.WithProperty("address_family", value);
@@ -41,7 +68,8 @@ public class AwsDxHostedTransitVirtualInterface : TerraformResource
     /// <summary>
     /// The bgp_asn attribute.
     /// </summary>
-    public TerraformProperty<double>? BgpAsn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
+    public required TerraformProperty<double> BgpAsn
     {
         get => GetProperty<TerraformProperty<double>>("bgp_asn");
         set => this.WithProperty("bgp_asn", value);
@@ -59,7 +87,8 @@ public class AwsDxHostedTransitVirtualInterface : TerraformResource
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
+    public required TerraformProperty<string> ConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
@@ -95,7 +124,8 @@ public class AwsDxHostedTransitVirtualInterface : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -104,7 +134,8 @@ public class AwsDxHostedTransitVirtualInterface : TerraformResource
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? OwnerAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerAccountId is required")]
+    public required TerraformProperty<string> OwnerAccountId
     {
         get => GetProperty<TerraformProperty<string>>("owner_account_id");
         set => this.WithProperty("owner_account_id", value);
@@ -122,10 +153,21 @@ public class AwsDxHostedTransitVirtualInterface : TerraformResource
     /// <summary>
     /// The vlan attribute.
     /// </summary>
-    public TerraformProperty<double>? Vlan
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
+    public required TerraformProperty<double> Vlan
     {
         get => GetProperty<TerraformProperty<double>>("vlan");
         set => this.WithProperty("vlan", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDxHostedTransitVirtualInterfaceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDxHostedTransitVirtualInterfaceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

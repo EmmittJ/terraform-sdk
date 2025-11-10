@@ -29,7 +29,8 @@ public class AwsChatbotSlackWorkspaceDataSource : TerraformDataSource
     /// <summary>
     /// The slack_team_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SlackTeamName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackTeamName is required")]
+    public required TerraformProperty<string> SlackTeamName
     {
         get => GetProperty<TerraformProperty<string>>("slack_team_name");
         set => this.WithProperty("slack_team_name", value);

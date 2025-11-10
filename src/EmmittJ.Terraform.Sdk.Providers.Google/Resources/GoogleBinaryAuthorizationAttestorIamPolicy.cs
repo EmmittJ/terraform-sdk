@@ -20,7 +20,8 @@ public class GoogleBinaryAuthorizationAttestorIamPolicy : TerraformResource
     /// <summary>
     /// The attestor attribute.
     /// </summary>
-    public TerraformProperty<string>? Attestor
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attestor is required")]
+    public required TerraformProperty<string> Attestor
     {
         get => GetProperty<TerraformProperty<string>>("attestor");
         set => this.WithProperty("attestor", value);
@@ -38,7 +39,8 @@ public class GoogleBinaryAuthorizationAttestorIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

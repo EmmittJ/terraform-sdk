@@ -19,9 +19,10 @@ public class AwsAutoscalingNotification : TerraformResource
     /// <summary>
     /// The group_names attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? GroupNames
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupNames is required")]
+    public HashSet<TerraformProperty<string>>? GroupNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("group_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("group_names");
         set => this.WithProperty("group_names", value);
     }
 
@@ -37,9 +38,10 @@ public class AwsAutoscalingNotification : TerraformResource
     /// <summary>
     /// The notifications attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Notifications
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notifications is required")]
+    public HashSet<TerraformProperty<string>>? Notifications
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("notifications");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("notifications");
         set => this.WithProperty("notifications", value);
     }
 
@@ -55,7 +57,8 @@ public class AwsAutoscalingNotification : TerraformResource
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TopicArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
+    public required TerraformProperty<string> TopicArn
     {
         get => GetProperty<TerraformProperty<string>>("topic_arn");
         set => this.WithProperty("topic_arn", value);

@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for permissions in .
+/// Nesting mode: set
+/// </summary>
+public class AwsQuicksightFolderPermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The actions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
+    public HashSet<TerraformProperty<string>>? Actions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
+        set => WithProperty("actions", value);
+    }
+
+    /// <summary>
+    /// The principal attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
+    {
+        get => GetProperty<TerraformProperty<string>>("principal");
+        set => WithProperty("principal", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsQuicksightFolderTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_quicksight_folder resource.
 /// </summary>
 public class AwsQuicksightFolder : TerraformResource
@@ -32,7 +104,8 @@ public class AwsQuicksightFolder : TerraformResource
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FolderId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
+    public required TerraformProperty<string> FolderId
     {
         get => GetProperty<TerraformProperty<string>>("folder_id");
         set => this.WithProperty("folder_id", value);
@@ -86,19 +159,40 @@ public class AwsQuicksightFolder : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for permissions.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
+    public HashSet<AwsQuicksightFolderPermissionsBlock>? Permissions
+    {
+        get => GetProperty<HashSet<AwsQuicksightFolderPermissionsBlock>>("permissions");
+        set => this.WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsQuicksightFolderTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsQuicksightFolderTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

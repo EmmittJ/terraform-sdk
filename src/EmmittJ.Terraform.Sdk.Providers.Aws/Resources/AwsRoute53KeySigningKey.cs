@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_route53_key_signing_key resource.
 /// </summary>
 public class AwsRoute53KeySigningKey : TerraformResource
@@ -29,7 +64,8 @@ public class AwsRoute53KeySigningKey : TerraformResource
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HostedZoneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
+    public required TerraformProperty<string> HostedZoneId
     {
         get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
         set => this.WithProperty("hosted_zone_id", value);
@@ -47,7 +83,8 @@ public class AwsRoute53KeySigningKey : TerraformResource
     /// <summary>
     /// The key_management_service_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyManagementServiceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyManagementServiceArn is required")]
+    public required TerraformProperty<string> KeyManagementServiceArn
     {
         get => GetProperty<TerraformProperty<string>>("key_management_service_arn");
         set => this.WithProperty("key_management_service_arn", value);
@@ -56,7 +93,8 @@ public class AwsRoute53KeySigningKey : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -69,6 +107,16 @@ public class AwsRoute53KeySigningKey : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRoute53KeySigningKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRoute53KeySigningKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,115 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for parameters in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The entity type of the parameter.
+    /// Format: projects/-/locations/-/agents/-/entityTypes/&amp;lt;System Entity Type ID&amp;gt; for system entity types (for example, projects/-/locations/-/agents/-/entityTypes/sys.date), or projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/entityTypes/&amp;lt;Entity Type ID&amp;gt; for developer entity types.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
+    public required TerraformProperty<string> EntityType
+    {
+        get => GetProperty<TerraformProperty<string>>("entity_type");
+        set => WithProperty("entity_type", value);
+    }
+
+    /// <summary>
+    /// The unique identifier of the parameter. This field is used by training phrases to annotate their parts.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Indicates whether the parameter represents a list of values.
+    /// </summary>
+    public TerraformProperty<bool>? IsList
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_list");
+        set => WithProperty("is_list", value);
+    }
+
+    /// <summary>
+    /// Indicates whether the parameter content should be redacted in log. If redaction is enabled, the parameter content will be replaced by parameter name during logging.
+    /// Note: the parameter content is subject to redaction if either parameter level redaction or entity type level redaction is enabled.
+    /// </summary>
+    public TerraformProperty<bool>? Redact
+    {
+        get => GetProperty<TerraformProperty<bool>>("redact");
+        set => WithProperty("redact", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for training_phrases in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxIntentTrainingPhrasesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The unique identifier of the training phrase.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Indicates how many times this example was added to the intent.
+    /// </summary>
+    public TerraformProperty<double>? RepeatCount
+    {
+        get => GetProperty<TerraformProperty<double>>("repeat_count");
+        set => WithProperty("repeat_count", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dialogflow_cx_intent resource.
 /// </summary>
 public class GoogleDialogflowCxIntent : TerraformResource
@@ -31,7 +140,8 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// <summary>
     /// The human-readable name of the intent, unique within the agent.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -90,9 +200,9 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -126,6 +236,36 @@ public class GoogleDialogflowCxIntent : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
+    }
+
+    /// <summary>
+    /// Block for parameters.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDialogflowCxIntentParametersBlock>? Parameters
+    {
+        get => GetProperty<List<GoogleDialogflowCxIntentParametersBlock>>("parameters");
+        set => this.WithProperty("parameters", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDialogflowCxIntentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDialogflowCxIntentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for training_phrases.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDialogflowCxIntentTrainingPhrasesBlock>? TrainingPhrases
+    {
+        get => GetProperty<List<GoogleDialogflowCxIntentTrainingPhrasesBlock>>("training_phrases");
+        set => this.WithProperty("training_phrases", value);
     }
 
     /// <summary>

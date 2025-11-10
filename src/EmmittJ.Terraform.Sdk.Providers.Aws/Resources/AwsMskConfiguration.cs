@@ -39,16 +39,17 @@ public class AwsMskConfiguration : TerraformResource
     /// <summary>
     /// The kafka_versions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? KafkaVersions
+    public HashSet<TerraformProperty<string>>? KafkaVersions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("kafka_versions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("kafka_versions");
         set => this.WithProperty("kafka_versions", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,7 +67,8 @@ public class AwsMskConfiguration : TerraformResource
     /// <summary>
     /// The server_properties attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerProperties
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerProperties is required")]
+    public required TerraformProperty<string> ServerProperties
     {
         get => GetProperty<TerraformProperty<string>>("server_properties");
         set => this.WithProperty("server_properties", value);

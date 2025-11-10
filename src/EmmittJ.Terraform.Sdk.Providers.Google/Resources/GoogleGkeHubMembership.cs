@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for authority in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeHubMembershipAuthorityBlock : TerraformBlock
+{
+    /// <summary>
+    /// A JSON Web Token (JWT) issuer URI. &#39;issuer&#39; must start with &#39;https://&#39; and // be a valid
+    /// with length &amp;lt;2000 characters. For example: &#39;https://container.googleapis.com/v1/projects/my-project/locations/us-west1/clusters/my-cluster&#39;. If the cluster is provisioned with Terraform, this is &#39;&amp;quot;https://container.googleapis.com/v1/${google_container_cluster.my-cluster.id}&amp;quot;&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
+    public required TerraformProperty<string> Issuer
+    {
+        get => GetProperty<TerraformProperty<string>>("issuer");
+        set => WithProperty("issuer", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for endpoint in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeHubMembershipEndpointBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleGkeHubMembershipTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_gke_hub_membership resource.
 /// </summary>
 public class GoogleGkeHubMembership : TerraformResource
@@ -35,9 +97,9 @@ public class GoogleGkeHubMembership : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -54,7 +116,8 @@ public class GoogleGkeHubMembership : TerraformResource
     /// <summary>
     /// The client-provided identifier of the membership.
     /// </summary>
-    public TerraformProperty<string>? MembershipId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
+    public required TerraformProperty<string> MembershipId
     {
         get => GetProperty<TerraformProperty<string>>("membership_id");
         set => this.WithProperty("membership_id", value);
@@ -67,6 +130,38 @@ public class GoogleGkeHubMembership : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for authority.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authority block(s) allowed")]
+    public List<GoogleGkeHubMembershipAuthorityBlock>? Authority
+    {
+        get => GetProperty<List<GoogleGkeHubMembershipAuthorityBlock>>("authority");
+        set => this.WithProperty("authority", value);
+    }
+
+    /// <summary>
+    /// Block for endpoint.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
+    public List<GoogleGkeHubMembershipEndpointBlock>? Endpoint
+    {
+        get => GetProperty<List<GoogleGkeHubMembershipEndpointBlock>>("endpoint");
+        set => this.WithProperty("endpoint", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleGkeHubMembershipTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleGkeHubMembershipTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

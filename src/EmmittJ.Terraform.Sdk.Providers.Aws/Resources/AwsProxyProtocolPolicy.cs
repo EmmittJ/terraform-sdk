@@ -28,16 +28,18 @@ public class AwsProxyProtocolPolicy : TerraformResource
     /// <summary>
     /// The instance_ports attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? InstancePorts
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePorts is required")]
+    public HashSet<TerraformProperty<string>>? InstancePorts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("instance_ports");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("instance_ports");
         set => this.WithProperty("instance_ports", value);
     }
 
     /// <summary>
     /// The load_balancer attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
+    public required TerraformProperty<string> LoadBalancer
     {
         get => GetProperty<TerraformProperty<string>>("load_balancer");
         set => this.WithProperty("load_balancer", value);

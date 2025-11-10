@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRouteTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_route resource.
 /// </summary>
 public class AwsRoute : TerraformResource
@@ -131,7 +166,8 @@ public class AwsRoute : TerraformResource
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteTableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
+    public required TerraformProperty<string> RouteTableId
     {
         get => GetProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
@@ -162,6 +198,16 @@ public class AwsRoute : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpc_peering_connection_id");
         set => this.WithProperty("vpc_peering_connection_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRouteTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRouteTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

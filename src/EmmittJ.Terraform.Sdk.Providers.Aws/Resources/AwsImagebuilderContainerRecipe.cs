@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for component in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderContainerRecipeComponentBlock : TerraformBlock
+{
+    /// <summary>
+    /// The component_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
+    public required TerraformProperty<string> ComponentArn
+    {
+        get => GetProperty<TerraformProperty<string>>("component_arn");
+        set => WithProperty("component_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for instance_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderContainerRecipeInstanceConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The image attribute.
+    /// </summary>
+    public TerraformProperty<string>? Image
+    {
+        get => GetProperty<TerraformProperty<string>>("image");
+        set => WithProperty("image", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target_repository in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// The repository_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
+    public required TerraformProperty<string> RepositoryName
+    {
+        get => GetProperty<TerraformProperty<string>>("repository_name");
+        set => WithProperty("repository_name", value);
+    }
+
+    /// <summary>
+    /// The service attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
+    public required TerraformProperty<string> Service
+    {
+        get => GetProperty<TerraformProperty<string>>("service");
+        set => WithProperty("service", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_imagebuilder_container_recipe resource.
 /// </summary>
 public class AwsImagebuilderContainerRecipe : TerraformResource
@@ -24,7 +87,8 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// <summary>
     /// The container_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerType is required")]
+    public required TerraformProperty<string> ContainerType
     {
         get => GetProperty<TerraformProperty<string>>("container_type");
         set => this.WithProperty("container_type", value);
@@ -78,7 +142,8 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -87,7 +152,8 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentImage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
+    public required TerraformProperty<string> ParentImage
     {
         get => GetProperty<TerraformProperty<string>>("parent_image");
         set => this.WithProperty("parent_image", value);
@@ -114,25 +180,26 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
@@ -145,6 +212,40 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("working_directory");
         set => this.WithProperty("working_directory", value);
+    }
+
+    /// <summary>
+    /// Block for component.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Component block(s) required")]
+    public List<AwsImagebuilderContainerRecipeComponentBlock>? Component
+    {
+        get => GetProperty<List<AwsImagebuilderContainerRecipeComponentBlock>>("component");
+        set => this.WithProperty("component", value);
+    }
+
+    /// <summary>
+    /// Block for instance_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceConfiguration block(s) allowed")]
+    public List<AwsImagebuilderContainerRecipeInstanceConfigurationBlock>? InstanceConfiguration
+    {
+        get => GetProperty<List<AwsImagebuilderContainerRecipeInstanceConfigurationBlock>>("instance_configuration");
+        set => this.WithProperty("instance_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for target_repository.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRepository block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetRepository block(s) allowed")]
+    public List<AwsImagebuilderContainerRecipeTargetRepositoryBlock>? TargetRepository
+    {
+        get => GetProperty<List<AwsImagebuilderContainerRecipeTargetRepositoryBlock>>("target_repository");
+        set => this.WithProperty("target_repository", value);
     }
 
     /// <summary>

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_application_insights_analytics_item resource.
 /// </summary>
 public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
@@ -22,7 +66,8 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationInsightsId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
+    public required TerraformProperty<string> ApplicationInsightsId
     {
         get => GetProperty<TerraformProperty<string>>("application_insights_id");
         set => this.WithProperty("application_insights_id", value);
@@ -31,7 +76,8 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformProperty<string> Content
     {
         get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
@@ -58,7 +104,8 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -67,7 +114,8 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
@@ -76,10 +124,21 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApplicationInsightsAnalyticsItemTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApplicationInsightsAnalyticsItemTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -19,7 +19,8 @@ public class AwsEc2LocalGatewayRoute : TerraformResource
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationCidrBlock
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
+    public required TerraformProperty<string> DestinationCidrBlock
     {
         get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
@@ -37,7 +38,8 @@ public class AwsEc2LocalGatewayRoute : TerraformResource
     /// <summary>
     /// The local_gateway_route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LocalGatewayRouteTableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalGatewayRouteTableId is required")]
+    public required TerraformProperty<string> LocalGatewayRouteTableId
     {
         get => GetProperty<TerraformProperty<string>>("local_gateway_route_table_id");
         set => this.WithProperty("local_gateway_route_table_id", value);
@@ -46,7 +48,8 @@ public class AwsEc2LocalGatewayRoute : TerraformResource
     /// <summary>
     /// The local_gateway_virtual_interface_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LocalGatewayVirtualInterfaceGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalGatewayVirtualInterfaceGroupId is required")]
+    public required TerraformProperty<string> LocalGatewayVirtualInterfaceGroupId
     {
         get => GetProperty<TerraformProperty<string>>("local_gateway_virtual_interface_group_id");
         set => this.WithProperty("local_gateway_virtual_interface_group_id", value);

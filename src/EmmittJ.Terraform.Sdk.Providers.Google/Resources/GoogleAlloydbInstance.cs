@@ -3,6 +3,225 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for client_connection_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAlloydbInstanceClientConnectionConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Configuration to enforce connectors only (ex: AuthProxy) connections to the database.
+    /// </summary>
+    public TerraformProperty<bool>? RequireConnectors
+    {
+        get => GetProperty<TerraformProperty<bool>>("require_connectors");
+        set => WithProperty("require_connectors", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for machine_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The number of CPU&#39;s in the VM instance.
+    /// </summary>
+    public TerraformProperty<double>? CpuCount
+    {
+        get => GetProperty<TerraformProperty<double>>("cpu_count");
+        set => WithProperty("cpu_count", value);
+    }
+
+    /// <summary>
+    /// Machine type of the VM instance.
+    /// E.g. &amp;quot;n2-highmem-4&amp;quot;, &amp;quot;n2-highmem-8&amp;quot;, &amp;quot;c4a-highmem-4-lssd&amp;quot;.
+    /// &#39;cpu_count&#39; must match the number of vCPUs in the machine type.
+    /// </summary>
+    public TerraformProperty<string>? MachineType
+    {
+        get => GetProperty<TerraformProperty<string>>("machine_type");
+        set => WithProperty("machine_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for network_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Name of the allocated IP range for the private IP AlloyDB instance, for example: &amp;quot;google-managed-services-default&amp;quot;.
+    /// If set, the instance IPs will be created from this allocated range and will override the IP range used by the parent cluster.
+    /// The range name must comply with RFC 1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?.
+    /// </summary>
+    public TerraformProperty<string>? AllocatedIpRangeOverride
+    {
+        get => GetProperty<TerraformProperty<string>>("allocated_ip_range_override");
+        set => WithProperty("allocated_ip_range_override", value);
+    }
+
+    /// <summary>
+    /// Enabling outbound public ip for the instance.
+    /// </summary>
+    public TerraformProperty<bool>? EnableOutboundPublicIp
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_outbound_public_ip");
+        set => WithProperty("enable_outbound_public_ip", value);
+    }
+
+    /// <summary>
+    /// Enabling public ip for the instance. If a user wishes to disable this,
+    /// please also clear the list of the authorized external networks set on
+    /// the same instance.
+    /// </summary>
+    public TerraformProperty<bool>? EnablePublicIp
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_public_ip");
+        set => WithProperty("enable_public_ip", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for psc_instance_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// List of consumer projects that are allowed to create PSC endpoints to service-attachments to this instance.
+    /// These should be specified as project numbers only.
+    /// </summary>
+    public List<TerraformProperty<string>>? AllowedConsumerProjects
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("allowed_consumer_projects");
+        set => WithProperty("allowed_consumer_projects", value);
+    }
+
+    /// <summary>
+    /// The DNS name of the instance for PSC connectivity.
+    /// Name convention: &amp;lt;uid&amp;gt;.&amp;lt;uid&amp;gt;.&amp;lt;region&amp;gt;.alloydb-psc.goog
+    /// </summary>
+    public TerraformProperty<string>? PscDnsName
+    {
+        get => GetProperty<TerraformProperty<string>>("psc_dns_name");
+        set => WithProperty("psc_dns_name", value);
+    }
+
+    /// <summary>
+    /// The service attachment created when Private Service Connect (PSC) is enabled for the instance.
+    /// The name of the resource will be in the format of
+    /// &#39;projects/&amp;lt;alloydb-tenant-project-number&amp;gt;/regions/&amp;lt;region-name&amp;gt;/serviceAttachments/&amp;lt;service-attachment-name&amp;gt;&#39;
+    /// </summary>
+    public TerraformProperty<string>? ServiceAttachmentLink
+    {
+        get => GetProperty<TerraformProperty<string>>("service_attachment_link");
+        set => WithProperty("service_attachment_link", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for query_insights_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Number of query execution plans captured by Insights per minute for all queries combined. The default value is 5. Any integer between 0 and 20 is considered valid.
+    /// </summary>
+    public TerraformProperty<double>? QueryPlansPerMinute
+    {
+        get => GetProperty<TerraformProperty<double>>("query_plans_per_minute");
+        set => WithProperty("query_plans_per_minute", value);
+    }
+
+    /// <summary>
+    /// Query string length. The default value is 1024. Any integer between 256 and 4500 is considered valid.
+    /// </summary>
+    public TerraformProperty<double>? QueryStringLength
+    {
+        get => GetProperty<TerraformProperty<double>>("query_string_length");
+        set => WithProperty("query_string_length", value);
+    }
+
+    /// <summary>
+    /// Record application tags for an instance. This flag is turned &amp;quot;on&amp;quot; by default.
+    /// </summary>
+    public TerraformProperty<bool>? RecordApplicationTags
+    {
+        get => GetProperty<TerraformProperty<bool>>("record_application_tags");
+        set => WithProperty("record_application_tags", value);
+    }
+
+    /// <summary>
+    /// Record client address for an instance. Client address is PII information. This flag is turned &amp;quot;on&amp;quot; by default.
+    /// </summary>
+    public TerraformProperty<bool>? RecordClientAddress
+    {
+        get => GetProperty<TerraformProperty<bool>>("record_client_address");
+        set => WithProperty("record_client_address", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for read_pool_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAlloydbInstanceReadPoolConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Read capacity, i.e. number of nodes in a read pool instance.
+    /// </summary>
+    public TerraformProperty<double>? NodeCount
+    {
+        get => GetProperty<TerraformProperty<double>>("node_count");
+        set => WithProperty("node_count", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_alloydb_instance resource.
 /// </summary>
 public class GoogleAlloydbInstance : TerraformResource
@@ -50,9 +269,9 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -74,7 +293,8 @@ public class GoogleAlloydbInstance : TerraformResource
     /// Identifies the alloydb cluster. Must be in the format
     /// &#39;projects/{project}/locations/{location}/clusters/{cluster_id}&#39;
     /// </summary>
-    public TerraformProperty<string>? Cluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
+    public required TerraformProperty<string> Cluster
     {
         get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
@@ -83,9 +303,9 @@ public class GoogleAlloydbInstance : TerraformResource
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
-    public TerraformMapProperty<string>? DatabaseFlags
+    public Dictionary<string, TerraformProperty<string>>? DatabaseFlags
     {
-        get => GetProperty<TerraformMapProperty<string>>("database_flags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("database_flags");
         set => this.WithProperty("database_flags", value);
     }
 
@@ -119,7 +339,8 @@ public class GoogleAlloydbInstance : TerraformResource
     /// <summary>
     /// The ID of the alloydb instance.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -134,7 +355,8 @@ public class GoogleAlloydbInstance : TerraformResource
     /// Use deletion_policy = &amp;quot;FORCE&amp;quot; in the associated secondary cluster and delete the cluster forcefully to delete the secondary cluster as well its associated secondary instance.
     /// Users can undo the delete secondary instance action by importing the deleted secondary instance by calling terraform import. Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;READ_POOL&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
     {
         get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
@@ -146,10 +368,86 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
+    }
+
+    /// <summary>
+    /// Block for client_connection_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectionConfig block(s) allowed")]
+    public List<GoogleAlloydbInstanceClientConnectionConfigBlock>? ClientConnectionConfig
+    {
+        get => GetProperty<List<GoogleAlloydbInstanceClientConnectionConfigBlock>>("client_connection_config");
+        set => this.WithProperty("client_connection_config", value);
+    }
+
+    /// <summary>
+    /// Block for machine_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineConfig block(s) allowed")]
+    public List<GoogleAlloydbInstanceMachineConfigBlock>? MachineConfig
+    {
+        get => GetProperty<List<GoogleAlloydbInstanceMachineConfigBlock>>("machine_config");
+        set => this.WithProperty("machine_config", value);
+    }
+
+    /// <summary>
+    /// Block for network_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
+    public List<GoogleAlloydbInstanceNetworkConfigBlock>? NetworkConfig
+    {
+        get => GetProperty<List<GoogleAlloydbInstanceNetworkConfigBlock>>("network_config");
+        set => this.WithProperty("network_config", value);
+    }
+
+    /// <summary>
+    /// Block for psc_instance_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscInstanceConfig block(s) allowed")]
+    public List<GoogleAlloydbInstancePscInstanceConfigBlock>? PscInstanceConfig
+    {
+        get => GetProperty<List<GoogleAlloydbInstancePscInstanceConfigBlock>>("psc_instance_config");
+        set => this.WithProperty("psc_instance_config", value);
+    }
+
+    /// <summary>
+    /// Block for query_insights_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryInsightsConfig block(s) allowed")]
+    public List<GoogleAlloydbInstanceQueryInsightsConfigBlock>? QueryInsightsConfig
+    {
+        get => GetProperty<List<GoogleAlloydbInstanceQueryInsightsConfigBlock>>("query_insights_config");
+        set => this.WithProperty("query_insights_config", value);
+    }
+
+    /// <summary>
+    /// Block for read_pool_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadPoolConfig block(s) allowed")]
+    public List<GoogleAlloydbInstanceReadPoolConfigBlock>? ReadPoolConfig
+    {
+        get => GetProperty<List<GoogleAlloydbInstanceReadPoolConfigBlock>>("read_pool_config");
+        set => this.WithProperty("read_pool_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleAlloydbInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleAlloydbInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

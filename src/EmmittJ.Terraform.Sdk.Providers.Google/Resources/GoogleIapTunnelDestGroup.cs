@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIapTunnelDestGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iap_tunnel_dest_group resource.
 /// </summary>
 public class GoogleIapTunnelDestGroup : TerraformResource
@@ -20,25 +55,26 @@ public class GoogleIapTunnelDestGroup : TerraformResource
     /// <summary>
     /// List of CIDRs that this group applies to.
     /// </summary>
-    public TerraformProperty<List<string>>? Cidrs
+    public List<TerraformProperty<string>>? Cidrs
     {
-        get => GetProperty<TerraformProperty<List<string>>>("cidrs");
+        get => GetProperty<List<TerraformProperty<string>>>("cidrs");
         set => this.WithProperty("cidrs", value);
     }
 
     /// <summary>
     /// List of FQDNs that this group applies to.
     /// </summary>
-    public TerraformProperty<List<string>>? Fqdns
+    public List<TerraformProperty<string>>? Fqdns
     {
-        get => GetProperty<TerraformProperty<List<string>>>("fqdns");
+        get => GetProperty<List<TerraformProperty<string>>>("fqdns");
         set => this.WithProperty("fqdns", value);
     }
 
     /// <summary>
     /// Unique tunnel destination group name.
     /// </summary>
-    public TerraformProperty<string>? GroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
+    public required TerraformProperty<string> GroupName
     {
         get => GetProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
@@ -69,6 +105,16 @@ public class GoogleIapTunnelDestGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIapTunnelDestGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIapTunnelDestGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

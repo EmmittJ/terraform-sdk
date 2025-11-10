@@ -20,16 +20,18 @@ public class AwsAcmpcaPermission : TerraformResource
     /// <summary>
     /// The actions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Actions
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
+    public HashSet<TerraformProperty<string>>? Actions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("actions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
         set => this.WithProperty("actions", value);
     }
 
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateAuthorityArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
+    public required TerraformProperty<string> CertificateAuthorityArn
     {
         get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
         set => this.WithProperty("certificate_authority_arn", value);
@@ -47,7 +49,8 @@ public class AwsAcmpcaPermission : TerraformResource
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformProperty<string>? Principal
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
     {
         get => GetProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);

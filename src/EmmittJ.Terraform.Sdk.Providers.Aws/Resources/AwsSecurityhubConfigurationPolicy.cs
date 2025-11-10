@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled_standard_arns attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? EnabledStandardArns
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("enabled_standard_arns");
+        set => WithProperty("enabled_standard_arns", value);
+    }
+
+    /// <summary>
+    /// The service_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceEnabled is required")]
+    public required TerraformProperty<bool> ServiceEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("service_enabled");
+        set => WithProperty("service_enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_securityhub_configuration_policy resource.
 /// </summary>
 public class AwsSecurityhubConfigurationPolicy : TerraformResource
@@ -38,7 +65,8 @@ public class AwsSecurityhubConfigurationPolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -51,6 +79,18 @@ public class AwsSecurityhubConfigurationPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for configuration_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConfigurationPolicy block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigurationPolicy block(s) allowed")]
+    public List<AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock>? ConfigurationPolicy
+    {
+        get => GetProperty<List<AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock>>("configuration_policy");
+        set => this.WithProperty("configuration_policy", value);
     }
 
     /// <summary>

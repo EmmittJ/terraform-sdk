@@ -37,7 +37,8 @@ public class GoogleParameterManagerRegionalParameterDataSource : TerraformDataSo
     /// <summary>
     /// The location of the regional parameter. eg us-central1
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -46,7 +47,8 @@ public class GoogleParameterManagerRegionalParameterDataSource : TerraformDataSo
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
-    public TerraformProperty<string>? ParameterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterId is required")]
+    public required TerraformProperty<string> ParameterId
     {
         get => GetProperty<TerraformProperty<string>>("parameter_id");
         set => this.WithProperty("parameter_id", value);

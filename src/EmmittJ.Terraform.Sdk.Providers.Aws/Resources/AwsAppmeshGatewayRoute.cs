@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for spec in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppmeshGatewayRouteSpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    public TerraformProperty<double>? Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appmesh_gateway_route resource.
 /// </summary>
 public class AwsAppmeshGatewayRoute : TerraformResource
@@ -32,7 +49,8 @@ public class AwsAppmeshGatewayRoute : TerraformResource
     /// <summary>
     /// The mesh_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MeshName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshName is required")]
+    public required TerraformProperty<string> MeshName
     {
         get => GetProperty<TerraformProperty<string>>("mesh_name");
         set => this.WithProperty("mesh_name", value);
@@ -50,7 +68,8 @@ public class AwsAppmeshGatewayRoute : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -68,28 +87,41 @@ public class AwsAppmeshGatewayRoute : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The virtual_gateway_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualGatewayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualGatewayName is required")]
+    public required TerraformProperty<string> VirtualGatewayName
     {
         get => GetProperty<TerraformProperty<string>>("virtual_gateway_name");
         set => this.WithProperty("virtual_gateway_name", value);
+    }
+
+    /// <summary>
+    /// Block for spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
+    public List<AwsAppmeshGatewayRouteSpecBlock>? Spec
+    {
+        get => GetProperty<List<AwsAppmeshGatewayRouteSpecBlock>>("spec");
+        set => this.WithProperty("spec", value);
     }
 
     /// <summary>

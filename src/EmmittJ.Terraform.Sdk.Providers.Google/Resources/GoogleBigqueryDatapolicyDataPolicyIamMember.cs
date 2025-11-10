@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigqueryDatapolicyDataPolicyIamMemberConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The title attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_datapolicy_data_policy_iam_member resource.
 /// </summary>
 public class GoogleBigqueryDatapolicyDataPolicyIamMember : TerraformResource
@@ -20,7 +57,8 @@ public class GoogleBigqueryDatapolicyDataPolicyIamMember : TerraformResource
     /// <summary>
     /// The data_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataPolicyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
+    public required TerraformProperty<string> DataPolicyId
     {
         get => GetProperty<TerraformProperty<string>>("data_policy_id");
         set => this.WithProperty("data_policy_id", value);
@@ -47,7 +85,8 @@ public class GoogleBigqueryDatapolicyDataPolicyIamMember : TerraformResource
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public TerraformProperty<string>? Member
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
+    public required TerraformProperty<string> Member
     {
         get => GetProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
@@ -65,10 +104,22 @@ public class GoogleBigqueryDatapolicyDataPolicyIamMember : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleBigqueryDatapolicyDataPolicyIamMemberConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleBigqueryDatapolicyDataPolicyIamMemberConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>

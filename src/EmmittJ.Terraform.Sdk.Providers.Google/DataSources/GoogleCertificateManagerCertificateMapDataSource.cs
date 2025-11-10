@@ -36,7 +36,8 @@ public class GoogleCertificateManagerCertificateMapDataSource : TerraformDataSou
     /// A user-defined name of the Certificate Map. Certificate Map names must be unique
     /// globally and match the pattern &#39;projects/*/locations/*/certificateMaps/*&#39;.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

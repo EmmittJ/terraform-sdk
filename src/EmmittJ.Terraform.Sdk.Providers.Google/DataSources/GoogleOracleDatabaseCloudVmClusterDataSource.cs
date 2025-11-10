@@ -38,7 +38,8 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// characters in length. The value must start with a letter and end with
     /// a letter or a number.
     /// </summary>
-    public TerraformProperty<string>? CloudVmClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
+    public required TerraformProperty<string> CloudVmClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
         set => this.WithProperty("cloud_vm_cluster_id", value);
@@ -56,7 +57,8 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbNode&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

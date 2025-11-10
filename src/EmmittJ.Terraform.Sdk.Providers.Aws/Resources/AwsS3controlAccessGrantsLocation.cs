@@ -32,7 +32,8 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
+    public required TerraformProperty<string> IamRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
@@ -41,7 +42,8 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     /// <summary>
     /// The location_scope attribute.
     /// </summary>
-    public TerraformProperty<string>? LocationScope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationScope is required")]
+    public required TerraformProperty<string> LocationScope
     {
         get => GetProperty<TerraformProperty<string>>("location_scope");
         set => this.WithProperty("location_scope", value);
@@ -59,9 +61,9 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

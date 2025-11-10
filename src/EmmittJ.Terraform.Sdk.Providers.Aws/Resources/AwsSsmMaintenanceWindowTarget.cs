@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for targets in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmMaintenanceWindowTargetTargetsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public List<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssm_maintenance_window_target resource.
 /// </summary>
 public class AwsSsmMaintenanceWindowTarget : TerraformResource
@@ -64,7 +92,8 @@ public class AwsSsmMaintenanceWindowTarget : TerraformResource
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
+    public required TerraformProperty<string> ResourceType
     {
         get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
@@ -73,10 +102,23 @@ public class AwsSsmMaintenanceWindowTarget : TerraformResource
     /// <summary>
     /// The window_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WindowId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowId is required")]
+    public required TerraformProperty<string> WindowId
     {
         get => GetProperty<TerraformProperty<string>>("window_id");
         set => this.WithProperty("window_id", value);
+    }
+
+    /// <summary>
+    /// Block for targets.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Targets block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Targets block(s) allowed")]
+    public List<AwsSsmMaintenanceWindowTargetTargetsBlock>? Targets
+    {
+        get => GetProperty<List<AwsSsmMaintenanceWindowTargetTargetsBlock>>("targets");
+        set => this.WithProperty("targets", value);
     }
 
 }

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_key_vault_encrypted_value.
 /// </summary>
 public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
@@ -20,7 +37,8 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     /// <summary>
     /// The algorithm attribute.
     /// </summary>
-    public TerraformProperty<string>? Algorithm
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
+    public required TerraformProperty<string> Algorithm
     {
         get => GetProperty<TerraformProperty<string>>("algorithm");
         set => this.WithProperty("algorithm", value);
@@ -47,7 +65,8 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyVaultKeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
+    public required TerraformProperty<string> KeyVaultKeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
@@ -60,6 +79,16 @@ public class AzurermKeyVaultEncryptedValueDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("plain_text_value");
         set => this.WithProperty("plain_text_value", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

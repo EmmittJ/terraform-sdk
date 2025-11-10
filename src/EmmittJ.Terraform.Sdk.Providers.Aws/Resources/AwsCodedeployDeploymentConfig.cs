@@ -3,6 +3,75 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for minimum_healthy_hosts in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformProperty<double>? Value
+    {
+        get => GetProperty<TerraformProperty<double>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for traffic_routing_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for zonal_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodedeployDeploymentConfigZonalConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The first_zone_monitor_duration_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? FirstZoneMonitorDurationInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("first_zone_monitor_duration_in_seconds");
+        set => WithProperty("first_zone_monitor_duration_in_seconds", value);
+    }
+
+    /// <summary>
+    /// The monitor_duration_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? MonitorDurationInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("monitor_duration_in_seconds");
+        set => WithProperty("monitor_duration_in_seconds", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_codedeploy_deployment_config resource.
 /// </summary>
 public class AwsCodedeployDeploymentConfig : TerraformResource
@@ -30,7 +99,8 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     /// <summary>
     /// The deployment_config_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentConfigName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentConfigName is required")]
+    public required TerraformProperty<string> DeploymentConfigName
     {
         get => GetProperty<TerraformProperty<string>>("deployment_config_name");
         set => this.WithProperty("deployment_config_name", value);
@@ -52,6 +122,39 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for minimum_healthy_hosts.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumHealthyHosts block(s) allowed")]
+    public List<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock>? MinimumHealthyHosts
+    {
+        get => GetProperty<List<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock>>("minimum_healthy_hosts");
+        set => this.WithProperty("minimum_healthy_hosts", value);
+    }
+
+    /// <summary>
+    /// Block for traffic_routing_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficRoutingConfig block(s) allowed")]
+    public List<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock>? TrafficRoutingConfig
+    {
+        get => GetProperty<List<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock>>("traffic_routing_config");
+        set => this.WithProperty("traffic_routing_config", value);
+    }
+
+    /// <summary>
+    /// Block for zonal_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZonalConfig block(s) allowed")]
+    public List<AwsCodedeployDeploymentConfigZonalConfigBlock>? ZonalConfig
+    {
+        get => GetProperty<List<AwsCodedeployDeploymentConfigZonalConfigBlock>>("zonal_config");
+        set => this.WithProperty("zonal_config", value);
     }
 
     /// <summary>

@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for encryption_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleSpannerDatabaseEncryptionConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Fully qualified name of the KMS key to use to encrypt this database. This key must exist
+    /// in the same location as the Spanner Database.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+    /// <summary>
+    /// Fully qualified name of the KMS keys to use to encrypt this database. The keys must exist
+    /// in the same locations as the Spanner Database.
+    /// </summary>
+    public List<TerraformProperty<string>>? KmsKeyNames
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("kms_key_names");
+        set => WithProperty("kms_key_names", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSpannerDatabaseTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_spanner_database resource.
 /// </summary>
 public class GoogleSpannerDatabase : TerraformResource
@@ -39,9 +102,9 @@ public class GoogleSpannerDatabase : TerraformResource
     /// newly appended DDL statements can be executed in an update. However, modifications
     /// to prior statements will create a plan that marks the resource for recreation.
     /// </summary>
-    public TerraformProperty<List<string>>? Ddl
+    public List<TerraformProperty<string>>? Ddl
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ddl");
+        get => GetProperty<List<TerraformProperty<string>>>("ddl");
         set => this.WithProperty("ddl", value);
     }
 
@@ -96,7 +159,8 @@ public class GoogleSpannerDatabase : TerraformResource
     /// <summary>
     /// The instance to create the database on.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -106,7 +170,8 @@ public class GoogleSpannerDatabase : TerraformResource
     /// A unique identifier for the database, which cannot be changed after the
     /// instance is created. Values are of the form &#39;[a-z][-_a-z0-9]*[a-z0-9]&#39;.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -132,6 +197,27 @@ public class GoogleSpannerDatabase : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("version_retention_period");
         set => this.WithProperty("version_retention_period", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfig block(s) allowed")]
+    public List<GoogleSpannerDatabaseEncryptionConfigBlock>? EncryptionConfig
+    {
+        get => GetProperty<List<GoogleSpannerDatabaseEncryptionConfigBlock>>("encryption_config");
+        set => this.WithProperty("encryption_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSpannerDatabaseTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSpannerDatabaseTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

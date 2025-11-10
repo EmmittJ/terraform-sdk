@@ -3,6 +3,52 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for signature_validity_period in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSignerSigningProfileSignatureValidityPeriodBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<double> Value
+    {
+        get => GetProperty<TerraformProperty<double>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for signing_material in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSignerSigningProfileSigningMaterialBlock : TerraformBlock
+{
+    /// <summary>
+    /// The certificate_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
+    public required TerraformProperty<string> CertificateArn
+    {
+        get => GetProperty<TerraformProperty<string>>("certificate_arn");
+        set => WithProperty("certificate_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_signer_signing_profile resource.
 /// </summary>
 public class AwsSignerSigningProfile : TerraformResource
@@ -52,7 +98,8 @@ public class AwsSignerSigningProfile : TerraformResource
     /// <summary>
     /// The platform_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PlatformId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformId is required")]
+    public required TerraformProperty<string> PlatformId
     {
         get => GetProperty<TerraformProperty<string>>("platform_id");
         set => this.WithProperty("platform_id", value);
@@ -70,28 +117,50 @@ public class AwsSignerSigningProfile : TerraformResource
     /// <summary>
     /// The signing_parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? SigningParameters
+    public Dictionary<string, TerraformProperty<string>>? SigningParameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("signing_parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("signing_parameters");
         set => this.WithProperty("signing_parameters", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for signature_validity_period.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignatureValidityPeriod block(s) allowed")]
+    public List<AwsSignerSigningProfileSignatureValidityPeriodBlock>? SignatureValidityPeriod
+    {
+        get => GetProperty<List<AwsSignerSigningProfileSignatureValidityPeriodBlock>>("signature_validity_period");
+        set => this.WithProperty("signature_validity_period", value);
+    }
+
+    /// <summary>
+    /// Block for signing_material.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SigningMaterial block(s) allowed")]
+    public List<AwsSignerSigningProfileSigningMaterialBlock>? SigningMaterial
+    {
+        get => GetProperty<List<AwsSignerSigningProfileSigningMaterialBlock>>("signing_material");
+        set => this.WithProperty("signing_material", value);
     }
 
     /// <summary>

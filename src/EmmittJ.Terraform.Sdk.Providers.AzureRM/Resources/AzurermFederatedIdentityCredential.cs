@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermFederatedIdentityCredentialTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_federated_identity_credential resource.
 /// </summary>
 public class AzurermFederatedIdentityCredential : TerraformResource
@@ -19,9 +63,10 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The audience attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Audience
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audience is required")]
+    public List<TerraformProperty<string>>? Audience
     {
-        get => GetProperty<TerraformProperty<List<string>>>("audience");
+        get => GetProperty<List<TerraformProperty<string>>>("audience");
         set => this.WithProperty("audience", value);
     }
 
@@ -37,7 +82,8 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The issuer attribute.
     /// </summary>
-    public TerraformProperty<string>? Issuer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
+    public required TerraformProperty<string> Issuer
     {
         get => GetProperty<TerraformProperty<string>>("issuer");
         set => this.WithProperty("issuer", value);
@@ -46,7 +92,8 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +102,8 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
+    public required TerraformProperty<string> ParentId
     {
         get => GetProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
@@ -64,7 +112,8 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -73,10 +122,21 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The subject attribute.
     /// </summary>
-    public TerraformProperty<string>? Subject
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
+    public required TerraformProperty<string> Subject
     {
         get => GetProperty<TerraformProperty<string>>("subject");
         set => this.WithProperty("subject", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermFederatedIdentityCredentialTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermFederatedIdentityCredentialTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

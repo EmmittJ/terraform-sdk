@@ -42,7 +42,8 @@ public class GoogleVertexAiIndexDataSource : TerraformDataSource
     /// <summary>
     /// The resource name of the Index.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -60,7 +61,8 @@ public class GoogleVertexAiIndexDataSource : TerraformDataSource
     /// <summary>
     /// The region of the index. eg us-central1
     /// </summary>
-    public TerraformProperty<string>? Region
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
+    public required TerraformProperty<string> Region
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);

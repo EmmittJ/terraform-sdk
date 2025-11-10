@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_consumption_budget_subscription.
 /// </summary>
 public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSource
@@ -33,7 +50,8 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -42,10 +60,21 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubscriptionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
+    public required TerraformProperty<string> SubscriptionId
     {
         get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

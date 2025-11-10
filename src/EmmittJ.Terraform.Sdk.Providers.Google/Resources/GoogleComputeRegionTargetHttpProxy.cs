@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRegionTargetHttpProxyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_region_target_http_proxy resource.
 /// </summary>
 public class GoogleComputeRegionTargetHttpProxy : TerraformResource
@@ -59,7 +94,8 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -88,10 +124,21 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
     /// A reference to the RegionUrlMap resource that defines the mapping from URL
     /// to the BackendService.
     /// </summary>
-    public TerraformProperty<string>? UrlMap
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
+    public required TerraformProperty<string> UrlMap
     {
         get => GetProperty<TerraformProperty<string>>("url_map");
         set => this.WithProperty("url_map", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRegionTargetHttpProxyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRegionTargetHttpProxyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

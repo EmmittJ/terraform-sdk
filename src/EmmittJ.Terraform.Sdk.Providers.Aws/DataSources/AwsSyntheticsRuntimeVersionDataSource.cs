@@ -33,7 +33,8 @@ public class AwsSyntheticsRuntimeVersionDataSource : TerraformDataSource
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
+    public required TerraformProperty<string> Prefix
     {
         get => GetProperty<TerraformProperty<string>>("prefix");
         set => this.WithProperty("prefix", value);

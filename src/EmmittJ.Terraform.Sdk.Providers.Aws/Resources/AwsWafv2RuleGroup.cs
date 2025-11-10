@@ -3,6 +3,110 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for custom_response_body in .
+/// Nesting mode: set
+/// </summary>
+public class AwsWafv2RuleGroupCustomResponseBodyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The content attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformProperty<string> Content
+    {
+        get => GetProperty<TerraformProperty<string>>("content");
+        set => WithProperty("content", value);
+    }
+
+    /// <summary>
+    /// The content_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
+    public required TerraformProperty<string> ContentType
+    {
+        get => GetProperty<TerraformProperty<string>>("content_type");
+        set => WithProperty("content_type", value);
+    }
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rule in .
+/// Nesting mode: set
+/// </summary>
+public class AwsWafv2RuleGroupRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for visibility_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWafv2RuleGroupVisibilityConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cloudwatch_metrics_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchMetricsEnabled is required")]
+    public required TerraformProperty<bool> CloudwatchMetricsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("cloudwatch_metrics_enabled");
+        set => WithProperty("cloudwatch_metrics_enabled", value);
+    }
+
+    /// <summary>
+    /// The metric_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
+    public required TerraformProperty<string> MetricName
+    {
+        get => GetProperty<TerraformProperty<string>>("metric_name");
+        set => WithProperty("metric_name", value);
+    }
+
+    /// <summary>
+    /// The sampled_requests_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SampledRequestsEnabled is required")]
+    public required TerraformProperty<bool> SampledRequestsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("sampled_requests_enabled");
+        set => WithProperty("sampled_requests_enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_wafv2_rule_group resource.
 /// </summary>
 public class AwsWafv2RuleGroup : TerraformResource
@@ -21,7 +125,8 @@ public class AwsWafv2RuleGroup : TerraformResource
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? Capacity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
+    public required TerraformProperty<double> Capacity
     {
         get => GetProperty<TerraformProperty<double>>("capacity");
         set => this.WithProperty("capacity", value);
@@ -84,7 +189,8 @@ public class AwsWafv2RuleGroup : TerraformResource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
@@ -93,19 +199,51 @@ public class AwsWafv2RuleGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for custom_response_body.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsWafv2RuleGroupCustomResponseBodyBlock>? CustomResponseBody
+    {
+        get => GetProperty<HashSet<AwsWafv2RuleGroupCustomResponseBodyBlock>>("custom_response_body");
+        set => this.WithProperty("custom_response_body", value);
+    }
+
+    /// <summary>
+    /// Block for rule.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsWafv2RuleGroupRuleBlock>? Rule
+    {
+        get => GetProperty<HashSet<AwsWafv2RuleGroupRuleBlock>>("rule");
+        set => this.WithProperty("rule", value);
+    }
+
+    /// <summary>
+    /// Block for visibility_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VisibilityConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VisibilityConfig block(s) allowed")]
+    public List<AwsWafv2RuleGroupVisibilityConfigBlock>? VisibilityConfig
+    {
+        get => GetProperty<List<AwsWafv2RuleGroupVisibilityConfigBlock>>("visibility_config");
+        set => this.WithProperty("visibility_config", value);
     }
 
     /// <summary>

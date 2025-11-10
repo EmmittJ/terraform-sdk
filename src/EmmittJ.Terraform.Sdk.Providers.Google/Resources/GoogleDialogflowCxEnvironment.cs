@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDialogflowCxEnvironmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for version_configs in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxEnvironmentVersionConfigsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Format: projects/{{project}}/locations/{{location}}/agents/{{agent}}/flows/{{flow}}/versions/{{version}}.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dialogflow_cx_environment resource.
 /// </summary>
 public class GoogleDialogflowCxEnvironment : TerraformResource
@@ -30,7 +83,8 @@ public class GoogleDialogflowCxEnvironment : TerraformResource
     /// <summary>
     /// The human-readable name of the environment (unique in an agent). Limit of 64 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -53,6 +107,27 @@ public class GoogleDialogflowCxEnvironment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDialogflowCxEnvironmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDialogflowCxEnvironmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for version_configs.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VersionConfigs block(s) required")]
+    public List<GoogleDialogflowCxEnvironmentVersionConfigsBlock>? VersionConfigs
+    {
+        get => GetProperty<List<GoogleDialogflowCxEnvironmentVersionConfigsBlock>>("version_configs");
+        set => this.WithProperty("version_configs", value);
     }
 
     /// <summary>

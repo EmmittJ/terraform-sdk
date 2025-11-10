@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermRoleAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_role_assignment resource.
 /// </summary>
 public class AzurermRoleAssignment : TerraformResource
@@ -73,7 +108,8 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
+    public required TerraformProperty<string> PrincipalId
     {
         get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
@@ -109,7 +145,8 @@ public class AzurermRoleAssignment : TerraformResource
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
@@ -122,6 +159,16 @@ public class AzurermRoleAssignment : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("skip_service_principal_aad_check");
         set => this.WithProperty("skip_service_principal_aad_check", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermRoleAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermRoleAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

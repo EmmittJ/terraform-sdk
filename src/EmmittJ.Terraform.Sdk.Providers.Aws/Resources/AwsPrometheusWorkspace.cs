@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for logging_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsPrometheusWorkspaceLoggingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The log_group_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArn is required")]
+    public required TerraformProperty<string> LogGroupArn
+    {
+        get => GetProperty<TerraformProperty<string>>("log_group_arn");
+        set => WithProperty("log_group_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_prometheus_workspace resource.
 /// </summary>
 public class AwsPrometheusWorkspace : TerraformResource
@@ -57,19 +75,30 @@ public class AwsPrometheusWorkspace : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for logging_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
+    public List<AwsPrometheusWorkspaceLoggingConfigurationBlock>? LoggingConfiguration
+    {
+        get => GetProperty<List<AwsPrometheusWorkspaceLoggingConfigurationBlock>>("logging_configuration");
+        set => this.WithProperty("logging_configuration", value);
     }
 
     /// <summary>

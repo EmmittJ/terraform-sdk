@@ -41,16 +41,17 @@ public class AwsApigatewayv2VpcLinkDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_link_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcLinkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcLinkId is required")]
+    public required TerraformProperty<string> VpcLinkId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_link_id");
         set => this.WithProperty("vpc_link_id", value);

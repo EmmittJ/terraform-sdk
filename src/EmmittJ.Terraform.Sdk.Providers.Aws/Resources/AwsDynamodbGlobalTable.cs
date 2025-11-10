@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for replica in .
+/// Nesting mode: set
+/// </summary>
+public class AwsDynamodbGlobalTableReplicaBlock : TerraformBlock
+{
+    /// <summary>
+    /// The region_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
+    public required TerraformProperty<string> RegionName
+    {
+        get => GetProperty<TerraformProperty<string>>("region_name");
+        set => WithProperty("region_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDynamodbGlobalTableTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dynamodb_global_table resource.
 /// </summary>
 public class AwsDynamodbGlobalTable : TerraformResource
@@ -29,7 +82,8 @@ public class AwsDynamodbGlobalTable : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -42,6 +96,27 @@ public class AwsDynamodbGlobalTable : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for replica.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replica block(s) required")]
+    public HashSet<AwsDynamodbGlobalTableReplicaBlock>? Replica
+    {
+        get => GetProperty<HashSet<AwsDynamodbGlobalTableReplicaBlock>>("replica");
+        set => this.WithProperty("replica", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDynamodbGlobalTableTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDynamodbGlobalTableTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -21,7 +21,8 @@ public class AwsRdsClusterEndpoint : TerraformResource
     /// <summary>
     /// The cluster_endpoint_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterEndpointIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterEndpointIdentifier is required")]
+    public required TerraformProperty<string> ClusterEndpointIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_endpoint_identifier");
         set => this.WithProperty("cluster_endpoint_identifier", value);
@@ -30,7 +31,8 @@ public class AwsRdsClusterEndpoint : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -39,7 +41,8 @@ public class AwsRdsClusterEndpoint : TerraformResource
     /// <summary>
     /// The custom_endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomEndpointType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomEndpointType is required")]
+    public required TerraformProperty<string> CustomEndpointType
     {
         get => GetProperty<TerraformProperty<string>>("custom_endpoint_type");
         set => this.WithProperty("custom_endpoint_type", value);
@@ -48,9 +51,9 @@ public class AwsRdsClusterEndpoint : TerraformResource
     /// <summary>
     /// The excluded_members attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ExcludedMembers
+    public HashSet<TerraformProperty<string>>? ExcludedMembers
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("excluded_members");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_members");
         set => this.WithProperty("excluded_members", value);
     }
 
@@ -75,27 +78,27 @@ public class AwsRdsClusterEndpoint : TerraformResource
     /// <summary>
     /// The static_members attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? StaticMembers
+    public HashSet<TerraformProperty<string>>? StaticMembers
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("static_members");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("static_members");
         set => this.WithProperty("static_members", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

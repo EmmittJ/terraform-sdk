@@ -143,6 +143,7 @@ public static class TerraformProviderResourceExtensions
             Action = async stepContext => await GenerateSchemaStepAsync(provider, stepContext),
             Tags = { "codegen", "terraform", "schema" }
         };
+        schemaStep.RequiredBy(WellKnownPipelineSteps.Publish);
 
         // Project file step (can run after schema)
         var projectStep = new PipelineStep
@@ -153,6 +154,7 @@ public static class TerraformProviderResourceExtensions
             Tags = { "codegen", "terraform", "project" }
         };
         projectStep.DependsOn(schemaStep);
+        projectStep.RequiredBy(WellKnownPipelineSteps.Publish);
 
         // Provider class step (can run after schema, in parallel with project/resources/datasources)
         var providerClassStep = new PipelineStep
@@ -163,6 +165,7 @@ public static class TerraformProviderResourceExtensions
             Tags = { "codegen", "terraform", "provider" }
         };
         providerClassStep.DependsOn(schemaStep);
+        providerClassStep.RequiredBy(WellKnownPipelineSteps.Publish);
 
         // Resources step (can run after schema, in parallel with project/provider/datasources)
         var resourcesStep = new PipelineStep
@@ -173,6 +176,7 @@ public static class TerraformProviderResourceExtensions
             Tags = { "codegen", "terraform", "resources" }
         };
         resourcesStep.DependsOn(schemaStep);
+        resourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
 
         // Data sources step (can run after schema, in parallel with project/provider/resources)
         var dataSourcesStep = new PipelineStep
@@ -183,6 +187,7 @@ public static class TerraformProviderResourceExtensions
             Tags = { "codegen", "terraform", "datasources" }
         };
         dataSourcesStep.DependsOn(schemaStep);
+        dataSourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
 
         // Provider functions step (can run after schema, in parallel with other code generation)
         var providerFunctionsStep = new PipelineStep
@@ -193,6 +198,7 @@ public static class TerraformProviderResourceExtensions
             Tags = { "codegen", "terraform", "functions" }
         };
         providerFunctionsStep.DependsOn(schemaStep);
+        providerFunctionsStep.RequiredBy(WellKnownPipelineSteps.Publish);
 
         // Ephemeral resources step (can run after schema, in parallel with other code generation)
         var ephemeralResourcesStep = new PipelineStep
@@ -203,14 +209,6 @@ public static class TerraformProviderResourceExtensions
             Tags = { "codegen", "terraform", "ephemeral" }
         };
         ephemeralResourcesStep.DependsOn(schemaStep);
-
-        // All steps should be required by publish
-        schemaStep.RequiredBy(WellKnownPipelineSteps.Publish);
-        projectStep.RequiredBy(WellKnownPipelineSteps.Publish);
-        providerClassStep.RequiredBy(WellKnownPipelineSteps.Publish);
-        resourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
-        dataSourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
-        providerFunctionsStep.RequiredBy(WellKnownPipelineSteps.Publish);
         ephemeralResourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
 
         return [schemaStep, projectStep, providerClassStep, resourcesStep, dataSourcesStep, providerFunctionsStep, ephemeralResourcesStep];

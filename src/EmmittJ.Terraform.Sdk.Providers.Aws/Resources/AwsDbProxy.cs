@@ -3,6 +3,103 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for auth in .
+/// Nesting mode: set
+/// </summary>
+public class AwsDbProxyAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auth_scheme attribute.
+    /// </summary>
+    public TerraformProperty<string>? AuthScheme
+    {
+        get => GetProperty<TerraformProperty<string>>("auth_scheme");
+        set => WithProperty("auth_scheme", value);
+    }
+
+    /// <summary>
+    /// The client_password_auth_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? ClientPasswordAuthType
+    {
+        get => GetProperty<TerraformProperty<string>>("client_password_auth_type");
+        set => WithProperty("client_password_auth_type", value);
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The iam_auth attribute.
+    /// </summary>
+    public TerraformProperty<string>? IamAuth
+    {
+        get => GetProperty<TerraformProperty<string>>("iam_auth");
+        set => WithProperty("iam_auth", value);
+    }
+
+    /// <summary>
+    /// The secret_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? SecretArn
+    {
+        get => GetProperty<TerraformProperty<string>>("secret_arn");
+        set => WithProperty("secret_arn", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    public TerraformProperty<string>? Username
+    {
+        get => GetProperty<TerraformProperty<string>>("username");
+        set => WithProperty("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDbProxyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_db_proxy resource.
 /// </summary>
 public class AwsDbProxy : TerraformResource
@@ -39,7 +136,8 @@ public class AwsDbProxy : TerraformResource
     /// <summary>
     /// The engine_family attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineFamily
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineFamily is required")]
+    public required TerraformProperty<string> EngineFamily
     {
         get => GetProperty<TerraformProperty<string>>("engine_family");
         set => this.WithProperty("engine_family", value);
@@ -66,7 +164,8 @@ public class AwsDbProxy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -93,7 +192,8 @@ public class AwsDbProxy : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -102,37 +202,58 @@ public class AwsDbProxy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
     /// The vpc_subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? VpcSubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
         set => this.WithProperty("vpc_subnet_ids", value);
+    }
+
+    /// <summary>
+    /// Block for auth.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsDbProxyAuthBlock>? Auth
+    {
+        get => GetProperty<HashSet<AwsDbProxyAuthBlock>>("auth");
+        set => this.WithProperty("auth", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDbProxyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDbProxyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

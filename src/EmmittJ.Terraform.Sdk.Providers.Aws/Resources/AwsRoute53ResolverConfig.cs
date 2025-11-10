@@ -20,7 +20,8 @@ public class AwsRoute53ResolverConfig : TerraformResource
     /// <summary>
     /// The autodefined_reverse_flag attribute.
     /// </summary>
-    public TerraformProperty<string>? AutodefinedReverseFlag
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutodefinedReverseFlag is required")]
+    public required TerraformProperty<string> AutodefinedReverseFlag
     {
         get => GetProperty<TerraformProperty<string>>("autodefined_reverse_flag");
         set => this.WithProperty("autodefined_reverse_flag", value);
@@ -47,7 +48,8 @@ public class AwsRoute53ResolverConfig : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);

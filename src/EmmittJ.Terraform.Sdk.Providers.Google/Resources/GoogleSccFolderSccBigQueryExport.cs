@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSccFolderSccBigQueryExportTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_scc_folder_scc_big_query_export resource.
 /// </summary>
 public class GoogleSccFolderSccBigQueryExport : TerraformResource
@@ -24,7 +59,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
-    public TerraformProperty<string>? BigQueryExportId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
+    public required TerraformProperty<string> BigQueryExportId
     {
         get => GetProperty<TerraformProperty<string>>("big_query_export_id");
         set => this.WithProperty("big_query_export_id", value);
@@ -35,7 +71,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// Its format is &amp;quot;projects/[projectId]/datasets/[bigquery_dataset_id]&amp;quot;.
     /// BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
     /// </summary>
-    public TerraformProperty<string>? Dataset
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
+    public required TerraformProperty<string> Dataset
     {
         get => GetProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
@@ -44,7 +81,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// <summary>
     /// The description of the export (max of 1024 characters).
     /// </summary>
-    public TerraformProperty<string>? Description
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
+    public required TerraformProperty<string> Description
     {
         get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
@@ -77,7 +115,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
     /// for information on how to write a filter.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
+    public required TerraformProperty<string> Filter
     {
         get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
@@ -87,7 +126,8 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     /// The folder where Cloud Security Command Center Big Query Export
     /// Config lives in.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
+    public required TerraformProperty<string> Folder
     {
         get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
@@ -100,6 +140,16 @@ public class GoogleSccFolderSccBigQueryExport : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSccFolderSccBigQueryExportTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSccFolderSccBigQueryExportTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

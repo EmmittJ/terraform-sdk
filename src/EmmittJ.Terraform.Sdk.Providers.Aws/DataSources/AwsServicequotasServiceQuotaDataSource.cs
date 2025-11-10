@@ -62,7 +62,8 @@ public class AwsServicequotasServiceQuotaDataSource : TerraformDataSource
     /// <summary>
     /// The service_code attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
+    public required TerraformProperty<string> ServiceCode
     {
         get => GetProperty<TerraformProperty<string>>("service_code");
         set => this.WithProperty("service_code", value);

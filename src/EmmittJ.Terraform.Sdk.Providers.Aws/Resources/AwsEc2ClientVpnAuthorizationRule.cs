@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ec2_client_vpn_authorization_rule resource.
 /// </summary>
 public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
@@ -37,7 +63,8 @@ public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     /// <summary>
     /// The client_vpn_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientVpnEndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
+    public required TerraformProperty<string> ClientVpnEndpointId
     {
         get => GetProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
         set => this.WithProperty("client_vpn_endpoint_id", value);
@@ -73,10 +100,21 @@ public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     /// <summary>
     /// The target_network_cidr attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetNetworkCidr
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetNetworkCidr is required")]
+    public required TerraformProperty<string> TargetNetworkCidr
     {
         get => GetProperty<TerraformProperty<string>>("target_network_cidr");
         set => this.WithProperty("target_network_cidr", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEc2ClientVpnAuthorizationRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

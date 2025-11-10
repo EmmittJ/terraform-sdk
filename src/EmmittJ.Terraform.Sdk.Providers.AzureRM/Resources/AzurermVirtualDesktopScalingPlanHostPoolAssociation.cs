@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_virtual_desktop_scaling_plan_host_pool_association resource.
 /// </summary>
 public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -28,7 +73,8 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     /// <summary>
     /// The host_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HostPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostPoolId is required")]
+    public required TerraformProperty<string> HostPoolId
     {
         get => GetProperty<TerraformProperty<string>>("host_pool_id");
         set => this.WithProperty("host_pool_id", value);
@@ -46,10 +92,21 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     /// <summary>
     /// The scaling_plan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ScalingPlanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingPlanId is required")]
+    public required TerraformProperty<string> ScalingPlanId
     {
         get => GetProperty<TerraformProperty<string>>("scaling_plan_id");
         set => this.WithProperty("scaling_plan_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

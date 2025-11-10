@@ -3,6 +3,222 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for authorization in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerClusterAuthorizationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for control_plane in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerClusterControlPlaneBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for control_plane_encryption in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerClusterControlPlaneEncryptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Cloud KMS CryptoKey e.g.
+    /// projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey}
+    /// to use for protecting control plane disks. If not specified, a
+    /// Google-managed key will be used instead.
+    /// </summary>
+    public TerraformProperty<string>? KmsKey
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key");
+        set => WithProperty("kms_key", value);
+    }
+
+    /// <summary>
+    /// The Cloud KMS CryptoKeyVersion currently in use for protecting control
+    /// plane disks. Only applicable if kms_key is set.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyActiveVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_active_version");
+        set => WithProperty("kms_key_active_version", value);
+    }
+
+    /// <summary>
+    /// Availability of the Cloud KMS CryptoKey. If not &#39;KEY_AVAILABLE&#39;, then
+    /// nodes may go offline as they cannot access their local data. This can be
+    /// caused by a lack of permissions to use the key, or if the key is disabled
+    /// or deleted.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyState
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_state");
+        set => WithProperty("kms_key_state", value);
+    }
+
+    /// <summary>
+    /// Error status returned by Cloud KMS when using this key. This field may be
+    /// populated only if &#39;kms_key_state&#39; is not &#39;KMS_KEY_STATE_KEY_AVAILABLE&#39;.
+    /// If populated, this field contains the error status reported by Cloud KMS.
+    /// </summary>
+    public List<TerraformProperty<object>>? KmsStatus
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("kms_status");
+        set => WithProperty("kms_status", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for fleet in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerClusterFleetBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the managed Hub Membership resource associated to this cluster.
+    /// Membership names are formatted as
+    /// &#39;projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;&#39;.
+    /// </summary>
+    public TerraformProperty<string>? Membership
+    {
+        get => GetProperty<TerraformProperty<string>>("membership");
+        set => WithProperty("membership", value);
+    }
+
+    /// <summary>
+    /// The name of the Fleet host project where this cluster will be registered.
+    /// Project names are formatted as
+    /// &#39;projects/&amp;lt;project-number&amp;gt;&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
+    {
+        get => GetProperty<TerraformProperty<string>>("project");
+        set => WithProperty("project", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for maintenance_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerClusterMaintenancePolicyBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for networking in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerClusterNetworkingBlock : TerraformBlock
+{
+    /// <summary>
+    /// All pods in the cluster are assigned an RFC1918 IPv4 address from these
+    /// blocks. Only a single block is supported. This field cannot be changed
+    /// after creation.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIpv4CidrBlocks is required")]
+    public List<TerraformProperty<string>>? ClusterIpv4CidrBlocks
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("cluster_ipv4_cidr_blocks");
+        set => WithProperty("cluster_ipv4_cidr_blocks", value);
+    }
+
+    /// <summary>
+    /// If specified, dual stack mode is enabled and all pods in the cluster are
+    /// assigned an IPv6 address from these blocks alongside from an IPv4
+    /// address. Only a single block is supported. This field cannot be changed
+    /// after creation.
+    /// </summary>
+    public List<TerraformProperty<string>>? ClusterIpv6CidrBlocks
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("cluster_ipv6_cidr_blocks");
+        set => WithProperty("cluster_ipv6_cidr_blocks", value);
+    }
+
+    /// <summary>
+    /// IP addressing type of this cluster i.e. SINGLESTACK_V4 vs DUALSTACK_V4_V6.
+    /// </summary>
+    public TerraformProperty<string>? NetworkType
+    {
+        get => GetProperty<TerraformProperty<string>>("network_type");
+        set => WithProperty("network_type", value);
+    }
+
+    /// <summary>
+    /// All services in the cluster are assigned an RFC1918 IPv4 address from these
+    /// blocks. Only a single block is supported. This field cannot be changed
+    /// after creation.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicesIpv4CidrBlocks is required")]
+    public List<TerraformProperty<string>>? ServicesIpv4CidrBlocks
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("services_ipv4_cidr_blocks");
+        set => WithProperty("services_ipv4_cidr_blocks", value);
+    }
+
+    /// <summary>
+    /// If specified, dual stack mode is enabled and all services in the cluster are
+    /// assigned an IPv6 address from these blocks alongside from an IPv4
+    /// address. Only a single block is supported. This field cannot be changed
+    /// after creation.
+    /// </summary>
+    public List<TerraformProperty<string>>? ServicesIpv6CidrBlocks
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("services_ipv6_cidr_blocks");
+        set => WithProperty("services_ipv6_cidr_blocks", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for system_addons_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerClusterSystemAddonsConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEdgecontainerClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_edgecontainer_cluster resource.
 /// </summary>
 public class GoogleEdgecontainerCluster : TerraformResource
@@ -41,9 +257,9 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// <summary>
     /// Address pools for cluster data plane external load balancing.
     /// </summary>
-    public TerraformProperty<List<string>>? ExternalLoadBalancerIpv4AddressPools
+    public List<TerraformProperty<string>>? ExternalLoadBalancerIpv4AddressPools
     {
-        get => GetProperty<TerraformProperty<List<string>>>("external_load_balancer_ipv4_address_pools");
+        get => GetProperty<List<TerraformProperty<string>>>("external_load_balancer_ipv4_address_pools");
         set => this.WithProperty("external_load_balancer_ipv4_address_pools", value);
     }
 
@@ -62,16 +278,17 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -80,7 +297,8 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// <summary>
     /// The GDCE cluster name.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -111,6 +329,96 @@ public class GoogleEdgecontainerCluster : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("target_version");
         set => this.WithProperty("target_version", value);
+    }
+
+    /// <summary>
+    /// Block for authorization.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
+    public List<GoogleEdgecontainerClusterAuthorizationBlock>? Authorization
+    {
+        get => GetProperty<List<GoogleEdgecontainerClusterAuthorizationBlock>>("authorization");
+        set => this.WithProperty("authorization", value);
+    }
+
+    /// <summary>
+    /// Block for control_plane.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
+    public List<GoogleEdgecontainerClusterControlPlaneBlock>? ControlPlane
+    {
+        get => GetProperty<List<GoogleEdgecontainerClusterControlPlaneBlock>>("control_plane");
+        set => this.WithProperty("control_plane", value);
+    }
+
+    /// <summary>
+    /// Block for control_plane_encryption.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlaneEncryption block(s) allowed")]
+    public List<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>? ControlPlaneEncryption
+    {
+        get => GetProperty<List<GoogleEdgecontainerClusterControlPlaneEncryptionBlock>>("control_plane_encryption");
+        set => this.WithProperty("control_plane_encryption", value);
+    }
+
+    /// <summary>
+    /// Block for fleet.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
+    public List<GoogleEdgecontainerClusterFleetBlock>? Fleet
+    {
+        get => GetProperty<List<GoogleEdgecontainerClusterFleetBlock>>("fleet");
+        set => this.WithProperty("fleet", value);
+    }
+
+    /// <summary>
+    /// Block for maintenance_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
+    public List<GoogleEdgecontainerClusterMaintenancePolicyBlock>? MaintenancePolicy
+    {
+        get => GetProperty<List<GoogleEdgecontainerClusterMaintenancePolicyBlock>>("maintenance_policy");
+        set => this.WithProperty("maintenance_policy", value);
+    }
+
+    /// <summary>
+    /// Block for networking.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
+    public List<GoogleEdgecontainerClusterNetworkingBlock>? Networking
+    {
+        get => GetProperty<List<GoogleEdgecontainerClusterNetworkingBlock>>("networking");
+        set => this.WithProperty("networking", value);
+    }
+
+    /// <summary>
+    /// Block for system_addons_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SystemAddonsConfig block(s) allowed")]
+    public List<GoogleEdgecontainerClusterSystemAddonsConfigBlock>? SystemAddonsConfig
+    {
+        get => GetProperty<List<GoogleEdgecontainerClusterSystemAddonsConfigBlock>>("system_addons_config");
+        set => this.WithProperty("system_addons_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEdgecontainerClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEdgecontainerClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

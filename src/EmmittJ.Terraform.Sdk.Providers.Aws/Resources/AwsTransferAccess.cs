@@ -3,6 +3,71 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for home_directory_mappings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferAccessHomeDirectoryMappingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The entry attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
+    public required TerraformProperty<string> Entry
+    {
+        get => GetProperty<TerraformProperty<string>>("entry");
+        set => WithProperty("entry", value);
+    }
+
+    /// <summary>
+    /// The target attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
+    public required TerraformProperty<string> Target
+    {
+        get => GetProperty<TerraformProperty<string>>("target");
+        set => WithProperty("target", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for posix_profile in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTransferAccessPosixProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// The gid attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
+    public required TerraformProperty<double> Gid
+    {
+        get => GetProperty<TerraformProperty<double>>("gid");
+        set => WithProperty("gid", value);
+    }
+
+    /// <summary>
+    /// The secondary_gids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<double>>? SecondaryGids
+    {
+        get => GetProperty<HashSet<TerraformProperty<double>>>("secondary_gids");
+        set => WithProperty("secondary_gids", value);
+    }
+
+    /// <summary>
+    /// The uid attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
+    public required TerraformProperty<double> Uid
+    {
+        get => GetProperty<TerraformProperty<double>>("uid");
+        set => WithProperty("uid", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_transfer_access resource.
 /// </summary>
 public class AwsTransferAccess : TerraformResource
@@ -19,7 +84,8 @@ public class AwsTransferAccess : TerraformResource
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ExternalId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
+    public required TerraformProperty<string> ExternalId
     {
         get => GetProperty<TerraformProperty<string>>("external_id");
         set => this.WithProperty("external_id", value);
@@ -82,10 +148,33 @@ public class AwsTransferAccess : TerraformResource
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
+    public required TerraformProperty<string> ServerId
     {
         get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
+    }
+
+    /// <summary>
+    /// Block for home_directory_mappings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 HomeDirectoryMappings block(s) allowed")]
+    public List<AwsTransferAccessHomeDirectoryMappingsBlock>? HomeDirectoryMappings
+    {
+        get => GetProperty<List<AwsTransferAccessHomeDirectoryMappingsBlock>>("home_directory_mappings");
+        set => this.WithProperty("home_directory_mappings", value);
+    }
+
+    /// <summary>
+    /// Block for posix_profile.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixProfile block(s) allowed")]
+    public List<AwsTransferAccessPosixProfileBlock>? PosixProfile
+    {
+        get => GetProperty<List<AwsTransferAccessPosixProfileBlock>>("posix_profile");
+        set => this.WithProperty("posix_profile", value);
     }
 
 }

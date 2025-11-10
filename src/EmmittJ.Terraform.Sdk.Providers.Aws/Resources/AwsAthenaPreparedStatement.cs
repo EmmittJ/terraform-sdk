@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsAthenaPreparedStatementTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_athena_prepared_statement resource.
 /// </summary>
 public class AwsAthenaPreparedStatement : TerraformResource
@@ -37,7 +72,8 @@ public class AwsAthenaPreparedStatement : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,7 +82,8 @@ public class AwsAthenaPreparedStatement : TerraformResource
     /// <summary>
     /// The query_statement attribute.
     /// </summary>
-    public TerraformProperty<string>? QueryStatement
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStatement is required")]
+    public required TerraformProperty<string> QueryStatement
     {
         get => GetProperty<TerraformProperty<string>>("query_statement");
         set => this.WithProperty("query_statement", value);
@@ -64,10 +101,21 @@ public class AwsAthenaPreparedStatement : TerraformResource
     /// <summary>
     /// The workgroup attribute.
     /// </summary>
-    public TerraformProperty<string>? Workgroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workgroup is required")]
+    public required TerraformProperty<string> Workgroup
     {
         get => GetProperty<TerraformProperty<string>>("workgroup");
         set => this.WithProperty("workgroup", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsAthenaPreparedStatementTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsAthenaPreparedStatementTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

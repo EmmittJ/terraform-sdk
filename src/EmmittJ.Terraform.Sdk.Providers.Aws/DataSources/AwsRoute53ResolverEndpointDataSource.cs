@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsRoute53ResolverEndpointDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public List<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_route53_resolver_endpoint.
 /// </summary>
 public class AwsRoute53ResolverEndpointDataSource : TerraformDataSource
@@ -49,6 +77,16 @@ public class AwsRoute53ResolverEndpointDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("resolver_endpoint_id");
         set => this.WithProperty("resolver_endpoint_id", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsRoute53ResolverEndpointDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsRoute53ResolverEndpointDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>

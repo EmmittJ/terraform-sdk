@@ -3,6 +3,157 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for annotator_selector in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The issue model to run. If not provided, the most recently deployed topic
+    /// model will be used. The provided issue model will only be used for
+    /// inference if the issue model is deployed and if run_issue_model_annotator
+    /// is set to true. If more than one issue model is provided, only the first
+    /// provided issue model will be used for inference.
+    /// </summary>
+    public List<TerraformProperty<string>>? IssueModels
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("issue_models");
+        set => WithProperty("issue_models", value);
+    }
+
+    /// <summary>
+    /// The list of phrase matchers to run. If not provided, all active phrase
+    /// matchers will be used. If inactive phrase matchers are provided, they will
+    /// not be used. Phrase matchers will be run only if
+    /// run_phrase_matcher_annotator is set to true. Format:
+    /// projects/{project}/locations/{location}/phraseMatchers/{phrase_matcher}
+    /// </summary>
+    public List<TerraformProperty<string>>? PhraseMatchers
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("phrase_matchers");
+        set => WithProperty("phrase_matchers", value);
+    }
+
+    /// <summary>
+    /// Whether to run the entity annotator.
+    /// </summary>
+    public TerraformProperty<bool>? RunEntityAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_entity_annotator");
+        set => WithProperty("run_entity_annotator", value);
+    }
+
+    /// <summary>
+    /// Whether to run the intent annotator.
+    /// </summary>
+    public TerraformProperty<bool>? RunIntentAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_intent_annotator");
+        set => WithProperty("run_intent_annotator", value);
+    }
+
+    /// <summary>
+    /// Whether to run the interruption annotator.
+    /// </summary>
+    public TerraformProperty<bool>? RunInterruptionAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_interruption_annotator");
+        set => WithProperty("run_interruption_annotator", value);
+    }
+
+    /// <summary>
+    /// Whether to run the issue model annotator. A model should have already been
+    /// deployed for this to take effect.
+    /// </summary>
+    public TerraformProperty<bool>? RunIssueModelAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_issue_model_annotator");
+        set => WithProperty("run_issue_model_annotator", value);
+    }
+
+    /// <summary>
+    /// Whether to run the active phrase matcher annotator(s).
+    /// </summary>
+    public TerraformProperty<bool>? RunPhraseMatcherAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_phrase_matcher_annotator");
+        set => WithProperty("run_phrase_matcher_annotator", value);
+    }
+
+    /// <summary>
+    /// Whether to run the QA annotator.
+    /// </summary>
+    public TerraformProperty<bool>? RunQaAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_qa_annotator");
+        set => WithProperty("run_qa_annotator", value);
+    }
+
+    /// <summary>
+    /// Whether to run the sentiment annotator.
+    /// </summary>
+    public TerraformProperty<bool>? RunSentimentAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_sentiment_annotator");
+        set => WithProperty("run_sentiment_annotator", value);
+    }
+
+    /// <summary>
+    /// Whether to run the silence annotator.
+    /// </summary>
+    public TerraformProperty<bool>? RunSilenceAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_silence_annotator");
+        set => WithProperty("run_silence_annotator", value);
+    }
+
+    /// <summary>
+    /// Whether to run the summarization annotator.
+    /// </summary>
+    public TerraformProperty<bool>? RunSummarizationAnnotator
+    {
+        get => GetProperty<TerraformProperty<bool>>("run_summarization_annotator");
+        set => WithProperty("run_summarization_annotator", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_contact_center_insights_analysis_rule resource.
 /// </summary>
 public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
@@ -75,7 +226,8 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// <summary>
     /// Location of the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -88,6 +240,27 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for annotator_selector.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnnotatorSelector block(s) allowed")]
+    public List<GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock>? AnnotatorSelector
+    {
+        get => GetProperty<List<GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock>>("annotator_selector");
+        set => this.WithProperty("annotator_selector", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

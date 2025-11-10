@@ -3,6 +3,57 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for client_certificate in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for server_validation_ca in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_security_client_tls_policy resource.
 /// </summary>
 public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
@@ -44,9 +95,9 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -63,7 +114,8 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     /// <summary>
     /// Name of the ClientTlsPolicy resource.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -85,6 +137,37 @@ public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("sni");
         set => this.WithProperty("sni", value);
+    }
+
+    /// <summary>
+    /// Block for client_certificate.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientCertificate block(s) allowed")]
+    public List<GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock>? ClientCertificate
+    {
+        get => GetProperty<List<GoogleNetworkSecurityClientTlsPolicyClientCertificateBlock>>("client_certificate");
+        set => this.WithProperty("client_certificate", value);
+    }
+
+    /// <summary>
+    /// Block for server_validation_ca.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock>? ServerValidationCa
+    {
+        get => GetProperty<List<GoogleNetworkSecurityClientTlsPolicyServerValidationCaBlock>>("server_validation_ca");
+        set => this.WithProperty("server_validation_ca", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

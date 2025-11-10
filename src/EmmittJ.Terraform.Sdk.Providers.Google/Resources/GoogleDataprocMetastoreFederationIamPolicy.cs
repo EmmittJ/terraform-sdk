@@ -20,7 +20,8 @@ public class GoogleDataprocMetastoreFederationIamPolicy : TerraformResource
     /// <summary>
     /// The federation_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FederationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FederationId is required")]
+    public required TerraformProperty<string> FederationId
     {
         get => GetProperty<TerraformProperty<string>>("federation_id");
         set => this.WithProperty("federation_id", value);
@@ -47,7 +48,8 @@ public class GoogleDataprocMetastoreFederationIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

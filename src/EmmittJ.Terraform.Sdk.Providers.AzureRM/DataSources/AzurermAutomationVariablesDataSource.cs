@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAutomationVariablesDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_automation_variables.
 /// </summary>
 public class AzurermAutomationVariablesDataSource : TerraformDataSource
@@ -26,7 +43,8 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AutomationAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
+    public required TerraformProperty<string> AutomationAccountId
     {
         get => GetProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
@@ -39,6 +57,16 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAutomationVariablesDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAutomationVariablesDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

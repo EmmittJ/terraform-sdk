@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVolumeAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_volume_attachment resource.
 /// </summary>
 public class AwsVolumeAttachment : TerraformResource
@@ -19,7 +45,8 @@ public class AwsVolumeAttachment : TerraformResource
     /// <summary>
     /// The device_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
+    public required TerraformProperty<string> DeviceName
     {
         get => GetProperty<TerraformProperty<string>>("device_name");
         set => this.WithProperty("device_name", value);
@@ -46,7 +73,8 @@ public class AwsVolumeAttachment : TerraformResource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -82,10 +110,21 @@ public class AwsVolumeAttachment : TerraformResource
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
+    public required TerraformProperty<string> VolumeId
     {
         get => GetProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVolumeAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVolumeAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

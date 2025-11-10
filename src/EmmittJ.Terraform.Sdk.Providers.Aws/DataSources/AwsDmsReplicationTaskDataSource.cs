@@ -48,7 +48,8 @@ public class AwsDmsReplicationTaskDataSource : TerraformDataSource
     /// <summary>
     /// The replication_task_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationTaskId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationTaskId is required")]
+    public required TerraformProperty<string> ReplicationTaskId
     {
         get => GetProperty<TerraformProperty<string>>("replication_task_id");
         set => this.WithProperty("replication_task_id", value);
@@ -57,9 +58,9 @@ public class AwsDmsReplicationTaskDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -3,6 +3,112 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for ethereum_details in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : TerraformBlock
+{
+    /// <summary>
+    /// User-provided key-value pairs
+    /// </summary>
+    public List<TerraformProperty<object>>? AdditionalEndpoints
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("additional_endpoints");
+        set => WithProperty("additional_endpoints", value);
+    }
+
+    /// <summary>
+    /// Enables JSON-RPC access to functions in the admin namespace. Defaults to false.
+    /// </summary>
+    public TerraformProperty<bool>? ApiEnableAdmin
+    {
+        get => GetProperty<TerraformProperty<bool>>("api_enable_admin");
+        set => WithProperty("api_enable_admin", value);
+    }
+
+    /// <summary>
+    /// Enables JSON-RPC access to functions in the debug namespace. Defaults to false.
+    /// </summary>
+    public TerraformProperty<bool>? ApiEnableDebug
+    {
+        get => GetProperty<TerraformProperty<bool>>("api_enable_debug");
+        set => WithProperty("api_enable_debug", value);
+    }
+
+    /// <summary>
+    /// The consensus client Possible values: [&amp;quot;CONSENSUS_CLIENT_UNSPECIFIED&amp;quot;, &amp;quot;LIGHTHOUSE&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? ConsensusClient
+    {
+        get => GetProperty<TerraformProperty<string>>("consensus_client");
+        set => WithProperty("consensus_client", value);
+    }
+
+    /// <summary>
+    /// The execution client Possible values: [&amp;quot;EXECUTION_CLIENT_UNSPECIFIED&amp;quot;, &amp;quot;GETH&amp;quot;, &amp;quot;ERIGON&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? ExecutionClient
+    {
+        get => GetProperty<TerraformProperty<string>>("execution_client");
+        set => WithProperty("execution_client", value);
+    }
+
+    /// <summary>
+    /// The Ethereum environment being accessed. Possible values: [&amp;quot;MAINNET&amp;quot;, &amp;quot;TESTNET_GOERLI_PRATER&amp;quot;, &amp;quot;TESTNET_SEPOLIA&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Network
+    {
+        get => GetProperty<TerraformProperty<string>>("network");
+        set => WithProperty("network", value);
+    }
+
+    /// <summary>
+    /// The type of Ethereum node. Possible values: [&amp;quot;LIGHT&amp;quot;, &amp;quot;FULL&amp;quot;, &amp;quot;ARCHIVE&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? NodeType
+    {
+        get => GetProperty<TerraformProperty<string>>("node_type");
+        set => WithProperty("node_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_blockchain_node_engine_blockchain_nodes resource.
 /// </summary>
 public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
@@ -25,7 +131,8 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     /// <summary>
     /// ID of the requesting object.
     /// </summary>
-    public TerraformProperty<string>? BlockchainNodeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockchainNodeId is required")]
+    public required TerraformProperty<string> BlockchainNodeId
     {
         get => GetProperty<TerraformProperty<string>>("blockchain_node_id");
         set => this.WithProperty("blockchain_node_id", value);
@@ -56,16 +163,17 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location of Blockchain Node being created.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -78,6 +186,27 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for ethereum_details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EthereumDetails block(s) allowed")]
+    public List<GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock>? EthereumDetails
+    {
+        get => GetProperty<List<GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock>>("ethereum_details");
+        set => this.WithProperty("ethereum_details", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

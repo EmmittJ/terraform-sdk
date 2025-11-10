@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaseAppCheckServiceConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebase_app_check_service_config resource.
 /// </summary>
 public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
@@ -80,10 +115,21 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     ///   firestore.googleapis.com (Cloud Firestore)
     ///   identitytoolkit.googleapis.com (Authentication)
     /// </summary>
-    public TerraformProperty<string>? ServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
+    public required TerraformProperty<string> ServiceId
     {
         get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaseAppCheckServiceConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaseAppCheckServiceConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

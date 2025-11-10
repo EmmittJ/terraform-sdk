@@ -38,7 +38,8 @@ public class AwsOdbDbServerDataSource : TerraformDataSource
     /// <summary>
     /// The identifier of the database server to retrieve information about.
     /// </summary>
-    public TerraformProperty<string>? CloudExadataInfrastructureId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
+    public required TerraformProperty<string> CloudExadataInfrastructureId
     {
         get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);
@@ -47,7 +48,8 @@ public class AwsOdbDbServerDataSource : TerraformDataSource
     /// <summary>
     /// The identifier of the the database server.
     /// </summary>
-    public TerraformProperty<string>? Id
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);

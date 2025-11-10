@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVmwareengineNetworkPeeringTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vmwareengine_network_peering resource.
 /// </summary>
 public class GoogleVmwareengineNetworkPeering : TerraformResource
@@ -79,7 +114,8 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     /// <summary>
     /// The ID of the Network Peering.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -89,7 +125,8 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     /// The relative resource name of the network to peer with a standard VMware Engine network.
     /// The provided network can be a consumer VPC network or another standard VMware Engine network.
     /// </summary>
-    public TerraformProperty<string>? PeerNetwork
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetwork is required")]
+    public required TerraformProperty<string> PeerNetwork
     {
         get => GetProperty<TerraformProperty<string>>("peer_network");
         set => this.WithProperty("peer_network", value);
@@ -98,7 +135,8 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     /// <summary>
     /// The type of the network to peer with the VMware Engine network. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;VMWARE_ENGINE_NETWORK&amp;quot;, &amp;quot;PRIVATE_SERVICES_ACCESS&amp;quot;, &amp;quot;NETAPP_CLOUD_VOLUMES&amp;quot;, &amp;quot;THIRD_PARTY_SERVICE&amp;quot;, &amp;quot;DELL_POWERSCALE&amp;quot;, &amp;quot;GOOGLE_CLOUD_NETAPP_VOLUMES&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? PeerNetworkType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkType is required")]
+    public required TerraformProperty<string> PeerNetworkType
     {
         get => GetProperty<TerraformProperty<string>>("peer_network_type");
         set => this.WithProperty("peer_network_type", value);
@@ -118,10 +156,21 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     /// projects/{project}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId} where {project}
     /// can either be a project number or a project ID.
     /// </summary>
-    public TerraformProperty<string>? VmwareEngineNetwork
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareEngineNetwork is required")]
+    public required TerraformProperty<string> VmwareEngineNetwork
     {
         get => GetProperty<TerraformProperty<string>>("vmware_engine_network");
         set => this.WithProperty("vmware_engine_network", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVmwareengineNetworkPeeringTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVmwareengineNetworkPeeringTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

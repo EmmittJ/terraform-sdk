@@ -3,6 +3,141 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for spec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAccessContextManagerServicePerimeterSpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// A list of AccessLevel resource names that allow resources within
+    /// the ServicePerimeter to be accessed from the internet.
+    /// AccessLevels listed must be in the same policy as this
+    /// ServicePerimeter. Referencing a nonexistent AccessLevel is a
+    /// syntax error. If no AccessLevel names are listed, resources within
+    /// the perimeter can only be accessed via GCP calls with request
+    /// origins within the perimeter. For Service Perimeter Bridge, must
+    /// be empty.
+    /// 
+    /// Format: accessPolicies/{policy_id}/accessLevels/{access_level_name}
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AccessLevels
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("access_levels");
+        set => WithProperty("access_levels", value);
+    }
+
+    /// <summary>
+    /// A list of GCP resources that are inside of the service perimeter.
+    /// Currently only projects are allowed.
+    /// Format: projects/{project_number}
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Resources
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
+        set => WithProperty("resources", value);
+    }
+
+    /// <summary>
+    /// GCP services that are subject to the Service Perimeter
+    /// restrictions. Must contain a list of services. For example, if
+    /// &#39;storage.googleapis.com&#39; is specified, access to the storage
+    /// buckets inside the perimeter must meet the perimeter&#39;s access
+    /// restrictions.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? RestrictedServices
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("restricted_services");
+        set => WithProperty("restricted_services", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for status in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleAccessContextManagerServicePerimeterStatusBlock : TerraformBlock
+{
+    /// <summary>
+    /// A list of AccessLevel resource names that allow resources within
+    /// the ServicePerimeter to be accessed from the internet.
+    /// AccessLevels listed must be in the same policy as this
+    /// ServicePerimeter. Referencing a nonexistent AccessLevel is a
+    /// syntax error. If no AccessLevel names are listed, resources within
+    /// the perimeter can only be accessed via GCP calls with request
+    /// origins within the perimeter. For Service Perimeter Bridge, must
+    /// be empty.
+    /// 
+    /// Format: accessPolicies/{policy_id}/accessLevels/{access_level_name}
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AccessLevels
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("access_levels");
+        set => WithProperty("access_levels", value);
+    }
+
+    /// <summary>
+    /// A list of GCP resources that are inside of the service perimeter.
+    /// Currently only projects are allowed.
+    /// Format: projects/{project_number}
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Resources
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
+        set => WithProperty("resources", value);
+    }
+
+    /// <summary>
+    /// GCP services that are subject to the Service Perimeter
+    /// restrictions. Must contain a list of services. For example, if
+    /// &#39;storage.googleapis.com&#39; is specified, access to the storage
+    /// buckets inside the perimeter must meet the perimeter&#39;s access
+    /// restrictions.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? RestrictedServices
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("restricted_services");
+        set => WithProperty("restricted_services", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleAccessContextManagerServicePerimeterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_access_context_manager_service_perimeter resource.
 /// </summary>
 public class GoogleAccessContextManagerServicePerimeter : TerraformResource
@@ -42,7 +177,8 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// begin with a letter and only include alphanumeric and &#39;_&#39;.
     /// Format: accessPolicies/{policy_id}/servicePerimeters/{short_name}
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -52,7 +188,8 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// The AccessPolicy this ServicePerimeter lives in.
     /// Format: accessPolicies/{policy_id}
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -85,7 +222,8 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
     /// </summary>
-    public TerraformProperty<string>? Title
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
     {
         get => GetProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
@@ -106,6 +244,38 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("use_explicit_dry_run_spec");
         set => this.WithProperty("use_explicit_dry_run_spec", value);
+    }
+
+    /// <summary>
+    /// Block for spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
+    public List<GoogleAccessContextManagerServicePerimeterSpecBlock>? Spec
+    {
+        get => GetProperty<List<GoogleAccessContextManagerServicePerimeterSpecBlock>>("spec");
+        set => this.WithProperty("spec", value);
+    }
+
+    /// <summary>
+    /// Block for status.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Status block(s) allowed")]
+    public List<GoogleAccessContextManagerServicePerimeterStatusBlock>? Status
+    {
+        get => GetProperty<List<GoogleAccessContextManagerServicePerimeterStatusBlock>>("status");
+        set => this.WithProperty("status", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleAccessContextManagerServicePerimeterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleAccessContextManagerServicePerimeterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

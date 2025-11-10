@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLbTrustStoreTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lb_trust_store resource.
 /// </summary>
 public class AwsLbTrustStore : TerraformResource
@@ -21,7 +47,8 @@ public class AwsLbTrustStore : TerraformResource
     /// <summary>
     /// The ca_certificates_bundle_s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? CaCertificatesBundleS3Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatesBundleS3Bucket is required")]
+    public required TerraformProperty<string> CaCertificatesBundleS3Bucket
     {
         get => GetProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_bucket");
         set => this.WithProperty("ca_certificates_bundle_s3_bucket", value);
@@ -30,7 +57,8 @@ public class AwsLbTrustStore : TerraformResource
     /// <summary>
     /// The ca_certificates_bundle_s3_key attribute.
     /// </summary>
-    public TerraformProperty<string>? CaCertificatesBundleS3Key
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatesBundleS3Key is required")]
+    public required TerraformProperty<string> CaCertificatesBundleS3Key
     {
         get => GetProperty<TerraformProperty<string>>("ca_certificates_bundle_s3_key");
         set => this.WithProperty("ca_certificates_bundle_s3_key", value);
@@ -84,19 +112,29 @@ public class AwsLbTrustStore : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLbTrustStoreTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLbTrustStoreTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

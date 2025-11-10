@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for terms in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouterRoutePolicyTermsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The evaluation priority for this term, which must be between 0 (inclusive) and 231 (exclusive), and unique within the list.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRouterRoutePolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_router_route_policy resource.
 /// </summary>
 public class GoogleComputeRouterRoutePolicy : TerraformResource
@@ -29,7 +82,8 @@ public class GoogleComputeRouterRoutePolicy : TerraformResource
     /// <summary>
     /// Name of the route policy. This policy&#39;s name, which must be a resource ID segment and unique within all policies owned by the Router
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,7 +110,8 @@ public class GoogleComputeRouterRoutePolicy : TerraformResource
     /// <summary>
     /// The name of the Cloud Router in which this route policy will be configured.
     /// </summary>
-    public TerraformProperty<string>? Router
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
+    public required TerraformProperty<string> Router
     {
         get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
@@ -69,6 +124,27 @@ public class GoogleComputeRouterRoutePolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for terms.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Terms block(s) required")]
+    public List<GoogleComputeRouterRoutePolicyTermsBlock>? Terms
+    {
+        get => GetProperty<List<GoogleComputeRouterRoutePolicyTermsBlock>>("terms");
+        set => this.WithProperty("terms", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRouterRoutePolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRouterRoutePolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

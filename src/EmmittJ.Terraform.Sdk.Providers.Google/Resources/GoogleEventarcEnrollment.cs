@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEventarcEnrollmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_eventarc_enrollment resource.
 /// </summary>
 public class GoogleEventarcEnrollment : TerraformResource
@@ -30,16 +65,17 @@ public class GoogleEventarcEnrollment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// A CEL expression identifying which messages this enrollment applies to.
     /// </summary>
-    public TerraformProperty<string>? CelMatch
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CelMatch is required")]
+    public required TerraformProperty<string> CelMatch
     {
         get => GetProperty<TerraformProperty<string>>("cel_match");
         set => this.WithProperty("cel_match", value);
@@ -50,7 +86,8 @@ public class GoogleEventarcEnrollment : TerraformResource
     /// point to the full resource name of a Pipeline. Format:
     /// &amp;quot;projects/{PROJECT_ID}/locations/{region}/pipelines/{PIPELINE_ID)&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? Destination
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
+    public required TerraformProperty<string> Destination
     {
         get => GetProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
@@ -69,7 +106,8 @@ public class GoogleEventarcEnrollment : TerraformResource
     /// The user-provided ID to be assigned to the Enrollment. It should match the
     /// format &#39;^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$&#39;.
     /// </summary>
-    public TerraformProperty<string>? EnrollmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrollmentId is required")]
+    public required TerraformProperty<string> EnrollmentId
     {
         get => GetProperty<TerraformProperty<string>>("enrollment_id");
         set => this.WithProperty("enrollment_id", value);
@@ -90,16 +128,17 @@ public class GoogleEventarcEnrollment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -110,7 +149,8 @@ public class GoogleEventarcEnrollment : TerraformResource
     /// matches the form
     /// projects/{project}/locations/{location}/messageBuses/{messageBus}.
     /// </summary>
-    public TerraformProperty<string>? MessageBus
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageBus is required")]
+    public required TerraformProperty<string> MessageBus
     {
         get => GetProperty<TerraformProperty<string>>("message_bus");
         set => this.WithProperty("message_bus", value);
@@ -123,6 +163,16 @@ public class GoogleEventarcEnrollment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEventarcEnrollmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEventarcEnrollmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

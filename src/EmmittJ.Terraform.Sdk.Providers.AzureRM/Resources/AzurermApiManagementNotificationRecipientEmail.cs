@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApiManagementNotificationRecipientEmailTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_api_management_notification_recipient_email resource.
 /// </summary>
 public class AzurermApiManagementNotificationRecipientEmail : TerraformResource
@@ -19,7 +54,8 @@ public class AzurermApiManagementNotificationRecipientEmail : TerraformResource
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiManagementId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
+    public required TerraformProperty<string> ApiManagementId
     {
         get => GetProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
@@ -28,7 +64,8 @@ public class AzurermApiManagementNotificationRecipientEmail : TerraformResource
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string>? Email
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
+    public required TerraformProperty<string> Email
     {
         get => GetProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
@@ -46,10 +83,21 @@ public class AzurermApiManagementNotificationRecipientEmail : TerraformResource
     /// <summary>
     /// The notification_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
+    public required TerraformProperty<string> NotificationType
     {
         get => GetProperty<TerraformProperty<string>>("notification_type");
         set => this.WithProperty("notification_type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApiManagementNotificationRecipientEmailTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApiManagementNotificationRecipientEmailTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for oauth2_provider_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_bedrockagentcore_oauth2_credential_provider resource.
 /// </summary>
 public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
@@ -21,7 +29,8 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     /// <summary>
     /// The credential_provider_vendor attribute.
     /// </summary>
-    public TerraformProperty<string>? CredentialProviderVendor
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialProviderVendor is required")]
+    public required TerraformProperty<string> CredentialProviderVendor
     {
         get => GetProperty<TerraformProperty<string>>("credential_provider_vendor");
         set => this.WithProperty("credential_provider_vendor", value);
@@ -30,7 +39,8 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -43,6 +53,16 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for oauth2_provider_config.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock>? Oauth2ProviderConfig
+    {
+        get => GetProperty<List<AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBlock>>("oauth2_provider_config");
+        set => this.WithProperty("oauth2_provider_config", value);
     }
 
     /// <summary>

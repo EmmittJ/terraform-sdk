@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for logging_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEventarcGoogleApiSourceLoggingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The minimum severity of logs that will be sent to Stackdriver/Platform
+    /// Telemetry. Logs at severitiy ≥ this value will be sent, unless it is NONE. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;NOTICE&amp;quot;, &amp;quot;WARNING&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;, &amp;quot;ALERT&amp;quot;, &amp;quot;EMERGENCY&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? LogSeverity
+    {
+        get => GetProperty<TerraformProperty<string>>("log_severity");
+        set => WithProperty("log_severity", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEventarcGoogleApiSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_eventarc_google_api_source resource.
 /// </summary>
 public class GoogleEventarcGoogleApiSource : TerraformResource
@@ -30,9 +83,9 @@ public class GoogleEventarcGoogleApiSource : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -54,7 +107,8 @@ public class GoogleEventarcGoogleApiSource : TerraformResource
     /// It must be point to the full resource name of a MessageBus. Format:
     /// &amp;quot;projects/{PROJECT_ID}/locations/{region}/messagesBuses/{MESSAGE_BUS_ID)
     /// </summary>
-    public TerraformProperty<string>? Destination
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
+    public required TerraformProperty<string> Destination
     {
         get => GetProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
@@ -73,7 +127,8 @@ public class GoogleEventarcGoogleApiSource : TerraformResource
     /// The user-provided ID to be assigned to the GoogleApiSource. It should match
     /// the format &#39;^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$&#39;.
     /// </summary>
-    public TerraformProperty<string>? GoogleApiSourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GoogleApiSourceId is required")]
+    public required TerraformProperty<string> GoogleApiSourceId
     {
         get => GetProperty<TerraformProperty<string>>("google_api_source_id");
         set => this.WithProperty("google_api_source_id", value);
@@ -94,16 +149,17 @@ public class GoogleEventarcGoogleApiSource : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -116,6 +172,27 @@ public class GoogleEventarcGoogleApiSource : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for logging_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
+    public List<GoogleEventarcGoogleApiSourceLoggingConfigBlock>? LoggingConfig
+    {
+        get => GetProperty<List<GoogleEventarcGoogleApiSourceLoggingConfigBlock>>("logging_config");
+        set => this.WithProperty("logging_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEventarcGoogleApiSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEventarcGoogleApiSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for log_delivery_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsTimestreaminfluxdbDbInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_timestreaminfluxdb_db_instance resource.
 /// </summary>
 public class AwsTimestreaminfluxdbDbInstance : TerraformResource
@@ -26,7 +69,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// <summary>
     /// The amount of storage to allocate for your DB storage type in GiB (gibibytes).
     /// </summary>
-    public TerraformProperty<double>? AllocatedStorage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocatedStorage is required")]
+    public required TerraformProperty<double> AllocatedStorage
     {
         get => GetProperty<TerraformProperty<double>>("allocated_storage");
         set => this.WithProperty("allocated_storage", value);
@@ -37,7 +81,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// 					A bucket combines the concept of a database and a retention period (the duration of time 
     /// 					that each data point persists). A bucket belongs to an organization.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -46,7 +91,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// <summary>
     /// The Timestream for InfluxDB DB instance type to run InfluxDB on.
     /// </summary>
-    public TerraformProperty<string>? DbInstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceType is required")]
+    public required TerraformProperty<string> DbInstanceType
     {
         get => GetProperty<TerraformProperty<string>>("db_instance_type");
         set => this.WithProperty("db_instance_type", value);
@@ -89,7 +135,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// 					prefix included in the endpoint. DB instance names must be unique per customer 
     /// 					and per region.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -110,7 +157,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// The name of the initial organization for the initial admin user in InfluxDB. An 
     /// 					InfluxDB organization is a workspace for a group of users.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -122,7 +170,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// 					also use the InfluxDB CLI to create an operator token. These attributes will be 
     /// 					stored in a Secret created in AWS SecretManager in your account.
     /// </summary>
-    public TerraformProperty<string>? Password
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
@@ -158,9 +207,9 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -173,7 +222,8 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// 					attributes will be stored in a Secret created in Amazon Secrets 
     /// 					Manager in your account
     /// </summary>
-    public TerraformProperty<string>? Username
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
     {
         get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
@@ -182,9 +232,10 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// <summary>
     /// A list of VPC security group IDs to associate with the DB instance.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSecurityGroupIds is required")]
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 
@@ -192,10 +243,31 @@ public class AwsTimestreaminfluxdbDbInstance : TerraformResource
     /// A list of VPC subnet IDs to associate with the DB instance. Provide at least 
     /// 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? VpcSubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_subnet_ids");
         set => this.WithProperty("vpc_subnet_ids", value);
+    }
+
+    /// <summary>
+    /// Block for log_delivery_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock>? LogDeliveryConfiguration
+    {
+        get => GetProperty<List<AwsTimestreaminfluxdbDbInstanceLogDeliveryConfigurationBlock>>("log_delivery_configuration");
+        set => this.WithProperty("log_delivery_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsTimestreaminfluxdbDbInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsTimestreaminfluxdbDbInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for name_node in .
+/// Nesting mode: set
+/// </summary>
+public class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The hostname attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
+    public required TerraformProperty<string> Hostname
+    {
+        get => GetProperty<TerraformProperty<string>>("hostname");
+        set => WithProperty("hostname", value);
+    }
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformProperty<double> Port
+    {
+        get => GetProperty<TerraformProperty<double>>("port");
+        set => WithProperty("port", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for qop_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDatasyncLocationHdfsQopConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The data_transfer_protection attribute.
+    /// </summary>
+    public TerraformProperty<string>? DataTransferProtection
+    {
+        get => GetProperty<TerraformProperty<string>>("data_transfer_protection");
+        set => WithProperty("data_transfer_protection", value);
+    }
+
+    /// <summary>
+    /// The rpc_protection attribute.
+    /// </summary>
+    public TerraformProperty<string>? RpcProtection
+    {
+        get => GetProperty<TerraformProperty<string>>("rpc_protection");
+        set => WithProperty("rpc_protection", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_datasync_location_hdfs resource.
 /// </summary>
 public class AwsDatasyncLocationHdfs : TerraformResource
@@ -21,9 +75,10 @@ public class AwsDatasyncLocationHdfs : TerraformResource
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AgentArns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
+    public HashSet<TerraformProperty<string>>? AgentArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("agent_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("agent_arns");
         set => this.WithProperty("agent_arns", value);
     }
 
@@ -147,19 +202,41 @@ public class AwsDatasyncLocationHdfs : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for name_node.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NameNode block(s) required")]
+    public HashSet<AwsDatasyncLocationHdfsNameNodeBlock>? NameNode
+    {
+        get => GetProperty<HashSet<AwsDatasyncLocationHdfsNameNodeBlock>>("name_node");
+        set => this.WithProperty("name_node", value);
+    }
+
+    /// <summary>
+    /// Block for qop_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QopConfiguration block(s) allowed")]
+    public List<AwsDatasyncLocationHdfsQopConfigurationBlock>? QopConfiguration
+    {
+        get => GetProperty<List<AwsDatasyncLocationHdfsQopConfigurationBlock>>("qop_configuration");
+        set => this.WithProperty("qop_configuration", value);
     }
 
     /// <summary>

@@ -27,7 +27,8 @@ public class AwsLicensemanagerGrantAccepter : TerraformResource
     /// <summary>
     /// Amazon Resource Name (ARN) of the grant.
     /// </summary>
-    public TerraformProperty<string>? GrantArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrantArn is required")]
+    public required TerraformProperty<string> GrantArn
     {
         get => GetProperty<TerraformProperty<string>>("grant_arn");
         set => this.WithProperty("grant_arn", value);

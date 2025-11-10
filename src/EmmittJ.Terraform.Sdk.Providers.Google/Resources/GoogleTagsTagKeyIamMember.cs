@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleTagsTagKeyIamMemberConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The title attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_tags_tag_key_iam_member resource.
 /// </summary>
 public class GoogleTagsTagKeyIamMember : TerraformResource
@@ -29,7 +66,8 @@ public class GoogleTagsTagKeyIamMember : TerraformResource
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public TerraformProperty<string>? Member
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
+    public required TerraformProperty<string> Member
     {
         get => GetProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
@@ -38,7 +76,8 @@ public class GoogleTagsTagKeyIamMember : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
@@ -47,10 +86,22 @@ public class GoogleTagsTagKeyIamMember : TerraformResource
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
-    public TerraformProperty<string>? TagKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
+    public required TerraformProperty<string> TagKey
     {
         get => GetProperty<TerraformProperty<string>>("tag_key");
         set => this.WithProperty("tag_key", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleTagsTagKeyIamMemberConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleTagsTagKeyIamMemberConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>

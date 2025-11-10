@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDbSnapshotCopyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_db_snapshot_copy resource.
 /// </summary>
 public class AwsDbSnapshotCopy : TerraformResource
@@ -95,16 +112,17 @@ public class AwsDbSnapshotCopy : TerraformResource
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SharedAccounts
+    public HashSet<TerraformProperty<string>>? SharedAccounts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("shared_accounts");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("shared_accounts");
         set => this.WithProperty("shared_accounts", value);
     }
 
     /// <summary>
     /// The source_db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceDbSnapshotIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbSnapshotIdentifier is required")]
+    public required TerraformProperty<string> SourceDbSnapshotIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("source_db_snapshot_identifier");
         set => this.WithProperty("source_db_snapshot_identifier", value);
@@ -113,18 +131,18 @@ public class AwsDbSnapshotCopy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -140,10 +158,21 @@ public class AwsDbSnapshotCopy : TerraformResource
     /// <summary>
     /// The target_db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetDbSnapshotIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDbSnapshotIdentifier is required")]
+    public required TerraformProperty<string> TargetDbSnapshotIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("target_db_snapshot_identifier");
         set => this.WithProperty("target_db_snapshot_identifier", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDbSnapshotCopyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDbSnapshotCopyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -20,7 +20,8 @@ public class GoogleDataprocClusterIamPolicy : TerraformResource
     /// <summary>
     /// The cluster attribute.
     /// </summary>
-    public TerraformProperty<string>? Cluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
+    public required TerraformProperty<string> Cluster
     {
         get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
@@ -38,7 +39,8 @@ public class GoogleDataprocClusterIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

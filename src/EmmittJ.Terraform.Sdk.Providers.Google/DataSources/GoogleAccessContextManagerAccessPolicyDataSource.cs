@@ -30,7 +30,8 @@ public class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSou
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -39,9 +40,9 @@ public class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSou
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Scopes
+    public List<TerraformProperty<string>>? Scopes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("scopes");
+        get => GetProperty<List<TerraformProperty<string>>>("scopes");
         set => this.WithProperty("scopes", value);
     }
 

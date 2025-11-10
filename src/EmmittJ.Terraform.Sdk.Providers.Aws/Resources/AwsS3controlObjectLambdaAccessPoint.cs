@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3controlObjectLambdaAccessPointConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allowed_features attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowedFeatures
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_features");
+        set => WithProperty("allowed_features", value);
+    }
+
+    /// <summary>
+    /// The cloud_watch_metrics_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? CloudWatchMetricsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("cloud_watch_metrics_enabled");
+        set => WithProperty("cloud_watch_metrics_enabled", value);
+    }
+
+    /// <summary>
+    /// The supporting_access_point attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportingAccessPoint is required")]
+    public required TerraformProperty<string> SupportingAccessPoint
+    {
+        get => GetProperty<TerraformProperty<string>>("supporting_access_point");
+        set => WithProperty("supporting_access_point", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3control_object_lambda_access_point resource.
 /// </summary>
 public class AwsS3controlObjectLambdaAccessPoint : TerraformResource
@@ -39,7 +75,8 @@ public class AwsS3controlObjectLambdaAccessPoint : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -52,6 +89,18 @@ public class AwsS3controlObjectLambdaAccessPoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
+    public List<AwsS3controlObjectLambdaAccessPointConfigurationBlock>? Configuration
+    {
+        get => GetProperty<List<AwsS3controlObjectLambdaAccessPointConfigurationBlock>>("configuration");
+        set => this.WithProperty("configuration", value);
     }
 
     /// <summary>

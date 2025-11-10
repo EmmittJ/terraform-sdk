@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNetworkInterfaceSgAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_network_interface_sg_attachment resource.
 /// </summary>
 public class AwsNetworkInterfaceSgAttachment : TerraformResource
@@ -28,7 +63,8 @@ public class AwsNetworkInterfaceSgAttachment : TerraformResource
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterfaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
+    public required TerraformProperty<string> NetworkInterfaceId
     {
         get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
@@ -46,10 +82,21 @@ public class AwsNetworkInterfaceSgAttachment : TerraformResource
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
+    public required TerraformProperty<string> SecurityGroupId
     {
         get => GetProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNetworkInterfaceSgAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNetworkInterfaceSgAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

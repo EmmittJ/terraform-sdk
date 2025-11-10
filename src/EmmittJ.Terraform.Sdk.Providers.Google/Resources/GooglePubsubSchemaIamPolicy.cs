@@ -29,7 +29,8 @@ public class GooglePubsubSchemaIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
@@ -47,7 +48,8 @@ public class GooglePubsubSchemaIamPolicy : TerraformResource
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public TerraformProperty<string>? Schema
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
+    public required TerraformProperty<string> Schema
     {
         get => GetProperty<TerraformProperty<string>>("schema");
         set => this.WithProperty("schema", value);

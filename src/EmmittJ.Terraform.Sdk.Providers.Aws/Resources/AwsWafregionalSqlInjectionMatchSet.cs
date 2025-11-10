@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for sql_injection_match_tuple in .
+/// Nesting mode: set
+/// </summary>
+public class AwsWafregionalSqlInjectionMatchSetSqlInjectionMatchTupleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The text_transformation attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
+    public required TerraformProperty<string> TextTransformation
+    {
+        get => GetProperty<TerraformProperty<string>>("text_transformation");
+        set => WithProperty("text_transformation", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_wafregional_sql_injection_match_set resource.
 /// </summary>
 public class AwsWafregionalSqlInjectionMatchSet : TerraformResource
@@ -28,7 +46,8 @@ public class AwsWafregionalSqlInjectionMatchSet : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,6 +60,16 @@ public class AwsWafregionalSqlInjectionMatchSet : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for sql_injection_match_tuple.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsWafregionalSqlInjectionMatchSetSqlInjectionMatchTupleBlock>? SqlInjectionMatchTuple
+    {
+        get => GetProperty<HashSet<AwsWafregionalSqlInjectionMatchSetSqlInjectionMatchTupleBlock>>("sql_injection_match_tuple");
+        set => this.WithProperty("sql_injection_match_tuple", value);
     }
 
 }

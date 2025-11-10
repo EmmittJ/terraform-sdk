@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_application_permission_scope resource.
 /// </summary>
 public class AzureadApplicationPermissionScope : TerraformResource
@@ -19,7 +63,8 @@ public class AzureadApplicationPermissionScope : TerraformResource
     /// <summary>
     /// Delegated permission description that appears in all tenant-wide admin consent experiences, intended to be read by an administrator granting the permission on behalf of all users
     /// </summary>
-    public TerraformProperty<string>? AdminConsentDescription
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDescription is required")]
+    public required TerraformProperty<string> AdminConsentDescription
     {
         get => GetProperty<TerraformProperty<string>>("admin_consent_description");
         set => this.WithProperty("admin_consent_description", value);
@@ -28,7 +73,8 @@ public class AzureadApplicationPermissionScope : TerraformResource
     /// <summary>
     /// Display name for the delegated permission, intended to be read by an administrator granting the permission on behalf of all users
     /// </summary>
-    public TerraformProperty<string>? AdminConsentDisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDisplayName is required")]
+    public required TerraformProperty<string> AdminConsentDisplayName
     {
         get => GetProperty<TerraformProperty<string>>("admin_consent_display_name");
         set => this.WithProperty("admin_consent_display_name", value);
@@ -37,7 +83,8 @@ public class AzureadApplicationPermissionScope : TerraformResource
     /// <summary>
     /// The resource ID of the application to which this permission scope should be applied
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -55,7 +102,8 @@ public class AzureadApplicationPermissionScope : TerraformResource
     /// <summary>
     /// The unique identifier of the permission scope
     /// </summary>
-    public TerraformProperty<string>? ScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
+    public required TerraformProperty<string> ScopeId
     {
         get => GetProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
@@ -91,10 +139,21 @@ public class AzureadApplicationPermissionScope : TerraformResource
     /// <summary>
     /// The value that is used for the `scp` claim in OAuth access tokens
     /// </summary>
-    public TerraformProperty<string>? Value
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
     {
         get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadApplicationPermissionScopeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadApplicationPermissionScopeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

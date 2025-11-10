@@ -20,7 +20,8 @@ public class AwsRedshiftSnapshotCopy : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -29,7 +30,8 @@ public class AwsRedshiftSnapshotCopy : TerraformResource
     /// <summary>
     /// The destination_region attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationRegion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
+    public required TerraformProperty<string> DestinationRegion
     {
         get => GetProperty<TerraformProperty<string>>("destination_region");
         set => this.WithProperty("destination_region", value);

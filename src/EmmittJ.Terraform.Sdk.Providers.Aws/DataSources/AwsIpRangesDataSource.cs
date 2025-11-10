@@ -32,18 +32,19 @@ public class AwsIpRangesDataSource : TerraformDataSource
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Regions
+    public HashSet<TerraformProperty<string>>? Regions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("regions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The services attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Services
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Services is required")]
+    public HashSet<TerraformProperty<string>>? Services
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("services");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("services");
         set => this.WithProperty("services", value);
     }
 

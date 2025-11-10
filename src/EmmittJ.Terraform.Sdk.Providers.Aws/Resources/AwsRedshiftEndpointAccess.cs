@@ -22,7 +22,8 @@ public class AwsRedshiftEndpointAccess : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -31,7 +32,8 @@ public class AwsRedshiftEndpointAccess : TerraformResource
     /// <summary>
     /// The endpoint_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointName is required")]
+    public required TerraformProperty<string> EndpointName
     {
         get => GetProperty<TerraformProperty<string>>("endpoint_name");
         set => this.WithProperty("endpoint_name", value);
@@ -67,7 +69,8 @@ public class AwsRedshiftEndpointAccess : TerraformResource
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetGroupName is required")]
+    public required TerraformProperty<string> SubnetGroupName
     {
         get => GetProperty<TerraformProperty<string>>("subnet_group_name");
         set => this.WithProperty("subnet_group_name", value);
@@ -76,9 +79,9 @@ public class AwsRedshiftEndpointAccess : TerraformResource
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 

@@ -3,6 +3,101 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for preferred_member_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ID of the entity.
+    /// 
+    /// For Google-managed entities, the id must be the email address of an existing
+    /// group or user.
+    /// 
+    /// For external-identity-mapped entities, the id must be a string conforming
+    /// to the Identity Source&#39;s requirements.
+    /// 
+    /// Must be unique within a namespace.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The namespace in which the entity exists.
+    /// 
+    /// If not specified, the EntityKey represents a Google-managed entity
+    /// such as a Google user or a Google Group.
+    /// 
+    /// If specified, the EntityKey represents an external-identity-mapped group.
+    /// The namespace must correspond to an identity source created in Admin Console
+    /// and must be in the form of &#39;identitysources/{identity_source_id}&#39;.
+    /// </summary>
+    public TerraformProperty<string>? Namespace
+    {
+        get => GetProperty<TerraformProperty<string>>("namespace");
+        set => WithProperty("namespace", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for roles in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleCloudIdentityGroupMembershipRolesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the MembershipRole. Must be one of OWNER, MANAGER, MEMBER. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;MANAGER&amp;quot;, &amp;quot;MEMBER&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_cloud_identity_group_membership resource.
 /// </summary>
 public class GoogleCloudIdentityGroupMembership : TerraformResource
@@ -32,7 +127,8 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     /// <summary>
     /// The name of the Group to create this membership in.
     /// </summary>
-    public TerraformProperty<string>? Group
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
+    public required TerraformProperty<string> Group
     {
         get => GetProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
@@ -45,6 +141,38 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for preferred_member_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreferredMemberKey block(s) allowed")]
+    public List<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>? PreferredMemberKey
+    {
+        get => GetProperty<List<GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock>>("preferred_member_key");
+        set => this.WithProperty("preferred_member_key", value);
+    }
+
+    /// <summary>
+    /// Block for roles.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
+    public HashSet<GoogleCloudIdentityGroupMembershipRolesBlock>? Roles
+    {
+        get => GetProperty<HashSet<GoogleCloudIdentityGroupMembershipRolesBlock>>("roles");
+        set => this.WithProperty("roles", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCloudIdentityGroupMembershipTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCloudIdentityGroupMembershipTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

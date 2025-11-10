@@ -48,7 +48,8 @@ public class GoogleDataCatalogTagTemplateIamPolicyDataSource : TerraformDataSour
     /// <summary>
     /// The tag_template attribute.
     /// </summary>
-    public TerraformProperty<string>? TagTemplate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagTemplate is required")]
+    public required TerraformProperty<string> TagTemplate
     {
         get => GetProperty<TerraformProperty<string>>("tag_template");
         set => this.WithProperty("tag_template", value);

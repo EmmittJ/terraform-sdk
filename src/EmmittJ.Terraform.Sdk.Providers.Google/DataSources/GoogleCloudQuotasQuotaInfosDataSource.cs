@@ -29,7 +29,8 @@ public class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -38,7 +39,8 @@ public class GoogleCloudQuotasQuotaInfosDataSource : TerraformDataSource
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public TerraformProperty<string>? Service
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
+    public required TerraformProperty<string> Service
     {
         get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);

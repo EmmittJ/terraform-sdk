@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeInstanceGroupMembershipTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_instance_group_membership resource.
 /// </summary>
 public class GoogleComputeInstanceGroupMembership : TerraformResource
@@ -28,7 +54,8 @@ public class GoogleComputeInstanceGroupMembership : TerraformResource
     /// <summary>
     /// An instance being added to the InstanceGroup
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -37,7 +64,8 @@ public class GoogleComputeInstanceGroupMembership : TerraformResource
     /// <summary>
     /// Represents an Instance Group resource name that the instance belongs to.
     /// </summary>
-    public TerraformProperty<string>? InstanceGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroup is required")]
+    public required TerraformProperty<string> InstanceGroup
     {
         get => GetProperty<TerraformProperty<string>>("instance_group");
         set => this.WithProperty("instance_group", value);
@@ -59,6 +87,16 @@ public class GoogleComputeInstanceGroupMembership : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeInstanceGroupMembershipTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeInstanceGroupMembershipTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

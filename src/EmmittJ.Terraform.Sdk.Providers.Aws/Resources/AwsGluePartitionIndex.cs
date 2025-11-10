@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for partition_index in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGluePartitionIndexPartitionIndexBlock : TerraformBlock
+{
+    /// <summary>
+    /// The index_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? IndexName
+    {
+        get => GetProperty<TerraformProperty<string>>("index_name");
+        set => WithProperty("index_name", value);
+    }
+
+    /// <summary>
+    /// The index_status attribute.
+    /// </summary>
+    public TerraformProperty<string>? IndexStatus
+    {
+        get => GetProperty<TerraformProperty<string>>("index_status");
+        set => WithProperty("index_status", value);
+    }
+
+    /// <summary>
+    /// The keys attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Keys
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("keys");
+        set => WithProperty("keys", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsGluePartitionIndexTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_glue_partition_index resource.
 /// </summary>
 public class AwsGluePartitionIndex : TerraformResource
@@ -28,7 +89,8 @@ public class AwsGluePartitionIndex : TerraformResource
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformProperty<string> DatabaseName
     {
         get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
@@ -55,10 +117,33 @@ public class AwsGluePartitionIndex : TerraformResource
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
+    public required TerraformProperty<string> TableName
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
+    }
+
+    /// <summary>
+    /// Block for partition_index.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartitionIndex block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PartitionIndex block(s) allowed")]
+    public List<AwsGluePartitionIndexPartitionIndexBlock>? PartitionIndex
+    {
+        get => GetProperty<List<AwsGluePartitionIndexPartitionIndexBlock>>("partition_index");
+        set => this.WithProperty("partition_index", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsGluePartitionIndexTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsGluePartitionIndexTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

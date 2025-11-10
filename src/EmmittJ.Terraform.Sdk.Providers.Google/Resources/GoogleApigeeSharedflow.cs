@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeSharedflowTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_sharedflow resource.
 /// </summary>
 public class GoogleApigeeSharedflow : TerraformResource
@@ -23,7 +58,8 @@ public class GoogleApigeeSharedflow : TerraformResource
     /// <summary>
     /// Path to the config zip bundle
     /// </summary>
-    public TerraformProperty<string>? ConfigBundle
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigBundle is required")]
+    public required TerraformProperty<string> ConfigBundle
     {
         get => GetProperty<TerraformProperty<string>>("config_bundle");
         set => this.WithProperty("config_bundle", value);
@@ -50,7 +86,8 @@ public class GoogleApigeeSharedflow : TerraformResource
     /// <summary>
     /// The ID of the shared flow.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -59,10 +96,21 @@ public class GoogleApigeeSharedflow : TerraformResource
     /// <summary>
     /// The Apigee Organization name associated with the Apigee instance.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeSharedflowTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeSharedflowTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

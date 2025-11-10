@@ -30,7 +30,8 @@ public class GoogleContainerAnalysisNoteIamPolicyDataSource : TerraformDataSourc
     /// <summary>
     /// The note attribute.
     /// </summary>
-    public TerraformProperty<string>? Note
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Note is required")]
+    public required TerraformProperty<string> Note
     {
         get => GetProperty<TerraformProperty<string>>("note");
         set => this.WithProperty("note", value);

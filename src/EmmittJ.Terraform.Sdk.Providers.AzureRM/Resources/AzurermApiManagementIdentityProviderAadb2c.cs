@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_api_management_identity_provider_aadb2c resource.
 /// </summary>
 public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The allowed_tenant attribute.
     /// </summary>
-    public TerraformProperty<string>? AllowedTenant
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedTenant is required")]
+    public required TerraformProperty<string> AllowedTenant
     {
         get => GetProperty<TerraformProperty<string>>("allowed_tenant");
         set => this.WithProperty("allowed_tenant", value);
@@ -28,7 +73,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiManagementName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
+    public required TerraformProperty<string> ApiManagementName
     {
         get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
@@ -37,7 +83,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The authority attribute.
     /// </summary>
-    public TerraformProperty<string>? Authority
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
+    public required TerraformProperty<string> Authority
     {
         get => GetProperty<TerraformProperty<string>>("authority");
         set => this.WithProperty("authority", value);
@@ -46,7 +93,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformProperty<string> ClientId
     {
         get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
@@ -64,7 +112,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public TerraformProperty<string>? ClientSecret
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
+    public required TerraformProperty<string> ClientSecret
     {
         get => GetProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
@@ -100,7 +149,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -109,7 +159,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The signin_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? SigninPolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninPolicy is required")]
+    public required TerraformProperty<string> SigninPolicy
     {
         get => GetProperty<TerraformProperty<string>>("signin_policy");
         set => this.WithProperty("signin_policy", value);
@@ -118,7 +169,8 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The signin_tenant attribute.
     /// </summary>
-    public TerraformProperty<string>? SigninTenant
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninTenant is required")]
+    public required TerraformProperty<string> SigninTenant
     {
         get => GetProperty<TerraformProperty<string>>("signin_tenant");
         set => this.WithProperty("signin_tenant", value);
@@ -127,10 +179,21 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// <summary>
     /// The signup_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? SignupPolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignupPolicy is required")]
+    public required TerraformProperty<string> SignupPolicy
     {
         get => GetProperty<TerraformProperty<string>>("signup_policy");
         set => this.WithProperty("signup_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

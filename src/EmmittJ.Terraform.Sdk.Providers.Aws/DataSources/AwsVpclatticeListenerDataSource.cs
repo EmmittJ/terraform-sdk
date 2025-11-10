@@ -38,7 +38,8 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
     /// <summary>
     /// The listener_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ListenerIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerIdentifier is required")]
+    public required TerraformProperty<string> ListenerIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("listener_identifier");
         set => this.WithProperty("listener_identifier", value);
@@ -56,7 +57,8 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
     /// <summary>
     /// The service_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
+    public required TerraformProperty<string> ServiceIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("service_identifier");
         set => this.WithProperty("service_identifier", value);
@@ -65,9 +67,9 @@ public class AwsVpclatticeListenerDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

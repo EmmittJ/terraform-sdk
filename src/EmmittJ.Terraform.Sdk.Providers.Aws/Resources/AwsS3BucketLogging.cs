@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for target_grant in .
+/// Nesting mode: set
+/// </summary>
+public class AwsS3BucketLoggingTargetGrantBlock : TerraformBlock
+{
+    /// <summary>
+    /// The permission attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
+    public required TerraformProperty<string> Permission
+    {
+        get => GetProperty<TerraformProperty<string>>("permission");
+        set => WithProperty("permission", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target_object_key_format in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3BucketLoggingTargetObjectKeyFormatBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_s3_bucket_logging resource.
 /// </summary>
 public class AwsS3BucketLogging : TerraformResource
@@ -19,7 +45,8 @@ public class AwsS3BucketLogging : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -55,7 +82,8 @@ public class AwsS3BucketLogging : TerraformResource
     /// <summary>
     /// The target_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetBucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
+    public required TerraformProperty<string> TargetBucket
     {
         get => GetProperty<TerraformProperty<string>>("target_bucket");
         set => this.WithProperty("target_bucket", value);
@@ -64,10 +92,32 @@ public class AwsS3BucketLogging : TerraformResource
     /// <summary>
     /// The target_prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetPrefix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPrefix is required")]
+    public required TerraformProperty<string> TargetPrefix
     {
         get => GetProperty<TerraformProperty<string>>("target_prefix");
         set => this.WithProperty("target_prefix", value);
+    }
+
+    /// <summary>
+    /// Block for target_grant.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsS3BucketLoggingTargetGrantBlock>? TargetGrant
+    {
+        get => GetProperty<HashSet<AwsS3BucketLoggingTargetGrantBlock>>("target_grant");
+        set => this.WithProperty("target_grant", value);
+    }
+
+    /// <summary>
+    /// Block for target_object_key_format.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetObjectKeyFormat block(s) allowed")]
+    public List<AwsS3BucketLoggingTargetObjectKeyFormatBlock>? TargetObjectKeyFormat
+    {
+        get => GetProperty<List<AwsS3BucketLoggingTargetObjectKeyFormatBlock>>("target_object_key_format");
+        set => this.WithProperty("target_object_key_format", value);
     }
 
 }

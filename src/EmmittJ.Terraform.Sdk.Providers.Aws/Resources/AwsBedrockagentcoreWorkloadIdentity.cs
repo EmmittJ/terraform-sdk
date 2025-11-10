@@ -20,16 +20,17 @@ public class AwsBedrockagentcoreWorkloadIdentity : TerraformResource
     /// <summary>
     /// The allowed_resource_oauth2_return_urls attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedResourceOauth2ReturnUrls
+    public HashSet<TerraformProperty<string>>? AllowedResourceOauth2ReturnUrls
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_resource_oauth2_return_urls");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_resource_oauth2_return_urls");
         set => this.WithProperty("allowed_resource_oauth2_return_urls", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

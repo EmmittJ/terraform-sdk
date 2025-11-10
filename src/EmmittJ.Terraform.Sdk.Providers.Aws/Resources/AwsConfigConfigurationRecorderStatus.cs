@@ -28,7 +28,8 @@ public class AwsConfigConfigurationRecorderStatus : TerraformResource
     /// <summary>
     /// The is_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? IsEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsEnabled is required")]
+    public required TerraformProperty<bool> IsEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("is_enabled");
         set => this.WithProperty("is_enabled", value);
@@ -37,7 +38,8 @@ public class AwsConfigConfigurationRecorderStatus : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

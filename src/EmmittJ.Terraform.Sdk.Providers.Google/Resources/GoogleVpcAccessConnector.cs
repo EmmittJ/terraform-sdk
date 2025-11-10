@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for subnet in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVpcAccessConnectorSubnetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Subnet name (relative, not fully qualified). E.g. if the full subnet selfLink is
+    /// https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetName} the correct input for this field would be {subnetName}&amp;quot;
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Project in which the subnet exists. If not set, this project is assumed to be the project for which the connector create request was issued.
+    /// </summary>
+    public TerraformProperty<string>? ProjectId
+    {
+        get => GetProperty<TerraformProperty<string>>("project_id");
+        set => WithProperty("project_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVpcAccessConnectorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vpc_access_connector resource.
 /// </summary>
 public class GoogleVpcAccessConnector : TerraformResource
@@ -91,7 +153,8 @@ public class GoogleVpcAccessConnector : TerraformResource
     /// <summary>
     /// The name of the resource (Max 25 characters).
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -122,6 +185,27 @@ public class GoogleVpcAccessConnector : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for subnet.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
+    public List<GoogleVpcAccessConnectorSubnetBlock>? Subnet
+    {
+        get => GetProperty<List<GoogleVpcAccessConnectorSubnetBlock>>("subnet");
+        set => this.WithProperty("subnet", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVpcAccessConnectorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVpcAccessConnectorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

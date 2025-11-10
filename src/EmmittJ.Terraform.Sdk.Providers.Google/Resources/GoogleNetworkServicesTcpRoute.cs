@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for rules in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkServicesTcpRouteRulesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkServicesTcpRouteTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_services_tcp_route resource.
 /// </summary>
 public class GoogleNetworkServicesTcpRoute : TerraformResource
@@ -34,9 +77,9 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
     /// Gateways defines a list of gateways this TcpRoute is attached to, as one of the routing rules to route the requests served by the gateway.
     /// Each gateway reference should match the pattern: projects/*/locations/global/gateways/&amp;lt;gateway_name&amp;gt;
     /// </summary>
-    public TerraformProperty<List<string>>? Gateways
+    public List<TerraformProperty<string>>? Gateways
     {
-        get => GetProperty<TerraformProperty<List<string>>>("gateways");
+        get => GetProperty<List<TerraformProperty<string>>>("gateways");
         set => this.WithProperty("gateways", value);
     }
 
@@ -55,9 +98,9 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -66,16 +109,17 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
     /// Each mesh reference should match the pattern: projects/*/locations/global/meshes/&amp;lt;mesh_name&amp;gt;
     /// The attached Mesh should be of a type SIDECAR
     /// </summary>
-    public TerraformProperty<List<string>>? Meshes
+    public List<TerraformProperty<string>>? Meshes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("meshes");
+        get => GetProperty<List<TerraformProperty<string>>>("meshes");
         set => this.WithProperty("meshes", value);
     }
 
     /// <summary>
     /// Name of the TcpRoute resource.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -88,6 +132,27 @@ public class GoogleNetworkServicesTcpRoute : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for rules.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
+    public List<GoogleNetworkServicesTcpRouteRulesBlock>? Rules
+    {
+        get => GetProperty<List<GoogleNetworkServicesTcpRouteRulesBlock>>("rules");
+        set => this.WithProperty("rules", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkServicesTcpRouteTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkServicesTcpRouteTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

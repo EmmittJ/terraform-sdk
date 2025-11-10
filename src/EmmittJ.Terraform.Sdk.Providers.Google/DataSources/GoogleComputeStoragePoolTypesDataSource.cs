@@ -43,7 +43,8 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     /// <summary>
     /// Name of the storage pool type.
     /// </summary>
-    public TerraformProperty<string>? StoragePoolType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
+    public required TerraformProperty<string> StoragePoolType
     {
         get => GetProperty<TerraformProperty<string>>("storage_pool_type");
         set => this.WithProperty("storage_pool_type", value);
@@ -52,7 +53,8 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     /// <summary>
     /// The name of the zone.
     /// </summary>
-    public TerraformProperty<string>? Zone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
+    public required TerraformProperty<string> Zone
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);

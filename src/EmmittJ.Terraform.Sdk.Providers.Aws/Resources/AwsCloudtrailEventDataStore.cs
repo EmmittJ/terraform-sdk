@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for advanced_event_selector in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsCloudtrailEventDataStoreTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudtrail_event_data_store resource.
 /// </summary>
 public class AwsCloudtrailEventDataStore : TerraformResource
@@ -56,7 +108,8 @@ public class AwsCloudtrailEventDataStore : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -101,18 +154,18 @@ public class AwsCloudtrailEventDataStore : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -123,6 +176,26 @@ public class AwsCloudtrailEventDataStore : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("termination_protection_enabled");
         set => this.WithProperty("termination_protection_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for advanced_event_selector.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock>? AdvancedEventSelector
+    {
+        get => GetProperty<List<AwsCloudtrailEventDataStoreAdvancedEventSelectorBlock>>("advanced_event_selector");
+        set => this.WithProperty("advanced_event_selector", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsCloudtrailEventDataStoreTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsCloudtrailEventDataStoreTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

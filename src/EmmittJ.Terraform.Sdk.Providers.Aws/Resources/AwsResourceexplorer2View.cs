@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsResourceexplorer2ViewFiltersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The filter_string attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterString is required")]
+    public required TerraformProperty<string> FilterString
+    {
+        get => GetProperty<TerraformProperty<string>>("filter_string");
+        set => WithProperty("filter_string", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for included_property in .
+/// Nesting mode: list
+/// </summary>
+public class AwsResourceexplorer2ViewIncludedPropertyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_resourceexplorer2_view resource.
 /// </summary>
 public class AwsResourceexplorer2View : TerraformResource
@@ -31,7 +67,8 @@ public class AwsResourceexplorer2View : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -58,10 +95,30 @@ public class AwsResourceexplorer2View : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for filters.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsResourceexplorer2ViewFiltersBlock>? Filters
+    {
+        get => GetProperty<List<AwsResourceexplorer2ViewFiltersBlock>>("filters");
+        set => this.WithProperty("filters", value);
+    }
+
+    /// <summary>
+    /// Block for included_property.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsResourceexplorer2ViewIncludedPropertyBlock>? IncludedProperty
+    {
+        get => GetProperty<List<AwsResourceexplorer2ViewIncludedPropertyBlock>>("included_property");
+        set => this.WithProperty("included_property", value);
     }
 
     /// <summary>

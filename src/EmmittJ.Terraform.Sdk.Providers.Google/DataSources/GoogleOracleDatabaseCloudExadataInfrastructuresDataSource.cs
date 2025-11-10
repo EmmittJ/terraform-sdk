@@ -29,7 +29,8 @@ public class GoogleOracleDatabaseCloudExadataInfrastructuresDataSource : Terrafo
     /// <summary>
     /// location
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

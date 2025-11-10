@@ -21,7 +21,8 @@ public class AwsGrafanaWorkspaceServiceAccount : TerraformResource
     /// <summary>
     /// The grafana_role attribute.
     /// </summary>
-    public TerraformProperty<string>? GrafanaRole
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaRole is required")]
+    public required TerraformProperty<string> GrafanaRole
     {
         get => GetProperty<TerraformProperty<string>>("grafana_role");
         set => this.WithProperty("grafana_role", value);
@@ -30,7 +31,8 @@ public class AwsGrafanaWorkspaceServiceAccount : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -48,7 +50,8 @@ public class AwsGrafanaWorkspaceServiceAccount : TerraformResource
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    public required TerraformProperty<string> WorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);

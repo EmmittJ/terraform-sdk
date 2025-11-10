@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_virtual_machine_data_disk_attachment resource.
 /// </summary>
 public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    public TerraformProperty<string>? Caching
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
+    public required TerraformProperty<string> Caching
     {
         get => GetProperty<TerraformProperty<string>>("caching");
         set => this.WithProperty("caching", value);
@@ -46,7 +91,8 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     /// <summary>
     /// The lun attribute.
     /// </summary>
-    public TerraformProperty<double>? Lun
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
+    public required TerraformProperty<double> Lun
     {
         get => GetProperty<TerraformProperty<double>>("lun");
         set => this.WithProperty("lun", value);
@@ -55,7 +101,8 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedDiskId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
+    public required TerraformProperty<string> ManagedDiskId
     {
         get => GetProperty<TerraformProperty<string>>("managed_disk_id");
         set => this.WithProperty("managed_disk_id", value);
@@ -64,7 +111,8 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualMachineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
+    public required TerraformProperty<string> VirtualMachineId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
@@ -77,6 +125,16 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("write_accelerator_enabled");
         set => this.WithProperty("write_accelerator_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

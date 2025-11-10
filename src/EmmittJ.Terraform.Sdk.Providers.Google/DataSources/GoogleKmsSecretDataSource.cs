@@ -29,7 +29,8 @@ public class GoogleKmsSecretDataSource : TerraformDataSource
     /// <summary>
     /// The ciphertext attribute.
     /// </summary>
-    public TerraformProperty<string>? Ciphertext
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ciphertext is required")]
+    public required TerraformProperty<string> Ciphertext
     {
         get => GetProperty<TerraformProperty<string>>("ciphertext");
         set => this.WithProperty("ciphertext", value);
@@ -38,7 +39,8 @@ public class GoogleKmsSecretDataSource : TerraformDataSource
     /// <summary>
     /// The crypto_key attribute.
     /// </summary>
-    public TerraformProperty<string>? CryptoKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
+    public required TerraformProperty<string> CryptoKey
     {
         get => GetProperty<TerraformProperty<string>>("crypto_key");
         set => this.WithProperty("crypto_key", value);

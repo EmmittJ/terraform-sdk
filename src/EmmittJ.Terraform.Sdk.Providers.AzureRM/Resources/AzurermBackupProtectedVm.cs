@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_backup_protected_vm resource.
 /// </summary>
 public class AzurermBackupProtectedVm : TerraformResource
@@ -28,9 +72,9 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The exclude_disk_luns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<double>>? ExcludeDiskLuns
+    public HashSet<TerraformProperty<double>>? ExcludeDiskLuns
     {
-        get => GetProperty<TerraformProperty<HashSet<double>>>("exclude_disk_luns");
+        get => GetProperty<HashSet<TerraformProperty<double>>>("exclude_disk_luns");
         set => this.WithProperty("exclude_disk_luns", value);
     }
 
@@ -46,9 +90,9 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The include_disk_luns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<double>>? IncludeDiskLuns
+    public HashSet<TerraformProperty<double>>? IncludeDiskLuns
     {
-        get => GetProperty<TerraformProperty<HashSet<double>>>("include_disk_luns");
+        get => GetProperty<HashSet<TerraformProperty<double>>>("include_disk_luns");
         set => this.WithProperty("include_disk_luns", value);
     }
 
@@ -64,7 +108,8 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RecoveryVaultName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
+    public required TerraformProperty<string> RecoveryVaultName
     {
         get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
@@ -73,7 +118,8 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -86,6 +132,16 @@ public class AzurermBackupProtectedVm : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("source_vm_id");
         set => this.WithProperty("source_vm_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermBackupProtectedVmTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermBackupProtectedVmTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

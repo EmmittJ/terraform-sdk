@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for max_age in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Number of days before applying GC policy.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformProperty<double>? Days
+    {
+        get => GetProperty<TerraformProperty<double>>("days");
+        set => WithProperty("days", value);
+    }
+
+    /// <summary>
+    /// Duration before applying GC policy
+    /// </summary>
+    public TerraformProperty<string>? Duration
+    {
+        get => GetProperty<TerraformProperty<string>>("duration");
+        set => WithProperty("duration", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for max_version in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigtableGcPolicyMaxVersionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Number of version before applying the GC policy.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Number is required")]
+    public required TerraformProperty<double> Number
+    {
+        get => GetProperty<TerraformProperty<double>>("number");
+        set => WithProperty("number", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigtableGcPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigtable_gc_policy resource.
 /// </summary>
 public class GoogleBigtableGcPolicy : TerraformResource
@@ -19,7 +90,8 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// <summary>
     /// The name of the column family.
     /// </summary>
-    public TerraformProperty<string>? ColumnFamily
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnFamily is required")]
+    public required TerraformProperty<string> ColumnFamily
     {
         get => GetProperty<TerraformProperty<string>>("column_family");
         set => this.WithProperty("column_family", value);
@@ -69,7 +141,8 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// <summary>
     /// The name of the Bigtable instance.
     /// </summary>
-    public TerraformProperty<string>? InstanceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
+    public required TerraformProperty<string> InstanceName
     {
         get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
@@ -96,10 +169,42 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// <summary>
     /// The name of the table.
     /// </summary>
-    public TerraformProperty<string>? Table
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
+    public required TerraformProperty<string> Table
     {
         get => GetProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
+    }
+
+    /// <summary>
+    /// Block for max_age.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxAge block(s) allowed")]
+    public List<GoogleBigtableGcPolicyMaxAgeBlock>? MaxAge
+    {
+        get => GetProperty<List<GoogleBigtableGcPolicyMaxAgeBlock>>("max_age");
+        set => this.WithProperty("max_age", value);
+    }
+
+    /// <summary>
+    /// Block for max_version.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleBigtableGcPolicyMaxVersionBlock>? MaxVersion
+    {
+        get => GetProperty<List<GoogleBigtableGcPolicyMaxVersionBlock>>("max_version");
+        set => this.WithProperty("max_version", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigtableGcPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigtableGcPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServerlessapplicationrepositoryCloudformationStackTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_serverlessapplicationrepository_cloudformation_stack resource.
 /// </summary>
 public class AwsServerlessapplicationrepositoryCloudformationStack : TerraformResource
@@ -20,7 +55,8 @@ public class AwsServerlessapplicationrepositoryCloudformationStack : TerraformRe
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -29,9 +65,10 @@ public class AwsServerlessapplicationrepositoryCloudformationStack : TerraformRe
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Capabilities
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capabilities is required")]
+    public HashSet<TerraformProperty<string>>? Capabilities
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("capabilities");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("capabilities");
         set => this.WithProperty("capabilities", value);
     }
 
@@ -47,7 +84,8 @@ public class AwsServerlessapplicationrepositoryCloudformationStack : TerraformRe
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,9 +94,9 @@ public class AwsServerlessapplicationrepositoryCloudformationStack : TerraformRe
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -83,19 +121,29 @@ public class AwsServerlessapplicationrepositoryCloudformationStack : TerraformRe
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServerlessapplicationrepositoryCloudformationStackTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServerlessapplicationrepositoryCloudformationStackTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

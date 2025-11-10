@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for action_point in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAppconfigExtensionActionPointBlock : TerraformBlock
+{
+    /// <summary>
+    /// The point attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Point is required")]
+    public required TerraformProperty<string> Point
+    {
+        get => GetProperty<TerraformProperty<string>>("point");
+        set => WithProperty("point", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for parameter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAppconfigExtensionParameterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The required attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Required
+    {
+        get => GetProperty<TerraformProperty<bool>>("required");
+        set => WithProperty("required", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appconfig_extension resource.
 /// </summary>
 public class AwsAppconfigExtension : TerraformResource
@@ -39,7 +93,8 @@ public class AwsAppconfigExtension : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -57,19 +112,40 @@ public class AwsAppconfigExtension : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for action_point.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionPoint block(s) required")]
+    public HashSet<AwsAppconfigExtensionActionPointBlock>? ActionPoint
+    {
+        get => GetProperty<HashSet<AwsAppconfigExtensionActionPointBlock>>("action_point");
+        set => this.WithProperty("action_point", value);
+    }
+
+    /// <summary>
+    /// Block for parameter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAppconfigExtensionParameterBlock>? Parameter
+    {
+        get => GetProperty<HashSet<AwsAppconfigExtensionParameterBlock>>("parameter");
+        set => this.WithProperty("parameter", value);
     }
 
     /// <summary>

@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for required_aspects in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataplexEntryTypeRequiredAspectsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required aspect type for the entry type.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataplexEntryTypeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataplex_entry_type resource.
 /// </summary>
 public class GoogleDataplexEntryType : TerraformResource
@@ -65,9 +117,9 @@ public class GoogleDataplexEntryType : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -110,10 +162,30 @@ public class GoogleDataplexEntryType : TerraformResource
     /// <summary>
     /// Indicates the class this Entry Type belongs to, for example, TABLE, DATABASE, MODEL.
     /// </summary>
-    public TerraformProperty<List<string>>? TypeAliases
+    public List<TerraformProperty<string>>? TypeAliases
     {
-        get => GetProperty<TerraformProperty<List<string>>>("type_aliases");
+        get => GetProperty<List<TerraformProperty<string>>>("type_aliases");
         set => this.WithProperty("type_aliases", value);
+    }
+
+    /// <summary>
+    /// Block for required_aspects.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleDataplexEntryTypeRequiredAspectsBlock>? RequiredAspects
+    {
+        get => GetProperty<List<GoogleDataplexEntryTypeRequiredAspectsBlock>>("required_aspects");
+        set => this.WithProperty("required_aspects", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataplexEntryTypeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataplexEntryTypeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

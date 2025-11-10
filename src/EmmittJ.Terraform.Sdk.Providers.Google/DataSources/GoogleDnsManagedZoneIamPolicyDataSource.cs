@@ -30,7 +30,8 @@ public class GoogleDnsManagedZoneIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The managed_zone attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedZone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
+    public required TerraformProperty<string> ManagedZone
     {
         get => GetProperty<TerraformProperty<string>>("managed_zone");
         set => this.WithProperty("managed_zone", value);

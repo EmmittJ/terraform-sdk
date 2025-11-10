@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_storage_account_customer_managed_key resource.
 /// </summary>
 public class AzurermStorageAccountCustomerManagedKey : TerraformResource
@@ -37,7 +81,8 @@ public class AzurermStorageAccountCustomerManagedKey : TerraformResource
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
+    public required TerraformProperty<string> KeyName
     {
         get => GetProperty<TerraformProperty<string>>("key_name");
         set => this.WithProperty("key_name", value);
@@ -82,7 +127,8 @@ public class AzurermStorageAccountCustomerManagedKey : TerraformResource
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
+    public required TerraformProperty<string> StorageAccountId
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
@@ -95,6 +141,16 @@ public class AzurermStorageAccountCustomerManagedKey : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
         set => this.WithProperty("user_assigned_identity_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageAccountCustomerManagedKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageAccountCustomerManagedKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

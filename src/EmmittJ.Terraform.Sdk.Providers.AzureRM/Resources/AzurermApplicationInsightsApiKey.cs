@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_application_insights_api_key resource.
 /// </summary>
 public class AzurermApplicationInsightsApiKey : TerraformResource
@@ -20,7 +55,8 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationInsightsId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
+    public required TerraformProperty<string> ApplicationInsightsId
     {
         get => GetProperty<TerraformProperty<string>>("application_insights_id");
         set => this.WithProperty("application_insights_id", value);
@@ -38,7 +74,8 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,19 +84,29 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
     /// <summary>
     /// The read_permissions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ReadPermissions
+    public HashSet<TerraformProperty<string>>? ReadPermissions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("read_permissions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("read_permissions");
         set => this.WithProperty("read_permissions", value);
     }
 
     /// <summary>
     /// The write_permissions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? WritePermissions
+    public HashSet<TerraformProperty<string>>? WritePermissions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("write_permissions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("write_permissions");
         set => this.WithProperty("write_permissions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApplicationInsightsApiKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApplicationInsightsApiKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

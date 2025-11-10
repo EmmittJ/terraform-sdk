@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for catalog_data in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlock
+{
+    /// <summary>
+    /// The about_text attribute.
+    /// </summary>
+    public TerraformProperty<string>? AboutText
+    {
+        get => GetProperty<TerraformProperty<string>>("about_text");
+        set => WithProperty("about_text", value);
+    }
+
+    /// <summary>
+    /// The architectures attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Architectures
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("architectures");
+        set => WithProperty("architectures", value);
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The logo_image_blob attribute.
+    /// </summary>
+    public TerraformProperty<string>? LogoImageBlob
+    {
+        get => GetProperty<TerraformProperty<string>>("logo_image_blob");
+        set => WithProperty("logo_image_blob", value);
+    }
+
+    /// <summary>
+    /// The operating_systems attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? OperatingSystems
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("operating_systems");
+        set => WithProperty("operating_systems", value);
+    }
+
+    /// <summary>
+    /// The usage_text attribute.
+    /// </summary>
+    public TerraformProperty<string>? UsageText
+    {
+        get => GetProperty<TerraformProperty<string>>("usage_text");
+        set => WithProperty("usage_text", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEcrpublicRepositoryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ecrpublic_repository resource.
 /// </summary>
 public class AwsEcrpublicRepository : TerraformResource
@@ -49,7 +128,8 @@ public class AwsEcrpublicRepository : TerraformResource
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
+    public required TerraformProperty<string> RepositoryName
     {
         get => GetProperty<TerraformProperty<string>>("repository_name");
         set => this.WithProperty("repository_name", value);
@@ -58,19 +138,40 @@ public class AwsEcrpublicRepository : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for catalog_data.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogData block(s) allowed")]
+    public List<AwsEcrpublicRepositoryCatalogDataBlock>? CatalogData
+    {
+        get => GetProperty<List<AwsEcrpublicRepositoryCatalogDataBlock>>("catalog_data");
+        set => this.WithProperty("catalog_data", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEcrpublicRepositoryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEcrpublicRepositoryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

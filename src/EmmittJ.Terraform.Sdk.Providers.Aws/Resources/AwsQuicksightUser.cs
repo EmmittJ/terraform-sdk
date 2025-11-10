@@ -30,7 +30,8 @@ public class AwsQuicksightUser : TerraformResource
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string>? Email
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
+    public required TerraformProperty<string> Email
     {
         get => GetProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
@@ -57,7 +58,8 @@ public class AwsQuicksightUser : TerraformResource
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
+    public required TerraformProperty<string> IdentityType
     {
         get => GetProperty<TerraformProperty<string>>("identity_type");
         set => this.WithProperty("identity_type", value);
@@ -102,7 +104,8 @@ public class AwsQuicksightUser : TerraformResource
     /// <summary>
     /// The user_role attribute.
     /// </summary>
-    public TerraformProperty<string>? UserRole
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserRole is required")]
+    public required TerraformProperty<string> UserRole
     {
         get => GetProperty<TerraformProperty<string>>("user_role");
         set => this.WithProperty("user_role", value);

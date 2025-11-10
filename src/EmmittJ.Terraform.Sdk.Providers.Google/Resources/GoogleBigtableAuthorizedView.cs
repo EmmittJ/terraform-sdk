@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for subset_view in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBigtableAuthorizedViewSubsetViewBlock : TerraformBlock
+{
+    /// <summary>
+    /// Base64-encoded row prefixes to be included in the authorized view. To provide access to all rows, include the empty string as a prefix (&amp;quot;&amp;quot;).
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? RowPrefixes
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("row_prefixes");
+        set => WithProperty("row_prefixes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigtableAuthorizedViewTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigtable_authorized_view resource.
 /// </summary>
 public class GoogleBigtableAuthorizedView : TerraformResource
@@ -38,7 +81,8 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     /// <summary>
     /// The name of the Bigtable instance in which the authorized view belongs.
     /// </summary>
-    public TerraformProperty<string>? InstanceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
+    public required TerraformProperty<string> InstanceName
     {
         get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
@@ -47,7 +91,8 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     /// <summary>
     /// The name of the authorized view. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -65,10 +110,32 @@ public class GoogleBigtableAuthorizedView : TerraformResource
     /// <summary>
     /// The name of the Bigtable table in which the authorized view belongs.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
+    public required TerraformProperty<string> TableName
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
+    }
+
+    /// <summary>
+    /// Block for subset_view.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubsetView block(s) allowed")]
+    public List<GoogleBigtableAuthorizedViewSubsetViewBlock>? SubsetView
+    {
+        get => GetProperty<List<GoogleBigtableAuthorizedViewSubsetViewBlock>>("subset_view");
+        set => this.WithProperty("subset_view", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigtableAuthorizedViewTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigtableAuthorizedViewTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -37,7 +37,8 @@ public class AwsRdsOrderableDbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
+    public required TerraformProperty<string> Engine
     {
         get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
@@ -91,18 +92,18 @@ public class AwsRdsOrderableDbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The preferred_engine_versions attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredEngineVersions
+    public List<TerraformProperty<string>>? PreferredEngineVersions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_engine_versions");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_engine_versions");
         set => this.WithProperty("preferred_engine_versions", value);
     }
 
     /// <summary>
     /// The preferred_instance_classes attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredInstanceClasses
+    public List<TerraformProperty<string>>? PreferredInstanceClasses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_instance_classes");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_instance_classes");
         set => this.WithProperty("preferred_instance_classes", value);
     }
 
@@ -136,18 +137,18 @@ public class AwsRdsOrderableDbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The supported_engine_modes attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SupportedEngineModes
+    public List<TerraformProperty<string>>? SupportedEngineModes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("supported_engine_modes");
+        get => GetProperty<List<TerraformProperty<string>>>("supported_engine_modes");
         set => this.WithProperty("supported_engine_modes", value);
     }
 
     /// <summary>
     /// The supported_network_types attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SupportedNetworkTypes
+    public List<TerraformProperty<string>>? SupportedNetworkTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("supported_network_types");
+        get => GetProperty<List<TerraformProperty<string>>>("supported_network_types");
         set => this.WithProperty("supported_network_types", value);
     }
 

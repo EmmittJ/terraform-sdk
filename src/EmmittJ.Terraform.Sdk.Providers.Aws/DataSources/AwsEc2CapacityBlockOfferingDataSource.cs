@@ -24,7 +24,8 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
     /// <summary>
     /// The capacity_duration_hours attribute.
     /// </summary>
-    public TerraformProperty<double>? CapacityDurationHours
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityDurationHours is required")]
+    public required TerraformProperty<double> CapacityDurationHours
     {
         get => GetProperty<TerraformProperty<double>>("capacity_duration_hours");
         set => this.WithProperty("capacity_duration_hours", value);
@@ -42,7 +43,8 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformProperty<double>? InstanceCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
+    public required TerraformProperty<double> InstanceCount
     {
         get => GetProperty<TerraformProperty<double>>("instance_count");
         set => this.WithProperty("instance_count", value);
@@ -51,7 +53,8 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
     {
         get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);

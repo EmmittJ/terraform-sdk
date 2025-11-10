@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleStorageHmacKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_storage_hmac_key resource.
 /// </summary>
 public class GoogleStorageHmacKey : TerraformResource
@@ -41,7 +76,8 @@ public class GoogleStorageHmacKey : TerraformResource
     /// <summary>
     /// The email address of the key&#39;s associated service account.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccountEmail
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
+    public required TerraformProperty<string> ServiceAccountEmail
     {
         get => GetProperty<TerraformProperty<string>>("service_account_email");
         set => this.WithProperty("service_account_email", value);
@@ -54,6 +90,16 @@ public class GoogleStorageHmacKey : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleStorageHmacKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleStorageHmacKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

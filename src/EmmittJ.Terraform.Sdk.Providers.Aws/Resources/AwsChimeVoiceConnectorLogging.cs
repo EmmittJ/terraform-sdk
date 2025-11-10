@@ -55,7 +55,8 @@ public class AwsChimeVoiceConnectorLogging : TerraformResource
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VoiceConnectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
+    public required TerraformProperty<string> VoiceConnectorId
     {
         get => GetProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);

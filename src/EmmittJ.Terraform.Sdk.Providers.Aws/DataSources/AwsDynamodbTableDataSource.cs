@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for server_side_encryption in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDynamodbTableDataSourceServerSideEncryptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The kms_key_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyArn
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
+        set => WithProperty("kms_key_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_dynamodb_table.
 /// </summary>
 public class AwsDynamodbTableDataSource : TerraformDataSource
@@ -48,7 +74,8 @@ public class AwsDynamodbTableDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,10 +93,21 @@ public class AwsDynamodbTableDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for server_side_encryption.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
+    public List<AwsDynamodbTableDataSourceServerSideEncryptionBlock>? ServerSideEncryption
+    {
+        get => GetProperty<List<AwsDynamodbTableDataSourceServerSideEncryptionBlock>>("server_side_encryption");
+        set => this.WithProperty("server_side_encryption", value);
     }
 
     /// <summary>

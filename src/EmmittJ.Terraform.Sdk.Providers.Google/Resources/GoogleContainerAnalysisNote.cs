@@ -3,6 +3,76 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for attestation_authority in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleContainerAnalysisNoteAttestationAuthorityBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for related_url in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
+{
+    /// <summary>
+    /// Label to describe usage of the URL
+    /// </summary>
+    public TerraformProperty<string>? Label
+    {
+        get => GetProperty<TerraformProperty<string>>("label");
+        set => WithProperty("label", value);
+    }
+
+    /// <summary>
+    /// Specific URL associated with the resource.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
+    public required TerraformProperty<string> Url
+    {
+        get => GetProperty<TerraformProperty<string>>("url");
+        set => WithProperty("url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_container_analysis_note resource.
 /// </summary>
 public class GoogleContainerAnalysisNote : TerraformResource
@@ -49,7 +119,8 @@ public class GoogleContainerAnalysisNote : TerraformResource
     /// <summary>
     /// The name of the note.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -67,9 +138,9 @@ public class GoogleContainerAnalysisNote : TerraformResource
     /// <summary>
     /// Names of other notes related to this note.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RelatedNoteNames
+    public HashSet<TerraformProperty<string>>? RelatedNoteNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("related_note_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("related_note_names");
         set => this.WithProperty("related_note_names", value);
     }
 
@@ -80,6 +151,38 @@ public class GoogleContainerAnalysisNote : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("short_description");
         set => this.WithProperty("short_description", value);
+    }
+
+    /// <summary>
+    /// Block for attestation_authority.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AttestationAuthority block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AttestationAuthority block(s) allowed")]
+    public List<GoogleContainerAnalysisNoteAttestationAuthorityBlock>? AttestationAuthority
+    {
+        get => GetProperty<List<GoogleContainerAnalysisNoteAttestationAuthorityBlock>>("attestation_authority");
+        set => this.WithProperty("attestation_authority", value);
+    }
+
+    /// <summary>
+    /// Block for related_url.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleContainerAnalysisNoteRelatedUrlBlock>? RelatedUrl
+    {
+        get => GetProperty<HashSet<GoogleContainerAnalysisNoteRelatedUrlBlock>>("related_url");
+        set => this.WithProperty("related_url", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleContainerAnalysisNoteTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleContainerAnalysisNoteTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

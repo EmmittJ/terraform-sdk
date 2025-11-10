@@ -34,7 +34,8 @@ public class AwsLocationPlaceIndexDataSource : TerraformDataSource
     /// <summary>
     /// The index_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IndexName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
+    public required TerraformProperty<string> IndexName
     {
         get => GetProperty<TerraformProperty<string>>("index_name");
         set => this.WithProperty("index_name", value);
@@ -52,9 +53,9 @@ public class AwsLocationPlaceIndexDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

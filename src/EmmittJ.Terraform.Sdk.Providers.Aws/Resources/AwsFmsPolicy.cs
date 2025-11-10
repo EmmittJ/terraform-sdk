@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for exclude_map in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFmsPolicyExcludeMapBlock : TerraformBlock
+{
+    /// <summary>
+    /// The account attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Account
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("account");
+        set => WithProperty("account", value);
+    }
+
+    /// <summary>
+    /// The orgunit attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Orgunit
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("orgunit");
+        set => WithProperty("orgunit", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for include_map in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFmsPolicyIncludeMapBlock : TerraformBlock
+{
+    /// <summary>
+    /// The account attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Account
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("account");
+        set => WithProperty("account", value);
+    }
+
+    /// <summary>
+    /// The orgunit attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Orgunit
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("orgunit");
+        set => WithProperty("orgunit", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for security_service_policy_data in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlock
+{
+    /// <summary>
+    /// The managed_service_data attribute.
+    /// </summary>
+    public TerraformProperty<string>? ManagedServiceData
+    {
+        get => GetProperty<TerraformProperty<string>>("managed_service_data");
+        set => WithProperty("managed_service_data", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_fms_policy resource.
 /// </summary>
 public class AwsFmsPolicy : TerraformResource
@@ -48,7 +127,8 @@ public class AwsFmsPolicy : TerraformResource
     /// <summary>
     /// The exclude_resource_tags attribute.
     /// </summary>
-    public TerraformProperty<bool>? ExcludeResourceTags
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExcludeResourceTags is required")]
+    public required TerraformProperty<bool> ExcludeResourceTags
     {
         get => GetProperty<TerraformProperty<bool>>("exclude_resource_tags");
         set => this.WithProperty("exclude_resource_tags", value);
@@ -66,7 +146,8 @@ public class AwsFmsPolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -93,9 +174,9 @@ public class AwsFmsPolicy : TerraformResource
     /// <summary>
     /// The resource_set_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ResourceSetIds
+    public HashSet<TerraformProperty<string>>? ResourceSetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_set_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_set_ids");
         set => this.WithProperty("resource_set_ids", value);
     }
 
@@ -111,9 +192,9 @@ public class AwsFmsPolicy : TerraformResource
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>>? ResourceTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("resource_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 
@@ -129,28 +210,62 @@ public class AwsFmsPolicy : TerraformResource
     /// <summary>
     /// The resource_type_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ResourceTypeList
+    public HashSet<TerraformProperty<string>>? ResourceTypeList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_type_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_type_list");
         set => this.WithProperty("resource_type_list", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for exclude_map.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeMap block(s) allowed")]
+    public List<AwsFmsPolicyExcludeMapBlock>? ExcludeMap
+    {
+        get => GetProperty<List<AwsFmsPolicyExcludeMapBlock>>("exclude_map");
+        set => this.WithProperty("exclude_map", value);
+    }
+
+    /// <summary>
+    /// Block for include_map.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeMap block(s) allowed")]
+    public List<AwsFmsPolicyIncludeMapBlock>? IncludeMap
+    {
+        get => GetProperty<List<AwsFmsPolicyIncludeMapBlock>>("include_map");
+        set => this.WithProperty("include_map", value);
+    }
+
+    /// <summary>
+    /// Block for security_service_policy_data.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecurityServicePolicyData block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityServicePolicyData block(s) allowed")]
+    public List<AwsFmsPolicySecurityServicePolicyDataBlock>? SecurityServicePolicyData
+    {
+        get => GetProperty<List<AwsFmsPolicySecurityServicePolicyDataBlock>>("security_service_policy_data");
+        set => this.WithProperty("security_service_policy_data", value);
     }
 
     /// <summary>

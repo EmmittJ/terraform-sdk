@@ -21,7 +21,8 @@ public class AwsAppsyncDomainName : TerraformResource
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
+    public required TerraformProperty<string> CertificateArn
     {
         get => GetProperty<TerraformProperty<string>>("certificate_arn");
         set => this.WithProperty("certificate_arn", value);
@@ -39,7 +40,8 @@ public class AwsAppsyncDomainName : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);

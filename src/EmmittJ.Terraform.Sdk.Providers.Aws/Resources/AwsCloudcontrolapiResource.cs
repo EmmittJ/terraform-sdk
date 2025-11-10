@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsCloudcontrolapiResourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudcontrolapi_resource resource.
 /// </summary>
 public class AwsCloudcontrolapiResource : TerraformResource
@@ -20,7 +55,8 @@ public class AwsCloudcontrolapiResource : TerraformResource
     /// <summary>
     /// The desired_state attribute.
     /// </summary>
-    public TerraformProperty<string>? DesiredState
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
+    public required TerraformProperty<string> DesiredState
     {
         get => GetProperty<TerraformProperty<string>>("desired_state");
         set => this.WithProperty("desired_state", value);
@@ -65,7 +101,8 @@ public class AwsCloudcontrolapiResource : TerraformResource
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TypeName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
+    public required TerraformProperty<string> TypeName
     {
         get => GetProperty<TerraformProperty<string>>("type_name");
         set => this.WithProperty("type_name", value);
@@ -78,6 +115,16 @@ public class AwsCloudcontrolapiResource : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type_version_id");
         set => this.WithProperty("type_version_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsCloudcontrolapiResourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsCloudcontrolapiResourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

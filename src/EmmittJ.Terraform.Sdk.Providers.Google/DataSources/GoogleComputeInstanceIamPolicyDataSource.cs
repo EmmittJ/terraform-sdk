@@ -30,7 +30,8 @@ public class GoogleComputeInstanceIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
+    public required TerraformProperty<string> InstanceName
     {
         get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);

@@ -3,6 +3,203 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for health_check in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbTargetGroupHealthCheckBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The healthy_threshold attribute.
+    /// </summary>
+    public TerraformProperty<double>? HealthyThreshold
+    {
+        get => GetProperty<TerraformProperty<double>>("healthy_threshold");
+        set => WithProperty("healthy_threshold", value);
+    }
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    public TerraformProperty<double>? Interval
+    {
+        get => GetProperty<TerraformProperty<double>>("interval");
+        set => WithProperty("interval", value);
+    }
+
+    /// <summary>
+    /// The matcher attribute.
+    /// </summary>
+    public TerraformProperty<string>? Matcher
+    {
+        get => GetProperty<TerraformProperty<string>>("matcher");
+        set => WithProperty("matcher", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformProperty<string>? Path
+    {
+        get => GetProperty<TerraformProperty<string>>("path");
+        set => WithProperty("path", value);
+    }
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformProperty<string>? Port
+    {
+        get => GetProperty<TerraformProperty<string>>("port");
+        set => WithProperty("port", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    public TerraformProperty<string>? Protocol
+    {
+        get => GetProperty<TerraformProperty<string>>("protocol");
+        set => WithProperty("protocol", value);
+    }
+
+    /// <summary>
+    /// The timeout attribute.
+    /// </summary>
+    public TerraformProperty<double>? Timeout
+    {
+        get => GetProperty<TerraformProperty<double>>("timeout");
+        set => WithProperty("timeout", value);
+    }
+
+    /// <summary>
+    /// The unhealthy_threshold attribute.
+    /// </summary>
+    public TerraformProperty<double>? UnhealthyThreshold
+    {
+        get => GetProperty<TerraformProperty<double>>("unhealthy_threshold");
+        set => WithProperty("unhealthy_threshold", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for stickiness in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbTargetGroupStickinessBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cookie_duration attribute.
+    /// </summary>
+    public TerraformProperty<double>? CookieDuration
+    {
+        get => GetProperty<TerraformProperty<double>>("cookie_duration");
+        set => WithProperty("cookie_duration", value);
+    }
+
+    /// <summary>
+    /// The cookie_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? CookieName
+    {
+        get => GetProperty<TerraformProperty<string>>("cookie_name");
+        set => WithProperty("cookie_name", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target_failover in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbTargetGroupTargetFailoverBlock : TerraformBlock
+{
+    /// <summary>
+    /// The on_deregistration attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnDeregistration is required")]
+    public required TerraformProperty<string> OnDeregistration
+    {
+        get => GetProperty<TerraformProperty<string>>("on_deregistration");
+        set => WithProperty("on_deregistration", value);
+    }
+
+    /// <summary>
+    /// The on_unhealthy attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnUnhealthy is required")]
+    public required TerraformProperty<string> OnUnhealthy
+    {
+        get => GetProperty<TerraformProperty<string>>("on_unhealthy");
+        set => WithProperty("on_unhealthy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target_group_health in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbTargetGroupTargetGroupHealthBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for target_health_state in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbTargetGroupTargetHealthStateBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enable_unhealthy_connection_termination attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableUnhealthyConnectionTermination is required")]
+    public required TerraformProperty<bool> EnableUnhealthyConnectionTermination
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_unhealthy_connection_termination");
+        set => WithProperty("enable_unhealthy_connection_termination", value);
+    }
+
+    /// <summary>
+    /// The unhealthy_draining_interval attribute.
+    /// </summary>
+    public TerraformProperty<double>? UnhealthyDrainingInterval
+    {
+        get => GetProperty<TerraformProperty<double>>("unhealthy_draining_interval");
+        set => WithProperty("unhealthy_draining_interval", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lb_target_group resource.
 /// </summary>
 public class AwsLbTargetGroup : TerraformResource
@@ -175,18 +372,18 @@ public class AwsLbTargetGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -206,6 +403,59 @@ public class AwsLbTargetGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
+    }
+
+    /// <summary>
+    /// Block for health_check.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheck block(s) allowed")]
+    public List<AwsLbTargetGroupHealthCheckBlock>? HealthCheck
+    {
+        get => GetProperty<List<AwsLbTargetGroupHealthCheckBlock>>("health_check");
+        set => this.WithProperty("health_check", value);
+    }
+
+    /// <summary>
+    /// Block for stickiness.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Stickiness block(s) allowed")]
+    public List<AwsLbTargetGroupStickinessBlock>? Stickiness
+    {
+        get => GetProperty<List<AwsLbTargetGroupStickinessBlock>>("stickiness");
+        set => this.WithProperty("stickiness", value);
+    }
+
+    /// <summary>
+    /// Block for target_failover.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLbTargetGroupTargetFailoverBlock>? TargetFailover
+    {
+        get => GetProperty<List<AwsLbTargetGroupTargetFailoverBlock>>("target_failover");
+        set => this.WithProperty("target_failover", value);
+    }
+
+    /// <summary>
+    /// Block for target_group_health.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetGroupHealth block(s) allowed")]
+    public List<AwsLbTargetGroupTargetGroupHealthBlock>? TargetGroupHealth
+    {
+        get => GetProperty<List<AwsLbTargetGroupTargetGroupHealthBlock>>("target_group_health");
+        set => this.WithProperty("target_group_health", value);
+    }
+
+    /// <summary>
+    /// Block for target_health_state.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLbTargetGroupTargetHealthStateBlock>? TargetHealthState
+    {
+        get => GetProperty<List<AwsLbTargetGroupTargetHealthStateBlock>>("target_health_state");
+        set => this.WithProperty("target_health_state", value);
     }
 
     /// <summary>

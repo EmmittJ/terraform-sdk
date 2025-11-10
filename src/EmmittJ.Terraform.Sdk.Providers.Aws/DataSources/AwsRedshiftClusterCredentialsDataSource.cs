@@ -30,7 +30,8 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -39,9 +40,9 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
     /// <summary>
     /// The db_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DbGroups
+    public HashSet<TerraformProperty<string>>? DbGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("db_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("db_groups");
         set => this.WithProperty("db_groups", value);
     }
 
@@ -57,7 +58,8 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
     /// <summary>
     /// The db_user attribute.
     /// </summary>
-    public TerraformProperty<string>? DbUser
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbUser is required")]
+    public required TerraformProperty<string> DbUser
     {
         get => GetProperty<TerraformProperty<string>>("db_user");
         set => this.WithProperty("db_user", value);

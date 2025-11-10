@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_kinesisanalyticsv2_application_snapshot resource.
 /// </summary>
 public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
@@ -21,7 +47,8 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
     /// <summary>
     /// The application_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationName is required")]
+    public required TerraformProperty<string> ApplicationName
     {
         get => GetProperty<TerraformProperty<string>>("application_name");
         set => this.WithProperty("application_name", value);
@@ -48,10 +75,21 @@ public class AwsKinesisanalyticsv2ApplicationSnapshot : TerraformResource
     /// <summary>
     /// The snapshot_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotName is required")]
+    public required TerraformProperty<string> SnapshotName
     {
         get => GetProperty<TerraformProperty<string>>("snapshot_name");
         set => this.WithProperty("snapshot_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsKinesisanalyticsv2ApplicationSnapshotTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

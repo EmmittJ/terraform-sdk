@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_custom_ip_prefix resource.
 /// </summary>
 public class AzurermCustomIpPrefix : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermCustomIpPrefix : TerraformResource
     /// <summary>
     /// The cidr attribute.
     /// </summary>
-    public TerraformProperty<string>? Cidr
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
+    public required TerraformProperty<string> Cidr
     {
         get => GetProperty<TerraformProperty<string>>("cidr");
         set => this.WithProperty("cidr", value);
@@ -55,7 +100,8 @@ public class AzurermCustomIpPrefix : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -64,7 +110,8 @@ public class AzurermCustomIpPrefix : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -82,7 +129,8 @@ public class AzurermCustomIpPrefix : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -100,9 +148,9 @@ public class AzurermCustomIpPrefix : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -118,10 +166,20 @@ public class AzurermCustomIpPrefix : TerraformResource
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Zones
+    public HashSet<TerraformProperty<string>>? Zones
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("zones");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
         set => this.WithProperty("zones", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermCustomIpPrefixTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermCustomIpPrefixTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -19,9 +19,10 @@ public class AwsServiceDiscoveryInstance : TerraformResource
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Attributes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attributes is required")]
+    public Dictionary<string, TerraformProperty<string>>? Attributes
     {
-        get => GetProperty<TerraformMapProperty<string>>("attributes");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
         set => this.WithProperty("attributes", value);
     }
 
@@ -37,7 +38,8 @@ public class AwsServiceDiscoveryInstance : TerraformResource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -55,7 +57,8 @@ public class AwsServiceDiscoveryInstance : TerraformResource
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
+    public required TerraformProperty<string> ServiceId
     {
         get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);

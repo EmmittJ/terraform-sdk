@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for storage_lens_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_s3control_storage_lens_configuration resource.
 /// </summary>
 public class AwsS3controlStorageLensConfiguration : TerraformResource
@@ -29,7 +47,8 @@ public class AwsS3controlStorageLensConfiguration : TerraformResource
     /// <summary>
     /// The config_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
+    public required TerraformProperty<string> ConfigId
     {
         get => GetProperty<TerraformProperty<string>>("config_id");
         set => this.WithProperty("config_id", value);
@@ -56,19 +75,31 @@ public class AwsS3controlStorageLensConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for storage_lens_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLensConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLensConfiguration block(s) allowed")]
+    public List<AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock>? StorageLensConfiguration
+    {
+        get => GetProperty<List<AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock>>("storage_lens_configuration");
+        set => this.WithProperty("storage_lens_configuration", value);
     }
 
     /// <summary>

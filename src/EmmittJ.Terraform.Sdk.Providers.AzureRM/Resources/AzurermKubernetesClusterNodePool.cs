@@ -3,6 +3,272 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for kubelet_config in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allowed_unsafe_sysctls attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowedUnsafeSysctls
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_unsafe_sysctls");
+        set => WithProperty("allowed_unsafe_sysctls", value);
+    }
+
+    /// <summary>
+    /// The container_log_max_line attribute.
+    /// </summary>
+    public TerraformProperty<double>? ContainerLogMaxLine
+    {
+        get => GetProperty<TerraformProperty<double>>("container_log_max_line");
+        set => WithProperty("container_log_max_line", value);
+    }
+
+    /// <summary>
+    /// The container_log_max_size_mb attribute.
+    /// </summary>
+    public TerraformProperty<double>? ContainerLogMaxSizeMb
+    {
+        get => GetProperty<TerraformProperty<double>>("container_log_max_size_mb");
+        set => WithProperty("container_log_max_size_mb", value);
+    }
+
+    /// <summary>
+    /// The cpu_cfs_quota_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? CpuCfsQuotaEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("cpu_cfs_quota_enabled");
+        set => WithProperty("cpu_cfs_quota_enabled", value);
+    }
+
+    /// <summary>
+    /// The cpu_cfs_quota_period attribute.
+    /// </summary>
+    public TerraformProperty<string>? CpuCfsQuotaPeriod
+    {
+        get => GetProperty<TerraformProperty<string>>("cpu_cfs_quota_period");
+        set => WithProperty("cpu_cfs_quota_period", value);
+    }
+
+    /// <summary>
+    /// The cpu_manager_policy attribute.
+    /// </summary>
+    public TerraformProperty<string>? CpuManagerPolicy
+    {
+        get => GetProperty<TerraformProperty<string>>("cpu_manager_policy");
+        set => WithProperty("cpu_manager_policy", value);
+    }
+
+    /// <summary>
+    /// The image_gc_high_threshold attribute.
+    /// </summary>
+    public TerraformProperty<double>? ImageGcHighThreshold
+    {
+        get => GetProperty<TerraformProperty<double>>("image_gc_high_threshold");
+        set => WithProperty("image_gc_high_threshold", value);
+    }
+
+    /// <summary>
+    /// The image_gc_low_threshold attribute.
+    /// </summary>
+    public TerraformProperty<double>? ImageGcLowThreshold
+    {
+        get => GetProperty<TerraformProperty<double>>("image_gc_low_threshold");
+        set => WithProperty("image_gc_low_threshold", value);
+    }
+
+    /// <summary>
+    /// The pod_max_pid attribute.
+    /// </summary>
+    public TerraformProperty<double>? PodMaxPid
+    {
+        get => GetProperty<TerraformProperty<double>>("pod_max_pid");
+        set => WithProperty("pod_max_pid", value);
+    }
+
+    /// <summary>
+    /// The topology_manager_policy attribute.
+    /// </summary>
+    public TerraformProperty<string>? TopologyManagerPolicy
+    {
+        get => GetProperty<TerraformProperty<string>>("topology_manager_policy");
+        set => WithProperty("topology_manager_policy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linux_os_config in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The swap_file_size_mb attribute.
+    /// </summary>
+    public TerraformProperty<double>? SwapFileSizeMb
+    {
+        get => GetProperty<TerraformProperty<double>>("swap_file_size_mb");
+        set => WithProperty("swap_file_size_mb", value);
+    }
+
+    /// <summary>
+    /// The transparent_huge_page attribute.
+    /// </summary>
+    public TerraformProperty<string>? TransparentHugePage
+    {
+        get => GetProperty<TerraformProperty<string>>("transparent_huge_page");
+        set => WithProperty("transparent_huge_page", value);
+    }
+
+    /// <summary>
+    /// The transparent_huge_page_defrag attribute.
+    /// </summary>
+    public TerraformProperty<string>? TransparentHugePageDefrag
+    {
+        get => GetProperty<TerraformProperty<string>>("transparent_huge_page_defrag");
+        set => WithProperty("transparent_huge_page_defrag", value);
+    }
+
+    /// <summary>
+    /// The transparent_huge_page_enabled attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformProperty<string>? TransparentHugePageEnabled
+    {
+        get => GetProperty<TerraformProperty<string>>("transparent_huge_page_enabled");
+        set => WithProperty("transparent_huge_page_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for node_network_profile in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// The application_security_group_ids attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? ApplicationSecurityGroupIds
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("application_security_group_ids");
+        set => WithProperty("application_security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The node_public_ip_tags attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? NodePublicIpTags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("node_public_ip_tags");
+        set => WithProperty("node_public_ip_tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for upgrade_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The drain_timeout_in_minutes attribute.
+    /// </summary>
+    public TerraformProperty<double>? DrainTimeoutInMinutes
+    {
+        get => GetProperty<TerraformProperty<double>>("drain_timeout_in_minutes");
+        set => WithProperty("drain_timeout_in_minutes", value);
+    }
+
+    /// <summary>
+    /// The max_surge attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSurge is required")]
+    public required TerraformProperty<string> MaxSurge
+    {
+        get => GetProperty<TerraformProperty<string>>("max_surge");
+        set => WithProperty("max_surge", value);
+    }
+
+    /// <summary>
+    /// The node_soak_duration_in_minutes attribute.
+    /// </summary>
+    public TerraformProperty<double>? NodeSoakDurationInMinutes
+    {
+        get => GetProperty<TerraformProperty<double>>("node_soak_duration_in_minutes");
+        set => WithProperty("node_soak_duration_in_minutes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for windows_profile in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNodePoolWindowsProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// The outbound_nat_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? OutboundNatEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("outbound_nat_enabled");
+        set => WithProperty("outbound_nat_enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_kubernetes_cluster_node_pool resource.
 /// </summary>
 public class AzurermKubernetesClusterNodePool : TerraformResource
@@ -109,7 +375,8 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The kubernetes_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KubernetesClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
+    public required TerraformProperty<string> KubernetesClusterId
     {
         get => GetProperty<TerraformProperty<string>>("kubernetes_cluster_id");
         set => this.WithProperty("kubernetes_cluster_id", value);
@@ -154,7 +421,8 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -172,9 +440,9 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
-    public TerraformMapProperty<string>? NodeLabels
+    public Dictionary<string, TerraformProperty<string>>? NodeLabels
     {
-        get => GetProperty<TerraformMapProperty<string>>("node_labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("node_labels");
         set => this.WithProperty("node_labels", value);
     }
 
@@ -199,9 +467,9 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The node_taints attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? NodeTaints
+    public List<TerraformProperty<string>>? NodeTaints
     {
-        get => GetProperty<TerraformProperty<List<string>>>("node_taints");
+        get => GetProperty<List<TerraformProperty<string>>>("node_taints");
         set => this.WithProperty("node_taints", value);
     }
 
@@ -307,9 +575,9 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -361,10 +629,75 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Zones
+    public HashSet<TerraformProperty<string>>? Zones
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("zones");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("zones");
         set => this.WithProperty("zones", value);
+    }
+
+    /// <summary>
+    /// Block for kubelet_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletConfig block(s) allowed")]
+    public List<AzurermKubernetesClusterNodePoolKubeletConfigBlock>? KubeletConfig
+    {
+        get => GetProperty<List<AzurermKubernetesClusterNodePoolKubeletConfigBlock>>("kubelet_config");
+        set => this.WithProperty("kubelet_config", value);
+    }
+
+    /// <summary>
+    /// Block for linux_os_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinuxOsConfig block(s) allowed")]
+    public List<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock>? LinuxOsConfig
+    {
+        get => GetProperty<List<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock>>("linux_os_config");
+        set => this.WithProperty("linux_os_config", value);
+    }
+
+    /// <summary>
+    /// Block for node_network_profile.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeNetworkProfile block(s) allowed")]
+    public List<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock>? NodeNetworkProfile
+    {
+        get => GetProperty<List<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock>>("node_network_profile");
+        set => this.WithProperty("node_network_profile", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKubernetesClusterNodePoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKubernetesClusterNodePoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for upgrade_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeSettings block(s) allowed")]
+    public List<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock>? UpgradeSettings
+    {
+        get => GetProperty<List<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock>>("upgrade_settings");
+        set => this.WithProperty("upgrade_settings", value);
+    }
+
+    /// <summary>
+    /// Block for windows_profile.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsProfile block(s) allowed")]
+    public List<AzurermKubernetesClusterNodePoolWindowsProfileBlock>? WindowsProfile
+    {
+        get => GetProperty<List<AzurermKubernetesClusterNodePoolWindowsProfileBlock>>("windows_profile");
+        set => this.WithProperty("windows_profile", value);
     }
 
 }

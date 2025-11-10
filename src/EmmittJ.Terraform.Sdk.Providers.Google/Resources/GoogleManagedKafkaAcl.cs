@@ -3,6 +3,90 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for acl_entries in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The host. Must be set to &amp;quot;*&amp;quot; for Managed Service for Apache Kafka.
+    /// </summary>
+    public TerraformProperty<string>? Host
+    {
+        get => GetProperty<TerraformProperty<string>>("host");
+        set => WithProperty("host", value);
+    }
+
+    /// <summary>
+    /// The operation type. Allowed values are (case insensitive): ALL, READ,
+    /// WRITE, CREATE, DELETE, ALTER, DESCRIBE, CLUSTER_ACTION, DESCRIBE_CONFIGS,
+    /// ALTER_CONFIGS, and IDEMPOTENT_WRITE. See https://kafka.apache.org/documentation/#operations_resources_and_protocols
+    /// for valid combinations of resource_type and operation for different Kafka API requests.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
+    public required TerraformProperty<string> Operation
+    {
+        get => GetProperty<TerraformProperty<string>>("operation");
+        set => WithProperty("operation", value);
+    }
+
+    /// <summary>
+    /// The permission type. Accepted values are (case insensitive): ALLOW, DENY.
+    /// </summary>
+    public TerraformProperty<string>? PermissionType
+    {
+        get => GetProperty<TerraformProperty<string>>("permission_type");
+        set => WithProperty("permission_type", value);
+    }
+
+    /// <summary>
+    /// The principal. Specified as Google Cloud account, with the Kafka StandardAuthorizer prefix User:&amp;quot;. For example: &amp;quot;User:test-kafka-client@test-project.iam.gserviceaccount.com&amp;quot;. Can be the wildcard &amp;quot;User:*&amp;quot; to refer to all users.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
+    {
+        get => GetProperty<TerraformProperty<string>>("principal");
+        set => WithProperty("principal", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_managed_kafka_acl resource.
 /// </summary>
 public class GoogleManagedKafkaAcl : TerraformResource
@@ -28,7 +112,8 @@ public class GoogleManagedKafkaAcl : TerraformResource
     /// For acls on all resources that match a prefix: &#39;topicPrefixed/{resource_name}&#39; &#39;consumerGroupPrefixed/{resource_name}&#39; &#39;transactionalIdPrefixed/{resource_name}&#39;
     /// For acls on all resources of a given type (i.e. the wildcard literal &#39;*&#39;&#39;): &#39;allTopics&#39; (represents &#39;topic/*&#39;) &#39;allConsumerGroups&#39; (represents &#39;consumerGroup/*&#39;) &#39;allTransactionalIds&#39; (represents &#39;transactionalId/*&#39;).
     /// </summary>
-    public TerraformProperty<string>? AclId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclId is required")]
+    public required TerraformProperty<string> AclId
     {
         get => GetProperty<TerraformProperty<string>>("acl_id");
         set => this.WithProperty("acl_id", value);
@@ -37,7 +122,8 @@ public class GoogleManagedKafkaAcl : TerraformResource
     /// <summary>
     /// The cluster name.
     /// </summary>
-    public TerraformProperty<string>? Cluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
+    public required TerraformProperty<string> Cluster
     {
         get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
@@ -55,7 +141,8 @@ public class GoogleManagedKafkaAcl : TerraformResource
     /// <summary>
     /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -68,6 +155,27 @@ public class GoogleManagedKafkaAcl : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for acl_entries.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AclEntries block(s) required")]
+    public HashSet<GoogleManagedKafkaAclAclEntriesBlock>? AclEntries
+    {
+        get => GetProperty<HashSet<GoogleManagedKafkaAclAclEntriesBlock>>("acl_entries");
+        set => this.WithProperty("acl_entries", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleManagedKafkaAclTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleManagedKafkaAclTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for term_relations in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDatazoneGlossaryTermTermRelationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The classifies attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Classifies
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("classifies");
+        set => WithProperty("classifies", value);
+    }
+
+    /// <summary>
+    /// The is_a attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? IsA
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("is_a");
+        set => WithProperty("is_a", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDatazoneGlossaryTermTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_datazone_glossary_term resource.
 /// </summary>
 public class AwsDatazoneGlossaryTerm : TerraformResource
@@ -31,7 +74,8 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     /// <summary>
     /// The glossary_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? GlossaryIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlossaryIdentifier is required")]
+    public required TerraformProperty<string> GlossaryIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("glossary_identifier");
         set => this.WithProperty("glossary_identifier", value);
@@ -49,7 +93,8 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -80,6 +125,26 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
+    }
+
+    /// <summary>
+    /// Block for term_relations.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsDatazoneGlossaryTermTermRelationsBlock>? TermRelations
+    {
+        get => GetProperty<List<AwsDatazoneGlossaryTermTermRelationsBlock>>("term_relations");
+        set => this.WithProperty("term_relations", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDatazoneGlossaryTermTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDatazoneGlossaryTermTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

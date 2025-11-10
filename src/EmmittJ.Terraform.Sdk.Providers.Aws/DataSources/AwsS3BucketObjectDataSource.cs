@@ -41,8 +41,9 @@ public class AwsS3BucketObjectDataSource : TerraformDataSource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     [Obsolete("This property is deprecated.")]
-    public TerraformProperty<string>? Bucket
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -60,7 +61,8 @@ public class AwsS3BucketObjectDataSource : TerraformDataSource
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
     {
         get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
@@ -87,9 +89,9 @@ public class AwsS3BucketObjectDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

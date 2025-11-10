@@ -21,7 +21,8 @@ public class GoogleKmsCryptoKeyIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The crypto_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CryptoKeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyId is required")]
+    public required TerraformProperty<string> CryptoKeyId
     {
         get => GetProperty<TerraformProperty<string>>("crypto_key_id");
         set => this.WithProperty("crypto_key_id", value);

@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for definition in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightTemplateDefinitionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for permissions in .
+/// Nesting mode: set
+/// </summary>
+public class AwsQuicksightTemplatePermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The actions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
+    public HashSet<TerraformProperty<string>>? Actions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("actions");
+        set => WithProperty("actions", value);
+    }
+
+    /// <summary>
+    /// The principal attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
+    {
+        get => GetProperty<TerraformProperty<string>>("principal");
+        set => WithProperty("principal", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_entity in .
+/// Nesting mode: list
+/// </summary>
+public class AwsQuicksightTemplateSourceEntityBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsQuicksightTemplateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_quicksight_template resource.
 /// </summary>
 public class AwsQuicksightTemplate : TerraformResource
@@ -43,7 +122,8 @@ public class AwsQuicksightTemplate : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -61,25 +141,26 @@ public class AwsQuicksightTemplate : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The template_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
+    public required TerraformProperty<string> TemplateId
     {
         get => GetProperty<TerraformProperty<string>>("template_id");
         set => this.WithProperty("template_id", value);
@@ -88,10 +169,54 @@ public class AwsQuicksightTemplate : TerraformResource
     /// <summary>
     /// The version_description attribute.
     /// </summary>
-    public TerraformProperty<string>? VersionDescription
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionDescription is required")]
+    public required TerraformProperty<string> VersionDescription
     {
         get => GetProperty<TerraformProperty<string>>("version_description");
         set => this.WithProperty("version_description", value);
+    }
+
+    /// <summary>
+    /// Block for definition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Definition block(s) allowed")]
+    public List<AwsQuicksightTemplateDefinitionBlock>? Definition
+    {
+        get => GetProperty<List<AwsQuicksightTemplateDefinitionBlock>>("definition");
+        set => this.WithProperty("definition", value);
+    }
+
+    /// <summary>
+    /// Block for permissions.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
+    public HashSet<AwsQuicksightTemplatePermissionsBlock>? Permissions
+    {
+        get => GetProperty<HashSet<AwsQuicksightTemplatePermissionsBlock>>("permissions");
+        set => this.WithProperty("permissions", value);
+    }
+
+    /// <summary>
+    /// Block for source_entity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceEntity block(s) allowed")]
+    public List<AwsQuicksightTemplateSourceEntityBlock>? SourceEntity
+    {
+        get => GetProperty<List<AwsQuicksightTemplateSourceEntityBlock>>("source_entity");
+        set => this.WithProperty("source_entity", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsQuicksightTemplateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsQuicksightTemplateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

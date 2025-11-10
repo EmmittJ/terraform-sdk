@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for destination_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFlowLogDestinationOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The file_format attribute.
+    /// </summary>
+    public TerraformProperty<string>? FileFormat
+    {
+        get => GetProperty<TerraformProperty<string>>("file_format");
+        set => WithProperty("file_format", value);
+    }
+
+    /// <summary>
+    /// The hive_compatible_partitions attribute.
+    /// </summary>
+    public TerraformProperty<bool>? HiveCompatiblePartitions
+    {
+        get => GetProperty<TerraformProperty<bool>>("hive_compatible_partitions");
+        set => WithProperty("hive_compatible_partitions", value);
+    }
+
+    /// <summary>
+    /// The per_hour_partition attribute.
+    /// </summary>
+    public TerraformProperty<bool>? PerHourPartition
+    {
+        get => GetProperty<TerraformProperty<bool>>("per_hour_partition");
+        set => WithProperty("per_hour_partition", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_flow_log resource.
 /// </summary>
 public class AwsFlowLog : TerraformResource
@@ -110,18 +145,18 @@ public class AwsFlowLog : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -159,6 +194,17 @@ public class AwsFlowLog : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
+    }
+
+    /// <summary>
+    /// Block for destination_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationOptions block(s) allowed")]
+    public List<AwsFlowLogDestinationOptionsBlock>? DestinationOptions
+    {
+        get => GetProperty<List<AwsFlowLogDestinationOptionsBlock>>("destination_options");
+        set => this.WithProperty("destination_options", value);
     }
 
     /// <summary>

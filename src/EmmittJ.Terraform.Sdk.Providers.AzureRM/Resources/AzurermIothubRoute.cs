@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermIothubRouteTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_iothub_route resource.
 /// </summary>
 public class AzurermIothubRoute : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermIothubRoute : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? Enabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
     {
         get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
@@ -37,9 +82,10 @@ public class AzurermIothubRoute : TerraformResource
     /// <summary>
     /// The endpoint_names attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? EndpointNames
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointNames is required")]
+    public List<TerraformProperty<string>>? EndpointNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("endpoint_names");
+        get => GetProperty<List<TerraformProperty<string>>>("endpoint_names");
         set => this.WithProperty("endpoint_names", value);
     }
 
@@ -55,7 +101,8 @@ public class AzurermIothubRoute : TerraformResource
     /// <summary>
     /// The iothub_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IothubName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubName is required")]
+    public required TerraformProperty<string> IothubName
     {
         get => GetProperty<TerraformProperty<string>>("iothub_name");
         set => this.WithProperty("iothub_name", value);
@@ -64,7 +111,8 @@ public class AzurermIothubRoute : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,7 +121,8 @@ public class AzurermIothubRoute : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -82,10 +131,21 @@ public class AzurermIothubRoute : TerraformResource
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformProperty<string> Source
     {
         get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermIothubRouteTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermIothubRouteTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

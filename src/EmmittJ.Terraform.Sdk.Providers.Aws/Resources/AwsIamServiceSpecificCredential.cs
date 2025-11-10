@@ -44,7 +44,8 @@ public class AwsIamServiceSpecificCredential : TerraformResource
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
+    public required TerraformProperty<string> ServiceName
     {
         get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
@@ -62,7 +63,8 @@ public class AwsIamServiceSpecificCredential : TerraformResource
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformProperty<string>? UserName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
+    public required TerraformProperty<string> UserName
     {
         get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);

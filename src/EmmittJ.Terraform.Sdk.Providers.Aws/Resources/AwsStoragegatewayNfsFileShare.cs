@@ -3,6 +3,102 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for cache_attributes in .
+/// Nesting mode: list
+/// </summary>
+public class AwsStoragegatewayNfsFileShareCacheAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cache_stale_timeout_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? CacheStaleTimeoutInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("cache_stale_timeout_in_seconds");
+        set => WithProperty("cache_stale_timeout_in_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for nfs_file_share_defaults in .
+/// Nesting mode: list
+/// </summary>
+public class AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The directory_mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? DirectoryMode
+    {
+        get => GetProperty<TerraformProperty<string>>("directory_mode");
+        set => WithProperty("directory_mode", value);
+    }
+
+    /// <summary>
+    /// The file_mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? FileMode
+    {
+        get => GetProperty<TerraformProperty<string>>("file_mode");
+        set => WithProperty("file_mode", value);
+    }
+
+    /// <summary>
+    /// The group_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? GroupId
+    {
+        get => GetProperty<TerraformProperty<string>>("group_id");
+        set => WithProperty("group_id", value);
+    }
+
+    /// <summary>
+    /// The owner_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? OwnerId
+    {
+        get => GetProperty<TerraformProperty<string>>("owner_id");
+        set => WithProperty("owner_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsStoragegatewayNfsFileShareTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_storagegateway_nfs_file_share resource.
 /// </summary>
 public class AwsStoragegatewayNfsFileShare : TerraformResource
@@ -40,9 +136,10 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     /// <summary>
     /// The client_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ClientList
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientList is required")]
+    public HashSet<TerraformProperty<string>>? ClientList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("client_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("client_list");
         set => this.WithProperty("client_list", value);
     }
 
@@ -67,7 +164,8 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
+    public required TerraformProperty<string> GatewayArn
     {
         get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
@@ -112,7 +210,8 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     /// <summary>
     /// The location_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LocationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
+    public required TerraformProperty<string> LocationArn
     {
         get => GetProperty<TerraformProperty<string>>("location_arn");
         set => this.WithProperty("location_arn", value);
@@ -166,7 +265,8 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -184,18 +284,18 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -206,6 +306,38 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpc_endpoint_dns_name");
         set => this.WithProperty("vpc_endpoint_dns_name", value);
+    }
+
+    /// <summary>
+    /// Block for cache_attributes.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheAttributes block(s) allowed")]
+    public List<AwsStoragegatewayNfsFileShareCacheAttributesBlock>? CacheAttributes
+    {
+        get => GetProperty<List<AwsStoragegatewayNfsFileShareCacheAttributesBlock>>("cache_attributes");
+        set => this.WithProperty("cache_attributes", value);
+    }
+
+    /// <summary>
+    /// Block for nfs_file_share_defaults.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NfsFileShareDefaults block(s) allowed")]
+    public List<AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock>? NfsFileShareDefaults
+    {
+        get => GetProperty<List<AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock>>("nfs_file_share_defaults");
+        set => this.WithProperty("nfs_file_share_defaults", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsStoragegatewayNfsFileShareTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsStoragegatewayNfsFileShareTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

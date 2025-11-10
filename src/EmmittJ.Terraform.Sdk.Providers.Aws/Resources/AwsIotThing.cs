@@ -22,9 +22,9 @@ public class AwsIotThing : TerraformResource
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Attributes
+    public Dictionary<string, TerraformProperty<string>>? Attributes
     {
-        get => GetProperty<TerraformMapProperty<string>>("attributes");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attributes");
         set => this.WithProperty("attributes", value);
     }
 
@@ -40,7 +40,8 @@ public class AwsIotThing : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

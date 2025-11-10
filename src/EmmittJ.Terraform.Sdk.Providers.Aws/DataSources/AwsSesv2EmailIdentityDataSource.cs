@@ -25,7 +25,8 @@ public class AwsSesv2EmailIdentityDataSource : TerraformDataSource
     /// <summary>
     /// The email_identity attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailIdentity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
+    public required TerraformProperty<string> EmailIdentity
     {
         get => GetProperty<TerraformProperty<string>>("email_identity");
         set => this.WithProperty("email_identity", value);
@@ -52,9 +53,9 @@ public class AwsSesv2EmailIdentityDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermContainerAppEnvironmentCertificateDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_container_app_environment_certificate.
 /// </summary>
 public class AzurermContainerAppEnvironmentCertificateDataSource : TerraformDataSource
@@ -25,7 +42,8 @@ public class AzurermContainerAppEnvironmentCertificateDataSource : TerraformData
     /// <summary>
     /// The Container App Managed Environment ID to configure this Certificate on.
     /// </summary>
-    public TerraformProperty<string>? ContainerAppEnvironmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
+    public required TerraformProperty<string> ContainerAppEnvironmentId
     {
         get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
@@ -43,10 +61,21 @@ public class AzurermContainerAppEnvironmentCertificateDataSource : TerraformData
     /// <summary>
     /// The name of the Container Apps Certificate.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermContainerAppEnvironmentCertificateDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermContainerAppEnvironmentCertificateDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

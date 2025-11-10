@@ -42,7 +42,8 @@ public class AwsLicensemanagerReceivedLicenseDataSource : TerraformDataSource
     /// <summary>
     /// The license_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
+    public required TerraformProperty<string> LicenseArn
     {
         get => GetProperty<TerraformProperty<string>>("license_arn");
         set => this.WithProperty("license_arn", value);

@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for endpoint_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApiGatewayRestApiEndpointConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ip_address_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? IpAddressType
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_address_type");
+        set => WithProperty("ip_address_type", value);
+    }
+
+    /// <summary>
+    /// The types attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Types is required")]
+    public List<TerraformProperty<string>>? Types
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("types");
+        set => WithProperty("types", value);
+    }
+
+    /// <summary>
+    /// The vpc_endpoint_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? VpcEndpointIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_endpoint_ids");
+        set => WithProperty("vpc_endpoint_ids", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_api_gateway_rest_api resource.
 /// </summary>
 public class AwsApiGatewayRestApi : TerraformResource
@@ -32,9 +68,9 @@ public class AwsApiGatewayRestApi : TerraformResource
     /// <summary>
     /// The binary_media_types attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? BinaryMediaTypes
+    public List<TerraformProperty<string>>? BinaryMediaTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("binary_media_types");
+        get => GetProperty<List<TerraformProperty<string>>>("binary_media_types");
         set => this.WithProperty("binary_media_types", value);
     }
 
@@ -95,7 +131,8 @@ public class AwsApiGatewayRestApi : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -104,9 +141,9 @@ public class AwsApiGatewayRestApi : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Parameters
+    public Dictionary<string, TerraformProperty<string>>? Parameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -140,19 +177,30 @@ public class AwsApiGatewayRestApi : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for endpoint_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfiguration block(s) allowed")]
+    public List<AwsApiGatewayRestApiEndpointConfigurationBlock>? EndpointConfiguration
+    {
+        get => GetProperty<List<AwsApiGatewayRestApiEndpointConfigurationBlock>>("endpoint_configuration");
+        set => this.WithProperty("endpoint_configuration", value);
     }
 
     /// <summary>

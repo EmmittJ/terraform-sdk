@@ -3,6 +3,52 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: set
+/// </summary>
+public class AwsBackupSelectionConditionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for selection_tag in .
+/// Nesting mode: set
+/// </summary>
+public class AwsBackupSelectionSelectionTagBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_backup_selection resource.
 /// </summary>
 public class AwsBackupSelection : TerraformResource
@@ -19,7 +65,8 @@ public class AwsBackupSelection : TerraformResource
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
+    public required TerraformProperty<string> IamRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
@@ -37,7 +84,8 @@ public class AwsBackupSelection : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,16 +94,17 @@ public class AwsBackupSelection : TerraformResource
     /// <summary>
     /// The not_resources attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? NotResources
+    public HashSet<TerraformProperty<string>>? NotResources
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("not_resources");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("not_resources");
         set => this.WithProperty("not_resources", value);
     }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PlanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlanId is required")]
+    public required TerraformProperty<string> PlanId
     {
         get => GetProperty<TerraformProperty<string>>("plan_id");
         set => this.WithProperty("plan_id", value);
@@ -73,10 +122,30 @@ public class AwsBackupSelection : TerraformResource
     /// <summary>
     /// The resources attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Resources
+    public HashSet<TerraformProperty<string>>? Resources
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resources");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resources");
         set => this.WithProperty("resources", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsBackupSelectionConditionBlock>? Condition
+    {
+        get => GetProperty<HashSet<AwsBackupSelectionConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
+    }
+
+    /// <summary>
+    /// Block for selection_tag.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsBackupSelectionSelectionTagBlock>? SelectionTag
+    {
+        get => GetProperty<HashSet<AwsBackupSelectionSelectionTagBlock>>("selection_tag");
+        set => this.WithProperty("selection_tag", value);
     }
 
 }

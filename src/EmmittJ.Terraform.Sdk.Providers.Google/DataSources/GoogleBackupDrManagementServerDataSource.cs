@@ -34,7 +34,8 @@ public class GoogleBackupDrManagementServerDataSource : TerraformDataSource
     /// <summary>
     /// The location for the management server (management console)
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

@@ -3,6 +3,334 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for autoclass in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketAutoclassBlock : TerraformBlock
+{
+    /// <summary>
+    /// While set to true, autoclass automatically transitions objects in your bucket to appropriate storage classes based on each object&#39;s access pattern.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The storage class that objects in the bucket eventually transition to if they are not read for a certain length of time. Supported values include: NEARLINE, ARCHIVE.
+    /// </summary>
+    public TerraformProperty<string>? TerminalStorageClass
+    {
+        get => GetProperty<TerraformProperty<string>>("terminal_storage_class");
+        set => WithProperty("terminal_storage_class", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for cors in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketCorsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The value, in seconds, to return in the Access-Control-Max-Age header used in preflight responses.
+    /// </summary>
+    public TerraformProperty<double>? MaxAgeSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("max_age_seconds");
+        set => WithProperty("max_age_seconds", value);
+    }
+
+    /// <summary>
+    /// The list of HTTP methods on which to include CORS response headers, (GET, OPTIONS, POST, etc) Note: &amp;quot;*&amp;quot; is permitted in the list of methods, and means &amp;quot;any method&amp;quot;.
+    /// </summary>
+    public List<TerraformProperty<string>>? Method
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("method");
+        set => WithProperty("method", value);
+    }
+
+    /// <summary>
+    /// The list of Origins eligible to receive CORS response headers. Note: &amp;quot;*&amp;quot; is permitted in the list of origins, and means &amp;quot;any Origin&amp;quot;.
+    /// </summary>
+    public List<TerraformProperty<string>>? Origin
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("origin");
+        set => WithProperty("origin", value);
+    }
+
+    /// <summary>
+    /// The list of HTTP headers other than the simple response headers to give permission for the user-agent to share across domains.
+    /// </summary>
+    public List<TerraformProperty<string>>? ResponseHeader
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("response_header");
+        set => WithProperty("response_header", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for custom_placement_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketCustomPlacementConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The list of individual regions that comprise a dual-region bucket. See the docs for a list of acceptable regions. Note: If any of the data_locations changes, it will recreate the bucket.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLocations is required")]
+    public HashSet<TerraformProperty<string>>? DataLocations
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("data_locations");
+        set => WithProperty("data_locations", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for encryption in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketEncryptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// A Cloud KMS key that will be used to encrypt objects inserted into this bucket, if no encryption method is specified. You must pay attention to whether the crypto key is available in the location that this bucket is created in. See the docs for more details.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultKmsKeyName is required")]
+    public required TerraformProperty<string> DefaultKmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("default_kms_key_name");
+        set => WithProperty("default_kms_key_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for hierarchical_namespace in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketHierarchicalNamespaceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Set this field true to organize bucket with logical file system structure.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ip_filter in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketIpFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Whether to allow all service agents to access the bucket regardless of the IP filter configuration.
+    /// </summary>
+    public TerraformProperty<bool>? AllowAllServiceAgentAccess
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_all_service_agent_access");
+        set => WithProperty("allow_all_service_agent_access", value);
+    }
+
+    /// <summary>
+    /// Whether to allow cross-org VPCs in the bucket&#39;s IP filter configuration.
+    /// </summary>
+    public TerraformProperty<bool>? AllowCrossOrgVpcs
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_cross_org_vpcs");
+        set => WithProperty("allow_cross_org_vpcs", value);
+    }
+
+    /// <summary>
+    /// The mode of the IP filter. Valid values are &#39;Enabled&#39; and &#39;Disabled&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformProperty<string> Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for lifecycle_rule in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketLifecycleRuleBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for logging in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketLoggingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket that will receive log objects.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
+    public required TerraformProperty<string> LogBucket
+    {
+        get => GetProperty<TerraformProperty<string>>("log_bucket");
+        set => WithProperty("log_bucket", value);
+    }
+
+    /// <summary>
+    /// The object prefix for log objects. If it&#39;s not provided, by default Google Cloud Storage sets this to this bucket&#39;s name.
+    /// </summary>
+    public TerraformProperty<string>? LogObjectPrefix
+    {
+        get => GetProperty<TerraformProperty<string>>("log_object_prefix");
+        set => WithProperty("log_object_prefix", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for retention_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketRetentionPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// If set to true, the bucket will be locked and permanently restrict edits to the bucket&#39;s retention policy.  Caution: Locking a bucket is an irreversible action.
+    /// </summary>
+    public TerraformProperty<bool>? IsLocked
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_locked");
+        set => WithProperty("is_locked", value);
+    }
+
+    /// <summary>
+    /// The period of time, in seconds, that objects in the bucket must be retained and cannot be deleted, overwritten, or archived. The value must be less than 3,155,760,000 seconds.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriod is required")]
+    public required TerraformProperty<string> RetentionPeriod
+    {
+        get => GetProperty<TerraformProperty<string>>("retention_period");
+        set => WithProperty("retention_period", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for soft_delete_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketSoftDeletePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Server-determined value that indicates the time from which the policy, or one with a greater retention, was effective. This value is in RFC 3339 format.
+    /// </summary>
+    public TerraformProperty<string>? EffectiveTime
+    {
+        get => GetProperty<TerraformProperty<string>>("effective_time");
+        set => WithProperty("effective_time", value);
+    }
+
+    /// <summary>
+    /// The duration in seconds that soft-deleted objects in the bucket will be retained and cannot be permanently deleted. Default value is 604800.
+    /// </summary>
+    public TerraformProperty<double>? RetentionDurationSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("retention_duration_seconds");
+        set => WithProperty("retention_duration_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleStorageBucketTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for versioning in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketVersioningBlock : TerraformBlock
+{
+    /// <summary>
+    /// While set to true, versioning is fully enabled for this bucket.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for website in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleStorageBucketWebsiteBlock : TerraformBlock
+{
+    /// <summary>
+    /// Behaves as the bucket&#39;s directory index where missing objects are treated as potential directories.
+    /// </summary>
+    public TerraformProperty<string>? MainPageSuffix
+    {
+        get => GetProperty<TerraformProperty<string>>("main_page_suffix");
+        set => WithProperty("main_page_suffix", value);
+    }
+
+    /// <summary>
+    /// The custom object to return when a requested resource is not found.
+    /// </summary>
+    public TerraformProperty<string>? NotFoundPage
+    {
+        get => GetProperty<TerraformProperty<string>>("not_found_page");
+        set => WithProperty("not_found_page", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_storage_bucket resource.
 /// </summary>
 public class GoogleStorageBucket : TerraformResource
@@ -62,16 +390,17 @@ public class GoogleStorageBucket : TerraformResource
     /// <summary>
     /// A set of key/value label pairs to assign to the bucket.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The Google Cloud Storage location or region.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -80,7 +409,8 @@ public class GoogleStorageBucket : TerraformResource
     /// <summary>
     /// The name of the bucket.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -138,6 +468,147 @@ public class GoogleStorageBucket : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("uniform_bucket_level_access");
         set => this.WithProperty("uniform_bucket_level_access", value);
+    }
+
+    /// <summary>
+    /// Block for autoclass.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoclass block(s) allowed")]
+    public List<GoogleStorageBucketAutoclassBlock>? Autoclass
+    {
+        get => GetProperty<List<GoogleStorageBucketAutoclassBlock>>("autoclass");
+        set => this.WithProperty("autoclass", value);
+    }
+
+    /// <summary>
+    /// Block for cors.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleStorageBucketCorsBlock>? Cors
+    {
+        get => GetProperty<List<GoogleStorageBucketCorsBlock>>("cors");
+        set => this.WithProperty("cors", value);
+    }
+
+    /// <summary>
+    /// Block for custom_placement_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomPlacementConfig block(s) allowed")]
+    public List<GoogleStorageBucketCustomPlacementConfigBlock>? CustomPlacementConfig
+    {
+        get => GetProperty<List<GoogleStorageBucketCustomPlacementConfigBlock>>("custom_placement_config");
+        set => this.WithProperty("custom_placement_config", value);
+    }
+
+    /// <summary>
+    /// Block for encryption.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
+    public List<GoogleStorageBucketEncryptionBlock>? Encryption
+    {
+        get => GetProperty<List<GoogleStorageBucketEncryptionBlock>>("encryption");
+        set => this.WithProperty("encryption", value);
+    }
+
+    /// <summary>
+    /// Block for hierarchical_namespace.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HierarchicalNamespace block(s) allowed")]
+    public List<GoogleStorageBucketHierarchicalNamespaceBlock>? HierarchicalNamespace
+    {
+        get => GetProperty<List<GoogleStorageBucketHierarchicalNamespaceBlock>>("hierarchical_namespace");
+        set => this.WithProperty("hierarchical_namespace", value);
+    }
+
+    /// <summary>
+    /// Block for ip_filter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpFilter block(s) allowed")]
+    public List<GoogleStorageBucketIpFilterBlock>? IpFilter
+    {
+        get => GetProperty<List<GoogleStorageBucketIpFilterBlock>>("ip_filter");
+        set => this.WithProperty("ip_filter", value);
+    }
+
+    /// <summary>
+    /// Block for lifecycle_rule.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 LifecycleRule block(s) allowed")]
+    public List<GoogleStorageBucketLifecycleRuleBlock>? LifecycleRule
+    {
+        get => GetProperty<List<GoogleStorageBucketLifecycleRuleBlock>>("lifecycle_rule");
+        set => this.WithProperty("lifecycle_rule", value);
+    }
+
+    /// <summary>
+    /// Block for logging.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
+    public List<GoogleStorageBucketLoggingBlock>? Logging
+    {
+        get => GetProperty<List<GoogleStorageBucketLoggingBlock>>("logging");
+        set => this.WithProperty("logging", value);
+    }
+
+    /// <summary>
+    /// Block for retention_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
+    public List<GoogleStorageBucketRetentionPolicyBlock>? RetentionPolicy
+    {
+        get => GetProperty<List<GoogleStorageBucketRetentionPolicyBlock>>("retention_policy");
+        set => this.WithProperty("retention_policy", value);
+    }
+
+    /// <summary>
+    /// Block for soft_delete_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftDeletePolicy block(s) allowed")]
+    public List<GoogleStorageBucketSoftDeletePolicyBlock>? SoftDeletePolicy
+    {
+        get => GetProperty<List<GoogleStorageBucketSoftDeletePolicyBlock>>("soft_delete_policy");
+        set => this.WithProperty("soft_delete_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleStorageBucketTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleStorageBucketTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for versioning.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Versioning block(s) allowed")]
+    public List<GoogleStorageBucketVersioningBlock>? Versioning
+    {
+        get => GetProperty<List<GoogleStorageBucketVersioningBlock>>("versioning");
+        set => this.WithProperty("versioning", value);
+    }
+
+    /// <summary>
+    /// Block for website.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Website block(s) allowed")]
+    public List<GoogleStorageBucketWebsiteBlock>? Website
+    {
+        get => GetProperty<List<GoogleStorageBucketWebsiteBlock>>("website");
+        set => this.WithProperty("website", value);
     }
 
     /// <summary>

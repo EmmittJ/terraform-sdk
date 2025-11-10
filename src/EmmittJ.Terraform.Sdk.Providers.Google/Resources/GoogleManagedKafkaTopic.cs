@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleManagedKafkaTopicTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_managed_kafka_topic resource.
 /// </summary>
 public class GoogleManagedKafkaTopic : TerraformResource
@@ -20,7 +55,8 @@ public class GoogleManagedKafkaTopic : TerraformResource
     /// <summary>
     /// The cluster name.
     /// </summary>
-    public TerraformProperty<string>? Cluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
+    public required TerraformProperty<string> Cluster
     {
         get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
@@ -29,9 +65,9 @@ public class GoogleManagedKafkaTopic : TerraformResource
     /// <summary>
     /// Configuration for the topic that are overridden from the cluster defaults. The key of the map is a Kafka topic property name, for example: &#39;cleanup.policy=compact&#39;, &#39;compression.type=producer&#39;.
     /// </summary>
-    public TerraformMapProperty<string>? Configs
+    public Dictionary<string, TerraformProperty<string>>? Configs
     {
-        get => GetProperty<TerraformMapProperty<string>>("configs");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("configs");
         set => this.WithProperty("configs", value);
     }
 
@@ -47,7 +83,8 @@ public class GoogleManagedKafkaTopic : TerraformResource
     /// <summary>
     /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -74,7 +111,8 @@ public class GoogleManagedKafkaTopic : TerraformResource
     /// <summary>
     /// The number of replicas of each partition. A replication factor of 3 is recommended for high availability.
     /// </summary>
-    public TerraformProperty<double>? ReplicationFactor
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
+    public required TerraformProperty<double> ReplicationFactor
     {
         get => GetProperty<TerraformProperty<double>>("replication_factor");
         set => this.WithProperty("replication_factor", value);
@@ -83,10 +121,21 @@ public class GoogleManagedKafkaTopic : TerraformResource
     /// <summary>
     /// The ID to use for the topic, which will become the final component of the topic&#39;s name. This value is structured like: &#39;my-topic-name&#39;.
     /// </summary>
-    public TerraformProperty<string>? TopicId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
+    public required TerraformProperty<string> TopicId
     {
         get => GetProperty<TerraformProperty<string>>("topic_id");
         set => this.WithProperty("topic_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleManagedKafkaTopicTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleManagedKafkaTopicTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

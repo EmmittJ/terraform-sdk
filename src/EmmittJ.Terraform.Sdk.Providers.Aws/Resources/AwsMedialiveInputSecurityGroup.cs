@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMedialiveInputSecurityGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for whitelist_rules in .
+/// Nesting mode: set
+/// </summary>
+public class AwsMedialiveInputSecurityGroupWhitelistRulesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cidr attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
+    public required TerraformProperty<string> Cidr
+    {
+        get => GetProperty<TerraformProperty<string>>("cidr");
+        set => WithProperty("cidr", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_medialive_input_security_group resource.
 /// </summary>
 public class AwsMedialiveInputSecurityGroup : TerraformResource
@@ -39,19 +92,40 @@ public class AwsMedialiveInputSecurityGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMedialiveInputSecurityGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMedialiveInputSecurityGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for whitelist_rules.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WhitelistRules block(s) required")]
+    public HashSet<AwsMedialiveInputSecurityGroupWhitelistRulesBlock>? WhitelistRules
+    {
+        get => GetProperty<HashSet<AwsMedialiveInputSecurityGroupWhitelistRulesBlock>>("whitelist_rules");
+        set => this.WithProperty("whitelist_rules", value);
     }
 
     /// <summary>

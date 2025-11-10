@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for deidentify_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_data_loss_prevention_deidentify_template resource.
 /// </summary>
 public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
@@ -54,7 +97,8 @@ public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
     /// * &#39;organizations/{{organization_id}}&#39;
     /// * &#39;organizations/{{organization_id}}/locations/{{location}}&#39;
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -69,6 +113,28 @@ public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("template_id");
         set => this.WithProperty("template_id", value);
+    }
+
+    /// <summary>
+    /// Block for deidentify_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DeidentifyConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeidentifyConfig block(s) allowed")]
+    public List<GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlock>? DeidentifyConfig
+    {
+        get => GetProperty<List<GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlock>>("deidentify_config");
+        set => this.WithProperty("deidentify_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

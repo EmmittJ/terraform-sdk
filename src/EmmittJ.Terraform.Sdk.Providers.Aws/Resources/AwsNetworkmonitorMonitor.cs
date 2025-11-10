@@ -31,7 +31,8 @@ public class AwsNetworkmonitorMonitor : TerraformResource
     /// <summary>
     /// The monitor_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MonitorName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
+    public required TerraformProperty<string> MonitorName
     {
         get => GetProperty<TerraformProperty<string>>("monitor_name");
         set => this.WithProperty("monitor_name", value);
@@ -49,9 +50,9 @@ public class AwsNetworkmonitorMonitor : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for matching in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCustomerprofilesDomainMatchingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rule_based_matching in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The max_allowed_rule_level_for_matching attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxAllowedRuleLevelForMatching
+    {
+        get => GetProperty<TerraformProperty<double>>("max_allowed_rule_level_for_matching");
+        set => WithProperty("max_allowed_rule_level_for_matching", value);
+    }
+
+    /// <summary>
+    /// The max_allowed_rule_level_for_merging attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxAllowedRuleLevelForMerging
+    {
+        get => GetProperty<TerraformProperty<double>>("max_allowed_rule_level_for_merging");
+        set => WithProperty("max_allowed_rule_level_for_merging", value);
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformProperty<string>? Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_customerprofiles_domain resource.
 /// </summary>
 public class AwsCustomerprofilesDomain : TerraformResource
@@ -38,7 +101,8 @@ public class AwsCustomerprofilesDomain : TerraformResource
     /// <summary>
     /// The default_expiration_days attribute.
     /// </summary>
-    public TerraformProperty<double>? DefaultExpirationDays
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultExpirationDays is required")]
+    public required TerraformProperty<double> DefaultExpirationDays
     {
         get => GetProperty<TerraformProperty<double>>("default_expiration_days");
         set => this.WithProperty("default_expiration_days", value);
@@ -47,7 +111,8 @@ public class AwsCustomerprofilesDomain : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -74,19 +139,41 @@ public class AwsCustomerprofilesDomain : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for matching.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Matching block(s) allowed")]
+    public List<AwsCustomerprofilesDomainMatchingBlock>? Matching
+    {
+        get => GetProperty<List<AwsCustomerprofilesDomainMatchingBlock>>("matching");
+        set => this.WithProperty("matching", value);
+    }
+
+    /// <summary>
+    /// Block for rule_based_matching.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RuleBasedMatching block(s) allowed")]
+    public List<AwsCustomerprofilesDomainRuleBasedMatchingBlock>? RuleBasedMatching
+    {
+        get => GetProperty<List<AwsCustomerprofilesDomainRuleBasedMatchingBlock>>("rule_based_matching");
+        set => this.WithProperty("rule_based_matching", value);
     }
 
     /// <summary>

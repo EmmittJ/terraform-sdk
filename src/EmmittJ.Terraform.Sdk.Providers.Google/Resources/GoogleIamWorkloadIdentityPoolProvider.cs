@@ -3,6 +3,154 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for aws in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkloadIdentityPoolProviderAwsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The AWS account ID.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
+    public required TerraformProperty<string> AccountId
+    {
+        get => GetProperty<TerraformProperty<string>>("account_id");
+        set => WithProperty("account_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for oidc in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkloadIdentityPoolProviderOidcBlock : TerraformBlock
+{
+    /// <summary>
+    /// Acceptable values for the &#39;aud&#39; field (audience) in the OIDC token. Token exchange
+    /// requests are rejected if the token audience does not match one of the configured
+    /// values. Each audience may be at most 256 characters. A maximum of 10 audiences may
+    /// be configured.
+    /// 
+    /// If this list is empty, the OIDC token audience must be equal to the full canonical
+    /// resource name of the WorkloadIdentityPoolProvider, with or without the HTTPS prefix.
+    /// For example:
+    /// &#39;&#39;&#39;
+    /// //iam.googleapis.com/projects/&amp;lt;project-number&amp;gt;/locations/&amp;lt;location&amp;gt;/workloadIdentityPools/&amp;lt;pool-id&amp;gt;/providers/&amp;lt;provider-id&amp;gt;
+    /// https://iam.googleapis.com/projects/&amp;lt;project-number&amp;gt;/locations/&amp;lt;location&amp;gt;/workloadIdentityPools/&amp;lt;pool-id&amp;gt;/providers/&amp;lt;provider-id&amp;gt;
+    /// &#39;&#39;&#39;
+    /// </summary>
+    public List<TerraformProperty<string>>? AllowedAudiences
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("allowed_audiences");
+        set => WithProperty("allowed_audiences", value);
+    }
+
+    /// <summary>
+    /// The OIDC issuer URL.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
+    public required TerraformProperty<string> IssuerUri
+    {
+        get => GetProperty<TerraformProperty<string>>("issuer_uri");
+        set => WithProperty("issuer_uri", value);
+    }
+
+    /// <summary>
+    /// OIDC JWKs in JSON String format. For details on definition of a
+    /// JWK, see https:tools.ietf.org/html/rfc7517. If not set, then we
+    /// use the &#39;jwks_uri&#39; from the discovery document fetched from the
+    /// .well-known path for the &#39;issuer_uri&#39;. Currently, RSA and EC asymmetric
+    /// keys are supported. The JWK must use following format and include only
+    /// the following fields:
+    /// &#39;&#39;&#39;
+    /// {
+    ///   &amp;quot;keys&amp;quot;: [
+    ///     {
+    ///           &amp;quot;kty&amp;quot;: &amp;quot;RSA/EC&amp;quot;,
+    ///           &amp;quot;alg&amp;quot;: &amp;quot;&amp;lt;algorithm&amp;gt;&amp;quot;,
+    ///           &amp;quot;use&amp;quot;: &amp;quot;sig&amp;quot;,
+    ///           &amp;quot;kid&amp;quot;: &amp;quot;&amp;lt;key-id&amp;gt;&amp;quot;,
+    ///           &amp;quot;n&amp;quot;: &amp;quot;&amp;quot;,
+    ///           &amp;quot;e&amp;quot;: &amp;quot;&amp;quot;,
+    ///           &amp;quot;x&amp;quot;: &amp;quot;&amp;quot;,
+    ///           &amp;quot;y&amp;quot;: &amp;quot;&amp;quot;,
+    ///           &amp;quot;crv&amp;quot;: &amp;quot;&amp;quot;
+    ///     }
+    ///   ]
+    /// }
+    /// &#39;&#39;&#39;
+    /// </summary>
+    public TerraformProperty<string>? JwksJson
+    {
+        get => GetProperty<TerraformProperty<string>>("jwks_json");
+        set => WithProperty("jwks_json", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for saml in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkloadIdentityPoolProviderSamlBlock : TerraformBlock
+{
+    /// <summary>
+    /// SAML Identity provider configuration metadata xml doc.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
+    public required TerraformProperty<string> IdpMetadataXml
+    {
+        get => GetProperty<TerraformProperty<string>>("idp_metadata_xml");
+        set => WithProperty("idp_metadata_xml", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for x509 in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamWorkloadIdentityPoolProviderX509Block : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a google_iam_workload_identity_pool_provider resource.
 /// </summary>
 public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
@@ -107,9 +255,9 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     ///     {&amp;quot;google.subject&amp;quot;: &amp;quot;assertion.sub&amp;quot;}
     ///     &#39;&#39;&#39;
     /// </summary>
-    public TerraformMapProperty<string>? AttributeMapping
+    public Dictionary<string, TerraformProperty<string>>? AttributeMapping
     {
-        get => GetProperty<TerraformMapProperty<string>>("attribute_mapping");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("attribute_mapping");
         set => this.WithProperty("attribute_mapping", value);
     }
 
@@ -164,7 +312,8 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformProperty<string>? WorkloadIdentityPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
+    public required TerraformProperty<string> WorkloadIdentityPoolId
     {
         get => GetProperty<TerraformProperty<string>>("workload_identity_pool_id");
         set => this.WithProperty("workload_identity_pool_id", value);
@@ -175,10 +324,65 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// value must be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformProperty<string>? WorkloadIdentityPoolProviderId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolProviderId is required")]
+    public required TerraformProperty<string> WorkloadIdentityPoolProviderId
     {
         get => GetProperty<TerraformProperty<string>>("workload_identity_pool_provider_id");
         set => this.WithProperty("workload_identity_pool_provider_id", value);
+    }
+
+    /// <summary>
+    /// Block for aws.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Aws block(s) allowed")]
+    public List<GoogleIamWorkloadIdentityPoolProviderAwsBlock>? Aws
+    {
+        get => GetProperty<List<GoogleIamWorkloadIdentityPoolProviderAwsBlock>>("aws");
+        set => this.WithProperty("aws", value);
+    }
+
+    /// <summary>
+    /// Block for oidc.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oidc block(s) allowed")]
+    public List<GoogleIamWorkloadIdentityPoolProviderOidcBlock>? Oidc
+    {
+        get => GetProperty<List<GoogleIamWorkloadIdentityPoolProviderOidcBlock>>("oidc");
+        set => this.WithProperty("oidc", value);
+    }
+
+    /// <summary>
+    /// Block for saml.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Saml block(s) allowed")]
+    public List<GoogleIamWorkloadIdentityPoolProviderSamlBlock>? Saml
+    {
+        get => GetProperty<List<GoogleIamWorkloadIdentityPoolProviderSamlBlock>>("saml");
+        set => this.WithProperty("saml", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamWorkloadIdentityPoolProviderTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for x509.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 X509 block(s) allowed")]
+    public List<GoogleIamWorkloadIdentityPoolProviderX509Block>? X509
+    {
+        get => GetProperty<List<GoogleIamWorkloadIdentityPoolProviderX509Block>>("x509");
+        set => this.WithProperty("x509", value);
     }
 
     /// <summary>

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDmsS3EndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dms_s3_endpoint resource.
 /// </summary>
 public class AwsDmsS3Endpoint : TerraformResource
@@ -50,7 +76,8 @@ public class AwsDmsS3Endpoint : TerraformResource
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BucketName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
     {
         get => GetProperty<TerraformProperty<string>>("bucket_name");
         set => this.WithProperty("bucket_name", value);
@@ -266,7 +293,8 @@ public class AwsDmsS3Endpoint : TerraformResource
     /// <summary>
     /// The endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
+    public required TerraformProperty<string> EndpointId
     {
         get => GetProperty<TerraformProperty<string>>("endpoint_id");
         set => this.WithProperty("endpoint_id", value);
@@ -275,7 +303,8 @@ public class AwsDmsS3Endpoint : TerraformResource
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
+    public required TerraformProperty<string> EndpointType
     {
         get => GetProperty<TerraformProperty<string>>("endpoint_type");
         set => this.WithProperty("endpoint_type", value);
@@ -419,7 +448,8 @@ public class AwsDmsS3Endpoint : TerraformResource
     /// <summary>
     /// The service_access_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceAccessRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccessRoleArn is required")]
+    public required TerraformProperty<string> ServiceAccessRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("service_access_role_arn");
         set => this.WithProperty("service_access_role_arn", value);
@@ -437,18 +467,18 @@ public class AwsDmsS3Endpoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -477,6 +507,16 @@ public class AwsDmsS3Endpoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("use_task_start_time_for_full_load_timestamp");
         set => this.WithProperty("use_task_start_time_for_full_load_timestamp", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDmsS3EndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDmsS3EndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

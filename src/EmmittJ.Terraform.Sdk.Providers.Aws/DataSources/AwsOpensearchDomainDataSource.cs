@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for off_peak_window_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsOpensearchDomainDataSourceOffPeakWindowOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The off_peak_window attribute.
+    /// </summary>
+    public List<TerraformProperty<object>>? OffPeakWindow
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("off_peak_window");
+        set => WithProperty("off_peak_window", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_opensearch_domain.
 /// </summary>
 public class AwsOpensearchDomainDataSource : TerraformDataSource
@@ -44,7 +70,8 @@ public class AwsOpensearchDomainDataSource : TerraformDataSource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -71,10 +98,21 @@ public class AwsOpensearchDomainDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for off_peak_window_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OffPeakWindowOptions block(s) allowed")]
+    public List<AwsOpensearchDomainDataSourceOffPeakWindowOptionsBlock>? OffPeakWindowOptions
+    {
+        get => GetProperty<List<AwsOpensearchDomainDataSourceOffPeakWindowOptionsBlock>>("off_peak_window_options");
+        set => this.WithProperty("off_peak_window_options", value);
     }
 
     /// <summary>

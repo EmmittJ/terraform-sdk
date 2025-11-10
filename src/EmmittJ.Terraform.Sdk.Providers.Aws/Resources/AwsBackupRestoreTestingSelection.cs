@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for protected_resource_conditions in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_backup_restore_testing_selection resource.
 /// </summary>
 public class AwsBackupRestoreTestingSelection : TerraformResource
@@ -19,7 +27,8 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
+    public required TerraformProperty<string> IamRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
@@ -28,7 +37,8 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -37,16 +47,17 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     /// <summary>
     /// The protected_resource_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ProtectedResourceArns
+    public HashSet<TerraformProperty<string>>? ProtectedResourceArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("protected_resource_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("protected_resource_arns");
         set => this.WithProperty("protected_resource_arns", value);
     }
 
     /// <summary>
     /// The protected_resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtectedResourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectedResourceType is required")]
+    public required TerraformProperty<string> ProtectedResourceType
     {
         get => GetProperty<TerraformProperty<string>>("protected_resource_type");
         set => this.WithProperty("protected_resource_type", value);
@@ -64,16 +75,17 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     /// <summary>
     /// The restore_metadata_overrides attribute.
     /// </summary>
-    public TerraformMapProperty<string>? RestoreMetadataOverrides
+    public Dictionary<string, TerraformProperty<string>>? RestoreMetadataOverrides
     {
-        get => GetProperty<TerraformMapProperty<string>>("restore_metadata_overrides");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("restore_metadata_overrides");
         set => this.WithProperty("restore_metadata_overrides", value);
     }
 
     /// <summary>
     /// The restore_testing_plan_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RestoreTestingPlanName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreTestingPlanName is required")]
+    public required TerraformProperty<string> RestoreTestingPlanName
     {
         get => GetProperty<TerraformProperty<string>>("restore_testing_plan_name");
         set => this.WithProperty("restore_testing_plan_name", value);
@@ -86,6 +98,16 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("validation_window_hours");
         set => this.WithProperty("validation_window_hours", value);
+    }
+
+    /// <summary>
+    /// Block for protected_resource_conditions.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock>? ProtectedResourceConditions
+    {
+        get => GetProperty<List<AwsBackupRestoreTestingSelectionProtectedResourceConditionsBlock>>("protected_resource_conditions");
+        set => this.WithProperty("protected_resource_conditions", value);
     }
 
 }

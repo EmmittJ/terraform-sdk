@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for local_data in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDnsResponsePolicyRuleLocalDataBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dns_response_policy_rule resource.
 /// </summary>
 public class GoogleDnsResponsePolicyRule : TerraformResource
@@ -19,7 +62,8 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     /// <summary>
     /// The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule.
     /// </summary>
-    public TerraformProperty<string>? DnsName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
+    public required TerraformProperty<string> DnsName
     {
         get => GetProperty<TerraformProperty<string>>("dns_name");
         set => this.WithProperty("dns_name", value);
@@ -46,7 +90,8 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     /// <summary>
     /// Identifies the response policy addressed by this request.
     /// </summary>
-    public TerraformProperty<string>? ResponsePolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicy is required")]
+    public required TerraformProperty<string> ResponsePolicy
     {
         get => GetProperty<TerraformProperty<string>>("response_policy");
         set => this.WithProperty("response_policy", value);
@@ -55,10 +100,32 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     /// <summary>
     /// An identifier for this rule. Must be unique with the ResponsePolicy.
     /// </summary>
-    public TerraformProperty<string>? RuleName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
+    public required TerraformProperty<string> RuleName
     {
         get => GetProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
+    }
+
+    /// <summary>
+    /// Block for local_data.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalData block(s) allowed")]
+    public List<GoogleDnsResponsePolicyRuleLocalDataBlock>? LocalData
+    {
+        get => GetProperty<List<GoogleDnsResponsePolicyRuleLocalDataBlock>>("local_data");
+        set => this.WithProperty("local_data", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDnsResponsePolicyRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDnsResponsePolicyRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

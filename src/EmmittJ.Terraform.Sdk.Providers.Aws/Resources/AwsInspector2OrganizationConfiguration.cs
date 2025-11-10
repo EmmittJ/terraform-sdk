@@ -3,6 +3,96 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for auto_enable in .
+/// Nesting mode: list
+/// </summary>
+public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBlock
+{
+    /// <summary>
+    /// The code_repository attribute.
+    /// </summary>
+    public TerraformProperty<bool>? CodeRepository
+    {
+        get => GetProperty<TerraformProperty<bool>>("code_repository");
+        set => WithProperty("code_repository", value);
+    }
+
+    /// <summary>
+    /// The ec2 attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2 is required")]
+    public required TerraformProperty<bool> Ec2
+    {
+        get => GetProperty<TerraformProperty<bool>>("ec2");
+        set => WithProperty("ec2", value);
+    }
+
+    /// <summary>
+    /// The ecr attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ecr is required")]
+    public required TerraformProperty<bool> Ecr
+    {
+        get => GetProperty<TerraformProperty<bool>>("ecr");
+        set => WithProperty("ecr", value);
+    }
+
+    /// <summary>
+    /// The lambda attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Lambda
+    {
+        get => GetProperty<TerraformProperty<bool>>("lambda");
+        set => WithProperty("lambda", value);
+    }
+
+    /// <summary>
+    /// The lambda_code attribute.
+    /// </summary>
+    public TerraformProperty<bool>? LambdaCode
+    {
+        get => GetProperty<TerraformProperty<bool>>("lambda_code");
+        set => WithProperty("lambda_code", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsInspector2OrganizationConfigurationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_inspector2_organization_configuration resource.
 /// </summary>
 public class AwsInspector2OrganizationConfiguration : TerraformResource
@@ -33,6 +123,28 @@ public class AwsInspector2OrganizationConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for auto_enable.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AutoEnable block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoEnable block(s) allowed")]
+    public List<AwsInspector2OrganizationConfigurationAutoEnableBlock>? AutoEnable
+    {
+        get => GetProperty<List<AwsInspector2OrganizationConfigurationAutoEnableBlock>>("auto_enable");
+        set => this.WithProperty("auto_enable", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsInspector2OrganizationConfigurationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsInspector2OrganizationConfigurationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

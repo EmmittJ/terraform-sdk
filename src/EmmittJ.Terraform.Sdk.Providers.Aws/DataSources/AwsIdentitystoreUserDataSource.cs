@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for alternate_identifier in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Retrieves information about a aws_identitystore_user.
 /// </summary>
 public class AwsIdentitystoreUserDataSource : TerraformDataSource
@@ -42,7 +50,8 @@ public class AwsIdentitystoreUserDataSource : TerraformDataSource
     /// <summary>
     /// The identity_store_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
+    public required TerraformProperty<string> IdentityStoreId
     {
         get => GetProperty<TerraformProperty<string>>("identity_store_id");
         set => this.WithProperty("identity_store_id", value);
@@ -64,6 +73,17 @@ public class AwsIdentitystoreUserDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
+    }
+
+    /// <summary>
+    /// Block for alternate_identifier.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlternateIdentifier block(s) allowed")]
+    public List<AwsIdentitystoreUserDataSourceAlternateIdentifierBlock>? AlternateIdentifier
+    {
+        get => GetProperty<List<AwsIdentitystoreUserDataSourceAlternateIdentifierBlock>>("alternate_identifier");
+        set => this.WithProperty("alternate_identifier", value);
     }
 
     /// <summary>

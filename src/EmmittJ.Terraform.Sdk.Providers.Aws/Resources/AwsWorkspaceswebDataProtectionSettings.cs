@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for inline_redaction_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The global_confidence_level attribute.
+    /// </summary>
+    public TerraformProperty<double>? GlobalConfidenceLevel
+    {
+        get => GetProperty<TerraformProperty<double>>("global_confidence_level");
+        set => WithProperty("global_confidence_level", value);
+    }
+
+    /// <summary>
+    /// The global_enforced_urls attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? GlobalEnforcedUrls
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("global_enforced_urls");
+        set => WithProperty("global_enforced_urls", value);
+    }
+
+    /// <summary>
+    /// The global_exempt_urls attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? GlobalExemptUrls
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("global_exempt_urls");
+        set => WithProperty("global_exempt_urls", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_workspacesweb_data_protection_settings resource.
 /// </summary>
 public class AwsWorkspaceswebDataProtectionSettings : TerraformResource
@@ -22,9 +57,9 @@ public class AwsWorkspaceswebDataProtectionSettings : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_encryption_context");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
@@ -49,7 +84,8 @@ public class AwsWorkspaceswebDataProtectionSettings : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -67,10 +103,20 @@ public class AwsWorkspaceswebDataProtectionSettings : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for inline_redaction_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock>? InlineRedactionConfiguration
+    {
+        get => GetProperty<List<AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationBlock>>("inline_redaction_configuration");
+        set => this.WithProperty("inline_redaction_configuration", value);
     }
 
     /// <summary>

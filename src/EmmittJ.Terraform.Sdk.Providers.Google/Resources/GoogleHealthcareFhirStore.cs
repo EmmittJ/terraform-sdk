@@ -3,6 +3,195 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for notification_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleHealthcareFhirStoreNotificationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
+    /// PubsubMessage.Data will contain the resource name. PubsubMessage.MessageId is the ID of this message.
+    /// It is guaranteed to be unique within the topic. PubsubMessage.PublishTime is the time at which the message
+    /// was published. Notifications are only sent if the topic is non-empty. Topic names must be scoped to a
+    /// project. service-PROJECT_NUMBER@gcp-sa-healthcare.iam.gserviceaccount.com must have publisher permissions on the given
+    /// Cloud Pub/Sub topic. Not having adequate permissions will cause the calls that send notifications to fail.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
+    public required TerraformProperty<string> PubsubTopic
+    {
+        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
+        set => WithProperty("pubsub_topic", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for notification_configs in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleHealthcareFhirStoreNotificationConfigsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
+    /// PubsubMessage.Data will contain the resource name. PubsubMessage.MessageId is the ID of this message.
+    /// It is guaranteed to be unique within the topic. PubsubMessage.PublishTime is the time at which the message
+    /// was published. Notifications are only sent if the topic is non-empty. Topic names must be scoped to a
+    /// project. service-PROJECT_NUMBER@gcp-sa-healthcare.iam.gserviceaccount.com must have publisher permissions on the given
+    /// Cloud Pub/Sub topic. Not having adequate permissions will cause the calls that send notifications to fail.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
+    public required TerraformProperty<string> PubsubTopic
+    {
+        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
+        set => WithProperty("pubsub_topic", value);
+    }
+
+    /// <summary>
+    /// Whether to send full FHIR resource to this Pub/Sub topic for Create and Update operation.
+    /// Note that setting this to true does not guarantee that all resources will be sent in the format of
+    /// full FHIR resource. When a resource change is too large or during heavy traffic, only the resource name will be
+    /// sent. Clients should always check the &amp;quot;payloadType&amp;quot; label from a Pub/Sub message to determine whether
+    /// it needs to fetch the full resource as a separate operation.
+    /// </summary>
+    public TerraformProperty<bool>? SendFullResource
+    {
+        get => GetProperty<TerraformProperty<bool>>("send_full_resource");
+        set => WithProperty("send_full_resource", value);
+    }
+
+    /// <summary>
+    /// Whether to send full FHIR resource to this Pub/Sub topic for deleting FHIR resource. Note that setting this to
+    /// true does not guarantee that all previous resources will be sent in the format of full FHIR resource. When a
+    /// resource change is too large or during heavy traffic, only the resource name will be sent. Clients should always
+    /// check the &amp;quot;payloadType&amp;quot; label from a Pub/Sub message to determine whether it needs to fetch the full previous
+    /// resource as a separate operation.
+    /// </summary>
+    public TerraformProperty<bool>? SendPreviousResourceOnDelete
+    {
+        get => GetProperty<TerraformProperty<bool>>("send_previous_resource_on_delete");
+        set => WithProperty("send_previous_resource_on_delete", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for stream_configs in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleHealthcareFhirStoreStreamConfigsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Supply a FHIR resource type (such as &amp;quot;Patient&amp;quot; or &amp;quot;Observation&amp;quot;). See
+    /// https://www.hl7.org/fhir/valueset-resource-types.html for a list of all FHIR resource types. The server treats
+    /// an empty list as an intent to stream all the supported resource types in this FHIR store.
+    /// </summary>
+    public List<TerraformProperty<string>>? ResourceTypes
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("resource_types");
+        set => WithProperty("resource_types", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleHealthcareFhirStoreTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for validation_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Whether to disable FHIRPath validation for incoming resources. The default value is false. Set this to true to disable checking incoming resources for conformance against FHIRPath requirement defined in the FHIR specification. This property only affects resource types that do not have profiles configured for them, any rules in enabled implementation guides will still be enforced.
+    /// </summary>
+    public TerraformProperty<bool>? DisableFhirpathValidation
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_fhirpath_validation");
+        set => WithProperty("disable_fhirpath_validation", value);
+    }
+
+    /// <summary>
+    /// Whether to disable profile validation for this FHIR store. The default value is false. Set this to true to disable checking incoming resources for conformance against structure definitions in this FHIR store.
+    /// </summary>
+    public TerraformProperty<bool>? DisableProfileValidation
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_profile_validation");
+        set => WithProperty("disable_profile_validation", value);
+    }
+
+    /// <summary>
+    /// Whether to disable reference type validation for incoming resources. The default value is false. Set this to true to disable checking incoming resources for conformance against reference type requirement defined in the FHIR specification. This property only affects resource types that do not have profiles configured for them, any rules in enabled implementation guides will still be enforced.
+    /// </summary>
+    public TerraformProperty<bool>? DisableReferenceTypeValidation
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_reference_type_validation");
+        set => WithProperty("disable_reference_type_validation", value);
+    }
+
+    /// <summary>
+    /// Whether to disable required fields validation for incoming resources. The default value is false. Set this to true to disable checking incoming resources for conformance against required fields requirement defined in the FHIR specification. This property only affects resource types that do not have profiles configured for them, any rules in enabled implementation guides will still be enforced.
+    /// </summary>
+    public TerraformProperty<bool>? DisableRequiredFieldValidation
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_required_field_validation");
+        set => WithProperty("disable_required_field_validation", value);
+    }
+
+    /// <summary>
+    /// A list of implementation guide URLs in this FHIR store that are used to configure the profiles to use for validation.
+    /// When a URL cannot be resolved (for example, in a type assertion), the server does not return an error.
+    /// For example, to use the US Core profiles for validation, set enabledImplementationGuides to [&amp;quot;http://hl7.org/fhir/us/core/ImplementationGuide/ig&amp;quot;]. If enabledImplementationGuides is empty or omitted, then incoming resources are only required to conform to the base FHIR profiles. Otherwise, a resource must conform to at least one profile listed in the global property of one of the enabled ImplementationGuides.
+    /// The Cloud Healthcare API does not currently enforce all of the rules in a StructureDefinition. The following rules are supported:
+    /// - min/max
+    /// - minValue/maxValue
+    /// - maxLength
+    /// - type
+    /// - fixed[x]
+    /// - pattern[x] on simple types
+    /// - slicing, when using &amp;quot;value&amp;quot; as the discriminator type
+    /// </summary>
+    public List<TerraformProperty<string>>? EnabledImplementationGuides
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("enabled_implementation_guides");
+        set => WithProperty("enabled_implementation_guides", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_healthcare_fhir_store resource.
 /// </summary>
 public class GoogleHealthcareFhirStore : TerraformResource
@@ -32,7 +221,8 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// Identifies the dataset addressed by this request. Must be in the format
     /// &#39;projects/{project}/locations/{location}/datasets/{dataset}&#39;
     /// </summary>
-    public TerraformProperty<string>? Dataset
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
+    public required TerraformProperty<string> Dataset
     {
         get => GetProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
@@ -136,9 +326,9 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -147,7 +337,8 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// 
     /// ** Changing this property may recreate the FHIR store (removing all data) **
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -156,10 +347,63 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// <summary>
     /// The FHIR specification version. Possible values: [&amp;quot;DSTU2&amp;quot;, &amp;quot;STU3&amp;quot;, &amp;quot;R4&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for notification_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
+    public List<GoogleHealthcareFhirStoreNotificationConfigBlock>? NotificationConfig
+    {
+        get => GetProperty<List<GoogleHealthcareFhirStoreNotificationConfigBlock>>("notification_config");
+        set => this.WithProperty("notification_config", value);
+    }
+
+    /// <summary>
+    /// Block for notification_configs.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleHealthcareFhirStoreNotificationConfigsBlock>? NotificationConfigs
+    {
+        get => GetProperty<List<GoogleHealthcareFhirStoreNotificationConfigsBlock>>("notification_configs");
+        set => this.WithProperty("notification_configs", value);
+    }
+
+    /// <summary>
+    /// Block for stream_configs.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleHealthcareFhirStoreStreamConfigsBlock>? StreamConfigs
+    {
+        get => GetProperty<List<GoogleHealthcareFhirStoreStreamConfigsBlock>>("stream_configs");
+        set => this.WithProperty("stream_configs", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleHealthcareFhirStoreTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleHealthcareFhirStoreTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for validation_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValidationConfig block(s) allowed")]
+    public List<GoogleHealthcareFhirStoreValidationConfigBlock>? ValidationConfig
+    {
+        get => GetProperty<List<GoogleHealthcareFhirStoreValidationConfigBlock>>("validation_config");
+        set => this.WithProperty("validation_config", value);
     }
 
     /// <summary>

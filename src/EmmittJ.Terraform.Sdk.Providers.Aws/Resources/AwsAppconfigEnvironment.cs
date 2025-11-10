@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for monitor in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAppconfigEnvironmentMonitorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The alarm_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmArn is required")]
+    public required TerraformProperty<string> AlarmArn
+    {
+        get => GetProperty<TerraformProperty<string>>("alarm_arn");
+        set => WithProperty("alarm_arn", value);
+    }
+
+    /// <summary>
+    /// The alarm_role_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? AlarmRoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("alarm_role_arn");
+        set => WithProperty("alarm_role_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appconfig_environment resource.
 /// </summary>
 public class AwsAppconfigEnvironment : TerraformResource
@@ -24,7 +51,8 @@ public class AwsAppconfigEnvironment : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -42,7 +70,8 @@ public class AwsAppconfigEnvironment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -60,10 +89,20 @@ public class AwsAppconfigEnvironment : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for monitor.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAppconfigEnvironmentMonitorBlock>? Monitor
+    {
+        get => GetProperty<HashSet<AwsAppconfigEnvironmentMonitorBlock>>("monitor");
+        set => this.WithProperty("monitor", value);
     }
 
     /// <summary>

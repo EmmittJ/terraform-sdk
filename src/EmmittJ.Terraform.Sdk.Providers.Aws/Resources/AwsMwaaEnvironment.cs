@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for logging_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMwaaEnvironmentLoggingConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for network_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMwaaEnvironmentNetworkConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The security_group_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => WithProperty("security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => WithProperty("subnet_ids", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMwaaEnvironmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_mwaa_environment resource.
 /// </summary>
 public class AwsMwaaEnvironment : TerraformResource
@@ -27,9 +98,9 @@ public class AwsMwaaEnvironment : TerraformResource
     /// <summary>
     /// The airflow_configuration_options attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AirflowConfigurationOptions
+    public Dictionary<string, TerraformProperty<string>>? AirflowConfigurationOptions
     {
-        get => GetProperty<TerraformMapProperty<string>>("airflow_configuration_options");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("airflow_configuration_options");
         set => this.WithProperty("airflow_configuration_options", value);
     }
 
@@ -45,7 +116,8 @@ public class AwsMwaaEnvironment : TerraformResource
     /// <summary>
     /// The dag_s3_path attribute.
     /// </summary>
-    public TerraformProperty<string>? DagS3Path
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DagS3Path is required")]
+    public required TerraformProperty<string> DagS3Path
     {
         get => GetProperty<TerraformProperty<string>>("dag_s3_path");
         set => this.WithProperty("dag_s3_path", value);
@@ -72,7 +144,8 @@ public class AwsMwaaEnvironment : TerraformResource
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
+    public required TerraformProperty<string> ExecutionRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("execution_role_arn");
         set => this.WithProperty("execution_role_arn", value);
@@ -135,7 +208,8 @@ public class AwsMwaaEnvironment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -198,7 +272,8 @@ public class AwsMwaaEnvironment : TerraformResource
     /// <summary>
     /// The source_bucket_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceBucketArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceBucketArn is required")]
+    public required TerraformProperty<string> SourceBucketArn
     {
         get => GetProperty<TerraformProperty<string>>("source_bucket_arn");
         set => this.WithProperty("source_bucket_arn", value);
@@ -225,18 +300,18 @@ public class AwsMwaaEnvironment : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -265,6 +340,39 @@ public class AwsMwaaEnvironment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("worker_replacement_strategy");
         set => this.WithProperty("worker_replacement_strategy", value);
+    }
+
+    /// <summary>
+    /// Block for logging_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
+    public List<AwsMwaaEnvironmentLoggingConfigurationBlock>? LoggingConfiguration
+    {
+        get => GetProperty<List<AwsMwaaEnvironmentLoggingConfigurationBlock>>("logging_configuration");
+        set => this.WithProperty("logging_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for network_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
+    public List<AwsMwaaEnvironmentNetworkConfigurationBlock>? NetworkConfiguration
+    {
+        get => GetProperty<List<AwsMwaaEnvironmentNetworkConfigurationBlock>>("network_configuration");
+        set => this.WithProperty("network_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMwaaEnvironmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMwaaEnvironmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

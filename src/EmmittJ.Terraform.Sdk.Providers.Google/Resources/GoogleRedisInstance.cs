@@ -3,6 +3,142 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for maintenance_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Output only. The time when the policy was created.
+    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond
+    /// resolution and up to nine fractional digits.
+    /// </summary>
+    public TerraformProperty<string>? CreateTime
+    {
+        get => GetProperty<TerraformProperty<string>>("create_time");
+        set => WithProperty("create_time", value);
+    }
+
+    /// <summary>
+    /// Optional. Description of what this policy is for.
+    /// Create/Update methods return INVALID_ARGUMENT if the
+    /// length is greater than 512.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// Output only. The time when the policy was last updated.
+    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond
+    /// resolution and up to nine fractional digits.
+    /// </summary>
+    public TerraformProperty<string>? UpdateTime
+    {
+        get => GetProperty<TerraformProperty<string>>("update_time");
+        set => WithProperty("update_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for persistence_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Optional. Controls whether Persistence features are enabled. If not provided, the existing value will be used.
+    /// 
+    /// - DISABLED: 	Persistence is disabled for the instance, and any existing snapshots are deleted.
+    /// - RDB: RDB based Persistence is enabled. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;RDB&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? PersistenceMode
+    {
+        get => GetProperty<TerraformProperty<string>>("persistence_mode");
+        set => WithProperty("persistence_mode", value);
+    }
+
+    /// <summary>
+    /// Output only. The next time that a snapshot attempt is scheduled to occur.
+    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up
+    /// to nine fractional digits.
+    /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? RdbNextSnapshotTime
+    {
+        get => GetProperty<TerraformProperty<string>>("rdb_next_snapshot_time");
+        set => WithProperty("rdb_next_snapshot_time", value);
+    }
+
+    /// <summary>
+    /// Optional. Available snapshot periods for scheduling.
+    /// 
+    /// - ONE_HOUR:	Snapshot every 1 hour.
+    /// - SIX_HOURS:	Snapshot every 6 hours.
+    /// - TWELVE_HOURS:	Snapshot every 12 hours.
+    /// - TWENTY_FOUR_HOURS:	Snapshot every 24 hours. Possible values: [&amp;quot;ONE_HOUR&amp;quot;, &amp;quot;SIX_HOURS&amp;quot;, &amp;quot;TWELVE_HOURS&amp;quot;, &amp;quot;TWENTY_FOUR_HOURS&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? RdbSnapshotPeriod
+    {
+        get => GetProperty<TerraformProperty<string>>("rdb_snapshot_period");
+        set => WithProperty("rdb_snapshot_period", value);
+    }
+
+    /// <summary>
+    /// Optional. Date and time that the first snapshot was/will be attempted,
+    /// and to which future snapshots will be aligned. If not provided,
+    /// the current time will be used.
+    /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution
+    /// and up to nine fractional digits.
+    /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? RdbSnapshotStartTime
+    {
+        get => GetProperty<TerraformProperty<string>>("rdb_snapshot_start_time");
+        set => WithProperty("rdb_snapshot_start_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleRedisInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_redis_instance resource.
 /// </summary>
 public class GoogleRedisInstance : TerraformResource
@@ -121,9 +257,9 @@ public class GoogleRedisInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -152,7 +288,8 @@ public class GoogleRedisInstance : TerraformResource
     /// <summary>
     /// Redis memory size in GiB.
     /// </summary>
-    public TerraformProperty<double>? MemorySizeGb
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeGb is required")]
+    public required TerraformProperty<double> MemorySizeGb
     {
         get => GetProperty<TerraformProperty<double>>("memory_size_gb");
         set => this.WithProperty("memory_size_gb", value);
@@ -161,7 +298,8 @@ public class GoogleRedisInstance : TerraformResource
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -195,9 +333,9 @@ public class GoogleRedisInstance : TerraformResource
     /// Please check Memorystore documentation for the list of supported parameters:
     /// https://cloud.google.com/memorystore/docs/redis/reference/rest/v1/projects.locations.instances#Instance.FIELDS.redis_configs
     /// </summary>
-    public TerraformMapProperty<string>? RedisConfigs
+    public Dictionary<string, TerraformProperty<string>>? RedisConfigs
     {
-        get => GetProperty<TerraformMapProperty<string>>("redis_configs");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("redis_configs");
         set => this.WithProperty("redis_configs", value);
     }
 
@@ -279,6 +417,38 @@ public class GoogleRedisInstance : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("transit_encryption_mode");
         set => this.WithProperty("transit_encryption_mode", value);
+    }
+
+    /// <summary>
+    /// Block for maintenance_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenancePolicy block(s) allowed")]
+    public List<GoogleRedisInstanceMaintenancePolicyBlock>? MaintenancePolicy
+    {
+        get => GetProperty<List<GoogleRedisInstanceMaintenancePolicyBlock>>("maintenance_policy");
+        set => this.WithProperty("maintenance_policy", value);
+    }
+
+    /// <summary>
+    /// Block for persistence_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistenceConfig block(s) allowed")]
+    public List<GoogleRedisInstancePersistenceConfigBlock>? PersistenceConfig
+    {
+        get => GetProperty<List<GoogleRedisInstancePersistenceConfigBlock>>("persistence_config");
+        set => this.WithProperty("persistence_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleRedisInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleRedisInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

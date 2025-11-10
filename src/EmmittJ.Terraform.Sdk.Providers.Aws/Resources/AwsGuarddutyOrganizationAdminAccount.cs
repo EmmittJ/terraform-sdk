@@ -19,7 +19,8 @@ public class AwsGuarddutyOrganizationAdminAccount : TerraformResource
     /// <summary>
     /// The admin_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AdminAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminAccountId is required")]
+    public required TerraformProperty<string> AdminAccountId
     {
         get => GetProperty<TerraformProperty<string>>("admin_account_id");
         set => this.WithProperty("admin_account_id", value);

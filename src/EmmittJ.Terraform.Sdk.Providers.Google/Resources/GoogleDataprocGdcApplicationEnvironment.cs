@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for spark_application_environment_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// A map of default Spark properties to apply to workloads in this application environment. These defaults may be overridden by per-application properties.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? DefaultProperties
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("default_properties");
+        set => WithProperty("default_properties", value);
+    }
+
+    /// <summary>
+    /// The default Dataproc version to use for applications submitted to this application environment
+    /// </summary>
+    public TerraformProperty<string>? DefaultVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("default_version");
+        set => WithProperty("default_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataproc_gdc_application_environment resource.
 /// </summary>
 public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
@@ -29,9 +90,9 @@ public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -68,16 +129,17 @@ public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the application environment
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -104,10 +166,32 @@ public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// <summary>
     /// The id of the service instance to which this application environment belongs.
     /// </summary>
-    public TerraformProperty<string>? Serviceinstance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
+    public required TerraformProperty<string> Serviceinstance
     {
         get => GetProperty<TerraformProperty<string>>("serviceinstance");
         set => this.WithProperty("serviceinstance", value);
+    }
+
+    /// <summary>
+    /// Block for spark_application_environment_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkApplicationEnvironmentConfig block(s) allowed")]
+    public List<GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock>? SparkApplicationEnvironmentConfig
+    {
+        get => GetProperty<List<GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock>>("spark_application_environment_config");
+        set => this.WithProperty("spark_application_environment_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

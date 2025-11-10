@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermLbOutboundRuleDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_lb_outbound_rule.
 /// </summary>
 public class AzurermLbOutboundRuleDataSource : TerraformDataSource
@@ -35,7 +52,8 @@ public class AzurermLbOutboundRuleDataSource : TerraformDataSource
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadbalancerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
+    public required TerraformProperty<string> LoadbalancerId
     {
         get => GetProperty<TerraformProperty<string>>("loadbalancer_id");
         set => this.WithProperty("loadbalancer_id", value);
@@ -44,10 +62,21 @@ public class AzurermLbOutboundRuleDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermLbOutboundRuleDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermLbOutboundRuleDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

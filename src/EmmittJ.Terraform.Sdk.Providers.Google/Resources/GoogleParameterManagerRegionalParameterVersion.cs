@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_parameter_manager_regional_parameter_version resource.
 /// </summary>
 public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
@@ -42,7 +77,8 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     /// <summary>
     /// Parameter Manager Regional Parameter resource.
     /// </summary>
-    public TerraformProperty<string>? Parameter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
+    public required TerraformProperty<string> Parameter
     {
         get => GetProperty<TerraformProperty<string>>("parameter");
         set => this.WithProperty("parameter", value);
@@ -51,7 +87,8 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     /// <summary>
     /// The Regional Parameter data.
     /// </summary>
-    public TerraformProperty<string>? ParameterData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterData is required")]
+    public required TerraformProperty<string> ParameterData
     {
         get => GetProperty<TerraformProperty<string>>("parameter_data");
         set => this.WithProperty("parameter_data", value);
@@ -60,10 +97,21 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     /// <summary>
     /// Version ID of the Regional Parameter Version Resource. This must be unique within the Regional Parameter.
     /// </summary>
-    public TerraformProperty<string>? ParameterVersionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
+    public required TerraformProperty<string> ParameterVersionId
     {
         get => GetProperty<TerraformProperty<string>>("parameter_version_id");
         set => this.WithProperty("parameter_version_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleParameterManagerRegionalParameterVersionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleParameterManagerRegionalParameterVersionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

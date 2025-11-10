@@ -37,7 +37,8 @@ public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformProperty<string>? Prefix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
+    public required TerraformProperty<string> Prefix
     {
         get => GetProperty<TerraformProperty<string>>("prefix");
         set => this.WithProperty("prefix", value);
@@ -55,9 +56,9 @@ public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ResourceTags
+    public Dictionary<string, TerraformProperty<string>>? ResourceTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("resource_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 

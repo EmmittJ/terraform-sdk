@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for delivery_destination_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The destination_resource_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceArn is required")]
+    public required TerraformProperty<string> DestinationResourceArn
+    {
+        get => GetProperty<TerraformProperty<string>>("destination_resource_arn");
+        set => WithProperty("destination_resource_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudwatch_log_delivery_destination resource.
 /// </summary>
 public class AwsCloudwatchLogDeliveryDestination : TerraformResource
@@ -22,7 +40,8 @@ public class AwsCloudwatchLogDeliveryDestination : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -49,10 +68,20 @@ public class AwsCloudwatchLogDeliveryDestination : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for delivery_destination_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock>? DeliveryDestinationConfiguration
+    {
+        get => GetProperty<List<AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfigurationBlock>>("delivery_destination_configuration");
+        set => this.WithProperty("delivery_destination_configuration", value);
     }
 
     /// <summary>

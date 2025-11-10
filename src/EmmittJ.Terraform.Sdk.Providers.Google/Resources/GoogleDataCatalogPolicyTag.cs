@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataCatalogPolicyTagTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_data_catalog_policy_tag resource.
 /// </summary>
 public class GoogleDataCatalogPolicyTag : TerraformResource
@@ -35,7 +70,8 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// taxonomy; contain only unicode letters, numbers, underscores, dashes and spaces;
     /// not start or end with spaces; and be at most 200 bytes long when encoded in UTF-8.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -64,10 +100,21 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// <summary>
     /// Taxonomy the policy tag is associated with
     /// </summary>
-    public TerraformProperty<string>? Taxonomy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Taxonomy is required")]
+    public required TerraformProperty<string> Taxonomy
     {
         get => GetProperty<TerraformProperty<string>>("taxonomy");
         set => this.WithProperty("taxonomy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataCatalogPolicyTagTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataCatalogPolicyTagTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

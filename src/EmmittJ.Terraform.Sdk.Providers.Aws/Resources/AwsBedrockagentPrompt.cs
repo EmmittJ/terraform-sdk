@@ -3,6 +3,52 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for variant in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentPromptVariantBlock : TerraformBlock
+{
+    /// <summary>
+    /// The additional_model_request_fields attribute.
+    /// </summary>
+    public TerraformProperty<string>? AdditionalModelRequestFields
+    {
+        get => GetProperty<TerraformProperty<string>>("additional_model_request_fields");
+        set => WithProperty("additional_model_request_fields", value);
+    }
+
+    /// <summary>
+    /// The model_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? ModelId
+    {
+        get => GetProperty<TerraformProperty<string>>("model_id");
+        set => WithProperty("model_id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The template_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateType is required")]
+    public required TerraformProperty<string> TemplateType
+    {
+        get => GetProperty<TerraformProperty<string>>("template_type");
+        set => WithProperty("template_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_bedrockagent_prompt resource.
 /// </summary>
 public class AwsBedrockagentPrompt : TerraformResource
@@ -52,7 +98,8 @@ public class AwsBedrockagentPrompt : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -70,10 +117,20 @@ public class AwsBedrockagentPrompt : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for variant.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentPromptVariantBlock>? Variant
+    {
+        get => GetProperty<List<AwsBedrockagentPromptVariantBlock>>("variant");
+        set => this.WithProperty("variant", value);
     }
 
     /// <summary>

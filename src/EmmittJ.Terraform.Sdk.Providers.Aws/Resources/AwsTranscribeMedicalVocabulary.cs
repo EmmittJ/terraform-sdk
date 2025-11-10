@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsTranscribeMedicalVocabularyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_transcribe_medical_vocabulary resource.
 /// </summary>
 public class AwsTranscribeMedicalVocabulary : TerraformResource
@@ -30,7 +65,8 @@ public class AwsTranscribeMedicalVocabulary : TerraformResource
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
+    public required TerraformProperty<string> LanguageCode
     {
         get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
@@ -48,25 +84,26 @@ public class AwsTranscribeMedicalVocabulary : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vocabulary_file_uri attribute.
     /// </summary>
-    public TerraformProperty<string>? VocabularyFileUri
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VocabularyFileUri is required")]
+    public required TerraformProperty<string> VocabularyFileUri
     {
         get => GetProperty<TerraformProperty<string>>("vocabulary_file_uri");
         set => this.WithProperty("vocabulary_file_uri", value);
@@ -75,10 +112,21 @@ public class AwsTranscribeMedicalVocabulary : TerraformResource
     /// <summary>
     /// The vocabulary_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VocabularyName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VocabularyName is required")]
+    public required TerraformProperty<string> VocabularyName
     {
         get => GetProperty<TerraformProperty<string>>("vocabulary_name");
         set => this.WithProperty("vocabulary_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsTranscribeMedicalVocabularyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsTranscribeMedicalVocabularyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

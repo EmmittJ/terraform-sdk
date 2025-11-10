@@ -58,7 +58,8 @@ public class AwsLightsailDatabase : TerraformResource
     /// <summary>
     /// The blueprint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BlueprintId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintId is required")]
+    public required TerraformProperty<string> BlueprintId
     {
         get => GetProperty<TerraformProperty<string>>("blueprint_id");
         set => this.WithProperty("blueprint_id", value);
@@ -67,7 +68,8 @@ public class AwsLightsailDatabase : TerraformResource
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BundleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
+    public required TerraformProperty<string> BundleId
     {
         get => GetProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
@@ -94,7 +96,8 @@ public class AwsLightsailDatabase : TerraformResource
     /// <summary>
     /// The master_database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterDatabaseName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterDatabaseName is required")]
+    public required TerraformProperty<string> MasterDatabaseName
     {
         get => GetProperty<TerraformProperty<string>>("master_database_name");
         set => this.WithProperty("master_database_name", value);
@@ -103,7 +106,8 @@ public class AwsLightsailDatabase : TerraformResource
     /// <summary>
     /// The master_password attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterPassword
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterPassword is required")]
+    public required TerraformProperty<string> MasterPassword
     {
         get => GetProperty<TerraformProperty<string>>("master_password");
         set => this.WithProperty("master_password", value);
@@ -112,7 +116,8 @@ public class AwsLightsailDatabase : TerraformResource
     /// <summary>
     /// The master_username attribute.
     /// </summary>
-    public TerraformProperty<string>? MasterUsername
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterUsername is required")]
+    public required TerraformProperty<string> MasterUsername
     {
         get => GetProperty<TerraformProperty<string>>("master_username");
         set => this.WithProperty("master_username", value);
@@ -157,7 +162,8 @@ public class AwsLightsailDatabase : TerraformResource
     /// <summary>
     /// The relational_database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RelationalDatabaseName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelationalDatabaseName is required")]
+    public required TerraformProperty<string> RelationalDatabaseName
     {
         get => GetProperty<TerraformProperty<string>>("relational_database_name");
         set => this.WithProperty("relational_database_name", value);
@@ -175,18 +181,18 @@ public class AwsLightsailDatabase : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

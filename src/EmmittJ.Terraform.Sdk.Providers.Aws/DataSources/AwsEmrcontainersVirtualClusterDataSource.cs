@@ -42,16 +42,17 @@ public class AwsEmrcontainersVirtualClusterDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualClusterId is required")]
+    public required TerraformProperty<string> VirtualClusterId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_cluster_id");
         set => this.WithProperty("virtual_cluster_id", value);

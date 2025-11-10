@@ -35,7 +35,8 @@ public class AwsOamLinkDataSource : TerraformDataSource
     /// <summary>
     /// The link_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? LinkIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkIdentifier is required")]
+    public required TerraformProperty<string> LinkIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("link_identifier");
         set => this.WithProperty("link_identifier", value);
@@ -53,9 +54,9 @@ public class AwsOamLinkDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

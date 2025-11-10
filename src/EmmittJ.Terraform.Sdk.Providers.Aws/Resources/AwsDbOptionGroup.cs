@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for option in .
+/// Nesting mode: set
+/// </summary>
+public class AwsDbOptionGroupOptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The db_security_group_memberships attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? DbSecurityGroupMemberships
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("db_security_group_memberships");
+        set => WithProperty("db_security_group_memberships", value);
+    }
+
+    /// <summary>
+    /// The option_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptionName is required")]
+    public required TerraformProperty<string> OptionName
+    {
+        get => GetProperty<TerraformProperty<string>>("option_name");
+        set => WithProperty("option_name", value);
+    }
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformProperty<double>? Port
+    {
+        get => GetProperty<TerraformProperty<double>>("port");
+        set => WithProperty("port", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformProperty<string>? Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// The vpc_security_group_memberships attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupMemberships
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_memberships");
+        set => WithProperty("vpc_security_group_memberships", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDbOptionGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_db_option_group resource.
 /// </summary>
 public class AwsDbOptionGroup : TerraformResource
@@ -20,7 +91,8 @@ public class AwsDbOptionGroup : TerraformResource
     /// <summary>
     /// The engine_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
+    public required TerraformProperty<string> EngineName
     {
         get => GetProperty<TerraformProperty<string>>("engine_name");
         set => this.WithProperty("engine_name", value);
@@ -38,7 +110,8 @@ public class AwsDbOptionGroup : TerraformResource
     /// <summary>
     /// The major_engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? MajorEngineVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MajorEngineVersion is required")]
+    public required TerraformProperty<string> MajorEngineVersion
     {
         get => GetProperty<TerraformProperty<string>>("major_engine_version");
         set => this.WithProperty("major_engine_version", value);
@@ -92,19 +165,39 @@ public class AwsDbOptionGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for option.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsDbOptionGroupOptionBlock>? Option
+    {
+        get => GetProperty<HashSet<AwsDbOptionGroupOptionBlock>>("option");
+        set => this.WithProperty("option", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDbOptionGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDbOptionGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

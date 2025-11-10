@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for response_parameters in .
+/// Nesting mode: set
+/// </summary>
+public class AwsApigatewayv2IntegrationResponseParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The mappings attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mappings is required")]
+    public Dictionary<string, TerraformProperty<string>>? Mappings
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("mappings");
+        set => WithProperty("mappings", value);
+    }
+
+    /// <summary>
+    /// The status_code attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
+    public required TerraformProperty<string> StatusCode
+    {
+        get => GetProperty<TerraformProperty<string>>("status_code");
+        set => WithProperty("status_code", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tls_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApigatewayv2IntegrationTlsConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The server_name_to_verify attribute.
+    /// </summary>
+    public TerraformProperty<string>? ServerNameToVerify
+    {
+        get => GetProperty<TerraformProperty<string>>("server_name_to_verify");
+        set => WithProperty("server_name_to_verify", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_apigatewayv2_integration resource.
 /// </summary>
 public class AwsApigatewayv2Integration : TerraformResource
@@ -20,7 +65,8 @@ public class AwsApigatewayv2Integration : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -101,7 +147,8 @@ public class AwsApigatewayv2Integration : TerraformResource
     /// <summary>
     /// The integration_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IntegrationType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
+    public required TerraformProperty<string> IntegrationType
     {
         get => GetProperty<TerraformProperty<string>>("integration_type");
         set => this.WithProperty("integration_type", value);
@@ -146,18 +193,18 @@ public class AwsApigatewayv2Integration : TerraformResource
     /// <summary>
     /// The request_parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? RequestParameters
+    public Dictionary<string, TerraformProperty<string>>? RequestParameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("request_parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("request_parameters");
         set => this.WithProperty("request_parameters", value);
     }
 
     /// <summary>
     /// The request_templates attribute.
     /// </summary>
-    public TerraformMapProperty<string>? RequestTemplates
+    public Dictionary<string, TerraformProperty<string>>? RequestTemplates
     {
-        get => GetProperty<TerraformMapProperty<string>>("request_templates");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("request_templates");
         set => this.WithProperty("request_templates", value);
     }
 
@@ -177,6 +224,27 @@ public class AwsApigatewayv2Integration : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("timeout_milliseconds");
         set => this.WithProperty("timeout_milliseconds", value);
+    }
+
+    /// <summary>
+    /// Block for response_parameters.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsApigatewayv2IntegrationResponseParametersBlock>? ResponseParameters
+    {
+        get => GetProperty<HashSet<AwsApigatewayv2IntegrationResponseParametersBlock>>("response_parameters");
+        set => this.WithProperty("response_parameters", value);
+    }
+
+    /// <summary>
+    /// Block for tls_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
+    public List<AwsApigatewayv2IntegrationTlsConfigBlock>? TlsConfig
+    {
+        get => GetProperty<List<AwsApigatewayv2IntegrationTlsConfigBlock>>("tls_config");
+        set => this.WithProperty("tls_config", value);
     }
 
     /// <summary>

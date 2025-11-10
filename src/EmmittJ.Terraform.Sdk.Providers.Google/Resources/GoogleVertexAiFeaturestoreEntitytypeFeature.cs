@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vertex_ai_featurestore_entitytype_feature resource.
 /// </summary>
 public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
@@ -34,7 +69,8 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     /// <summary>
     /// The name of the Featurestore to use, in the format projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entitytype}.
     /// </summary>
-    public TerraformProperty<string>? Entitytype
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entitytype is required")]
+    public required TerraformProperty<string> Entitytype
     {
         get => GetProperty<TerraformProperty<string>>("entitytype");
         set => this.WithProperty("entitytype", value);
@@ -56,9 +92,9 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -74,10 +110,21 @@ public class GoogleVertexAiFeaturestoreEntitytypeFeature : TerraformResource
     /// <summary>
     /// Type of Feature value. Immutable. https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.featurestores.entityTypes.features#ValueType
     /// </summary>
-    public TerraformProperty<string>? ValueType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
+    public required TerraformProperty<string> ValueType
     {
         get => GetProperty<TerraformProperty<string>>("value_type");
         set => this.WithProperty("value_type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVertexAiFeaturestoreEntitytypeFeatureTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

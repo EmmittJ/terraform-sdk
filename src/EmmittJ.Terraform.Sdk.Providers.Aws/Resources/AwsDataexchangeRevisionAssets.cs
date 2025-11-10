@@ -3,6 +3,76 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for asset in .
+/// Nesting mode: set
+/// </summary>
+public class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlock
+{
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? Arn
+    {
+        get => GetProperty<TerraformProperty<string>>("arn");
+        set => WithProperty("arn", value);
+    }
+
+    /// <summary>
+    /// The created_at attribute.
+    /// </summary>
+    public TerraformProperty<string>? CreatedAt
+    {
+        get => GetProperty<TerraformProperty<string>>("created_at");
+        set => WithProperty("created_at", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformProperty<string>? Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The updated_at attribute.
+    /// </summary>
+    public TerraformProperty<string>? UpdatedAt
+    {
+        get => GetProperty<TerraformProperty<string>>("updated_at");
+        set => WithProperty("updated_at", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDataexchangeRevisionAssetsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dataexchange_revision_assets resource.
 /// </summary>
 public class AwsDataexchangeRevisionAssets : TerraformResource
@@ -33,7 +103,8 @@ public class AwsDataexchangeRevisionAssets : TerraformResource
     /// <summary>
     /// The data_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataSetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
+    public required TerraformProperty<string> DataSetId
     {
         get => GetProperty<TerraformProperty<string>>("data_set_id");
         set => this.WithProperty("data_set_id", value);
@@ -69,10 +140,30 @@ public class AwsDataexchangeRevisionAssets : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for asset.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsDataexchangeRevisionAssetsAssetBlock>? Asset
+    {
+        get => GetProperty<HashSet<AwsDataexchangeRevisionAssetsAssetBlock>>("asset");
+        set => this.WithProperty("asset", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDataexchangeRevisionAssetsTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDataexchangeRevisionAssetsTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

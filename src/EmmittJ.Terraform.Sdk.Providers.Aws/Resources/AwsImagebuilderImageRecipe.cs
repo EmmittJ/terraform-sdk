@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for block_device_mapping in .
+/// Nesting mode: set
+/// </summary>
+public class AwsImagebuilderImageRecipeBlockDeviceMappingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The device_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? DeviceName
+    {
+        get => GetProperty<TerraformProperty<string>>("device_name");
+        set => WithProperty("device_name", value);
+    }
+
+    /// <summary>
+    /// The no_device attribute.
+    /// </summary>
+    public TerraformProperty<bool>? NoDevice
+    {
+        get => GetProperty<TerraformProperty<bool>>("no_device");
+        set => WithProperty("no_device", value);
+    }
+
+    /// <summary>
+    /// The virtual_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? VirtualName
+    {
+        get => GetProperty<TerraformProperty<string>>("virtual_name");
+        set => WithProperty("virtual_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for component in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderImageRecipeComponentBlock : TerraformBlock
+{
+    /// <summary>
+    /// The component_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
+    public required TerraformProperty<string> ComponentArn
+    {
+        get => GetProperty<TerraformProperty<string>>("component_arn");
+        set => WithProperty("component_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for systems_manager_agent in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderImageRecipeSystemsManagerAgentBlock : TerraformBlock
+{
+    /// <summary>
+    /// The uninstall_after_build attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UninstallAfterBuild is required")]
+    public required TerraformProperty<bool> UninstallAfterBuild
+    {
+        get => GetProperty<TerraformProperty<bool>>("uninstall_after_build");
+        set => WithProperty("uninstall_after_build", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_imagebuilder_image_recipe resource.
 /// </summary>
 public class AwsImagebuilderImageRecipe : TerraformResource
@@ -23,9 +94,9 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     /// <summary>
     /// The ami_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AmiTags
+    public Dictionary<string, TerraformProperty<string>>? AmiTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("ami_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("ami_tags");
         set => this.WithProperty("ami_tags", value);
     }
 
@@ -50,7 +121,8 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -59,7 +131,8 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentImage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
+    public required TerraformProperty<string> ParentImage
     {
         get => GetProperty<TerraformProperty<string>>("parent_image");
         set => this.WithProperty("parent_image", value);
@@ -77,18 +150,18 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -104,7 +177,8 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformProperty<string>? Version
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
@@ -117,6 +191,38 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("working_directory");
         set => this.WithProperty("working_directory", value);
+    }
+
+    /// <summary>
+    /// Block for block_device_mapping.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsImagebuilderImageRecipeBlockDeviceMappingBlock>? BlockDeviceMapping
+    {
+        get => GetProperty<HashSet<AwsImagebuilderImageRecipeBlockDeviceMappingBlock>>("block_device_mapping");
+        set => this.WithProperty("block_device_mapping", value);
+    }
+
+    /// <summary>
+    /// Block for component.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Component block(s) required")]
+    public List<AwsImagebuilderImageRecipeComponentBlock>? Component
+    {
+        get => GetProperty<List<AwsImagebuilderImageRecipeComponentBlock>>("component");
+        set => this.WithProperty("component", value);
+    }
+
+    /// <summary>
+    /// Block for systems_manager_agent.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SystemsManagerAgent block(s) allowed")]
+    public List<AwsImagebuilderImageRecipeSystemsManagerAgentBlock>? SystemsManagerAgent
+    {
+        get => GetProperty<List<AwsImagebuilderImageRecipeSystemsManagerAgentBlock>>("systems_manager_agent");
+        set => this.WithProperty("systems_manager_agent", value);
     }
 
     /// <summary>

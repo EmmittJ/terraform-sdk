@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_synapse_role_assignment resource.
 /// </summary>
 public class AzurermSynapseRoleAssignment : TerraformResource
@@ -28,7 +63,8 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
+    public required TerraformProperty<string> PrincipalId
     {
         get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
@@ -46,7 +82,8 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
+    public required TerraformProperty<string> RoleName
     {
         get => GetProperty<TerraformProperty<string>>("role_name");
         set => this.WithProperty("role_name", value);
@@ -68,6 +105,16 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSynapseRoleAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSynapseRoleAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

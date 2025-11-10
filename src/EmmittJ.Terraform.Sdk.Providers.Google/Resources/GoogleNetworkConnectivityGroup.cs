@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for auto_accept in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivityGroupAutoAcceptBlock : TerraformBlock
+{
+    /// <summary>
+    /// A list of project ids or project numbers for which you want to enable auto-accept. The auto-accept setting is applied to spokes being created or updated in these projects.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoAcceptProjects is required")]
+    public List<TerraformProperty<string>>? AutoAcceptProjects
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("auto_accept_projects");
+        set => WithProperty("auto_accept_projects", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkConnectivityGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_connectivity_group resource.
 /// </summary>
 public class GoogleNetworkConnectivityGroup : TerraformResource
@@ -35,7 +88,8 @@ public class GoogleNetworkConnectivityGroup : TerraformResource
     /// <summary>
     /// The name of the hub. Hub names must be unique. They use the following form: projects/{projectNumber}/locations/global/hubs/{hubId}
     /// </summary>
-    public TerraformProperty<string>? Hub
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
+    public required TerraformProperty<string> Hub
     {
         get => GetProperty<TerraformProperty<string>>("hub");
         set => this.WithProperty("hub", value);
@@ -56,16 +110,17 @@ public class GoogleNetworkConnectivityGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the group. Group names must be unique. Possible values: [&amp;quot;default&amp;quot;, &amp;quot;center&amp;quot;, &amp;quot;edge&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -78,6 +133,27 @@ public class GoogleNetworkConnectivityGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for auto_accept.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoAccept block(s) allowed")]
+    public List<GoogleNetworkConnectivityGroupAutoAcceptBlock>? AutoAccept
+    {
+        get => GetProperty<List<GoogleNetworkConnectivityGroupAutoAcceptBlock>>("auto_accept");
+        set => this.WithProperty("auto_accept", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkConnectivityGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkConnectivityGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

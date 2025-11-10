@@ -22,7 +22,8 @@ public class AwsAppsyncType : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -31,7 +32,8 @@ public class AwsAppsyncType : TerraformResource
     /// <summary>
     /// The definition attribute.
     /// </summary>
-    public TerraformProperty<string>? Definition
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
+    public required TerraformProperty<string> Definition
     {
         get => GetProperty<TerraformProperty<string>>("definition");
         set => this.WithProperty("definition", value);
@@ -40,7 +42,8 @@ public class AwsAppsyncType : TerraformResource
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformProperty<string>? Format
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
+    public required TerraformProperty<string> Format
     {
         get => GetProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);

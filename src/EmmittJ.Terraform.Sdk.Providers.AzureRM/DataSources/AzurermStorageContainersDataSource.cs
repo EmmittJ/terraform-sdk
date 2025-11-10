@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageContainersDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_storage_containers.
 /// </summary>
 public class AzurermStorageContainersDataSource : TerraformDataSource
@@ -38,10 +55,21 @@ public class AzurermStorageContainersDataSource : TerraformDataSource
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
+    public required TerraformProperty<string> StorageAccountId
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageContainersDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageContainersDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

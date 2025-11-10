@@ -27,7 +27,8 @@ public class AwsSsoadminApplicationDataSource : TerraformDataSource
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
+    public required TerraformProperty<string> ApplicationArn
     {
         get => GetProperty<TerraformProperty<string>>("application_arn");
         set => this.WithProperty("application_arn", value);

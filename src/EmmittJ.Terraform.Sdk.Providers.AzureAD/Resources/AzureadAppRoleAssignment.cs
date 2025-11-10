@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadAppRoleAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_app_role_assignment resource.
 /// </summary>
 public class AzureadAppRoleAssignment : TerraformResource
@@ -22,7 +57,8 @@ public class AzureadAppRoleAssignment : TerraformResource
     /// <summary>
     /// The ID of the app role to be assigned
     /// </summary>
-    public TerraformProperty<string>? AppRoleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppRoleId is required")]
+    public required TerraformProperty<string> AppRoleId
     {
         get => GetProperty<TerraformProperty<string>>("app_role_id");
         set => this.WithProperty("app_role_id", value);
@@ -40,7 +76,8 @@ public class AzureadAppRoleAssignment : TerraformResource
     /// <summary>
     /// The object ID of the user, group or service principal to be assigned this app role
     /// </summary>
-    public TerraformProperty<string>? PrincipalObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
+    public required TerraformProperty<string> PrincipalObjectId
     {
         get => GetProperty<TerraformProperty<string>>("principal_object_id");
         set => this.WithProperty("principal_object_id", value);
@@ -49,10 +86,21 @@ public class AzureadAppRoleAssignment : TerraformResource
     /// <summary>
     /// The object ID of the service principal representing the resource
     /// </summary>
-    public TerraformProperty<string>? ResourceObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceObjectId is required")]
+    public required TerraformProperty<string> ResourceObjectId
     {
         get => GetProperty<TerraformProperty<string>>("resource_object_id");
         set => this.WithProperty("resource_object_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadAppRoleAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadAppRoleAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

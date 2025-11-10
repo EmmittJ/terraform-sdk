@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_workforce_pool_provider_scim_tenant resource.
 /// </summary>
 public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
@@ -49,7 +84,8 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -58,7 +94,8 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// <summary>
     /// The ID of the provider.
     /// </summary>
-    public TerraformProperty<string>? ProviderId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
+    public required TerraformProperty<string> ProviderId
     {
         get => GetProperty<TerraformProperty<string>>("provider_id");
         set => this.WithProperty("provider_id", value);
@@ -67,7 +104,8 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// <summary>
     /// The ID to use for the SCIM tenant, which becomes the final component of the resource name. This value must be 4-32 characters, and may contain the characters [a-z0-9-].
     /// </summary>
-    public TerraformProperty<string>? ScimTenantId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScimTenantId is required")]
+    public required TerraformProperty<string> ScimTenantId
     {
         get => GetProperty<TerraformProperty<string>>("scim_tenant_id");
         set => this.WithProperty("scim_tenant_id", value);
@@ -76,10 +114,21 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// <summary>
     /// The ID of the workforce pool.
     /// </summary>
-    public TerraformProperty<string>? WorkforcePoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
+    public required TerraformProperty<string> WorkforcePoolId
     {
         get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

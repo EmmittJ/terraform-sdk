@@ -3,6 +3,128 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for encryption_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The kms_data_key_reuse_period_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? KmsDataKeyReusePeriodSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("kms_data_key_reuse_period_seconds");
+        set => WithProperty("kms_data_key_reuse_period_seconds", value);
+    }
+
+    /// <summary>
+    /// The kms_key_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyId
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
+        set => WithProperty("kms_key_id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for logging_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The include_execution_data attribute.
+    /// </summary>
+    public TerraformProperty<bool>? IncludeExecutionData
+    {
+        get => GetProperty<TerraformProperty<bool>>("include_execution_data");
+        set => WithProperty("include_execution_data", value);
+    }
+
+    /// <summary>
+    /// The level attribute.
+    /// </summary>
+    public TerraformProperty<string>? Level
+    {
+        get => GetProperty<TerraformProperty<string>>("level");
+        set => WithProperty("level", value);
+    }
+
+    /// <summary>
+    /// The log_destination attribute.
+    /// </summary>
+    public TerraformProperty<string>? LogDestination
+    {
+        get => GetProperty<TerraformProperty<string>>("log_destination");
+        set => WithProperty("log_destination", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tracing_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSfnStateMachineTracingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sfn_state_machine resource.
 /// </summary>
 public class AwsSfnStateMachine : TerraformResource
@@ -26,7 +148,8 @@ public class AwsSfnStateMachine : TerraformResource
     /// <summary>
     /// The definition attribute.
     /// </summary>
-    public TerraformProperty<string>? Definition
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
+    public required TerraformProperty<string> Definition
     {
         get => GetProperty<TerraformProperty<string>>("definition");
         set => this.WithProperty("definition", value);
@@ -80,7 +203,8 @@ public class AwsSfnStateMachine : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -89,18 +213,18 @@ public class AwsSfnStateMachine : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -111,6 +235,49 @@ public class AwsSfnStateMachine : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
+    public List<AwsSfnStateMachineEncryptionConfigurationBlock>? EncryptionConfiguration
+    {
+        get => GetProperty<List<AwsSfnStateMachineEncryptionConfigurationBlock>>("encryption_configuration");
+        set => this.WithProperty("encryption_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for logging_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
+    public List<AwsSfnStateMachineLoggingConfigurationBlock>? LoggingConfiguration
+    {
+        get => GetProperty<List<AwsSfnStateMachineLoggingConfigurationBlock>>("logging_configuration");
+        set => this.WithProperty("logging_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSfnStateMachineTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSfnStateMachineTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for tracing_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TracingConfiguration block(s) allowed")]
+    public List<AwsSfnStateMachineTracingConfigurationBlock>? TracingConfiguration
+    {
+        get => GetProperty<List<AwsSfnStateMachineTracingConfigurationBlock>>("tracing_configuration");
+        set => this.WithProperty("tracing_configuration", value);
     }
 
     /// <summary>

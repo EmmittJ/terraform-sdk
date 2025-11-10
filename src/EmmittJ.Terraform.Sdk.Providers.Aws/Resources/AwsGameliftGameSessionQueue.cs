@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for player_latency_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum_individual_player_latency_milliseconds attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumIndividualPlayerLatencyMilliseconds is required")]
+    public required TerraformProperty<double> MaximumIndividualPlayerLatencyMilliseconds
+    {
+        get => GetProperty<TerraformProperty<double>>("maximum_individual_player_latency_milliseconds");
+        set => WithProperty("maximum_individual_player_latency_milliseconds", value);
+    }
+
+    /// <summary>
+    /// The policy_duration_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? PolicyDurationSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("policy_duration_seconds");
+        set => WithProperty("policy_duration_seconds", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_gamelift_game_session_queue resource.
 /// </summary>
 public class AwsGameliftGameSessionQueue : TerraformResource
@@ -29,9 +56,9 @@ public class AwsGameliftGameSessionQueue : TerraformResource
     /// <summary>
     /// The destinations attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Destinations
+    public List<TerraformProperty<string>>? Destinations
     {
-        get => GetProperty<TerraformProperty<List<string>>>("destinations");
+        get => GetProperty<List<TerraformProperty<string>>>("destinations");
         set => this.WithProperty("destinations", value);
     }
 
@@ -47,7 +74,8 @@ public class AwsGameliftGameSessionQueue : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -74,18 +102,18 @@ public class AwsGameliftGameSessionQueue : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -96,6 +124,16 @@ public class AwsGameliftGameSessionQueue : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("timeout_in_seconds");
         set => this.WithProperty("timeout_in_seconds", value);
+    }
+
+    /// <summary>
+    /// Block for player_latency_policy.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock>? PlayerLatencyPolicy
+    {
+        get => GetProperty<List<AwsGameliftGameSessionQueuePlayerLatencyPolicyBlock>>("player_latency_policy");
+        set => this.WithProperty("player_latency_policy", value);
     }
 
     /// <summary>

@@ -3,6 +3,70 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for entry_references in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The relative resource name of the referenced Entry, of the form:
+    /// projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The path in the Entry that is referenced in the Entry Link.
+    /// Empty path denotes that the Entry itself is referenced in the Entry Link.
+    /// </summary>
+    public TerraformProperty<string>? Path
+    {
+        get => GetProperty<TerraformProperty<string>>("path");
+        set => WithProperty("path", value);
+    }
+
+    /// <summary>
+    /// The reference type of the Entry. Possible values: [&amp;quot;SOURCE&amp;quot;, &amp;quot;TARGET&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataplexEntryLinkTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataplex_entry_link resource.
 /// </summary>
 public class GoogleDataplexEntryLink : TerraformResource
@@ -22,7 +86,8 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// <summary>
     /// The id of the entry group this entry link is in.
     /// </summary>
-    public TerraformProperty<string>? EntryGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
+    public required TerraformProperty<string> EntryGroupId
     {
         get => GetProperty<TerraformProperty<string>>("entry_group_id");
         set => this.WithProperty("entry_group_id", value);
@@ -31,7 +96,8 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// <summary>
     /// The id of the entry link to create.
     /// </summary>
-    public TerraformProperty<string>? EntryLinkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkId is required")]
+    public required TerraformProperty<string> EntryLinkId
     {
         get => GetProperty<TerraformProperty<string>>("entry_link_id");
         set => this.WithProperty("entry_link_id", value);
@@ -41,7 +107,8 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// Relative resource name of the Entry Link Type used to create this Entry Link. For example:
     /// projects/dataplex-types/locations/global/entryLinkTypes/definition
     /// </summary>
-    public TerraformProperty<string>? EntryLinkType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkType is required")]
+    public required TerraformProperty<string> EntryLinkType
     {
         get => GetProperty<TerraformProperty<string>>("entry_link_type");
         set => this.WithProperty("entry_link_type", value);
@@ -59,7 +126,8 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// <summary>
     /// The location for the entry.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -72,6 +140,27 @@ public class GoogleDataplexEntryLink : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for entry_references.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntryReferences block(s) required")]
+    public List<GoogleDataplexEntryLinkEntryReferencesBlock>? EntryReferences
+    {
+        get => GetProperty<List<GoogleDataplexEntryLinkEntryReferencesBlock>>("entry_references");
+        set => this.WithProperty("entry_references", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataplexEntryLinkTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataplexEntryLinkTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

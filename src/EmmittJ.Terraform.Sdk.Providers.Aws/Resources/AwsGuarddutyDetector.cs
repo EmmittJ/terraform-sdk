@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for datasources in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGuarddutyDetectorDatasourcesBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_guardduty_detector resource.
 /// </summary>
 public class AwsGuarddutyDetector : TerraformResource
@@ -57,19 +65,30 @@ public class AwsGuarddutyDetector : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for datasources.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Datasources block(s) allowed")]
+    public List<AwsGuarddutyDetectorDatasourcesBlock>? Datasources
+    {
+        get => GetProperty<List<AwsGuarddutyDetectorDatasourcesBlock>>("datasources");
+        set => this.WithProperty("datasources", value);
     }
 
     /// <summary>

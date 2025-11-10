@@ -3,6 +3,157 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for managed in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
+{
+    /// <summary>
+    /// Detailed state of the latest authorization attempt for each domain
+    /// specified for this Managed Certificate.
+    /// </summary>
+    public List<TerraformProperty<object>>? AuthorizationAttemptInfo
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("authorization_attempt_info");
+        set => WithProperty("authorization_attempt_info", value);
+    }
+
+    /// <summary>
+    /// Authorizations that will be used for performing domain authorization. Either issuanceConfig or dnsAuthorizations should be specificed, but not both.
+    /// </summary>
+    public List<TerraformProperty<string>>? DnsAuthorizations
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("dns_authorizations");
+        set => WithProperty("dns_authorizations", value);
+    }
+
+    /// <summary>
+    /// The domains for which a managed SSL certificate will be generated.
+    /// Wildcard domains are only supported with DNS challenge resolution
+    /// </summary>
+    public List<TerraformProperty<string>>? Domains
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("domains");
+        set => WithProperty("domains", value);
+    }
+
+    /// <summary>
+    /// The resource name for a CertificateIssuanceConfig used to configure private PKI certificates in the format projects/*/locations/*/certificateIssuanceConfigs/*.
+    /// If this field is not set, the certificates will instead be publicly signed as documented at https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
+    /// Either issuanceConfig or dnsAuthorizations should be specificed, but not both.
+    /// </summary>
+    public TerraformProperty<string>? IssuanceConfig
+    {
+        get => GetProperty<TerraformProperty<string>>("issuance_config");
+        set => WithProperty("issuance_config", value);
+    }
+
+    /// <summary>
+    /// Information about issues with provisioning this Managed Certificate.
+    /// </summary>
+    public List<TerraformProperty<object>>? ProvisioningIssue
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("provisioning_issue");
+        set => WithProperty("provisioning_issue", value);
+    }
+
+    /// <summary>
+    /// A state of this Managed Certificate.
+    /// </summary>
+    public TerraformProperty<string>? State
+    {
+        get => GetProperty<TerraformProperty<string>>("state");
+        set => WithProperty("state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for self_managed in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBlock
+{
+    /// <summary>
+    /// The certificate chain in PEM-encoded form.
+    /// 
+    /// Leaf certificate comes first, followed by intermediate ones if any.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformProperty<string>? CertificatePem
+    {
+        get => GetProperty<TerraformProperty<string>>("certificate_pem");
+        set => WithProperty("certificate_pem", value);
+    }
+
+    /// <summary>
+    /// The certificate chain in PEM-encoded form.
+    /// 
+    /// Leaf certificate comes first, followed by intermediate ones if any.
+    /// </summary>
+    public TerraformProperty<string>? PemCertificate
+    {
+        get => GetProperty<TerraformProperty<string>>("pem_certificate");
+        set => WithProperty("pem_certificate", value);
+    }
+
+    /// <summary>
+    /// The private key of the leaf certificate in PEM-encoded form.
+    /// </summary>
+    public TerraformProperty<string>? PemPrivateKey
+    {
+        get => GetProperty<TerraformProperty<string>>("pem_private_key");
+        set => WithProperty("pem_private_key", value);
+    }
+
+    /// <summary>
+    /// The private key of the leaf certificate in PEM-encoded form.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformProperty<string>? PrivateKeyPem
+    {
+        get => GetProperty<TerraformProperty<string>>("private_key_pem");
+        set => WithProperty("private_key_pem", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_certificate_manager_certificate resource.
 /// </summary>
 public class GoogleCertificateManagerCertificate : TerraformResource
@@ -43,9 +194,9 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -63,7 +214,8 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
     /// and all following characters must be a dash, underscore, letter or digit.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -97,6 +249,38 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
+    }
+
+    /// <summary>
+    /// Block for managed.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
+    public List<GoogleCertificateManagerCertificateManagedBlock>? Managed
+    {
+        get => GetProperty<List<GoogleCertificateManagerCertificateManagedBlock>>("managed");
+        set => this.WithProperty("managed", value);
+    }
+
+    /// <summary>
+    /// Block for self_managed.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManaged block(s) allowed")]
+    public List<GoogleCertificateManagerCertificateSelfManagedBlock>? SelfManaged
+    {
+        get => GetProperty<List<GoogleCertificateManagerCertificateSelfManagedBlock>>("self_managed");
+        set => this.WithProperty("self_managed", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCertificateManagerCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCertificateManagerCertificateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

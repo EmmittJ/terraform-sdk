@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_service_principal_delegated_permission_grant resource.
 /// </summary>
 public class AzureadServicePrincipalDelegatedPermissionGrant : TerraformResource
@@ -19,9 +63,10 @@ public class AzureadServicePrincipalDelegatedPermissionGrant : TerraformResource
     /// <summary>
     /// A set of claim values for delegated permission scopes which should be included in access tokens for the resource
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ClaimValues
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClaimValues is required")]
+    public HashSet<TerraformProperty<string>>? ClaimValues
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("claim_values");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("claim_values");
         set => this.WithProperty("claim_values", value);
     }
 
@@ -37,7 +82,8 @@ public class AzureadServicePrincipalDelegatedPermissionGrant : TerraformResource
     /// <summary>
     /// The object ID of the service principal representing the resource to be accessed
     /// </summary>
-    public TerraformProperty<string>? ResourceServicePrincipalObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceServicePrincipalObjectId is required")]
+    public required TerraformProperty<string> ResourceServicePrincipalObjectId
     {
         get => GetProperty<TerraformProperty<string>>("resource_service_principal_object_id");
         set => this.WithProperty("resource_service_principal_object_id", value);
@@ -46,7 +92,8 @@ public class AzureadServicePrincipalDelegatedPermissionGrant : TerraformResource
     /// <summary>
     /// The object ID of the service principal for which this delegated permission grant should be created
     /// </summary>
-    public TerraformProperty<string>? ServicePrincipalObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalObjectId is required")]
+    public required TerraformProperty<string> ServicePrincipalObjectId
     {
         get => GetProperty<TerraformProperty<string>>("service_principal_object_id");
         set => this.WithProperty("service_principal_object_id", value);
@@ -59,6 +106,16 @@ public class AzureadServicePrincipalDelegatedPermissionGrant : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_object_id");
         set => this.WithProperty("user_object_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

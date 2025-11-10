@@ -3,6 +3,112 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for client_data in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
+{
+    /// <summary>
+    /// The comment attribute.
+    /// </summary>
+    public TerraformProperty<string>? Comment
+    {
+        get => GetProperty<TerraformProperty<string>>("comment");
+        set => WithProperty("comment", value);
+    }
+
+    /// <summary>
+    /// The upload_end attribute.
+    /// </summary>
+    public TerraformProperty<string>? UploadEnd
+    {
+        get => GetProperty<TerraformProperty<string>>("upload_end");
+        set => WithProperty("upload_end", value);
+    }
+
+    /// <summary>
+    /// The upload_size attribute.
+    /// </summary>
+    public TerraformProperty<double>? UploadSize
+    {
+        get => GetProperty<TerraformProperty<double>>("upload_size");
+        set => WithProperty("upload_size", value);
+    }
+
+    /// <summary>
+    /// The upload_start attribute.
+    /// </summary>
+    public TerraformProperty<string>? UploadStart
+    {
+        get => GetProperty<TerraformProperty<string>>("upload_start");
+        set => WithProperty("upload_start", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for disk_container in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The format attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
+    public required TerraformProperty<string> Format
+    {
+        get => GetProperty<TerraformProperty<string>>("format");
+        set => WithProperty("format", value);
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformProperty<string>? Url
+    {
+        get => GetProperty<TerraformProperty<string>>("url");
+        set => WithProperty("url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEbsSnapshotImportTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ebs_snapshot_import resource.
 /// </summary>
 public class AwsEbsSnapshotImport : TerraformResource
@@ -98,18 +204,18 @@ public class AwsEbsSnapshotImport : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -120,6 +226,39 @@ public class AwsEbsSnapshotImport : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("temporary_restore_days");
         set => this.WithProperty("temporary_restore_days", value);
+    }
+
+    /// <summary>
+    /// Block for client_data.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientData block(s) allowed")]
+    public List<AwsEbsSnapshotImportClientDataBlock>? ClientData
+    {
+        get => GetProperty<List<AwsEbsSnapshotImportClientDataBlock>>("client_data");
+        set => this.WithProperty("client_data", value);
+    }
+
+    /// <summary>
+    /// Block for disk_container.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DiskContainer block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskContainer block(s) allowed")]
+    public List<AwsEbsSnapshotImportDiskContainerBlock>? DiskContainer
+    {
+        get => GetProperty<List<AwsEbsSnapshotImportDiskContainerBlock>>("disk_container");
+        set => this.WithProperty("disk_container", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEbsSnapshotImportTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEbsSnapshotImportTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

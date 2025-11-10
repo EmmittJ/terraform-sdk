@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_spanner_instance_partition resource.
 /// </summary>
 public class GoogleSpannerInstancePartition : TerraformResource
@@ -21,7 +56,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// The name of the instance partition&#39;s configuration (similar to a region) which
     /// defines the geographic placement and replication of data in this instance partition.
     /// </summary>
-    public TerraformProperty<string>? Config
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
+    public required TerraformProperty<string> Config
     {
         get => GetProperty<TerraformProperty<string>>("config");
         set => this.WithProperty("config", value);
@@ -31,7 +67,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// The descriptive name for this instance partition as it appears in UIs.
     /// Must be unique per project and between 4 and 30 characters in length.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -49,7 +86,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// <summary>
     /// The instance to create the instance partition in.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -60,7 +98,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// the instance partition is created. The name must be between 2 and 64 characters
     /// and match the regular expression [a-z][a-z0-9\\-]{0,61}[a-z0-9].
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -94,6 +133,16 @@ public class GoogleSpannerInstancePartition : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSpannerInstancePartitionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSpannerInstancePartitionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for certificate in .
+/// Nesting mode: set
+/// </summary>
+public class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// The body attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
+    public required TerraformProperty<string> Body
+    {
+        get => GetProperty<TerraformProperty<string>>("body");
+        set => WithProperty("body", value);
+    }
+
+    /// <summary>
+    /// The issuer attribute.
+    /// </summary>
+    public TerraformProperty<string>? Issuer
+    {
+        get => GetProperty<TerraformProperty<string>>("issuer");
+        set => WithProperty("issuer", value);
+    }
+
+    /// <summary>
+    /// The not_valid_after attribute.
+    /// </summary>
+    public TerraformProperty<string>? NotValidAfter
+    {
+        get => GetProperty<TerraformProperty<string>>("not_valid_after");
+        set => WithProperty("not_valid_after", value);
+    }
+
+    /// <summary>
+    /// The not_valid_before attribute.
+    /// </summary>
+    public TerraformProperty<string>? NotValidBefore
+    {
+        get => GetProperty<TerraformProperty<string>>("not_valid_before");
+        set => WithProperty("not_valid_before", value);
+    }
+
+    /// <summary>
+    /// The subject attribute.
+    /// </summary>
+    public TerraformProperty<string>? Subject
+    {
+        get => GetProperty<TerraformProperty<string>>("subject");
+        set => WithProperty("subject", value);
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformProperty<string>? Thumbprint
+    {
+        get => GetProperty<TerraformProperty<string>>("thumbprint");
+        set => WithProperty("thumbprint", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_workspacesweb_trust_store resource.
 /// </summary>
 public class AwsWorkspaceswebTrustStore : TerraformResource
@@ -31,10 +94,20 @@ public class AwsWorkspaceswebTrustStore : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for certificate.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsWorkspaceswebTrustStoreCertificateBlock>? Certificate
+    {
+        get => GetProperty<HashSet<AwsWorkspaceswebTrustStoreCertificateBlock>>("certificate");
+        set => this.WithProperty("certificate", value);
     }
 
     /// <summary>

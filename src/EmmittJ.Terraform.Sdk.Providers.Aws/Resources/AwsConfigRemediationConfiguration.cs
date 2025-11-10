@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for execution_controls in .
+/// Nesting mode: list
+/// </summary>
+public class AwsConfigRemediationConfigurationExecutionControlsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for parameter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The resource_value attribute.
+    /// </summary>
+    public TerraformProperty<string>? ResourceValue
+    {
+        get => GetProperty<TerraformProperty<string>>("resource_value");
+        set => WithProperty("resource_value", value);
+    }
+
+    /// <summary>
+    /// The static_value attribute.
+    /// </summary>
+    public TerraformProperty<string>? StaticValue
+    {
+        get => GetProperty<TerraformProperty<string>>("static_value");
+        set => WithProperty("static_value", value);
+    }
+
+    /// <summary>
+    /// The static_values attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? StaticValues
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("static_values");
+        set => WithProperty("static_values", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_config_remediation_configuration resource.
 /// </summary>
 public class AwsConfigRemediationConfiguration : TerraformResource
@@ -29,7 +82,8 @@ public class AwsConfigRemediationConfiguration : TerraformResource
     /// <summary>
     /// The config_rule_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigRuleName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigRuleName is required")]
+    public required TerraformProperty<string> ConfigRuleName
     {
         get => GetProperty<TerraformProperty<string>>("config_rule_name");
         set => this.WithProperty("config_rule_name", value);
@@ -83,7 +137,8 @@ public class AwsConfigRemediationConfiguration : TerraformResource
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
+    public required TerraformProperty<string> TargetId
     {
         get => GetProperty<TerraformProperty<string>>("target_id");
         set => this.WithProperty("target_id", value);
@@ -92,7 +147,8 @@ public class AwsConfigRemediationConfiguration : TerraformResource
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
+    public required TerraformProperty<string> TargetType
     {
         get => GetProperty<TerraformProperty<string>>("target_type");
         set => this.WithProperty("target_type", value);
@@ -105,6 +161,28 @@ public class AwsConfigRemediationConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("target_version");
         set => this.WithProperty("target_version", value);
+    }
+
+    /// <summary>
+    /// Block for execution_controls.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionControls block(s) allowed")]
+    public List<AwsConfigRemediationConfigurationExecutionControlsBlock>? ExecutionControls
+    {
+        get => GetProperty<List<AwsConfigRemediationConfigurationExecutionControlsBlock>>("execution_controls");
+        set => this.WithProperty("execution_controls", value);
+    }
+
+    /// <summary>
+    /// Block for parameter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(25, ErrorMessage = "Maximum 25 Parameter block(s) allowed")]
+    public List<AwsConfigRemediationConfigurationParameterBlock>? Parameter
+    {
+        get => GetProperty<List<AwsConfigRemediationConfigurationParameterBlock>>("parameter");
+        set => this.WithProperty("parameter", value);
     }
 
     /// <summary>

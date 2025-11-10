@@ -30,7 +30,8 @@ public class GoogleSccV2OrganizationSourceIamPolicyDataSource : TerraformDataSou
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -39,7 +40,8 @@ public class GoogleSccV2OrganizationSourceIamPolicyDataSource : TerraformDataSou
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformProperty<string>? Source
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformProperty<string> Source
     {
         get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);

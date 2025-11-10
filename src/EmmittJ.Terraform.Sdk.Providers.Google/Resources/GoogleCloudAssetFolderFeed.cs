@@ -3,6 +3,97 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudAssetFolderFeedConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Description of the expression. This is a longer text which describes the expression,
+    /// e.g. when hovered over it in a UI.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// Textual representation of an expression in Common Expression Language syntax.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// String indicating the location of the expression for error reporting, e.g. a file
+    /// name and a position in the file.
+    /// </summary>
+    public TerraformProperty<string>? Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// Title for the expression, i.e. a short string describing its purpose.
+    /// This can be used e.g. in UIs which allow to enter the expression.
+    /// </summary>
+    public TerraformProperty<string>? Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for feed_output_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudAssetFolderFeedFeedOutputConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCloudAssetFolderFeedTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_cloud_asset_folder_feed resource.
 /// </summary>
 public class GoogleCloudAssetFolderFeed : TerraformResource
@@ -24,9 +115,9 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     /// exported to the feed. For example: //compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1.
     /// See https://cloud.google.com/apis/design/resourceNames#fullResourceName for more info.
     /// </summary>
-    public TerraformProperty<List<string>>? AssetNames
+    public List<TerraformProperty<string>>? AssetNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("asset_names");
+        get => GetProperty<List<TerraformProperty<string>>>("asset_names");
         set => this.WithProperty("asset_names", value);
     }
 
@@ -37,9 +128,9 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     /// See https://cloud.google.com/asset-inventory/docs/supported-asset-types for a list of all
     /// supported asset types.
     /// </summary>
-    public TerraformProperty<List<string>>? AssetTypes
+    public List<TerraformProperty<string>>? AssetTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("asset_types");
+        get => GetProperty<List<TerraformProperty<string>>>("asset_types");
         set => this.WithProperty("asset_types", value);
     }
 
@@ -48,7 +139,8 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     /// destination pubsub topic. It also specifies the project for API
     /// enablement check, quota, and billing.
     /// </summary>
-    public TerraformProperty<string>? BillingProject
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProject is required")]
+    public required TerraformProperty<string> BillingProject
     {
         get => GetProperty<TerraformProperty<string>>("billing_project");
         set => this.WithProperty("billing_project", value);
@@ -66,7 +158,8 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     /// <summary>
     /// This is the client-assigned asset feed identifier and it needs to be unique under a specific parent.
     /// </summary>
-    public TerraformProperty<string>? FeedId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeedId is required")]
+    public required TerraformProperty<string> FeedId
     {
         get => GetProperty<TerraformProperty<string>>("feed_id");
         set => this.WithProperty("feed_id", value);
@@ -75,7 +168,8 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     /// <summary>
     /// The folder this feed should be created in.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
+    public required TerraformProperty<string> Folder
     {
         get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
@@ -88,6 +182,39 @@ public class GoogleCloudAssetFolderFeed : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleCloudAssetFolderFeedConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleCloudAssetFolderFeedConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
+    }
+
+    /// <summary>
+    /// Block for feed_output_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FeedOutputConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeedOutputConfig block(s) allowed")]
+    public List<GoogleCloudAssetFolderFeedFeedOutputConfigBlock>? FeedOutputConfig
+    {
+        get => GetProperty<List<GoogleCloudAssetFolderFeedFeedOutputConfigBlock>>("feed_output_config");
+        set => this.WithProperty("feed_output_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCloudAssetFolderFeedTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCloudAssetFolderFeedTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

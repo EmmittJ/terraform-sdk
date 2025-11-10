@@ -3,6 +3,112 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for encryption_spec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiEndpointEncryptionSpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;. The key needs to be in the same region as where the compute resource is created.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
+    public required TerraformProperty<string> KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for predict_request_response_logging_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// If logging is enabled or not.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// Percentage of requests to be logged, expressed as a fraction in range(0,1]
+    /// </summary>
+    public TerraformProperty<double>? SamplingRate
+    {
+        get => GetProperty<TerraformProperty<double>>("sampling_rate");
+        set => WithProperty("sampling_rate", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for private_service_connect_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. If true, expose the IndexEndpoint via private service connect.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
+    public required TerraformProperty<bool> EnablePrivateServiceConnect
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_private_service_connect");
+        set => WithProperty("enable_private_service_connect", value);
+    }
+
+    /// <summary>
+    /// A list of Projects from which the forwarding rule will target the service attachment.
+    /// </summary>
+    public List<TerraformProperty<string>>? ProjectAllowlist
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("project_allowlist");
+        set => WithProperty("project_allowlist", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVertexAiEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vertex_ai_endpoint resource.
 /// </summary>
 public class GoogleVertexAiEndpoint : TerraformResource
@@ -45,7 +151,8 @@ public class GoogleVertexAiEndpoint : TerraformResource
     /// <summary>
     /// Required. The display name of the Endpoint. The name can be up to 128 characters long and can consist of any UTF-8 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -66,16 +173,17 @@ public class GoogleVertexAiEndpoint : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -84,7 +192,8 @@ public class GoogleVertexAiEndpoint : TerraformResource
     /// <summary>
     /// The resource name of the Endpoint. The name must be numeric with no leading zeros and can be at most 10 digits.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -130,6 +239,49 @@ public class GoogleVertexAiEndpoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("traffic_split");
         set => this.WithProperty("traffic_split", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
+    public List<GoogleVertexAiEndpointEncryptionSpecBlock>? EncryptionSpec
+    {
+        get => GetProperty<List<GoogleVertexAiEndpointEncryptionSpecBlock>>("encryption_spec");
+        set => this.WithProperty("encryption_spec", value);
+    }
+
+    /// <summary>
+    /// Block for predict_request_response_logging_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PredictRequestResponseLoggingConfig block(s) allowed")]
+    public List<GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock>? PredictRequestResponseLoggingConfig
+    {
+        get => GetProperty<List<GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock>>("predict_request_response_logging_config");
+        set => this.WithProperty("predict_request_response_logging_config", value);
+    }
+
+    /// <summary>
+    /// Block for private_service_connect_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnectConfig block(s) allowed")]
+    public List<GoogleVertexAiEndpointPrivateServiceConnectConfigBlock>? PrivateServiceConnectConfig
+    {
+        get => GetProperty<List<GoogleVertexAiEndpointPrivateServiceConnectConfigBlock>>("private_service_connect_config");
+        set => this.WithProperty("private_service_connect_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVertexAiEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVertexAiEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

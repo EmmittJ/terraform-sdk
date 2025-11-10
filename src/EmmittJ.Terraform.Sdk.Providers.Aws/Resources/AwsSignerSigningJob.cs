@@ -3,6 +3,22 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for destination in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSignerSigningJobDestinationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for source in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSignerSigningJobSourceBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_signer_signing_job resource.
 /// </summary>
 public class AwsSignerSigningJob : TerraformResource
@@ -51,7 +67,8 @@ public class AwsSignerSigningJob : TerraformResource
     /// <summary>
     /// The profile_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProfileName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
+    public required TerraformProperty<string> ProfileName
     {
         get => GetProperty<TerraformProperty<string>>("profile_name");
         set => this.WithProperty("profile_name", value);
@@ -64,6 +81,30 @@ public class AwsSignerSigningJob : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for destination.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
+    public List<AwsSignerSigningJobDestinationBlock>? Destination
+    {
+        get => GetProperty<List<AwsSignerSigningJobDestinationBlock>>("destination");
+        set => this.WithProperty("destination", value);
+    }
+
+    /// <summary>
+    /// Block for source.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
+    public List<AwsSignerSigningJobSourceBlock>? Source
+    {
+        get => GetProperty<List<AwsSignerSigningJobSourceBlock>>("source");
+        set => this.WithProperty("source", value);
     }
 
     /// <summary>

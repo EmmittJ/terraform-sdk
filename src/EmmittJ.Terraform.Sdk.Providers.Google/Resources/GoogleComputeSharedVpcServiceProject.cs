@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_shared_vpc_service_project resource.
 /// </summary>
 public class GoogleComputeSharedVpcServiceProject : TerraformResource
@@ -29,7 +55,8 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
     /// <summary>
     /// The ID of a host project to associate.
     /// </summary>
-    public TerraformProperty<string>? HostProject
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProject is required")]
+    public required TerraformProperty<string> HostProject
     {
         get => GetProperty<TerraformProperty<string>>("host_project");
         set => this.WithProperty("host_project", value);
@@ -47,10 +74,21 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
     /// <summary>
     /// The ID of the project that will serve as a Shared VPC service project.
     /// </summary>
-    public TerraformProperty<string>? ServiceProject
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProject is required")]
+    public required TerraformProperty<string> ServiceProject
     {
         get => GetProperty<TerraformProperty<string>>("service_project");
         set => this.WithProperty("service_project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeSharedVpcServiceProjectTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeSharedVpcServiceProjectTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

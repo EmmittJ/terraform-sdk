@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleActiveDirectoryDomainTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_active_directory_domain resource.
 /// </summary>
 public class GoogleActiveDirectoryDomain : TerraformResource
@@ -34,9 +69,9 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The full names of the Google Compute Engine networks the domain instance is connected to. The domain is only available on networks listed in authorizedNetworks.
     /// If CIDR subnets overlap between networks, domain creation will fail.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AuthorizedNetworks
+    public HashSet<TerraformProperty<string>>? AuthorizedNetworks
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("authorized_networks");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("authorized_networks");
         set => this.WithProperty("authorized_networks", value);
     }
 
@@ -58,7 +93,8 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The fully qualified domain name. e.g. mydomain.myorganization.com, with the restrictions
     /// of https://cloud.google.com/managed-microsoft-ad/reference/rest/v1/projects.locations.global.domains.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -79,9 +115,9 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -89,9 +125,10 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// Locations where domain needs to be provisioned. [regions][compute/docs/regions-zones/]
     /// e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block.
     /// </summary>
-    public TerraformProperty<List<string>>? Locations
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
+    public List<TerraformProperty<string>>? Locations
     {
-        get => GetProperty<TerraformProperty<List<string>>>("locations");
+        get => GetProperty<List<TerraformProperty<string>>>("locations");
         set => this.WithProperty("locations", value);
     }
 
@@ -108,10 +145,21 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger.
     /// Ranges must be unique and non-overlapping with existing subnets in authorizedNetworks
     /// </summary>
-    public TerraformProperty<string>? ReservedIpRange
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedIpRange is required")]
+    public required TerraformProperty<string> ReservedIpRange
     {
         get => GetProperty<TerraformProperty<string>>("reserved_ip_range");
         set => this.WithProperty("reserved_ip_range", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleActiveDirectoryDomainTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleActiveDirectoryDomainTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_key_vault_managed_hardware_security_module_key_rotation_policy resource.
 /// </summary>
 public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     /// <summary>
     /// The expire_after attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpireAfter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpireAfter is required")]
+    public required TerraformProperty<string> ExpireAfter
     {
         get => GetProperty<TerraformProperty<string>>("expire_after");
         set => this.WithProperty("expire_after", value);
@@ -37,7 +82,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagedHsmKeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmKeyId is required")]
+    public required TerraformProperty<string> ManagedHsmKeyId
     {
         get => GetProperty<TerraformProperty<string>>("managed_hsm_key_id");
         set => this.WithProperty("managed_hsm_key_id", value);
@@ -59,6 +105,16 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     {
         get => GetProperty<TerraformProperty<string>>("time_before_expiry");
         set => this.WithProperty("time_before_expiry", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

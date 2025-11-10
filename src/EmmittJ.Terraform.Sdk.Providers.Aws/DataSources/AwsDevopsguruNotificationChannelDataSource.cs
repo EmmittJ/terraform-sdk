@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDevopsguruNotificationChannelDataSourceFiltersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The message_types attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? MessageTypes
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("message_types");
+        set => WithProperty("message_types", value);
+    }
+
+    /// <summary>
+    /// The severities attribute.
+    /// </summary>
+    public List<TerraformProperty<string>>? Severities
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("severities");
+        set => WithProperty("severities", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for sns in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDevopsguruNotificationChannelDataSourceSnsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The topic_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        set => WithProperty("topic_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_devopsguru_notification_channel.
 /// </summary>
 public class AwsDevopsguruNotificationChannelDataSource : TerraformDataSource
@@ -19,7 +62,8 @@ public class AwsDevopsguruNotificationChannelDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformProperty<string>? Id
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
@@ -32,6 +76,26 @@ public class AwsDevopsguruNotificationChannelDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for filters.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsDevopsguruNotificationChannelDataSourceFiltersBlock>? Filters
+    {
+        get => GetProperty<List<AwsDevopsguruNotificationChannelDataSourceFiltersBlock>>("filters");
+        set => this.WithProperty("filters", value);
+    }
+
+    /// <summary>
+    /// Block for sns.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsDevopsguruNotificationChannelDataSourceSnsBlock>? Sns
+    {
+        get => GetProperty<List<AwsDevopsguruNotificationChannelDataSourceSnsBlock>>("sns");
+        set => this.WithProperty("sns", value);
     }
 
 }

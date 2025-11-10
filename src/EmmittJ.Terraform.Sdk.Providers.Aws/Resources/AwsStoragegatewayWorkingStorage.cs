@@ -19,7 +19,8 @@ public class AwsStoragegatewayWorkingStorage : TerraformResource
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DiskId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskId is required")]
+    public required TerraformProperty<string> DiskId
     {
         get => GetProperty<TerraformProperty<string>>("disk_id");
         set => this.WithProperty("disk_id", value);
@@ -28,7 +29,8 @@ public class AwsStoragegatewayWorkingStorage : TerraformResource
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
+    public required TerraformProperty<string> GatewayArn
     {
         get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);

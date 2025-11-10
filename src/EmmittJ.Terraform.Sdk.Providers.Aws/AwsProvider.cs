@@ -34,9 +34,9 @@ public class AwsProvider : TerraformProvider
     /// The allowed_account_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedAccountIds
+    public HashSet<TerraformProperty<string>>? AllowedAccountIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_account_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_account_ids");
         set => this.WithProperty("allowed_account_ids", value);
     }
 
@@ -74,9 +74,9 @@ public class AwsProvider : TerraformProvider
     /// The forbidden_account_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ForbiddenAccountIds
+    public HashSet<TerraformProperty<string>>? ForbiddenAccountIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("forbidden_account_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("forbidden_account_ids");
         set => this.WithProperty("forbidden_account_ids", value);
     }
 
@@ -202,9 +202,9 @@ public class AwsProvider : TerraformProvider
     /// List of paths to shared config files. If not set, defaults to [~/.aws/config].
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<string>>? SharedConfigFiles
+    public List<TerraformProperty<string>>? SharedConfigFiles
     {
-        get => GetProperty<TerraformProperty<List<string>>>("shared_config_files");
+        get => GetProperty<List<TerraformProperty<string>>>("shared_config_files");
         set => this.WithProperty("shared_config_files", value);
     }
 
@@ -212,9 +212,9 @@ public class AwsProvider : TerraformProvider
     /// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
     /// (Optional)
     /// </summary>
-    public TerraformProperty<List<string>>? SharedCredentialsFiles
+    public List<TerraformProperty<string>>? SharedCredentialsFiles
     {
-        get => GetProperty<TerraformProperty<List<string>>>("shared_credentials_files");
+        get => GetProperty<List<TerraformProperty<string>>>("shared_credentials_files");
         set => this.WithProperty("shared_credentials_files", value);
     }
 

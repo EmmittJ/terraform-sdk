@@ -3,6 +3,31 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for event_filter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWorkspaceswebSessionLoggerEventFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The include attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Include
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("include");
+        set => WithProperty("include", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for log_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsWorkspaceswebSessionLoggerLogConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_workspacesweb_session_logger resource.
 /// </summary>
 public class AwsWorkspaceswebSessionLogger : TerraformResource
@@ -22,9 +47,9 @@ public class AwsWorkspaceswebSessionLogger : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_encryption_context");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
@@ -58,10 +83,30 @@ public class AwsWorkspaceswebSessionLogger : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for event_filter.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsWorkspaceswebSessionLoggerEventFilterBlock>? EventFilter
+    {
+        get => GetProperty<List<AwsWorkspaceswebSessionLoggerEventFilterBlock>>("event_filter");
+        set => this.WithProperty("event_filter", value);
+    }
+
+    /// <summary>
+    /// Block for log_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsWorkspaceswebSessionLoggerLogConfigurationBlock>? LogConfiguration
+    {
+        get => GetProperty<List<AwsWorkspaceswebSessionLoggerLogConfigurationBlock>>("log_configuration");
+        set => this.WithProperty("log_configuration", value);
     }
 
     /// <summary>

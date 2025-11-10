@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_netapp_volume_quota_rule resource.
 /// </summary>
 public class AzurermNetappVolumeQuotaRule : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -37,7 +82,8 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,7 +92,8 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// <summary>
     /// The quota_size_in_kib attribute.
     /// </summary>
-    public TerraformProperty<double>? QuotaSizeInKib
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaSizeInKib is required")]
+    public required TerraformProperty<double> QuotaSizeInKib
     {
         get => GetProperty<TerraformProperty<double>>("quota_size_in_kib");
         set => this.WithProperty("quota_size_in_kib", value);
@@ -64,7 +111,8 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// <summary>
     /// The quota_type attribute.
     /// </summary>
-    public TerraformProperty<string>? QuotaType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaType is required")]
+    public required TerraformProperty<string> QuotaType
     {
         get => GetProperty<TerraformProperty<string>>("quota_type");
         set => this.WithProperty("quota_type", value);
@@ -73,10 +121,21 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
+    public required TerraformProperty<string> VolumeId
     {
         get => GetProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNetappVolumeQuotaRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNetappVolumeQuotaRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

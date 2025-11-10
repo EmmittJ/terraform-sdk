@@ -37,7 +37,8 @@ public class AwsLakeformationLfTag : TerraformResource
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
     {
         get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
@@ -55,9 +56,10 @@ public class AwsLakeformationLfTag : TerraformResource
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Values
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("values");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
         set => this.WithProperty("values", value);
     }
 

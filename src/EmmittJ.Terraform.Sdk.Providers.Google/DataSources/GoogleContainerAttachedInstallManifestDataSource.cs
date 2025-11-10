@@ -20,7 +20,8 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
+    public required TerraformProperty<string> ClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
@@ -38,7 +39,8 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -47,7 +49,8 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    public TerraformProperty<string>? PlatformVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
+    public required TerraformProperty<string> PlatformVersion
     {
         get => GetProperty<TerraformProperty<string>>("platform_version");
         set => this.WithProperty("platform_version", value);
@@ -56,7 +59,8 @@ public class GoogleContainerAttachedInstallManifestDataSource : TerraformDataSou
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);

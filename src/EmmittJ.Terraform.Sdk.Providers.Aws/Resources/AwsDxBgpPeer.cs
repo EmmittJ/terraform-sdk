@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDxBgpPeerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dx_bgp_peer resource.
 /// </summary>
 public class AwsDxBgpPeer : TerraformResource
@@ -22,7 +48,8 @@ public class AwsDxBgpPeer : TerraformResource
     /// <summary>
     /// The address_family attribute.
     /// </summary>
-    public TerraformProperty<string>? AddressFamily
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
+    public required TerraformProperty<string> AddressFamily
     {
         get => GetProperty<TerraformProperty<string>>("address_family");
         set => this.WithProperty("address_family", value);
@@ -40,7 +67,8 @@ public class AwsDxBgpPeer : TerraformResource
     /// <summary>
     /// The bgp_asn attribute.
     /// </summary>
-    public TerraformProperty<double>? BgpAsn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
+    public required TerraformProperty<double> BgpAsn
     {
         get => GetProperty<TerraformProperty<double>>("bgp_asn");
         set => this.WithProperty("bgp_asn", value);
@@ -85,10 +113,21 @@ public class AwsDxBgpPeer : TerraformResource
     /// <summary>
     /// The virtual_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualInterfaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
+    public required TerraformProperty<string> VirtualInterfaceId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_interface_id");
         set => this.WithProperty("virtual_interface_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDxBgpPeerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDxBgpPeerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

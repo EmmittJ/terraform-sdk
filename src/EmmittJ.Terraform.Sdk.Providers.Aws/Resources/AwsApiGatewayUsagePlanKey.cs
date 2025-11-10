@@ -30,7 +30,8 @@ public class AwsApiGatewayUsagePlanKey : TerraformResource
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
+    public required TerraformProperty<string> KeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
@@ -39,7 +40,8 @@ public class AwsApiGatewayUsagePlanKey : TerraformResource
     /// <summary>
     /// The key_type attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
+    public required TerraformProperty<string> KeyType
     {
         get => GetProperty<TerraformProperty<string>>("key_type");
         set => this.WithProperty("key_type", value);
@@ -57,7 +59,8 @@ public class AwsApiGatewayUsagePlanKey : TerraformResource
     /// <summary>
     /// The usage_plan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UsagePlanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsagePlanId is required")]
+    public required TerraformProperty<string> UsagePlanId
     {
         get => GetProperty<TerraformProperty<string>>("usage_plan_id");
         set => this.WithProperty("usage_plan_id", value);

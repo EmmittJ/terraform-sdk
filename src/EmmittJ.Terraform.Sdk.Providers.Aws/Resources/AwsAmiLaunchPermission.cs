@@ -46,7 +46,8 @@ public class AwsAmiLaunchPermission : TerraformResource
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
+    public required TerraformProperty<string> ImageId
     {
         get => GetProperty<TerraformProperty<string>>("image_id");
         set => this.WithProperty("image_id", value);

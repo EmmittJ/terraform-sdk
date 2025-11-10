@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for properties in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIotBillingGroupPropertiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_iot_billing_group resource.
 /// </summary>
 public class AwsIotBillingGroup : TerraformResource
@@ -24,7 +41,8 @@ public class AwsIotBillingGroup : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -42,10 +60,20 @@ public class AwsIotBillingGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for properties.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsIotBillingGroupPropertiesBlock>? Properties
+    {
+        get => GetProperty<List<AwsIotBillingGroupPropertiesBlock>>("properties");
+        set => this.WithProperty("properties", value);
     }
 
     /// <summary>

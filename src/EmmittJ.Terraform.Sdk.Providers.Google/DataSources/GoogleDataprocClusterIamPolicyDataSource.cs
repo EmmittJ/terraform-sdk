@@ -21,7 +21,8 @@ public class GoogleDataprocClusterIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The cluster attribute.
     /// </summary>
-    public TerraformProperty<string>? Cluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
+    public required TerraformProperty<string> Cluster
     {
         get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);

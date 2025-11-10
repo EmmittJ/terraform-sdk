@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_virtual_machine_gallery_application_assignment resource.
 /// </summary>
 public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
     /// <summary>
     /// The gallery_application_version_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GalleryApplicationVersionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationVersionId is required")]
+    public required TerraformProperty<string> GalleryApplicationVersionId
     {
         get => GetProperty<TerraformProperty<string>>("gallery_application_version_id");
         set => this.WithProperty("gallery_application_version_id", value);
@@ -64,10 +109,21 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualMachineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
+    public required TerraformProperty<string> VirtualMachineId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -28,7 +28,8 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     /// <summary>
     /// Required. The Application identifier.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -46,7 +47,8 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -55,7 +57,8 @@ public class GoogleApphubApplicationDataSource : TerraformDataSource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);

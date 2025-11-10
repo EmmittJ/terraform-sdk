@@ -21,16 +21,18 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     /// <summary>
     /// The identity_provider_details attribute.
     /// </summary>
-    public TerraformMapProperty<string>? IdentityProviderDetails
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderDetails is required")]
+    public Dictionary<string, TerraformProperty<string>>? IdentityProviderDetails
     {
-        get => GetProperty<TerraformMapProperty<string>>("identity_provider_details");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("identity_provider_details");
         set => this.WithProperty("identity_provider_details", value);
     }
 
     /// <summary>
     /// The identity_provider_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityProviderName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderName is required")]
+    public required TerraformProperty<string> IdentityProviderName
     {
         get => GetProperty<TerraformProperty<string>>("identity_provider_name");
         set => this.WithProperty("identity_provider_name", value);
@@ -39,7 +41,8 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     /// <summary>
     /// The identity_provider_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityProviderType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderType is required")]
+    public required TerraformProperty<string> IdentityProviderType
     {
         get => GetProperty<TerraformProperty<string>>("identity_provider_type");
         set => this.WithProperty("identity_provider_type", value);
@@ -48,7 +51,8 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PortalArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
+    public required TerraformProperty<string> PortalArn
     {
         get => GetProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
@@ -66,9 +70,9 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_resource_management_private_link_association resource.
 /// </summary>
 public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
@@ -29,7 +64,8 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagementGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
+    public required TerraformProperty<string> ManagementGroupId
     {
         get => GetProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
@@ -47,7 +83,8 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? PublicNetworkAccessEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetworkAccessEnabled is required")]
+    public required TerraformProperty<bool> PublicNetworkAccessEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
@@ -56,10 +93,21 @@ public class AzurermResourceManagementPrivateLinkAssociation : TerraformResource
     /// <summary>
     /// The resource_management_private_link_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceManagementPrivateLinkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceManagementPrivateLinkId is required")]
+    public required TerraformProperty<string> ResourceManagementPrivateLinkId
     {
         get => GetProperty<TerraformProperty<string>>("resource_management_private_link_id");
         set => this.WithProperty("resource_management_private_link_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

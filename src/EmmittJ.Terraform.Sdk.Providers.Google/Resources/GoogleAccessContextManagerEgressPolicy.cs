@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleAccessContextManagerEgressPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_access_context_manager_egress_policy resource.
 /// </summary>
 public class GoogleAccessContextManagerEgressPolicy : TerraformResource
@@ -20,7 +46,8 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
-    public TerraformProperty<string>? EgressPolicyName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EgressPolicyName is required")]
+    public required TerraformProperty<string> EgressPolicyName
     {
         get => GetProperty<TerraformProperty<string>>("egress_policy_name");
         set => this.WithProperty("egress_policy_name", value);
@@ -38,10 +65,21 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
     /// <summary>
     /// A GCP resource that is inside of the service perimeter.
     /// </summary>
-    public TerraformProperty<string>? Resource
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
+    public required TerraformProperty<string> Resource
     {
         get => GetProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleAccessContextManagerEgressPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleAccessContextManagerEgressPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

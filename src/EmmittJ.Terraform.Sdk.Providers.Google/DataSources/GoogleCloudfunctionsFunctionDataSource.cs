@@ -62,7 +62,8 @@ public class GoogleCloudfunctionsFunctionDataSource : TerraformDataSource
     /// <summary>
     /// A user-defined name of the function. Function names must be unique globally.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

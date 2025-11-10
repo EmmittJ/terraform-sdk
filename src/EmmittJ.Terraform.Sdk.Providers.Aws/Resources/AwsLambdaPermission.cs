@@ -19,7 +19,8 @@ public class AwsLambdaPermission : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -37,7 +38,8 @@ public class AwsLambdaPermission : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
+    public required TerraformProperty<string> FunctionName
     {
         get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
@@ -64,7 +66,8 @@ public class AwsLambdaPermission : TerraformResource
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformProperty<string>? Principal
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
+    public required TerraformProperty<string> Principal
     {
         get => GetProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);

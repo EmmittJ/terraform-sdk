@@ -21,7 +21,8 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
     /// <summary>
     /// The device_index attribute.
     /// </summary>
-    public TerraformProperty<double>? DeviceIndex
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
+    public required TerraformProperty<double> DeviceIndex
     {
         get => GetProperty<TerraformProperty<double>>("device_index");
         set => this.WithProperty("device_index", value);
@@ -39,7 +40,8 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
+    public required TerraformProperty<string> InstanceId
     {
         get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
@@ -57,7 +59,8 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterfaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
+    public required TerraformProperty<string> NetworkInterfaceId
     {
         get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);

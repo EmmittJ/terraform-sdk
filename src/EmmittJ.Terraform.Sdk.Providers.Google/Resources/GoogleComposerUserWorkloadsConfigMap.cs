@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComposerUserWorkloadsConfigMapTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_composer_user_workloads_config_map resource.
 /// </summary>
 public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
@@ -20,16 +55,17 @@ public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
     /// The &amp;quot;data&amp;quot; field of Kubernetes ConfigMap, organized in key-value pairs.
     /// For details see: https://kubernetes.io/docs/concepts/configuration/configmap/
     /// </summary>
-    public TerraformMapProperty<string>? Data
+    public Dictionary<string, TerraformProperty<string>>? Data
     {
-        get => GetProperty<TerraformMapProperty<string>>("data");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("data");
         set => this.WithProperty("data", value);
     }
 
     /// <summary>
     /// Environment where the Kubernetes ConfigMap will be stored and used.
     /// </summary>
-    public TerraformProperty<string>? Environment
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
+    public required TerraformProperty<string> Environment
     {
         get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
@@ -47,7 +83,8 @@ public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
     /// <summary>
     /// Name of the Kubernetes ConfigMap.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -69,6 +106,16 @@ public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComposerUserWorkloadsConfigMapTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComposerUserWorkloadsConfigMapTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

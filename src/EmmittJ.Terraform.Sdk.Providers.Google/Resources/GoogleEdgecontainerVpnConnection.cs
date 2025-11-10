@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_project in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerVpnConnectionVpcProjectBlock : TerraformBlock
+{
+    /// <summary>
+    /// The project of the VPC to connect to. If not specified, it is the same as the cluster project.
+    /// </summary>
+    public TerraformProperty<string>? ProjectId
+    {
+        get => GetProperty<TerraformProperty<string>>("project_id");
+        set => WithProperty("project_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_edgecontainer_vpn_connection resource.
 /// </summary>
 public class GoogleEdgecontainerVpnConnection : TerraformResource
@@ -24,7 +76,8 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     /// <summary>
     /// The canonical Cluster name to connect to. It is in the form of projects/{project}/locations/{location}/clusters/{cluster}.
     /// </summary>
-    public TerraformProperty<string>? Cluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
+    public required TerraformProperty<string> Cluster
     {
         get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
@@ -54,16 +107,17 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Google Cloud Platform location.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -72,7 +126,8 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     /// <summary>
     /// The resource name of VPN connection
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -113,6 +168,27 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpc");
         set => this.WithProperty("vpc", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEdgecontainerVpnConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEdgecontainerVpnConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_project.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcProject block(s) allowed")]
+    public List<GoogleEdgecontainerVpnConnectionVpcProjectBlock>? VpcProject
+    {
+        get => GetProperty<List<GoogleEdgecontainerVpnConnectionVpcProjectBlock>>("vpc_project");
+        set => this.WithProperty("vpc_project", value);
     }
 
     /// <summary>

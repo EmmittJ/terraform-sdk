@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for runtime in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncFunctionRuntimeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The runtime_version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
+    public required TerraformProperty<string> RuntimeVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("runtime_version");
+        set => WithProperty("runtime_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for sync_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAppsyncFunctionSyncConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The conflict_detection attribute.
+    /// </summary>
+    public TerraformProperty<string>? ConflictDetection
+    {
+        get => GetProperty<TerraformProperty<string>>("conflict_detection");
+        set => WithProperty("conflict_detection", value);
+    }
+
+    /// <summary>
+    /// The conflict_handler attribute.
+    /// </summary>
+    public TerraformProperty<string>? ConflictHandler
+    {
+        get => GetProperty<TerraformProperty<string>>("conflict_handler");
+        set => WithProperty("conflict_handler", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_appsync_function resource.
 /// </summary>
 public class AwsAppsyncFunction : TerraformResource
@@ -21,7 +75,8 @@ public class AwsAppsyncFunction : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -39,7 +94,8 @@ public class AwsAppsyncFunction : TerraformResource
     /// <summary>
     /// The data_source attribute.
     /// </summary>
-    public TerraformProperty<string>? DataSource
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
+    public required TerraformProperty<string> DataSource
     {
         get => GetProperty<TerraformProperty<string>>("data_source");
         set => this.WithProperty("data_source", value);
@@ -84,7 +140,8 @@ public class AwsAppsyncFunction : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -115,6 +172,28 @@ public class AwsAppsyncFunction : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("response_mapping_template");
         set => this.WithProperty("response_mapping_template", value);
+    }
+
+    /// <summary>
+    /// Block for runtime.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Runtime block(s) allowed")]
+    public List<AwsAppsyncFunctionRuntimeBlock>? Runtime
+    {
+        get => GetProperty<List<AwsAppsyncFunctionRuntimeBlock>>("runtime");
+        set => this.WithProperty("runtime", value);
+    }
+
+    /// <summary>
+    /// Block for sync_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
+    public List<AwsAppsyncFunctionSyncConfigBlock>? SyncConfig
+    {
+        get => GetProperty<List<AwsAppsyncFunctionSyncConfigBlock>>("sync_config");
+        set => this.WithProperty("sync_config", value);
     }
 
     /// <summary>

@@ -19,7 +19,8 @@ public class AwsLightsailDomainEntry : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -46,7 +47,8 @@ public class AwsLightsailDomainEntry : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,7 +66,8 @@ public class AwsLightsailDomainEntry : TerraformResource
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformProperty<string>? Target
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
+    public required TerraformProperty<string> Target
     {
         get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
@@ -73,7 +76,8 @@ public class AwsLightsailDomainEntry : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);

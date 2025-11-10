@@ -29,7 +29,8 @@ public class AwsKendraExperienceDataSource : TerraformDataSource
     /// <summary>
     /// The experience_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ExperienceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExperienceId is required")]
+    public required TerraformProperty<string> ExperienceId
     {
         get => GetProperty<TerraformProperty<string>>("experience_id");
         set => this.WithProperty("experience_id", value);
@@ -47,7 +48,8 @@ public class AwsKendraExperienceDataSource : TerraformDataSource
     /// <summary>
     /// The index_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IndexId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
+    public required TerraformProperty<string> IndexId
     {
         get => GetProperty<TerraformProperty<string>>("index_id");
         set => this.WithProperty("index_id", value);

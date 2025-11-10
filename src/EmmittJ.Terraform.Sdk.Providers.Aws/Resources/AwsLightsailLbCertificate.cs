@@ -41,7 +41,8 @@ public class AwsLightsailLbCertificate : TerraformResource
     /// <summary>
     /// The lb_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LbName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbName is required")]
+    public required TerraformProperty<string> LbName
     {
         get => GetProperty<TerraformProperty<string>>("lb_name");
         set => this.WithProperty("lb_name", value);
@@ -50,7 +51,8 @@ public class AwsLightsailLbCertificate : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -68,9 +70,9 @@ public class AwsLightsailLbCertificate : TerraformResource
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubjectAlternativeNames
+    public HashSet<TerraformProperty<string>>? SubjectAlternativeNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subject_alternative_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subject_alternative_names");
         set => this.WithProperty("subject_alternative_names", value);
     }
 

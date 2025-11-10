@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_spring_cloud_new_relic_application_performance_monitoring resource.
 /// </summary>
 public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     /// <summary>
     /// The app_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AppName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
+    public required TerraformProperty<string> AppName
     {
         get => GetProperty<TerraformProperty<string>>("app_name");
         set => this.WithProperty("app_name", value);
@@ -100,16 +145,17 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The license_key attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseKey is required")]
+    public required TerraformProperty<string> LicenseKey
     {
         get => GetProperty<TerraformProperty<string>>("license_key");
         set => this.WithProperty("license_key", value);
@@ -118,7 +164,8 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -127,10 +174,21 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SpringCloudServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
+    public required TerraformProperty<string> SpringCloudServiceId
     {
         get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

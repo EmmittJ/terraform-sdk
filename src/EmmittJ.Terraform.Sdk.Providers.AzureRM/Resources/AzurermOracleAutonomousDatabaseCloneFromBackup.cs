@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_oracle_autonomous_database_clone_from_backup resource.
 /// </summary>
 public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
@@ -19,7 +54,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The admin_password attribute.
     /// </summary>
-    public TerraformProperty<string>? AdminPassword
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
+    public required TerraformProperty<string> AdminPassword
     {
         get => GetProperty<TerraformProperty<string>>("admin_password");
         set => this.WithProperty("admin_password", value);
@@ -28,16 +64,17 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The allowed_ip_addresses attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedIpAddresses
+    public HashSet<TerraformProperty<string>>? AllowedIpAddresses
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_ip_addresses");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_ip_addresses");
         set => this.WithProperty("allowed_ip_addresses", value);
     }
 
     /// <summary>
     /// The auto_scaling_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoScalingEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingEnabled is required")]
+    public required TerraformProperty<bool> AutoScalingEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("auto_scaling_enabled");
         set => this.WithProperty("auto_scaling_enabled", value);
@@ -46,7 +83,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The auto_scaling_for_storage_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? AutoScalingForStorageEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingForStorageEnabled is required")]
+    public required TerraformProperty<bool> AutoScalingForStorageEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("auto_scaling_for_storage_enabled");
         set => this.WithProperty("auto_scaling_for_storage_enabled", value);
@@ -55,7 +93,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The backup_retention_period_in_days attribute.
     /// </summary>
-    public TerraformProperty<double>? BackupRetentionPeriodInDays
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionPeriodInDays is required")]
+    public required TerraformProperty<double> BackupRetentionPeriodInDays
     {
         get => GetProperty<TerraformProperty<double>>("backup_retention_period_in_days");
         set => this.WithProperty("backup_retention_period_in_days", value);
@@ -73,7 +112,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The character_set attribute.
     /// </summary>
-    public TerraformProperty<string>? CharacterSet
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CharacterSet is required")]
+    public required TerraformProperty<string> CharacterSet
     {
         get => GetProperty<TerraformProperty<string>>("character_set");
         set => this.WithProperty("character_set", value);
@@ -82,7 +122,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The clone_type attribute.
     /// </summary>
-    public TerraformProperty<string>? CloneType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloneType is required")]
+    public required TerraformProperty<string> CloneType
     {
         get => GetProperty<TerraformProperty<string>>("clone_type");
         set => this.WithProperty("clone_type", value);
@@ -91,7 +132,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The compute_count attribute.
     /// </summary>
-    public TerraformProperty<double>? ComputeCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
+    public required TerraformProperty<double> ComputeCount
     {
         get => GetProperty<TerraformProperty<double>>("compute_count");
         set => this.WithProperty("compute_count", value);
@@ -100,7 +142,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The compute_model attribute.
     /// </summary>
-    public TerraformProperty<string>? ComputeModel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeModel is required")]
+    public required TerraformProperty<string> ComputeModel
     {
         get => GetProperty<TerraformProperty<string>>("compute_model");
         set => this.WithProperty("compute_model", value);
@@ -109,16 +152,17 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? CustomerContacts
+    public List<TerraformProperty<string>>? CustomerContacts
     {
-        get => GetProperty<TerraformProperty<List<string>>>("customer_contacts");
+        get => GetProperty<List<TerraformProperty<string>>>("customer_contacts");
         set => this.WithProperty("customer_contacts", value);
     }
 
     /// <summary>
     /// The data_storage_size_in_tb attribute.
     /// </summary>
-    public TerraformProperty<double>? DataStorageSizeInTb
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTb is required")]
+    public required TerraformProperty<double> DataStorageSizeInTb
     {
         get => GetProperty<TerraformProperty<double>>("data_storage_size_in_tb");
         set => this.WithProperty("data_storage_size_in_tb", value);
@@ -127,7 +171,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The database_version attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
+    public required TerraformProperty<string> DatabaseVersion
     {
         get => GetProperty<TerraformProperty<string>>("database_version");
         set => this.WithProperty("database_version", value);
@@ -136,7 +181,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The database_workload attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseWorkload
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseWorkload is required")]
+    public required TerraformProperty<string> DatabaseWorkload
     {
         get => GetProperty<TerraformProperty<string>>("database_workload");
         set => this.WithProperty("database_workload", value);
@@ -145,7 +191,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -163,7 +210,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformProperty<string>? LicenseModel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
+    public required TerraformProperty<string> LicenseModel
     {
         get => GetProperty<TerraformProperty<string>>("license_model");
         set => this.WithProperty("license_model", value);
@@ -172,7 +220,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -181,7 +230,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The mtls_connection_required attribute.
     /// </summary>
-    public TerraformProperty<bool>? MtlsConnectionRequired
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MtlsConnectionRequired is required")]
+    public required TerraformProperty<bool> MtlsConnectionRequired
     {
         get => GetProperty<TerraformProperty<bool>>("mtls_connection_required");
         set => this.WithProperty("mtls_connection_required", value);
@@ -190,7 +240,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -199,7 +250,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The national_character_set attribute.
     /// </summary>
-    public TerraformProperty<string>? NationalCharacterSet
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NationalCharacterSet is required")]
+    public required TerraformProperty<string> NationalCharacterSet
     {
         get => GetProperty<TerraformProperty<string>>("national_character_set");
         set => this.WithProperty("national_character_set", value);
@@ -208,7 +260,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -217,7 +270,8 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The source_autonomous_database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceAutonomousDatabaseId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceAutonomousDatabaseId is required")]
+    public required TerraformProperty<string> SourceAutonomousDatabaseId
     {
         get => GetProperty<TerraformProperty<string>>("source_autonomous_database_id");
         set => this.WithProperty("source_autonomous_database_id", value);
@@ -235,9 +289,9 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -248,6 +302,16 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("virtual_network_id");
         set => this.WithProperty("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

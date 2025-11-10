@@ -92,7 +92,8 @@ public class AwsSnsPlatformApplication : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -101,7 +102,8 @@ public class AwsSnsPlatformApplication : TerraformResource
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    public TerraformProperty<string>? Platform
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platform is required")]
+    public required TerraformProperty<string> Platform
     {
         get => GetProperty<TerraformProperty<string>>("platform");
         set => this.WithProperty("platform", value);
@@ -110,7 +112,8 @@ public class AwsSnsPlatformApplication : TerraformResource
     /// <summary>
     /// The platform_credential attribute.
     /// </summary>
-    public TerraformProperty<string>? PlatformCredential
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformCredential is required")]
+    public required TerraformProperty<string> PlatformCredential
     {
         get => GetProperty<TerraformProperty<string>>("platform_credential");
         set => this.WithProperty("platform_credential", value);

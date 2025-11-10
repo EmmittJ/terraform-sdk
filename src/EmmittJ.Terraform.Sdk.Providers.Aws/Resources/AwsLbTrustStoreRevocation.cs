@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLbTrustStoreRevocationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lb_trust_store_revocation resource.
 /// </summary>
 public class AwsLbTrustStoreRevocation : TerraformResource
@@ -38,7 +55,8 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     /// <summary>
     /// The revocations_s3_bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? RevocationsS3Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Bucket is required")]
+    public required TerraformProperty<string> RevocationsS3Bucket
     {
         get => GetProperty<TerraformProperty<string>>("revocations_s3_bucket");
         set => this.WithProperty("revocations_s3_bucket", value);
@@ -47,7 +65,8 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     /// <summary>
     /// The revocations_s3_key attribute.
     /// </summary>
-    public TerraformProperty<string>? RevocationsS3Key
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevocationsS3Key is required")]
+    public required TerraformProperty<string> RevocationsS3Key
     {
         get => GetProperty<TerraformProperty<string>>("revocations_s3_key");
         set => this.WithProperty("revocations_s3_key", value);
@@ -65,10 +84,21 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TrustStoreArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustStoreArn is required")]
+    public required TerraformProperty<string> TrustStoreArn
     {
         get => GetProperty<TerraformProperty<string>>("trust_store_arn");
         set => this.WithProperty("trust_store_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLbTrustStoreRevocationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLbTrustStoreRevocationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

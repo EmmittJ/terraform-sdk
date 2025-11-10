@@ -38,7 +38,8 @@ public class AwsSesReceiptRuleSet : TerraformResource
     /// <summary>
     /// The rule_set_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleSetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSetName is required")]
+    public required TerraformProperty<string> RuleSetName
     {
         get => GetProperty<TerraformProperty<string>>("rule_set_name");
         set => this.WithProperty("rule_set_name", value);

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsM2DeploymentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_m2_deployment resource.
 /// </summary>
 public class AwsM2Deployment : TerraformResource
@@ -21,7 +56,8 @@ public class AwsM2Deployment : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -30,7 +66,8 @@ public class AwsM2Deployment : TerraformResource
     /// <summary>
     /// The application_version attribute.
     /// </summary>
-    public TerraformProperty<double>? ApplicationVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationVersion is required")]
+    public required TerraformProperty<double> ApplicationVersion
     {
         get => GetProperty<TerraformProperty<double>>("application_version");
         set => this.WithProperty("application_version", value);
@@ -39,7 +76,8 @@ public class AwsM2Deployment : TerraformResource
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvironmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
+    public required TerraformProperty<string> EnvironmentId
     {
         get => GetProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
@@ -66,10 +104,21 @@ public class AwsM2Deployment : TerraformResource
     /// <summary>
     /// The start attribute.
     /// </summary>
-    public TerraformProperty<bool>? Start
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
+    public required TerraformProperty<bool> Start
     {
         get => GetProperty<TerraformProperty<bool>>("start");
         set => this.WithProperty("start", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsM2DeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsM2DeploymentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

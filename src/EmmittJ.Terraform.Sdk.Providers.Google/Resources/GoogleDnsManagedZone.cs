@@ -3,6 +3,119 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for cloud_logging_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// If set, enable query logging for this ManagedZone. False by default, making logging opt-in.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableLogging is required")]
+    public required TerraformProperty<bool> EnableLogging
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_logging");
+        set => WithProperty("enable_logging", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for dnssec_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Identifies what kind of resource this is
+    /// </summary>
+    public TerraformProperty<string>? Kind
+    {
+        get => GetProperty<TerraformProperty<string>>("kind");
+        set => WithProperty("kind", value);
+    }
+
+    /// <summary>
+    /// Specifies the mechanism used to provide authenticated denial-of-existence responses.
+    /// non_existence can only be updated when the state is &#39;off&#39;. Possible values: [&amp;quot;nsec&amp;quot;, &amp;quot;nsec3&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? NonExistence
+    {
+        get => GetProperty<TerraformProperty<string>>("non_existence");
+        set => WithProperty("non_existence", value);
+    }
+
+    /// <summary>
+    /// Specifies whether DNSSEC is enabled, and what mode it is in Possible values: [&amp;quot;off&amp;quot;, &amp;quot;on&amp;quot;, &amp;quot;transfer&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? State
+    {
+        get => GetProperty<TerraformProperty<string>>("state");
+        set => WithProperty("state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for forwarding_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDnsManagedZoneForwardingConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for peering_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDnsManagedZonePeeringConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for private_visibility_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDnsManagedZonePrivateVisibilityConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dns_managed_zone resource.
 /// </summary>
 public class GoogleDnsManagedZone : TerraformResource
@@ -33,7 +146,8 @@ public class GoogleDnsManagedZone : TerraformResource
     /// <summary>
     /// The DNS name of this managed zone, for instance &amp;quot;example.com.&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? DnsName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
+    public required TerraformProperty<string> DnsName
     {
         get => GetProperty<TerraformProperty<string>>("dns_name");
         set => this.WithProperty("dns_name", value);
@@ -64,9 +178,9 @@ public class GoogleDnsManagedZone : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -74,7 +188,8 @@ public class GoogleDnsManagedZone : TerraformResource
     /// User assigned name for this resource.
     /// Must be unique within the project.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -97,6 +212,71 @@ public class GoogleDnsManagedZone : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("visibility");
         set => this.WithProperty("visibility", value);
+    }
+
+    /// <summary>
+    /// Block for cloud_logging_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudLoggingConfig block(s) allowed")]
+    public List<GoogleDnsManagedZoneCloudLoggingConfigBlock>? CloudLoggingConfig
+    {
+        get => GetProperty<List<GoogleDnsManagedZoneCloudLoggingConfigBlock>>("cloud_logging_config");
+        set => this.WithProperty("cloud_logging_config", value);
+    }
+
+    /// <summary>
+    /// Block for dnssec_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnssecConfig block(s) allowed")]
+    public List<GoogleDnsManagedZoneDnssecConfigBlock>? DnssecConfig
+    {
+        get => GetProperty<List<GoogleDnsManagedZoneDnssecConfigBlock>>("dnssec_config");
+        set => this.WithProperty("dnssec_config", value);
+    }
+
+    /// <summary>
+    /// Block for forwarding_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ForwardingConfig block(s) allowed")]
+    public List<GoogleDnsManagedZoneForwardingConfigBlock>? ForwardingConfig
+    {
+        get => GetProperty<List<GoogleDnsManagedZoneForwardingConfigBlock>>("forwarding_config");
+        set => this.WithProperty("forwarding_config", value);
+    }
+
+    /// <summary>
+    /// Block for peering_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PeeringConfig block(s) allowed")]
+    public List<GoogleDnsManagedZonePeeringConfigBlock>? PeeringConfig
+    {
+        get => GetProperty<List<GoogleDnsManagedZonePeeringConfigBlock>>("peering_config");
+        set => this.WithProperty("peering_config", value);
+    }
+
+    /// <summary>
+    /// Block for private_visibility_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateVisibilityConfig block(s) allowed")]
+    public List<GoogleDnsManagedZonePrivateVisibilityConfigBlock>? PrivateVisibilityConfig
+    {
+        get => GetProperty<List<GoogleDnsManagedZonePrivateVisibilityConfigBlock>>("private_visibility_config");
+        set => this.WithProperty("private_visibility_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDnsManagedZoneTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDnsManagedZoneTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

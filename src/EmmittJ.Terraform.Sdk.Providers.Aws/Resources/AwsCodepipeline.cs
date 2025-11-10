@@ -3,6 +3,115 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for artifact_store in .
+/// Nesting mode: set
+/// </summary>
+public class AwsCodepipelineArtifactStoreBlock : TerraformBlock
+{
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// The region attribute.
+    /// </summary>
+    public TerraformProperty<string>? Region
+    {
+        get => GetProperty<TerraformProperty<string>>("region");
+        set => WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for stage in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodepipelineStageBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for trigger in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodepipelineTriggerBlock : TerraformBlock
+{
+    /// <summary>
+    /// The provider_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
+    public required TerraformProperty<string> ProviderType
+    {
+        get => GetProperty<TerraformProperty<string>>("provider_type");
+        set => WithProperty("provider_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for variable in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodepipelineVariableBlock : TerraformBlock
+{
+    /// <summary>
+    /// The default_value attribute.
+    /// </summary>
+    public TerraformProperty<string>? DefaultValue
+    {
+        get => GetProperty<TerraformProperty<string>>("default_value");
+        set => WithProperty("default_value", value);
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_codepipeline resource.
 /// </summary>
 public class AwsCodepipeline : TerraformResource
@@ -39,7 +148,8 @@ public class AwsCodepipeline : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,7 +176,8 @@ public class AwsCodepipeline : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -75,19 +186,62 @@ public class AwsCodepipeline : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for artifact_store.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ArtifactStore block(s) required")]
+    public HashSet<AwsCodepipelineArtifactStoreBlock>? ArtifactStore
+    {
+        get => GetProperty<HashSet<AwsCodepipelineArtifactStoreBlock>>("artifact_store");
+        set => this.WithProperty("artifact_store", value);
+    }
+
+    /// <summary>
+    /// Block for stage.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Stage block(s) required")]
+    public List<AwsCodepipelineStageBlock>? Stage
+    {
+        get => GetProperty<List<AwsCodepipelineStageBlock>>("stage");
+        set => this.WithProperty("stage", value);
+    }
+
+    /// <summary>
+    /// Block for trigger.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Trigger block(s) allowed")]
+    public List<AwsCodepipelineTriggerBlock>? Trigger
+    {
+        get => GetProperty<List<AwsCodepipelineTriggerBlock>>("trigger");
+        set => this.WithProperty("trigger", value);
+    }
+
+    /// <summary>
+    /// Block for variable.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsCodepipelineVariableBlock>? Variable
+    {
+        get => GetProperty<List<AwsCodepipelineVariableBlock>>("variable");
+        set => this.WithProperty("variable", value);
     }
 
     /// <summary>

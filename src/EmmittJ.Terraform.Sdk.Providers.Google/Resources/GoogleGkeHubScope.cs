@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleGkeHubScopeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_gke_hub_scope resource.
 /// </summary>
 public class GoogleGkeHubScope : TerraformResource
@@ -40,9 +75,9 @@ public class GoogleGkeHubScope : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -53,9 +88,9 @@ public class GoogleGkeHubScope : TerraformResource
     /// labels (&#39;namespace_labels&#39; in the Fleet Namespace resource) if they
     /// share a key. Keys and values must be Kubernetes-conformant.
     /// </summary>
-    public TerraformMapProperty<string>? NamespaceLabels
+    public Dictionary<string, TerraformProperty<string>>? NamespaceLabels
     {
-        get => GetProperty<TerraformMapProperty<string>>("namespace_labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("namespace_labels");
         set => this.WithProperty("namespace_labels", value);
     }
 
@@ -71,10 +106,21 @@ public class GoogleGkeHubScope : TerraformResource
     /// <summary>
     /// The client-provided identifier of the scope.
     /// </summary>
-    public TerraformProperty<string>? ScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
+    public required TerraformProperty<string> ScopeId
     {
         get => GetProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleGkeHubScopeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleGkeHubScopeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

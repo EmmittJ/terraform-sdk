@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for pipeline in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermDataFactoryTriggerCustomEventPipelineBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Parameters
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("parameters");
+        set => WithProperty("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_data_factory_trigger_custom_event resource.
 /// </summary>
 public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
@@ -28,25 +99,26 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalProperties
+    public Dictionary<string, TerraformProperty<string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_properties");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_properties");
         set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Annotations
+    public List<TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformProperty<List<string>>>("annotations");
+        get => GetProperty<List<TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataFactoryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
+    public required TerraformProperty<string> DataFactoryId
     {
         get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
@@ -64,7 +136,8 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The eventgrid_topic_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EventgridTopicId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicId is required")]
+    public required TerraformProperty<string> EventgridTopicId
     {
         get => GetProperty<TerraformProperty<string>>("eventgrid_topic_id");
         set => this.WithProperty("eventgrid_topic_id", value);
@@ -73,9 +146,10 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The events attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Events
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
+    public HashSet<TerraformProperty<string>>? Events
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("events");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("events");
         set => this.WithProperty("events", value);
     }
 
@@ -91,7 +165,8 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -113,6 +188,27 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("subject_ends_with");
         set => this.WithProperty("subject_ends_with", value);
+    }
+
+    /// <summary>
+    /// Block for pipeline.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
+    public HashSet<AzurermDataFactoryTriggerCustomEventPipelineBlock>? Pipeline
+    {
+        get => GetProperty<HashSet<AzurermDataFactoryTriggerCustomEventPipelineBlock>>("pipeline");
+        set => this.WithProperty("pipeline", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataFactoryTriggerCustomEventTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataFactoryTriggerCustomEventTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -21,7 +21,8 @@ public class AwsRedshiftProducerDataSharesDataSource : TerraformDataSource
     /// <summary>
     /// The producer_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ProducerArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProducerArn is required")]
+    public required TerraformProperty<string> ProducerArn
     {
         get => GetProperty<TerraformProperty<string>>("producer_arn");
         set => this.WithProperty("producer_arn", value);

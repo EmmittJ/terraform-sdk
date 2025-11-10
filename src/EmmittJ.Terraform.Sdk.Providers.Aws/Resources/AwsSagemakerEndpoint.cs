@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for deployment_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerEndpointDeploymentConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_endpoint resource.
 /// </summary>
 public class AwsSagemakerEndpoint : TerraformResource
@@ -20,7 +28,8 @@ public class AwsSagemakerEndpoint : TerraformResource
     /// <summary>
     /// The endpoint_config_name attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointConfigName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointConfigName is required")]
+    public required TerraformProperty<string> EndpointConfigName
     {
         get => GetProperty<TerraformProperty<string>>("endpoint_config_name");
         set => this.WithProperty("endpoint_config_name", value);
@@ -56,19 +65,30 @@ public class AwsSagemakerEndpoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for deployment_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentConfig block(s) allowed")]
+    public List<AwsSagemakerEndpointDeploymentConfigBlock>? DeploymentConfig
+    {
+        get => GetProperty<List<AwsSagemakerEndpointDeploymentConfigBlock>>("deployment_config");
+        set => this.WithProperty("deployment_config", value);
     }
 
     /// <summary>

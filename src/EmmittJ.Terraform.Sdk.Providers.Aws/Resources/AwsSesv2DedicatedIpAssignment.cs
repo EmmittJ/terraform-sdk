@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSesv2DedicatedIpAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sesv2_dedicated_ip_assignment resource.
 /// </summary>
 public class AwsSesv2DedicatedIpAssignment : TerraformResource
@@ -19,7 +45,8 @@ public class AwsSesv2DedicatedIpAssignment : TerraformResource
     /// <summary>
     /// The destination_pool_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationPoolName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPoolName is required")]
+    public required TerraformProperty<string> DestinationPoolName
     {
         get => GetProperty<TerraformProperty<string>>("destination_pool_name");
         set => this.WithProperty("destination_pool_name", value);
@@ -37,7 +64,8 @@ public class AwsSesv2DedicatedIpAssignment : TerraformResource
     /// <summary>
     /// The ip attribute.
     /// </summary>
-    public TerraformProperty<string>? Ip
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ip is required")]
+    public required TerraformProperty<string> Ip
     {
         get => GetProperty<TerraformProperty<string>>("ip");
         set => this.WithProperty("ip", value);
@@ -50,6 +78,16 @@ public class AwsSesv2DedicatedIpAssignment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSesv2DedicatedIpAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSesv2DedicatedIpAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

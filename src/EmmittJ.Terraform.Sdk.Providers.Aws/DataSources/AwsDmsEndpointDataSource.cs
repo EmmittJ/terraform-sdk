@@ -43,7 +43,8 @@ public class AwsDmsEndpointDataSource : TerraformDataSource
     /// <summary>
     /// The endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
+    public required TerraformProperty<string> EndpointId
     {
         get => GetProperty<TerraformProperty<string>>("endpoint_id");
         set => this.WithProperty("endpoint_id", value);
@@ -70,9 +71,9 @@ public class AwsDmsEndpointDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

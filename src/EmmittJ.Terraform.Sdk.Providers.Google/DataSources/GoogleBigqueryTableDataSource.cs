@@ -55,7 +55,8 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
     /// <summary>
     /// The dataset ID to create the table in. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? DatasetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
+    public required TerraformProperty<string> DatasetId
     {
         get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
@@ -82,7 +83,8 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
     /// <summary>
     /// A unique ID for the resource. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? TableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
+    public required TerraformProperty<string> TableId
     {
         get => GetProperty<TerraformProperty<string>>("table_id");
         set => this.WithProperty("table_id", value);

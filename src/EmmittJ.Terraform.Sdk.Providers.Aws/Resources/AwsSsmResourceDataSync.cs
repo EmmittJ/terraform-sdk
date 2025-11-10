@@ -3,6 +3,61 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for s3_destination in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        set => WithProperty("bucket_name", value);
+    }
+
+    /// <summary>
+    /// The kms_key_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyArn
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
+        set => WithProperty("kms_key_arn", value);
+    }
+
+    /// <summary>
+    /// The prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? Prefix
+    {
+        get => GetProperty<TerraformProperty<string>>("prefix");
+        set => WithProperty("prefix", value);
+    }
+
+    /// <summary>
+    /// The region attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
+    public required TerraformProperty<string> Region
+    {
+        get => GetProperty<TerraformProperty<string>>("region");
+        set => WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// The sync_format attribute.
+    /// </summary>
+    public TerraformProperty<string>? SyncFormat
+    {
+        get => GetProperty<TerraformProperty<string>>("sync_format");
+        set => WithProperty("sync_format", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssm_resource_data_sync resource.
 /// </summary>
 public class AwsSsmResourceDataSync : TerraformResource
@@ -28,7 +83,8 @@ public class AwsSsmResourceDataSync : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,6 +97,18 @@ public class AwsSsmResourceDataSync : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for s3_destination.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Destination block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Destination block(s) allowed")]
+    public List<AwsSsmResourceDataSyncS3DestinationBlock>? S3Destination
+    {
+        get => GetProperty<List<AwsSsmResourceDataSyncS3DestinationBlock>>("s3_destination");
+        set => this.WithProperty("s3_destination", value);
     }
 
 }

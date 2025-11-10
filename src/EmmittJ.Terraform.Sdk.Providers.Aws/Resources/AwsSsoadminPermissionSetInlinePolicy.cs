@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSsoadminPermissionSetInlinePolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssoadmin_permission_set_inline_policy resource.
 /// </summary>
 public class AwsSsoadminPermissionSetInlinePolicy : TerraformResource
@@ -28,7 +54,8 @@ public class AwsSsoadminPermissionSetInlinePolicy : TerraformResource
     /// <summary>
     /// The inline_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? InlinePolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InlinePolicy is required")]
+    public required TerraformProperty<string> InlinePolicy
     {
         get => GetProperty<TerraformProperty<string>>("inline_policy");
         set => this.WithProperty("inline_policy", value);
@@ -37,7 +64,8 @@ public class AwsSsoadminPermissionSetInlinePolicy : TerraformResource
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
+    public required TerraformProperty<string> InstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
@@ -46,7 +74,8 @@ public class AwsSsoadminPermissionSetInlinePolicy : TerraformResource
     /// <summary>
     /// The permission_set_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PermissionSetArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
+    public required TerraformProperty<string> PermissionSetArn
     {
         get => GetProperty<TerraformProperty<string>>("permission_set_arn");
         set => this.WithProperty("permission_set_arn", value);
@@ -59,6 +88,16 @@ public class AwsSsoadminPermissionSetInlinePolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSsoadminPermissionSetInlinePolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSsoadminPermissionSetInlinePolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

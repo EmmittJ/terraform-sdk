@@ -20,7 +20,8 @@ public class GoogleSpannerDatabaseIamPolicy : TerraformResource
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public TerraformProperty<string>? Database
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
+    public required TerraformProperty<string> Database
     {
         get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
@@ -38,7 +39,8 @@ public class GoogleSpannerDatabaseIamPolicy : TerraformResource
     /// <summary>
     /// The instance attribute.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -47,7 +49,8 @@ public class GoogleSpannerDatabaseIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

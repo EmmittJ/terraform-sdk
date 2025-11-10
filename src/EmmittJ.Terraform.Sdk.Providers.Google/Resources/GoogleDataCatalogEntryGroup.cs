@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataCatalogEntryGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_data_catalog_entry_group resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -40,7 +75,8 @@ public class GoogleDataCatalogEntryGroup : TerraformResource
     /// The id of the entry group to create. The id must begin with a letter or underscore,
     /// contain only English letters, numbers and underscores, and be at most 64 characters.
     /// </summary>
-    public TerraformProperty<string>? EntryGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
+    public required TerraformProperty<string> EntryGroupId
     {
         get => GetProperty<TerraformProperty<string>>("entry_group_id");
         set => this.WithProperty("entry_group_id", value);
@@ -71,6 +107,16 @@ public class GoogleDataCatalogEntryGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataCatalogEntryGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataCatalogEntryGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

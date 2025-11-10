@@ -20,7 +20,8 @@ public class GoogleProjectsDataSource : TerraformDataSource
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
+    public required TerraformProperty<string> Filter
     {
         get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);

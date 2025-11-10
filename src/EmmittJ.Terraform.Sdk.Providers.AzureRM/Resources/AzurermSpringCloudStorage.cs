@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSpringCloudStorageTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_spring_cloud_storage resource.
 /// </summary>
 public class AzurermSpringCloudStorage : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermSpringCloudStorage : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -37,7 +82,8 @@ public class AzurermSpringCloudStorage : TerraformResource
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SpringCloudServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
+    public required TerraformProperty<string> SpringCloudServiceId
     {
         get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
@@ -46,7 +92,8 @@ public class AzurermSpringCloudStorage : TerraformResource
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
+    public required TerraformProperty<string> StorageAccountKey
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
@@ -55,10 +102,21 @@ public class AzurermSpringCloudStorage : TerraformResource
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageAccountName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
+    public required TerraformProperty<string> StorageAccountName
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSpringCloudStorageTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSpringCloudStorageTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

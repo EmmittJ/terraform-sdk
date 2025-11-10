@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for disk_iops_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The iops attribute.
+    /// </summary>
+    public TerraformProperty<double>? Iops
+    {
+        get => GetProperty<TerraformProperty<double>>("iops");
+        set => WithProperty("iops", value);
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFsxOntapFileSystemTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_fsx_ontap_file_system resource.
 /// </summary>
 public class AwsFsxOntapFileSystem : TerraformResource
@@ -43,7 +104,8 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
+    public required TerraformProperty<string> DeploymentType
     {
         get => GetProperty<TerraformProperty<string>>("deployment_type");
         set => this.WithProperty("deployment_type", value);
@@ -97,7 +159,8 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PreferredSubnetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredSubnetId is required")]
+    public required TerraformProperty<string> PreferredSubnetId
     {
         get => GetProperty<TerraformProperty<string>>("preferred_subnet_id");
         set => this.WithProperty("preferred_subnet_id", value);
@@ -115,25 +178,26 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RouteTableIds
+    public HashSet<TerraformProperty<string>>? RouteTableIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("route_table_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("route_table_ids");
         set => this.WithProperty("route_table_ids", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? StorageCapacity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
+    public required TerraformProperty<double> StorageCapacity
     {
         get => GetProperty<TerraformProperty<double>>("storage_capacity");
         set => this.WithProperty("storage_capacity", value);
@@ -151,27 +215,28 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public List<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("subnet_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -200,6 +265,27 @@ public class AwsFsxOntapFileSystem : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
         set => this.WithProperty("weekly_maintenance_start_time", value);
+    }
+
+    /// <summary>
+    /// Block for disk_iops_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
+    public List<AwsFsxOntapFileSystemDiskIopsConfigurationBlock>? DiskIopsConfiguration
+    {
+        get => GetProperty<List<AwsFsxOntapFileSystemDiskIopsConfigurationBlock>>("disk_iops_configuration");
+        set => this.WithProperty("disk_iops_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFsxOntapFileSystemTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFsxOntapFileSystemTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

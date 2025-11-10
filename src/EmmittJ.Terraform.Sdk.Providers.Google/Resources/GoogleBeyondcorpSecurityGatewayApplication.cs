@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for endpoint_matchers in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. Hostname of the application.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
+    public required TerraformProperty<string> Hostname
+    {
+        get => GetProperty<TerraformProperty<string>>("hostname");
+        set => WithProperty("hostname", value);
+    }
+
+    /// <summary>
+    /// Optional. Ports of the application.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
+    public List<TerraformProperty<double>>? Ports
+    {
+        get => GetProperty<List<TerraformProperty<double>>>("ports");
+        set => WithProperty("ports", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for upstreams in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a google_beyondcorp_security_gateway_application resource.
 /// </summary>
 public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
@@ -25,7 +96,8 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     /// * Must contain between 4-63 characters from &#39;/a-z-/&#39;.
     /// * Must end with a number or letter.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -71,10 +143,41 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     /// <summary>
     /// ID of the Security Gateway resource this belongs to.
     /// </summary>
-    public TerraformProperty<string>? SecurityGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
+    public required TerraformProperty<string> SecurityGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);
+    }
+
+    /// <summary>
+    /// Block for endpoint_matchers.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock>? EndpointMatchers
+    {
+        get => GetProperty<List<GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock>>("endpoint_matchers");
+        set => this.WithProperty("endpoint_matchers", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for upstreams.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock>? Upstreams
+    {
+        get => GetProperty<List<GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlock>>("upstreams");
+        set => this.WithProperty("upstreams", value);
     }
 
     /// <summary>

@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for policy_sets in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleSecurityposturePosturePolicySetsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Description of the policy set.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// ID of the policy set.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySetId is required")]
+    public required TerraformProperty<string> PolicySetId
+    {
+        get => GetProperty<TerraformProperty<string>>("policy_set_id");
+        set => WithProperty("policy_set_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSecurityposturePostureTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_securityposture_posture resource.
 /// </summary>
 public class GoogleSecurityposturePosture : TerraformResource
@@ -43,7 +105,8 @@ public class GoogleSecurityposturePosture : TerraformResource
     /// <summary>
     /// Location of the resource, eg: global.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -52,7 +115,8 @@ public class GoogleSecurityposturePosture : TerraformResource
     /// <summary>
     /// The parent of the resource, an organization. Format should be &#39;organizations/{organization_id}&#39;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -61,7 +125,8 @@ public class GoogleSecurityposturePosture : TerraformResource
     /// <summary>
     /// Id of the posture. It is an immutable field.
     /// </summary>
-    public TerraformProperty<string>? PostureId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
+    public required TerraformProperty<string> PostureId
     {
         get => GetProperty<TerraformProperty<string>>("posture_id");
         set => this.WithProperty("posture_id", value);
@@ -71,10 +136,32 @@ public class GoogleSecurityposturePosture : TerraformResource
     /// State of the posture. Update to state field should not be triggered along with
     /// with other field updates. Possible values: [&amp;quot;DEPRECATED&amp;quot;, &amp;quot;DRAFT&amp;quot;, &amp;quot;ACTIVE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? State
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
+    public required TerraformProperty<string> State
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
+    }
+
+    /// <summary>
+    /// Block for policy_sets.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicySets block(s) required")]
+    public List<GoogleSecurityposturePosturePolicySetsBlock>? PolicySets
+    {
+        get => GetProperty<List<GoogleSecurityposturePosturePolicySetsBlock>>("policy_sets");
+        set => this.WithProperty("policy_sets", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSecurityposturePostureTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSecurityposturePostureTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

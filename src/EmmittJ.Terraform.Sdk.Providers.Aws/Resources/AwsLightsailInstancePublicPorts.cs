@@ -3,6 +3,71 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for port_info in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLightsailInstancePublicPortsPortInfoBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cidr_list_aliases attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? CidrListAliases
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("cidr_list_aliases");
+        set => WithProperty("cidr_list_aliases", value);
+    }
+
+    /// <summary>
+    /// The cidrs attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Cidrs
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("cidrs");
+        set => WithProperty("cidrs", value);
+    }
+
+    /// <summary>
+    /// The from_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
+    public required TerraformProperty<double> FromPort
+    {
+        get => GetProperty<TerraformProperty<double>>("from_port");
+        set => WithProperty("from_port", value);
+    }
+
+    /// <summary>
+    /// The ipv6_cidrs attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Ipv6Cidrs
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("ipv6_cidrs");
+        set => WithProperty("ipv6_cidrs", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
+    {
+        get => GetProperty<TerraformProperty<string>>("protocol");
+        set => WithProperty("protocol", value);
+    }
+
+    /// <summary>
+    /// The to_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
+    public required TerraformProperty<double> ToPort
+    {
+        get => GetProperty<TerraformProperty<double>>("to_port");
+        set => WithProperty("to_port", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lightsail_instance_public_ports resource.
 /// </summary>
 public class AwsLightsailInstancePublicPorts : TerraformResource
@@ -28,7 +93,8 @@ public class AwsLightsailInstancePublicPorts : TerraformResource
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
+    public required TerraformProperty<string> InstanceName
     {
         get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
@@ -41,6 +107,17 @@ public class AwsLightsailInstancePublicPorts : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for port_info.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PortInfo block(s) required")]
+    public HashSet<AwsLightsailInstancePublicPortsPortInfoBlock>? PortInfo
+    {
+        get => GetProperty<HashSet<AwsLightsailInstancePublicPortsPortInfoBlock>>("port_info");
+        set => this.WithProperty("port_info", value);
     }
 
 }

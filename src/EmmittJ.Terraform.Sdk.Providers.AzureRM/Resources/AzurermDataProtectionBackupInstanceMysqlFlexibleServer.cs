@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_data_protection_backup_instance_mysql_flexible_server resource.
 /// </summary>
 public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BackupPolicyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
+    public required TerraformProperty<string> BackupPolicyId
     {
         get => GetProperty<TerraformProperty<string>>("backup_policy_id");
         set => this.WithProperty("backup_policy_id", value);
@@ -37,7 +82,8 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -46,7 +92,8 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +102,8 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
+    public required TerraformProperty<string> ServerId
     {
         get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
@@ -64,10 +112,21 @@ public class AzurermDataProtectionBackupInstanceMysqlFlexibleServer : TerraformR
     /// <summary>
     /// The vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
+    public required TerraformProperty<string> VaultId
     {
         get => GetProperty<TerraformProperty<string>>("vault_id");
         set => this.WithProperty("vault_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataProtectionBackupInstanceMysqlFlexibleServerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

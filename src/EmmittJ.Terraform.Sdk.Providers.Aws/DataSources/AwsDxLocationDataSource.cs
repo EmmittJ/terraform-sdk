@@ -32,7 +32,8 @@ public class AwsDxLocationDataSource : TerraformDataSource
     /// <summary>
     /// The location_code attribute.
     /// </summary>
-    public TerraformProperty<string>? LocationCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationCode is required")]
+    public required TerraformProperty<string> LocationCode
     {
         get => GetProperty<TerraformProperty<string>>("location_code");
         set => this.WithProperty("location_code", value);

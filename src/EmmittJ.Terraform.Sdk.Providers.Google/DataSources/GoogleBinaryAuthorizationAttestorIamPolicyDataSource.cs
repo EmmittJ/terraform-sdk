@@ -21,7 +21,8 @@ public class GoogleBinaryAuthorizationAttestorIamPolicyDataSource : TerraformDat
     /// <summary>
     /// The attestor attribute.
     /// </summary>
-    public TerraformProperty<string>? Attestor
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attestor is required")]
+    public required TerraformProperty<string> Attestor
     {
         get => GetProperty<TerraformProperty<string>>("attestor");
         set => this.WithProperty("attestor", value);

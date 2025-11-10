@@ -24,7 +24,8 @@ public class AwsGlueSchema : TerraformResource
     /// <summary>
     /// The compatibility attribute.
     /// </summary>
-    public TerraformProperty<string>? Compatibility
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compatibility is required")]
+    public required TerraformProperty<string> Compatibility
     {
         get => GetProperty<TerraformProperty<string>>("compatibility");
         set => this.WithProperty("compatibility", value);
@@ -33,7 +34,8 @@ public class AwsGlueSchema : TerraformResource
     /// <summary>
     /// The data_format attribute.
     /// </summary>
-    public TerraformProperty<string>? DataFormat
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFormat is required")]
+    public required TerraformProperty<string> DataFormat
     {
         get => GetProperty<TerraformProperty<string>>("data_format");
         set => this.WithProperty("data_format", value);
@@ -78,7 +80,8 @@ public class AwsGlueSchema : TerraformResource
     /// <summary>
     /// The schema_definition attribute.
     /// </summary>
-    public TerraformProperty<string>? SchemaDefinition
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaDefinition is required")]
+    public required TerraformProperty<string> SchemaDefinition
     {
         get => GetProperty<TerraformProperty<string>>("schema_definition");
         set => this.WithProperty("schema_definition", value);
@@ -87,7 +90,8 @@ public class AwsGlueSchema : TerraformResource
     /// <summary>
     /// The schema_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SchemaName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaName is required")]
+    public required TerraformProperty<string> SchemaName
     {
         get => GetProperty<TerraformProperty<string>>("schema_name");
         set => this.WithProperty("schema_name", value);
@@ -96,18 +100,18 @@ public class AwsGlueSchema : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

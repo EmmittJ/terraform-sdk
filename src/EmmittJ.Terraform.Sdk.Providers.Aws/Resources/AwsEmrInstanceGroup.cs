@@ -3,6 +3,52 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for ebs_config in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The iops attribute.
+    /// </summary>
+    public TerraformProperty<double>? Iops
+    {
+        get => GetProperty<TerraformProperty<double>>("iops");
+        set => WithProperty("iops", value);
+    }
+
+    /// <summary>
+    /// The size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
+    public required TerraformProperty<double> Size
+    {
+        get => GetProperty<TerraformProperty<double>>("size");
+        set => WithProperty("size", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The volumes_per_instance attribute.
+    /// </summary>
+    public TerraformProperty<double>? VolumesPerInstance
+    {
+        get => GetProperty<TerraformProperty<double>>("volumes_per_instance");
+        set => WithProperty("volumes_per_instance", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_emr_instance_group resource.
 /// </summary>
 public class AwsEmrInstanceGroup : TerraformResource
@@ -39,7 +85,8 @@ public class AwsEmrInstanceGroup : TerraformResource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
+    public required TerraformProperty<string> ClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
@@ -84,7 +131,8 @@ public class AwsEmrInstanceGroup : TerraformResource
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
+    public required TerraformProperty<string> InstanceType
     {
         get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
@@ -106,6 +154,16 @@ public class AwsEmrInstanceGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for ebs_config.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsEmrInstanceGroupEbsConfigBlock>? EbsConfig
+    {
+        get => GetProperty<HashSet<AwsEmrInstanceGroupEbsConfigBlock>>("ebs_config");
+        set => this.WithProperty("ebs_config", value);
     }
 
     /// <summary>

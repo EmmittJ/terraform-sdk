@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSecurityhubStandardsSubscriptionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_securityhub_standards_subscription resource.
 /// </summary>
 public class AwsSecurityhubStandardsSubscription : TerraformResource
@@ -37,10 +63,21 @@ public class AwsSecurityhubStandardsSubscription : TerraformResource
     /// <summary>
     /// The standards_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? StandardsArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StandardsArn is required")]
+    public required TerraformProperty<string> StandardsArn
     {
         get => GetProperty<TerraformProperty<string>>("standards_arn");
         set => this.WithProperty("standards_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSecurityhubStandardsSubscriptionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSecurityhubStandardsSubscriptionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

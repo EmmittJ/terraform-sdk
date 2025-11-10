@@ -25,7 +25,8 @@ public class AwsNetworkmonitorProbe : TerraformResource
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public TerraformProperty<string>? Destination
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
+    public required TerraformProperty<string> Destination
     {
         get => GetProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
@@ -43,7 +44,8 @@ public class AwsNetworkmonitorProbe : TerraformResource
     /// <summary>
     /// The monitor_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MonitorName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
+    public required TerraformProperty<string> MonitorName
     {
         get => GetProperty<TerraformProperty<string>>("monitor_name");
         set => this.WithProperty("monitor_name", value);
@@ -61,7 +63,8 @@ public class AwsNetworkmonitorProbe : TerraformResource
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
     {
         get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
@@ -79,7 +82,8 @@ public class AwsNetworkmonitorProbe : TerraformResource
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
+    public required TerraformProperty<string> SourceArn
     {
         get => GetProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
@@ -88,9 +92,9 @@ public class AwsNetworkmonitorProbe : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

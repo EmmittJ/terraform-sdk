@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeGlobalNetworkEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_global_network_endpoint resource.
 /// </summary>
 public class GoogleComputeGlobalNetworkEndpoint : TerraformResource
@@ -29,7 +55,8 @@ public class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     /// <summary>
     /// The global network endpoint group this endpoint is part of.
     /// </summary>
-    public TerraformProperty<string>? GlobalNetworkEndpointGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkEndpointGroup is required")]
+    public required TerraformProperty<string> GlobalNetworkEndpointGroup
     {
         get => GetProperty<TerraformProperty<string>>("global_network_endpoint_group");
         set => this.WithProperty("global_network_endpoint_group", value);
@@ -56,7 +83,8 @@ public class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     /// <summary>
     /// Port number of the external endpoint.
     /// </summary>
-    public TerraformProperty<double>? Port
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformProperty<double> Port
     {
         get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
@@ -69,6 +97,16 @@ public class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeGlobalNetworkEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeGlobalNetworkEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

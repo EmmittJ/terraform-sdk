@@ -3,6 +3,236 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for linked_interconnect_attachments in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : TerraformBlock
+{
+    /// <summary>
+    /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
+    /// The only allowed value for now is &amp;quot;ALL_IPV4_RANGES&amp;quot;.
+    /// </summary>
+    public List<TerraformProperty<string>>? IncludeImportRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("include_import_ranges");
+        set => WithProperty("include_import_ranges", value);
+    }
+
+    /// <summary>
+    /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
+    public required TerraformProperty<bool> SiteToSiteDataTransfer
+    {
+        get => GetProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
+        set => WithProperty("site_to_site_data_transfer", value);
+    }
+
+    /// <summary>
+    /// The URIs of linked interconnect attachment resources
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
+    public List<TerraformProperty<string>>? Uris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("uris");
+        set => WithProperty("uris", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linked_producer_vpc_network in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : TerraformBlock
+{
+    /// <summary>
+    /// IP ranges encompassing the subnets to be excluded from peering.
+    /// </summary>
+    public List<TerraformProperty<string>>? ExcludeExportRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("exclude_export_ranges");
+        set => WithProperty("exclude_export_ranges", value);
+    }
+
+    /// <summary>
+    /// IP ranges allowed to be included from peering.
+    /// </summary>
+    public List<TerraformProperty<string>>? IncludeExportRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("include_export_ranges");
+        set => WithProperty("include_export_ranges", value);
+    }
+
+    /// <summary>
+    /// The URI of the Service Consumer VPC that the Producer VPC is peered with.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
+    {
+        get => GetProperty<TerraformProperty<string>>("network");
+        set => WithProperty("network", value);
+    }
+
+    /// <summary>
+    /// The name of the VPC peering between the Service Consumer VPC and the Producer VPC (defined in the Tenant project) which is added to the NCC hub. This peering must be in ACTIVE state.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
+    public required TerraformProperty<string> Peering
+    {
+        get => GetProperty<TerraformProperty<string>>("peering");
+        set => WithProperty("peering", value);
+    }
+
+    /// <summary>
+    /// The URI of the Producer VPC.
+    /// </summary>
+    public TerraformProperty<string>? ProducerNetwork
+    {
+        get => GetProperty<TerraformProperty<string>>("producer_network");
+        set => WithProperty("producer_network", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linked_router_appliance_instances in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock : TerraformBlock
+{
+    /// <summary>
+    /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
+    /// The only allowed value for now is &amp;quot;ALL_IPV4_RANGES&amp;quot;.
+    /// </summary>
+    public List<TerraformProperty<string>>? IncludeImportRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("include_import_ranges");
+        set => WithProperty("include_import_ranges", value);
+    }
+
+    /// <summary>
+    /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
+    public required TerraformProperty<bool> SiteToSiteDataTransfer
+    {
+        get => GetProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
+        set => WithProperty("site_to_site_data_transfer", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linked_vpc_network in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBlock
+{
+    /// <summary>
+    /// IP ranges encompassing the subnets to be excluded from peering.
+    /// </summary>
+    public List<TerraformProperty<string>>? ExcludeExportRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("exclude_export_ranges");
+        set => WithProperty("exclude_export_ranges", value);
+    }
+
+    /// <summary>
+    /// IP ranges allowed to be included from peering.
+    /// </summary>
+    public List<TerraformProperty<string>>? IncludeExportRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("include_export_ranges");
+        set => WithProperty("include_export_ranges", value);
+    }
+
+    /// <summary>
+    /// The URI of the VPC network resource.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformProperty<string> Uri
+    {
+        get => GetProperty<TerraformProperty<string>>("uri");
+        set => WithProperty("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linked_vpn_tunnels in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBlock
+{
+    /// <summary>
+    /// IP ranges allowed to be included during import from hub (does not control transit connectivity).
+    /// The only allowed value for now is &amp;quot;ALL_IPV4_RANGES&amp;quot;.
+    /// </summary>
+    public List<TerraformProperty<string>>? IncludeImportRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("include_import_ranges");
+        set => WithProperty("include_import_ranges", value);
+    }
+
+    /// <summary>
+    /// A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
+    public required TerraformProperty<bool> SiteToSiteDataTransfer
+    {
+        get => GetProperty<TerraformProperty<bool>>("site_to_site_data_transfer");
+        set => WithProperty("site_to_site_data_transfer", value);
+    }
+
+    /// <summary>
+    /// The URIs of linked VPN tunnel resources.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
+    public List<TerraformProperty<string>>? Uris
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("uris");
+        set => WithProperty("uris", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_connectivity_spoke resource.
 /// </summary>
 public class GoogleNetworkConnectivitySpoke : TerraformResource
@@ -44,7 +274,8 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// <summary>
     /// Immutable. The URI of the hub that this spoke is attached to.
     /// </summary>
-    public TerraformProperty<string>? Hub
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
+    public required TerraformProperty<string> Hub
     {
         get => GetProperty<TerraformProperty<string>>("hub");
         set => this.WithProperty("hub", value);
@@ -65,16 +296,17 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -83,7 +315,8 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     /// <summary>
     /// Immutable. The name of the spoke. Spoke names must be unique.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -96,6 +329,71 @@ public class GoogleNetworkConnectivitySpoke : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for linked_interconnect_attachments.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedInterconnectAttachments block(s) allowed")]
+    public List<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>? LinkedInterconnectAttachments
+    {
+        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock>>("linked_interconnect_attachments");
+        set => this.WithProperty("linked_interconnect_attachments", value);
+    }
+
+    /// <summary>
+    /// Block for linked_producer_vpc_network.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedProducerVpcNetwork block(s) allowed")]
+    public List<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>? LinkedProducerVpcNetwork
+    {
+        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock>>("linked_producer_vpc_network");
+        set => this.WithProperty("linked_producer_vpc_network", value);
+    }
+
+    /// <summary>
+    /// Block for linked_router_appliance_instances.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedRouterApplianceInstances block(s) allowed")]
+    public List<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>? LinkedRouterApplianceInstances
+    {
+        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock>>("linked_router_appliance_instances");
+        set => this.WithProperty("linked_router_appliance_instances", value);
+    }
+
+    /// <summary>
+    /// Block for linked_vpc_network.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpcNetwork block(s) allowed")]
+    public List<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>? LinkedVpcNetwork
+    {
+        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock>>("linked_vpc_network");
+        set => this.WithProperty("linked_vpc_network", value);
+    }
+
+    /// <summary>
+    /// Block for linked_vpn_tunnels.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedVpnTunnels block(s) allowed")]
+    public List<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>? LinkedVpnTunnels
+    {
+        get => GetProperty<List<GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock>>("linked_vpn_tunnels");
+        set => this.WithProperty("linked_vpn_tunnels", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkConnectivitySpokeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkConnectivitySpokeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

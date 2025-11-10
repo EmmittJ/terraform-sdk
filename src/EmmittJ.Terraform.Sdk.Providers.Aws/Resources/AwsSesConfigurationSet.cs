@@ -3,6 +3,40 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for delivery_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSesConfigurationSetDeliveryOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The tls_policy attribute.
+    /// </summary>
+    public TerraformProperty<string>? TlsPolicy
+    {
+        get => GetProperty<TerraformProperty<string>>("tls_policy");
+        set => WithProperty("tls_policy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tracking_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSesConfigurationSetTrackingOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The custom_redirect_domain attribute.
+    /// </summary>
+    public TerraformProperty<string>? CustomRedirectDomain
+    {
+        get => GetProperty<TerraformProperty<string>>("custom_redirect_domain");
+        set => WithProperty("custom_redirect_domain", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ses_configuration_set resource.
 /// </summary>
 public class AwsSesConfigurationSet : TerraformResource
@@ -30,7 +64,8 @@ public class AwsSesConfigurationSet : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -61,6 +96,28 @@ public class AwsSesConfigurationSet : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("sending_enabled");
         set => this.WithProperty("sending_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for delivery_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryOptions block(s) allowed")]
+    public List<AwsSesConfigurationSetDeliveryOptionsBlock>? DeliveryOptions
+    {
+        get => GetProperty<List<AwsSesConfigurationSetDeliveryOptionsBlock>>("delivery_options");
+        set => this.WithProperty("delivery_options", value);
+    }
+
+    /// <summary>
+    /// Block for tracking_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrackingOptions block(s) allowed")]
+    public List<AwsSesConfigurationSetTrackingOptionsBlock>? TrackingOptions
+    {
+        get => GetProperty<List<AwsSesConfigurationSetTrackingOptionsBlock>>("tracking_options");
+        set => this.WithProperty("tracking_options", value);
     }
 
     /// <summary>

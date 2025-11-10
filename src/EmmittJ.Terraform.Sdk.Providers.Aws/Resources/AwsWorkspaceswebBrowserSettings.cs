@@ -22,16 +22,17 @@ public class AwsWorkspaceswebBrowserSettings : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_encryption_context");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The browser_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? BrowserPolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrowserPolicy is required")]
+    public required TerraformProperty<string> BrowserPolicy
     {
         get => GetProperty<TerraformProperty<string>>("browser_policy");
         set => this.WithProperty("browser_policy", value);
@@ -58,9 +59,9 @@ public class AwsWorkspaceswebBrowserSettings : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

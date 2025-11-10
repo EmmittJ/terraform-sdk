@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsInstancesDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsInstancesDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_instances.
 /// </summary>
 public class AwsInstancesDataSource : TerraformDataSource
@@ -32,18 +77,18 @@ public class AwsInstancesDataSource : TerraformDataSource
     /// <summary>
     /// The instance_state_names attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? InstanceStateNames
+    public HashSet<TerraformProperty<string>>? InstanceStateNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("instance_state_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("instance_state_names");
         set => this.WithProperty("instance_state_names", value);
     }
 
     /// <summary>
     /// The instance_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? InstanceTags
+    public Dictionary<string, TerraformProperty<string>>? InstanceTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("instance_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("instance_tags");
         set => this.WithProperty("instance_tags", value);
     }
 
@@ -54,6 +99,26 @@ public class AwsInstancesDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsInstancesDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsInstancesDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsInstancesDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsInstancesDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

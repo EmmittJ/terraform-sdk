@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for routing in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The associated_route_table_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? AssociatedRouteTableId
+    {
+        get => GetProperty<TerraformProperty<string>>("associated_route_table_id");
+        set => WithProperty("associated_route_table_id", value);
+    }
+
+    /// <summary>
+    /// The inbound_route_map_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? InboundRouteMapId
+    {
+        get => GetProperty<TerraformProperty<string>>("inbound_route_map_id");
+        set => WithProperty("inbound_route_map_id", value);
+    }
+
+    /// <summary>
+    /// The outbound_route_map_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? OutboundRouteMapId
+    {
+        get => GetProperty<TerraformProperty<string>>("outbound_route_map_id");
+        set => WithProperty("outbound_route_map_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_express_route_connection resource.
 /// </summary>
 public class AzurermExpressRouteConnection : TerraformResource
@@ -37,7 +116,8 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// <summary>
     /// The express_route_circuit_peering_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpressRouteCircuitPeeringId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitPeeringId is required")]
+    public required TerraformProperty<string> ExpressRouteCircuitPeeringId
     {
         get => GetProperty<TerraformProperty<string>>("express_route_circuit_peering_id");
         set => this.WithProperty("express_route_circuit_peering_id", value);
@@ -55,7 +135,8 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// <summary>
     /// The express_route_gateway_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ExpressRouteGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteGatewayId is required")]
+    public required TerraformProperty<string> ExpressRouteGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("express_route_gateway_id");
         set => this.WithProperty("express_route_gateway_id", value);
@@ -73,7 +154,8 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -96,6 +178,27 @@ public class AzurermExpressRouteConnection : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("routing_weight");
         set => this.WithProperty("routing_weight", value);
+    }
+
+    /// <summary>
+    /// Block for routing.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
+    public List<AzurermExpressRouteConnectionRoutingBlock>? Routing
+    {
+        get => GetProperty<List<AzurermExpressRouteConnectionRoutingBlock>>("routing");
+        set => this.WithProperty("routing", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermExpressRouteConnectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermExpressRouteConnectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

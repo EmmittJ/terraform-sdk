@@ -3,6 +3,104 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for groups in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEvidentlyLaunchGroupsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The feature attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
+    public required TerraformProperty<string> Feature
+    {
+        get => GetProperty<TerraformProperty<string>>("feature");
+        set => WithProperty("feature", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The variation attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variation is required")]
+    public required TerraformProperty<string> Variation
+    {
+        get => GetProperty<TerraformProperty<string>>("variation");
+        set => WithProperty("variation", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for metric_monitors in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEvidentlyLaunchMetricMonitorsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for scheduled_splits_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEvidentlyLaunchScheduledSplitsConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEvidentlyLaunchTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_evidently_launch resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -45,7 +143,8 @@ public class AwsEvidentlyLaunch : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -54,7 +153,8 @@ public class AwsEvidentlyLaunch : TerraformResource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformProperty<string>? Project
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
@@ -81,19 +181,63 @@ public class AwsEvidentlyLaunch : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for groups.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Groups block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Groups block(s) allowed")]
+    public List<AwsEvidentlyLaunchGroupsBlock>? Groups
+    {
+        get => GetProperty<List<AwsEvidentlyLaunchGroupsBlock>>("groups");
+        set => this.WithProperty("groups", value);
+    }
+
+    /// <summary>
+    /// Block for metric_monitors.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 MetricMonitors block(s) allowed")]
+    public List<AwsEvidentlyLaunchMetricMonitorsBlock>? MetricMonitors
+    {
+        get => GetProperty<List<AwsEvidentlyLaunchMetricMonitorsBlock>>("metric_monitors");
+        set => this.WithProperty("metric_monitors", value);
+    }
+
+    /// <summary>
+    /// Block for scheduled_splits_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledSplitsConfig block(s) allowed")]
+    public List<AwsEvidentlyLaunchScheduledSplitsConfigBlock>? ScheduledSplitsConfig
+    {
+        get => GetProperty<List<AwsEvidentlyLaunchScheduledSplitsConfigBlock>>("scheduled_splits_config");
+        set => this.WithProperty("scheduled_splits_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEvidentlyLaunchTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEvidentlyLaunchTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRdsCustomDbEngineVersionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rds_custom_db_engine_version resource.
 /// </summary>
 public class AwsRdsCustomDbEngineVersion : TerraformResource
@@ -52,7 +87,8 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformProperty<string>? Engine
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
+    public required TerraformProperty<string> Engine
     {
         get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
@@ -61,7 +97,8 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
+    public required TerraformProperty<string> EngineVersion
     {
         get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
@@ -142,19 +179,29 @@ public class AwsRdsCustomDbEngineVersion : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRdsCustomDbEngineVersionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRdsCustomDbEngineVersionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

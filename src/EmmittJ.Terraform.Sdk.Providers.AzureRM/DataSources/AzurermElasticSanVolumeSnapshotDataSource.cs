@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_elastic_san_volume_snapshot.
 /// </summary>
 public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
@@ -31,7 +48,8 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -40,10 +58,21 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The volume_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
+    public required TerraformProperty<string> VolumeGroupId
     {
         get => GetProperty<TerraformProperty<string>>("volume_group_id");
         set => this.WithProperty("volume_group_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

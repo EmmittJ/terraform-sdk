@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRekognitionCollectionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rekognition_collection resource.
 /// </summary>
 public class AwsRekognitionCollection : TerraformResource
@@ -23,7 +40,8 @@ public class AwsRekognitionCollection : TerraformResource
     /// <summary>
     /// The name of the Rekognition collection
     /// </summary>
-    public TerraformProperty<string>? CollectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
+    public required TerraformProperty<string> CollectionId
     {
         get => GetProperty<TerraformProperty<string>>("collection_id");
         set => this.WithProperty("collection_id", value);
@@ -41,10 +59,20 @@ public class AwsRekognitionCollection : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRekognitionCollectionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRekognitionCollectionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

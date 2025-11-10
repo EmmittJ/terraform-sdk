@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDedicatedHostTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_dedicated_host resource.
 /// </summary>
 public class AzurermDedicatedHost : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermDedicatedHost : TerraformResource
     /// <summary>
     /// The dedicated_host_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DedicatedHostGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DedicatedHostGroupId is required")]
+    public required TerraformProperty<string> DedicatedHostGroupId
     {
         get => GetProperty<TerraformProperty<string>>("dedicated_host_group_id");
         set => this.WithProperty("dedicated_host_group_id", value);
@@ -55,7 +100,8 @@ public class AzurermDedicatedHost : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -64,7 +110,8 @@ public class AzurermDedicatedHost : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,7 +120,8 @@ public class AzurermDedicatedHost : TerraformResource
     /// <summary>
     /// The platform_fault_domain attribute.
     /// </summary>
-    public TerraformProperty<double>? PlatformFaultDomain
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomain is required")]
+    public required TerraformProperty<double> PlatformFaultDomain
     {
         get => GetProperty<TerraformProperty<double>>("platform_fault_domain");
         set => this.WithProperty("platform_fault_domain", value);
@@ -82,7 +130,8 @@ public class AzurermDedicatedHost : TerraformResource
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
+    public required TerraformProperty<string> SkuName
     {
         get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
@@ -91,10 +140,20 @@ public class AzurermDedicatedHost : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDedicatedHostTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDedicatedHostTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

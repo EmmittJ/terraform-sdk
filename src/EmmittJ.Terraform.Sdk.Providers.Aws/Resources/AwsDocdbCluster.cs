@@ -3,6 +3,114 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for restore_to_point_in_time in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDocdbClusterRestoreToPointInTimeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The restore_to_time attribute.
+    /// </summary>
+    public TerraformProperty<string>? RestoreToTime
+    {
+        get => GetProperty<TerraformProperty<string>>("restore_to_time");
+        set => WithProperty("restore_to_time", value);
+    }
+
+    /// <summary>
+    /// The restore_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? RestoreType
+    {
+        get => GetProperty<TerraformProperty<string>>("restore_type");
+        set => WithProperty("restore_type", value);
+    }
+
+    /// <summary>
+    /// The source_cluster_identifier attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceClusterIdentifier is required")]
+    public required TerraformProperty<string> SourceClusterIdentifier
+    {
+        get => GetProperty<TerraformProperty<string>>("source_cluster_identifier");
+        set => WithProperty("source_cluster_identifier", value);
+    }
+
+    /// <summary>
+    /// The use_latest_restorable_time attribute.
+    /// </summary>
+    public TerraformProperty<bool>? UseLatestRestorableTime
+    {
+        get => GetProperty<TerraformProperty<bool>>("use_latest_restorable_time");
+        set => WithProperty("use_latest_restorable_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for serverless_v2_scaling_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDocdbClusterServerlessV2ScalingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The max_capacity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
+    public required TerraformProperty<double> MaxCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("max_capacity");
+        set => WithProperty("max_capacity", value);
+    }
+
+    /// <summary>
+    /// The min_capacity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
+    public required TerraformProperty<double> MinCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        set => WithProperty("min_capacity", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDocdbClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_docdb_cluster resource.
 /// </summary>
 public class AwsDocdbCluster : TerraformResource
@@ -43,9 +151,9 @@ public class AwsDocdbCluster : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AvailabilityZones
+    public HashSet<TerraformProperty<string>>? AvailabilityZones
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("availability_zones");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
         set => this.WithProperty("availability_zones", value);
     }
 
@@ -79,9 +187,9 @@ public class AwsDocdbCluster : TerraformResource
     /// <summary>
     /// The cluster_members attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ClusterMembers
+    public HashSet<TerraformProperty<string>>? ClusterMembers
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("cluster_members");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("cluster_members");
         set => this.WithProperty("cluster_members", value);
     }
 
@@ -115,9 +223,9 @@ public class AwsDocdbCluster : TerraformResource
     /// <summary>
     /// The enabled_cloudwatch_logs_exports attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? EnabledCloudwatchLogsExports
+    public List<TerraformProperty<string>>? EnabledCloudwatchLogsExports
     {
-        get => GetProperty<TerraformProperty<List<string>>>("enabled_cloudwatch_logs_exports");
+        get => GetProperty<List<TerraformProperty<string>>>("enabled_cloudwatch_logs_exports");
         set => this.WithProperty("enabled_cloudwatch_logs_exports", value);
     }
 
@@ -295,28 +403,60 @@ public class AwsDocdbCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
+    }
+
+    /// <summary>
+    /// Block for restore_to_point_in_time.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestoreToPointInTime block(s) allowed")]
+    public List<AwsDocdbClusterRestoreToPointInTimeBlock>? RestoreToPointInTime
+    {
+        get => GetProperty<List<AwsDocdbClusterRestoreToPointInTimeBlock>>("restore_to_point_in_time");
+        set => this.WithProperty("restore_to_point_in_time", value);
+    }
+
+    /// <summary>
+    /// Block for serverless_v2_scaling_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerlessV2ScalingConfiguration block(s) allowed")]
+    public List<AwsDocdbClusterServerlessV2ScalingConfigurationBlock>? ServerlessV2ScalingConfiguration
+    {
+        get => GetProperty<List<AwsDocdbClusterServerlessV2ScalingConfigurationBlock>>("serverless_v2_scaling_configuration");
+        set => this.WithProperty("serverless_v2_scaling_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDocdbClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDocdbClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

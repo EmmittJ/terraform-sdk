@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSharedImageVersionsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_shared_image_versions.
 /// </summary>
 public class AzurermSharedImageVersionsDataSource : TerraformDataSource
@@ -20,7 +37,8 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The gallery_name attribute.
     /// </summary>
-    public TerraformProperty<string>? GalleryName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
+    public required TerraformProperty<string> GalleryName
     {
         get => GetProperty<TerraformProperty<string>>("gallery_name");
         set => this.WithProperty("gallery_name", value);
@@ -38,7 +56,8 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ImageName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
+    public required TerraformProperty<string> ImageName
     {
         get => GetProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
@@ -47,7 +66,8 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -56,10 +76,20 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The tags_filter attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsFilter
+    public Dictionary<string, TerraformProperty<string>>? TagsFilter
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_filter");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_filter");
         set => this.WithProperty("tags_filter", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSharedImageVersionsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSharedImageVersionsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

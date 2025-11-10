@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for attachments_source in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public List<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssm_document resource.
 /// </summary>
 public class AwsSsmDocument : TerraformResource
@@ -32,7 +69,8 @@ public class AwsSsmDocument : TerraformResource
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformProperty<string>? Content
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformProperty<string> Content
     {
         get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
@@ -50,7 +88,8 @@ public class AwsSsmDocument : TerraformResource
     /// <summary>
     /// The document_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DocumentType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentType is required")]
+    public required TerraformProperty<string> DocumentType
     {
         get => GetProperty<TerraformProperty<string>>("document_type");
         set => this.WithProperty("document_type", value);
@@ -68,7 +107,8 @@ public class AwsSsmDocument : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -77,9 +117,9 @@ public class AwsSsmDocument : TerraformResource
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Permissions
+    public Dictionary<string, TerraformProperty<string>>? Permissions
     {
-        get => GetProperty<TerraformMapProperty<string>>("permissions");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
@@ -95,18 +135,18 @@ public class AwsSsmDocument : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -126,6 +166,17 @@ public class AwsSsmDocument : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("version_name");
         set => this.WithProperty("version_name", value);
+    }
+
+    /// <summary>
+    /// Block for attachments_source.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 AttachmentsSource block(s) allowed")]
+    public List<AwsSsmDocumentAttachmentsSourceBlock>? AttachmentsSource
+    {
+        get => GetProperty<List<AwsSsmDocumentAttachmentsSourceBlock>>("attachments_source");
+        set => this.WithProperty("attachments_source", value);
     }
 
     /// <summary>

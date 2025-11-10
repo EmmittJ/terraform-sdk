@@ -21,7 +21,8 @@ public class GoogleDataprocMetastoreFederationIamPolicyDataSource : TerraformDat
     /// <summary>
     /// The federation_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FederationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FederationId is required")]
+    public required TerraformProperty<string> FederationId
     {
         get => GetProperty<TerraformProperty<string>>("federation_id");
         set => this.WithProperty("federation_id", value);

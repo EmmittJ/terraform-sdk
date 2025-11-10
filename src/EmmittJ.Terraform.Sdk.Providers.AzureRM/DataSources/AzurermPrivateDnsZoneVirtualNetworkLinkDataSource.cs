@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_private_dns_zone_virtual_network_link.
 /// </summary>
 public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSource
@@ -32,7 +49,8 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,7 +59,8 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
     /// <summary>
     /// The private_dns_zone_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateDnsZoneName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneName is required")]
+    public required TerraformProperty<string> PrivateDnsZoneName
     {
         get => GetProperty<TerraformProperty<string>>("private_dns_zone_name");
         set => this.WithProperty("private_dns_zone_name", value);
@@ -50,10 +69,21 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource : TerraformDataSo
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPrivateDnsZoneVirtualNetworkLinkDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPrivateDnsZoneVirtualNetworkLinkDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

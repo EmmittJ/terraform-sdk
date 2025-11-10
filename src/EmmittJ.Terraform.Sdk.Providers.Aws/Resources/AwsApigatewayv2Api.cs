@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for cors_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allow_credentials attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AllowCredentials
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_credentials");
+        set => WithProperty("allow_credentials", value);
+    }
+
+    /// <summary>
+    /// The allow_headers attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowHeaders
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_headers");
+        set => WithProperty("allow_headers", value);
+    }
+
+    /// <summary>
+    /// The allow_methods attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowMethods
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_methods");
+        set => WithProperty("allow_methods", value);
+    }
+
+    /// <summary>
+    /// The allow_origins attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowOrigins
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_origins");
+        set => WithProperty("allow_origins", value);
+    }
+
+    /// <summary>
+    /// The expose_headers attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? ExposeHeaders
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("expose_headers");
+        set => WithProperty("expose_headers", value);
+    }
+
+    /// <summary>
+    /// The max_age attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxAge
+    {
+        get => GetProperty<TerraformProperty<double>>("max_age");
+        set => WithProperty("max_age", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_apigatewayv2_api resource.
 /// </summary>
 public class AwsApigatewayv2Api : TerraformResource
@@ -94,7 +156,8 @@ public class AwsApigatewayv2Api : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -103,7 +166,8 @@ public class AwsApigatewayv2Api : TerraformResource
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ProtocolType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
+    public required TerraformProperty<string> ProtocolType
     {
         get => GetProperty<TerraformProperty<string>>("protocol_type");
         set => this.WithProperty("protocol_type", value);
@@ -139,18 +203,18 @@ public class AwsApigatewayv2Api : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -170,6 +234,17 @@ public class AwsApigatewayv2Api : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Block for cors_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfiguration block(s) allowed")]
+    public List<AwsApigatewayv2ApiCorsConfigurationBlock>? CorsConfiguration
+    {
+        get => GetProperty<List<AwsApigatewayv2ApiCorsConfigurationBlock>>("cors_configuration");
+        set => this.WithProperty("cors_configuration", value);
     }
 
     /// <summary>

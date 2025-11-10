@@ -19,7 +19,8 @@ public class AwsIotLoggingOptions : TerraformResource
     /// <summary>
     /// The default_log_level attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultLogLevel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLogLevel is required")]
+    public required TerraformProperty<string> DefaultLogLevel
     {
         get => GetProperty<TerraformProperty<string>>("default_log_level");
         set => this.WithProperty("default_log_level", value);
@@ -55,7 +56,8 @@ public class AwsIotLoggingOptions : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);

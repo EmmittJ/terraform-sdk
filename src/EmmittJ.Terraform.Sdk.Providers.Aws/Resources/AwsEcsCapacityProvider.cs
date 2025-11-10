@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for auto_scaling_group_provider in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auto_scaling_group_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingGroupArn is required")]
+    public required TerraformProperty<string> AutoScalingGroupArn
+    {
+        get => GetProperty<TerraformProperty<string>>("auto_scaling_group_arn");
+        set => WithProperty("auto_scaling_group_arn", value);
+    }
+
+    /// <summary>
+    /// The managed_draining attribute.
+    /// </summary>
+    public TerraformProperty<string>? ManagedDraining
+    {
+        get => GetProperty<TerraformProperty<string>>("managed_draining");
+        set => WithProperty("managed_draining", value);
+    }
+
+    /// <summary>
+    /// The managed_termination_protection attribute.
+    /// </summary>
+    public TerraformProperty<string>? ManagedTerminationProtection
+    {
+        get => GetProperty<TerraformProperty<string>>("managed_termination_protection");
+        set => WithProperty("managed_termination_protection", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for managed_instances_provider in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBlock
+{
+    /// <summary>
+    /// The infrastructure_role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureRoleArn is required")]
+    public required TerraformProperty<string> InfrastructureRoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("infrastructure_role_arn");
+        set => WithProperty("infrastructure_role_arn", value);
+    }
+
+    /// <summary>
+    /// The propagate_tags attribute.
+    /// </summary>
+    public TerraformProperty<string>? PropagateTags
+    {
+        get => GetProperty<TerraformProperty<string>>("propagate_tags");
+        set => WithProperty("propagate_tags", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ecs_capacity_provider resource.
 /// </summary>
 public class AwsEcsCapacityProvider : TerraformResource
@@ -38,7 +101,8 @@ public class AwsEcsCapacityProvider : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,19 +120,41 @@ public class AwsEcsCapacityProvider : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for auto_scaling_group_provider.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingGroupProvider block(s) allowed")]
+    public List<AwsEcsCapacityProviderAutoScalingGroupProviderBlock>? AutoScalingGroupProvider
+    {
+        get => GetProperty<List<AwsEcsCapacityProviderAutoScalingGroupProviderBlock>>("auto_scaling_group_provider");
+        set => this.WithProperty("auto_scaling_group_provider", value);
+    }
+
+    /// <summary>
+    /// Block for managed_instances_provider.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedInstancesProvider block(s) allowed")]
+    public List<AwsEcsCapacityProviderManagedInstancesProviderBlock>? ManagedInstancesProvider
+    {
+        get => GetProperty<List<AwsEcsCapacityProviderManagedInstancesProviderBlock>>("managed_instances_provider");
+        set => this.WithProperty("managed_instances_provider", value);
     }
 
     /// <summary>

@@ -3,6 +3,83 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for bigtable in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiFeatureOnlineStoreBigtableBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for dedicated_serving_endpoint in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock : TerraformBlock
+{
+    /// <summary>
+    /// Domain name to use for this FeatureOnlineStore
+    /// </summary>
+    public TerraformProperty<string>? PublicEndpointDomainName
+    {
+        get => GetProperty<TerraformProperty<string>>("public_endpoint_domain_name");
+        set => WithProperty("public_endpoint_domain_name", value);
+    }
+
+    /// <summary>
+    /// Name of the service attachment resource. Applicable only if private service connect is enabled and after FeatureViewSync is created.
+    /// </summary>
+    public TerraformProperty<string>? ServiceAttachment
+    {
+        get => GetProperty<TerraformProperty<string>>("service_attachment");
+        set => WithProperty("service_attachment", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for optimized in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiFeatureOnlineStoreOptimizedBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vertex_ai_feature_online_store resource.
 /// </summary>
 public class GoogleVertexAiFeatureOnlineStore : TerraformResource
@@ -46,16 +123,17 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The resource name of the Feature Online Store. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -77,6 +155,49 @@ public class GoogleVertexAiFeatureOnlineStore : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for bigtable.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bigtable block(s) allowed")]
+    public List<GoogleVertexAiFeatureOnlineStoreBigtableBlock>? Bigtable
+    {
+        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreBigtableBlock>>("bigtable");
+        set => this.WithProperty("bigtable", value);
+    }
+
+    /// <summary>
+    /// Block for dedicated_serving_endpoint.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DedicatedServingEndpoint block(s) allowed")]
+    public List<GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock>? DedicatedServingEndpoint
+    {
+        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreDedicatedServingEndpointBlock>>("dedicated_serving_endpoint");
+        set => this.WithProperty("dedicated_serving_endpoint", value);
+    }
+
+    /// <summary>
+    /// Block for optimized.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Optimized block(s) allowed")]
+    public List<GoogleVertexAiFeatureOnlineStoreOptimizedBlock>? Optimized
+    {
+        get => GetProperty<List<GoogleVertexAiFeatureOnlineStoreOptimizedBlock>>("optimized");
+        set => this.WithProperty("optimized", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVertexAiFeatureOnlineStoreTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVertexAiFeatureOnlineStoreTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

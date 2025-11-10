@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRouteDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_route.
 /// </summary>
 public class AwsRouteDataSource : TerraformDataSource
@@ -136,7 +153,8 @@ public class AwsRouteDataSource : TerraformDataSource
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteTableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
+    public required TerraformProperty<string> RouteTableId
     {
         get => GetProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
@@ -158,6 +176,16 @@ public class AwsRouteDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("vpc_peering_connection_id");
         set => this.WithProperty("vpc_peering_connection_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRouteDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRouteDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for kerberos_authentication_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key_cache_secret_iam_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyCacheSecretIamArn is required")]
+    public required TerraformProperty<string> KeyCacheSecretIamArn
+    {
+        get => GetProperty<TerraformProperty<string>>("key_cache_secret_iam_arn");
+        set => WithProperty("key_cache_secret_iam_arn", value);
+    }
+
+    /// <summary>
+    /// The key_cache_secret_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyCacheSecretId is required")]
+    public required TerraformProperty<string> KeyCacheSecretId
+    {
+        get => GetProperty<TerraformProperty<string>>("key_cache_secret_id");
+        set => WithProperty("key_cache_secret_id", value);
+    }
+
+    /// <summary>
+    /// The krb5_file_contents attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Krb5FileContents is required")]
+    public required TerraformProperty<string> Krb5FileContents
+    {
+        get => GetProperty<TerraformProperty<string>>("krb5_file_contents");
+        set => WithProperty("krb5_file_contents", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDmsReplicationInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dms_replication_instance resource.
 /// </summary>
 public class AwsDmsReplicationInstance : TerraformResource
@@ -148,7 +221,8 @@ public class AwsDmsReplicationInstance : TerraformResource
     /// <summary>
     /// The replication_instance_class attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationInstanceClass
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceClass is required")]
+    public required TerraformProperty<string> ReplicationInstanceClass
     {
         get => GetProperty<TerraformProperty<string>>("replication_instance_class");
         set => this.WithProperty("replication_instance_class", value);
@@ -157,7 +231,8 @@ public class AwsDmsReplicationInstance : TerraformResource
     /// <summary>
     /// The replication_instance_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationInstanceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceId is required")]
+    public required TerraformProperty<string> ReplicationInstanceId
     {
         get => GetProperty<TerraformProperty<string>>("replication_instance_id");
         set => this.WithProperty("replication_instance_id", value);
@@ -175,28 +250,49 @@ public class AwsDmsReplicationInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
+    }
+
+    /// <summary>
+    /// Block for kerberos_authentication_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KerberosAuthenticationSettings block(s) allowed")]
+    public List<AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock>? KerberosAuthenticationSettings
+    {
+        get => GetProperty<List<AwsDmsReplicationInstanceKerberosAuthenticationSettingsBlock>>("kerberos_authentication_settings");
+        set => this.WithProperty("kerberos_authentication_settings", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDmsReplicationInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDmsReplicationInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

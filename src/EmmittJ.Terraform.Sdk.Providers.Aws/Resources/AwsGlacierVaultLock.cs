@@ -19,7 +19,8 @@ public class AwsGlacierVaultLock : TerraformResource
     /// <summary>
     /// The complete_lock attribute.
     /// </summary>
-    public TerraformProperty<bool>? CompleteLock
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CompleteLock is required")]
+    public required TerraformProperty<bool> CompleteLock
     {
         get => GetProperty<TerraformProperty<bool>>("complete_lock");
         set => this.WithProperty("complete_lock", value);
@@ -46,7 +47,8 @@ public class AwsGlacierVaultLock : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -64,7 +66,8 @@ public class AwsGlacierVaultLock : TerraformResource
     /// <summary>
     /// The vault_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VaultName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
+    public required TerraformProperty<string> VaultName
     {
         get => GetProperty<TerraformProperty<string>>("vault_name");
         set => this.WithProperty("vault_name", value);

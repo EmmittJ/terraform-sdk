@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPrivateDnsResolverOutboundEndpointDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_private_dns_resolver_outbound_endpoint.
 /// </summary>
 public class AzurermPrivateDnsResolverOutboundEndpointDataSource : TerraformDataSource
@@ -31,7 +48,8 @@ public class AzurermPrivateDnsResolverOutboundEndpointDataSource : TerraformData
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -40,10 +58,21 @@ public class AzurermPrivateDnsResolverOutboundEndpointDataSource : TerraformData
     /// <summary>
     /// The private_dns_resolver_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrivateDnsResolverId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsResolverId is required")]
+    public required TerraformProperty<string> PrivateDnsResolverId
     {
         get => GetProperty<TerraformProperty<string>>("private_dns_resolver_id");
         set => this.WithProperty("private_dns_resolver_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPrivateDnsResolverOutboundEndpointDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPrivateDnsResolverOutboundEndpointDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

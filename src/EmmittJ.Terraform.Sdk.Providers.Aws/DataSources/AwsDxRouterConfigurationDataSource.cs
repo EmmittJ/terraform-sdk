@@ -40,7 +40,8 @@ public class AwsDxRouterConfigurationDataSource : TerraformDataSource
     /// <summary>
     /// The router_type_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? RouterTypeIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterTypeIdentifier is required")]
+    public required TerraformProperty<string> RouterTypeIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("router_type_identifier");
         set => this.WithProperty("router_type_identifier", value);
@@ -49,7 +50,8 @@ public class AwsDxRouterConfigurationDataSource : TerraformDataSource
     /// <summary>
     /// The virtual_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualInterfaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
+    public required TerraformProperty<string> VirtualInterfaceId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_interface_id");
         set => this.WithProperty("virtual_interface_id", value);

@@ -20,7 +20,8 @@ public class AwsOutpostsAssetsDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
+    public required TerraformProperty<string> Arn
     {
         get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
@@ -29,9 +30,9 @@ public class AwsOutpostsAssetsDataSource : TerraformDataSource
     /// <summary>
     /// The host_id_filter attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? HostIdFilter
+    public HashSet<TerraformProperty<string>>? HostIdFilter
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("host_id_filter");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("host_id_filter");
         set => this.WithProperty("host_id_filter", value);
     }
 
@@ -56,9 +57,9 @@ public class AwsOutpostsAssetsDataSource : TerraformDataSource
     /// <summary>
     /// The status_id_filter attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? StatusIdFilter
+    public HashSet<TerraformProperty<string>>? StatusIdFilter
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("status_id_filter");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("status_id_filter");
         set => this.WithProperty("status_id_filter", value);
     }
 

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLocationTrackerAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_location_tracker_association resource.
 /// </summary>
 public class AwsLocationTrackerAssociation : TerraformResource
@@ -19,7 +45,8 @@ public class AwsLocationTrackerAssociation : TerraformResource
     /// <summary>
     /// The consumer_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ConsumerArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerArn is required")]
+    public required TerraformProperty<string> ConsumerArn
     {
         get => GetProperty<TerraformProperty<string>>("consumer_arn");
         set => this.WithProperty("consumer_arn", value);
@@ -46,10 +73,21 @@ public class AwsLocationTrackerAssociation : TerraformResource
     /// <summary>
     /// The tracker_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TrackerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackerName is required")]
+    public required TerraformProperty<string> TrackerName
     {
         get => GetProperty<TerraformProperty<string>>("tracker_name");
         set => this.WithProperty("tracker_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLocationTrackerAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLocationTrackerAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

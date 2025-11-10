@@ -3,6 +3,115 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for nfs_exports in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxOpenzfsVolumeNfsExportsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for origin_snapshot in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
+{
+    /// <summary>
+    /// The copy_strategy attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyStrategy is required")]
+    public required TerraformProperty<string> CopyStrategy
+    {
+        get => GetProperty<TerraformProperty<string>>("copy_strategy");
+        set => WithProperty("copy_strategy", value);
+    }
+
+    /// <summary>
+    /// The snapshot_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotArn is required")]
+    public required TerraformProperty<string> SnapshotArn
+    {
+        get => GetProperty<TerraformProperty<string>>("snapshot_arn");
+        set => WithProperty("snapshot_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for user_and_group_quotas in .
+/// Nesting mode: set
+/// </summary>
+public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<double> Id
+    {
+        get => GetProperty<TerraformProperty<double>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The storage_capacity_quota_gib attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityQuotaGib is required")]
+    public required TerraformProperty<double> StorageCapacityQuotaGib
+    {
+        get => GetProperty<TerraformProperty<double>>("storage_capacity_quota_gib");
+        set => WithProperty("storage_capacity_quota_gib", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_fsx_openzfs_volume resource.
 /// </summary>
 public class AwsFsxOpenzfsVolume : TerraformResource
@@ -38,9 +147,9 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     /// <summary>
     /// The delete_volume_options attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? DeleteVolumeOptions
+    public List<TerraformProperty<string>>? DeleteVolumeOptions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("delete_volume_options");
+        get => GetProperty<List<TerraformProperty<string>>>("delete_volume_options");
         set => this.WithProperty("delete_volume_options", value);
     }
 
@@ -56,7 +165,8 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -65,7 +175,8 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     /// <summary>
     /// The parent_volume_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ParentVolumeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentVolumeId is required")]
+    public required TerraformProperty<string> ParentVolumeId
     {
         get => GetProperty<TerraformProperty<string>>("parent_volume_id");
         set => this.WithProperty("parent_volume_id", value);
@@ -119,18 +230,18 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -141,6 +252,48 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("volume_type");
         set => this.WithProperty("volume_type", value);
+    }
+
+    /// <summary>
+    /// Block for nfs_exports.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NfsExports block(s) allowed")]
+    public List<AwsFsxOpenzfsVolumeNfsExportsBlock>? NfsExports
+    {
+        get => GetProperty<List<AwsFsxOpenzfsVolumeNfsExportsBlock>>("nfs_exports");
+        set => this.WithProperty("nfs_exports", value);
+    }
+
+    /// <summary>
+    /// Block for origin_snapshot.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OriginSnapshot block(s) allowed")]
+    public List<AwsFsxOpenzfsVolumeOriginSnapshotBlock>? OriginSnapshot
+    {
+        get => GetProperty<List<AwsFsxOpenzfsVolumeOriginSnapshotBlock>>("origin_snapshot");
+        set => this.WithProperty("origin_snapshot", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFsxOpenzfsVolumeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFsxOpenzfsVolumeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for user_and_group_quotas.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>? UserAndGroupQuotas
+    {
+        get => GetProperty<HashSet<AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock>>("user_and_group_quotas");
+        set => this.WithProperty("user_and_group_quotas", value);
     }
 
     /// <summary>

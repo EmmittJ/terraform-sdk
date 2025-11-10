@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for repositories in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The branch_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? BranchName
+    {
+        get => GetProperty<TerraformProperty<string>>("branch_name");
+        set => WithProperty("branch_name", value);
+    }
+
+    /// <summary>
+    /// The repository_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? RepositoryName
+    {
+        get => GetProperty<TerraformProperty<string>>("repository_name");
+        set => WithProperty("repository_name", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_codecatalyst_dev_environment.
 /// </summary>
 public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
@@ -44,7 +70,8 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The env_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
+    public required TerraformProperty<string> EnvId
     {
         get => GetProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
@@ -62,7 +89,8 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The project_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ProjectName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
+    public required TerraformProperty<string> ProjectName
     {
         get => GetProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
@@ -80,7 +108,8 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The space_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SpaceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
+    public required TerraformProperty<string> SpaceName
     {
         get => GetProperty<TerraformProperty<string>>("space_name");
         set => this.WithProperty("space_name", value);
@@ -89,10 +118,21 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for repositories.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
+    public List<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock>? Repositories
+    {
+        get => GetProperty<List<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock>>("repositories");
+        set => this.WithProperty("repositories", value);
     }
 
     /// <summary>

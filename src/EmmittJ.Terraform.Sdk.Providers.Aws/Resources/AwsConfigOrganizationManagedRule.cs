@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsConfigOrganizationManagedRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_config_organization_managed_rule resource.
 /// </summary>
 public class AwsConfigOrganizationManagedRule : TerraformResource
@@ -29,9 +64,9 @@ public class AwsConfigOrganizationManagedRule : TerraformResource
     /// <summary>
     /// The excluded_accounts attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ExcludedAccounts
+    public HashSet<TerraformProperty<string>>? ExcludedAccounts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("excluded_accounts");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_accounts");
         set => this.WithProperty("excluded_accounts", value);
     }
 
@@ -65,7 +100,8 @@ public class AwsConfigOrganizationManagedRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -92,16 +128,17 @@ public class AwsConfigOrganizationManagedRule : TerraformResource
     /// <summary>
     /// The resource_types_scope attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ResourceTypesScope
+    public HashSet<TerraformProperty<string>>? ResourceTypesScope
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_types_scope");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_types_scope");
         set => this.WithProperty("resource_types_scope", value);
     }
 
     /// <summary>
     /// The rule_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleIdentifier is required")]
+    public required TerraformProperty<string> RuleIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("rule_identifier");
         set => this.WithProperty("rule_identifier", value);
@@ -123,6 +160,16 @@ public class AwsConfigOrganizationManagedRule : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("tag_value_scope");
         set => this.WithProperty("tag_value_scope", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsConfigOrganizationManagedRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsConfigOrganizationManagedRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

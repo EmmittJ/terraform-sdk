@@ -46,7 +46,8 @@ public class AwsEmrStudioSessionMapping : TerraformResource
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
+    public required TerraformProperty<string> IdentityType
     {
         get => GetProperty<TerraformProperty<string>>("identity_type");
         set => this.WithProperty("identity_type", value);
@@ -64,7 +65,8 @@ public class AwsEmrStudioSessionMapping : TerraformResource
     /// <summary>
     /// The session_policy_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SessionPolicyArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionPolicyArn is required")]
+    public required TerraformProperty<string> SessionPolicyArn
     {
         get => GetProperty<TerraformProperty<string>>("session_policy_arn");
         set => this.WithProperty("session_policy_arn", value);
@@ -73,7 +75,8 @@ public class AwsEmrStudioSessionMapping : TerraformResource
     /// <summary>
     /// The studio_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StudioId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioId is required")]
+    public required TerraformProperty<string> StudioId
     {
         get => GetProperty<TerraformProperty<string>>("studio_id");
         set => this.WithProperty("studio_id", value);

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_active_directory_domain_service_replica_set resource.
 /// </summary>
 public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
@@ -22,7 +57,8 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     /// <summary>
     /// The domain_service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
+    public required TerraformProperty<string> DomainServiceId
     {
         get => GetProperty<TerraformProperty<string>>("domain_service_id");
         set => this.WithProperty("domain_service_id", value);
@@ -40,7 +76,8 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -49,10 +86,21 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SubnetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
     {
         get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

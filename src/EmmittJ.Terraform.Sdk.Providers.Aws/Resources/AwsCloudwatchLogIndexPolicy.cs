@@ -19,7 +19,8 @@ public class AwsCloudwatchLogIndexPolicy : TerraformResource
     /// <summary>
     /// The log_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LogGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
+    public required TerraformProperty<string> LogGroupName
     {
         get => GetProperty<TerraformProperty<string>>("log_group_name");
         set => this.WithProperty("log_group_name", value);
@@ -28,7 +29,8 @@ public class AwsCloudwatchLogIndexPolicy : TerraformResource
     /// <summary>
     /// Field index filter policy, in JSON
     /// </summary>
-    public TerraformProperty<string>? PolicyDocument
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
+    public required TerraformProperty<string> PolicyDocument
     {
         get => GetProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);

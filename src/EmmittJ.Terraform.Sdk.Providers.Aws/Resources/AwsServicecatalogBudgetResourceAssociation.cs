@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServicecatalogBudgetResourceAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_servicecatalog_budget_resource_association resource.
 /// </summary>
 public class AwsServicecatalogBudgetResourceAssociation : TerraformResource
@@ -19,7 +54,8 @@ public class AwsServicecatalogBudgetResourceAssociation : TerraformResource
     /// <summary>
     /// The budget_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BudgetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetName is required")]
+    public required TerraformProperty<string> BudgetName
     {
         get => GetProperty<TerraformProperty<string>>("budget_name");
         set => this.WithProperty("budget_name", value);
@@ -46,10 +82,21 @@ public class AwsServicecatalogBudgetResourceAssociation : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServicecatalogBudgetResourceAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServicecatalogBudgetResourceAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

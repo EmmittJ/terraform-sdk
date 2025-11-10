@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkServicesGatewayTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_services_gateway resource.
 /// </summary>
 public class GoogleNetworkServicesGateway : TerraformResource
@@ -28,9 +63,9 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// This field only applies to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6.
     /// </summary>
-    public TerraformProperty<List<string>>? Addresses
+    public List<TerraformProperty<string>>? Addresses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("addresses");
+        get => GetProperty<List<TerraformProperty<string>>>("addresses");
         set => this.WithProperty("addresses", value);
     }
 
@@ -38,9 +73,9 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// A fully-qualified Certificates URL reference. The proxy presents a Certificate (selected based on SNI) when establishing a TLS connection.
     /// This feature only applies to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public TerraformProperty<List<string>>? CertificateUrls
+    public List<TerraformProperty<string>>? CertificateUrls
     {
-        get => GetProperty<TerraformProperty<List<string>>>("certificate_urls");
+        get => GetProperty<List<TerraformProperty<string>>>("certificate_urls");
         set => this.WithProperty("certificate_urls", value);
     }
 
@@ -110,9 +145,9 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -129,7 +164,8 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// <summary>
     /// Name of the Gateway resource.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -152,9 +188,10 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// The proxy binds to the specified ports. Gateways of type &#39;SECURE_WEB_GATEWAY&#39; are limited to 1 port.
     ///  Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6 and support multiple ports.
     /// </summary>
-    public TerraformProperty<List<double>>? Ports
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
+    public List<TerraformProperty<double>>? Ports
     {
-        get => GetProperty<TerraformProperty<List<double>>>("ports");
+        get => GetProperty<List<TerraformProperty<double>>>("ports");
         set => this.WithProperty("ports", value);
     }
 
@@ -212,10 +249,21 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// <summary>
     /// Immutable. The type of the customer managed gateway. Possible values: [&amp;quot;OPEN_MESH&amp;quot;, &amp;quot;SECURE_WEB_GATEWAY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkServicesGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkServicesGatewayTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

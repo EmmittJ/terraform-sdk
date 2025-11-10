@@ -3,6 +3,123 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for config in .
+/// Nesting mode: list
+/// </summary>
+public class GooglePrivatecaCertificateAuthorityConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for key_spec in .
+/// Nesting mode: list
+/// </summary>
+public class GooglePrivatecaCertificateAuthorityKeySpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// The algorithm to use for creating a managed Cloud KMS key for a for a simplified
+    /// experience. All managed keys will be have their ProtectionLevel as HSM. Possible values: [&amp;quot;SIGN_HASH_ALGORITHM_UNSPECIFIED&amp;quot;, &amp;quot;RSA_PSS_2048_SHA256&amp;quot;, &amp;quot;RSA_PSS_3072_SHA256&amp;quot;, &amp;quot;RSA_PSS_4096_SHA256&amp;quot;, &amp;quot;RSA_PKCS1_2048_SHA256&amp;quot;, &amp;quot;RSA_PKCS1_3072_SHA256&amp;quot;, &amp;quot;RSA_PKCS1_4096_SHA256&amp;quot;, &amp;quot;EC_P256_SHA256&amp;quot;, &amp;quot;EC_P384_SHA384&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Algorithm
+    {
+        get => GetProperty<TerraformProperty<string>>("algorithm");
+        set => WithProperty("algorithm", value);
+    }
+
+    /// <summary>
+    /// The resource name for an existing Cloud KMS CryptoKeyVersion in the format
+    /// &#39;projects/*/locations/*/keyRings/*/cryptoKeys/*/cryptoKeyVersions/*&#39;.
+    /// </summary>
+    public TerraformProperty<string>? CloudKmsKeyVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("cloud_kms_key_version");
+        set => WithProperty("cloud_kms_key_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for subordinate_config in .
+/// Nesting mode: list
+/// </summary>
+public class GooglePrivatecaCertificateAuthoritySubordinateConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// This can refer to a CertificateAuthority that was used to create a
+    /// subordinate CertificateAuthority. This field is used for information
+    /// and usability purposes only. The resource name is in the format
+    /// &#39;projects/*/locations/*/caPools/*/certificateAuthorities/*&#39;.
+    /// </summary>
+    public TerraformProperty<string>? CertificateAuthority
+    {
+        get => GetProperty<TerraformProperty<string>>("certificate_authority");
+        set => WithProperty("certificate_authority", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GooglePrivatecaCertificateAuthorityTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for user_defined_access_urls in .
+/// Nesting mode: list
+/// </summary>
+public class GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A list of URLs where this CertificateAuthority&#39;s CA certificate is published that is specified by users.
+    /// </summary>
+    public List<TerraformProperty<string>>? AiaIssuingCertificateUrls
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("aia_issuing_certificate_urls");
+        set => WithProperty("aia_issuing_certificate_urls", value);
+    }
+
+    /// <summary>
+    /// A list of URLs where this CertificateAuthority&#39;s CRLs are published that is specified by users.
+    /// </summary>
+    public List<TerraformProperty<string>>? CrlAccessUrls
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("crl_access_urls");
+        set => WithProperty("crl_access_urls", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_privateca_certificate_authority resource.
 /// </summary>
 public class GooglePrivatecaCertificateAuthority : TerraformResource
@@ -27,7 +144,8 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// <summary>
     /// The user provided Resource ID for this Certificate Authority.
     /// </summary>
-    public TerraformProperty<string>? CertificateAuthorityId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityId is required")]
+    public required TerraformProperty<string> CertificateAuthorityId
     {
         get => GetProperty<TerraformProperty<string>>("certificate_authority_id");
         set => this.WithProperty("certificate_authority_id", value);
@@ -97,9 +215,9 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -118,7 +236,8 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// Location of the CertificateAuthority. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -136,7 +255,8 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// <summary>
     /// The name of the CaPool this Certificate Authority belongs to.
     /// </summary>
-    public TerraformProperty<string>? Pool
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
+    public required TerraformProperty<string> Pool
     {
         get => GetProperty<TerraformProperty<string>>("pool");
         set => this.WithProperty("pool", value);
@@ -173,6 +293,62 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
+    public List<GooglePrivatecaCertificateAuthorityConfigBlock>? Config
+    {
+        get => GetProperty<List<GooglePrivatecaCertificateAuthorityConfigBlock>>("config");
+        set => this.WithProperty("config", value);
+    }
+
+    /// <summary>
+    /// Block for key_spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeySpec block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeySpec block(s) allowed")]
+    public List<GooglePrivatecaCertificateAuthorityKeySpecBlock>? KeySpec
+    {
+        get => GetProperty<List<GooglePrivatecaCertificateAuthorityKeySpecBlock>>("key_spec");
+        set => this.WithProperty("key_spec", value);
+    }
+
+    /// <summary>
+    /// Block for subordinate_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubordinateConfig block(s) allowed")]
+    public List<GooglePrivatecaCertificateAuthoritySubordinateConfigBlock>? SubordinateConfig
+    {
+        get => GetProperty<List<GooglePrivatecaCertificateAuthoritySubordinateConfigBlock>>("subordinate_config");
+        set => this.WithProperty("subordinate_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GooglePrivatecaCertificateAuthorityTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GooglePrivatecaCertificateAuthorityTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for user_defined_access_urls.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserDefinedAccessUrls block(s) allowed")]
+    public List<GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock>? UserDefinedAccessUrls
+    {
+        get => GetProperty<List<GooglePrivatecaCertificateAuthorityUserDefinedAccessUrlsBlock>>("user_defined_access_urls");
+        set => this.WithProperty("user_defined_access_urls", value);
     }
 
     /// <summary>

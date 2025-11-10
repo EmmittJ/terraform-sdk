@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_public_maintenance_configurations.
 /// </summary>
 public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSource
@@ -51,6 +68,16 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

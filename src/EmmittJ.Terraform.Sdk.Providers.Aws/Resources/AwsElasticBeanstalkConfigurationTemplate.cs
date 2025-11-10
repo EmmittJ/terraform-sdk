@@ -3,6 +3,53 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for setting in .
+/// Nesting mode: set
+/// </summary>
+public class AwsElasticBeanstalkConfigurationTemplateSettingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The namespace attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
+    public required TerraformProperty<string> Namespace
+    {
+        get => GetProperty<TerraformProperty<string>>("namespace");
+        set => WithProperty("namespace", value);
+    }
+
+    /// <summary>
+    /// The resource attribute.
+    /// </summary>
+    public TerraformProperty<string>? Resource
+    {
+        get => GetProperty<TerraformProperty<string>>("resource");
+        set => WithProperty("resource", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_elastic_beanstalk_configuration_template resource.
 /// </summary>
 public class AwsElasticBeanstalkConfigurationTemplate : TerraformResource
@@ -19,7 +66,8 @@ public class AwsElasticBeanstalkConfigurationTemplate : TerraformResource
     /// <summary>
     /// The application attribute.
     /// </summary>
-    public TerraformProperty<string>? Application
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
+    public required TerraformProperty<string> Application
     {
         get => GetProperty<TerraformProperty<string>>("application");
         set => this.WithProperty("application", value);
@@ -55,7 +103,8 @@ public class AwsElasticBeanstalkConfigurationTemplate : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -77,6 +126,16 @@ public class AwsElasticBeanstalkConfigurationTemplate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("solution_stack_name");
         set => this.WithProperty("solution_stack_name", value);
+    }
+
+    /// <summary>
+    /// Block for setting.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsElasticBeanstalkConfigurationTemplateSettingBlock>? Setting
+    {
+        get => GetProperty<HashSet<AwsElasticBeanstalkConfigurationTemplateSettingBlock>>("setting");
+        set => this.WithProperty("setting", value);
     }
 
 }

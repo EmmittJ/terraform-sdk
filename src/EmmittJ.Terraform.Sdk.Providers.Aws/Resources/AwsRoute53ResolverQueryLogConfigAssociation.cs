@@ -37,7 +37,8 @@ public class AwsRoute53ResolverQueryLogConfigAssociation : TerraformResource
     /// <summary>
     /// The resolver_query_log_config_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResolverQueryLogConfigId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolverQueryLogConfigId is required")]
+    public required TerraformProperty<string> ResolverQueryLogConfigId
     {
         get => GetProperty<TerraformProperty<string>>("resolver_query_log_config_id");
         set => this.WithProperty("resolver_query_log_config_id", value);
@@ -46,7 +47,8 @@ public class AwsRoute53ResolverQueryLogConfigAssociation : TerraformResource
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);

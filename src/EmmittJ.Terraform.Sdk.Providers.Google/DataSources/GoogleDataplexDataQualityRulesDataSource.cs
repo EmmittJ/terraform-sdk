@@ -20,7 +20,8 @@ public class GoogleDataplexDataQualityRulesDataSource : TerraformDataSource
     /// <summary>
     /// The data_scan_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataScanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataScanId is required")]
+    public required TerraformProperty<string> DataScanId
     {
         get => GetProperty<TerraformProperty<string>>("data_scan_id");
         set => this.WithProperty("data_scan_id", value);

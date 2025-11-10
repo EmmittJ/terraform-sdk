@@ -22,7 +22,8 @@ public class AwsAppfabricIngestion : TerraformResource
     /// <summary>
     /// The app attribute.
     /// </summary>
-    public TerraformProperty<string>? App
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
+    public required TerraformProperty<string> App
     {
         get => GetProperty<TerraformProperty<string>>("app");
         set => this.WithProperty("app", value);
@@ -31,7 +32,8 @@ public class AwsAppfabricIngestion : TerraformResource
     /// <summary>
     /// The app_bundle_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AppBundleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
+    public required TerraformProperty<string> AppBundleArn
     {
         get => GetProperty<TerraformProperty<string>>("app_bundle_arn");
         set => this.WithProperty("app_bundle_arn", value);
@@ -40,7 +42,8 @@ public class AwsAppfabricIngestion : TerraformResource
     /// <summary>
     /// The ingestion_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IngestionType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionType is required")]
+    public required TerraformProperty<string> IngestionType
     {
         get => GetProperty<TerraformProperty<string>>("ingestion_type");
         set => this.WithProperty("ingestion_type", value);
@@ -58,16 +61,17 @@ public class AwsAppfabricIngestion : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformProperty<string> TenantId
     {
         get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);

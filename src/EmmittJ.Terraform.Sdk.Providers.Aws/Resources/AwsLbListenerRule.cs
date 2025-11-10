@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for action in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbListenerRuleActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The order attribute.
+    /// </summary>
+    public TerraformProperty<double>? Order
+    {
+        get => GetProperty<TerraformProperty<double>>("order");
+        set => WithProperty("order", value);
+    }
+
+    /// <summary>
+    /// The target_group_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TargetGroupArn
+    {
+        get => GetProperty<TerraformProperty<string>>("target_group_arn");
+        set => WithProperty("target_group_arn", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for condition in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLbListenerRuleConditionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for transform in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLbListenerRuleTransformBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lb_listener_rule resource.
 /// </summary>
 public class AwsLbListenerRule : TerraformResource
@@ -29,7 +91,8 @@ public class AwsLbListenerRule : TerraformResource
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ListenerArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
+    public required TerraformProperty<string> ListenerArn
     {
         get => GetProperty<TerraformProperty<string>>("listener_arn");
         set => this.WithProperty("listener_arn", value);
@@ -56,19 +119,52 @@ public class AwsLbListenerRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for action.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
+    public List<AwsLbListenerRuleActionBlock>? Action
+    {
+        get => GetProperty<List<AwsLbListenerRuleActionBlock>>("action");
+        set => this.WithProperty("action", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Condition block(s) required")]
+    public HashSet<AwsLbListenerRuleConditionBlock>? Condition
+    {
+        get => GetProperty<HashSet<AwsLbListenerRuleConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
+    }
+
+    /// <summary>
+    /// Block for transform.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Transform block(s) allowed")]
+    public HashSet<AwsLbListenerRuleTransformBlock>? Transform
+    {
+        get => GetProperty<HashSet<AwsLbListenerRuleTransformBlock>>("transform");
+        set => this.WithProperty("transform", value);
     }
 
     /// <summary>

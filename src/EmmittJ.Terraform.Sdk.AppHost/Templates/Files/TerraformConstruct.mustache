@@ -85,9 +85,9 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#ValidationAttributes}}
     {{{.}}}
 {{/ValidationAttributes}}
-    public {{BlockPropertyType}}? {{Name}}
+    public {{{BlockPropertyType}}}? {{Name}}
     {
-        get => GetProperty<{{BlockPropertyType}}>("{{TerraformName}}");
+        get => GetProperty<{{{BlockPropertyType}}}>("{{TerraformName}}");
         set => this.WithProperty("{{TerraformName}}", value);
     }
 

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMaintenanceAssignmentVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_maintenance_assignment_virtual_machine_scale_set resource.
 /// </summary>
 public class AzurermMaintenanceAssignmentVirtualMachineScaleSet : TerraformResource
@@ -28,7 +63,8 @@ public class AzurermMaintenanceAssignmentVirtualMachineScaleSet : TerraformResou
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -37,7 +73,8 @@ public class AzurermMaintenanceAssignmentVirtualMachineScaleSet : TerraformResou
     /// <summary>
     /// The maintenance_configuration_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MaintenanceConfigurationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
+    public required TerraformProperty<string> MaintenanceConfigurationId
     {
         get => GetProperty<TerraformProperty<string>>("maintenance_configuration_id");
         set => this.WithProperty("maintenance_configuration_id", value);
@@ -46,10 +83,21 @@ public class AzurermMaintenanceAssignmentVirtualMachineScaleSet : TerraformResou
     /// <summary>
     /// The virtual_machine_scale_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualMachineScaleSetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineScaleSetId is required")]
+    public required TerraformProperty<string> VirtualMachineScaleSetId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_machine_scale_set_id");
         set => this.WithProperty("virtual_machine_scale_set_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMaintenanceAssignmentVirtualMachineScaleSetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMaintenanceAssignmentVirtualMachineScaleSetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -30,7 +30,8 @@ public class GoogleDataCatalogPolicyTagIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The policy_tag attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyTag
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyTag is required")]
+    public required TerraformProperty<string> PolicyTag
     {
         get => GetProperty<TerraformProperty<string>>("policy_tag");
         set => this.WithProperty("policy_tag", value);

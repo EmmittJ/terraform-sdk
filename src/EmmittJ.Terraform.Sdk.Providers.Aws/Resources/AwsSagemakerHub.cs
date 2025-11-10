@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for s3_storage_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerHubS3StorageConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The s3_output_path attribute.
+    /// </summary>
+    public TerraformProperty<string>? S3OutputPath
+    {
+        get => GetProperty<TerraformProperty<string>>("s3_output_path");
+        set => WithProperty("s3_output_path", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_hub resource.
 /// </summary>
 public class AwsSagemakerHub : TerraformResource
@@ -20,7 +37,8 @@ public class AwsSagemakerHub : TerraformResource
     /// <summary>
     /// The hub_description attribute.
     /// </summary>
-    public TerraformProperty<string>? HubDescription
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubDescription is required")]
+    public required TerraformProperty<string> HubDescription
     {
         get => GetProperty<TerraformProperty<string>>("hub_description");
         set => this.WithProperty("hub_description", value);
@@ -38,7 +56,8 @@ public class AwsSagemakerHub : TerraformResource
     /// <summary>
     /// The hub_name attribute.
     /// </summary>
-    public TerraformProperty<string>? HubName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubName is required")]
+    public required TerraformProperty<string> HubName
     {
         get => GetProperty<TerraformProperty<string>>("hub_name");
         set => this.WithProperty("hub_name", value);
@@ -47,9 +66,9 @@ public class AwsSagemakerHub : TerraformResource
     /// <summary>
     /// The hub_search_keywords attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? HubSearchKeywords
+    public HashSet<TerraformProperty<string>>? HubSearchKeywords
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("hub_search_keywords");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("hub_search_keywords");
         set => this.WithProperty("hub_search_keywords", value);
     }
 
@@ -74,19 +93,30 @@ public class AwsSagemakerHub : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for s3_storage_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3StorageConfig block(s) allowed")]
+    public List<AwsSagemakerHubS3StorageConfigBlock>? S3StorageConfig
+    {
+        get => GetProperty<List<AwsSagemakerHubS3StorageConfigBlock>>("s3_storage_config");
+        set => this.WithProperty("s3_storage_config", value);
     }
 
     /// <summary>

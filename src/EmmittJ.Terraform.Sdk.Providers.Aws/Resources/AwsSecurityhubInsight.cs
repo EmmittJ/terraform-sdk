@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSecurityhubInsightFiltersBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_securityhub_insight resource.
 /// </summary>
 public class AwsSecurityhubInsight : TerraformResource
@@ -20,7 +28,8 @@ public class AwsSecurityhubInsight : TerraformResource
     /// <summary>
     /// The group_by_attribute attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupByAttribute
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupByAttribute is required")]
+    public required TerraformProperty<string> GroupByAttribute
     {
         get => GetProperty<TerraformProperty<string>>("group_by_attribute");
         set => this.WithProperty("group_by_attribute", value);
@@ -38,7 +47,8 @@ public class AwsSecurityhubInsight : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -51,6 +61,18 @@ public class AwsSecurityhubInsight : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for filters.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filters block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filters block(s) allowed")]
+    public List<AwsSecurityhubInsightFiltersBlock>? Filters
+    {
+        get => GetProperty<List<AwsSecurityhubInsightFiltersBlock>>("filters");
+        set => this.WithProperty("filters", value);
     }
 
     /// <summary>

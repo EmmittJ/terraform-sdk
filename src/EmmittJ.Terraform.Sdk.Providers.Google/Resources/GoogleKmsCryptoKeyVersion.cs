@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for external_protection_level_options in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The path to the external key material on the EKM when using EkmConnection e.g., &amp;quot;v0/my/key&amp;quot;. Set this field instead of externalKeyUri when using an EkmConnection.
+    /// </summary>
+    public TerraformProperty<string>? EkmConnectionKeyPath
+    {
+        get => GetProperty<TerraformProperty<string>>("ekm_connection_key_path");
+        set => WithProperty("ekm_connection_key_path", value);
+    }
+
+    /// <summary>
+    /// The URI for an external resource that this CryptoKeyVersion represents.
+    /// </summary>
+    public TerraformProperty<string>? ExternalKeyUri
+    {
+        get => GetProperty<TerraformProperty<string>>("external_key_uri");
+        set => WithProperty("external_key_uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_kms_crypto_key_version resource.
 /// </summary>
 public class GoogleKmsCryptoKeyVersion : TerraformResource
@@ -25,7 +86,8 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
     /// The name of the cryptoKey associated with the CryptoKeyVersions.
     /// Format: &#39;&#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyring}}/cryptoKeys/{{cryptoKey}}&#39;&#39;
     /// </summary>
-    public TerraformProperty<string>? CryptoKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
+    public required TerraformProperty<string> CryptoKey
     {
         get => GetProperty<TerraformProperty<string>>("crypto_key");
         set => this.WithProperty("crypto_key", value);
@@ -48,6 +110,27 @@ public class GoogleKmsCryptoKeyVersion : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
+    }
+
+    /// <summary>
+    /// Block for external_protection_level_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalProtectionLevelOptions block(s) allowed")]
+    public List<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>? ExternalProtectionLevelOptions
+    {
+        get => GetProperty<List<GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock>>("external_protection_level_options");
+        set => this.WithProperty("external_protection_level_options", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleKmsCryptoKeyVersionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleKmsCryptoKeyVersionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

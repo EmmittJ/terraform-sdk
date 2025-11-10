@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for retention_rule in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_data_protection_backup_policy_blob_storage resource.
 /// </summary>
 public class AzurermDataProtectionBackupPolicyBlobStorage : TerraformResource
@@ -19,9 +82,9 @@ public class AzurermDataProtectionBackupPolicyBlobStorage : TerraformResource
     /// <summary>
     /// The backup_repeating_time_intervals attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? BackupRepeatingTimeIntervals
+    public List<TerraformProperty<string>>? BackupRepeatingTimeIntervals
     {
-        get => GetProperty<TerraformProperty<List<string>>>("backup_repeating_time_intervals");
+        get => GetProperty<List<TerraformProperty<string>>>("backup_repeating_time_intervals");
         set => this.WithProperty("backup_repeating_time_intervals", value);
     }
 
@@ -37,7 +100,8 @@ public class AzurermDataProtectionBackupPolicyBlobStorage : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -73,10 +137,31 @@ public class AzurermDataProtectionBackupPolicyBlobStorage : TerraformResource
     /// <summary>
     /// The vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
+    public required TerraformProperty<string> VaultId
     {
         get => GetProperty<TerraformProperty<string>>("vault_id");
         set => this.WithProperty("vault_id", value);
+    }
+
+    /// <summary>
+    /// Block for retention_rule.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock>? RetentionRule
+    {
+        get => GetProperty<List<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock>>("retention_rule");
+        set => this.WithProperty("retention_rule", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

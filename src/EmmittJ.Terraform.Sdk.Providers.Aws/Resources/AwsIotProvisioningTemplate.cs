@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for pre_provisioning_hook in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIotProvisioningTemplatePreProvisioningHookBlock : TerraformBlock
+{
+    /// <summary>
+    /// The payload_version attribute.
+    /// </summary>
+    public TerraformProperty<string>? PayloadVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("payload_version");
+        set => WithProperty("payload_version", value);
+    }
+
+    /// <summary>
+    /// The target_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
+    public required TerraformProperty<string> TargetArn
+    {
+        get => GetProperty<TerraformProperty<string>>("target_arn");
+        set => WithProperty("target_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_iot_provisioning_template resource.
 /// </summary>
 public class AwsIotProvisioningTemplate : TerraformResource
@@ -48,7 +75,8 @@ public class AwsIotProvisioningTemplate : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -57,7 +85,8 @@ public class AwsIotProvisioningTemplate : TerraformResource
     /// <summary>
     /// The provisioning_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ProvisioningRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisioningRoleArn is required")]
+    public required TerraformProperty<string> ProvisioningRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("provisioning_role_arn");
         set => this.WithProperty("provisioning_role_arn", value);
@@ -75,25 +104,26 @@ public class AwsIotProvisioningTemplate : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    public TerraformProperty<string>? TemplateBody
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateBody is required")]
+    public required TerraformProperty<string> TemplateBody
     {
         get => GetProperty<TerraformProperty<string>>("template_body");
         set => this.WithProperty("template_body", value);
@@ -106,6 +136,17 @@ public class AwsIotProvisioningTemplate : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for pre_provisioning_hook.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreProvisioningHook block(s) allowed")]
+    public List<AwsIotProvisioningTemplatePreProvisioningHookBlock>? PreProvisioningHook
+    {
+        get => GetProperty<List<AwsIotProvisioningTemplatePreProvisioningHookBlock>>("pre_provisioning_hook");
+        set => this.WithProperty("pre_provisioning_hook", value);
     }
 
     /// <summary>

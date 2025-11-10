@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for rotation_rules in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The automatically_after_days attribute.
+    /// </summary>
+    public TerraformProperty<double>? AutomaticallyAfterDays
+    {
+        get => GetProperty<TerraformProperty<double>>("automatically_after_days");
+        set => WithProperty("automatically_after_days", value);
+    }
+
+    /// <summary>
+    /// The duration attribute.
+    /// </summary>
+    public TerraformProperty<string>? Duration
+    {
+        get => GetProperty<TerraformProperty<string>>("duration");
+        set => WithProperty("duration", value);
+    }
+
+    /// <summary>
+    /// The schedule_expression attribute.
+    /// </summary>
+    public TerraformProperty<string>? ScheduleExpression
+    {
+        get => GetProperty<TerraformProperty<string>>("schedule_expression");
+        set => WithProperty("schedule_expression", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_secretsmanager_secret_rotation resource.
 /// </summary>
 public class AwsSecretsmanagerSecretRotation : TerraformResource
@@ -56,10 +91,23 @@ public class AwsSecretsmanagerSecretRotation : TerraformResource
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
+    public required TerraformProperty<string> SecretId
     {
         get => GetProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);
+    }
+
+    /// <summary>
+    /// Block for rotation_rules.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RotationRules block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationRules block(s) allowed")]
+    public List<AwsSecretsmanagerSecretRotationRotationRulesBlock>? RotationRules
+    {
+        get => GetProperty<List<AwsSecretsmanagerSecretRotationRotationRulesBlock>>("rotation_rules");
+        set => this.WithProperty("rotation_rules", value);
     }
 
     /// <summary>

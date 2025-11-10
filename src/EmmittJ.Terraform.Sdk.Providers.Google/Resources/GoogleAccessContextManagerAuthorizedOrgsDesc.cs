@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_access_context_manager_authorized_orgs_desc resource.
 /// </summary>
 public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
@@ -79,7 +114,8 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// alphanumeric characters or &#39;_&#39;.
     /// After you create an &#39;AuthorizedOrgsDesc&#39;, you cannot change its &#39;name&#39;.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -90,19 +126,30 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// Format: &#39;organizations/&amp;lt;org_number&amp;gt;&#39;
     /// Example: &#39;organizations/123456&#39;
     /// </summary>
-    public TerraformProperty<List<string>>? Orgs
+    public List<TerraformProperty<string>>? Orgs
     {
-        get => GetProperty<TerraformProperty<List<string>>>("orgs");
+        get => GetProperty<List<TerraformProperty<string>>>("orgs");
         set => this.WithProperty("orgs", value);
     }
 
     /// <summary>
     /// Required. Resource name for the access policy which owns this &#39;AuthorizedOrgsDesc&#39;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

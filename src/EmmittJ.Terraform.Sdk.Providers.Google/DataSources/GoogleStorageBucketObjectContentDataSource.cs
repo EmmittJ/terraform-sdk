@@ -46,7 +46,8 @@ public class GoogleStorageBucketObjectContentDataSource : TerraformDataSource
     /// <summary>
     /// The name of the containing bucket.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -73,7 +74,8 @@ public class GoogleStorageBucketObjectContentDataSource : TerraformDataSource
     /// <summary>
     /// The name of the object. If you&#39;re interpolating the name of this object, see output_name instead.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

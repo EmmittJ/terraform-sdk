@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDatasyncAgentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_datasync_agent resource.
 /// </summary>
 public class AwsDatasyncAgent : TerraformResource
@@ -74,36 +91,36 @@ public class AwsDatasyncAgent : TerraformResource
     /// <summary>
     /// The security_group_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupArns
+    public HashSet<TerraformProperty<string>>? SecurityGroupArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_arns");
         set => this.WithProperty("security_group_arns", value);
     }
 
     /// <summary>
     /// The subnet_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetArns
+    public HashSet<TerraformProperty<string>>? SubnetArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_arns");
         set => this.WithProperty("subnet_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -114,6 +131,16 @@ public class AwsDatasyncAgent : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDatasyncAgentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDatasyncAgentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

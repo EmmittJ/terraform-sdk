@@ -40,7 +40,8 @@ public class AwsOamSinkDataSource : TerraformDataSource
     /// <summary>
     /// The sink_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? SinkIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
+    public required TerraformProperty<string> SinkIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("sink_identifier");
         set => this.WithProperty("sink_identifier", value);
@@ -49,9 +50,9 @@ public class AwsOamSinkDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

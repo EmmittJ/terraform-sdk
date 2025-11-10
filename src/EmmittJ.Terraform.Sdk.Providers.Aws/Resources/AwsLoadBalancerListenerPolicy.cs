@@ -28,7 +28,8 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
     /// <summary>
     /// The load_balancer_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
+    public required TerraformProperty<string> LoadBalancerName
     {
         get => GetProperty<TerraformProperty<string>>("load_balancer_name");
         set => this.WithProperty("load_balancer_name", value);
@@ -37,7 +38,8 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
     /// <summary>
     /// The load_balancer_port attribute.
     /// </summary>
-    public TerraformProperty<double>? LoadBalancerPort
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerPort is required")]
+    public required TerraformProperty<double> LoadBalancerPort
     {
         get => GetProperty<TerraformProperty<double>>("load_balancer_port");
         set => this.WithProperty("load_balancer_port", value);
@@ -46,9 +48,9 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? PolicyNames
+    public HashSet<TerraformProperty<string>>? PolicyNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("policy_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("policy_names");
         set => this.WithProperty("policy_names", value);
     }
 
@@ -64,9 +66,9 @@ public class AwsLoadBalancerListenerPolicy : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Triggers
+    public Dictionary<string, TerraformProperty<string>>? Triggers
     {
-        get => GetProperty<TerraformMapProperty<string>>("triggers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 

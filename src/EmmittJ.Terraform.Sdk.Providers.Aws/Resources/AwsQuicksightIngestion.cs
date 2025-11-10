@@ -31,7 +31,8 @@ public class AwsQuicksightIngestion : TerraformResource
     /// <summary>
     /// The data_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataSetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
+    public required TerraformProperty<string> DataSetId
     {
         get => GetProperty<TerraformProperty<string>>("data_set_id");
         set => this.WithProperty("data_set_id", value);
@@ -40,7 +41,8 @@ public class AwsQuicksightIngestion : TerraformResource
     /// <summary>
     /// The ingestion_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IngestionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionId is required")]
+    public required TerraformProperty<string> IngestionId
     {
         get => GetProperty<TerraformProperty<string>>("ingestion_id");
         set => this.WithProperty("ingestion_id", value);
@@ -49,7 +51,8 @@ public class AwsQuicksightIngestion : TerraformResource
     /// <summary>
     /// The ingestion_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IngestionType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionType is required")]
+    public required TerraformProperty<string> IngestionType
     {
         get => GetProperty<TerraformProperty<string>>("ingestion_type");
         set => this.WithProperty("ingestion_type", value);

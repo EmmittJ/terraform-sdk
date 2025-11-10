@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermBotChannelAlexaTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_bot_channel_alexa resource.
 /// </summary>
 public class AzurermBotChannelAlexa : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermBotChannelAlexa : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BotName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
+    public required TerraformProperty<string> BotName
     {
         get => GetProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
@@ -37,7 +82,8 @@ public class AzurermBotChannelAlexa : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -46,7 +92,8 @@ public class AzurermBotChannelAlexa : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -55,10 +102,21 @@ public class AzurermBotChannelAlexa : TerraformResource
     /// <summary>
     /// The skill_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SkillId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkillId is required")]
+    public required TerraformProperty<string> SkillId
     {
         get => GetProperty<TerraformProperty<string>>("skill_id");
         set => this.WithProperty("skill_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermBotChannelAlexaTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermBotChannelAlexaTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for ui_template in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerHumanTaskUiUiTemplateBlock : TerraformBlock
+{
+    /// <summary>
+    /// The content attribute.
+    /// </summary>
+    public TerraformProperty<string>? Content
+    {
+        get => GetProperty<TerraformProperty<string>>("content");
+        set => WithProperty("content", value);
+    }
+
+    /// <summary>
+    /// The content_sha256 attribute.
+    /// </summary>
+    public TerraformProperty<string>? ContentSha256
+    {
+        get => GetProperty<TerraformProperty<string>>("content_sha256");
+        set => WithProperty("content_sha256", value);
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    public TerraformProperty<string>? Url
+    {
+        get => GetProperty<TerraformProperty<string>>("url");
+        set => WithProperty("url", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_human_task_ui resource.
 /// </summary>
 public class AwsSagemakerHumanTaskUi : TerraformResource
@@ -20,7 +55,8 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
     /// <summary>
     /// The human_task_ui_name attribute.
     /// </summary>
-    public TerraformProperty<string>? HumanTaskUiName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiName is required")]
+    public required TerraformProperty<string> HumanTaskUiName
     {
         get => GetProperty<TerraformProperty<string>>("human_task_ui_name");
         set => this.WithProperty("human_task_ui_name", value);
@@ -47,19 +83,31 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for ui_template.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UiTemplate block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UiTemplate block(s) allowed")]
+    public List<AwsSagemakerHumanTaskUiUiTemplateBlock>? UiTemplate
+    {
+        get => GetProperty<List<AwsSagemakerHumanTaskUiUiTemplateBlock>>("ui_template");
+        set => this.WithProperty("ui_template", value);
     }
 
     /// <summary>

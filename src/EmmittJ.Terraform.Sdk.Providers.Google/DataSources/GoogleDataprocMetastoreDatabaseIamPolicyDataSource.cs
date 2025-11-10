@@ -21,7 +21,8 @@ public class GoogleDataprocMetastoreDatabaseIamPolicyDataSource : TerraformDataS
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public TerraformProperty<string>? Database
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
+    public required TerraformProperty<string> Database
     {
         get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
@@ -57,7 +58,8 @@ public class GoogleDataprocMetastoreDatabaseIamPolicyDataSource : TerraformDataS
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
+    public required TerraformProperty<string> ServiceId
     {
         get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);

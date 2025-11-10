@@ -20,7 +20,8 @@ public class GoogleCloudIdentityGroupTransitiveMembershipsDataSource : Terraform
     /// <summary>
     /// The name of the Group to get memberships from.
     /// </summary>
-    public TerraformProperty<string>? Group
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
+    public required TerraformProperty<string> Group
     {
         get => GetProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);

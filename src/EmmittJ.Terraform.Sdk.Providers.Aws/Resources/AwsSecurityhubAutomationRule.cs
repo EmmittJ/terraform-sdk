@@ -3,6 +3,31 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for actions in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSecurityhubAutomationRuleActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for criteria in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSecurityhubAutomationRuleCriteriaBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_securityhub_automation_rule resource.
 /// </summary>
 public class AwsSecurityhubAutomationRule : TerraformResource
@@ -22,7 +47,8 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
+    public required TerraformProperty<string> Description
     {
         get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
@@ -49,7 +75,8 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
+    public required TerraformProperty<string> RuleName
     {
         get => GetProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
@@ -58,7 +85,8 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     /// <summary>
     /// The rule_order attribute.
     /// </summary>
-    public TerraformProperty<double>? RuleOrder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleOrder is required")]
+    public required TerraformProperty<double> RuleOrder
     {
         get => GetProperty<TerraformProperty<double>>("rule_order");
         set => this.WithProperty("rule_order", value);
@@ -76,10 +104,30 @@ public class AwsSecurityhubAutomationRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for actions.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSecurityhubAutomationRuleActionsBlock>? Actions
+    {
+        get => GetProperty<HashSet<AwsSecurityhubAutomationRuleActionsBlock>>("actions");
+        set => this.WithProperty("actions", value);
+    }
+
+    /// <summary>
+    /// Block for criteria.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSecurityhubAutomationRuleCriteriaBlock>? Criteria
+    {
+        get => GetProperty<List<AwsSecurityhubAutomationRuleCriteriaBlock>>("criteria");
+        set => this.WithProperty("criteria", value);
     }
 
     /// <summary>

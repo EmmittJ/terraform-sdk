@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigqueryReservationAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigquery_reservation_assignment resource.
 /// </summary>
 public class GoogleBigqueryReservationAssignment : TerraformResource
@@ -21,7 +47,8 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     /// <summary>
     /// The resource which will use the reservation. E.g. projects/myproject, folders/123, organizations/456.
     /// </summary>
-    public TerraformProperty<string>? Assignee
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assignee is required")]
+    public required TerraformProperty<string> Assignee
     {
         get => GetProperty<TerraformProperty<string>>("assignee");
         set => this.WithProperty("assignee", value);
@@ -39,7 +66,8 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     /// <summary>
     /// Types of job, which could be specified when using the reservation. Possible values: JOB_TYPE_UNSPECIFIED, PIPELINE, QUERY, CONTINUOUS
     /// </summary>
-    public TerraformProperty<string>? JobType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
+    public required TerraformProperty<string> JobType
     {
         get => GetProperty<TerraformProperty<string>>("job_type");
         set => this.WithProperty("job_type", value);
@@ -66,10 +94,21 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     /// <summary>
     /// The reservation for the resource
     /// </summary>
-    public TerraformProperty<string>? Reservation
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reservation is required")]
+    public required TerraformProperty<string> Reservation
     {
         get => GetProperty<TerraformProperty<string>>("reservation");
         set => this.WithProperty("reservation", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigqueryReservationAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigqueryReservationAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

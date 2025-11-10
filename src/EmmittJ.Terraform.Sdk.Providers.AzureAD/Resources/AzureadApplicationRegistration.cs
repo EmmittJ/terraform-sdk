@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadApplicationRegistrationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_application_registration resource.
 /// </summary>
 public class AzureadApplicationRegistration : TerraformResource
@@ -32,7 +76,8 @@ public class AzureadApplicationRegistration : TerraformResource
     /// <summary>
     /// The display name for the application
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -41,9 +86,9 @@ public class AzureadApplicationRegistration : TerraformResource
     /// <summary>
     /// Configures the `groups` claim that the app expects issued in a user or OAuth access token
     /// </summary>
-    public TerraformProperty<HashSet<string>>? GroupMembershipClaims
+    public HashSet<TerraformProperty<string>>? GroupMembershipClaims
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("group_membership_claims");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("group_membership_claims");
         set => this.WithProperty("group_membership_claims", value);
     }
 
@@ -162,6 +207,16 @@ public class AzureadApplicationRegistration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("terms_of_service_url");
         set => this.WithProperty("terms_of_service_url", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadApplicationRegistrationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadApplicationRegistrationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

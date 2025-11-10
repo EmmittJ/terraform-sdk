@@ -3,6 +3,63 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for route in .
+/// Nesting mode: set
+/// </summary>
+public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
+{
+    /// <summary>
+    /// The host attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
+    public required TerraformProperty<string> Host
+    {
+        get => GetProperty<TerraformProperty<string>>("host");
+        set => WithProperty("host", value);
+    }
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformProperty<double>? Port
+    {
+        get => GetProperty<TerraformProperty<double>>("port");
+        set => WithProperty("port", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
+    {
+        get => GetProperty<TerraformProperty<string>>("protocol");
+        set => WithProperty("protocol", value);
+    }
+
+    /// <summary>
+    /// The weight attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
+    public required TerraformProperty<double> Weight
+    {
+        get => GetProperty<TerraformProperty<double>>("weight");
+        set => WithProperty("weight", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_chime_voice_connector_origination resource.
 /// </summary>
 public class AwsChimeVoiceConnectorOrigination : TerraformResource
@@ -46,10 +103,23 @@ public class AwsChimeVoiceConnectorOrigination : TerraformResource
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VoiceConnectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
+    public required TerraformProperty<string> VoiceConnectorId
     {
         get => GetProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);
+    }
+
+    /// <summary>
+    /// Block for route.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Route block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Route block(s) allowed")]
+    public HashSet<AwsChimeVoiceConnectorOriginationRouteBlock>? Route
+    {
+        get => GetProperty<HashSet<AwsChimeVoiceConnectorOriginationRouteBlock>>("route");
+        set => this.WithProperty("route", value);
     }
 
 }

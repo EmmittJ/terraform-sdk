@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadPrivilegedAccessGroupEligibilityScheduleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_privileged_access_group_eligibility_schedule resource.
 /// </summary>
 public class AzureadPrivilegedAccessGroupEligibilitySchedule : TerraformResource
@@ -20,7 +64,8 @@ public class AzureadPrivilegedAccessGroupEligibilitySchedule : TerraformResource
     /// <summary>
     /// The ID of the assignment to the group
     /// </summary>
-    public TerraformProperty<string>? AssignmentType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentType is required")]
+    public required TerraformProperty<string> AssignmentType
     {
         get => GetProperty<TerraformProperty<string>>("assignment_type");
         set => this.WithProperty("assignment_type", value);
@@ -47,7 +92,8 @@ public class AzureadPrivilegedAccessGroupEligibilitySchedule : TerraformResource
     /// <summary>
     /// The ID of the Group representing the scope of the assignment
     /// </summary>
-    public TerraformProperty<string>? GroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
+    public required TerraformProperty<string> GroupId
     {
         get => GetProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
@@ -83,7 +129,8 @@ public class AzureadPrivilegedAccessGroupEligibilitySchedule : TerraformResource
     /// <summary>
     /// The ID of the Principal assigned to the schedule
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
+    public required TerraformProperty<string> PrincipalId
     {
         get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
@@ -114,6 +161,16 @@ public class AzureadPrivilegedAccessGroupEligibilitySchedule : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("ticket_system");
         set => this.WithProperty("ticket_system", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadPrivilegedAccessGroupEligibilityScheduleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadPrivilegedAccessGroupEligibilityScheduleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

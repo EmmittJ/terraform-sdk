@@ -19,7 +19,8 @@ public class AwsIamAccountAlias : TerraformResource
     /// <summary>
     /// The account_alias attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountAlias
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAlias is required")]
+    public required TerraformProperty<string> AccountAlias
     {
         get => GetProperty<TerraformProperty<string>>("account_alias");
         set => this.WithProperty("account_alias", value);

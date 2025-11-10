@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for target_action in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRedshiftScheduledActionTargetActionBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_redshift_scheduled_action resource.
 /// </summary>
 public class AwsRedshiftScheduledAction : TerraformResource
@@ -46,7 +54,8 @@ public class AwsRedshiftScheduledAction : TerraformResource
     /// <summary>
     /// The iam_role attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRole
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
+    public required TerraformProperty<string> IamRole
     {
         get => GetProperty<TerraformProperty<string>>("iam_role");
         set => this.WithProperty("iam_role", value);
@@ -64,7 +73,8 @@ public class AwsRedshiftScheduledAction : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -82,7 +92,8 @@ public class AwsRedshiftScheduledAction : TerraformResource
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public TerraformProperty<string>? Schedule
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
+    public required TerraformProperty<string> Schedule
     {
         get => GetProperty<TerraformProperty<string>>("schedule");
         set => this.WithProperty("schedule", value);
@@ -95,6 +106,18 @@ public class AwsRedshiftScheduledAction : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("start_time");
         set => this.WithProperty("start_time", value);
+    }
+
+    /// <summary>
+    /// Block for target_action.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetAction block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetAction block(s) allowed")]
+    public List<AwsRedshiftScheduledActionTargetActionBlock>? TargetAction
+    {
+        get => GetProperty<List<AwsRedshiftScheduledActionTargetActionBlock>>("target_action");
+        set => this.WithProperty("target_action", value);
     }
 
 }

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_bedrockagent_agent_knowledge_base_association resource.
 /// </summary>
 public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
@@ -20,7 +46,8 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AgentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
+    public required TerraformProperty<string> AgentId
     {
         get => GetProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
@@ -38,7 +65,8 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformProperty<string>? Description
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
+    public required TerraformProperty<string> Description
     {
         get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
@@ -47,7 +75,8 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     /// <summary>
     /// The knowledge_base_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KnowledgeBaseId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseId is required")]
+    public required TerraformProperty<string> KnowledgeBaseId
     {
         get => GetProperty<TerraformProperty<string>>("knowledge_base_id");
         set => this.WithProperty("knowledge_base_id", value);
@@ -56,7 +85,8 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     /// <summary>
     /// The knowledge_base_state attribute.
     /// </summary>
-    public TerraformProperty<string>? KnowledgeBaseState
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseState is required")]
+    public required TerraformProperty<string> KnowledgeBaseState
     {
         get => GetProperty<TerraformProperty<string>>("knowledge_base_state");
         set => this.WithProperty("knowledge_base_state", value);
@@ -69,6 +99,16 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociation : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

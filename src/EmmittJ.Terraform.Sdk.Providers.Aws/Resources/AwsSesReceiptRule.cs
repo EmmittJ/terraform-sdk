@@ -3,6 +3,331 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for add_header_action in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The header_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
+    public required TerraformProperty<string> HeaderName
+    {
+        get => GetProperty<TerraformProperty<string>>("header_name");
+        set => WithProperty("header_name", value);
+    }
+
+    /// <summary>
+    /// The header_value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
+    public required TerraformProperty<string> HeaderValue
+    {
+        get => GetProperty<TerraformProperty<string>>("header_value");
+        set => WithProperty("header_value", value);
+    }
+
+    /// <summary>
+    /// The position attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
+    public required TerraformProperty<double> Position
+    {
+        get => GetProperty<TerraformProperty<double>>("position");
+        set => WithProperty("position", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for bounce_action in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The message attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Message is required")]
+    public required TerraformProperty<string> Message
+    {
+        get => GetProperty<TerraformProperty<string>>("message");
+        set => WithProperty("message", value);
+    }
+
+    /// <summary>
+    /// The position attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
+    public required TerraformProperty<double> Position
+    {
+        get => GetProperty<TerraformProperty<double>>("position");
+        set => WithProperty("position", value);
+    }
+
+    /// <summary>
+    /// The sender attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sender is required")]
+    public required TerraformProperty<string> Sender
+    {
+        get => GetProperty<TerraformProperty<string>>("sender");
+        set => WithProperty("sender", value);
+    }
+
+    /// <summary>
+    /// The smtp_reply_code attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmtpReplyCode is required")]
+    public required TerraformProperty<string> SmtpReplyCode
+    {
+        get => GetProperty<TerraformProperty<string>>("smtp_reply_code");
+        set => WithProperty("smtp_reply_code", value);
+    }
+
+    /// <summary>
+    /// The status_code attribute.
+    /// </summary>
+    public TerraformProperty<string>? StatusCode
+    {
+        get => GetProperty<TerraformProperty<string>>("status_code");
+        set => WithProperty("status_code", value);
+    }
+
+    /// <summary>
+    /// The topic_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        set => WithProperty("topic_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for lambda_action in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSesReceiptRuleLambdaActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The function_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
+    public required TerraformProperty<string> FunctionArn
+    {
+        get => GetProperty<TerraformProperty<string>>("function_arn");
+        set => WithProperty("function_arn", value);
+    }
+
+    /// <summary>
+    /// The invocation_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? InvocationType
+    {
+        get => GetProperty<TerraformProperty<string>>("invocation_type");
+        set => WithProperty("invocation_type", value);
+    }
+
+    /// <summary>
+    /// The position attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
+    public required TerraformProperty<double> Position
+    {
+        get => GetProperty<TerraformProperty<double>>("position");
+        set => WithProperty("position", value);
+    }
+
+    /// <summary>
+    /// The topic_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        set => WithProperty("topic_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for s3_action in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        set => WithProperty("bucket_name", value);
+    }
+
+    /// <summary>
+    /// The iam_role_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? IamRoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
+        set => WithProperty("iam_role_arn", value);
+    }
+
+    /// <summary>
+    /// The kms_key_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyArn
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
+        set => WithProperty("kms_key_arn", value);
+    }
+
+    /// <summary>
+    /// The object_key_prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? ObjectKeyPrefix
+    {
+        get => GetProperty<TerraformProperty<string>>("object_key_prefix");
+        set => WithProperty("object_key_prefix", value);
+    }
+
+    /// <summary>
+    /// The position attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
+    public required TerraformProperty<double> Position
+    {
+        get => GetProperty<TerraformProperty<double>>("position");
+        set => WithProperty("position", value);
+    }
+
+    /// <summary>
+    /// The topic_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        set => WithProperty("topic_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for sns_action in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSesReceiptRuleSnsActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The encoding attribute.
+    /// </summary>
+    public TerraformProperty<string>? Encoding
+    {
+        get => GetProperty<TerraformProperty<string>>("encoding");
+        set => WithProperty("encoding", value);
+    }
+
+    /// <summary>
+    /// The position attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
+    public required TerraformProperty<double> Position
+    {
+        get => GetProperty<TerraformProperty<double>>("position");
+        set => WithProperty("position", value);
+    }
+
+    /// <summary>
+    /// The topic_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
+    public required TerraformProperty<string> TopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        set => WithProperty("topic_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for stop_action in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSesReceiptRuleStopActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The position attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
+    public required TerraformProperty<double> Position
+    {
+        get => GetProperty<TerraformProperty<double>>("position");
+        set => WithProperty("position", value);
+    }
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
+    {
+        get => GetProperty<TerraformProperty<string>>("scope");
+        set => WithProperty("scope", value);
+    }
+
+    /// <summary>
+    /// The topic_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        set => WithProperty("topic_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for workmail_action in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSesReceiptRuleWorkmailActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The organization_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationArn is required")]
+    public required TerraformProperty<string> OrganizationArn
+    {
+        get => GetProperty<TerraformProperty<string>>("organization_arn");
+        set => WithProperty("organization_arn", value);
+    }
+
+    /// <summary>
+    /// The position attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
+    public required TerraformProperty<double> Position
+    {
+        get => GetProperty<TerraformProperty<double>>("position");
+        set => WithProperty("position", value);
+    }
+
+    /// <summary>
+    /// The topic_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
+        set => WithProperty("topic_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ses_receipt_rule resource.
 /// </summary>
 public class AwsSesReceiptRule : TerraformResource
@@ -47,7 +372,8 @@ public class AwsSesReceiptRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,9 +382,9 @@ public class AwsSesReceiptRule : TerraformResource
     /// <summary>
     /// The recipients attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Recipients
+    public HashSet<TerraformProperty<string>>? Recipients
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("recipients");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("recipients");
         set => this.WithProperty("recipients", value);
     }
 
@@ -74,7 +400,8 @@ public class AwsSesReceiptRule : TerraformResource
     /// <summary>
     /// The rule_set_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleSetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSetName is required")]
+    public required TerraformProperty<string> RuleSetName
     {
         get => GetProperty<TerraformProperty<string>>("rule_set_name");
         set => this.WithProperty("rule_set_name", value);
@@ -96,6 +423,76 @@ public class AwsSesReceiptRule : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("tls_policy");
         set => this.WithProperty("tls_policy", value);
+    }
+
+    /// <summary>
+    /// Block for add_header_action.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSesReceiptRuleAddHeaderActionBlock>? AddHeaderAction
+    {
+        get => GetProperty<HashSet<AwsSesReceiptRuleAddHeaderActionBlock>>("add_header_action");
+        set => this.WithProperty("add_header_action", value);
+    }
+
+    /// <summary>
+    /// Block for bounce_action.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSesReceiptRuleBounceActionBlock>? BounceAction
+    {
+        get => GetProperty<HashSet<AwsSesReceiptRuleBounceActionBlock>>("bounce_action");
+        set => this.WithProperty("bounce_action", value);
+    }
+
+    /// <summary>
+    /// Block for lambda_action.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSesReceiptRuleLambdaActionBlock>? LambdaAction
+    {
+        get => GetProperty<HashSet<AwsSesReceiptRuleLambdaActionBlock>>("lambda_action");
+        set => this.WithProperty("lambda_action", value);
+    }
+
+    /// <summary>
+    /// Block for s3_action.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSesReceiptRuleS3ActionBlock>? S3Action
+    {
+        get => GetProperty<HashSet<AwsSesReceiptRuleS3ActionBlock>>("s3_action");
+        set => this.WithProperty("s3_action", value);
+    }
+
+    /// <summary>
+    /// Block for sns_action.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSesReceiptRuleSnsActionBlock>? SnsAction
+    {
+        get => GetProperty<HashSet<AwsSesReceiptRuleSnsActionBlock>>("sns_action");
+        set => this.WithProperty("sns_action", value);
+    }
+
+    /// <summary>
+    /// Block for stop_action.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSesReceiptRuleStopActionBlock>? StopAction
+    {
+        get => GetProperty<HashSet<AwsSesReceiptRuleStopActionBlock>>("stop_action");
+        set => this.WithProperty("stop_action", value);
+    }
+
+    /// <summary>
+    /// Block for workmail_action.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsSesReceiptRuleWorkmailActionBlock>? WorkmailAction
+    {
+        get => GetProperty<HashSet<AwsSesReceiptRuleWorkmailActionBlock>>("workmail_action");
+        set => this.WithProperty("workmail_action", value);
     }
 
     /// <summary>

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataCatalogTaxonomyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_data_catalog_taxonomy resource.
 /// </summary>
 public class GoogleDataCatalogTaxonomy : TerraformResource
@@ -21,9 +56,9 @@ public class GoogleDataCatalogTaxonomy : TerraformResource
     /// A list of policy types that are activated for this taxonomy. If not set,
     /// defaults to an empty list. Possible values: [&amp;quot;POLICY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;FINE_GRAINED_ACCESS_CONTROL&amp;quot;]
     /// </summary>
-    public TerraformProperty<List<string>>? ActivatedPolicyTypes
+    public List<TerraformProperty<string>>? ActivatedPolicyTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("activated_policy_types");
+        get => GetProperty<List<TerraformProperty<string>>>("activated_policy_types");
         set => this.WithProperty("activated_policy_types", value);
     }
 
@@ -45,7 +80,8 @@ public class GoogleDataCatalogTaxonomy : TerraformResource
     /// and spaces; not start or end with spaces; and be at most 200 bytes
     /// long when encoded in UTF-8.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -76,6 +112,16 @@ public class GoogleDataCatalogTaxonomy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataCatalogTaxonomyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataCatalogTaxonomyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

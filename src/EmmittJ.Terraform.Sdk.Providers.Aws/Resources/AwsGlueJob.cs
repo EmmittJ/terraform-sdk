@@ -3,6 +3,165 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for command in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGlueJobCommandBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The python_version attribute.
+    /// </summary>
+    public TerraformProperty<string>? PythonVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("python_version");
+        set => WithProperty("python_version", value);
+    }
+
+    /// <summary>
+    /// The runtime attribute.
+    /// </summary>
+    public TerraformProperty<string>? Runtime
+    {
+        get => GetProperty<TerraformProperty<string>>("runtime");
+        set => WithProperty("runtime", value);
+    }
+
+    /// <summary>
+    /// The script_location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptLocation is required")]
+    public required TerraformProperty<string> ScriptLocation
+    {
+        get => GetProperty<TerraformProperty<string>>("script_location");
+        set => WithProperty("script_location", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for execution_property in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGlueJobExecutionPropertyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The max_concurrent_runs attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxConcurrentRuns
+    {
+        get => GetProperty<TerraformProperty<double>>("max_concurrent_runs");
+        set => WithProperty("max_concurrent_runs", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for notification_property in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGlueJobNotificationPropertyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The notify_delay_after attribute.
+    /// </summary>
+    public TerraformProperty<double>? NotifyDelayAfter
+    {
+        get => GetProperty<TerraformProperty<double>>("notify_delay_after");
+        set => WithProperty("notify_delay_after", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source_control_details in .
+/// Nesting mode: list
+/// </summary>
+public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auth_strategy attribute.
+    /// </summary>
+    public TerraformProperty<string>? AuthStrategy
+    {
+        get => GetProperty<TerraformProperty<string>>("auth_strategy");
+        set => WithProperty("auth_strategy", value);
+    }
+
+    /// <summary>
+    /// The auth_token attribute.
+    /// </summary>
+    public TerraformProperty<string>? AuthToken
+    {
+        get => GetProperty<TerraformProperty<string>>("auth_token");
+        set => WithProperty("auth_token", value);
+    }
+
+    /// <summary>
+    /// The branch attribute.
+    /// </summary>
+    public TerraformProperty<string>? Branch
+    {
+        get => GetProperty<TerraformProperty<string>>("branch");
+        set => WithProperty("branch", value);
+    }
+
+    /// <summary>
+    /// The folder attribute.
+    /// </summary>
+    public TerraformProperty<string>? Folder
+    {
+        get => GetProperty<TerraformProperty<string>>("folder");
+        set => WithProperty("folder", value);
+    }
+
+    /// <summary>
+    /// The last_commit_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? LastCommitId
+    {
+        get => GetProperty<TerraformProperty<string>>("last_commit_id");
+        set => WithProperty("last_commit_id", value);
+    }
+
+    /// <summary>
+    /// The owner attribute.
+    /// </summary>
+    public TerraformProperty<string>? Owner
+    {
+        get => GetProperty<TerraformProperty<string>>("owner");
+        set => WithProperty("owner", value);
+    }
+
+    /// <summary>
+    /// The provider attribute.
+    /// </summary>
+    public TerraformProperty<string>? Provider
+    {
+        get => GetProperty<TerraformProperty<string>>("provider");
+        set => WithProperty("provider", value);
+    }
+
+    /// <summary>
+    /// The repository attribute.
+    /// </summary>
+    public TerraformProperty<string>? Repository
+    {
+        get => GetProperty<TerraformProperty<string>>("repository");
+        set => WithProperty("repository", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_glue_job resource.
 /// </summary>
 public class AwsGlueJob : TerraformResource
@@ -20,18 +179,18 @@ public class AwsGlueJob : TerraformResource
     /// <summary>
     /// The connections attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Connections
+    public List<TerraformProperty<string>>? Connections
     {
-        get => GetProperty<TerraformProperty<List<string>>>("connections");
+        get => GetProperty<List<TerraformProperty<string>>>("connections");
         set => this.WithProperty("connections", value);
     }
 
     /// <summary>
     /// The default_arguments attribute.
     /// </summary>
-    public TerraformMapProperty<string>? DefaultArguments
+    public Dictionary<string, TerraformProperty<string>>? DefaultArguments
     {
-        get => GetProperty<TerraformMapProperty<string>>("default_arguments");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("default_arguments");
         set => this.WithProperty("default_arguments", value);
     }
 
@@ -119,7 +278,8 @@ public class AwsGlueJob : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -128,9 +288,9 @@ public class AwsGlueJob : TerraformResource
     /// <summary>
     /// The non_overridable_arguments attribute.
     /// </summary>
-    public TerraformMapProperty<string>? NonOverridableArguments
+    public Dictionary<string, TerraformProperty<string>>? NonOverridableArguments
     {
-        get => GetProperty<TerraformMapProperty<string>>("non_overridable_arguments");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("non_overridable_arguments");
         set => this.WithProperty("non_overridable_arguments", value);
     }
 
@@ -155,7 +315,8 @@ public class AwsGlueJob : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -173,18 +334,18 @@ public class AwsGlueJob : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -204,6 +365,51 @@ public class AwsGlueJob : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("worker_type");
         set => this.WithProperty("worker_type", value);
+    }
+
+    /// <summary>
+    /// Block for command.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Command block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Command block(s) allowed")]
+    public List<AwsGlueJobCommandBlock>? Command
+    {
+        get => GetProperty<List<AwsGlueJobCommandBlock>>("command");
+        set => this.WithProperty("command", value);
+    }
+
+    /// <summary>
+    /// Block for execution_property.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExecutionProperty block(s) allowed")]
+    public List<AwsGlueJobExecutionPropertyBlock>? ExecutionProperty
+    {
+        get => GetProperty<List<AwsGlueJobExecutionPropertyBlock>>("execution_property");
+        set => this.WithProperty("execution_property", value);
+    }
+
+    /// <summary>
+    /// Block for notification_property.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationProperty block(s) allowed")]
+    public List<AwsGlueJobNotificationPropertyBlock>? NotificationProperty
+    {
+        get => GetProperty<List<AwsGlueJobNotificationPropertyBlock>>("notification_property");
+        set => this.WithProperty("notification_property", value);
+    }
+
+    /// <summary>
+    /// Block for source_control_details.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControlDetails block(s) allowed")]
+    public List<AwsGlueJobSourceControlDetailsBlock>? SourceControlDetails
+    {
+        get => GetProperty<List<AwsGlueJobSourceControlDetailsBlock>>("source_control_details");
+        set => this.WithProperty("source_control_details", value);
     }
 
     /// <summary>

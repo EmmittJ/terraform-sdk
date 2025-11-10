@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for input_parameter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsConfigOrganizationConformancePackInputParameterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The parameter_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
+    public required TerraformProperty<string> ParameterName
+    {
+        get => GetProperty<TerraformProperty<string>>("parameter_name");
+        set => WithProperty("parameter_name", value);
+    }
+
+    /// <summary>
+    /// The parameter_value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
+    public required TerraformProperty<string> ParameterValue
+    {
+        get => GetProperty<TerraformProperty<string>>("parameter_value");
+        set => WithProperty("parameter_value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsConfigOrganizationConformancePackTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_config_organization_conformance_pack resource.
 /// </summary>
 public class AwsConfigOrganizationConformancePack : TerraformResource
@@ -38,9 +101,9 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
     /// <summary>
     /// The excluded_accounts attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ExcludedAccounts
+    public HashSet<TerraformProperty<string>>? ExcludedAccounts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("excluded_accounts");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("excluded_accounts");
         set => this.WithProperty("excluded_accounts", value);
     }
 
@@ -56,7 +119,8 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -87,6 +151,27 @@ public class AwsConfigOrganizationConformancePack : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("template_s3_uri");
         set => this.WithProperty("template_s3_uri", value);
+    }
+
+    /// <summary>
+    /// Block for input_parameter.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(60, ErrorMessage = "Maximum 60 InputParameter block(s) allowed")]
+    public HashSet<AwsConfigOrganizationConformancePackInputParameterBlock>? InputParameter
+    {
+        get => GetProperty<HashSet<AwsConfigOrganizationConformancePackInputParameterBlock>>("input_parameter");
+        set => this.WithProperty("input_parameter", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsConfigOrganizationConformancePackTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsConfigOrganizationConformancePackTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

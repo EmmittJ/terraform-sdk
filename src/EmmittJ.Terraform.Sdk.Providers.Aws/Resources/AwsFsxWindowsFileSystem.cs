@@ -3,6 +3,168 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for audit_log_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The audit_log_destination attribute.
+    /// </summary>
+    public TerraformProperty<string>? AuditLogDestination
+    {
+        get => GetProperty<TerraformProperty<string>>("audit_log_destination");
+        set => WithProperty("audit_log_destination", value);
+    }
+
+    /// <summary>
+    /// The file_access_audit_log_level attribute.
+    /// </summary>
+    public TerraformProperty<string>? FileAccessAuditLogLevel
+    {
+        get => GetProperty<TerraformProperty<string>>("file_access_audit_log_level");
+        set => WithProperty("file_access_audit_log_level", value);
+    }
+
+    /// <summary>
+    /// The file_share_access_audit_log_level attribute.
+    /// </summary>
+    public TerraformProperty<string>? FileShareAccessAuditLogLevel
+    {
+        get => GetProperty<TerraformProperty<string>>("file_share_access_audit_log_level");
+        set => WithProperty("file_share_access_audit_log_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for disk_iops_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The iops attribute.
+    /// </summary>
+    public TerraformProperty<double>? Iops
+    {
+        get => GetProperty<TerraformProperty<double>>("iops");
+        set => WithProperty("iops", value);
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for self_managed_active_directory in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// The dns_ips attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsIps is required")]
+    public HashSet<TerraformProperty<string>>? DnsIps
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("dns_ips");
+        set => WithProperty("dns_ips", value);
+    }
+
+    /// <summary>
+    /// The domain_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
+    {
+        get => GetProperty<TerraformProperty<string>>("domain_name");
+        set => WithProperty("domain_name", value);
+    }
+
+    /// <summary>
+    /// The file_system_administrators_group attribute.
+    /// </summary>
+    public TerraformProperty<string>? FileSystemAdministratorsGroup
+    {
+        get => GetProperty<TerraformProperty<string>>("file_system_administrators_group");
+        set => WithProperty("file_system_administrators_group", value);
+    }
+
+    /// <summary>
+    /// The organizational_unit_distinguished_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? OrganizationalUnitDistinguishedName
+    {
+        get => GetProperty<TerraformProperty<string>>("organizational_unit_distinguished_name");
+        set => WithProperty("organizational_unit_distinguished_name", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
+    {
+        get => GetProperty<TerraformProperty<string>>("password");
+        set => WithProperty("password", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
+    {
+        get => GetProperty<TerraformProperty<string>>("username");
+        set => WithProperty("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFsxWindowsFileSystemTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_fsx_windows_file_system resource.
 /// </summary>
 public class AwsFsxWindowsFileSystem : TerraformResource
@@ -35,9 +197,9 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Aliases
+    public HashSet<TerraformProperty<string>>? Aliases
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("aliases");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("aliases");
         set => this.WithProperty("aliases", value);
     }
 
@@ -89,9 +251,9 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? FinalBackupTags
+    public Dictionary<string, TerraformProperty<string>>? FinalBackupTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("final_backup_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
         set => this.WithProperty("final_backup_tags", value);
     }
 
@@ -134,9 +296,9 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
@@ -170,34 +332,36 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public List<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("subnet_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    public TerraformProperty<double>? ThroughputCapacity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
+    public required TerraformProperty<double> ThroughputCapacity
     {
         get => GetProperty<TerraformProperty<double>>("throughput_capacity");
         set => this.WithProperty("throughput_capacity", value);
@@ -210,6 +374,49 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
         set => this.WithProperty("weekly_maintenance_start_time", value);
+    }
+
+    /// <summary>
+    /// Block for audit_log_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuditLogConfiguration block(s) allowed")]
+    public List<AwsFsxWindowsFileSystemAuditLogConfigurationBlock>? AuditLogConfiguration
+    {
+        get => GetProperty<List<AwsFsxWindowsFileSystemAuditLogConfigurationBlock>>("audit_log_configuration");
+        set => this.WithProperty("audit_log_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for disk_iops_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
+    public List<AwsFsxWindowsFileSystemDiskIopsConfigurationBlock>? DiskIopsConfiguration
+    {
+        get => GetProperty<List<AwsFsxWindowsFileSystemDiskIopsConfigurationBlock>>("disk_iops_configuration");
+        set => this.WithProperty("disk_iops_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for self_managed_active_directory.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManagedActiveDirectory block(s) allowed")]
+    public List<AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock>? SelfManagedActiveDirectory
+    {
+        get => GetProperty<List<AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock>>("self_managed_active_directory");
+        set => this.WithProperty("self_managed_active_directory", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFsxWindowsFileSystemTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFsxWindowsFileSystemTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,116 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for approval_rule in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The approve_after_days attribute.
+    /// </summary>
+    public TerraformProperty<double>? ApproveAfterDays
+    {
+        get => GetProperty<TerraformProperty<double>>("approve_after_days");
+        set => WithProperty("approve_after_days", value);
+    }
+
+    /// <summary>
+    /// The approve_until_date attribute.
+    /// </summary>
+    public TerraformProperty<string>? ApproveUntilDate
+    {
+        get => GetProperty<TerraformProperty<string>>("approve_until_date");
+        set => WithProperty("approve_until_date", value);
+    }
+
+    /// <summary>
+    /// The compliance_level attribute.
+    /// </summary>
+    public TerraformProperty<string>? ComplianceLevel
+    {
+        get => GetProperty<TerraformProperty<string>>("compliance_level");
+        set => WithProperty("compliance_level", value);
+    }
+
+    /// <summary>
+    /// The enable_non_security attribute.
+    /// </summary>
+    public TerraformProperty<bool>? EnableNonSecurity
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_non_security");
+        set => WithProperty("enable_non_security", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for global_filter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public List<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The configuration attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
+    public required TerraformProperty<string> Configuration
+    {
+        get => GetProperty<TerraformProperty<string>>("configuration");
+        set => WithProperty("configuration", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The products attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Products is required")]
+    public List<TerraformProperty<string>>? Products
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("products");
+        set => WithProperty("products", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssm_patch_baseline resource.
 /// </summary>
 public class AwsSsmPatchBaseline : TerraformResource
@@ -21,9 +131,9 @@ public class AwsSsmPatchBaseline : TerraformResource
     /// <summary>
     /// The approved_patches attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ApprovedPatches
+    public HashSet<TerraformProperty<string>>? ApprovedPatches
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("approved_patches");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("approved_patches");
         set => this.WithProperty("approved_patches", value);
     }
 
@@ -75,7 +185,8 @@ public class AwsSsmPatchBaseline : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -102,9 +213,9 @@ public class AwsSsmPatchBaseline : TerraformResource
     /// <summary>
     /// The rejected_patches attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RejectedPatches
+    public HashSet<TerraformProperty<string>>? RejectedPatches
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("rejected_patches");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("rejected_patches");
         set => this.WithProperty("rejected_patches", value);
     }
 
@@ -120,19 +231,51 @@ public class AwsSsmPatchBaseline : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for approval_rule.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSsmPatchBaselineApprovalRuleBlock>? ApprovalRule
+    {
+        get => GetProperty<List<AwsSsmPatchBaselineApprovalRuleBlock>>("approval_rule");
+        set => this.WithProperty("approval_rule", value);
+    }
+
+    /// <summary>
+    /// Block for global_filter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 GlobalFilter block(s) allowed")]
+    public List<AwsSsmPatchBaselineGlobalFilterBlock>? GlobalFilter
+    {
+        get => GetProperty<List<AwsSsmPatchBaselineGlobalFilterBlock>>("global_filter");
+        set => this.WithProperty("global_filter", value);
+    }
+
+    /// <summary>
+    /// Block for source.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Source block(s) allowed")]
+    public List<AwsSsmPatchBaselineSourceBlock>? Source
+    {
+        get => GetProperty<List<AwsSsmPatchBaselineSourceBlock>>("source");
+        set => this.WithProperty("source", value);
     }
 
     /// <summary>

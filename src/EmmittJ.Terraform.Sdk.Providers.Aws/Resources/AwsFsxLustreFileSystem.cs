@@ -3,6 +3,146 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for data_read_cache_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The size attribute.
+    /// </summary>
+    public TerraformProperty<double>? Size
+    {
+        get => GetProperty<TerraformProperty<double>>("size");
+        set => WithProperty("size", value);
+    }
+
+    /// <summary>
+    /// The sizing_mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizingMode is required")]
+    public required TerraformProperty<string> SizingMode
+    {
+        get => GetProperty<TerraformProperty<string>>("sizing_mode");
+        set => WithProperty("sizing_mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for log_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The destination attribute.
+    /// </summary>
+    public TerraformProperty<string>? Destination
+    {
+        get => GetProperty<TerraformProperty<string>>("destination");
+        set => WithProperty("destination", value);
+    }
+
+    /// <summary>
+    /// The level attribute.
+    /// </summary>
+    public TerraformProperty<string>? Level
+    {
+        get => GetProperty<TerraformProperty<string>>("level");
+        set => WithProperty("level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for metadata_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxLustreFileSystemMetadataConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The iops attribute.
+    /// </summary>
+    public TerraformProperty<double>? Iops
+    {
+        get => GetProperty<TerraformProperty<double>>("iops");
+        set => WithProperty("iops", value);
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for root_squash_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxLustreFileSystemRootSquashConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The no_squash_nids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? NoSquashNids
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("no_squash_nids");
+        set => WithProperty("no_squash_nids", value);
+    }
+
+    /// <summary>
+    /// The root_squash attribute.
+    /// </summary>
+    public TerraformProperty<string>? RootSquash
+    {
+        get => GetProperty<TerraformProperty<string>>("root_squash");
+        set => WithProperty("root_squash", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_fsx_lustre_file_system resource.
 /// </summary>
 public class AwsFsxLustreFileSystem : TerraformResource
@@ -124,9 +264,9 @@ public class AwsFsxLustreFileSystem : TerraformResource
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? FinalBackupTags
+    public Dictionary<string, TerraformProperty<string>>? FinalBackupTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("final_backup_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("final_backup_tags");
         set => this.WithProperty("final_backup_tags", value);
     }
 
@@ -187,9 +327,9 @@ public class AwsFsxLustreFileSystem : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
@@ -223,27 +363,28 @@ public class AwsFsxLustreFileSystem : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public List<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("subnet_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -263,6 +404,60 @@ public class AwsFsxLustreFileSystem : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
         set => this.WithProperty("weekly_maintenance_start_time", value);
+    }
+
+    /// <summary>
+    /// Block for data_read_cache_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataReadCacheConfiguration block(s) allowed")]
+    public List<AwsFsxLustreFileSystemDataReadCacheConfigurationBlock>? DataReadCacheConfiguration
+    {
+        get => GetProperty<List<AwsFsxLustreFileSystemDataReadCacheConfigurationBlock>>("data_read_cache_configuration");
+        set => this.WithProperty("data_read_cache_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for log_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfiguration block(s) allowed")]
+    public List<AwsFsxLustreFileSystemLogConfigurationBlock>? LogConfiguration
+    {
+        get => GetProperty<List<AwsFsxLustreFileSystemLogConfigurationBlock>>("log_configuration");
+        set => this.WithProperty("log_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for metadata_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataConfiguration block(s) allowed")]
+    public List<AwsFsxLustreFileSystemMetadataConfigurationBlock>? MetadataConfiguration
+    {
+        get => GetProperty<List<AwsFsxLustreFileSystemMetadataConfigurationBlock>>("metadata_configuration");
+        set => this.WithProperty("metadata_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for root_squash_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootSquashConfiguration block(s) allowed")]
+    public List<AwsFsxLustreFileSystemRootSquashConfigurationBlock>? RootSquashConfiguration
+    {
+        get => GetProperty<List<AwsFsxLustreFileSystemRootSquashConfigurationBlock>>("root_squash_configuration");
+        set => this.WithProperty("root_squash_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFsxLustreFileSystemTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFsxLustreFileSystemTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

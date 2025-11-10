@@ -19,7 +19,8 @@ public class AwsLambdaFunctionRecursionConfig : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
+    public required TerraformProperty<string> FunctionName
     {
         get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
@@ -28,7 +29,8 @@ public class AwsLambdaFunctionRecursionConfig : TerraformResource
     /// <summary>
     /// The recursive_loop attribute.
     /// </summary>
-    public TerraformProperty<string>? RecursiveLoop
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecursiveLoop is required")]
+    public required TerraformProperty<string> RecursiveLoop
     {
         get => GetProperty<TerraformProperty<string>>("recursive_loop");
         set => this.WithProperty("recursive_loop", value);

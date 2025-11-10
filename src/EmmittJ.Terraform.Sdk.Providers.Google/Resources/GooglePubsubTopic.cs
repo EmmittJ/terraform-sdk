@@ -3,6 +3,132 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for ingestion_data_source_settings in .
+/// Nesting mode: list
+/// </summary>
+public class GooglePubsubTopicIngestionDataSourceSettingsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for message_storage_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// A list of IDs of GCP regions where messages that are published to
+    /// the topic may be persisted in storage. Messages published by
+    /// publishers running in non-allowed GCP regions (or running outside
+    /// of GCP altogether) will be routed for storage in one of the
+    /// allowed regions. An empty list means that no regions are allowed,
+    /// and is not a valid configuration.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedPersistenceRegions is required")]
+    public HashSet<TerraformProperty<string>>? AllowedPersistenceRegions
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_persistence_regions");
+        set => WithProperty("allowed_persistence_regions", value);
+    }
+
+    /// <summary>
+    /// If true, &#39;allowedPersistenceRegions&#39; is also used to enforce in-transit
+    /// guarantees for messages. That is, Pub/Sub will fail topics.publish
+    /// operations on this topic and subscribe operations on any subscription
+    /// attached to this topic in any region that is not in &#39;allowedPersistenceRegions&#39;.
+    /// </summary>
+    public TerraformProperty<bool>? EnforceInTransit
+    {
+        get => GetProperty<TerraformProperty<bool>>("enforce_in_transit");
+        set => WithProperty("enforce_in_transit", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for message_transforms in .
+/// Nesting mode: list
+/// </summary>
+public class GooglePubsubTopicMessageTransformsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Controls whether or not to use this transform. If not set or &#39;false&#39;,
+    /// the transform will be applied to messages. Default: &#39;true&#39;.
+    /// </summary>
+    public TerraformProperty<bool>? Disabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("disabled");
+        set => WithProperty("disabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for schema_settings in .
+/// Nesting mode: list
+/// </summary>
+public class GooglePubsubTopicSchemaSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The encoding of messages validated against schema. Default value: &amp;quot;ENCODING_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;ENCODING_UNSPECIFIED&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;BINARY&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Encoding
+    {
+        get => GetProperty<TerraformProperty<string>>("encoding");
+        set => WithProperty("encoding", value);
+    }
+
+    /// <summary>
+    /// The name of the schema that messages published should be
+    /// validated against. Format is projects/{project}/schemas/{schema}.
+    /// The value of this field will be _deleted-schema_
+    /// if the schema has been deleted.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
+    public required TerraformProperty<string> Schema
+    {
+        get => GetProperty<TerraformProperty<string>>("schema");
+        set => WithProperty("schema", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GooglePubsubTopicTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_pubsub_topic resource.
 /// </summary>
 public class GooglePubsubTopic : TerraformResource
@@ -47,9 +173,9 @@ public class GooglePubsubTopic : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -72,7 +198,8 @@ public class GooglePubsubTopic : TerraformResource
     /// <summary>
     /// Name of the topic.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -97,10 +224,63 @@ public class GooglePubsubTopic : TerraformResource
     /// apply tags to an existing resource, see the &#39;google_tags_tag_value&#39;
     /// resource.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for ingestion_data_source_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngestionDataSourceSettings block(s) allowed")]
+    public List<GooglePubsubTopicIngestionDataSourceSettingsBlock>? IngestionDataSourceSettings
+    {
+        get => GetProperty<List<GooglePubsubTopicIngestionDataSourceSettingsBlock>>("ingestion_data_source_settings");
+        set => this.WithProperty("ingestion_data_source_settings", value);
+    }
+
+    /// <summary>
+    /// Block for message_storage_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageStoragePolicy block(s) allowed")]
+    public List<GooglePubsubTopicMessageStoragePolicyBlock>? MessageStoragePolicy
+    {
+        get => GetProperty<List<GooglePubsubTopicMessageStoragePolicyBlock>>("message_storage_policy");
+        set => this.WithProperty("message_storage_policy", value);
+    }
+
+    /// <summary>
+    /// Block for message_transforms.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GooglePubsubTopicMessageTransformsBlock>? MessageTransforms
+    {
+        get => GetProperty<List<GooglePubsubTopicMessageTransformsBlock>>("message_transforms");
+        set => this.WithProperty("message_transforms", value);
+    }
+
+    /// <summary>
+    /// Block for schema_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaSettings block(s) allowed")]
+    public List<GooglePubsubTopicSchemaSettingsBlock>? SchemaSettings
+    {
+        get => GetProperty<List<GooglePubsubTopicSchemaSettingsBlock>>("schema_settings");
+        set => this.WithProperty("schema_settings", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GooglePubsubTopicTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GooglePubsubTopicTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

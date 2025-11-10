@@ -29,7 +29,8 @@ public class AwsOdbNetworkPeeringConnectionDataSource : TerraformDataSource
     /// <summary>
     /// Network Peering Connection identifier.
     /// </summary>
-    public TerraformProperty<string>? Id
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);

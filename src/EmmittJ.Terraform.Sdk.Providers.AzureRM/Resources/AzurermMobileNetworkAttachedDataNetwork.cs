@@ -3,6 +3,112 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for network_address_port_translation in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The icmp_pinhole_timeout_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? IcmpPinholeTimeoutInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("icmp_pinhole_timeout_in_seconds");
+        set => WithProperty("icmp_pinhole_timeout_in_seconds", value);
+    }
+
+    /// <summary>
+    /// The pinhole_maximum_number attribute.
+    /// </summary>
+    public TerraformProperty<double>? PinholeMaximumNumber
+    {
+        get => GetProperty<TerraformProperty<double>>("pinhole_maximum_number");
+        set => WithProperty("pinhole_maximum_number", value);
+    }
+
+    /// <summary>
+    /// The tcp_pinhole_timeout_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? TcpPinholeTimeoutInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("tcp_pinhole_timeout_in_seconds");
+        set => WithProperty("tcp_pinhole_timeout_in_seconds", value);
+    }
+
+    /// <summary>
+    /// The tcp_port_reuse_minimum_hold_time_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? TcpPortReuseMinimumHoldTimeInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("tcp_port_reuse_minimum_hold_time_in_seconds");
+        set => WithProperty("tcp_port_reuse_minimum_hold_time_in_seconds", value);
+    }
+
+    /// <summary>
+    /// The udp_pinhole_timeout_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? UdpPinholeTimeoutInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("udp_pinhole_timeout_in_seconds");
+        set => WithProperty("udp_pinhole_timeout_in_seconds", value);
+    }
+
+    /// <summary>
+    /// The udp_port_reuse_minimum_hold_time_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? UdpPortReuseMinimumHoldTimeInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("udp_port_reuse_minimum_hold_time_in_seconds");
+        set => WithProperty("udp_port_reuse_minimum_hold_time_in_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_mobile_network_attached_data_network resource.
 /// </summary>
 public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
@@ -19,9 +125,10 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The dns_addresses attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? DnsAddresses
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsAddresses is required")]
+    public List<TerraformProperty<string>>? DnsAddresses
     {
-        get => GetProperty<TerraformProperty<List<string>>>("dns_addresses");
+        get => GetProperty<List<TerraformProperty<string>>>("dns_addresses");
         set => this.WithProperty("dns_addresses", value);
     }
 
@@ -37,7 +144,8 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -46,7 +154,8 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The mobile_network_data_network_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MobileNetworkDataNetworkName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkDataNetworkName is required")]
+    public required TerraformProperty<string> MobileNetworkDataNetworkName
     {
         get => GetProperty<TerraformProperty<string>>("mobile_network_data_network_name");
         set => this.WithProperty("mobile_network_data_network_name", value);
@@ -55,7 +164,8 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The mobile_network_packet_core_data_plane_id attribute.
     /// </summary>
-    public TerraformProperty<string>? MobileNetworkPacketCoreDataPlaneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreDataPlaneId is required")]
+    public required TerraformProperty<string> MobileNetworkPacketCoreDataPlaneId
     {
         get => GetProperty<TerraformProperty<string>>("mobile_network_packet_core_data_plane_id");
         set => this.WithProperty("mobile_network_packet_core_data_plane_id", value);
@@ -64,27 +174,27 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The user_equipment_address_pool_prefixes attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? UserEquipmentAddressPoolPrefixes
+    public List<TerraformProperty<string>>? UserEquipmentAddressPoolPrefixes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("user_equipment_address_pool_prefixes");
+        get => GetProperty<List<TerraformProperty<string>>>("user_equipment_address_pool_prefixes");
         set => this.WithProperty("user_equipment_address_pool_prefixes", value);
     }
 
     /// <summary>
     /// The user_equipment_static_address_pool_prefixes attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? UserEquipmentStaticAddressPoolPrefixes
+    public List<TerraformProperty<string>>? UserEquipmentStaticAddressPoolPrefixes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("user_equipment_static_address_pool_prefixes");
+        get => GetProperty<List<TerraformProperty<string>>>("user_equipment_static_address_pool_prefixes");
         set => this.WithProperty("user_equipment_static_address_pool_prefixes", value);
     }
 
@@ -122,6 +232,27 @@ public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_plane_access_name");
         set => this.WithProperty("user_plane_access_name", value);
+    }
+
+    /// <summary>
+    /// Block for network_address_port_translation.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAddressPortTranslation block(s) allowed")]
+    public List<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock>? NetworkAddressPortTranslation
+    {
+        get => GetProperty<List<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock>>("network_address_port_translation");
+        set => this.WithProperty("network_address_port_translation", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

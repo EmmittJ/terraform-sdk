@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for message_review_handler in .
+/// Nesting mode: list
+/// </summary>
+public class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlock
+{
+    /// <summary>
+    /// The fallback_result attribute.
+    /// </summary>
+    public TerraformProperty<string>? FallbackResult
+    {
+        get => GetProperty<TerraformProperty<string>>("fallback_result");
+        set => WithProperty("fallback_result", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    public TerraformProperty<string>? Uri
+    {
+        get => GetProperty<TerraformProperty<string>>("uri");
+        set => WithProperty("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsIvschatRoomTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ivschat_room resource.
 /// </summary>
 public class AwsIvschatRoom : TerraformResource
@@ -29,9 +90,9 @@ public class AwsIvschatRoom : TerraformResource
     /// <summary>
     /// The logging_configuration_identifiers attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? LoggingConfigurationIdentifiers
+    public List<TerraformProperty<string>>? LoggingConfigurationIdentifiers
     {
-        get => GetProperty<TerraformProperty<List<string>>>("logging_configuration_identifiers");
+        get => GetProperty<List<TerraformProperty<string>>>("logging_configuration_identifiers");
         set => this.WithProperty("logging_configuration_identifiers", value);
     }
 
@@ -74,19 +135,40 @@ public class AwsIvschatRoom : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for message_review_handler.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageReviewHandler block(s) allowed")]
+    public List<AwsIvschatRoomMessageReviewHandlerBlock>? MessageReviewHandler
+    {
+        get => GetProperty<List<AwsIvschatRoomMessageReviewHandlerBlock>>("message_review_handler");
+        set => this.WithProperty("message_review_handler", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsIvschatRoomTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsIvschatRoomTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -29,9 +29,9 @@ public class AwsRoute53HealthCheck : TerraformResource
     /// <summary>
     /// The child_healthchecks attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ChildHealthchecks
+    public HashSet<TerraformProperty<string>>? ChildHealthchecks
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("child_healthchecks");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("child_healthchecks");
         set => this.WithProperty("child_healthchecks", value);
     }
 
@@ -155,9 +155,9 @@ public class AwsRoute53HealthCheck : TerraformResource
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Regions
+    public HashSet<TerraformProperty<string>>? Regions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("regions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 
@@ -200,34 +200,35 @@ public class AwsRoute53HealthCheck : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Triggers
+    public Dictionary<string, TerraformProperty<string>>? Triggers
     {
-        get => GetProperty<TerraformMapProperty<string>>("triggers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);

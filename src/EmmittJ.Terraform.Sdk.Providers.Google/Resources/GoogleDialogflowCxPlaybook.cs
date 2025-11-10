@@ -3,6 +3,84 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for instruction in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxPlaybookInstructionBlock : TerraformBlock
+{
+    /// <summary>
+    /// General guidelines for the playbook. These are unstructured instructions that are not directly part of the goal, e.g. &amp;quot;Always be polite&amp;quot;. It&#39;s valid for this text to be long and used instead of steps altogether.
+    /// </summary>
+    public TerraformProperty<string>? Guidelines
+    {
+        get => GetProperty<TerraformProperty<string>>("guidelines");
+        set => WithProperty("guidelines", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for llm_model_settings in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The selected LLM model.
+    /// </summary>
+    public TerraformProperty<string>? Model
+    {
+        get => GetProperty<TerraformProperty<string>>("model");
+        set => WithProperty("model", value);
+    }
+
+    /// <summary>
+    /// The custom prompt to use.
+    /// </summary>
+    public TerraformProperty<string>? PromptText
+    {
+        get => GetProperty<TerraformProperty<string>>("prompt_text");
+        set => WithProperty("prompt_text", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dialogflow_cx_playbook resource.
 /// </summary>
 public class GoogleDialogflowCxPlaybook : TerraformResource
@@ -25,7 +103,8 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// <summary>
     /// The human-readable name of the playbook, unique within an agent.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -34,7 +113,8 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// <summary>
     /// High level description of the goal the playbook intend to accomplish. A goal should be concise since it&#39;s visible to other playbooks that may reference this playbook.
     /// </summary>
-    public TerraformProperty<string>? Goal
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
+    public required TerraformProperty<string> Goal
     {
         get => GetProperty<TerraformProperty<string>>("goal");
         set => this.WithProperty("goal", value);
@@ -71,10 +151,42 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// <summary>
     /// The resource name of tools referenced by the current playbook in the instructions. If not provided explicitly, they are will be implied using the tool being referenced in goal and steps.
     /// </summary>
-    public TerraformProperty<List<string>>? ReferencedTools
+    public List<TerraformProperty<string>>? ReferencedTools
     {
-        get => GetProperty<TerraformProperty<List<string>>>("referenced_tools");
+        get => GetProperty<List<TerraformProperty<string>>>("referenced_tools");
         set => this.WithProperty("referenced_tools", value);
+    }
+
+    /// <summary>
+    /// Block for instruction.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Instruction block(s) allowed")]
+    public List<GoogleDialogflowCxPlaybookInstructionBlock>? Instruction
+    {
+        get => GetProperty<List<GoogleDialogflowCxPlaybookInstructionBlock>>("instruction");
+        set => this.WithProperty("instruction", value);
+    }
+
+    /// <summary>
+    /// Block for llm_model_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LlmModelSettings block(s) allowed")]
+    public List<GoogleDialogflowCxPlaybookLlmModelSettingsBlock>? LlmModelSettings
+    {
+        get => GetProperty<List<GoogleDialogflowCxPlaybookLlmModelSettingsBlock>>("llm_model_settings");
+        set => this.WithProperty("llm_model_settings", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDialogflowCxPlaybookTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDialogflowCxPlaybookTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

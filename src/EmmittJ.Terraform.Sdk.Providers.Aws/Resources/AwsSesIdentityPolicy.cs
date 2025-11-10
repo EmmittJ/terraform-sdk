@@ -28,7 +28,8 @@ public class AwsSesIdentityPolicy : TerraformResource
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public TerraformProperty<string>? Identity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
+    public required TerraformProperty<string> Identity
     {
         get => GetProperty<TerraformProperty<string>>("identity");
         set => this.WithProperty("identity", value);
@@ -37,7 +38,8 @@ public class AwsSesIdentityPolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,7 +48,8 @@ public class AwsSesIdentityPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);

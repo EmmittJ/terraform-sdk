@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for default_version in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleMlEngineModelDefaultVersionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name specified for the version when it was created.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleMlEngineModelTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_ml_engine_model resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -43,16 +96,17 @@ public class GoogleMlEngineModel : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name specified for the model.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -89,10 +143,31 @@ public class GoogleMlEngineModel : TerraformResource
     /// The list of regions where the model is going to be deployed.
     /// Currently only one region per model is supported
     /// </summary>
-    public TerraformProperty<List<string>>? Regions
+    public List<TerraformProperty<string>>? Regions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("regions");
+        get => GetProperty<List<TerraformProperty<string>>>("regions");
         set => this.WithProperty("regions", value);
+    }
+
+    /// <summary>
+    /// Block for default_version.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultVersion block(s) allowed")]
+    public List<GoogleMlEngineModelDefaultVersionBlock>? DefaultVersion
+    {
+        get => GetProperty<List<GoogleMlEngineModelDefaultVersionBlock>>("default_version");
+        set => this.WithProperty("default_version", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleMlEngineModelTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleMlEngineModelTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

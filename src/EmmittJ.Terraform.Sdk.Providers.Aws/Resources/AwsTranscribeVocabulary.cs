@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsTranscribeVocabularyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_transcribe_vocabulary resource.
 /// </summary>
 public class AwsTranscribeVocabulary : TerraformResource
@@ -30,7 +65,8 @@ public class AwsTranscribeVocabulary : TerraformResource
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformProperty<string>? LanguageCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
+    public required TerraformProperty<string> LanguageCode
     {
         get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
@@ -39,9 +75,9 @@ public class AwsTranscribeVocabulary : TerraformResource
     /// <summary>
     /// The phrases attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Phrases
+    public List<TerraformProperty<string>>? Phrases
     {
-        get => GetProperty<TerraformProperty<List<string>>>("phrases");
+        get => GetProperty<List<TerraformProperty<string>>>("phrases");
         set => this.WithProperty("phrases", value);
     }
 
@@ -57,18 +93,18 @@ public class AwsTranscribeVocabulary : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -84,10 +120,21 @@ public class AwsTranscribeVocabulary : TerraformResource
     /// <summary>
     /// The vocabulary_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VocabularyName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VocabularyName is required")]
+    public required TerraformProperty<string> VocabularyName
     {
         get => GetProperty<TerraformProperty<string>>("vocabulary_name");
         set => this.WithProperty("vocabulary_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsTranscribeVocabularyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsTranscribeVocabularyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -39,9 +39,9 @@ public class AwsKmsKeyDataSource : TerraformDataSource
     /// <summary>
     /// The grant_tokens attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? GrantTokens
+    public List<TerraformProperty<string>>? GrantTokens
     {
-        get => GetProperty<TerraformProperty<List<string>>>("grant_tokens");
+        get => GetProperty<List<TerraformProperty<string>>>("grant_tokens");
         set => this.WithProperty("grant_tokens", value);
     }
 
@@ -57,7 +57,8 @@ public class AwsKmsKeyDataSource : TerraformDataSource
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
+    public required TerraformProperty<string> KeyId
     {
         get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);

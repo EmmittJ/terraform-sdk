@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeEnvgroupAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_envgroup_attachment resource.
 /// </summary>
 public class GoogleApigeeEnvgroupAttachment : TerraformResource
@@ -21,7 +47,8 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
     /// The Apigee environment group associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/envgroups/{{envgroup_name}}&#39;.
     /// </summary>
-    public TerraformProperty<string>? EnvgroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvgroupId is required")]
+    public required TerraformProperty<string> EnvgroupId
     {
         get => GetProperty<TerraformProperty<string>>("envgroup_id");
         set => this.WithProperty("envgroup_id", value);
@@ -30,7 +57,8 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
     /// <summary>
     /// The resource ID of the environment.
     /// </summary>
-    public TerraformProperty<string>? Environment
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
+    public required TerraformProperty<string> Environment
     {
         get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
@@ -43,6 +71,16 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeEnvgroupAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeEnvgroupAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

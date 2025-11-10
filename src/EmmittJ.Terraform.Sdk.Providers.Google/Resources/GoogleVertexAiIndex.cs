@@ -3,6 +3,91 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for encryption_spec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiIndexEncryptionSpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;. The key needs to be in the same region as where the compute resource is created.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
+    public required TerraformProperty<string> KmsKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
+        set => WithProperty("kms_key_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for metadata in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleVertexAiIndexMetadataBlock : TerraformBlock
+{
+    /// <summary>
+    /// Allows inserting, updating  or deleting the contents of the Matching Engine Index.
+    /// The string must be a valid Cloud Storage directory path. If this
+    /// field is set when calling IndexService.UpdateIndex, then no other
+    /// Index field can be also updated as part of the same call.
+    /// The expected structure and format of the files this URI points to is
+    /// described at https://cloud.google.com/vertex-ai/docs/matching-engine/using-matching-engine#input-data-format
+    /// </summary>
+    public TerraformProperty<string>? ContentsDeltaUri
+    {
+        get => GetProperty<TerraformProperty<string>>("contents_delta_uri");
+        set => WithProperty("contents_delta_uri", value);
+    }
+
+    /// <summary>
+    /// If this field is set together with contentsDeltaUri when calling IndexService.UpdateIndex,
+    /// then existing content of the Index will be replaced by the data from the contentsDeltaUri.
+    /// </summary>
+    public TerraformProperty<bool>? IsCompleteOverwrite
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_complete_overwrite");
+        set => WithProperty("is_complete_overwrite", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleVertexAiIndexTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_vertex_ai_index resource.
 /// </summary>
 public class GoogleVertexAiIndex : TerraformResource
@@ -37,7 +122,8 @@ public class GoogleVertexAiIndex : TerraformResource
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -69,9 +155,9 @@ public class GoogleVertexAiIndex : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -91,6 +177,39 @@ public class GoogleVertexAiIndex : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for encryption_spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
+    public List<GoogleVertexAiIndexEncryptionSpecBlock>? EncryptionSpec
+    {
+        get => GetProperty<List<GoogleVertexAiIndexEncryptionSpecBlock>>("encryption_spec");
+        set => this.WithProperty("encryption_spec", value);
+    }
+
+    /// <summary>
+    /// Block for metadata.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Metadata block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
+    public List<GoogleVertexAiIndexMetadataBlock>? Metadata
+    {
+        get => GetProperty<List<GoogleVertexAiIndexMetadataBlock>>("metadata");
+        set => this.WithProperty("metadata", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleVertexAiIndexTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleVertexAiIndexTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

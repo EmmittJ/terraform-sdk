@@ -21,7 +21,8 @@ public class AwsRedshiftPartner : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
+    public required TerraformProperty<string> AccountId
     {
         get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
@@ -30,7 +31,8 @@ public class AwsRedshiftPartner : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
+    public required TerraformProperty<string> ClusterIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
@@ -39,7 +41,8 @@ public class AwsRedshiftPartner : TerraformResource
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformProperty<string> DatabaseName
     {
         get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
@@ -57,7 +60,8 @@ public class AwsRedshiftPartner : TerraformResource
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PartnerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
+    public required TerraformProperty<string> PartnerName
     {
         get => GetProperty<TerraformProperty<string>>("partner_name");
         set => this.WithProperty("partner_name", value);

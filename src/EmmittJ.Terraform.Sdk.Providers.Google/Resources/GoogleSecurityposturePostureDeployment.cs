@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSecurityposturePostureDeploymentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_securityposture_posture_deployment resource.
 /// </summary>
 public class GoogleSecurityposturePostureDeployment : TerraformResource
@@ -46,7 +81,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// <summary>
     /// The location of the resource, eg. global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -55,7 +91,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// <summary>
     /// The parent of the resource, an organization. Format should be &#39;organizations/{organization_id}&#39;.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
@@ -64,7 +101,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// <summary>
     /// ID of the posture deployment.
     /// </summary>
-    public TerraformProperty<string>? PostureDeploymentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureDeploymentId is required")]
+    public required TerraformProperty<string> PostureDeploymentId
     {
         get => GetProperty<TerraformProperty<string>>("posture_deployment_id");
         set => this.WithProperty("posture_deployment_id", value);
@@ -74,7 +112,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// Relative name of the posture which needs to be deployed. It should be in the format:
     ///   organizations/{organization_id}/locations/{location}/postures/{posture_id}
     /// </summary>
-    public TerraformProperty<string>? PostureId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
+    public required TerraformProperty<string> PostureId
     {
         get => GetProperty<TerraformProperty<string>>("posture_id");
         set => this.WithProperty("posture_id", value);
@@ -83,7 +122,8 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// <summary>
     /// Revision_id the posture which needs to be deployed.
     /// </summary>
-    public TerraformProperty<string>? PostureRevisionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureRevisionId is required")]
+    public required TerraformProperty<string> PostureRevisionId
     {
         get => GetProperty<TerraformProperty<string>>("posture_revision_id");
         set => this.WithProperty("posture_revision_id", value);
@@ -95,10 +135,21 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// folders/{folder_number},
     /// organizations/{organization_id}
     /// </summary>
-    public TerraformProperty<string>? TargetResource
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResource is required")]
+    public required TerraformProperty<string> TargetResource
     {
         get => GetProperty<TerraformProperty<string>>("target_resource");
         set => this.WithProperty("target_resource", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSecurityposturePostureDeploymentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSecurityposturePostureDeploymentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

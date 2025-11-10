@@ -3,6 +3,203 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for access_logs in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbAccessLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket");
+        set => WithProperty("bucket", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? Prefix
+    {
+        get => GetProperty<TerraformProperty<string>>("prefix");
+        set => WithProperty("prefix", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for connection_logs in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbConnectionLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket");
+        set => WithProperty("bucket", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? Prefix
+    {
+        get => GetProperty<TerraformProperty<string>>("prefix");
+        set => WithProperty("prefix", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ipam_pools in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbIpamPoolsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ipv4_ipam_pool_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4IpamPoolId is required")]
+    public required TerraformProperty<string> Ipv4IpamPoolId
+    {
+        get => GetProperty<TerraformProperty<string>>("ipv4_ipam_pool_id");
+        set => WithProperty("ipv4_ipam_pool_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for minimum_load_balancer_capacity in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbMinimumLoadBalancerCapacityBlock : TerraformBlock
+{
+    /// <summary>
+    /// The capacity_units attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityUnits is required")]
+    public required TerraformProperty<double> CapacityUnits
+    {
+        get => GetProperty<TerraformProperty<double>>("capacity_units");
+        set => WithProperty("capacity_units", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for subnet_mapping in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLbSubnetMappingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allocation_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? AllocationId
+    {
+        get => GetProperty<TerraformProperty<string>>("allocation_id");
+        set => WithProperty("allocation_id", value);
+    }
+
+    /// <summary>
+    /// The ipv6_address attribute.
+    /// </summary>
+    public TerraformProperty<string>? Ipv6Address
+    {
+        get => GetProperty<TerraformProperty<string>>("ipv6_address");
+        set => WithProperty("ipv6_address", value);
+    }
+
+    /// <summary>
+    /// The outpost_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? OutpostId
+    {
+        get => GetProperty<TerraformProperty<string>>("outpost_id");
+        set => WithProperty("outpost_id", value);
+    }
+
+    /// <summary>
+    /// The private_ipv4_address attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrivateIpv4Address
+    {
+        get => GetProperty<TerraformProperty<string>>("private_ipv4_address");
+        set => WithProperty("private_ipv4_address", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
+    {
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        set => WithProperty("subnet_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLbTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lb resource.
 /// </summary>
 public class AwsLb : TerraformResource
@@ -231,36 +428,36 @@ public class AwsLb : TerraformResource
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Subnets
+    public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnets");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
         set => this.WithProperty("subnets", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -271,6 +468,70 @@ public class AwsLb : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("xff_header_processing_mode");
         set => this.WithProperty("xff_header_processing_mode", value);
+    }
+
+    /// <summary>
+    /// Block for access_logs.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
+    public List<AwsLbAccessLogsBlock>? AccessLogs
+    {
+        get => GetProperty<List<AwsLbAccessLogsBlock>>("access_logs");
+        set => this.WithProperty("access_logs", value);
+    }
+
+    /// <summary>
+    /// Block for connection_logs.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionLogs block(s) allowed")]
+    public List<AwsLbConnectionLogsBlock>? ConnectionLogs
+    {
+        get => GetProperty<List<AwsLbConnectionLogsBlock>>("connection_logs");
+        set => this.WithProperty("connection_logs", value);
+    }
+
+    /// <summary>
+    /// Block for ipam_pools.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpamPools block(s) allowed")]
+    public List<AwsLbIpamPoolsBlock>? IpamPools
+    {
+        get => GetProperty<List<AwsLbIpamPoolsBlock>>("ipam_pools");
+        set => this.WithProperty("ipam_pools", value);
+    }
+
+    /// <summary>
+    /// Block for minimum_load_balancer_capacity.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumLoadBalancerCapacity block(s) allowed")]
+    public List<AwsLbMinimumLoadBalancerCapacityBlock>? MinimumLoadBalancerCapacity
+    {
+        get => GetProperty<List<AwsLbMinimumLoadBalancerCapacityBlock>>("minimum_load_balancer_capacity");
+        set => this.WithProperty("minimum_load_balancer_capacity", value);
+    }
+
+    /// <summary>
+    /// Block for subnet_mapping.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsLbSubnetMappingBlock>? SubnetMapping
+    {
+        get => GetProperty<HashSet<AwsLbSubnetMappingBlock>>("subnet_mapping");
+        set => this.WithProperty("subnet_mapping", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLbTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLbTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

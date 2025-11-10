@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsElasticacheUserGroupAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_elasticache_user_group_association resource.
 /// </summary>
 public class AwsElasticacheUserGroupAssociation : TerraformResource
@@ -37,7 +63,8 @@ public class AwsElasticacheUserGroupAssociation : TerraformResource
     /// <summary>
     /// The user_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserGroupId is required")]
+    public required TerraformProperty<string> UserGroupId
     {
         get => GetProperty<TerraformProperty<string>>("user_group_id");
         set => this.WithProperty("user_group_id", value);
@@ -46,10 +73,21 @@ public class AwsElasticacheUserGroupAssociation : TerraformResource
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformProperty<string>? UserId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
+    public required TerraformProperty<string> UserId
     {
         get => GetProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsElasticacheUserGroupAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsElasticacheUserGroupAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

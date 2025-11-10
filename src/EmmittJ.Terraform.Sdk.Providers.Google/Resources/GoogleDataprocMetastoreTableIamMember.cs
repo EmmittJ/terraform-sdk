@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataprocMetastoreTableIamMemberConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
+    public required TerraformProperty<string> Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// The title attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
+    public required TerraformProperty<string> Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dataproc_metastore_table_iam_member resource.
 /// </summary>
 public class GoogleDataprocMetastoreTableIamMember : TerraformResource
@@ -20,7 +57,8 @@ public class GoogleDataprocMetastoreTableIamMember : TerraformResource
     /// <summary>
     /// The database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DatabaseId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
+    public required TerraformProperty<string> DatabaseId
     {
         get => GetProperty<TerraformProperty<string>>("database_id");
         set => this.WithProperty("database_id", value);
@@ -47,7 +85,8 @@ public class GoogleDataprocMetastoreTableIamMember : TerraformResource
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public TerraformProperty<string>? Member
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
+    public required TerraformProperty<string> Member
     {
         get => GetProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
@@ -65,7 +104,8 @@ public class GoogleDataprocMetastoreTableIamMember : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
@@ -74,7 +114,8 @@ public class GoogleDataprocMetastoreTableIamMember : TerraformResource
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
+    public required TerraformProperty<string> ServiceId
     {
         get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
@@ -83,10 +124,22 @@ public class GoogleDataprocMetastoreTableIamMember : TerraformResource
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public TerraformProperty<string>? Table
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
+    public required TerraformProperty<string> Table
     {
         get => GetProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleDataprocMetastoreTableIamMemberConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleDataprocMetastoreTableIamMemberConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>

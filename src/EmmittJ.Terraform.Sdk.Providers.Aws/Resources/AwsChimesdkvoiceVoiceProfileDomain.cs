@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for server_side_encryption_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The kms_key_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
+    public required TerraformProperty<string> KmsKeyArn
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
+        set => WithProperty("kms_key_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsChimesdkvoiceVoiceProfileDomainTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_chimesdkvoice_voice_profile_domain resource.
 /// </summary>
 public class AwsChimesdkvoiceVoiceProfileDomain : TerraformResource
@@ -30,7 +83,8 @@ public class AwsChimesdkvoiceVoiceProfileDomain : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -48,19 +102,41 @@ public class AwsChimesdkvoiceVoiceProfileDomain : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for server_side_encryption_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServerSideEncryptionConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryptionConfiguration block(s) allowed")]
+    public List<AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationBlock>? ServerSideEncryptionConfiguration
+    {
+        get => GetProperty<List<AwsChimesdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationBlock>>("server_side_encryption_configuration");
+        set => this.WithProperty("server_side_encryption_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsChimesdkvoiceVoiceProfileDomainTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsChimesdkvoiceVoiceProfileDomainTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

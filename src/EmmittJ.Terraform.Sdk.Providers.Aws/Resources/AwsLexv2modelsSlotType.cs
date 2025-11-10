@@ -3,6 +3,83 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for composite_slot_type_setting in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for external_source_setting in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLexv2modelsSlotTypeExternalSourceSettingBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for slot_type_values in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLexv2modelsSlotTypeSlotTypeValuesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for value_selection_setting in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLexv2modelsSlotTypeValueSelectionSettingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The resolution_strategy attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolutionStrategy is required")]
+    public required TerraformProperty<string> ResolutionStrategy
+    {
+        get => GetProperty<TerraformProperty<string>>("resolution_strategy");
+        set => WithProperty("resolution_strategy", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lexv2models_slot_type resource.
 /// </summary>
 public class AwsLexv2modelsSlotType : TerraformResource
@@ -21,7 +98,8 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// <summary>
     /// The bot_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BotId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
+    public required TerraformProperty<string> BotId
     {
         get => GetProperty<TerraformProperty<string>>("bot_id");
         set => this.WithProperty("bot_id", value);
@@ -30,7 +108,8 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
-    public TerraformProperty<string>? BotVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
+    public required TerraformProperty<string> BotVersion
     {
         get => GetProperty<TerraformProperty<string>>("bot_version");
         set => this.WithProperty("bot_version", value);
@@ -48,7 +127,8 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// <summary>
     /// The locale_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LocaleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
+    public required TerraformProperty<string> LocaleId
     {
         get => GetProperty<TerraformProperty<string>>("locale_id");
         set => this.WithProperty("locale_id", value);
@@ -57,7 +137,8 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -79,6 +160,56 @@ public class AwsLexv2modelsSlotType : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for composite_slot_type_setting.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>? CompositeSlotTypeSetting
+    {
+        get => GetProperty<List<AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlock>>("composite_slot_type_setting");
+        set => this.WithProperty("composite_slot_type_setting", value);
+    }
+
+    /// <summary>
+    /// Block for external_source_setting.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>? ExternalSourceSetting
+    {
+        get => GetProperty<List<AwsLexv2modelsSlotTypeExternalSourceSettingBlock>>("external_source_setting");
+        set => this.WithProperty("external_source_setting", value);
+    }
+
+    /// <summary>
+    /// Block for slot_type_values.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>? SlotTypeValues
+    {
+        get => GetProperty<List<AwsLexv2modelsSlotTypeSlotTypeValuesBlock>>("slot_type_values");
+        set => this.WithProperty("slot_type_values", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLexv2modelsSlotTypeTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLexv2modelsSlotTypeTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for value_selection_setting.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>? ValueSelectionSetting
+    {
+        get => GetProperty<List<AwsLexv2modelsSlotTypeValueSelectionSettingBlock>>("value_selection_setting");
+        set => this.WithProperty("value_selection_setting", value);
     }
 
     /// <summary>

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The application attribute.
+    /// </summary>
+    public TerraformProperty<string>? Application
+    {
+        get => GetProperty<TerraformProperty<string>>("application");
+        set => WithProperty("application", value);
+    }
+
+    /// <summary>
+    /// The prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? Prefix
+    {
+        get => GetProperty<TerraformProperty<string>>("prefix");
+        set => WithProperty("prefix", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_emr_release_labels.
 /// </summary>
 public class AwsEmrReleaseLabelsDataSource : TerraformDataSource
@@ -33,6 +59,17 @@ public class AwsEmrReleaseLabelsDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for filters.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filters block(s) allowed")]
+    public List<AwsEmrReleaseLabelsDataSourceFiltersBlock>? Filters
+    {
+        get => GetProperty<List<AwsEmrReleaseLabelsDataSourceFiltersBlock>>("filters");
+        set => this.WithProperty("filters", value);
     }
 
     /// <summary>

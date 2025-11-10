@@ -3,6 +3,395 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for auto_scaling_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterAutoScalingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auto_scaling_metric attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingMetric is required")]
+    public required TerraformProperty<string> AutoScalingMetric
+    {
+        get => GetProperty<TerraformProperty<string>>("auto_scaling_metric");
+        set => WithProperty("auto_scaling_metric", value);
+    }
+
+    /// <summary>
+    /// The max_node_count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
+    public required TerraformProperty<double> MaxNodeCount
+    {
+        get => GetProperty<TerraformProperty<double>>("max_node_count");
+        set => WithProperty("max_node_count", value);
+    }
+
+    /// <summary>
+    /// The metric_target attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricTarget is required")]
+    public required TerraformProperty<double> MetricTarget
+    {
+        get => GetProperty<TerraformProperty<double>>("metric_target");
+        set => WithProperty("metric_target", value);
+    }
+
+    /// <summary>
+    /// The min_node_count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
+    public required TerraformProperty<double> MinNodeCount
+    {
+        get => GetProperty<TerraformProperty<double>>("min_node_count");
+        set => WithProperty("min_node_count", value);
+    }
+
+    /// <summary>
+    /// The scale_in_cooldown_seconds attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleInCooldownSeconds is required")]
+    public required TerraformProperty<double> ScaleInCooldownSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("scale_in_cooldown_seconds");
+        set => WithProperty("scale_in_cooldown_seconds", value);
+    }
+
+    /// <summary>
+    /// The scale_out_cooldown_seconds attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOutCooldownSeconds is required")]
+    public required TerraformProperty<double> ScaleOutCooldownSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("scale_out_cooldown_seconds");
+        set => WithProperty("scale_out_cooldown_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for cache_storage_configurations in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterCacheStorageConfigurationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
+    public required TerraformProperty<double> Size
+    {
+        get => GetProperty<TerraformProperty<double>>("size");
+        set => WithProperty("size", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for capacity_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterCapacityConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The node_count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
+    public required TerraformProperty<double> NodeCount
+    {
+        get => GetProperty<TerraformProperty<double>>("node_count");
+        set => WithProperty("node_count", value);
+    }
+
+    /// <summary>
+    /// The node_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
+    public required TerraformProperty<string> NodeType
+    {
+        get => GetProperty<TerraformProperty<string>>("node_type");
+        set => WithProperty("node_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for code in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterCodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The s3_bucket attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
+    public required TerraformProperty<string> S3Bucket
+    {
+        get => GetProperty<TerraformProperty<string>>("s3_bucket");
+        set => WithProperty("s3_bucket", value);
+    }
+
+    /// <summary>
+    /// The s3_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
+    public required TerraformProperty<string> S3Key
+    {
+        get => GetProperty<TerraformProperty<string>>("s3_key");
+        set => WithProperty("s3_key", value);
+    }
+
+    /// <summary>
+    /// The s3_object_version attribute.
+    /// </summary>
+    public TerraformProperty<string>? S3ObjectVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("s3_object_version");
+        set => WithProperty("s3_object_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for database in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterDatabaseBlock : TerraformBlock
+{
+    /// <summary>
+    /// The changeset_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? ChangesetId
+    {
+        get => GetProperty<TerraformProperty<string>>("changeset_id");
+        set => WithProperty("changeset_id", value);
+    }
+
+    /// <summary>
+    /// The database_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformProperty<string> DatabaseName
+    {
+        get => GetProperty<TerraformProperty<string>>("database_name");
+        set => WithProperty("database_name", value);
+    }
+
+    /// <summary>
+    /// The dataview_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? DataviewName
+    {
+        get => GetProperty<TerraformProperty<string>>("dataview_name");
+        set => WithProperty("dataview_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for savedown_storage_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterSavedownStorageConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The size attribute.
+    /// </summary>
+    public TerraformProperty<double>? Size
+    {
+        get => GetProperty<TerraformProperty<double>>("size");
+        set => WithProperty("size", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// The volume_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? VolumeName
+    {
+        get => GetProperty<TerraformProperty<string>>("volume_name");
+        set => WithProperty("volume_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for scaling_group_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterScalingGroupConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cpu attribute.
+    /// </summary>
+    public TerraformProperty<double>? Cpu
+    {
+        get => GetProperty<TerraformProperty<double>>("cpu");
+        set => WithProperty("cpu", value);
+    }
+
+    /// <summary>
+    /// The memory_limit attribute.
+    /// </summary>
+    public TerraformProperty<double>? MemoryLimit
+    {
+        get => GetProperty<TerraformProperty<double>>("memory_limit");
+        set => WithProperty("memory_limit", value);
+    }
+
+    /// <summary>
+    /// The memory_reservation attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryReservation is required")]
+    public required TerraformProperty<double> MemoryReservation
+    {
+        get => GetProperty<TerraformProperty<double>>("memory_reservation");
+        set => WithProperty("memory_reservation", value);
+    }
+
+    /// <summary>
+    /// The node_count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
+    public required TerraformProperty<double> NodeCount
+    {
+        get => GetProperty<TerraformProperty<double>>("node_count");
+        set => WithProperty("node_count", value);
+    }
+
+    /// <summary>
+    /// The scaling_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingGroupName is required")]
+    public required TerraformProperty<string> ScalingGroupName
+    {
+        get => GetProperty<TerraformProperty<string>>("scaling_group_name");
+        set => WithProperty("scaling_group_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tickerplant_log_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterTickerplantLogConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The tickerplant_log_volumes attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TickerplantLogVolumes is required")]
+    public HashSet<TerraformProperty<string>>? TickerplantLogVolumes
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("tickerplant_log_volumes");
+        set => WithProperty("tickerplant_log_volumes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFinspaceKxClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ip_address_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddressType is required")]
+    public required TerraformProperty<string> IpAddressType
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_address_type");
+        set => WithProperty("ip_address_type", value);
+    }
+
+    /// <summary>
+    /// The security_group_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => WithProperty("security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
+        set => WithProperty("subnet_ids", value);
+    }
+
+    /// <summary>
+    /// The vpc_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
+    {
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
+        set => WithProperty("vpc_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_finspace_kx_cluster resource.
 /// </summary>
 public class AwsFinspaceKxCluster : TerraformResource
@@ -33,7 +422,8 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The az_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AzMode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
+    public required TerraformProperty<string> AzMode
     {
         get => GetProperty<TerraformProperty<string>>("az_mode");
         set => this.WithProperty("az_mode", value);
@@ -42,9 +432,9 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    public TerraformMapProperty<string>? CommandLineArguments
+    public Dictionary<string, TerraformProperty<string>>? CommandLineArguments
     {
-        get => GetProperty<TerraformMapProperty<string>>("command_line_arguments");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("command_line_arguments");
         set => this.WithProperty("command_line_arguments", value);
     }
 
@@ -60,7 +450,8 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvironmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
+    public required TerraformProperty<string> EnvironmentId
     {
         get => GetProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
@@ -96,7 +487,8 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -114,7 +506,8 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The release_label attribute.
     /// </summary>
-    public TerraformProperty<string>? ReleaseLabel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
+    public required TerraformProperty<string> ReleaseLabel
     {
         get => GetProperty<TerraformProperty<string>>("release_label");
         set => this.WithProperty("release_label", value);
@@ -123,28 +516,136 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for auto_scaling_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingConfiguration block(s) allowed")]
+    public List<AwsFinspaceKxClusterAutoScalingConfigurationBlock>? AutoScalingConfiguration
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterAutoScalingConfigurationBlock>>("auto_scaling_configuration");
+        set => this.WithProperty("auto_scaling_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for cache_storage_configurations.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsFinspaceKxClusterCacheStorageConfigurationsBlock>? CacheStorageConfigurations
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterCacheStorageConfigurationsBlock>>("cache_storage_configurations");
+        set => this.WithProperty("cache_storage_configurations", value);
+    }
+
+    /// <summary>
+    /// Block for capacity_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CapacityConfiguration block(s) allowed")]
+    public List<AwsFinspaceKxClusterCapacityConfigurationBlock>? CapacityConfiguration
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterCapacityConfigurationBlock>>("capacity_configuration");
+        set => this.WithProperty("capacity_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for code.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Code block(s) allowed")]
+    public List<AwsFinspaceKxClusterCodeBlock>? Code
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterCodeBlock>>("code");
+        set => this.WithProperty("code", value);
+    }
+
+    /// <summary>
+    /// Block for database.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsFinspaceKxClusterDatabaseBlock>? Database
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterDatabaseBlock>>("database");
+        set => this.WithProperty("database", value);
+    }
+
+    /// <summary>
+    /// Block for savedown_storage_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SavedownStorageConfiguration block(s) allowed")]
+    public List<AwsFinspaceKxClusterSavedownStorageConfigurationBlock>? SavedownStorageConfiguration
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterSavedownStorageConfigurationBlock>>("savedown_storage_configuration");
+        set => this.WithProperty("savedown_storage_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for scaling_group_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingGroupConfiguration block(s) allowed")]
+    public List<AwsFinspaceKxClusterScalingGroupConfigurationBlock>? ScalingGroupConfiguration
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterScalingGroupConfigurationBlock>>("scaling_group_configuration");
+        set => this.WithProperty("scaling_group_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for tickerplant_log_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsFinspaceKxClusterTickerplantLogConfigurationBlock>? TickerplantLogConfiguration
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterTickerplantLogConfigurationBlock>>("tickerplant_log_configuration");
+        set => this.WithProperty("tickerplant_log_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFinspaceKxClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFinspaceKxClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for vpc_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
+    public List<AwsFinspaceKxClusterVpcConfigurationBlock>? VpcConfiguration
+    {
+        get => GetProperty<List<AwsFinspaceKxClusterVpcConfigurationBlock>>("vpc_configuration");
+        set => this.WithProperty("vpc_configuration", value);
     }
 
     /// <summary>

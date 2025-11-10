@@ -3,6 +3,96 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for config_parameter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsRedshiftserverlessWorkgroupConfigParameterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The parameter_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterKey is required")]
+    public required TerraformProperty<string> ParameterKey
+    {
+        get => GetProperty<TerraformProperty<string>>("parameter_key");
+        set => WithProperty("parameter_key", value);
+    }
+
+    /// <summary>
+    /// The parameter_value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
+    public required TerraformProperty<string> ParameterValue
+    {
+        get => GetProperty<TerraformProperty<string>>("parameter_value");
+        set => WithProperty("parameter_value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for price_performance_target in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The level attribute.
+    /// </summary>
+    public TerraformProperty<double>? Level
+    {
+        get => GetProperty<TerraformProperty<double>>("level");
+        set => WithProperty("level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_redshiftserverless_workgroup resource.
 /// </summary>
 public class AwsRedshiftserverlessWorkgroup : TerraformResource
@@ -58,7 +148,8 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
-    public TerraformProperty<string>? NamespaceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
+    public required TerraformProperty<string> NamespaceName
     {
         get => GetProperty<TerraformProperty<string>>("namespace_name");
         set => this.WithProperty("namespace_name", value);
@@ -94,36 +185,36 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -139,10 +230,42 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkgroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
+    public required TerraformProperty<string> WorkgroupName
     {
         get => GetProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);
+    }
+
+    /// <summary>
+    /// Block for config_parameter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsRedshiftserverlessWorkgroupConfigParameterBlock>? ConfigParameter
+    {
+        get => GetProperty<HashSet<AwsRedshiftserverlessWorkgroupConfigParameterBlock>>("config_parameter");
+        set => this.WithProperty("config_parameter", value);
+    }
+
+    /// <summary>
+    /// Block for price_performance_target.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PricePerformanceTarget block(s) allowed")]
+    public List<AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock>? PricePerformanceTarget
+    {
+        get => GetProperty<List<AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock>>("price_performance_target");
+        set => this.WithProperty("price_performance_target", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRedshiftserverlessWorkgroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRedshiftserverlessWorkgroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

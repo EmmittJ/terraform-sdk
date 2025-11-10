@@ -37,7 +37,8 @@ public class AwsVpcEndpointRouteTableAssociation : TerraformResource
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RouteTableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
+    public required TerraformProperty<string> RouteTableId
     {
         get => GetProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
@@ -46,7 +47,8 @@ public class AwsVpcEndpointRouteTableAssociation : TerraformResource
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcEndpointId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
+    public required TerraformProperty<string> VpcEndpointId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);

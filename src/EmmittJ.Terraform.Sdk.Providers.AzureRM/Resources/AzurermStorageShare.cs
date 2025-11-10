@@ -3,6 +3,68 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for acl in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermStorageShareAclBlock : TerraformBlock
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageShareTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_storage_share resource.
 /// </summary>
 public class AzurermStorageShare : TerraformResource
@@ -48,16 +110,17 @@ public class AzurermStorageShare : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Metadata
+    public Dictionary<string, TerraformProperty<string>>? Metadata
     {
-        get => GetProperty<TerraformMapProperty<string>>("metadata");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -66,7 +129,8 @@ public class AzurermStorageShare : TerraformResource
     /// <summary>
     /// The quota attribute.
     /// </summary>
-    public TerraformProperty<double>? Quota
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quota is required")]
+    public required TerraformProperty<double> Quota
     {
         get => GetProperty<TerraformProperty<double>>("quota");
         set => this.WithProperty("quota", value);
@@ -89,6 +153,26 @@ public class AzurermStorageShare : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
+    }
+
+    /// <summary>
+    /// Block for acl.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AzurermStorageShareAclBlock>? Acl
+    {
+        get => GetProperty<HashSet<AzurermStorageShareAclBlock>>("acl");
+        set => this.WithProperty("acl", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageShareTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageShareTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCertificateManagerCertificateMapEntryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_certificate_manager_certificate_map_entry resource.
 /// </summary>
 public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
@@ -26,9 +61,10 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// There can be defined up to fifteen certificates in each Certificate Map Entry.
     /// Each certificate must match pattern projects/*/locations/*/certificates/*.
     /// </summary>
-    public TerraformProperty<List<string>>? Certificates
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificates is required")]
+    public List<TerraformProperty<string>>? Certificates
     {
-        get => GetProperty<TerraformProperty<List<string>>>("certificates");
+        get => GetProperty<List<TerraformProperty<string>>>("certificates");
         set => this.WithProperty("certificates", value);
     }
 
@@ -70,16 +106,17 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// A map entry that is inputted into the certificate map
     /// </summary>
-    public TerraformProperty<string>? Map
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Map is required")]
+    public required TerraformProperty<string> Map
     {
         get => GetProperty<TerraformProperty<string>>("map");
         set => this.WithProperty("map", value);
@@ -99,7 +136,8 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// names must be unique globally and match pattern
     /// &#39;projects/*/locations/*/certificateMaps/*/certificateMapEntries/*&#39;
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -112,6 +150,16 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCertificateManagerCertificateMapEntryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCertificateManagerCertificateMapEntryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

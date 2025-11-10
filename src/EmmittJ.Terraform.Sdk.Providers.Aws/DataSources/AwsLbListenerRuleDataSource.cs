@@ -3,6 +3,57 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for action in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLbListenerRuleDataSourceActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The order attribute.
+    /// </summary>
+    public TerraformProperty<double>? Order
+    {
+        get => GetProperty<TerraformProperty<double>>("order");
+        set => WithProperty("order", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for condition in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLbListenerRuleDataSourceConditionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for transform in .
+/// Nesting mode: set
+/// </summary>
+public class AwsLbListenerRuleDataSourceTransformBlock : TerraformBlock
+{
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_lb_listener_rule.
 /// </summary>
 public class AwsLbListenerRuleDataSource : TerraformDataSource
@@ -51,6 +102,36 @@ public class AwsLbListenerRuleDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for action.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsLbListenerRuleDataSourceActionBlock>? Action
+    {
+        get => GetProperty<List<AwsLbListenerRuleDataSourceActionBlock>>("action");
+        set => this.WithProperty("action", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsLbListenerRuleDataSourceConditionBlock>? Condition
+    {
+        get => GetProperty<HashSet<AwsLbListenerRuleDataSourceConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
+    }
+
+    /// <summary>
+    /// Block for transform.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsLbListenerRuleDataSourceTransformBlock>? Transform
+    {
+        get => GetProperty<HashSet<AwsLbListenerRuleDataSourceTransformBlock>>("transform");
+        set => this.WithProperty("transform", value);
     }
 
     /// <summary>

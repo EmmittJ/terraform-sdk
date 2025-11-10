@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for device in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerDeviceDeviceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The device_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
+    public required TerraformProperty<string> DeviceName
+    {
+        get => GetProperty<TerraformProperty<string>>("device_name");
+        set => WithProperty("device_name", value);
+    }
+
+    /// <summary>
+    /// The iot_thing_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? IotThingName
+    {
+        get => GetProperty<TerraformProperty<string>>("iot_thing_name");
+        set => WithProperty("iot_thing_name", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_device resource.
 /// </summary>
 public class AwsSagemakerDevice : TerraformResource
@@ -21,7 +57,8 @@ public class AwsSagemakerDevice : TerraformResource
     /// <summary>
     /// The device_fleet_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceFleetName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceFleetName is required")]
+    public required TerraformProperty<string> DeviceFleetName
     {
         get => GetProperty<TerraformProperty<string>>("device_fleet_name");
         set => this.WithProperty("device_fleet_name", value);
@@ -43,6 +80,18 @@ public class AwsSagemakerDevice : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for device.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Device block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Device block(s) allowed")]
+    public List<AwsSagemakerDeviceDeviceBlock>? Device
+    {
+        get => GetProperty<List<AwsSagemakerDeviceDeviceBlock>>("device");
+        set => this.WithProperty("device", value);
     }
 
     /// <summary>

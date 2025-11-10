@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for target in .
+/// Nesting mode: set
+/// </summary>
+public class AwsCodestarnotificationsNotificationRuleTargetBlock : TerraformBlock
+{
+    /// <summary>
+    /// The address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
+    public required TerraformProperty<string> Address
+    {
+        get => GetProperty<TerraformProperty<string>>("address");
+        set => WithProperty("address", value);
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformProperty<string>? Status
+    {
+        get => GetProperty<TerraformProperty<string>>("status");
+        set => WithProperty("status", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_codestarnotifications_notification_rule resource.
 /// </summary>
 public class AwsCodestarnotificationsNotificationRule : TerraformResource
@@ -20,7 +56,8 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     /// <summary>
     /// The detail_type attribute.
     /// </summary>
-    public TerraformProperty<string>? DetailType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetailType is required")]
+    public required TerraformProperty<string> DetailType
     {
         get => GetProperty<TerraformProperty<string>>("detail_type");
         set => this.WithProperty("detail_type", value);
@@ -29,9 +66,10 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     /// <summary>
     /// The event_type_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EventTypeIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTypeIds is required")]
+    public HashSet<TerraformProperty<string>>? EventTypeIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("event_type_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("event_type_ids");
         set => this.WithProperty("event_type_ids", value);
     }
 
@@ -47,7 +85,8 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -65,7 +104,8 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     /// <summary>
     /// The resource attribute.
     /// </summary>
-    public TerraformProperty<string>? Resource
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
+    public required TerraformProperty<string> Resource
     {
         get => GetProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
@@ -83,19 +123,30 @@ public class AwsCodestarnotificationsNotificationRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for target.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Target block(s) allowed")]
+    public HashSet<AwsCodestarnotificationsNotificationRuleTargetBlock>? Target
+    {
+        get => GetProperty<HashSet<AwsCodestarnotificationsNotificationRuleTargetBlock>>("target");
+        set => this.WithProperty("target", value);
     }
 
     /// <summary>

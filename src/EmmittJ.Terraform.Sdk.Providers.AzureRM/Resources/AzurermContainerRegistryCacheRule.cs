@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_container_registry_cache_rule resource.
 /// </summary>
 public class AzurermContainerRegistryCacheRule : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerRegistryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
+    public required TerraformProperty<string> ContainerRegistryId
     {
         get => GetProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
@@ -46,7 +91,8 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     /// <summary>
     /// The name of the cache rule.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +101,8 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     /// <summary>
     /// The full source repository path such as &#39;docker.io/library/ubuntu&#39;.
     /// </summary>
-    public TerraformProperty<string>? SourceRepo
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRepo is required")]
+    public required TerraformProperty<string> SourceRepo
     {
         get => GetProperty<TerraformProperty<string>>("source_repo");
         set => this.WithProperty("source_repo", value);
@@ -64,10 +111,21 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     /// <summary>
     /// The target repository namespace such as &#39;ubuntu&#39;.
     /// </summary>
-    public TerraformProperty<string>? TargetRepo
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRepo is required")]
+    public required TerraformProperty<string> TargetRepo
     {
         get => GetProperty<TerraformProperty<string>>("target_repo");
         set => this.WithProperty("target_repo", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermContainerRegistryCacheRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermContainerRegistryCacheRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

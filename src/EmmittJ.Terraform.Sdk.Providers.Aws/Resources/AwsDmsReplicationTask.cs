@@ -48,7 +48,8 @@ public class AwsDmsReplicationTask : TerraformResource
     /// <summary>
     /// The migration_type attribute.
     /// </summary>
-    public TerraformProperty<string>? MigrationType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MigrationType is required")]
+    public required TerraformProperty<string> MigrationType
     {
         get => GetProperty<TerraformProperty<string>>("migration_type");
         set => this.WithProperty("migration_type", value);
@@ -66,7 +67,8 @@ public class AwsDmsReplicationTask : TerraformResource
     /// <summary>
     /// The replication_instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationInstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceArn is required")]
+    public required TerraformProperty<string> ReplicationInstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("replication_instance_arn");
         set => this.WithProperty("replication_instance_arn", value);
@@ -75,7 +77,8 @@ public class AwsDmsReplicationTask : TerraformResource
     /// <summary>
     /// The replication_task_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationTaskId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationTaskId is required")]
+    public required TerraformProperty<string> ReplicationTaskId
     {
         get => GetProperty<TerraformProperty<string>>("replication_task_id");
         set => this.WithProperty("replication_task_id", value);
@@ -102,7 +105,8 @@ public class AwsDmsReplicationTask : TerraformResource
     /// <summary>
     /// The source_endpoint_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceEndpointArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpointArn is required")]
+    public required TerraformProperty<string> SourceEndpointArn
     {
         get => GetProperty<TerraformProperty<string>>("source_endpoint_arn");
         set => this.WithProperty("source_endpoint_arn", value);
@@ -120,7 +124,8 @@ public class AwsDmsReplicationTask : TerraformResource
     /// <summary>
     /// The table_mappings attribute.
     /// </summary>
-    public TerraformProperty<string>? TableMappings
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableMappings is required")]
+    public required TerraformProperty<string> TableMappings
     {
         get => GetProperty<TerraformProperty<string>>("table_mappings");
         set => this.WithProperty("table_mappings", value);
@@ -129,25 +134,26 @@ public class AwsDmsReplicationTask : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_endpoint_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetEndpointArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetEndpointArn is required")]
+    public required TerraformProperty<string> TargetEndpointArn
     {
         get => GetProperty<TerraformProperty<string>>("target_endpoint_arn");
         set => this.WithProperty("target_endpoint_arn", value);

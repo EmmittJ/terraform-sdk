@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for parameters in .
+/// Nesting mode: set
+/// </summary>
+public class AwsDaxParameterGroupParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dax_parameter_group resource.
 /// </summary>
 public class AwsDaxParameterGroup : TerraformResource
@@ -37,7 +65,8 @@ public class AwsDaxParameterGroup : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -50,6 +79,16 @@ public class AwsDaxParameterGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for parameters.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsDaxParameterGroupParametersBlock>? Parameters
+    {
+        get => GetProperty<HashSet<AwsDaxParameterGroupParametersBlock>>("parameters");
+        set => this.WithProperty("parameters", value);
     }
 
 }

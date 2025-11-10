@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_scc_event_threat_detection_custom_module resource.
 /// </summary>
 public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
@@ -23,7 +58,8 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     /// Config for the module. For the resident module, its config value is defined at this level.
     /// For the inherited module, its config value is inherited from the ancestor module.
     /// </summary>
-    public TerraformProperty<string>? Config
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
+    public required TerraformProperty<string> Config
     {
         get => GetProperty<TerraformProperty<string>>("config");
         set => this.WithProperty("config", value);
@@ -41,7 +77,8 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     /// <summary>
     /// The state of enablement for the module at the given level of the hierarchy. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? EnablementState
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablementState is required")]
+    public required TerraformProperty<string> EnablementState
     {
         get => GetProperty<TerraformProperty<string>>("enablement_state");
         set => this.WithProperty("enablement_state", value);
@@ -59,7 +96,8 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     /// <summary>
     /// Numerical ID of the parent organization.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -68,10 +106,21 @@ public class GoogleSccEventThreatDetectionCustomModule : TerraformResource
     /// <summary>
     /// Immutable. Type for the module. e.g. CONFIGURABLE_BAD_IP.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSccEventThreatDetectionCustomModuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

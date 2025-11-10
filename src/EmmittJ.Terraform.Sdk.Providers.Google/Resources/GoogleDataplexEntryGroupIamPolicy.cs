@@ -20,7 +20,8 @@ public class GoogleDataplexEntryGroupIamPolicy : TerraformResource
     /// <summary>
     /// The entry_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EntryGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
+    public required TerraformProperty<string> EntryGroupId
     {
         get => GetProperty<TerraformProperty<string>>("entry_group_id");
         set => this.WithProperty("entry_group_id", value);
@@ -47,7 +48,8 @@ public class GoogleDataplexEntryGroupIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

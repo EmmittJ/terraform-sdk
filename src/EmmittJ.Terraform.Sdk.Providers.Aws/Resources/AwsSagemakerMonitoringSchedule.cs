@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for monitoring_schedule_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The monitoring_job_definition_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitoringJobDefinitionName is required")]
+    public required TerraformProperty<string> MonitoringJobDefinitionName
+    {
+        get => GetProperty<TerraformProperty<string>>("monitoring_job_definition_name");
+        set => WithProperty("monitoring_job_definition_name", value);
+    }
+
+    /// <summary>
+    /// The monitoring_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitoringType is required")]
+    public required TerraformProperty<string> MonitoringType
+    {
+        get => GetProperty<TerraformProperty<string>>("monitoring_type");
+        set => WithProperty("monitoring_type", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_monitoring_schedule resource.
 /// </summary>
 public class AwsSagemakerMonitoringSchedule : TerraformResource
@@ -47,19 +75,31 @@ public class AwsSagemakerMonitoringSchedule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for monitoring_schedule_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitoringScheduleConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringScheduleConfig block(s) allowed")]
+    public List<AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock>? MonitoringScheduleConfig
+    {
+        get => GetProperty<List<AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock>>("monitoring_schedule_config");
+        set => this.WithProperty("monitoring_schedule_config", value);
     }
 
     /// <summary>

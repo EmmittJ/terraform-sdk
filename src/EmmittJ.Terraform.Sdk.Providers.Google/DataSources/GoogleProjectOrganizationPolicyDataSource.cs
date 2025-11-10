@@ -25,7 +25,8 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
-    public TerraformProperty<string>? Constraint
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
+    public required TerraformProperty<string> Constraint
     {
         get => GetProperty<TerraformProperty<string>>("constraint");
         set => this.WithProperty("constraint", value);
@@ -43,7 +44,8 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The project ID.
     /// </summary>
-    public TerraformProperty<string>? Project
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);

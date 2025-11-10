@@ -19,18 +19,20 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
     /// <summary>
     /// The calling_regions attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CallingRegions
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallingRegions is required")]
+    public HashSet<TerraformProperty<string>>? CallingRegions
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("calling_regions");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("calling_regions");
         set => this.WithProperty("calling_regions", value);
     }
 
     /// <summary>
     /// The cidr_allow_list attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CidrAllowList
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrAllowList is required")]
+    public HashSet<TerraformProperty<string>>? CidrAllowList
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("cidr_allow_list");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("cidr_allow_list");
         set => this.WithProperty("cidr_allow_list", value);
     }
 
@@ -82,7 +84,8 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VoiceConnectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
+    public required TerraformProperty<string> VoiceConnectorId
     {
         get => GetProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);

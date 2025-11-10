@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsAcmCertificateValidationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_acm_certificate_validation resource.
 /// </summary>
 public class AwsAcmCertificateValidation : TerraformResource
@@ -19,7 +36,8 @@ public class AwsAcmCertificateValidation : TerraformResource
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
+    public required TerraformProperty<string> CertificateArn
     {
         get => GetProperty<TerraformProperty<string>>("certificate_arn");
         set => this.WithProperty("certificate_arn", value);
@@ -46,10 +64,20 @@ public class AwsAcmCertificateValidation : TerraformResource
     /// <summary>
     /// The validation_record_fqdns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ValidationRecordFqdns
+    public HashSet<TerraformProperty<string>>? ValidationRecordFqdns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("validation_record_fqdns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("validation_record_fqdns");
         set => this.WithProperty("validation_record_fqdns", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsAcmCertificateValidationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsAcmCertificateValidationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

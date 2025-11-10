@@ -32,7 +32,8 @@ public class AwsSsmParametersByPathDataSource : TerraformDataSource
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformProperty<string>? Path
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformProperty<string> Path
     {
         get => GetProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);

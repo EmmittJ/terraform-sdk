@@ -3,6 +3,80 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for consumer_accept_lists in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The number of consumer forwarding rules the consumer project can
+    /// create.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLimit is required")]
+    public required TerraformProperty<double> ConnectionLimit
+    {
+        get => GetProperty<TerraformProperty<double>>("connection_limit");
+        set => WithProperty("connection_limit", value);
+    }
+
+    /// <summary>
+    /// The network that is allowed to connect to this service attachment.
+    /// Only one of project_id_or_num and network_url may be set.
+    /// </summary>
+    public TerraformProperty<string>? NetworkUrl
+    {
+        get => GetProperty<TerraformProperty<string>>("network_url");
+        set => WithProperty("network_url", value);
+    }
+
+    /// <summary>
+    /// A project that is allowed to connect to this service attachment.
+    /// Only one of project_id_or_num and network_url may be set.
+    /// </summary>
+    public TerraformProperty<string>? ProjectIdOrNum
+    {
+        get => GetProperty<TerraformProperty<string>>("project_id_or_num");
+        set => WithProperty("project_id_or_num", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_service_attachment resource.
 /// </summary>
 public class GoogleComputeServiceAttachment : TerraformResource
@@ -24,7 +98,8 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// The connection preference to use for this service attachment. Valid
     /// values include &amp;quot;ACCEPT_AUTOMATIC&amp;quot;, &amp;quot;ACCEPT_MANUAL&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? ConnectionPreference
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
+    public required TerraformProperty<string> ConnectionPreference
     {
         get => GetProperty<TerraformProperty<string>>("connection_preference");
         set => this.WithProperty("connection_preference", value);
@@ -34,9 +109,9 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// An array of projects that are not allowed to connect to this service
     /// attachment.
     /// </summary>
-    public TerraformProperty<List<string>>? ConsumerRejectLists
+    public List<TerraformProperty<string>>? ConsumerRejectLists
     {
-        get => GetProperty<TerraformProperty<List<string>>>("consumer_reject_lists");
+        get => GetProperty<List<TerraformProperty<string>>>("consumer_reject_lists");
         set => this.WithProperty("consumer_reject_lists", value);
     }
 
@@ -55,9 +130,9 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// valid domain name: &amp;quot;p.mycompany.com.&amp;quot;. Current max number of domain names
     /// supported is 1.
     /// </summary>
-    public TerraformProperty<List<string>>? DomainNames
+    public List<TerraformProperty<string>>? DomainNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("domain_names");
+        get => GetProperty<List<TerraformProperty<string>>>("domain_names");
         set => this.WithProperty("domain_names", value);
     }
 
@@ -66,7 +141,8 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// address data in TCP connections that traverse proxies on their way to
     /// destination servers.
     /// </summary>
-    public TerraformProperty<bool>? EnableProxyProtocol
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableProxyProtocol is required")]
+    public required TerraformProperty<bool> EnableProxyProtocol
     {
         get => GetProperty<TerraformProperty<bool>>("enable_proxy_protocol");
         set => this.WithProperty("enable_proxy_protocol", value);
@@ -89,7 +165,8 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -98,9 +175,10 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// <summary>
     /// An array of subnets that is provided for NAT in this service attachment.
     /// </summary>
-    public TerraformProperty<List<string>>? NatSubnets
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatSubnets is required")]
+    public List<TerraformProperty<string>>? NatSubnets
     {
-        get => GetProperty<TerraformProperty<List<string>>>("nat_subnets");
+        get => GetProperty<List<TerraformProperty<string>>>("nat_subnets");
         set => this.WithProperty("nat_subnets", value);
     }
 
@@ -164,10 +242,31 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// <summary>
     /// The URL of a service serving the endpoint identified by this service attachment.
     /// </summary>
-    public TerraformProperty<string>? TargetService
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetService is required")]
+    public required TerraformProperty<string> TargetService
     {
         get => GetProperty<TerraformProperty<string>>("target_service");
         set => this.WithProperty("target_service", value);
+    }
+
+    /// <summary>
+    /// Block for consumer_accept_lists.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>? ConsumerAcceptLists
+    {
+        get => GetProperty<HashSet<GoogleComputeServiceAttachmentConsumerAcceptListsBlock>>("consumer_accept_lists");
+        set => this.WithProperty("consumer_accept_lists", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeServiceAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeServiceAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

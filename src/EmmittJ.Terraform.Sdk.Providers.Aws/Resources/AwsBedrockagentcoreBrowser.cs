@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for network_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreBrowserNetworkConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The network_mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
+    public required TerraformProperty<string> NetworkMode
+    {
+        get => GetProperty<TerraformProperty<string>>("network_mode");
+        set => WithProperty("network_mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for recording in .
+/// Nesting mode: list
+/// </summary>
+public class AwsBedrockagentcoreBrowserRecordingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsBedrockagentcoreBrowserTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_bedrockagentcore_browser resource.
 /// </summary>
 public class AwsBedrockagentcoreBrowser : TerraformResource
@@ -40,7 +101,8 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -58,10 +120,40 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for network_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreBrowserNetworkConfigurationBlock>? NetworkConfiguration
+    {
+        get => GetProperty<List<AwsBedrockagentcoreBrowserNetworkConfigurationBlock>>("network_configuration");
+        set => this.WithProperty("network_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for recording.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsBedrockagentcoreBrowserRecordingBlock>? Recording
+    {
+        get => GetProperty<List<AwsBedrockagentcoreBrowserRecordingBlock>>("recording");
+        set => this.WithProperty("recording", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsBedrockagentcoreBrowserTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsBedrockagentcoreBrowserTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

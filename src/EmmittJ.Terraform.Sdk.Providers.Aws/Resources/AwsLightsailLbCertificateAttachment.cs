@@ -19,7 +19,8 @@ public class AwsLightsailLbCertificateAttachment : TerraformResource
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CertificateName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
+    public required TerraformProperty<string> CertificateName
     {
         get => GetProperty<TerraformProperty<string>>("certificate_name");
         set => this.WithProperty("certificate_name", value);
@@ -37,7 +38,8 @@ public class AwsLightsailLbCertificateAttachment : TerraformResource
     /// <summary>
     /// The lb_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LbName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbName is required")]
+    public required TerraformProperty<string> LbName
     {
         get => GetProperty<TerraformProperty<string>>("lb_name");
         set => this.WithProperty("lb_name", value);

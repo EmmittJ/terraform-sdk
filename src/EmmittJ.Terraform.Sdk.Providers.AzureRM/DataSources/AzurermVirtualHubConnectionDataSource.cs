@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualHubConnectionDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_virtual_hub_connection.
 /// </summary>
 public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
@@ -32,7 +49,8 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,7 +59,8 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -50,10 +69,21 @@ public class AzurermVirtualHubConnectionDataSource : TerraformDataSource
     /// <summary>
     /// The virtual_hub_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualHubName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubName is required")]
+    public required TerraformProperty<string> VirtualHubName
     {
         get => GetProperty<TerraformProperty<string>>("virtual_hub_name");
         set => this.WithProperty("virtual_hub_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualHubConnectionDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualHubConnectionDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

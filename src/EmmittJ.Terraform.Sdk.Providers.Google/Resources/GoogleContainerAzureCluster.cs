@@ -3,6 +3,187 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for authorization in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleContainerAzureClusterAuthorizationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for azure_services_authentication in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleContainerAzureClusterAzureServicesAuthenticationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Azure Active Directory Application ID for Authentication configuration.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
+    {
+        get => GetProperty<TerraformProperty<string>>("application_id");
+        set => WithProperty("application_id", value);
+    }
+
+    /// <summary>
+    /// The Azure Active Directory Tenant ID for Authentication configuration.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformProperty<string> TenantId
+    {
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
+        set => WithProperty("tenant_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for control_plane in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleContainerAzureClusterControlPlaneBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ARM ID of the subnet where the control plane VMs are deployed. Example: `/subscriptions//resourceGroups//providers/Microsoft.Network/virtualNetworks//subnets/default`.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformProperty<string> SubnetId
+    {
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        set => WithProperty("subnet_id", value);
+    }
+
+    /// <summary>
+    /// Optional. A set of tags to apply to all underlying control plane Azure resources.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Tags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// The Kubernetes version to run on control plane replicas (e.g. `1.19.10-gke.1000`). You can list all supported versions on a given Google Cloud region by calling GetAzureServerConfig.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformProperty<string> Version
+    {
+        get => GetProperty<TerraformProperty<string>>("version");
+        set => WithProperty("version", value);
+    }
+
+    /// <summary>
+    /// Optional. The Azure VM size name. Example: `Standard_DS2_v2`. For available VM sizes, see https://docs.microsoft.com/en-us/azure/virtual-machines/vm-naming-conventions. When unspecified, it defaults to `Standard_DS2_v2`.
+    /// </summary>
+    public TerraformProperty<string>? VmSize
+    {
+        get => GetProperty<TerraformProperty<string>>("vm_size");
+        set => WithProperty("vm_size", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for fleet in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleContainerAzureClusterFleetBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the managed Hub Membership resource associated to this cluster. Membership names are formatted as projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;.
+    /// </summary>
+    public TerraformProperty<string>? Membership
+    {
+        get => GetProperty<TerraformProperty<string>>("membership");
+        set => WithProperty("membership", value);
+    }
+
+    /// <summary>
+    /// The number of the Fleet host project where this cluster will be registered.
+    /// </summary>
+    public TerraformProperty<string>? Project
+    {
+        get => GetProperty<TerraformProperty<string>>("project");
+        set => WithProperty("project", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for networking in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleContainerAzureClusterNetworkingBlock : TerraformBlock
+{
+    /// <summary>
+    /// The IP address range of the pods in this cluster, in CIDR notation (e.g. `10.96.0.0/14`). All pods in the cluster get assigned a unique RFC1918 IPv4 address from these ranges. Only a single range is supported. This field cannot be changed after creation.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodAddressCidrBlocks is required")]
+    public List<TerraformProperty<string>>? PodAddressCidrBlocks
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("pod_address_cidr_blocks");
+        set => WithProperty("pod_address_cidr_blocks", value);
+    }
+
+    /// <summary>
+    /// The IP address range for services in this cluster, in CIDR notation (e.g. `10.96.0.0/14`). All services in the cluster get assigned a unique RFC1918 IPv4 address from these ranges. Only a single range is supported. This field cannot be changed after creating a cluster.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAddressCidrBlocks is required")]
+    public List<TerraformProperty<string>>? ServiceAddressCidrBlocks
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("service_address_cidr_blocks");
+        set => WithProperty("service_address_cidr_blocks", value);
+    }
+
+    /// <summary>
+    /// The Azure Resource Manager (ARM) ID of the VNet associated with your cluster. All components in the cluster (i.e. control plane and node pools) run on a single VNet. Example: `/subscriptions/*/resourceGroups/*/providers/Microsoft.Network/virtualNetworks/*` This field cannot be changed after creation.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
+    public required TerraformProperty<string> VirtualNetworkId
+    {
+        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
+        set => WithProperty("virtual_network_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleContainerAzureClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_container_azure_cluster resource.
 /// </summary>
 public class GoogleContainerAzureCluster : TerraformResource
@@ -31,16 +212,17 @@ public class GoogleContainerAzureCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The Azure region where the cluster runs. Each Google Cloud region supports a subset of nearby Azure regions. You can call to list all supported Azure regions within a given Google Cloud region.
     /// </summary>
-    public TerraformProperty<string>? AzureRegion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureRegion is required")]
+    public required TerraformProperty<string> AzureRegion
     {
         get => GetProperty<TerraformProperty<string>>("azure_region");
         set => this.WithProperty("azure_region", value);
@@ -76,7 +258,8 @@ public class GoogleContainerAzureCluster : TerraformResource
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -85,7 +268,8 @@ public class GoogleContainerAzureCluster : TerraformResource
     /// <summary>
     /// The name of this resource.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -103,10 +287,80 @@ public class GoogleContainerAzureCluster : TerraformResource
     /// <summary>
     /// The ARM ID of the resource group where the cluster resources are deployed. For example: `/subscriptions/*/resourceGroups/*`
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
+    public required TerraformProperty<string> ResourceGroupId
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_id");
         set => this.WithProperty("resource_group_id", value);
+    }
+
+    /// <summary>
+    /// Block for authorization.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
+    public List<GoogleContainerAzureClusterAuthorizationBlock>? Authorization
+    {
+        get => GetProperty<List<GoogleContainerAzureClusterAuthorizationBlock>>("authorization");
+        set => this.WithProperty("authorization", value);
+    }
+
+    /// <summary>
+    /// Block for azure_services_authentication.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureServicesAuthentication block(s) allowed")]
+    public List<GoogleContainerAzureClusterAzureServicesAuthenticationBlock>? AzureServicesAuthentication
+    {
+        get => GetProperty<List<GoogleContainerAzureClusterAzureServicesAuthenticationBlock>>("azure_services_authentication");
+        set => this.WithProperty("azure_services_authentication", value);
+    }
+
+    /// <summary>
+    /// Block for control_plane.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ControlPlane block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
+    public List<GoogleContainerAzureClusterControlPlaneBlock>? ControlPlane
+    {
+        get => GetProperty<List<GoogleContainerAzureClusterControlPlaneBlock>>("control_plane");
+        set => this.WithProperty("control_plane", value);
+    }
+
+    /// <summary>
+    /// Block for fleet.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fleet block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Fleet block(s) allowed")]
+    public List<GoogleContainerAzureClusterFleetBlock>? Fleet
+    {
+        get => GetProperty<List<GoogleContainerAzureClusterFleetBlock>>("fleet");
+        set => this.WithProperty("fleet", value);
+    }
+
+    /// <summary>
+    /// Block for networking.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networking block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Networking block(s) allowed")]
+    public List<GoogleContainerAzureClusterNetworkingBlock>? Networking
+    {
+        get => GetProperty<List<GoogleContainerAzureClusterNetworkingBlock>>("networking");
+        set => this.WithProperty("networking", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleContainerAzureClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleContainerAzureClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

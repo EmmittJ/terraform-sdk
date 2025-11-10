@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKustoClusterPrincipalAssignmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_kusto_cluster_principal_assignment resource.
 /// </summary>
 public class AzurermKustoClusterPrincipalAssignment : TerraformResource
@@ -21,7 +56,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -39,7 +75,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -48,7 +85,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
+    public required TerraformProperty<string> PrincipalId
     {
         get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
@@ -57,7 +95,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
+    public required TerraformProperty<string> PrincipalType
     {
         get => GetProperty<TerraformProperty<string>>("principal_type");
         set => this.WithProperty("principal_type", value);
@@ -66,7 +105,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -75,7 +115,8 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformProperty<string>? Role
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
+    public required TerraformProperty<string> Role
     {
         get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
@@ -84,10 +125,21 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformProperty<string> TenantId
     {
         get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKustoClusterPrincipalAssignmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKustoClusterPrincipalAssignmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

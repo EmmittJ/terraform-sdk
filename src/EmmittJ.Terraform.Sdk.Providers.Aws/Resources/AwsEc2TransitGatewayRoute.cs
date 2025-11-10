@@ -28,7 +28,8 @@ public class AwsEc2TransitGatewayRoute : TerraformResource
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationCidrBlock
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
+    public required TerraformProperty<string> DestinationCidrBlock
     {
         get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
@@ -64,7 +65,8 @@ public class AwsEc2TransitGatewayRoute : TerraformResource
     /// <summary>
     /// The transit_gateway_route_table_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TransitGatewayRouteTableId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
+    public required TerraformProperty<string> TransitGatewayRouteTableId
     {
         get => GetProperty<TerraformProperty<string>>("transit_gateway_route_table_id");
         set => this.WithProperty("transit_gateway_route_table_id", value);

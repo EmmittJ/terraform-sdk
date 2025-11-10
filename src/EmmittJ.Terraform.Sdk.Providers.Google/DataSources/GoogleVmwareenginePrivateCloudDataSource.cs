@@ -43,7 +43,8 @@ public class GoogleVmwareenginePrivateCloudDataSource : TerraformDataSource
     /// <summary>
     /// The location where the PrivateCloud should reside.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -52,7 +53,8 @@ public class GoogleVmwareenginePrivateCloudDataSource : TerraformDataSource
     /// <summary>
     /// The ID of the PrivateCloud.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

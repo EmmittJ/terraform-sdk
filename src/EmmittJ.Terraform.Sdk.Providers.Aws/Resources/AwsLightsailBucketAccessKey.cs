@@ -23,7 +23,8 @@ public class AwsLightsailBucketAccessKey : TerraformResource
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
-    public TerraformProperty<string>? BucketName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
     {
         get => GetProperty<TerraformProperty<string>>("bucket_name");
         set => this.WithProperty("bucket_name", value);

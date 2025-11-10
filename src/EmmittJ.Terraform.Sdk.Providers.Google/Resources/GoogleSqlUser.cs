@@ -3,6 +3,94 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for password_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Number of failed attempts allowed before the user get locked.
+    /// </summary>
+    public TerraformProperty<double>? AllowedFailedAttempts
+    {
+        get => GetProperty<TerraformProperty<double>>("allowed_failed_attempts");
+        set => WithProperty("allowed_failed_attempts", value);
+    }
+
+    /// <summary>
+    /// If true, the check that will lock user after too many failed login attempts will be enabled.
+    /// </summary>
+    public TerraformProperty<bool>? EnableFailedAttemptsCheck
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_failed_attempts_check");
+        set => WithProperty("enable_failed_attempts_check", value);
+    }
+
+    /// <summary>
+    /// If true, the user must specify the current password before changing the password. This flag is supported only for MySQL.
+    /// </summary>
+    public TerraformProperty<bool>? EnablePasswordVerification
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_password_verification");
+        set => WithProperty("enable_password_verification", value);
+    }
+
+    /// <summary>
+    /// Password expiration duration with one week grace period.
+    /// </summary>
+    public TerraformProperty<string>? PasswordExpirationDuration
+    {
+        get => GetProperty<TerraformProperty<string>>("password_expiration_duration");
+        set => WithProperty("password_expiration_duration", value);
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public List<TerraformProperty<object>>? Status
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("status");
+        set => WithProperty("status", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSqlUserTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_sql_user resource.
 /// </summary>
 public class GoogleSqlUser : TerraformResource
@@ -49,7 +137,8 @@ public class GoogleSqlUser : TerraformResource
     /// <summary>
     /// The name of the Cloud SQL instance. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -58,7 +147,8 @@ public class GoogleSqlUser : TerraformResource
     /// <summary>
     /// The name of the user. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -110,6 +200,27 @@ public class GoogleSqlUser : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for password_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PasswordPolicy block(s) allowed")]
+    public List<GoogleSqlUserPasswordPolicyBlock>? PasswordPolicy
+    {
+        get => GetProperty<List<GoogleSqlUserPasswordPolicyBlock>>("password_policy");
+        set => this.WithProperty("password_policy", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSqlUserTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSqlUserTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

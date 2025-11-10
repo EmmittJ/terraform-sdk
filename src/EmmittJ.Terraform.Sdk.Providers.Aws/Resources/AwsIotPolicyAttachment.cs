@@ -28,7 +28,8 @@ public class AwsIotPolicyAttachment : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -46,7 +47,8 @@ public class AwsIotPolicyAttachment : TerraformResource
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformProperty<string>? Target
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
+    public required TerraformProperty<string> Target
     {
         get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);

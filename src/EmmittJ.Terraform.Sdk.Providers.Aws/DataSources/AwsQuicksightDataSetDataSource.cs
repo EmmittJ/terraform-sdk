@@ -40,7 +40,8 @@ public class AwsQuicksightDataSetDataSource : TerraformDataSource
     /// <summary>
     /// The data_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataSetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
+    public required TerraformProperty<string> DataSetId
     {
         get => GetProperty<TerraformProperty<string>>("data_set_id");
         set => this.WithProperty("data_set_id", value);
@@ -67,9 +68,9 @@ public class AwsQuicksightDataSetDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

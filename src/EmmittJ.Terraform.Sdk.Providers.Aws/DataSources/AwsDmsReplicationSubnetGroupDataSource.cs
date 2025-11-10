@@ -42,7 +42,8 @@ public class AwsDmsReplicationSubnetGroupDataSource : TerraformDataSource
     /// <summary>
     /// The replication_subnet_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ReplicationSubnetGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSubnetGroupId is required")]
+    public required TerraformProperty<string> ReplicationSubnetGroupId
     {
         get => GetProperty<TerraformProperty<string>>("replication_subnet_group_id");
         set => this.WithProperty("replication_subnet_group_id", value);
@@ -51,9 +52,9 @@ public class AwsDmsReplicationSubnetGroupDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -3,6 +3,165 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for authentication_options in .
+/// Nesting mode: set
+/// </summary>
+public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The active_directory_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? ActiveDirectoryId
+    {
+        get => GetProperty<TerraformProperty<string>>("active_directory_id");
+        set => WithProperty("active_directory_id", value);
+    }
+
+    /// <summary>
+    /// The root_certificate_chain_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? RootCertificateChainArn
+    {
+        get => GetProperty<TerraformProperty<string>>("root_certificate_chain_arn");
+        set => WithProperty("root_certificate_chain_arn", value);
+    }
+
+    /// <summary>
+    /// The saml_provider_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? SamlProviderArn
+    {
+        get => GetProperty<TerraformProperty<string>>("saml_provider_arn");
+        set => WithProperty("saml_provider_arn", value);
+    }
+
+    /// <summary>
+    /// The self_service_saml_provider_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? SelfServiceSamlProviderArn
+    {
+        get => GetProperty<TerraformProperty<string>>("self_service_saml_provider_arn");
+        set => WithProperty("self_service_saml_provider_arn", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for client_connect_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEc2ClientVpnEndpointClientConnectOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The lambda_function_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? LambdaFunctionArn
+    {
+        get => GetProperty<TerraformProperty<string>>("lambda_function_arn");
+        set => WithProperty("lambda_function_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for client_login_banner_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The banner_text attribute.
+    /// </summary>
+    public TerraformProperty<string>? BannerText
+    {
+        get => GetProperty<TerraformProperty<string>>("banner_text");
+        set => WithProperty("banner_text", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for client_route_enforcement_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enforced attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enforced
+    {
+        get => GetProperty<TerraformProperty<bool>>("enforced");
+        set => WithProperty("enforced", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for connection_log_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cloudwatch_log_group attribute.
+    /// </summary>
+    public TerraformProperty<string>? CloudwatchLogGroup
+    {
+        get => GetProperty<TerraformProperty<string>>("cloudwatch_log_group");
+        set => WithProperty("cloudwatch_log_group", value);
+    }
+
+    /// <summary>
+    /// The cloudwatch_log_stream attribute.
+    /// </summary>
+    public TerraformProperty<string>? CloudwatchLogStream
+    {
+        get => GetProperty<TerraformProperty<string>>("cloudwatch_log_stream");
+        set => WithProperty("cloudwatch_log_stream", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ec2_client_vpn_endpoint resource.
 /// </summary>
 public class AwsEc2ClientVpnEndpoint : TerraformResource
@@ -49,9 +208,9 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? DnsServers
+    public List<TerraformProperty<string>>? DnsServers
     {
-        get => GetProperty<TerraformProperty<List<string>>>("dns_servers");
+        get => GetProperty<List<TerraformProperty<string>>>("dns_servers");
         set => this.WithProperty("dns_servers", value);
     }
 
@@ -85,9 +244,9 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
@@ -103,7 +262,8 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// <summary>
     /// The server_certificate_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerCertificateArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerCertificateArn is required")]
+    public required TerraformProperty<string> ServerCertificateArn
     {
         get => GetProperty<TerraformProperty<string>>("server_certificate_arn");
         set => this.WithProperty("server_certificate_arn", value);
@@ -130,18 +290,18 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -179,6 +339,63 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("vpn_port");
         set => this.WithProperty("vpn_port", value);
+    }
+
+    /// <summary>
+    /// Block for authentication_options.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationOptions block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 AuthenticationOptions block(s) allowed")]
+    public HashSet<AwsEc2ClientVpnEndpointAuthenticationOptionsBlock>? AuthenticationOptions
+    {
+        get => GetProperty<HashSet<AwsEc2ClientVpnEndpointAuthenticationOptionsBlock>>("authentication_options");
+        set => this.WithProperty("authentication_options", value);
+    }
+
+    /// <summary>
+    /// Block for client_connect_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectOptions block(s) allowed")]
+    public List<AwsEc2ClientVpnEndpointClientConnectOptionsBlock>? ClientConnectOptions
+    {
+        get => GetProperty<List<AwsEc2ClientVpnEndpointClientConnectOptionsBlock>>("client_connect_options");
+        set => this.WithProperty("client_connect_options", value);
+    }
+
+    /// <summary>
+    /// Block for client_login_banner_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientLoginBannerOptions block(s) allowed")]
+    public List<AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock>? ClientLoginBannerOptions
+    {
+        get => GetProperty<List<AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock>>("client_login_banner_options");
+        set => this.WithProperty("client_login_banner_options", value);
+    }
+
+    /// <summary>
+    /// Block for client_route_enforcement_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientRouteEnforcementOptions block(s) allowed")]
+    public List<AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock>? ClientRouteEnforcementOptions
+    {
+        get => GetProperty<List<AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock>>("client_route_enforcement_options");
+        set => this.WithProperty("client_route_enforcement_options", value);
+    }
+
+    /// <summary>
+    /// Block for connection_log_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionLogOptions block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionLogOptions block(s) allowed")]
+    public List<AwsEc2ClientVpnEndpointConnectionLogOptionsBlock>? ConnectionLogOptions
+    {
+        get => GetProperty<List<AwsEc2ClientVpnEndpointConnectionLogOptionsBlock>>("connection_log_options");
+        set => this.WithProperty("connection_log_options", value);
     }
 
     /// <summary>

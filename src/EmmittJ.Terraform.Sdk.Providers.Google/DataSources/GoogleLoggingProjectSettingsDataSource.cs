@@ -34,7 +34,8 @@ public class GoogleLoggingProjectSettingsDataSource : TerraformDataSource
     /// <summary>
     /// The project for which to retrieve settings.
     /// </summary>
-    public TerraformProperty<string>? Project
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
+    public required TerraformProperty<string> Project
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSccOrganizationSccBigQueryExportTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_scc_organization_scc_big_query_export resource.
 /// </summary>
 public class GoogleSccOrganizationSccBigQueryExport : TerraformResource
@@ -24,7 +59,8 @@ public class GoogleSccOrganizationSccBigQueryExport : TerraformResource
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
-    public TerraformProperty<string>? BigQueryExportId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
+    public required TerraformProperty<string> BigQueryExportId
     {
         get => GetProperty<TerraformProperty<string>>("big_query_export_id");
         set => this.WithProperty("big_query_export_id", value);
@@ -96,10 +132,21 @@ public class GoogleSccOrganizationSccBigQueryExport : TerraformResource
     /// The organization whose Cloud Security Command Center the Big Query Export
     /// Config lives in.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSccOrganizationSccBigQueryExportTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSccOrganizationSccBigQueryExportTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

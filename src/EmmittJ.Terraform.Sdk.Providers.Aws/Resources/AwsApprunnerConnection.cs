@@ -21,7 +21,8 @@ public class AwsApprunnerConnection : TerraformResource
     /// <summary>
     /// The connection_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
+    public required TerraformProperty<string> ConnectionName
     {
         get => GetProperty<TerraformProperty<string>>("connection_name");
         set => this.WithProperty("connection_name", value);
@@ -39,7 +40,8 @@ public class AwsApprunnerConnection : TerraformResource
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ProviderType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
+    public required TerraformProperty<string> ProviderType
     {
         get => GetProperty<TerraformProperty<string>>("provider_type");
         set => this.WithProperty("provider_type", value);
@@ -57,18 +59,18 @@ public class AwsApprunnerConnection : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

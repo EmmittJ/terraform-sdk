@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for network_acls in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bypass attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bypass is required")]
+    public required TerraformProperty<string> Bypass
+    {
+        get => GetProperty<TerraformProperty<string>>("bypass");
+        set => WithProperty("bypass", value);
+    }
+
+    /// <summary>
+    /// The default_action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
+    public required TerraformProperty<string> DefaultAction
+    {
+        get => GetProperty<TerraformProperty<string>>("default_action");
+        set => WithProperty("default_action", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_key_vault_managed_hardware_security_module resource.
 /// </summary>
 public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
@@ -21,9 +93,10 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The admin_object_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdminObjectIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminObjectIds is required")]
+    public HashSet<TerraformProperty<string>>? AdminObjectIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("admin_object_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("admin_object_ids");
         set => this.WithProperty("admin_object_ids", value);
     }
 
@@ -39,7 +112,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -48,7 +122,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -75,7 +150,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -84,9 +160,9 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The security_domain_key_vault_certificate_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SecurityDomainKeyVaultCertificateIds
+    public List<TerraformProperty<string>>? SecurityDomainKeyVaultCertificateIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("security_domain_key_vault_certificate_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("security_domain_key_vault_certificate_ids");
         set => this.WithProperty("security_domain_key_vault_certificate_ids", value);
     }
 
@@ -102,7 +178,8 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
+    public required TerraformProperty<string> SkuName
     {
         get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
@@ -120,19 +197,41 @@ public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformProperty<string> TenantId
     {
         get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// Block for network_acls.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
+    public List<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>? NetworkAcls
+    {
+        get => GetProperty<List<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>>("network_acls");
+        set => this.WithProperty("network_acls", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

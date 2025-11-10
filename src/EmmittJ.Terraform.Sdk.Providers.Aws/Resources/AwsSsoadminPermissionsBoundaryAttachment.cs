@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for permissions_boundary in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock : TerraformBlock
+{
+    /// <summary>
+    /// The managed_policy_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? ManagedPolicyArn
+    {
+        get => GetProperty<TerraformProperty<string>>("managed_policy_arn");
+        set => WithProperty("managed_policy_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssoadmin_permissions_boundary_attachment resource.
 /// </summary>
 public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
@@ -28,7 +71,8 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
+    public required TerraformProperty<string> InstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
@@ -37,7 +81,8 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     /// <summary>
     /// The permission_set_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PermissionSetArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
+    public required TerraformProperty<string> PermissionSetArn
     {
         get => GetProperty<TerraformProperty<string>>("permission_set_arn");
         set => this.WithProperty("permission_set_arn", value);
@@ -50,6 +95,28 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for permissions_boundary.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PermissionsBoundary block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PermissionsBoundary block(s) allowed")]
+    public List<AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock>? PermissionsBoundary
+    {
+        get => GetProperty<List<AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock>>("permissions_boundary");
+        set => this.WithProperty("permissions_boundary", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

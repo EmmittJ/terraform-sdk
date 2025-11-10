@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_service_networking_peered_dns_domain resource.
 /// </summary>
 public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
@@ -20,7 +55,8 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     /// <summary>
     /// The DNS domain name suffix of the peered DNS domain.
     /// </summary>
-    public TerraformProperty<string>? DnsSuffix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsSuffix is required")]
+    public required TerraformProperty<string> DnsSuffix
     {
         get => GetProperty<TerraformProperty<string>>("dns_suffix");
         set => this.WithProperty("dns_suffix", value);
@@ -38,7 +74,8 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     /// <summary>
     /// Name of the peered DNS domain.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,7 +84,8 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     /// <summary>
     /// Network in the consumer project to peer with.
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -69,6 +107,16 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

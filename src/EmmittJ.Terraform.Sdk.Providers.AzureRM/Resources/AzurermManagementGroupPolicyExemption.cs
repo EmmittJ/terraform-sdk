@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermManagementGroupPolicyExemptionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_management_group_policy_exemption resource.
 /// </summary>
 public class AzurermManagementGroupPolicyExemption : TerraformResource
@@ -37,7 +81,8 @@ public class AzurermManagementGroupPolicyExemption : TerraformResource
     /// <summary>
     /// The exemption_category attribute.
     /// </summary>
-    public TerraformProperty<string>? ExemptionCategory
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExemptionCategory is required")]
+    public required TerraformProperty<string> ExemptionCategory
     {
         get => GetProperty<TerraformProperty<string>>("exemption_category");
         set => this.WithProperty("exemption_category", value);
@@ -64,7 +109,8 @@ public class AzurermManagementGroupPolicyExemption : TerraformResource
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ManagementGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
+    public required TerraformProperty<string> ManagementGroupId
     {
         get => GetProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
@@ -82,7 +128,8 @@ public class AzurermManagementGroupPolicyExemption : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -91,7 +138,8 @@ public class AzurermManagementGroupPolicyExemption : TerraformResource
     /// <summary>
     /// The policy_assignment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyAssignmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
+    public required TerraformProperty<string> PolicyAssignmentId
     {
         get => GetProperty<TerraformProperty<string>>("policy_assignment_id");
         set => this.WithProperty("policy_assignment_id", value);
@@ -100,10 +148,20 @@ public class AzurermManagementGroupPolicyExemption : TerraformResource
     /// <summary>
     /// The policy_definition_reference_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PolicyDefinitionReferenceIds
+    public List<TerraformProperty<string>>? PolicyDefinitionReferenceIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("policy_definition_reference_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("policy_definition_reference_ids");
         set => this.WithProperty("policy_definition_reference_ids", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermManagementGroupPolicyExemptionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermManagementGroupPolicyExemptionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

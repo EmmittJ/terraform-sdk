@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaseAppCheckRecaptchaV3ConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebase_app_check_recaptcha_v3_config resource.
 /// </summary>
 public class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
@@ -22,7 +57,8 @@ public class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
     /// The ID of an
     /// [Web App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id).
     /// </summary>
-    public TerraformProperty<string>? AppId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
+    public required TerraformProperty<string> AppId
     {
         get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
@@ -50,7 +86,8 @@ public class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
     /// The site secret used to identify your service for reCAPTCHA v3 verification.
     /// For security reasons, this field will never be populated in any response.
     /// </summary>
-    public TerraformProperty<string>? SiteSecret
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteSecret is required")]
+    public required TerraformProperty<string> SiteSecret
     {
         get => GetProperty<TerraformProperty<string>>("site_secret");
         set => this.WithProperty("site_secret", value);
@@ -66,6 +103,16 @@ public class GoogleFirebaseAppCheckRecaptchaV3Config : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("token_ttl");
         set => this.WithProperty("token_ttl", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaseAppCheckRecaptchaV3ConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaseAppCheckRecaptchaV3ConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

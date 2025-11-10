@@ -3,6 +3,159 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for ebs_block_device in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAmiEbsBlockDeviceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete_on_termination attribute.
+    /// </summary>
+    public TerraformProperty<bool>? DeleteOnTermination
+    {
+        get => GetProperty<TerraformProperty<bool>>("delete_on_termination");
+        set => WithProperty("delete_on_termination", value);
+    }
+
+    /// <summary>
+    /// The device_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
+    public required TerraformProperty<string> DeviceName
+    {
+        get => GetProperty<TerraformProperty<string>>("device_name");
+        set => WithProperty("device_name", value);
+    }
+
+    /// <summary>
+    /// The encrypted attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Encrypted
+    {
+        get => GetProperty<TerraformProperty<bool>>("encrypted");
+        set => WithProperty("encrypted", value);
+    }
+
+    /// <summary>
+    /// The iops attribute.
+    /// </summary>
+    public TerraformProperty<double>? Iops
+    {
+        get => GetProperty<TerraformProperty<double>>("iops");
+        set => WithProperty("iops", value);
+    }
+
+    /// <summary>
+    /// The outpost_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? OutpostArn
+    {
+        get => GetProperty<TerraformProperty<string>>("outpost_arn");
+        set => WithProperty("outpost_arn", value);
+    }
+
+    /// <summary>
+    /// The snapshot_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SnapshotId
+    {
+        get => GetProperty<TerraformProperty<string>>("snapshot_id");
+        set => WithProperty("snapshot_id", value);
+    }
+
+    /// <summary>
+    /// The throughput attribute.
+    /// </summary>
+    public TerraformProperty<double>? Throughput
+    {
+        get => GetProperty<TerraformProperty<double>>("throughput");
+        set => WithProperty("throughput", value);
+    }
+
+    /// <summary>
+    /// The volume_size attribute.
+    /// </summary>
+    public TerraformProperty<double>? VolumeSize
+    {
+        get => GetProperty<TerraformProperty<double>>("volume_size");
+        set => WithProperty("volume_size", value);
+    }
+
+    /// <summary>
+    /// The volume_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? VolumeType
+    {
+        get => GetProperty<TerraformProperty<string>>("volume_type");
+        set => WithProperty("volume_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ephemeral_block_device in .
+/// Nesting mode: set
+/// </summary>
+public class AwsAmiEphemeralBlockDeviceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The device_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
+    public required TerraformProperty<string> DeviceName
+    {
+        get => GetProperty<TerraformProperty<string>>("device_name");
+        set => WithProperty("device_name", value);
+    }
+
+    /// <summary>
+    /// The virtual_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualName is required")]
+    public required TerraformProperty<string> VirtualName
+    {
+        get => GetProperty<TerraformProperty<string>>("virtual_name");
+        set => WithProperty("virtual_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsAmiTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ami resource.
 /// </summary>
 public class AwsAmi : TerraformResource
@@ -112,7 +265,8 @@ public class AwsAmi : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -157,18 +311,18 @@ public class AwsAmi : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -197,6 +351,36 @@ public class AwsAmi : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("virtualization_type");
         set => this.WithProperty("virtualization_type", value);
+    }
+
+    /// <summary>
+    /// Block for ebs_block_device.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAmiEbsBlockDeviceBlock>? EbsBlockDevice
+    {
+        get => GetProperty<HashSet<AwsAmiEbsBlockDeviceBlock>>("ebs_block_device");
+        set => this.WithProperty("ebs_block_device", value);
+    }
+
+    /// <summary>
+    /// Block for ephemeral_block_device.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsAmiEphemeralBlockDeviceBlock>? EphemeralBlockDevice
+    {
+        get => GetProperty<HashSet<AwsAmiEphemeralBlockDeviceBlock>>("ephemeral_block_device");
+        set => this.WithProperty("ephemeral_block_device", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsAmiTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsAmiTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

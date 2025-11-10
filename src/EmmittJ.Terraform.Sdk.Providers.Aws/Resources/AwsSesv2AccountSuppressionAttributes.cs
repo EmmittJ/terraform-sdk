@@ -29,9 +29,10 @@ public class AwsSesv2AccountSuppressionAttributes : TerraformResource
     /// <summary>
     /// The suppressed_reasons attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SuppressedReasons
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SuppressedReasons is required")]
+    public HashSet<TerraformProperty<string>>? SuppressedReasons
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("suppressed_reasons");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("suppressed_reasons");
         set => this.WithProperty("suppressed_reasons", value);
     }
 

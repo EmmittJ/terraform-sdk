@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for trace_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApprunnerObservabilityConfigurationTraceConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The vendor attribute.
+    /// </summary>
+    public TerraformProperty<string>? Vendor
+    {
+        get => GetProperty<TerraformProperty<string>>("vendor");
+        set => WithProperty("vendor", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_apprunner_observability_configuration resource.
 /// </summary>
 public class AwsApprunnerObservabilityConfiguration : TerraformResource
@@ -32,7 +49,8 @@ public class AwsApprunnerObservabilityConfiguration : TerraformResource
     /// <summary>
     /// The observability_configuration_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ObservabilityConfigurationName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObservabilityConfigurationName is required")]
+    public required TerraformProperty<string> ObservabilityConfigurationName
     {
         get => GetProperty<TerraformProperty<string>>("observability_configuration_name");
         set => this.WithProperty("observability_configuration_name", value);
@@ -50,19 +68,30 @@ public class AwsApprunnerObservabilityConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for trace_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TraceConfiguration block(s) allowed")]
+    public List<AwsApprunnerObservabilityConfigurationTraceConfigurationBlock>? TraceConfiguration
+    {
+        get => GetProperty<List<AwsApprunnerObservabilityConfigurationTraceConfigurationBlock>>("trace_configuration");
+        set => this.WithProperty("trace_configuration", value);
     }
 
     /// <summary>

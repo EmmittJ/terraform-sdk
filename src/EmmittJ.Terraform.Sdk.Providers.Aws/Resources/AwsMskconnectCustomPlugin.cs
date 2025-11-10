@@ -3,6 +3,40 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for location in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMskconnectCustomPluginLocationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMskconnectCustomPluginTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_mskconnect_custom_plugin resource.
 /// </summary>
 public class AwsMskconnectCustomPlugin : TerraformResource
@@ -22,7 +56,8 @@ public class AwsMskconnectCustomPlugin : TerraformResource
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ContentType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
+    public required TerraformProperty<string> ContentType
     {
         get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
@@ -49,7 +84,8 @@ public class AwsMskconnectCustomPlugin : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -67,19 +103,41 @@ public class AwsMskconnectCustomPlugin : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for location.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Location block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
+    public List<AwsMskconnectCustomPluginLocationBlock>? Location
+    {
+        get => GetProperty<List<AwsMskconnectCustomPluginLocationBlock>>("location");
+        set => this.WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMskconnectCustomPluginTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMskconnectCustomPluginTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

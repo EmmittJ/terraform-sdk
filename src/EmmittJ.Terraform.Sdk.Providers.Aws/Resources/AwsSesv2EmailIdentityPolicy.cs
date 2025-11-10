@@ -19,7 +19,8 @@ public class AwsSesv2EmailIdentityPolicy : TerraformResource
     /// <summary>
     /// The email_identity attribute.
     /// </summary>
-    public TerraformProperty<string>? EmailIdentity
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
+    public required TerraformProperty<string> EmailIdentity
     {
         get => GetProperty<TerraformProperty<string>>("email_identity");
         set => this.WithProperty("email_identity", value);
@@ -37,7 +38,8 @@ public class AwsSesv2EmailIdentityPolicy : TerraformResource
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -46,7 +48,8 @@ public class AwsSesv2EmailIdentityPolicy : TerraformResource
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
+    public required TerraformProperty<string> PolicyName
     {
         get => GetProperty<TerraformProperty<string>>("policy_name");
         set => this.WithProperty("policy_name", value);

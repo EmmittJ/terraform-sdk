@@ -3,6 +3,113 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for default_action in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAlbListenerDefaultActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The order attribute.
+    /// </summary>
+    public TerraformProperty<double>? Order
+    {
+        get => GetProperty<TerraformProperty<double>>("order");
+        set => WithProperty("order", value);
+    }
+
+    /// <summary>
+    /// The target_group_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TargetGroupArn
+    {
+        get => GetProperty<TerraformProperty<string>>("target_group_arn");
+        set => WithProperty("target_group_arn", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for mutual_authentication in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAlbListenerMutualAuthenticationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The advertise_trust_store_ca_names attribute.
+    /// </summary>
+    public TerraformProperty<string>? AdvertiseTrustStoreCaNames
+    {
+        get => GetProperty<TerraformProperty<string>>("advertise_trust_store_ca_names");
+        set => WithProperty("advertise_trust_store_ca_names", value);
+    }
+
+    /// <summary>
+    /// The ignore_client_certificate_expiry attribute.
+    /// </summary>
+    public TerraformProperty<bool>? IgnoreClientCertificateExpiry
+    {
+        get => GetProperty<TerraformProperty<bool>>("ignore_client_certificate_expiry");
+        set => WithProperty("ignore_client_certificate_expiry", value);
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformProperty<string> Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+    /// <summary>
+    /// The trust_store_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? TrustStoreArn
+    {
+        get => GetProperty<TerraformProperty<string>>("trust_store_arn");
+        set => WithProperty("trust_store_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsAlbListenerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_alb_listener resource.
 /// </summary>
 public class AwsAlbListener : TerraformResource
@@ -47,7 +154,8 @@ public class AwsAlbListener : TerraformResource
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? LoadBalancerArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerArn is required")]
+    public required TerraformProperty<string> LoadBalancerArn
     {
         get => GetProperty<TerraformProperty<string>>("load_balancer_arn");
         set => this.WithProperty("load_balancer_arn", value);
@@ -263,18 +371,18 @@ public class AwsAlbListener : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -285,6 +393,38 @@ public class AwsAlbListener : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("tcp_idle_timeout_seconds");
         set => this.WithProperty("tcp_idle_timeout_seconds", value);
+    }
+
+    /// <summary>
+    /// Block for default_action.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultAction block(s) required")]
+    public List<AwsAlbListenerDefaultActionBlock>? DefaultAction
+    {
+        get => GetProperty<List<AwsAlbListenerDefaultActionBlock>>("default_action");
+        set => this.WithProperty("default_action", value);
+    }
+
+    /// <summary>
+    /// Block for mutual_authentication.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MutualAuthentication block(s) allowed")]
+    public List<AwsAlbListenerMutualAuthenticationBlock>? MutualAuthentication
+    {
+        get => GetProperty<List<AwsAlbListenerMutualAuthenticationBlock>>("mutual_authentication");
+        set => this.WithProperty("mutual_authentication", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsAlbListenerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsAlbListenerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

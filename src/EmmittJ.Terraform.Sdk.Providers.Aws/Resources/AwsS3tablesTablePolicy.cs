@@ -19,7 +19,8 @@ public class AwsS3tablesTablePolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -28,7 +29,8 @@ public class AwsS3tablesTablePolicy : TerraformResource
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformProperty<string>? Namespace
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
+    public required TerraformProperty<string> Namespace
     {
         get => GetProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
@@ -46,7 +48,8 @@ public class AwsS3tablesTablePolicy : TerraformResource
     /// <summary>
     /// The resource_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourcePolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourcePolicy is required")]
+    public required TerraformProperty<string> ResourcePolicy
     {
         get => GetProperty<TerraformProperty<string>>("resource_policy");
         set => this.WithProperty("resource_policy", value);
@@ -55,7 +58,8 @@ public class AwsS3tablesTablePolicy : TerraformResource
     /// <summary>
     /// The table_bucket_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TableBucketArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
+    public required TerraformProperty<string> TableBucketArn
     {
         get => GetProperty<TerraformProperty<string>>("table_bucket_arn");
         set => this.WithProperty("table_bucket_arn", value);

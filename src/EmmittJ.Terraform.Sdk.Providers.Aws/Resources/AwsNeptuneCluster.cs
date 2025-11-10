@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for serverless_v2_scaling_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsNeptuneClusterServerlessV2ScalingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The max_capacity attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("max_capacity");
+        set => WithProperty("max_capacity", value);
+    }
+
+    /// <summary>
+    /// The min_capacity attribute.
+    /// </summary>
+    public TerraformProperty<double>? MinCapacity
+    {
+        get => GetProperty<TerraformProperty<double>>("min_capacity");
+        set => WithProperty("min_capacity", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNeptuneClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_neptune_cluster resource.
 /// </summary>
 public class AwsNeptuneCluster : TerraformResource
@@ -43,9 +104,9 @@ public class AwsNeptuneCluster : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AvailabilityZones
+    public HashSet<TerraformProperty<string>>? AvailabilityZones
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("availability_zones");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
         set => this.WithProperty("availability_zones", value);
     }
 
@@ -97,9 +158,9 @@ public class AwsNeptuneCluster : TerraformResource
     /// <summary>
     /// The enable_cloudwatch_logs_exports attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? EnableCloudwatchLogsExports
+    public HashSet<TerraformProperty<string>>? EnableCloudwatchLogsExports
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("enable_cloudwatch_logs_exports");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("enable_cloudwatch_logs_exports");
         set => this.WithProperty("enable_cloudwatch_logs_exports", value);
     }
 
@@ -151,9 +212,9 @@ public class AwsNeptuneCluster : TerraformResource
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? IamRoles
+    public HashSet<TerraformProperty<string>>? IamRoles
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("iam_roles");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("iam_roles");
         set => this.WithProperty("iam_roles", value);
     }
 
@@ -286,28 +347,49 @@ public class AwsNeptuneCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
+    }
+
+    /// <summary>
+    /// Block for serverless_v2_scaling_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerlessV2ScalingConfiguration block(s) allowed")]
+    public List<AwsNeptuneClusterServerlessV2ScalingConfigurationBlock>? ServerlessV2ScalingConfiguration
+    {
+        get => GetProperty<List<AwsNeptuneClusterServerlessV2ScalingConfigurationBlock>>("serverless_v2_scaling_configuration");
+        set => this.WithProperty("serverless_v2_scaling_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNeptuneClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNeptuneClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

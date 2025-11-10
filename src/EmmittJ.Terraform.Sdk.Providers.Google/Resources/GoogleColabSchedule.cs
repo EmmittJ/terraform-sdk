@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for create_notebook_execution_job_request in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleColabScheduleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_colab_schedule resource.
 /// </summary>
 public class GoogleColabSchedule : TerraformResource
@@ -30,7 +73,8 @@ public class GoogleColabSchedule : TerraformResource
     /// <summary>
     /// Cron schedule (https://en.wikipedia.org/wiki/Cron) to launch scheduled runs.
     /// </summary>
-    public TerraformProperty<string>? Cron
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cron is required")]
+    public required TerraformProperty<string> Cron
     {
         get => GetProperty<TerraformProperty<string>>("cron");
         set => this.WithProperty("cron", value);
@@ -48,7 +92,8 @@ public class GoogleColabSchedule : TerraformResource
     /// <summary>
     /// Required. The display name of the Schedule.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -75,7 +120,8 @@ public class GoogleColabSchedule : TerraformResource
     /// <summary>
     /// The location for the resource: https://cloud.google.com/colab/docs/locations
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -84,7 +130,8 @@ public class GoogleColabSchedule : TerraformResource
     /// <summary>
     /// Maximum number of runs that can be started concurrently for this Schedule. This is the limit for starting the scheduled requests and not the execution of the notebook execution jobs created by the requests.
     /// </summary>
-    public TerraformProperty<string>? MaxConcurrentRunCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConcurrentRunCount is required")]
+    public required TerraformProperty<string> MaxConcurrentRunCount
     {
         get => GetProperty<TerraformProperty<string>>("max_concurrent_run_count");
         set => this.WithProperty("max_concurrent_run_count", value);
@@ -115,6 +162,28 @@ public class GoogleColabSchedule : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("start_time");
         set => this.WithProperty("start_time", value);
+    }
+
+    /// <summary>
+    /// Block for create_notebook_execution_job_request.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CreateNotebookExecutionJobRequest block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateNotebookExecutionJobRequest block(s) allowed")]
+    public List<GoogleColabScheduleCreateNotebookExecutionJobRequestBlock>? CreateNotebookExecutionJobRequest
+    {
+        get => GetProperty<List<GoogleColabScheduleCreateNotebookExecutionJobRequestBlock>>("create_notebook_execution_job_request");
+        set => this.WithProperty("create_notebook_execution_job_request", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleColabScheduleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleColabScheduleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

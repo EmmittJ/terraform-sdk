@@ -19,9 +19,10 @@ public class AwsIotEventConfigurations : TerraformResource
     /// <summary>
     /// The event_configurations attribute.
     /// </summary>
-    public TerraformMapProperty<bool>? EventConfigurations
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventConfigurations is required")]
+    public Dictionary<string, TerraformProperty<bool>>? EventConfigurations
     {
-        get => GetProperty<TerraformMapProperty<bool>>("event_configurations");
+        get => GetProperty<Dictionary<string, TerraformProperty<bool>>>("event_configurations");
         set => this.WithProperty("event_configurations", value);
     }
 

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServicecatalogConstraintTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_servicecatalog_constraint resource.
 /// </summary>
 public class AwsServicecatalogConstraint : TerraformResource
@@ -48,7 +92,8 @@ public class AwsServicecatalogConstraint : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformProperty<string>? Parameters
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameters is required")]
+    public required TerraformProperty<string> Parameters
     {
         get => GetProperty<TerraformProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
@@ -57,7 +102,8 @@ public class AwsServicecatalogConstraint : TerraformResource
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PortfolioId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
+    public required TerraformProperty<string> PortfolioId
     {
         get => GetProperty<TerraformProperty<string>>("portfolio_id");
         set => this.WithProperty("portfolio_id", value);
@@ -66,7 +112,8 @@ public class AwsServicecatalogConstraint : TerraformResource
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
+    public required TerraformProperty<string> ProductId
     {
         get => GetProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
@@ -84,10 +131,21 @@ public class AwsServicecatalogConstraint : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServicecatalogConstraintTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServicecatalogConstraintTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

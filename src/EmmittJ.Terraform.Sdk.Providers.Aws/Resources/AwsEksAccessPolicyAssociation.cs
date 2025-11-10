@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for access_scope in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The namespaces attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? Namespaces
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("namespaces");
+        set => WithProperty("namespaces", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_eks_access_policy_association resource.
 /// </summary>
 public class AwsEksAccessPolicyAssociation : TerraformResource
@@ -21,7 +74,8 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -39,7 +93,8 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
+    public required TerraformProperty<string> PolicyArn
     {
         get => GetProperty<TerraformProperty<string>>("policy_arn");
         set => this.WithProperty("policy_arn", value);
@@ -48,7 +103,8 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
+    public required TerraformProperty<string> PrincipalArn
     {
         get => GetProperty<TerraformProperty<string>>("principal_arn");
         set => this.WithProperty("principal_arn", value);
@@ -61,6 +117,28 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for access_scope.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessScope block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessScope block(s) allowed")]
+    public List<AwsEksAccessPolicyAssociationAccessScopeBlock>? AccessScope
+    {
+        get => GetProperty<List<AwsEksAccessPolicyAssociationAccessScopeBlock>>("access_scope");
+        set => this.WithProperty("access_scope", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEksAccessPolicyAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEksAccessPolicyAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

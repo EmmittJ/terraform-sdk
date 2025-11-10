@@ -21,7 +21,8 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The auth_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthMode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthMode is required")]
+    public required TerraformProperty<string> AuthMode
     {
         get => GetProperty<TerraformProperty<string>>("auth_mode");
         set => this.WithProperty("auth_mode", value);
@@ -30,7 +31,8 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The default_s3_location attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultS3Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultS3Location is required")]
+    public required TerraformProperty<string> DefaultS3Location
     {
         get => GetProperty<TerraformProperty<string>>("default_s3_location");
         set => this.WithProperty("default_s3_location", value);
@@ -57,7 +59,8 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The engine_security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineSecurityGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineSecurityGroupId is required")]
+    public required TerraformProperty<string> EngineSecurityGroupId
     {
         get => GetProperty<TerraformProperty<string>>("engine_security_group_id");
         set => this.WithProperty("engine_security_group_id", value);
@@ -93,7 +96,8 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -111,7 +115,8 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceRole
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
+    public required TerraformProperty<string> ServiceRole
     {
         get => GetProperty<TerraformProperty<string>>("service_role");
         set => this.WithProperty("service_role", value);
@@ -120,27 +125,28 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -156,7 +162,8 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
@@ -165,7 +172,8 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The workspace_security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkspaceSecurityGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceSecurityGroupId is required")]
+    public required TerraformProperty<string> WorkspaceSecurityGroupId
     {
         get => GetProperty<TerraformProperty<string>>("workspace_security_group_id");
         set => this.WithProperty("workspace_security_group_id", value);

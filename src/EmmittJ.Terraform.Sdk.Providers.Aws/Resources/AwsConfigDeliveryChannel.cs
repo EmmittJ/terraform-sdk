@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for snapshot_delivery_properties in .
+/// Nesting mode: list
+/// </summary>
+public class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delivery_frequency attribute.
+    /// </summary>
+    public TerraformProperty<string>? DeliveryFrequency
+    {
+        get => GetProperty<TerraformProperty<string>>("delivery_frequency");
+        set => WithProperty("delivery_frequency", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_config_delivery_channel resource.
 /// </summary>
 public class AwsConfigDeliveryChannel : TerraformResource
@@ -46,7 +63,8 @@ public class AwsConfigDeliveryChannel : TerraformResource
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
-    public TerraformProperty<string>? S3BucketName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
+    public required TerraformProperty<string> S3BucketName
     {
         get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
         set => this.WithProperty("s3_bucket_name", value);
@@ -77,6 +95,17 @@ public class AwsConfigDeliveryChannel : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
         set => this.WithProperty("sns_topic_arn", value);
+    }
+
+    /// <summary>
+    /// Block for snapshot_delivery_properties.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotDeliveryProperties block(s) allowed")]
+    public List<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>? SnapshotDeliveryProperties
+    {
+        get => GetProperty<List<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>>("snapshot_delivery_properties");
+        set => this.WithProperty("snapshot_delivery_properties", value);
     }
 
 }

@@ -29,7 +29,8 @@ public class GoogleKmsKeyRingIamPolicy : TerraformResource
     /// <summary>
     /// The key_ring_id attribute.
     /// </summary>
-    public TerraformProperty<string>? KeyRingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRingId is required")]
+    public required TerraformProperty<string> KeyRingId
     {
         get => GetProperty<TerraformProperty<string>>("key_ring_id");
         set => this.WithProperty("key_ring_id", value);
@@ -38,7 +39,8 @@ public class GoogleKmsKeyRingIamPolicy : TerraformResource
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyData
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
+    public required TerraformProperty<string> PolicyData
     {
         get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);

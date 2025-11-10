@@ -19,7 +19,8 @@ public class AwsS3BucketRequestPaymentConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -46,7 +47,8 @@ public class AwsS3BucketRequestPaymentConfiguration : TerraformResource
     /// <summary>
     /// The payer attribute.
     /// </summary>
-    public TerraformProperty<string>? Payer
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payer is required")]
+    public required TerraformProperty<string> Payer
     {
         get => GetProperty<TerraformProperty<string>>("payer");
         set => this.WithProperty("payer", value);

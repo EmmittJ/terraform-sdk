@@ -30,7 +30,8 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     /// <summary>
     /// The rule_definition attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleDefinition
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleDefinition is required")]
+    public required TerraformProperty<string> RuleDefinition
     {
         get => GetProperty<TerraformProperty<string>>("rule_definition");
         set => this.WithProperty("rule_definition", value);
@@ -39,7 +40,8 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RuleName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
+    public required TerraformProperty<string> RuleName
     {
         get => GetProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
@@ -57,9 +59,9 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -19,7 +19,8 @@ public class AwsDetectiveInvitationAccepter : TerraformResource
     /// <summary>
     /// The graph_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? GraphArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GraphArn is required")]
+    public required TerraformProperty<string> GraphArn
     {
         get => GetProperty<TerraformProperty<string>>("graph_arn");
         set => this.WithProperty("graph_arn", value);

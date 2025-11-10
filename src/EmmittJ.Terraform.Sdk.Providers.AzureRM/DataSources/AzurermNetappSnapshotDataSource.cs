@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNetappSnapshotDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_netapp_snapshot.
 /// </summary>
 public class AzurermNetappSnapshotDataSource : TerraformDataSource
@@ -20,7 +37,8 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
+    public required TerraformProperty<string> AccountName
     {
         get => GetProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
@@ -38,7 +56,8 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -47,7 +66,8 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The pool_name attribute.
     /// </summary>
-    public TerraformProperty<string>? PoolName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
+    public required TerraformProperty<string> PoolName
     {
         get => GetProperty<TerraformProperty<string>>("pool_name");
         set => this.WithProperty("pool_name", value);
@@ -56,7 +76,8 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -65,10 +86,21 @@ public class AzurermNetappSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The volume_name attribute.
     /// </summary>
-    public TerraformProperty<string>? VolumeName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
+    public required TerraformProperty<string> VolumeName
     {
         get => GetProperty<TerraformProperty<string>>("volume_name");
         set => this.WithProperty("volume_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNetappSnapshotDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNetappSnapshotDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

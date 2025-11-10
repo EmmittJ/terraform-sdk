@@ -21,7 +21,8 @@ public class GoogleBigqueryAnalyticsHubDataExchangeIamPolicyDataSource : Terrafo
     /// <summary>
     /// The data_exchange_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DataExchangeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
+    public required TerraformProperty<string> DataExchangeId
     {
         get => GetProperty<TerraformProperty<string>>("data_exchange_id");
         set => this.WithProperty("data_exchange_id", value);

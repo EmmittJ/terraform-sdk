@@ -33,7 +33,8 @@ public class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
     /// Must be of the form identitysources/{identity_source_id} for external-identity-mapped
     /// groups or customers/{customer_id} for Google Groups.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);

@@ -19,7 +19,8 @@ public class AwsAutoscalingAttachment : TerraformResource
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoscalingGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
+    public required TerraformProperty<string> AutoscalingGroupName
     {
         get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);

@@ -37,7 +37,8 @@ public class GoogleLoggingFolderExclusion : TerraformResource
     /// <summary>
     /// The filter to apply when excluding logs. Only log entries that match the filter are excluded.
     /// </summary>
-    public TerraformProperty<string>? Filter
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
+    public required TerraformProperty<string> Filter
     {
         get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
@@ -46,7 +47,8 @@ public class GoogleLoggingFolderExclusion : TerraformResource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformProperty<string>? Folder
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
+    public required TerraformProperty<string> Folder
     {
         get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
@@ -64,7 +66,8 @@ public class GoogleLoggingFolderExclusion : TerraformResource
     /// <summary>
     /// The name of the logging exclusion.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for user_parameters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDatazoneEnvironmentProfileUserParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_datazone_environment_profile resource.
 /// </summary>
 public class AwsDatazoneEnvironmentProfile : TerraformResource
@@ -32,7 +58,8 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     /// <summary>
     /// The aws_account_region attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsAccountRegion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountRegion is required")]
+    public required TerraformProperty<string> AwsAccountRegion
     {
         get => GetProperty<TerraformProperty<string>>("aws_account_region");
         set => this.WithProperty("aws_account_region", value);
@@ -50,7 +77,8 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
+    public required TerraformProperty<string> DomainIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
@@ -59,7 +87,8 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     /// <summary>
     /// The environment_blueprint_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvironmentBlueprintIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintIdentifier is required")]
+    public required TerraformProperty<string> EnvironmentBlueprintIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("environment_blueprint_identifier");
         set => this.WithProperty("environment_blueprint_identifier", value);
@@ -68,7 +97,8 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -77,7 +107,8 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     /// <summary>
     /// The project_identifier attribute.
     /// </summary>
-    public TerraformProperty<string>? ProjectIdentifier
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
+    public required TerraformProperty<string> ProjectIdentifier
     {
         get => GetProperty<TerraformProperty<string>>("project_identifier");
         set => this.WithProperty("project_identifier", value);
@@ -90,6 +121,16 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for user_parameters.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsDatazoneEnvironmentProfileUserParametersBlock>? UserParameters
+    {
+        get => GetProperty<List<AwsDatazoneEnvironmentProfileUserParametersBlock>>("user_parameters");
+        set => this.WithProperty("user_parameters", value);
     }
 
     /// <summary>

@@ -3,6 +3,66 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for actions in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermCdnFrontdoorRuleActionsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for conditions in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermCdnFrontdoorRuleConditionsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_cdn_frontdoor_rule resource.
 /// </summary>
 public class AzurermCdnFrontdoorRule : TerraformResource
@@ -29,7 +89,8 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     /// <summary>
     /// The cdn_frontdoor_rule_set_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CdnFrontdoorRuleSetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorRuleSetId is required")]
+    public required TerraformProperty<string> CdnFrontdoorRuleSetId
     {
         get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_rule_set_id");
         set => this.WithProperty("cdn_frontdoor_rule_set_id", value);
@@ -47,7 +108,8 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,10 +118,44 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public TerraformProperty<double>? Order
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
+    public required TerraformProperty<double> Order
     {
         get => GetProperty<TerraformProperty<double>>("order");
         set => this.WithProperty("order", value);
+    }
+
+    /// <summary>
+    /// Block for actions.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Actions block(s) allowed")]
+    public List<AzurermCdnFrontdoorRuleActionsBlock>? Actions
+    {
+        get => GetProperty<List<AzurermCdnFrontdoorRuleActionsBlock>>("actions");
+        set => this.WithProperty("actions", value);
+    }
+
+    /// <summary>
+    /// Block for conditions.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
+    public List<AzurermCdnFrontdoorRuleConditionsBlock>? Conditions
+    {
+        get => GetProperty<List<AzurermCdnFrontdoorRuleConditionsBlock>>("conditions");
+        set => this.WithProperty("conditions", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermCdnFrontdoorRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermCdnFrontdoorRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

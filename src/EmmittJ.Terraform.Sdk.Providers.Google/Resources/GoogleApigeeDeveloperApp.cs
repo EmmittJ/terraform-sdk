@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for attributes in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Key of the attribute
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Value of the attribute
+    /// </summary>
+    public TerraformProperty<string>? Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_developer_app resource.
 /// </summary>
 public class GoogleApigeeDeveloperApp : TerraformResource
@@ -24,9 +85,9 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// <summary>
     /// List of API products associated with the developer app.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ApiProducts
+    public HashSet<TerraformProperty<string>>? ApiProducts
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("api_products");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("api_products");
         set => this.WithProperty("api_products", value);
     }
 
@@ -43,7 +104,8 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// Callback URL used by OAuth 2.0 authorization servers to communicate
     /// authorization codes back to developer apps.
     /// </summary>
-    public TerraformProperty<string>? CallbackUrl
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
+    public required TerraformProperty<string> CallbackUrl
     {
         get => GetProperty<TerraformProperty<string>>("callback_url");
         set => this.WithProperty("callback_url", value);
@@ -54,7 +116,8 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// This value is used to uniquely identify the developer in Apigee hybrid.
     /// Note that the email address has to be in lowercase only.
     /// </summary>
-    public TerraformProperty<string>? DeveloperEmail
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeveloperEmail is required")]
+    public required TerraformProperty<string> DeveloperEmail
     {
         get => GetProperty<TerraformProperty<string>>("developer_email");
         set => this.WithProperty("developer_email", value);
@@ -83,7 +146,8 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// <summary>
     /// Name of the developer app.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -93,7 +157,8 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// The Apigee Organization associated with the Apigee instance,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -104,9 +169,9 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// The specified scopes must already exist for the API product that
     /// you associate with the developer app.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Scopes
+    public HashSet<TerraformProperty<string>>? Scopes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("scopes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("scopes");
         set => this.WithProperty("scopes", value);
     }
 
@@ -117,6 +182,26 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
+    }
+
+    /// <summary>
+    /// Block for attributes.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleApigeeDeveloperAppAttributesBlock>? Attributes
+    {
+        get => GetProperty<List<GoogleApigeeDeveloperAppAttributesBlock>>("attributes");
+        set => this.WithProperty("attributes", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeDeveloperAppTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeDeveloperAppTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

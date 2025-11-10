@@ -3,6 +3,102 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for dns_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpcEndpointDnsOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The dns_record_ip_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? DnsRecordIpType
+    {
+        get => GetProperty<TerraformProperty<string>>("dns_record_ip_type");
+        set => WithProperty("dns_record_ip_type", value);
+    }
+
+    /// <summary>
+    /// The private_dns_only_for_inbound_resolver_endpoint attribute.
+    /// </summary>
+    public TerraformProperty<bool>? PrivateDnsOnlyForInboundResolverEndpoint
+    {
+        get => GetProperty<TerraformProperty<bool>>("private_dns_only_for_inbound_resolver_endpoint");
+        set => WithProperty("private_dns_only_for_inbound_resolver_endpoint", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for subnet_configuration in .
+/// Nesting mode: set
+/// </summary>
+public class AwsVpcEndpointSubnetConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ipv4 attribute.
+    /// </summary>
+    public TerraformProperty<string>? Ipv4
+    {
+        get => GetProperty<TerraformProperty<string>>("ipv4");
+        set => WithProperty("ipv4", value);
+    }
+
+    /// <summary>
+    /// The ipv6 attribute.
+    /// </summary>
+    public TerraformProperty<string>? Ipv6
+    {
+        get => GetProperty<TerraformProperty<string>>("ipv6");
+        set => WithProperty("ipv6", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SubnetId
+    {
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
+        set => WithProperty("subnet_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcEndpointTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_endpoint resource.
 /// </summary>
 public class AwsVpcEndpoint : TerraformResource
@@ -90,18 +186,18 @@ public class AwsVpcEndpoint : TerraformResource
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RouteTableIds
+    public HashSet<TerraformProperty<string>>? RouteTableIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("route_table_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("route_table_ids");
         set => this.WithProperty("route_table_ids", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
@@ -135,27 +231,27 @@ public class AwsVpcEndpoint : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetIds
+    public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -171,10 +267,42 @@ public class AwsVpcEndpoint : TerraformResource
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
+    }
+
+    /// <summary>
+    /// Block for dns_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsOptions block(s) allowed")]
+    public List<AwsVpcEndpointDnsOptionsBlock>? DnsOptions
+    {
+        get => GetProperty<List<AwsVpcEndpointDnsOptionsBlock>>("dns_options");
+        set => this.WithProperty("dns_options", value);
+    }
+
+    /// <summary>
+    /// Block for subnet_configuration.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsVpcEndpointSubnetConfigurationBlock>? SubnetConfiguration
+    {
+        get => GetProperty<HashSet<AwsVpcEndpointSubnetConfigurationBlock>>("subnet_configuration");
+        set => this.WithProperty("subnet_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcEndpointTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcEndpointTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

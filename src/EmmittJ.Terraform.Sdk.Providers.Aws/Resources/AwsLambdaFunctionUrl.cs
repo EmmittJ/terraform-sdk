@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for cors in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allow_credentials attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AllowCredentials
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_credentials");
+        set => WithProperty("allow_credentials", value);
+    }
+
+    /// <summary>
+    /// The allow_headers attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowHeaders
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_headers");
+        set => WithProperty("allow_headers", value);
+    }
+
+    /// <summary>
+    /// The allow_methods attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowMethods
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_methods");
+        set => WithProperty("allow_methods", value);
+    }
+
+    /// <summary>
+    /// The allow_origins attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? AllowOrigins
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allow_origins");
+        set => WithProperty("allow_origins", value);
+    }
+
+    /// <summary>
+    /// The expose_headers attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? ExposeHeaders
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("expose_headers");
+        set => WithProperty("expose_headers", value);
+    }
+
+    /// <summary>
+    /// The max_age attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaxAge
+    {
+        get => GetProperty<TerraformProperty<double>>("max_age");
+        set => WithProperty("max_age", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLambdaFunctionUrlTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lambda_function_url resource.
 /// </summary>
 public class AwsLambdaFunctionUrl : TerraformResource
@@ -22,7 +101,8 @@ public class AwsLambdaFunctionUrl : TerraformResource
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizationType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
+    public required TerraformProperty<string> AuthorizationType
     {
         get => GetProperty<TerraformProperty<string>>("authorization_type");
         set => this.WithProperty("authorization_type", value);
@@ -31,7 +111,8 @@ public class AwsLambdaFunctionUrl : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
+    public required TerraformProperty<string> FunctionName
     {
         get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
@@ -71,6 +152,27 @@ public class AwsLambdaFunctionUrl : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for cors.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
+    public List<AwsLambdaFunctionUrlCorsBlock>? Cors
+    {
+        get => GetProperty<List<AwsLambdaFunctionUrlCorsBlock>>("cors");
+        set => this.WithProperty("cors", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLambdaFunctionUrlTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLambdaFunctionUrlTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

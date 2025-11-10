@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for github_action_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Should the service generate the GitHub Action Workflow file. Defaults to `true`
+    /// </summary>
+    public TerraformProperty<bool>? GenerateWorkflowFile
+    {
+        get => GetProperty<TerraformProperty<bool>>("generate_workflow_file");
+        set => WithProperty("generate_workflow_file", value);
+    }
+
+    /// <summary>
+    /// Denotes this action uses a Linux base image.
+    /// </summary>
+    public TerraformProperty<bool>? LinuxAction
+    {
+        get => GetProperty<TerraformProperty<bool>>("linux_action");
+        set => WithProperty("linux_action", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAppServiceSourceControlSlotTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_app_service_source_control_slot resource.
 /// </summary>
 public class AzurermAppServiceSourceControlSlot : TerraformResource
@@ -57,7 +118,8 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     /// <summary>
     /// The ID of the Linux or Windows Web App Slot.
     /// </summary>
-    public TerraformProperty<string>? SlotId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
+    public required TerraformProperty<string> SlotId
     {
         get => GetProperty<TerraformProperty<string>>("slot_id");
         set => this.WithProperty("slot_id", value);
@@ -88,6 +150,27 @@ public class AzurermAppServiceSourceControlSlot : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("use_mercurial");
         set => this.WithProperty("use_mercurial", value);
+    }
+
+    /// <summary>
+    /// Block for github_action_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubActionConfiguration block(s) allowed")]
+    public List<AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock>? GithubActionConfiguration
+    {
+        get => GetProperty<List<AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock>>("github_action_configuration");
+        set => this.WithProperty("github_action_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAppServiceSourceControlSlotTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAppServiceSourceControlSlotTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

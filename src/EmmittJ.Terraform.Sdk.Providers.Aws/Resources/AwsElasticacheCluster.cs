@@ -3,6 +3,89 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for log_delivery_configuration in .
+/// Nesting mode: set
+/// </summary>
+public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The destination attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
+    public required TerraformProperty<string> Destination
+    {
+        get => GetProperty<TerraformProperty<string>>("destination");
+        set => WithProperty("destination", value);
+    }
+
+    /// <summary>
+    /// The destination_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
+    public required TerraformProperty<string> DestinationType
+    {
+        get => GetProperty<TerraformProperty<string>>("destination_type");
+        set => WithProperty("destination_type", value);
+    }
+
+    /// <summary>
+    /// The log_format attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
+    public required TerraformProperty<string> LogFormat
+    {
+        get => GetProperty<TerraformProperty<string>>("log_format");
+        set => WithProperty("log_format", value);
+    }
+
+    /// <summary>
+    /// The log_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
+    public required TerraformProperty<string> LogType
+    {
+        get => GetProperty<TerraformProperty<string>>("log_type");
+        set => WithProperty("log_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsElasticacheClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_elasticache_cluster resource.
 /// </summary>
 public class AwsElasticacheCluster : TerraformResource
@@ -60,7 +143,8 @@ public class AwsElasticacheCluster : TerraformResource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
+    public required TerraformProperty<string> ClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
@@ -186,9 +270,9 @@ public class AwsElasticacheCluster : TerraformResource
     /// <summary>
     /// The preferred_availability_zones attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? PreferredAvailabilityZones
+    public List<TerraformProperty<string>>? PreferredAvailabilityZones
     {
-        get => GetProperty<TerraformProperty<List<string>>>("preferred_availability_zones");
+        get => GetProperty<List<TerraformProperty<string>>>("preferred_availability_zones");
         set => this.WithProperty("preferred_availability_zones", value);
     }
 
@@ -222,18 +306,18 @@ public class AwsElasticacheCluster : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The snapshot_arns attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SnapshotArns
+    public List<TerraformProperty<string>>? SnapshotArns
     {
-        get => GetProperty<TerraformProperty<List<string>>>("snapshot_arns");
+        get => GetProperty<List<TerraformProperty<string>>>("snapshot_arns");
         set => this.WithProperty("snapshot_arns", value);
     }
 
@@ -276,18 +360,18 @@ public class AwsElasticacheCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -298,6 +382,27 @@ public class AwsElasticacheCluster : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("transit_encryption_enabled");
         set => this.WithProperty("transit_encryption_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for log_delivery_configuration.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 LogDeliveryConfiguration block(s) allowed")]
+    public HashSet<AwsElasticacheClusterLogDeliveryConfigurationBlock>? LogDeliveryConfiguration
+    {
+        get => GetProperty<HashSet<AwsElasticacheClusterLogDeliveryConfigurationBlock>>("log_delivery_configuration");
+        set => this.WithProperty("log_delivery_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsElasticacheClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsElasticacheClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

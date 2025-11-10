@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEbsSnapshotCopyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ebs_snapshot_copy resource.
 /// </summary>
 public class AwsEbsSnapshotCopy : TerraformResource
@@ -89,7 +115,8 @@ public class AwsEbsSnapshotCopy : TerraformResource
     /// <summary>
     /// The source_region attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceRegion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRegion is required")]
+    public required TerraformProperty<string> SourceRegion
     {
         get => GetProperty<TerraformProperty<string>>("source_region");
         set => this.WithProperty("source_region", value);
@@ -98,7 +125,8 @@ public class AwsEbsSnapshotCopy : TerraformResource
     /// <summary>
     /// The source_snapshot_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceSnapshotId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSnapshotId is required")]
+    public required TerraformProperty<string> SourceSnapshotId
     {
         get => GetProperty<TerraformProperty<string>>("source_snapshot_id");
         set => this.WithProperty("source_snapshot_id", value);
@@ -116,18 +144,18 @@ public class AwsEbsSnapshotCopy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -138,6 +166,16 @@ public class AwsEbsSnapshotCopy : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("temporary_restore_days");
         set => this.WithProperty("temporary_restore_days", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEbsSnapshotCopyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEbsSnapshotCopyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

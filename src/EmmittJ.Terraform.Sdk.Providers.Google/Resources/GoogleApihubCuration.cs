@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for endpoint in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApihubCurationEndpointBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApihubCurationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apihub_curation resource.
 /// </summary>
 public class GoogleApihubCuration : TerraformResource
@@ -35,7 +78,8 @@ public class GoogleApihubCuration : TerraformResource
     /// This value should be 4-500 characters, and valid characters
     /// are /a-z[0-9]-_/.
     /// </summary>
-    public TerraformProperty<string>? CurationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CurationId is required")]
+    public required TerraformProperty<string> CurationId
     {
         get => GetProperty<TerraformProperty<string>>("curation_id");
         set => this.WithProperty("curation_id", value);
@@ -53,7 +97,8 @@ public class GoogleApihubCuration : TerraformResource
     /// <summary>
     /// The display name of the curation.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -71,7 +116,8 @@ public class GoogleApihubCuration : TerraformResource
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -84,6 +130,28 @@ public class GoogleApihubCuration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for endpoint.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
+    public List<GoogleApihubCurationEndpointBlock>? Endpoint
+    {
+        get => GetProperty<List<GoogleApihubCurationEndpointBlock>>("endpoint");
+        set => this.WithProperty("endpoint", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApihubCurationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApihubCurationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -19,7 +19,8 @@ public class AwsAthenaNamedQuery : TerraformResource
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public TerraformProperty<string>? Database
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
+    public required TerraformProperty<string> Database
     {
         get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
@@ -46,7 +47,8 @@ public class AwsAthenaNamedQuery : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +57,8 @@ public class AwsAthenaNamedQuery : TerraformResource
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public TerraformProperty<string>? Query
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
+    public required TerraformProperty<string> Query
     {
         get => GetProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);

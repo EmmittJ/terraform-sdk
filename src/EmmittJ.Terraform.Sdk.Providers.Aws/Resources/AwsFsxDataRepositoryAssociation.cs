@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for s3 in .
+/// Nesting mode: list
+/// </summary>
+public class AwsFsxDataRepositoryAssociationS3Block : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsFsxDataRepositoryAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_fsx_data_repository_association resource.
 /// </summary>
 public class AwsFsxDataRepositoryAssociation : TerraformResource
@@ -30,7 +73,8 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     /// <summary>
     /// The data_repository_path attribute.
     /// </summary>
-    public TerraformProperty<string>? DataRepositoryPath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
+    public required TerraformProperty<string> DataRepositoryPath
     {
         get => GetProperty<TerraformProperty<string>>("data_repository_path");
         set => this.WithProperty("data_repository_path", value);
@@ -48,7 +92,8 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
+    public required TerraformProperty<string> FileSystemId
     {
         get => GetProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
@@ -57,7 +102,8 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     /// <summary>
     /// The file_system_path attribute.
     /// </summary>
-    public TerraformProperty<string>? FileSystemPath
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemPath is required")]
+    public required TerraformProperty<string> FileSystemPath
     {
         get => GetProperty<TerraformProperty<string>>("file_system_path");
         set => this.WithProperty("file_system_path", value);
@@ -93,19 +139,40 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for s3.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3 block(s) allowed")]
+    public List<AwsFsxDataRepositoryAssociationS3Block>? S3
+    {
+        get => GetProperty<List<AwsFsxDataRepositoryAssociationS3Block>>("s3");
+        set => this.WithProperty("s3", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsFsxDataRepositoryAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsFsxDataRepositoryAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -44,7 +44,8 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// <summary>
     /// The location of the regional secret. eg us-central1
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -62,7 +63,8 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
-    public TerraformProperty<string>? SecretId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
+    public required TerraformProperty<string> SecretId
     {
         get => GetProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);

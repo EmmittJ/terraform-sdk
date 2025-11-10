@@ -30,7 +30,8 @@ public class GoogleTagsTagKeyIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
-    public TerraformProperty<string>? TagKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
+    public required TerraformProperty<string> TagKey
     {
         get => GetProperty<TerraformProperty<string>>("tag_key");
         set => this.WithProperty("tag_key", value);

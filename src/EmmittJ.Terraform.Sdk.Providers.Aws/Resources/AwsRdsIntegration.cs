@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRdsIntegrationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rds_integration resource.
 /// </summary>
 public class AwsRdsIntegration : TerraformResource
@@ -22,9 +48,9 @@ public class AwsRdsIntegration : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AdditionalEncryptionContext
+    public Dictionary<string, TerraformProperty<string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformMapProperty<string>>("additional_encryption_context");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
@@ -40,7 +66,8 @@ public class AwsRdsIntegration : TerraformResource
     /// <summary>
     /// The integration_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IntegrationName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationName is required")]
+    public required TerraformProperty<string> IntegrationName
     {
         get => GetProperty<TerraformProperty<string>>("integration_name");
         set => this.WithProperty("integration_name", value);
@@ -67,7 +94,8 @@ public class AwsRdsIntegration : TerraformResource
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
+    public required TerraformProperty<string> SourceArn
     {
         get => GetProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
@@ -76,19 +104,30 @@ public class AwsRdsIntegration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
+    public required TerraformProperty<string> TargetArn
     {
         get => GetProperty<TerraformProperty<string>>("target_arn");
         set => this.WithProperty("target_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRdsIntegrationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRdsIntegrationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

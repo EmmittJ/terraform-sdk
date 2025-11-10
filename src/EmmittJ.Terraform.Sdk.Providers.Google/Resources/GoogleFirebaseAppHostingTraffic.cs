@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for rollout_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Specifies a branch that triggers a new build to be started with this
+    /// policy. If not set, no automatic rollouts will happen.
+    /// </summary>
+    public TerraformProperty<string>? CodebaseBranch
+    {
+        get => GetProperty<TerraformProperty<string>>("codebase_branch");
+        set => WithProperty("codebase_branch", value);
+    }
+
+    /// <summary>
+    /// A flag that, if true, prevents rollouts from being created via this RolloutPolicy.
+    /// </summary>
+    public TerraformProperty<bool>? Disabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("disabled");
+        set => WithProperty("disabled", value);
+    }
+
+    /// <summary>
+    /// If disabled is set, the time at which the rollouts were disabled.
+    /// </summary>
+    public TerraformProperty<string>? DisabledTime
+    {
+        get => GetProperty<TerraformProperty<string>>("disabled_time");
+        set => WithProperty("disabled_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleFirebaseAppHostingTrafficTargetBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_firebase_app_hosting_traffic resource.
 /// </summary>
 public class GoogleFirebaseAppHostingTraffic : TerraformResource
@@ -26,7 +105,8 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// <summary>
     /// Id of the backend that this Traffic config applies to
     /// </summary>
-    public TerraformProperty<string>? Backend
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
+    public required TerraformProperty<string> Backend
     {
         get => GetProperty<TerraformProperty<string>>("backend");
         set => this.WithProperty("backend", value);
@@ -44,7 +124,8 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// <summary>
     /// The location the Backend that this Traffic config applies to
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -57,6 +138,38 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for rollout_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RolloutPolicy block(s) allowed")]
+    public List<GoogleFirebaseAppHostingTrafficRolloutPolicyBlock>? RolloutPolicy
+    {
+        get => GetProperty<List<GoogleFirebaseAppHostingTrafficRolloutPolicyBlock>>("rollout_policy");
+        set => this.WithProperty("rollout_policy", value);
+    }
+
+    /// <summary>
+    /// Block for target.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
+    public List<GoogleFirebaseAppHostingTrafficTargetBlock>? Target
+    {
+        get => GetProperty<List<GoogleFirebaseAppHostingTrafficTargetBlock>>("target");
+        set => this.WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleFirebaseAppHostingTrafficTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleFirebaseAppHostingTrafficTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

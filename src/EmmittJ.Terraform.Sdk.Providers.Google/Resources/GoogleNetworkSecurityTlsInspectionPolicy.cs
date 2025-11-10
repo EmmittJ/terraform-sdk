@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_security_tls_inspection_policy resource.
 /// </summary>
 public class GoogleNetworkSecurityTlsInspectionPolicy : TerraformResource
@@ -21,7 +56,8 @@ public class GoogleNetworkSecurityTlsInspectionPolicy : TerraformResource
     /// <summary>
     /// A CA pool resource used to issue interception certificates.
     /// </summary>
-    public TerraformProperty<string>? CaPool
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaPool is required")]
+    public required TerraformProperty<string> CaPool
     {
         get => GetProperty<TerraformProperty<string>>("ca_pool");
         set => this.WithProperty("ca_pool", value);
@@ -30,9 +66,9 @@ public class GoogleNetworkSecurityTlsInspectionPolicy : TerraformResource
     /// <summary>
     /// List of custom TLS cipher suites selected. This field is valid only if the selected tls_feature_profile is CUSTOM. The compute.SslPoliciesService.ListAvailableFeatures method returns the set of features that can be specified in this list. Note that Secure Web Proxy does not yet honor this field.
     /// </summary>
-    public TerraformProperty<List<string>>? CustomTlsFeatures
+    public List<TerraformProperty<string>>? CustomTlsFeatures
     {
-        get => GetProperty<TerraformProperty<List<string>>>("custom_tls_features");
+        get => GetProperty<List<TerraformProperty<string>>>("custom_tls_features");
         set => this.WithProperty("custom_tls_features", value);
     }
 
@@ -84,7 +120,8 @@ public class GoogleNetworkSecurityTlsInspectionPolicy : TerraformResource
     /// <summary>
     /// Short name of the TlsInspectionPolicy resource to be created.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -115,6 +152,16 @@ public class GoogleNetworkSecurityTlsInspectionPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("trust_config");
         set => this.WithProperty("trust_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

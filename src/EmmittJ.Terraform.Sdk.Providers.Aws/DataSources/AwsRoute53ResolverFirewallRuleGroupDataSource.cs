@@ -29,7 +29,8 @@ public class AwsRoute53ResolverFirewallRuleGroupDataSource : TerraformDataSource
     /// <summary>
     /// The firewall_rule_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? FirewallRuleGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
+    public required TerraformProperty<string> FirewallRuleGroupId
     {
         get => GetProperty<TerraformProperty<string>>("firewall_rule_group_id");
         set => this.WithProperty("firewall_rule_group_id", value);

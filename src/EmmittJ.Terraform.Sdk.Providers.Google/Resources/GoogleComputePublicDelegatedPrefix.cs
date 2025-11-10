@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputePublicDelegatedPrefixTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_public_delegated_prefix resource.
 /// </summary>
 public class GoogleComputePublicDelegatedPrefix : TerraformResource
@@ -48,7 +74,8 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// <summary>
     /// The IP address range, in CIDR format, represented by this public delegated prefix.
     /// </summary>
-    public TerraformProperty<string>? IpCidrRange
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
+    public required TerraformProperty<string> IpCidrRange
     {
         get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
@@ -81,7 +108,8 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -90,7 +118,8 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// <summary>
     /// The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix.
     /// </summary>
-    public TerraformProperty<string>? ParentPrefix
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentPrefix is required")]
+    public required TerraformProperty<string> ParentPrefix
     {
         get => GetProperty<TerraformProperty<string>>("parent_prefix");
         set => this.WithProperty("parent_prefix", value);
@@ -108,10 +137,21 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// <summary>
     /// A region where the prefix will reside.
     /// </summary>
-    public TerraformProperty<string>? Region
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
+    public required TerraformProperty<string> Region
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputePublicDelegatedPrefixTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputePublicDelegatedPrefixTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

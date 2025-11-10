@@ -38,7 +38,8 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The report_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ReportName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
+    public required TerraformProperty<string> ReportName
     {
         get => GetProperty<TerraformProperty<string>>("report_name");
         set => this.WithProperty("report_name", value);
@@ -47,9 +48,9 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

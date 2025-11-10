@@ -22,7 +22,8 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     /// <summary>
     /// The delivery_destination_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DeliveryDestinationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryDestinationArn is required")]
+    public required TerraformProperty<string> DeliveryDestinationArn
     {
         get => GetProperty<TerraformProperty<string>>("delivery_destination_arn");
         set => this.WithProperty("delivery_destination_arn", value);
@@ -31,7 +32,8 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     /// <summary>
     /// The delivery_source_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DeliverySourceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliverySourceName is required")]
+    public required TerraformProperty<string> DeliverySourceName
     {
         get => GetProperty<TerraformProperty<string>>("delivery_source_name");
         set => this.WithProperty("delivery_source_name", value);
@@ -49,9 +51,9 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     /// <summary>
     /// The record_fields attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? RecordFields
+    public List<TerraformProperty<string>>? RecordFields
     {
-        get => GetProperty<TerraformProperty<List<string>>>("record_fields");
+        get => GetProperty<List<TerraformProperty<string>>>("record_fields");
         set => this.WithProperty("record_fields", value);
     }
 
@@ -67,18 +69,18 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     /// <summary>
     /// The s3_delivery_configuration attribute.
     /// </summary>
-    public TerraformProperty<List<object>>? S3DeliveryConfiguration
+    public List<TerraformProperty<object>>? S3DeliveryConfiguration
     {
-        get => GetProperty<TerraformProperty<List<object>>>("s3_delivery_configuration");
+        get => GetProperty<List<TerraformProperty<object>>>("s3_delivery_configuration");
         set => this.WithProperty("s3_delivery_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

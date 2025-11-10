@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for automated_backup_policy in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// How frequently automated backups should occur.
+    /// </summary>
+    public TerraformProperty<string>? Frequency
+    {
+        get => GetProperty<TerraformProperty<string>>("frequency");
+        set => WithProperty("frequency", value);
+    }
+
+    /// <summary>
+    /// How long the automated backups should be retained.
+    /// </summary>
+    public TerraformProperty<string>? RetentionPeriod
+    {
+        get => GetProperty<TerraformProperty<string>>("retention_period");
+        set => WithProperty("retention_period", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for column_family in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleBigtableTableColumnFamilyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name of the column family.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
+    public required TerraformProperty<string> Family
+    {
+        get => GetProperty<TerraformProperty<string>>("family");
+        set => WithProperty("family", value);
+    }
+
+    /// <summary>
+    /// The type of the column family.
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigtableTableTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_bigtable_table resource.
 /// </summary>
 public class GoogleBigtableTable : TerraformResource
@@ -46,7 +125,8 @@ public class GoogleBigtableTable : TerraformResource
     /// <summary>
     /// The name of the Bigtable instance.
     /// </summary>
-    public TerraformProperty<string>? InstanceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
+    public required TerraformProperty<string> InstanceName
     {
         get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
@@ -55,7 +135,8 @@ public class GoogleBigtableTable : TerraformResource
     /// <summary>
     /// The name of the table. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -87,10 +168,41 @@ public class GoogleBigtableTable : TerraformResource
     /// <summary>
     /// A list of predefined keys to split the table on. !&amp;gt; Warning: Modifying the split_keys of an existing table will cause Terraform to delete/recreate the entire google_bigtable_table resource.
     /// </summary>
-    public TerraformProperty<List<string>>? SplitKeys
+    public List<TerraformProperty<string>>? SplitKeys
     {
-        get => GetProperty<TerraformProperty<List<string>>>("split_keys");
+        get => GetProperty<List<TerraformProperty<string>>>("split_keys");
         set => this.WithProperty("split_keys", value);
+    }
+
+    /// <summary>
+    /// Block for automated_backup_policy.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomatedBackupPolicy block(s) allowed")]
+    public HashSet<GoogleBigtableTableAutomatedBackupPolicyBlock>? AutomatedBackupPolicy
+    {
+        get => GetProperty<HashSet<GoogleBigtableTableAutomatedBackupPolicyBlock>>("automated_backup_policy");
+        set => this.WithProperty("automated_backup_policy", value);
+    }
+
+    /// <summary>
+    /// Block for column_family.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleBigtableTableColumnFamilyBlock>? ColumnFamily
+    {
+        get => GetProperty<HashSet<GoogleBigtableTableColumnFamilyBlock>>("column_family");
+        set => this.WithProperty("column_family", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBigtableTableTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBigtableTableTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

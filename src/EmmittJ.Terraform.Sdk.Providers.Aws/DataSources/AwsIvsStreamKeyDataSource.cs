@@ -21,7 +21,8 @@ public class AwsIvsStreamKeyDataSource : TerraformDataSource
     /// <summary>
     /// The channel_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? ChannelArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelArn is required")]
+    public required TerraformProperty<string> ChannelArn
     {
         get => GetProperty<TerraformProperty<string>>("channel_arn");
         set => this.WithProperty("channel_arn", value);
@@ -48,9 +49,9 @@ public class AwsIvsStreamKeyDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -30,7 +30,8 @@ public class AwsEmrSupportedInstanceTypesDataSource : TerraformDataSource
     /// <summary>
     /// The release_label attribute.
     /// </summary>
-    public TerraformProperty<string>? ReleaseLabel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
+    public required TerraformProperty<string> ReleaseLabel
     {
         get => GetProperty<TerraformProperty<string>>("release_label");
         set => this.WithProperty("release_label", value);

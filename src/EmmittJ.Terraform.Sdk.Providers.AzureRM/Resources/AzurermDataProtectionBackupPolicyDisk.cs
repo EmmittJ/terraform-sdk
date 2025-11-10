@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for retention_rule in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// The duration attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
+    public required TerraformProperty<string> Duration
+    {
+        get => GetProperty<TerraformProperty<string>>("duration");
+        set => WithProperty("duration", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDataProtectionBackupPolicyDiskTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_data_protection_backup_policy_disk resource.
 /// </summary>
 public class AzurermDataProtectionBackupPolicyDisk : TerraformResource
@@ -19,16 +92,18 @@ public class AzurermDataProtectionBackupPolicyDisk : TerraformResource
     /// <summary>
     /// The backup_repeating_time_intervals attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? BackupRepeatingTimeIntervals
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRepeatingTimeIntervals is required")]
+    public List<TerraformProperty<string>>? BackupRepeatingTimeIntervals
     {
-        get => GetProperty<TerraformProperty<List<string>>>("backup_repeating_time_intervals");
+        get => GetProperty<List<TerraformProperty<string>>>("backup_repeating_time_intervals");
         set => this.WithProperty("backup_repeating_time_intervals", value);
     }
 
     /// <summary>
     /// The default_retention_duration attribute.
     /// </summary>
-    public TerraformProperty<string>? DefaultRetentionDuration
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionDuration is required")]
+    public required TerraformProperty<string> DefaultRetentionDuration
     {
         get => GetProperty<TerraformProperty<string>>("default_retention_duration");
         set => this.WithProperty("default_retention_duration", value);
@@ -46,7 +121,8 @@ public class AzurermDataProtectionBackupPolicyDisk : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,10 +140,31 @@ public class AzurermDataProtectionBackupPolicyDisk : TerraformResource
     /// <summary>
     /// The vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
+    public required TerraformProperty<string> VaultId
     {
         get => GetProperty<TerraformProperty<string>>("vault_id");
         set => this.WithProperty("vault_id", value);
+    }
+
+    /// <summary>
+    /// Block for retention_rule.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock>? RetentionRule
+    {
+        get => GetProperty<List<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock>>("retention_rule");
+        set => this.WithProperty("retention_rule", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDataProtectionBackupPolicyDiskTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDataProtectionBackupPolicyDiskTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

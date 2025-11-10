@@ -33,7 +33,8 @@ public class AwsLocationMapDataSource : TerraformDataSource
     /// <summary>
     /// The map_name attribute.
     /// </summary>
-    public TerraformProperty<string>? MapName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapName is required")]
+    public required TerraformProperty<string> MapName
     {
         get => GetProperty<TerraformProperty<string>>("map_name");
         set => this.WithProperty("map_name", value);
@@ -51,9 +52,9 @@ public class AwsLocationMapDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

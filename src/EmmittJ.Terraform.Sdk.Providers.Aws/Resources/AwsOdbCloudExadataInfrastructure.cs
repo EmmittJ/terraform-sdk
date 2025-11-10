@@ -3,6 +3,134 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for maintenance_window in .
+/// Nesting mode: list
+/// </summary>
+public class AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock : TerraformBlock
+{
+    /// <summary>
+    /// The custom_action_timeout_in_mins attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomActionTimeoutInMins is required")]
+    public required TerraformProperty<double> CustomActionTimeoutInMins
+    {
+        get => GetProperty<TerraformProperty<double>>("custom_action_timeout_in_mins");
+        set => WithProperty("custom_action_timeout_in_mins", value);
+    }
+
+    /// <summary>
+    /// The days_of_week attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<object>>? DaysOfWeek
+    {
+        get => GetProperty<HashSet<TerraformProperty<object>>>("days_of_week");
+        set => WithProperty("days_of_week", value);
+    }
+
+    /// <summary>
+    /// The hours_of_day attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<double>>? HoursOfDay
+    {
+        get => GetProperty<HashSet<TerraformProperty<double>>>("hours_of_day");
+        set => WithProperty("hours_of_day", value);
+    }
+
+    /// <summary>
+    /// The is_custom_action_timeout_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsCustomActionTimeoutEnabled is required")]
+    public required TerraformProperty<bool> IsCustomActionTimeoutEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_custom_action_timeout_enabled");
+        set => WithProperty("is_custom_action_timeout_enabled", value);
+    }
+
+    /// <summary>
+    /// The lead_time_in_weeks attribute.
+    /// </summary>
+    public TerraformProperty<double>? LeadTimeInWeeks
+    {
+        get => GetProperty<TerraformProperty<double>>("lead_time_in_weeks");
+        set => WithProperty("lead_time_in_weeks", value);
+    }
+
+    /// <summary>
+    /// The months attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<object>>? Months
+    {
+        get => GetProperty<HashSet<TerraformProperty<object>>>("months");
+        set => WithProperty("months", value);
+    }
+
+    /// <summary>
+    /// The patching_mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchingMode is required")]
+    public required TerraformProperty<string> PatchingMode
+    {
+        get => GetProperty<TerraformProperty<string>>("patching_mode");
+        set => WithProperty("patching_mode", value);
+    }
+
+    /// <summary>
+    /// The preference attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
+    public required TerraformProperty<string> Preference
+    {
+        get => GetProperty<TerraformProperty<string>>("preference");
+        set => WithProperty("preference", value);
+    }
+
+    /// <summary>
+    /// The weeks_of_month attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<double>>? WeeksOfMonth
+    {
+        get => GetProperty<HashSet<TerraformProperty<double>>>("weeks_of_month");
+        set => WithProperty("weeks_of_month", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsOdbCloudExadataInfrastructureTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_odb_cloud_exadata_infrastructure resource.
 /// </summary>
 public class AwsOdbCloudExadataInfrastructure : TerraformResource
@@ -57,7 +185,8 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// <summary>
     ///  The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource
     /// </summary>
-    public TerraformProperty<string>? AvailabilityZoneId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
+    public required TerraformProperty<string> AvailabilityZoneId
     {
         get => GetProperty<TerraformProperty<string>>("availability_zone_id");
         set => this.WithProperty("availability_zone_id", value);
@@ -75,9 +204,9 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// <summary>
     /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource
     /// </summary>
-    public TerraformProperty<HashSet<object>>? CustomerContactsToSendToOci
+    public HashSet<TerraformProperty<object>>? CustomerContactsToSendToOci
     {
-        get => GetProperty<TerraformProperty<HashSet<object>>>("customer_contacts_to_send_to_oci");
+        get => GetProperty<HashSet<TerraformProperty<object>>>("customer_contacts_to_send_to_oci");
         set => this.WithProperty("customer_contacts_to_send_to_oci", value);
     }
 
@@ -93,7 +222,8 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// <summary>
     /// The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -111,7 +241,8 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// <summary>
     /// The model name of the Exadata infrastructure. Changing this will force terraform to create new resource
     /// </summary>
-    public TerraformProperty<string>? Shape
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
+    public required TerraformProperty<string> Shape
     {
         get => GetProperty<TerraformProperty<string>>("shape");
         set => this.WithProperty("shape", value);
@@ -138,10 +269,30 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for maintenance_window.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock>? MaintenanceWindow
+    {
+        get => GetProperty<List<AwsOdbCloudExadataInfrastructureMaintenanceWindowBlock>>("maintenance_window");
+        set => this.WithProperty("maintenance_window", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsOdbCloudExadataInfrastructureTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsOdbCloudExadataInfrastructureTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

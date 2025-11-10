@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_networkmanager_transit_gateway_connect_peer_association resource.
 /// </summary>
 public class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : TerraformResource
@@ -19,7 +45,8 @@ public class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : TerraformRe
     /// <summary>
     /// The device_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DeviceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
+    public required TerraformProperty<string> DeviceId
     {
         get => GetProperty<TerraformProperty<string>>("device_id");
         set => this.WithProperty("device_id", value);
@@ -28,7 +55,8 @@ public class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : TerraformRe
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GlobalNetworkId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
+    public required TerraformProperty<string> GlobalNetworkId
     {
         get => GetProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
@@ -55,10 +83,21 @@ public class AwsNetworkmanagerTransitGatewayConnectPeerAssociation : TerraformRe
     /// <summary>
     /// The transit_gateway_connect_peer_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TransitGatewayConnectPeerArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayConnectPeerArn is required")]
+    public required TerraformProperty<string> TransitGatewayConnectPeerArn
     {
         get => GetProperty<TerraformProperty<string>>("transit_gateway_connect_peer_arn");
         set => this.WithProperty("transit_gateway_connect_peer_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

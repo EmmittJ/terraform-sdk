@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsQuicksightAccountSubscriptionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_quicksight_account_subscription resource.
 /// </summary>
 public class AwsQuicksightAccountSubscription : TerraformResource
@@ -20,7 +55,8 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AccountName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
+    public required TerraformProperty<string> AccountName
     {
         get => GetProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
@@ -38,25 +74,26 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     /// <summary>
     /// The admin_group attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? AdminGroup
+    public List<TerraformProperty<string>>? AdminGroup
     {
-        get => GetProperty<TerraformProperty<List<string>>>("admin_group");
+        get => GetProperty<List<TerraformProperty<string>>>("admin_group");
         set => this.WithProperty("admin_group", value);
     }
 
     /// <summary>
     /// The admin_pro_group attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? AdminProGroup
+    public List<TerraformProperty<string>>? AdminProGroup
     {
-        get => GetProperty<TerraformProperty<List<string>>>("admin_pro_group");
+        get => GetProperty<List<TerraformProperty<string>>>("admin_pro_group");
         set => this.WithProperty("admin_pro_group", value);
     }
 
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthenticationMethod
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMethod is required")]
+    public required TerraformProperty<string> AuthenticationMethod
     {
         get => GetProperty<TerraformProperty<string>>("authentication_method");
         set => this.WithProperty("authentication_method", value);
@@ -65,18 +102,18 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     /// <summary>
     /// The author_group attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? AuthorGroup
+    public List<TerraformProperty<string>>? AuthorGroup
     {
-        get => GetProperty<TerraformProperty<List<string>>>("author_group");
+        get => GetProperty<List<TerraformProperty<string>>>("author_group");
         set => this.WithProperty("author_group", value);
     }
 
     /// <summary>
     /// The author_pro_group attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? AuthorProGroup
+    public List<TerraformProperty<string>>? AuthorProGroup
     {
-        get => GetProperty<TerraformProperty<List<string>>>("author_pro_group");
+        get => GetProperty<List<TerraformProperty<string>>>("author_pro_group");
         set => this.WithProperty("author_pro_group", value);
     }
 
@@ -110,7 +147,8 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     /// <summary>
     /// The edition attribute.
     /// </summary>
-    public TerraformProperty<string>? Edition
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Edition is required")]
+    public required TerraformProperty<string> Edition
     {
         get => GetProperty<TerraformProperty<string>>("edition");
         set => this.WithProperty("edition", value);
@@ -164,7 +202,8 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     /// <summary>
     /// The notification_email attribute.
     /// </summary>
-    public TerraformProperty<string>? NotificationEmail
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationEmail is required")]
+    public required TerraformProperty<string> NotificationEmail
     {
         get => GetProperty<TerraformProperty<string>>("notification_email");
         set => this.WithProperty("notification_email", value);
@@ -173,18 +212,18 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     /// <summary>
     /// The reader_group attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ReaderGroup
+    public List<TerraformProperty<string>>? ReaderGroup
     {
-        get => GetProperty<TerraformProperty<List<string>>>("reader_group");
+        get => GetProperty<List<TerraformProperty<string>>>("reader_group");
         set => this.WithProperty("reader_group", value);
     }
 
     /// <summary>
     /// The reader_pro_group attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ReaderProGroup
+    public List<TerraformProperty<string>>? ReaderProGroup
     {
-        get => GetProperty<TerraformProperty<List<string>>>("reader_pro_group");
+        get => GetProperty<List<TerraformProperty<string>>>("reader_pro_group");
         set => this.WithProperty("reader_pro_group", value);
     }
 
@@ -204,6 +243,16 @@ public class AwsQuicksightAccountSubscription : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsQuicksightAccountSubscriptionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsQuicksightAccountSubscriptionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

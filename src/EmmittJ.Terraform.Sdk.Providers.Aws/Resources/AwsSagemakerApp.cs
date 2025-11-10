@@ -3,6 +3,59 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for resource_spec in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerAppResourceSpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// The instance_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? InstanceType
+    {
+        get => GetProperty<TerraformProperty<string>>("instance_type");
+        set => WithProperty("instance_type", value);
+    }
+
+    /// <summary>
+    /// The lifecycle_config_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? LifecycleConfigArn
+    {
+        get => GetProperty<TerraformProperty<string>>("lifecycle_config_arn");
+        set => WithProperty("lifecycle_config_arn", value);
+    }
+
+    /// <summary>
+    /// The sagemaker_image_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? SagemakerImageArn
+    {
+        get => GetProperty<TerraformProperty<string>>("sagemaker_image_arn");
+        set => WithProperty("sagemaker_image_arn", value);
+    }
+
+    /// <summary>
+    /// The sagemaker_image_version_alias attribute.
+    /// </summary>
+    public TerraformProperty<string>? SagemakerImageVersionAlias
+    {
+        get => GetProperty<TerraformProperty<string>>("sagemaker_image_version_alias");
+        set => WithProperty("sagemaker_image_version_alias", value);
+    }
+
+    /// <summary>
+    /// The sagemaker_image_version_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? SagemakerImageVersionArn
+    {
+        get => GetProperty<TerraformProperty<string>>("sagemaker_image_version_arn");
+        set => WithProperty("sagemaker_image_version_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_app resource.
 /// </summary>
 public class AwsSagemakerApp : TerraformResource
@@ -20,7 +73,8 @@ public class AwsSagemakerApp : TerraformResource
     /// <summary>
     /// The app_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AppName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
+    public required TerraformProperty<string> AppName
     {
         get => GetProperty<TerraformProperty<string>>("app_name");
         set => this.WithProperty("app_name", value);
@@ -29,7 +83,8 @@ public class AwsSagemakerApp : TerraformResource
     /// <summary>
     /// The app_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AppType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppType is required")]
+    public required TerraformProperty<string> AppType
     {
         get => GetProperty<TerraformProperty<string>>("app_type");
         set => this.WithProperty("app_type", value);
@@ -38,7 +93,8 @@ public class AwsSagemakerApp : TerraformResource
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
+    public required TerraformProperty<string> DomainId
     {
         get => GetProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
@@ -74,18 +130,18 @@ public class AwsSagemakerApp : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -96,6 +152,17 @@ public class AwsSagemakerApp : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_profile_name");
         set => this.WithProperty("user_profile_name", value);
+    }
+
+    /// <summary>
+    /// Block for resource_spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceSpec block(s) allowed")]
+    public List<AwsSagemakerAppResourceSpecBlock>? ResourceSpec
+    {
+        get => GetProperty<List<AwsSagemakerAppResourceSpecBlock>>("resource_spec");
+        set => this.WithProperty("resource_spec", value);
     }
 
     /// <summary>

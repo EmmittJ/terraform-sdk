@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermBatchJobTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_batch_job resource.
 /// </summary>
 public class AzurermBatchJob : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermBatchJob : TerraformResource
     /// <summary>
     /// The batch_pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BatchPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchPoolId is required")]
+    public required TerraformProperty<string> BatchPoolId
     {
         get => GetProperty<TerraformProperty<string>>("batch_pool_id");
         set => this.WithProperty("batch_pool_id", value);
@@ -28,9 +73,9 @@ public class AzurermBatchJob : TerraformResource
     /// <summary>
     /// The common_environment_properties attribute.
     /// </summary>
-    public TerraformMapProperty<string>? CommonEnvironmentProperties
+    public Dictionary<string, TerraformProperty<string>>? CommonEnvironmentProperties
     {
-        get => GetProperty<TerraformMapProperty<string>>("common_environment_properties");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("common_environment_properties");
         set => this.WithProperty("common_environment_properties", value);
     }
 
@@ -55,7 +100,8 @@ public class AzurermBatchJob : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -77,6 +123,16 @@ public class AzurermBatchJob : TerraformResource
     {
         get => GetProperty<TerraformProperty<double>>("task_retry_maximum");
         set => this.WithProperty("task_retry_maximum", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermBatchJobTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermBatchJobTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

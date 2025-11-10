@@ -19,7 +19,8 @@ public class AwsSsmPatchGroup : TerraformResource
     /// <summary>
     /// The baseline_id attribute.
     /// </summary>
-    public TerraformProperty<string>? BaselineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineId is required")]
+    public required TerraformProperty<string> BaselineId
     {
         get => GetProperty<TerraformProperty<string>>("baseline_id");
         set => this.WithProperty("baseline_id", value);
@@ -37,7 +38,8 @@ public class AwsSsmPatchGroup : TerraformResource
     /// <summary>
     /// The patch_group attribute.
     /// </summary>
-    public TerraformProperty<string>? PatchGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchGroup is required")]
+    public required TerraformProperty<string> PatchGroup
     {
         get => GetProperty<TerraformProperty<string>>("patch_group");
         set => this.WithProperty("patch_group", value);

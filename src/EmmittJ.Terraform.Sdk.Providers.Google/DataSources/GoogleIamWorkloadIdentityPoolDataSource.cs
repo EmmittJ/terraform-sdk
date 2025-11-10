@@ -44,7 +44,8 @@ public class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSource
     /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformProperty<string>? WorkloadIdentityPoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
+    public required TerraformProperty<string> WorkloadIdentityPoolId
     {
         get => GetProperty<TerraformProperty<string>>("workload_identity_pool_id");
         set => this.WithProperty("workload_identity_pool_id", value);

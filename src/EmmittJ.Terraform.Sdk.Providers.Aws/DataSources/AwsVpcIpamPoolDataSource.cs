@@ -3,6 +3,51 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: set
+/// </summary>
+public class AwsVpcIpamPoolDataSourceFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcIpamPoolDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_vpc_ipam_pool.
 /// </summary>
 public class AwsVpcIpamPoolDataSource : TerraformDataSource
@@ -34,9 +79,9 @@ public class AwsVpcIpamPoolDataSource : TerraformDataSource
     /// <summary>
     /// The allocation_resource_tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? AllocationResourceTags
+    public Dictionary<string, TerraformProperty<string>>? AllocationResourceTags
     {
-        get => GetProperty<TerraformMapProperty<string>>("allocation_resource_tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("allocation_resource_tags");
         set => this.WithProperty("allocation_resource_tags", value);
     }
 
@@ -70,10 +115,30 @@ public class AwsVpcIpamPoolDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsVpcIpamPoolDataSourceFilterBlock>? Filter
+    {
+        get => GetProperty<HashSet<AwsVpcIpamPoolDataSourceFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcIpamPoolDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcIpamPoolDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

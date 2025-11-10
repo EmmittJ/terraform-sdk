@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadGroupsDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azuread_groups.
 /// </summary>
 public class AzureadGroupsDataSource : TerraformDataSource
@@ -28,9 +45,9 @@ public class AzureadGroupsDataSource : TerraformDataSource
     /// <summary>
     /// The display names of the groups
     /// </summary>
-    public TerraformProperty<List<string>>? DisplayNames
+    public List<TerraformProperty<string>>? DisplayNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("display_names");
+        get => GetProperty<List<TerraformProperty<string>>>("display_names");
         set => this.WithProperty("display_names", value);
     }
 
@@ -64,9 +81,9 @@ public class AzureadGroupsDataSource : TerraformDataSource
     /// <summary>
     /// The object IDs of the groups
     /// </summary>
-    public TerraformProperty<List<string>>? ObjectIds
+    public List<TerraformProperty<string>>? ObjectIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("object_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("object_ids");
         set => this.WithProperty("object_ids", value);
     }
 
@@ -86,6 +103,16 @@ public class AzureadGroupsDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<bool>>("security_enabled");
         set => this.WithProperty("security_enabled", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadGroupsDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadGroupsDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

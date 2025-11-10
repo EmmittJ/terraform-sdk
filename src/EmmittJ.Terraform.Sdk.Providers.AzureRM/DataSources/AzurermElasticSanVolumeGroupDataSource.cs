@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermElasticSanVolumeGroupDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_elastic_san_volume_group.
 /// </summary>
 public class AzurermElasticSanVolumeGroupDataSource : TerraformDataSource
@@ -24,7 +41,8 @@ public class AzurermElasticSanVolumeGroupDataSource : TerraformDataSource
     /// <summary>
     /// The elastic_san_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ElasticSanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
+    public required TerraformProperty<string> ElasticSanId
     {
         get => GetProperty<TerraformProperty<string>>("elastic_san_id");
         set => this.WithProperty("elastic_san_id", value);
@@ -42,10 +60,21 @@ public class AzurermElasticSanVolumeGroupDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermElasticSanVolumeGroupDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermElasticSanVolumeGroupDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -19,7 +19,8 @@ public class AwsCodecommitApprovalRuleTemplateAssociation : TerraformResource
     /// <summary>
     /// The approval_rule_template_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ApprovalRuleTemplateName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApprovalRuleTemplateName is required")]
+    public required TerraformProperty<string> ApprovalRuleTemplateName
     {
         get => GetProperty<TerraformProperty<string>>("approval_rule_template_name");
         set => this.WithProperty("approval_rule_template_name", value);
@@ -46,7 +47,8 @@ public class AwsCodecommitApprovalRuleTemplateAssociation : TerraformResource
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
-    public TerraformProperty<string>? RepositoryName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
+    public required TerraformProperty<string> RepositoryName
     {
         get => GetProperty<TerraformProperty<string>>("repository_name");
         set => this.WithProperty("repository_name", value);

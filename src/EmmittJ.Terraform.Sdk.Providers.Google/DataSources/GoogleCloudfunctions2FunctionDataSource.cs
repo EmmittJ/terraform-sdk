@@ -40,7 +40,8 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     /// <summary>
     /// The location of this cloud function.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -50,7 +51,8 @@ public class GoogleCloudfunctions2FunctionDataSource : TerraformDataSource
     /// A user-defined name of the function. Function names must
     /// be unique globally and match pattern &#39;projects/*/locations/*/functions/*&#39;.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

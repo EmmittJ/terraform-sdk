@@ -33,7 +33,8 @@ public class AwsServicequotasTemplate : TerraformResource
     /// <summary>
     /// The quota_code attribute.
     /// </summary>
-    public TerraformProperty<string>? QuotaCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaCode is required")]
+    public required TerraformProperty<string> QuotaCode
     {
         get => GetProperty<TerraformProperty<string>>("quota_code");
         set => this.WithProperty("quota_code", value);
@@ -52,7 +53,8 @@ public class AwsServicequotasTemplate : TerraformResource
     /// <summary>
     /// The service_code attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
+    public required TerraformProperty<string> ServiceCode
     {
         get => GetProperty<TerraformProperty<string>>("service_code");
         set => this.WithProperty("service_code", value);
@@ -61,7 +63,8 @@ public class AwsServicequotasTemplate : TerraformResource
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformProperty<double>? Value
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<double> Value
     {
         get => GetProperty<TerraformProperty<double>>("value");
         set => this.WithProperty("value", value);

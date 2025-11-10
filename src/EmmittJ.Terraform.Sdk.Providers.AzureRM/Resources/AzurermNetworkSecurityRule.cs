@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_network_security_rule resource.
 /// </summary>
 public class AzurermNetworkSecurityRule : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The access attribute.
     /// </summary>
-    public TerraformProperty<string>? Access
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
+    public required TerraformProperty<string> Access
     {
         get => GetProperty<TerraformProperty<string>>("access");
         set => this.WithProperty("access", value);
@@ -46,18 +91,18 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The destination_address_prefixes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DestinationAddressPrefixes
+    public HashSet<TerraformProperty<string>>? DestinationAddressPrefixes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("destination_address_prefixes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("destination_address_prefixes");
         set => this.WithProperty("destination_address_prefixes", value);
     }
 
     /// <summary>
     /// The destination_application_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DestinationApplicationSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? DestinationApplicationSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("destination_application_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("destination_application_security_group_ids");
         set => this.WithProperty("destination_application_security_group_ids", value);
     }
 
@@ -73,16 +118,17 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The destination_port_ranges attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DestinationPortRanges
+    public HashSet<TerraformProperty<string>>? DestinationPortRanges
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("destination_port_ranges");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("destination_port_ranges");
         set => this.WithProperty("destination_port_ranges", value);
     }
 
     /// <summary>
     /// The direction attribute.
     /// </summary>
-    public TerraformProperty<string>? Direction
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
+    public required TerraformProperty<string> Direction
     {
         get => GetProperty<TerraformProperty<string>>("direction");
         set => this.WithProperty("direction", value);
@@ -100,7 +146,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -109,7 +156,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The network_security_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkSecurityGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupName is required")]
+    public required TerraformProperty<string> NetworkSecurityGroupName
     {
         get => GetProperty<TerraformProperty<string>>("network_security_group_name");
         set => this.WithProperty("network_security_group_name", value);
@@ -118,7 +166,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformProperty<double>? Priority
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
     {
         get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
@@ -127,7 +176,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? Protocol
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
     {
         get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
@@ -136,7 +186,8 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -154,18 +205,18 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The source_address_prefixes attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SourceAddressPrefixes
+    public HashSet<TerraformProperty<string>>? SourceAddressPrefixes
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("source_address_prefixes");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("source_address_prefixes");
         set => this.WithProperty("source_address_prefixes", value);
     }
 
     /// <summary>
     /// The source_application_security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SourceApplicationSecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SourceApplicationSecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("source_application_security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("source_application_security_group_ids");
         set => this.WithProperty("source_application_security_group_ids", value);
     }
 
@@ -181,10 +232,20 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The source_port_ranges attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SourcePortRanges
+    public HashSet<TerraformProperty<string>>? SourcePortRanges
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("source_port_ranges");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("source_port_ranges");
         set => this.WithProperty("source_port_ranges", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNetworkSecurityRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNetworkSecurityRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -23,7 +23,8 @@ public class AwsOutpostsAssetDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformProperty<string>? Arn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
+    public required TerraformProperty<string> Arn
     {
         get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
@@ -32,7 +33,8 @@ public class AwsOutpostsAssetDataSource : TerraformDataSource
     /// <summary>
     /// The asset_id attribute.
     /// </summary>
-    public TerraformProperty<string>? AssetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssetId is required")]
+    public required TerraformProperty<string> AssetId
     {
         get => GetProperty<TerraformProperty<string>>("asset_id");
         set => this.WithProperty("asset_id", value);

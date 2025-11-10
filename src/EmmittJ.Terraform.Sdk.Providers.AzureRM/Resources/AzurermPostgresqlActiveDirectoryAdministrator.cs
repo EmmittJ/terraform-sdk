@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_postgresql_active_directory_administrator resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -29,7 +73,8 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     /// <summary>
     /// The login attribute.
     /// </summary>
-    public TerraformProperty<string>? Login
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
+    public required TerraformProperty<string> Login
     {
         get => GetProperty<TerraformProperty<string>>("login");
         set => this.WithProperty("login", value);
@@ -38,7 +83,8 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ObjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
+    public required TerraformProperty<string> ObjectId
     {
         get => GetProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
@@ -47,7 +93,8 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -56,7 +103,8 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
+    public required TerraformProperty<string> ServerName
     {
         get => GetProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
@@ -65,10 +113,21 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformProperty<string> TenantId
     {
         get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

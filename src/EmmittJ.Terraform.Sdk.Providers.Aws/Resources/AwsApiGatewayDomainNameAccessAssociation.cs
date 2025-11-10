@@ -22,7 +22,8 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     /// <summary>
     /// The access_association_source attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessAssociationSource
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSource is required")]
+    public required TerraformProperty<string> AccessAssociationSource
     {
         get => GetProperty<TerraformProperty<string>>("access_association_source");
         set => this.WithProperty("access_association_source", value);
@@ -31,7 +32,8 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     /// <summary>
     /// The access_association_source_type attribute.
     /// </summary>
-    public TerraformProperty<string>? AccessAssociationSourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSourceType is required")]
+    public required TerraformProperty<string> AccessAssociationSourceType
     {
         get => GetProperty<TerraformProperty<string>>("access_association_source_type");
         set => this.WithProperty("access_association_source_type", value);
@@ -40,7 +42,8 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     /// <summary>
     /// The domain_name_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainNameArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNameArn is required")]
+    public required TerraformProperty<string> DomainNameArn
     {
         get => GetProperty<TerraformProperty<string>>("domain_name_arn");
         set => this.WithProperty("domain_name_arn", value);
@@ -58,9 +61,9 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

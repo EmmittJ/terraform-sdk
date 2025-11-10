@@ -3,6 +3,176 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for advertised_ip_ranges in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeRouterPeerAdvertisedIpRangesBlock : TerraformBlock
+{
+    /// <summary>
+    /// User-specified description for the IP range.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// The IP range to advertise. The value must be a
+    /// CIDR-formatted string.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
+    public required TerraformProperty<string> Range
+    {
+        get => GetProperty<TerraformProperty<string>>("range");
+        set => WithProperty("range", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for bfd in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouterPeerBfdBlock : TerraformBlock
+{
+    /// <summary>
+    /// The minimum interval, in milliseconds, between BFD control packets
+    /// received from the peer router. The actual value is negotiated
+    /// between the two routers and is equal to the greater of this value
+    /// and the transmit interval of the other router. If set, this value
+    /// must be between 1000 and 30000.
+    /// </summary>
+    public TerraformProperty<double>? MinReceiveInterval
+    {
+        get => GetProperty<TerraformProperty<double>>("min_receive_interval");
+        set => WithProperty("min_receive_interval", value);
+    }
+
+    /// <summary>
+    /// The minimum interval, in milliseconds, between BFD control packets
+    /// transmitted to the peer router. The actual value is negotiated
+    /// between the two routers and is equal to the greater of this value
+    /// and the corresponding receive interval of the other router. If set,
+    /// this value must be between 1000 and 30000.
+    /// </summary>
+    public TerraformProperty<double>? MinTransmitInterval
+    {
+        get => GetProperty<TerraformProperty<double>>("min_transmit_interval");
+        set => WithProperty("min_transmit_interval", value);
+    }
+
+    /// <summary>
+    /// The number of consecutive BFD packets that must be missed before
+    /// BFD declares that a peer is unavailable. If set, the value must
+    /// be a value between 5 and 16.
+    /// </summary>
+    public TerraformProperty<double>? Multiplier
+    {
+        get => GetProperty<TerraformProperty<double>>("multiplier");
+        set => WithProperty("multiplier", value);
+    }
+
+    /// <summary>
+    /// The BFD session initialization mode for this BGP peer.
+    /// If set to &#39;ACTIVE&#39;, the Cloud Router will initiate the BFD session
+    /// for this BGP peer. If set to &#39;PASSIVE&#39;, the Cloud Router will wait
+    /// for the peer router to initiate the BFD session for this BGP peer.
+    /// If set to &#39;DISABLED&#39;, BFD is disabled for this BGP peer. Possible values: [&amp;quot;ACTIVE&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;PASSIVE&amp;quot;]
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionInitializationMode is required")]
+    public required TerraformProperty<string> SessionInitializationMode
+    {
+        get => GetProperty<TerraformProperty<string>>("session_initialization_mode");
+        set => WithProperty("session_initialization_mode", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for custom_learned_ip_ranges in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouterPeerCustomLearnedIpRangesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The IP range to learn. The value must be a
+    /// CIDR-formatted string.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
+    public required TerraformProperty<string> Range
+    {
+        get => GetProperty<TerraformProperty<string>>("range");
+        set => WithProperty("range", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for md5_authentication_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Value of the key.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// [REQUIRED] Name used to identify the key.
+    /// Must be unique within a router. Must be referenced by exactly one bgpPeer. Must comply with RFC1035.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRouterPeerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_router_peer resource.
 /// </summary>
 public class GoogleComputeRouterPeer : TerraformResource
@@ -43,9 +213,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// These groups are advertised in addition to any specified prefixes.
     /// Leave this field blank to advertise no custom groups.
     /// </summary>
-    public TerraformProperty<List<string>>? AdvertisedGroups
+    public List<TerraformProperty<string>>? AdvertisedGroups
     {
-        get => GetProperty<TerraformProperty<List<string>>>("advertised_groups");
+        get => GetProperty<List<TerraformProperty<string>>>("advertised_groups");
         set => this.WithProperty("advertised_groups", value);
     }
 
@@ -105,9 +275,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// routers.list of export policies applied to this peer, in the order they must be evaluated. 
     /// The name must correspond to an existing policy that has ROUTE_POLICY_TYPE_EXPORT type.
     /// </summary>
-    public TerraformProperty<List<string>>? ExportPolicies
+    public List<TerraformProperty<string>>? ExportPolicies
     {
-        get => GetProperty<TerraformProperty<List<string>>>("export_policies");
+        get => GetProperty<List<TerraformProperty<string>>>("export_policies");
         set => this.WithProperty("export_policies", value);
     }
 
@@ -124,16 +294,17 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// routers.list of import policies applied to this peer, in the order they must be evaluated. 
     /// The name must correspond to an existing policy that has ROUTE_POLICY_TYPE_IMPORT type.
     /// </summary>
-    public TerraformProperty<List<string>>? ImportPolicies
+    public List<TerraformProperty<string>>? ImportPolicies
     {
-        get => GetProperty<TerraformProperty<List<string>>>("import_policies");
+        get => GetProperty<List<TerraformProperty<string>>>("import_policies");
         set => this.WithProperty("import_policies", value);
     }
 
     /// <summary>
     /// Name of the interface the BGP peer is associated with.
     /// </summary>
-    public TerraformProperty<string>? Interface
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interface is required")]
+    public required TerraformProperty<string> Interface
     {
         get => GetProperty<TerraformProperty<string>>("interface");
         set => this.WithProperty("interface", value);
@@ -178,7 +349,8 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -188,7 +360,8 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// Peer BGP Autonomous System Number (ASN).
     /// Each BGP interface may use a different value.
     /// </summary>
-    public TerraformProperty<double>? PeerAsn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
+    public required TerraformProperty<double> PeerAsn
     {
         get => GetProperty<TerraformProperty<double>>("peer_asn");
         set => this.WithProperty("peer_asn", value);
@@ -247,7 +420,8 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// <summary>
     /// The name of the Cloud Router in which this BgpPeer will be configured.
     /// </summary>
-    public TerraformProperty<string>? Router
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
+    public required TerraformProperty<string> Router
     {
         get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
@@ -281,6 +455,58 @@ public class GoogleComputeRouterPeer : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("zero_custom_learned_route_priority");
         set => this.WithProperty("zero_custom_learned_route_priority", value);
+    }
+
+    /// <summary>
+    /// Block for advertised_ip_ranges.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleComputeRouterPeerAdvertisedIpRangesBlock>? AdvertisedIpRanges
+    {
+        get => GetProperty<HashSet<GoogleComputeRouterPeerAdvertisedIpRangesBlock>>("advertised_ip_ranges");
+        set => this.WithProperty("advertised_ip_ranges", value);
+    }
+
+    /// <summary>
+    /// Block for bfd.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bfd block(s) allowed")]
+    public List<GoogleComputeRouterPeerBfdBlock>? Bfd
+    {
+        get => GetProperty<List<GoogleComputeRouterPeerBfdBlock>>("bfd");
+        set => this.WithProperty("bfd", value);
+    }
+
+    /// <summary>
+    /// Block for custom_learned_ip_ranges.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleComputeRouterPeerCustomLearnedIpRangesBlock>? CustomLearnedIpRanges
+    {
+        get => GetProperty<List<GoogleComputeRouterPeerCustomLearnedIpRangesBlock>>("custom_learned_ip_ranges");
+        set => this.WithProperty("custom_learned_ip_ranges", value);
+    }
+
+    /// <summary>
+    /// Block for md5_authentication_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKey block(s) allowed")]
+    public List<GoogleComputeRouterPeerMd5AuthenticationKeyBlock>? Md5AuthenticationKey
+    {
+        get => GetProperty<List<GoogleComputeRouterPeerMd5AuthenticationKeyBlock>>("md5_authentication_key");
+        set => this.WithProperty("md5_authentication_key", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRouterPeerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRouterPeerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

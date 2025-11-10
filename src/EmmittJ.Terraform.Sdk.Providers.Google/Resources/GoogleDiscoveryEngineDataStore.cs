@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for advanced_site_search_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// If set true, automatic refresh is disabled for the DataStore.
+    /// </summary>
+    public TerraformProperty<bool>? DisableAutomaticRefresh
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_automatic_refresh");
+        set => WithProperty("disable_automatic_refresh", value);
+    }
+
+    /// <summary>
+    /// If set true, initial indexing is disabled for the DataStore.
+    /// </summary>
+    public TerraformProperty<bool>? DisableInitialIndex
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_initial_index");
+        set => WithProperty("disable_initial_index", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for document_processing_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The full resource name of the Document Processing Config. Format:
+    /// &#39;projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/documentProcessingConfig&#39;.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_discovery_engine_data_store resource.
 /// </summary>
 public class GoogleDiscoveryEngineDataStore : TerraformResource
@@ -22,7 +101,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// <summary>
     /// The content config of the data store. Possible values: [&amp;quot;NO_CONTENT&amp;quot;, &amp;quot;CONTENT_REQUIRED&amp;quot;, &amp;quot;PUBLIC_WEBSITE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ContentConfig
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentConfig is required")]
+    public required TerraformProperty<string> ContentConfig
     {
         get => GetProperty<TerraformProperty<string>>("content_config");
         set => this.WithProperty("content_config", value);
@@ -42,7 +122,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// <summary>
     /// The unique id of the data store.
     /// </summary>
-    public TerraformProperty<string>? DataStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
+    public required TerraformProperty<string> DataStoreId
     {
         get => GetProperty<TerraformProperty<string>>("data_store_id");
         set => this.WithProperty("data_store_id", value);
@@ -52,7 +133,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// The display name of the data store. This field must be a UTF-8 encoded
     /// string with a length limit of 128 characters.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -70,7 +152,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// <summary>
     /// The industry vertical that the data store registers. Possible values: [&amp;quot;GENERIC&amp;quot;, &amp;quot;MEDIA&amp;quot;, &amp;quot;HEALTHCARE_FHIR&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? IndustryVertical
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndustryVertical is required")]
+    public required TerraformProperty<string> IndustryVertical
     {
         get => GetProperty<TerraformProperty<string>>("industry_vertical");
         set => this.WithProperty("industry_vertical", value);
@@ -94,7 +177,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -127,10 +211,42 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// <summary>
     /// The solutions that the data store enrolls. Possible values: [&amp;quot;SOLUTION_TYPE_RECOMMENDATION&amp;quot;, &amp;quot;SOLUTION_TYPE_SEARCH&amp;quot;, &amp;quot;SOLUTION_TYPE_CHAT&amp;quot;, &amp;quot;SOLUTION_TYPE_GENERATIVE_CHAT&amp;quot;]
     /// </summary>
-    public TerraformProperty<List<string>>? SolutionTypes
+    public List<TerraformProperty<string>>? SolutionTypes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("solution_types");
+        get => GetProperty<List<TerraformProperty<string>>>("solution_types");
         set => this.WithProperty("solution_types", value);
+    }
+
+    /// <summary>
+    /// Block for advanced_site_search_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSiteSearchConfig block(s) allowed")]
+    public List<GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock>? AdvancedSiteSearchConfig
+    {
+        get => GetProperty<List<GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock>>("advanced_site_search_config");
+        set => this.WithProperty("advanced_site_search_config", value);
+    }
+
+    /// <summary>
+    /// Block for document_processing_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DocumentProcessingConfig block(s) allowed")]
+    public List<GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock>? DocumentProcessingConfig
+    {
+        get => GetProperty<List<GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock>>("document_processing_config");
+        set => this.WithProperty("document_processing_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDiscoveryEngineDataStoreTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDiscoveryEngineDataStoreTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

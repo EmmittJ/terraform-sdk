@@ -20,7 +20,8 @@ public class AwsApigatewayv2Deployment : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -56,9 +57,9 @@ public class AwsApigatewayv2Deployment : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Triggers
+    public Dictionary<string, TerraformProperty<string>>? Triggers
     {
-        get => GetProperty<TerraformMapProperty<string>>("triggers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 

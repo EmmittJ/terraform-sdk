@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for backup_rules in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Configures the duration for which backup data will be kept. The value should be greater than or equal to minimum enforced retention of the backup vault.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionDays is required")]
+    public required TerraformProperty<double> BackupRetentionDays
+    {
+        get => GetProperty<TerraformProperty<double>>("backup_retention_days");
+        set => WithProperty("backup_retention_days", value);
+    }
+
+    /// <summary>
+    /// The unique ID of this &#39;BackupRule&#39;. The &#39;rule_id&#39; is unique per &#39;BackupPlan&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
+    public required TerraformProperty<string> RuleId
+    {
+        get => GetProperty<TerraformProperty<string>>("rule_id");
+        set => WithProperty("rule_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBackupDrBackupPlanTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_backup_dr_backup_plan resource.
 /// </summary>
 public class GoogleBackupDrBackupPlan : TerraformResource
@@ -24,7 +87,8 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     /// <summary>
     /// The ID of the backup plan
     /// </summary>
-    public TerraformProperty<string>? BackupPlanId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanId is required")]
+    public required TerraformProperty<string> BackupPlanId
     {
         get => GetProperty<TerraformProperty<string>>("backup_plan_id");
         set => this.WithProperty("backup_plan_id", value);
@@ -33,7 +97,8 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     /// <summary>
     /// Backup vault where the backups gets stored using this Backup plan.
     /// </summary>
-    public TerraformProperty<string>? BackupVault
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVault is required")]
+    public required TerraformProperty<string> BackupVault
     {
         get => GetProperty<TerraformProperty<string>>("backup_vault");
         set => this.WithProperty("backup_vault", value);
@@ -60,7 +125,8 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     /// <summary>
     /// The location for the backup plan
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -88,10 +154,32 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     /// The resource type to which the &#39;BackupPlan&#39; will be applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, &amp;quot;sqladmin.googleapis.com/Instance&amp;quot; and &amp;quot;storage.googleapis.com/Bucket&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
+    public required TerraformProperty<string> ResourceType
     {
         get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
+    }
+
+    /// <summary>
+    /// Block for backup_rules.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackupRules block(s) required")]
+    public List<GoogleBackupDrBackupPlanBackupRulesBlock>? BackupRules
+    {
+        get => GetProperty<List<GoogleBackupDrBackupPlanBackupRulesBlock>>("backup_rules");
+        set => this.WithProperty("backup_rules", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBackupDrBackupPlanTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBackupDrBackupPlanTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

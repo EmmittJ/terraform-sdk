@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_stream_analytics_output_powerbi resource.
 /// </summary>
 public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     /// <summary>
     /// The dataset attribute.
     /// </summary>
-    public TerraformProperty<string>? Dataset
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
+    public required TerraformProperty<string> Dataset
     {
         get => GetProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
@@ -28,7 +73,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     /// <summary>
     /// The group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
+    public required TerraformProperty<string> GroupId
     {
         get => GetProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
@@ -37,7 +83,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
+    public required TerraformProperty<string> GroupName
     {
         get => GetProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
@@ -55,7 +102,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,7 +112,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StreamAnalyticsJobId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
+    public required TerraformProperty<string> StreamAnalyticsJobId
     {
         get => GetProperty<TerraformProperty<string>>("stream_analytics_job_id");
         set => this.WithProperty("stream_analytics_job_id", value);
@@ -73,7 +122,8 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public TerraformProperty<string>? Table
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
+    public required TerraformProperty<string> Table
     {
         get => GetProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
@@ -95,6 +145,16 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("token_user_principal_name");
         set => this.WithProperty("token_user_principal_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

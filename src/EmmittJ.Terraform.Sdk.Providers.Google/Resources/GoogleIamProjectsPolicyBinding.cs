@@ -3,6 +3,108 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for condition in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamProjectsPolicyBindingConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
+    /// </summary>
+    public TerraformProperty<string>? Description
+    {
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => WithProperty("description", value);
+    }
+
+    /// <summary>
+    /// Textual representation of an expression in Common Expression Language syntax.
+    /// </summary>
+    public TerraformProperty<string>? Expression
+    {
+        get => GetProperty<TerraformProperty<string>>("expression");
+        set => WithProperty("expression", value);
+    }
+
+    /// <summary>
+    /// Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file.
+    /// </summary>
+    public TerraformProperty<string>? Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression.
+    /// </summary>
+    public TerraformProperty<string>? Title
+    {
+        get => GetProperty<TerraformProperty<string>>("title");
+        set => WithProperty("title", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleIamProjectsPolicyBindingTargetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Required. Immutable. Full Resource Name of the principal set used for principal access boundary policy bindings.
+    /// Examples for each one of the following supported principal set types:
+    /// * Project:
+    ///   * &#39;//cloudresourcemanager.googleapis.com/projects/PROJECT_NUMBER&#39;
+    ///   * &#39;//cloudresourcemanager.googleapis.com/projects/PROJECT_ID&#39;
+    /// * Workload Identity Pool: &#39;//iam.googleapis.com/projects/PROJECT_NUMBER/locations/LOCATION/workloadIdentityPools/WORKLOAD_POOL_ID&#39;
+    /// It must be parent by the policy binding&#39;s parent (the project).
+    /// </summary>
+    public TerraformProperty<string>? PrincipalSet
+    {
+        get => GetProperty<TerraformProperty<string>>("principal_set");
+        set => WithProperty("principal_set", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamProjectsPolicyBindingTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_projects_policy_binding resource.
 /// </summary>
 public class GoogleIamProjectsPolicyBinding : TerraformResource
@@ -30,9 +132,9 @@ public class GoogleIamProjectsPolicyBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -57,7 +159,8 @@ public class GoogleIamProjectsPolicyBinding : TerraformResource
     /// <summary>
     /// The location of the Policy Binding
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -66,7 +169,8 @@ public class GoogleIamProjectsPolicyBinding : TerraformResource
     /// <summary>
     /// Required. Immutable. The resource name of the policy to be bound. The binding parent and policy must belong to the same Organization (or Project).
     /// </summary>
-    public TerraformProperty<string>? Policy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
+    public required TerraformProperty<string> Policy
     {
         get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
@@ -75,7 +179,8 @@ public class GoogleIamProjectsPolicyBinding : TerraformResource
     /// <summary>
     /// The Policy Binding ID.
     /// </summary>
-    public TerraformProperty<string>? PolicyBindingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyBindingId is required")]
+    public required TerraformProperty<string> PolicyBindingId
     {
         get => GetProperty<TerraformProperty<string>>("policy_binding_id");
         set => this.WithProperty("policy_binding_id", value);
@@ -99,6 +204,39 @@ public class GoogleIamProjectsPolicyBinding : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for condition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
+    public List<GoogleIamProjectsPolicyBindingConditionBlock>? Condition
+    {
+        get => GetProperty<List<GoogleIamProjectsPolicyBindingConditionBlock>>("condition");
+        set => this.WithProperty("condition", value);
+    }
+
+    /// <summary>
+    /// Block for target.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
+    public List<GoogleIamProjectsPolicyBindingTargetBlock>? Target
+    {
+        get => GetProperty<List<GoogleIamProjectsPolicyBindingTargetBlock>>("target");
+        set => this.WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamProjectsPolicyBindingTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamProjectsPolicyBindingTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

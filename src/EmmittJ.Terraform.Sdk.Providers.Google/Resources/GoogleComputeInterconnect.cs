@@ -3,6 +3,62 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for macsec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeInterconnectMacsecBlock : TerraformBlock
+{
+    /// <summary>
+    /// If set to true, the Interconnect connection is configured with a should-secure
+    /// MACsec security policy, that allows the Google router to fallback to cleartext
+    /// traffic if the MKA session cannot be established. By default, the Interconnect
+    /// connection is configured with a must-secure security policy that drops all traffic
+    /// if the MKA session cannot be established with your router.
+    /// </summary>
+    public TerraformProperty<bool>? FailOpen
+    {
+        get => GetProperty<TerraformProperty<bool>>("fail_open");
+        set => WithProperty("fail_open", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeInterconnectTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_interconnect resource.
 /// </summary>
 public class GoogleComputeInterconnect : TerraformResource
@@ -78,7 +134,8 @@ public class GoogleComputeInterconnect : TerraformResource
     ///   - PARTNER: A partner-managed interconnection shared between customers though a partner.
     ///   - DEDICATED: A dedicated physical interconnection with the customer. Possible values: [&amp;quot;DEDICATED&amp;quot;, &amp;quot;PARTNER&amp;quot;, &amp;quot;IT_PRIVATE&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? InterconnectType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectType is required")]
+    public required TerraformProperty<string> InterconnectType
     {
         get => GetProperty<TerraformProperty<string>>("interconnect_type");
         set => this.WithProperty("interconnect_type", value);
@@ -92,9 +149,9 @@ public class GoogleComputeInterconnect : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -105,7 +162,8 @@ public class GoogleComputeInterconnect : TerraformResource
     ///   - LINK_TYPE_ETHERNET_100G_LR: A 100G Ethernet with LR optics.
     ///   - LINK_TYPE_ETHERNET_400G_LR4: A 400G Ethernet with LR4 optics Possible values: [&amp;quot;LINK_TYPE_ETHERNET_10G_LR&amp;quot;, &amp;quot;LINK_TYPE_ETHERNET_100G_LR&amp;quot;, &amp;quot;LINK_TYPE_ETHERNET_400G_LR4&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? LinkType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkType is required")]
+    public required TerraformProperty<string> LinkType
     {
         get => GetProperty<TerraformProperty<string>>("link_type");
         set => this.WithProperty("link_type", value);
@@ -115,7 +173,8 @@ public class GoogleComputeInterconnect : TerraformResource
     /// URL of the InterconnectLocation object that represents where this connection is to be provisioned.
     /// Specifies the location inside Google&#39;s Networks.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -138,7 +197,8 @@ public class GoogleComputeInterconnect : TerraformResource
     /// character must be a lowercase letter, and all following characters must be a dash,
     /// lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -183,19 +243,41 @@ public class GoogleComputeInterconnect : TerraformResource
     /// available). Note that MACSEC is still technically allowed for compatibility reasons, but it
     /// does not work with the API, and will be removed in an upcoming major version. Possible values: [&amp;quot;MACSEC&amp;quot;, &amp;quot;CROSS_SITE_NETWORK&amp;quot;, &amp;quot;IF_MACSEC&amp;quot;]
     /// </summary>
-    public TerraformProperty<List<string>>? RequestedFeatures
+    public List<TerraformProperty<string>>? RequestedFeatures
     {
-        get => GetProperty<TerraformProperty<List<string>>>("requested_features");
+        get => GetProperty<List<TerraformProperty<string>>>("requested_features");
         set => this.WithProperty("requested_features", value);
     }
 
     /// <summary>
     /// Target number of physical links in the link bundle, as requested by the customer.
     /// </summary>
-    public TerraformProperty<double>? RequestedLinkCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestedLinkCount is required")]
+    public required TerraformProperty<double> RequestedLinkCount
     {
         get => GetProperty<TerraformProperty<double>>("requested_link_count");
         set => this.WithProperty("requested_link_count", value);
+    }
+
+    /// <summary>
+    /// Block for macsec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Macsec block(s) allowed")]
+    public List<GoogleComputeInterconnectMacsecBlock>? Macsec
+    {
+        get => GetProperty<List<GoogleComputeInterconnectMacsecBlock>>("macsec");
+        set => this.WithProperty("macsec", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeInterconnectTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeInterconnectTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

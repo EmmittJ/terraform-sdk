@@ -29,7 +29,8 @@ public class GoogleKmsKeyHandlesDataSource : TerraformDataSource
     /// <summary>
     /// The canonical id for the location. For example: &amp;quot;us-east1&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -52,7 +53,8 @@ public class GoogleKmsKeyHandlesDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyHandles/list)
     /// 				
     /// </summary>
-    public TerraformProperty<string>? ResourceTypeSelector
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeSelector is required")]
+    public required TerraformProperty<string> ResourceTypeSelector
     {
         get => GetProperty<TerraformProperty<string>>("resource_type_selector");
         set => this.WithProperty("resource_type_selector", value);

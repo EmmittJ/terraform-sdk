@@ -59,7 +59,8 @@ public class AwsVpcSecurityGroupEgressRule : TerraformResource
     /// <summary>
     /// The ip_protocol attribute.
     /// </summary>
-    public TerraformProperty<string>? IpProtocol
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
+    public required TerraformProperty<string> IpProtocol
     {
         get => GetProperty<TerraformProperty<string>>("ip_protocol");
         set => this.WithProperty("ip_protocol", value);
@@ -95,7 +96,8 @@ public class AwsVpcSecurityGroupEgressRule : TerraformResource
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SecurityGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
+    public required TerraformProperty<string> SecurityGroupId
     {
         get => GetProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
@@ -104,9 +106,9 @@ public class AwsVpcSecurityGroupEgressRule : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

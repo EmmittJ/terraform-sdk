@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_netapp_account_encryption resource.
 /// </summary>
 public class AzurermNetappAccountEncryption : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermNetappAccountEncryption : TerraformResource
     /// <summary>
     /// The versionless encryption key url.
     /// </summary>
-    public TerraformProperty<string>? EncryptionKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
+    public required TerraformProperty<string> EncryptionKey
     {
         get => GetProperty<TerraformProperty<string>>("encryption_key");
         set => this.WithProperty("encryption_key", value);
@@ -55,7 +100,8 @@ public class AzurermNetappAccountEncryption : TerraformResource
     /// <summary>
     /// The ID of the NetApp Account where encryption will be set.
     /// </summary>
-    public TerraformProperty<string>? NetappAccountId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
+    public required TerraformProperty<string> NetappAccountId
     {
         get => GetProperty<TerraformProperty<string>>("netapp_account_id");
         set => this.WithProperty("netapp_account_id", value);
@@ -77,6 +123,16 @@ public class AzurermNetappAccountEncryption : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
         set => this.WithProperty("user_assigned_identity_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermNetappAccountEncryptionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermNetappAccountEncryptionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

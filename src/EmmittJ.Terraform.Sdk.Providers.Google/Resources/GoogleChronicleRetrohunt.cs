@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for process_interval in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleChronicleRetrohuntProcessIntervalBlock : TerraformBlock
+{
+    /// <summary>
+    /// Exclusive end of the interval.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
+    public required TerraformProperty<string> EndTime
+    {
+        get => GetProperty<TerraformProperty<string>>("end_time");
+        set => WithProperty("end_time", value);
+    }
+
+    /// <summary>
+    /// Inclusive start of the interval.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
+    public required TerraformProperty<string> StartTime
+    {
+        get => GetProperty<TerraformProperty<string>>("start_time");
+        set => WithProperty("start_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleChronicleRetrohuntTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_chronicle_retrohunt resource.
 /// </summary>
 public class GoogleChronicleRetrohunt : TerraformResource
@@ -32,7 +86,8 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformProperty<string>? Instance
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
+    public required TerraformProperty<string> Instance
     {
         get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
@@ -41,7 +96,8 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -68,10 +124,33 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// <summary>
     /// The Rule ID of the rule.
     /// </summary>
-    public TerraformProperty<string>? Rule
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
+    public required TerraformProperty<string> Rule
     {
         get => GetProperty<TerraformProperty<string>>("rule");
         set => this.WithProperty("rule", value);
+    }
+
+    /// <summary>
+    /// Block for process_interval.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProcessInterval block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProcessInterval block(s) allowed")]
+    public List<GoogleChronicleRetrohuntProcessIntervalBlock>? ProcessInterval
+    {
+        get => GetProperty<List<GoogleChronicleRetrohuntProcessIntervalBlock>>("process_interval");
+        set => this.WithProperty("process_interval", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleChronicleRetrohuntTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleChronicleRetrohuntTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

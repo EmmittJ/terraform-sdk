@@ -47,7 +47,8 @@ public class AwsApiGatewayDeployment : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
@@ -56,18 +57,18 @@ public class AwsApiGatewayDeployment : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Triggers
+    public Dictionary<string, TerraformProperty<string>>? Triggers
     {
-        get => GetProperty<TerraformMapProperty<string>>("triggers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 
     /// <summary>
     /// The variables attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Variables
+    public Dictionary<string, TerraformProperty<string>>? Variables
     {
-        get => GetProperty<TerraformMapProperty<string>>("variables");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("variables");
         set => this.WithProperty("variables", value);
     }
 

@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_management_organization_vpc_flow_logs_config resource.
 /// </summary>
 public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformResource
@@ -92,9 +127,9 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -103,7 +138,8 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// within its parent collection as described in https://google.aip.dev/122. See documentation
     /// for resource type &#39;networkmanagement.googleapis.com/VpcFlowLogsConfig&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -124,16 +160,17 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// Optional. Custom metadata fields to include in the reported VPC flow
     /// logs. Can only be specified if \&amp;quot;metadata\&amp;quot; was set to CUSTOM_METADATA.
     /// </summary>
-    public TerraformProperty<List<string>>? MetadataFields
+    public List<TerraformProperty<string>>? MetadataFields
     {
-        get => GetProperty<TerraformProperty<List<string>>>("metadata_fields");
+        get => GetProperty<List<TerraformProperty<string>>>("metadata_fields");
         set => this.WithProperty("metadata_fields", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Organization
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
+    public required TerraformProperty<string> Organization
     {
         get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
@@ -153,10 +190,21 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// <summary>
     /// Required. ID of the &#39;VpcFlowLogsConfig&#39;.
     /// </summary>
-    public TerraformProperty<string>? VpcFlowLogsConfigId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcFlowLogsConfigId is required")]
+    public required TerraformProperty<string> VpcFlowLogsConfigId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_flow_logs_config_id");
         set => this.WithProperty("vpc_flow_logs_config_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

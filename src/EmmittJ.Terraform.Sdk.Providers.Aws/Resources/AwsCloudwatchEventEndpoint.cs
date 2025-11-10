@@ -3,6 +3,49 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for event_bus in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchEventEndpointEventBusBlock : TerraformBlock
+{
+    /// <summary>
+    /// The event_bus_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
+    public required TerraformProperty<string> EventBusArn
+    {
+        get => GetProperty<TerraformProperty<string>>("event_bus_arn");
+        set => WithProperty("event_bus_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for replication_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchEventEndpointReplicationConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The state attribute.
+    /// </summary>
+    public TerraformProperty<string>? State
+    {
+        get => GetProperty<TerraformProperty<string>>("state");
+        set => WithProperty("state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for routing_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchEventEndpointRoutingConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_cloudwatch_event_endpoint resource.
 /// </summary>
 public class AwsCloudwatchEventEndpoint : TerraformResource
@@ -39,7 +82,8 @@ public class AwsCloudwatchEventEndpoint : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -61,6 +105,41 @@ public class AwsCloudwatchEventEndpoint : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
+    }
+
+    /// <summary>
+    /// Block for event_bus.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 EventBus block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 EventBus block(s) allowed")]
+    public List<AwsCloudwatchEventEndpointEventBusBlock>? EventBus
+    {
+        get => GetProperty<List<AwsCloudwatchEventEndpointEventBusBlock>>("event_bus");
+        set => this.WithProperty("event_bus", value);
+    }
+
+    /// <summary>
+    /// Block for replication_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationConfig block(s) allowed")]
+    public List<AwsCloudwatchEventEndpointReplicationConfigBlock>? ReplicationConfig
+    {
+        get => GetProperty<List<AwsCloudwatchEventEndpointReplicationConfigBlock>>("replication_config");
+        set => this.WithProperty("replication_config", value);
+    }
+
+    /// <summary>
+    /// Block for routing_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingConfig block(s) allowed")]
+    public List<AwsCloudwatchEventEndpointRoutingConfigBlock>? RoutingConfig
+    {
+        get => GetProperty<List<AwsCloudwatchEventEndpointRoutingConfigBlock>>("routing_config");
+        set => this.WithProperty("routing_config", value);
     }
 
     /// <summary>

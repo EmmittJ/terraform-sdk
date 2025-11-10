@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSentinelDataConnectorAwsS3TimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_sentinel_data_connector_aws_s3 resource.
 /// </summary>
 public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     /// <summary>
     /// The aws_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AwsRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRoleArn is required")]
+    public required TerraformProperty<string> AwsRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("aws_role_arn");
         set => this.WithProperty("aws_role_arn", value);
@@ -28,7 +73,8 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     /// <summary>
     /// The destination_table attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationTable
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationTable is required")]
+    public required TerraformProperty<string> DestinationTable
     {
         get => GetProperty<TerraformProperty<string>>("destination_table");
         set => this.WithProperty("destination_table", value);
@@ -46,7 +92,8 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsWorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
+    public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
@@ -55,7 +102,8 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,10 +112,21 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     /// <summary>
     /// The sqs_urls attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? SqsUrls
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqsUrls is required")]
+    public List<TerraformProperty<string>>? SqsUrls
     {
-        get => GetProperty<TerraformProperty<List<string>>>("sqs_urls");
+        get => GetProperty<List<TerraformProperty<string>>>("sqs_urls");
         set => this.WithProperty("sqs_urls", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSentinelDataConnectorAwsS3TimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSentinelDataConnectorAwsS3TimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

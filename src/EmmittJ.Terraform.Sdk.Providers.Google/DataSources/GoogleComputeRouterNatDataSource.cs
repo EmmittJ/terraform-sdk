@@ -51,7 +51,8 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// Name of the NAT service. The name must be 1-63 characters long and
     /// comply with RFC1035.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -78,7 +79,8 @@ public class GoogleComputeRouterNatDataSource : TerraformDataSource
     /// <summary>
     /// The name of the Cloud Router in which this NAT will be configured.
     /// </summary>
-    public TerraformProperty<string>? Router
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
+    public required TerraformProperty<string> Router
     {
         get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);

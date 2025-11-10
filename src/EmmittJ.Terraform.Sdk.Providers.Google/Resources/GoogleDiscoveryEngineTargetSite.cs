@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_discovery_engine_target_site resource.
 /// </summary>
 public class GoogleDiscoveryEngineTargetSite : TerraformResource
@@ -27,7 +53,8 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// <summary>
     /// The unique id of the data store.
     /// </summary>
-    public TerraformProperty<string>? DataStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
+    public required TerraformProperty<string> DataStoreId
     {
         get => GetProperty<TerraformProperty<string>>("data_store_id");
         set => this.WithProperty("data_store_id", value);
@@ -60,7 +87,8 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -79,7 +107,8 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// The user provided URI pattern from which the &#39;generated_uri_pattern&#39; is
     /// generated.
     /// </summary>
-    public TerraformProperty<string>? ProvidedUriPattern
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvidedUriPattern is required")]
+    public required TerraformProperty<string> ProvidedUriPattern
     {
         get => GetProperty<TerraformProperty<string>>("provided_uri_pattern");
         set => this.WithProperty("provided_uri_pattern", value);
@@ -92,6 +121,16 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDiscoveryEngineTargetSiteTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDiscoveryEngineTargetSiteTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

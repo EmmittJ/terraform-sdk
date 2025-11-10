@@ -20,7 +20,8 @@ public class AwsIotAuthorizer : TerraformResource
     /// <summary>
     /// The authorizer_function_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthorizerFunctionArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerFunctionArn is required")]
+    public required TerraformProperty<string> AuthorizerFunctionArn
     {
         get => GetProperty<TerraformProperty<string>>("authorizer_function_arn");
         set => this.WithProperty("authorizer_function_arn", value);
@@ -47,7 +48,8 @@ public class AwsIotAuthorizer : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -83,18 +85,18 @@ public class AwsIotAuthorizer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -110,9 +112,9 @@ public class AwsIotAuthorizer : TerraformResource
     /// <summary>
     /// The token_signing_public_keys attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TokenSigningPublicKeys
+    public Dictionary<string, TerraformProperty<string>>? TokenSigningPublicKeys
     {
-        get => GetProperty<TerraformMapProperty<string>>("token_signing_public_keys");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("token_signing_public_keys");
         set => this.WithProperty("token_signing_public_keys", value);
     }
 

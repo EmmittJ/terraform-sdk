@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_automation_hybrid_runbook_worker resource.
 /// </summary>
 public class AzurermAutomationHybridRunbookWorker : TerraformResource
@@ -24,7 +59,8 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AutomationAccountName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
+    public required TerraformProperty<string> AutomationAccountName
     {
         get => GetProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
@@ -42,7 +78,8 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -51,7 +88,8 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     /// <summary>
     /// The vm_resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VmResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmResourceId is required")]
+    public required TerraformProperty<string> VmResourceId
     {
         get => GetProperty<TerraformProperty<string>>("vm_resource_id");
         set => this.WithProperty("vm_resource_id", value);
@@ -60,7 +98,8 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     /// <summary>
     /// The worker_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkerGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerGroupName is required")]
+    public required TerraformProperty<string> WorkerGroupName
     {
         get => GetProperty<TerraformProperty<string>>("worker_group_name");
         set => this.WithProperty("worker_group_name", value);
@@ -69,10 +108,21 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     /// <summary>
     /// The worker_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WorkerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerId is required")]
+    public required TerraformProperty<string> WorkerId
     {
         get => GetProperty<TerraformProperty<string>>("worker_id");
         set => this.WithProperty("worker_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermAutomationHybridRunbookWorkerTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermAutomationHybridRunbookWorkerTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

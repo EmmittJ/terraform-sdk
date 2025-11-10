@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for access_control_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3BucketAclAccessControlPolicyBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_s3_bucket_acl resource.
 /// </summary>
 public class AwsS3BucketAcl : TerraformResource
@@ -28,7 +36,8 @@ public class AwsS3BucketAcl : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -59,6 +68,17 @@ public class AwsS3BucketAcl : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for access_control_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControlPolicy block(s) allowed")]
+    public List<AwsS3BucketAclAccessControlPolicyBlock>? AccessControlPolicy
+    {
+        get => GetProperty<List<AwsS3BucketAclAccessControlPolicyBlock>>("access_control_policy");
+        set => this.WithProperty("access_control_policy", value);
     }
 
 }

@@ -19,7 +19,8 @@ public class AwsGuarddutyPublishingDestination : TerraformResource
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? DestinationArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
+    public required TerraformProperty<string> DestinationArn
     {
         get => GetProperty<TerraformProperty<string>>("destination_arn");
         set => this.WithProperty("destination_arn", value);
@@ -37,7 +38,8 @@ public class AwsGuarddutyPublishingDestination : TerraformResource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DetectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
+    public required TerraformProperty<string> DetectorId
     {
         get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
@@ -55,7 +57,8 @@ public class AwsGuarddutyPublishingDestination : TerraformResource
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? KmsKeyArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
+    public required TerraformProperty<string> KmsKeyArn
     {
         get => GetProperty<TerraformProperty<string>>("kms_key_arn");
         set => this.WithProperty("kms_key_arn", value);

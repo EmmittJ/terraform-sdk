@@ -3,6 +3,57 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for private_registry_access in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLightsailContainerServicePrivateRegistryAccessBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for public_domain_names in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLightsailContainerServicePublicDomainNamesBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lightsail_container_service resource.
 /// </summary>
 public class AwsLightsailContainerService : TerraformResource
@@ -46,7 +97,8 @@ public class AwsLightsailContainerService : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +107,8 @@ public class AwsLightsailContainerService : TerraformResource
     /// <summary>
     /// The power attribute.
     /// </summary>
-    public TerraformProperty<string>? Power
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Power is required")]
+    public required TerraformProperty<string> Power
     {
         get => GetProperty<TerraformProperty<string>>("power");
         set => this.WithProperty("power", value);
@@ -73,7 +126,8 @@ public class AwsLightsailContainerService : TerraformResource
     /// <summary>
     /// The scale attribute.
     /// </summary>
-    public TerraformProperty<double>? Scale
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scale is required")]
+    public required TerraformProperty<double> Scale
     {
         get => GetProperty<TerraformProperty<double>>("scale");
         set => this.WithProperty("scale", value);
@@ -82,19 +136,51 @@ public class AwsLightsailContainerService : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for private_registry_access.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateRegistryAccess block(s) allowed")]
+    public List<AwsLightsailContainerServicePrivateRegistryAccessBlock>? PrivateRegistryAccess
+    {
+        get => GetProperty<List<AwsLightsailContainerServicePrivateRegistryAccessBlock>>("private_registry_access");
+        set => this.WithProperty("private_registry_access", value);
+    }
+
+    /// <summary>
+    /// Block for public_domain_names.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicDomainNames block(s) allowed")]
+    public List<AwsLightsailContainerServicePublicDomainNamesBlock>? PublicDomainNames
+    {
+        get => GetProperty<List<AwsLightsailContainerServicePublicDomainNamesBlock>>("public_domain_names");
+        set => this.WithProperty("public_domain_names", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsLightsailContainerServiceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsLightsailContainerServiceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

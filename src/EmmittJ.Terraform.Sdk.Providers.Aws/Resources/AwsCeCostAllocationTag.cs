@@ -29,7 +29,8 @@ public class AwsCeCostAllocationTag : TerraformResource
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformProperty<string>? Status
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
+    public required TerraformProperty<string> Status
     {
         get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
@@ -38,7 +39,8 @@ public class AwsCeCostAllocationTag : TerraformResource
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
-    public TerraformProperty<string>? TagKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
+    public required TerraformProperty<string> TagKey
     {
         get => GetProperty<TerraformProperty<string>>("tag_key");
         set => this.WithProperty("tag_key", value);

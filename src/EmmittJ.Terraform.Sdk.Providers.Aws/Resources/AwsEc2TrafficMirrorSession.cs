@@ -39,7 +39,8 @@ public class AwsEc2TrafficMirrorSession : TerraformResource
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInterfaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
+    public required TerraformProperty<string> NetworkInterfaceId
     {
         get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
@@ -66,7 +67,8 @@ public class AwsEc2TrafficMirrorSession : TerraformResource
     /// <summary>
     /// The session_number attribute.
     /// </summary>
-    public TerraformProperty<double>? SessionNumber
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionNumber is required")]
+    public required TerraformProperty<double> SessionNumber
     {
         get => GetProperty<TerraformProperty<double>>("session_number");
         set => this.WithProperty("session_number", value);
@@ -75,25 +77,26 @@ public class AwsEc2TrafficMirrorSession : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The traffic_mirror_filter_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TrafficMirrorFilterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorFilterId is required")]
+    public required TerraformProperty<string> TrafficMirrorFilterId
     {
         get => GetProperty<TerraformProperty<string>>("traffic_mirror_filter_id");
         set => this.WithProperty("traffic_mirror_filter_id", value);
@@ -102,7 +105,8 @@ public class AwsEc2TrafficMirrorSession : TerraformResource
     /// <summary>
     /// The traffic_mirror_target_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TrafficMirrorTargetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorTargetId is required")]
+    public required TerraformProperty<string> TrafficMirrorTargetId
     {
         get => GetProperty<TerraformProperty<string>>("traffic_mirror_target_id");
         set => this.WithProperty("traffic_mirror_target_id", value);

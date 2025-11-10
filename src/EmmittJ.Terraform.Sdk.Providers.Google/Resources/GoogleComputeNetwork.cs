@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for params in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeNetworkParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Resource manager tags to be bound to the network. Tag keys and values have the
+    /// same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},
+    /// and values are in the format tagValues/456.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
+        set => WithProperty("resource_manager_tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeNetworkTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_network resource.
 /// </summary>
 public class GoogleComputeNetwork : TerraformResource
@@ -136,7 +190,8 @@ public class GoogleComputeNetwork : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -184,6 +239,27 @@ public class GoogleComputeNetwork : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("routing_mode");
         set => this.WithProperty("routing_mode", value);
+    }
+
+    /// <summary>
+    /// Block for params.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
+    public List<GoogleComputeNetworkParamsBlock>? Params
+    {
+        get => GetProperty<List<GoogleComputeNetworkParamsBlock>>("params");
+        set => this.WithProperty("params", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeNetworkTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeNetworkTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

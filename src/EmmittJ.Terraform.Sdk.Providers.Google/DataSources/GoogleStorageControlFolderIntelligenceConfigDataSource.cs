@@ -33,7 +33,8 @@ public class GoogleStorageControlFolderIntelligenceConfigDataSource : TerraformD
     /// <summary>
     /// Identifier of the GCP Folder. For GCP Folder, this field can be folder number.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

@@ -19,7 +19,8 @@ public class AwsEc2AvailabilityZoneGroup : TerraformResource
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
+    public required TerraformProperty<string> GroupName
     {
         get => GetProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
@@ -37,7 +38,8 @@ public class AwsEc2AvailabilityZoneGroup : TerraformResource
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
-    public TerraformProperty<string>? OptInStatus
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptInStatus is required")]
+    public required TerraformProperty<string> OptInStatus
     {
         get => GetProperty<TerraformProperty<string>>("opt_in_status");
         set => this.WithProperty("opt_in_status", value);

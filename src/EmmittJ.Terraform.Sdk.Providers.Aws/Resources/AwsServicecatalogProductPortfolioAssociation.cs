@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsServicecatalogProductPortfolioAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_servicecatalog_product_portfolio_association resource.
 /// </summary>
 public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
@@ -37,7 +72,8 @@ public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PortfolioId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
+    public required TerraformProperty<string> PortfolioId
     {
         get => GetProperty<TerraformProperty<string>>("portfolio_id");
         set => this.WithProperty("portfolio_id", value);
@@ -46,7 +82,8 @@ public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
+    public required TerraformProperty<string> ProductId
     {
         get => GetProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
@@ -68,6 +105,16 @@ public class AwsServicecatalogProductPortfolioAssociation : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("source_portfolio_id");
         set => this.WithProperty("source_portfolio_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsServicecatalogProductPortfolioAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsServicecatalogProductPortfolioAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

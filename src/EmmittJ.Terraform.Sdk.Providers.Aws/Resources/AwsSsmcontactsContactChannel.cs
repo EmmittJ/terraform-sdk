@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for delivery_address in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmcontactsContactChannelDeliveryAddressBlock : TerraformBlock
+{
+    /// <summary>
+    /// The simple_address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SimpleAddress is required")]
+    public required TerraformProperty<string> SimpleAddress
+    {
+        get => GetProperty<TerraformProperty<string>>("simple_address");
+        set => WithProperty("simple_address", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssmcontacts_contact_channel resource.
 /// </summary>
 public class AwsSsmcontactsContactChannel : TerraformResource
@@ -21,7 +39,8 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     /// <summary>
     /// The contact_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ContactId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
+    public required TerraformProperty<string> ContactId
     {
         get => GetProperty<TerraformProperty<string>>("contact_id");
         set => this.WithProperty("contact_id", value);
@@ -39,7 +58,8 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -57,10 +77,23 @@ public class AwsSsmcontactsContactChannel : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// Block for delivery_address.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DeliveryAddress block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryAddress block(s) allowed")]
+    public List<AwsSsmcontactsContactChannelDeliveryAddressBlock>? DeliveryAddress
+    {
+        get => GetProperty<List<AwsSsmcontactsContactChannelDeliveryAddressBlock>>("delivery_address");
+        set => this.WithProperty("delivery_address", value);
     }
 
     /// <summary>

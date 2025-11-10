@@ -33,7 +33,8 @@ public class AwsEc2PublicIpv4PoolDataSource : TerraformDataSource
     /// <summary>
     /// The pool_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PoolId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolId is required")]
+    public required TerraformProperty<string> PoolId
     {
         get => GetProperty<TerraformProperty<string>>("pool_id");
         set => this.WithProperty("pool_id", value);
@@ -51,9 +52,9 @@ public class AwsEc2PublicIpv4PoolDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

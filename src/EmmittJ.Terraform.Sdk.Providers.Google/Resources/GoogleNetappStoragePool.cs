@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetappStoragePoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_netapp_storage_pool resource.
 /// </summary>
 public class GoogleNetappStoragePool : TerraformResource
@@ -47,7 +82,8 @@ public class GoogleNetappStoragePool : TerraformResource
     /// <summary>
     /// Capacity of the storage pool (in GiB).
     /// </summary>
-    public TerraformProperty<string>? CapacityGib
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
+    public required TerraformProperty<string> CapacityGib
     {
         get => GetProperty<TerraformProperty<string>>("capacity_gib");
         set => this.WithProperty("capacity_gib", value);
@@ -117,9 +153,9 @@ public class GoogleNetappStoragePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -136,7 +172,8 @@ public class GoogleNetappStoragePool : TerraformResource
     /// <summary>
     /// Name of the location. For zonal Flex pools specify a zone name, in all other cases a region name.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -145,7 +182,8 @@ public class GoogleNetappStoragePool : TerraformResource
     /// <summary>
     /// The resource name of the storage pool. Needs to be unique per location/region.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -154,7 +192,8 @@ public class GoogleNetappStoragePool : TerraformResource
     /// <summary>
     /// VPC network name with format: &#39;projects/{{project}}/global/networks/{{network}}&#39;
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -192,7 +231,8 @@ public class GoogleNetappStoragePool : TerraformResource
     /// <summary>
     /// Service level of the storage pool. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;EXTREME&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;FLEX&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? ServiceLevel
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
+    public required TerraformProperty<string> ServiceLevel
     {
         get => GetProperty<TerraformProperty<string>>("service_level");
         set => this.WithProperty("service_level", value);
@@ -236,6 +276,16 @@ public class GoogleNetappStoragePool : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetappStoragePoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetappStoragePoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

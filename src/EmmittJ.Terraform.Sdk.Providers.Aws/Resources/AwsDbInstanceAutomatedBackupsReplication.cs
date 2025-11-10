@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_db_instance_automated_backups_replication resource.
 /// </summary>
 public class AwsDbInstanceAutomatedBackupsReplication : TerraformResource
@@ -64,10 +90,21 @@ public class AwsDbInstanceAutomatedBackupsReplication : TerraformResource
     /// <summary>
     /// The source_db_instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? SourceDbInstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbInstanceArn is required")]
+    public required TerraformProperty<string> SourceDbInstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("source_db_instance_arn");
         set => this.WithProperty("source_db_instance_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

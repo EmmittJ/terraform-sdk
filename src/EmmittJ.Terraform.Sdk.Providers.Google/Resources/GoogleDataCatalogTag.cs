@@ -3,6 +3,124 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for fields in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Holds the value for a tag field with boolean type.
+    /// </summary>
+    public TerraformProperty<bool>? BoolValue
+    {
+        get => GetProperty<TerraformProperty<bool>>("bool_value");
+        set => WithProperty("bool_value", value);
+    }
+
+    /// <summary>
+    /// The display name of this field
+    /// </summary>
+    public TerraformProperty<string>? DisplayName
+    {
+        get => GetProperty<TerraformProperty<string>>("display_name");
+        set => WithProperty("display_name", value);
+    }
+
+    /// <summary>
+    /// Holds the value for a tag field with double type.
+    /// </summary>
+    public TerraformProperty<double>? DoubleValue
+    {
+        get => GetProperty<TerraformProperty<double>>("double_value");
+        set => WithProperty("double_value", value);
+    }
+
+    /// <summary>
+    /// The display name of the enum value.
+    /// </summary>
+    public TerraformProperty<string>? EnumValue
+    {
+        get => GetProperty<TerraformProperty<string>>("enum_value");
+        set => WithProperty("enum_value", value);
+    }
+
+    /// <summary>
+    /// The field_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldName is required")]
+    public required TerraformProperty<string> FieldName
+    {
+        get => GetProperty<TerraformProperty<string>>("field_name");
+        set => WithProperty("field_name", value);
+    }
+
+    /// <summary>
+    /// The order of this field with respect to other fields in this tag. For example, a higher value can indicate
+    /// a more important field. The value can be negative. Multiple fields can have the same order, and field orders
+    /// within a tag do not have to be sequential.
+    /// </summary>
+    public TerraformProperty<double>? Order
+    {
+        get => GetProperty<TerraformProperty<double>>("order");
+        set => WithProperty("order", value);
+    }
+
+    /// <summary>
+    /// Holds the value for a tag field with string type.
+    /// </summary>
+    public TerraformProperty<string>? StringValue
+    {
+        get => GetProperty<TerraformProperty<string>>("string_value");
+        set => WithProperty("string_value", value);
+    }
+
+    /// <summary>
+    /// Holds the value for a tag field with timestamp type.
+    /// </summary>
+    public TerraformProperty<string>? TimestampValue
+    {
+        get => GetProperty<TerraformProperty<string>>("timestamp_value");
+        set => WithProperty("timestamp_value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataCatalogTagTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_data_catalog_tag resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -56,10 +174,32 @@ public class GoogleDataCatalogTag : TerraformResource
     /// projects/{project_id}/locations/{location}/tagTemplates/{tagTemplateId}
     /// This field cannot be modified after creation.
     /// </summary>
-    public TerraformProperty<string>? Template
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
+    public required TerraformProperty<string> Template
     {
         get => GetProperty<TerraformProperty<string>>("template");
         set => this.WithProperty("template", value);
+    }
+
+    /// <summary>
+    /// Block for fields.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Fields block(s) required")]
+    public HashSet<GoogleDataCatalogTagFieldsBlock>? Fields
+    {
+        get => GetProperty<HashSet<GoogleDataCatalogTagFieldsBlock>>("fields");
+        set => this.WithProperty("fields", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataCatalogTagTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataCatalogTagTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -20,7 +20,8 @@ public class AwsOdbDbNodesDataSource : TerraformDataSource
     /// <summary>
     /// Id of the cloud VM cluster. The unique identifier of the VM cluster.
     /// </summary>
-    public TerraformProperty<string>? CloudVmClusterId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
+    public required TerraformProperty<string> CloudVmClusterId
     {
         get => GetProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
         set => this.WithProperty("cloud_vm_cluster_id", value);

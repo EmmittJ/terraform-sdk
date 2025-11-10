@@ -28,7 +28,8 @@ public class AwsWafregionalRegexPatternSet : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -37,9 +38,9 @@ public class AwsWafregionalRegexPatternSet : TerraformResource
     /// <summary>
     /// The regex_pattern_strings attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? RegexPatternStrings
+    public HashSet<TerraformProperty<string>>? RegexPatternStrings
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("regex_pattern_strings");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("regex_pattern_strings");
         set => this.WithProperty("regex_pattern_strings", value);
     }
 

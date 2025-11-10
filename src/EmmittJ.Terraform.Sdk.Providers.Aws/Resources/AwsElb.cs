@@ -3,6 +3,192 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for access_logs in .
+/// Nesting mode: list
+/// </summary>
+public class AwsElbAccessLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket");
+        set => WithProperty("bucket", value);
+    }
+
+    /// <summary>
+    /// The bucket_prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? BucketPrefix
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_prefix");
+        set => WithProperty("bucket_prefix", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    public TerraformProperty<double>? Interval
+    {
+        get => GetProperty<TerraformProperty<double>>("interval");
+        set => WithProperty("interval", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for health_check in .
+/// Nesting mode: list
+/// </summary>
+public class AwsElbHealthCheckBlock : TerraformBlock
+{
+    /// <summary>
+    /// The healthy_threshold attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthyThreshold is required")]
+    public required TerraformProperty<double> HealthyThreshold
+    {
+        get => GetProperty<TerraformProperty<double>>("healthy_threshold");
+        set => WithProperty("healthy_threshold", value);
+    }
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
+    public required TerraformProperty<double> Interval
+    {
+        get => GetProperty<TerraformProperty<double>>("interval");
+        set => WithProperty("interval", value);
+    }
+
+    /// <summary>
+    /// The target attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
+    public required TerraformProperty<string> Target
+    {
+        get => GetProperty<TerraformProperty<string>>("target");
+        set => WithProperty("target", value);
+    }
+
+    /// <summary>
+    /// The timeout attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
+    public required TerraformProperty<double> Timeout
+    {
+        get => GetProperty<TerraformProperty<double>>("timeout");
+        set => WithProperty("timeout", value);
+    }
+
+    /// <summary>
+    /// The unhealthy_threshold attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnhealthyThreshold is required")]
+    public required TerraformProperty<double> UnhealthyThreshold
+    {
+        get => GetProperty<TerraformProperty<double>>("unhealthy_threshold");
+        set => WithProperty("unhealthy_threshold", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for listener in .
+/// Nesting mode: set
+/// </summary>
+public class AwsElbListenerBlock : TerraformBlock
+{
+    /// <summary>
+    /// The instance_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
+    public required TerraformProperty<double> InstancePort
+    {
+        get => GetProperty<TerraformProperty<double>>("instance_port");
+        set => WithProperty("instance_port", value);
+    }
+
+    /// <summary>
+    /// The instance_protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProtocol is required")]
+    public required TerraformProperty<string> InstanceProtocol
+    {
+        get => GetProperty<TerraformProperty<string>>("instance_protocol");
+        set => WithProperty("instance_protocol", value);
+    }
+
+    /// <summary>
+    /// The lb_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
+    public required TerraformProperty<double> LbPort
+    {
+        get => GetProperty<TerraformProperty<double>>("lb_port");
+        set => WithProperty("lb_port", value);
+    }
+
+    /// <summary>
+    /// The lb_protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbProtocol is required")]
+    public required TerraformProperty<string> LbProtocol
+    {
+        get => GetProperty<TerraformProperty<string>>("lb_protocol");
+        set => WithProperty("lb_protocol", value);
+    }
+
+    /// <summary>
+    /// The ssl_certificate_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? SslCertificateId
+    {
+        get => GetProperty<TerraformProperty<string>>("ssl_certificate_id");
+        set => WithProperty("ssl_certificate_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsElbTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_elb resource.
 /// </summary>
 public class AwsElb : TerraformResource
@@ -23,9 +209,9 @@ public class AwsElb : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AvailabilityZones
+    public HashSet<TerraformProperty<string>>? AvailabilityZones
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("availability_zones");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
         set => this.WithProperty("availability_zones", value);
     }
 
@@ -86,9 +272,9 @@ public class AwsElb : TerraformResource
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Instances
+    public HashSet<TerraformProperty<string>>? Instances
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("instances");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("instances");
         set => this.WithProperty("instances", value);
     }
 
@@ -131,9 +317,9 @@ public class AwsElb : TerraformResource
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroups
+    public HashSet<TerraformProperty<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
@@ -149,28 +335,71 @@ public class AwsElb : TerraformResource
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Subnets
+    public HashSet<TerraformProperty<string>>? Subnets
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnets");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnets");
         set => this.WithProperty("subnets", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for access_logs.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
+    public List<AwsElbAccessLogsBlock>? AccessLogs
+    {
+        get => GetProperty<List<AwsElbAccessLogsBlock>>("access_logs");
+        set => this.WithProperty("access_logs", value);
+    }
+
+    /// <summary>
+    /// Block for health_check.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheck block(s) allowed")]
+    public List<AwsElbHealthCheckBlock>? HealthCheck
+    {
+        get => GetProperty<List<AwsElbHealthCheckBlock>>("health_check");
+        set => this.WithProperty("health_check", value);
+    }
+
+    /// <summary>
+    /// Block for listener.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Listener block(s) required")]
+    public HashSet<AwsElbListenerBlock>? Listener
+    {
+        get => GetProperty<HashSet<AwsElbListenerBlock>>("listener");
+        set => this.WithProperty("listener", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsElbTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsElbTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

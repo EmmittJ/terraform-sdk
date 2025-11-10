@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSentinelDataConnectorMicrosoftThreatIntelligenceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_sentinel_data_connector_microsoft_threat_intelligence resource.
 /// </summary>
 public class AzurermSentinelDataConnectorMicrosoftThreatIntelligence : TerraformResource
@@ -28,7 +63,8 @@ public class AzurermSentinelDataConnectorMicrosoftThreatIntelligence : Terraform
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? LogAnalyticsWorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
+    public required TerraformProperty<string> LogAnalyticsWorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
@@ -37,7 +73,8 @@ public class AzurermSentinelDataConnectorMicrosoftThreatIntelligence : Terraform
     /// <summary>
     /// The microsoft_emerging_threat_feed_lookback_date attribute.
     /// </summary>
-    public TerraformProperty<string>? MicrosoftEmergingThreatFeedLookbackDate
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MicrosoftEmergingThreatFeedLookbackDate is required")]
+    public required TerraformProperty<string> MicrosoftEmergingThreatFeedLookbackDate
     {
         get => GetProperty<TerraformProperty<string>>("microsoft_emerging_threat_feed_lookback_date");
         set => this.WithProperty("microsoft_emerging_threat_feed_lookback_date", value);
@@ -46,7 +83,8 @@ public class AzurermSentinelDataConnectorMicrosoftThreatIntelligence : Terraform
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -59,6 +97,16 @@ public class AzurermSentinelDataConnectorMicrosoftThreatIntelligence : Terraform
     {
         get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSentinelDataConnectorMicrosoftThreatIntelligenceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSentinelDataConnectorMicrosoftThreatIntelligenceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

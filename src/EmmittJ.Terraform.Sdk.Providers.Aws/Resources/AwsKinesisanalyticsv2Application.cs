@@ -3,6 +3,76 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for application_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for cloudwatch_logging_options in .
+/// Nesting mode: list
+/// </summary>
+public class AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The cloudwatch_logging_option_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? CloudwatchLoggingOptionId
+    {
+        get => GetProperty<TerraformProperty<string>>("cloudwatch_logging_option_id");
+        set => WithProperty("cloudwatch_logging_option_id", value);
+    }
+
+    /// <summary>
+    /// The log_stream_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogStreamArn is required")]
+    public required TerraformProperty<string> LogStreamArn
+    {
+        get => GetProperty<TerraformProperty<string>>("log_stream_arn");
+        set => WithProperty("log_stream_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_kinesisanalyticsv2_application resource.
 /// </summary>
 public class AwsKinesisanalyticsv2Application : TerraformResource
@@ -60,7 +130,8 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -78,7 +149,8 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     /// <summary>
     /// The runtime_environment attribute.
     /// </summary>
-    public TerraformProperty<string>? RuntimeEnvironment
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeEnvironment is required")]
+    public required TerraformProperty<string> RuntimeEnvironment
     {
         get => GetProperty<TerraformProperty<string>>("runtime_environment");
         set => this.WithProperty("runtime_environment", value);
@@ -87,7 +159,8 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     /// <summary>
     /// The service_execution_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceExecutionRole
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRole is required")]
+    public required TerraformProperty<string> ServiceExecutionRole
     {
         get => GetProperty<TerraformProperty<string>>("service_execution_role");
         set => this.WithProperty("service_execution_role", value);
@@ -105,19 +178,51 @@ public class AwsKinesisanalyticsv2Application : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for application_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationConfiguration block(s) allowed")]
+    public List<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>? ApplicationConfiguration
+    {
+        get => GetProperty<List<AwsKinesisanalyticsv2ApplicationApplicationConfigurationBlock>>("application_configuration");
+        set => this.WithProperty("application_configuration", value);
+    }
+
+    /// <summary>
+    /// Block for cloudwatch_logging_options.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudwatchLoggingOptions block(s) allowed")]
+    public List<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>? CloudwatchLoggingOptions
+    {
+        get => GetProperty<List<AwsKinesisanalyticsv2ApplicationCloudwatchLoggingOptionsBlock>>("cloudwatch_logging_options");
+        set => this.WithProperty("cloudwatch_logging_options", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsKinesisanalyticsv2ApplicationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsKinesisanalyticsv2ApplicationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

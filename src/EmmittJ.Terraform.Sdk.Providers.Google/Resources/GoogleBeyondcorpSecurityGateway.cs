@@ -3,6 +3,115 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for hubs in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleBeyondcorpSecurityGatewayHubsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The region attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
+    public required TerraformProperty<string> Region
+    {
+        get => GetProperty<TerraformProperty<string>>("region");
+        set => WithProperty("region", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for proxy_protocol_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The configuration for the proxy.
+    /// </summary>
+    public List<TerraformProperty<string>>? AllowedClientHeaders
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("allowed_client_headers");
+        set => WithProperty("allowed_client_headers", value);
+    }
+
+    /// <summary>
+    /// Client IP configuration. The client IP address is included if true.
+    /// </summary>
+    public TerraformProperty<bool>? ClientIp
+    {
+        get => GetProperty<TerraformProperty<bool>>("client_ip");
+        set => WithProperty("client_ip", value);
+    }
+
+    /// <summary>
+    /// Gateway identity configuration. Possible values: [&amp;quot;RESOURCE_NAME&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? GatewayIdentity
+    {
+        get => GetProperty<TerraformProperty<string>>("gateway_identity");
+        set => WithProperty("gateway_identity", value);
+    }
+
+    /// <summary>
+    /// Custom resource specific headers along with the values.
+    /// The names should conform to RFC 9110:
+    /// &amp;gt; Field names SHOULD constrain themselves to alphanumeric characters, &amp;quot;-&amp;quot;,
+    ///   and &amp;quot;.&amp;quot;, and SHOULD begin with a letter.
+    /// &amp;gt; Field values SHOULD contain only ASCII printable characters and tab.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? MetadataHeaders
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata_headers");
+        set => WithProperty("metadata_headers", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for service_discovery in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_beyondcorp_security_gateway resource.
 /// </summary>
 public class GoogleBeyondcorpSecurityGateway : TerraformResource
@@ -66,10 +175,53 @@ public class GoogleBeyondcorpSecurityGateway : TerraformResource
     /// * Must contain between 4-63 characters from &#39;/a-z-/&#39;.
     /// * Must end with a number or letter.
     /// </summary>
-    public TerraformProperty<string>? SecurityGatewayId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
+    public required TerraformProperty<string> SecurityGatewayId
     {
         get => GetProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);
+    }
+
+    /// <summary>
+    /// Block for hubs.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<GoogleBeyondcorpSecurityGatewayHubsBlock>? Hubs
+    {
+        get => GetProperty<HashSet<GoogleBeyondcorpSecurityGatewayHubsBlock>>("hubs");
+        set => this.WithProperty("hubs", value);
+    }
+
+    /// <summary>
+    /// Block for proxy_protocol_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProxyProtocolConfig block(s) allowed")]
+    public List<GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock>? ProxyProtocolConfig
+    {
+        get => GetProperty<List<GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock>>("proxy_protocol_config");
+        set => this.WithProperty("proxy_protocol_config", value);
+    }
+
+    /// <summary>
+    /// Block for service_discovery.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDiscovery block(s) allowed")]
+    public List<GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock>? ServiceDiscovery
+    {
+        get => GetProperty<List<GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlock>>("service_discovery");
+        set => this.WithProperty("service_discovery", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBeyondcorpSecurityGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBeyondcorpSecurityGatewayTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

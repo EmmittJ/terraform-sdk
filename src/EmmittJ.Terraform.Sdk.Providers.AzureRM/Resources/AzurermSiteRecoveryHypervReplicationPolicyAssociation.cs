@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_site_recovery_hyperv_replication_policy_association resource.
 /// </summary>
 public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformResource
@@ -19,7 +54,8 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     /// <summary>
     /// The hyperv_site_id attribute.
     /// </summary>
-    public TerraformProperty<string>? HypervSiteId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervSiteId is required")]
+    public required TerraformProperty<string> HypervSiteId
     {
         get => GetProperty<TerraformProperty<string>>("hyperv_site_id");
         set => this.WithProperty("hyperv_site_id", value);
@@ -37,7 +73,8 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,10 +83,21 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
+    public required TerraformProperty<string> PolicyId
     {
         get => GetProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

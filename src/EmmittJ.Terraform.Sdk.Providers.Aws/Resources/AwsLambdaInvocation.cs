@@ -20,7 +20,8 @@ public class AwsLambdaInvocation : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
+    public required TerraformProperty<string> FunctionName
     {
         get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
@@ -38,7 +39,8 @@ public class AwsLambdaInvocation : TerraformResource
     /// <summary>
     /// The input attribute.
     /// </summary>
-    public TerraformProperty<string>? Input
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
+    public required TerraformProperty<string> Input
     {
         get => GetProperty<TerraformProperty<string>>("input");
         set => this.WithProperty("input", value);
@@ -83,9 +85,9 @@ public class AwsLambdaInvocation : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Triggers
+    public Dictionary<string, TerraformProperty<string>>? Triggers
     {
-        get => GetProperty<TerraformMapProperty<string>>("triggers");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 

@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for table_reference in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCleanroomsConfiguredTableTableReferenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// The database_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformProperty<string> DatabaseName
+    {
+        get => GetProperty<TerraformProperty<string>>("database_name");
+        set => WithProperty("database_name", value);
+    }
+
+    /// <summary>
+    /// The table_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
+    public required TerraformProperty<string> TableName
+    {
+        get => GetProperty<TerraformProperty<string>>("table_name");
+        set => WithProperty("table_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsCleanroomsConfiguredTableTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cleanrooms_configured_table resource.
 /// </summary>
 public class AwsCleanroomsConfiguredTable : TerraformResource
@@ -22,16 +85,18 @@ public class AwsCleanroomsConfiguredTable : TerraformResource
     /// <summary>
     /// The allowed_columns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedColumns
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedColumns is required")]
+    public HashSet<TerraformProperty<string>>? AllowedColumns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_columns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_columns");
         set => this.WithProperty("allowed_columns", value);
     }
 
     /// <summary>
     /// The analysis_method attribute.
     /// </summary>
-    public TerraformProperty<string>? AnalysisMethod
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalysisMethod is required")]
+    public required TerraformProperty<string> AnalysisMethod
     {
         get => GetProperty<TerraformProperty<string>>("analysis_method");
         set => this.WithProperty("analysis_method", value);
@@ -58,7 +123,8 @@ public class AwsCleanroomsConfiguredTable : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -76,19 +142,41 @@ public class AwsCleanroomsConfiguredTable : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for table_reference.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TableReference block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TableReference block(s) allowed")]
+    public List<AwsCleanroomsConfiguredTableTableReferenceBlock>? TableReference
+    {
+        get => GetProperty<List<AwsCleanroomsConfiguredTableTableReferenceBlock>>("table_reference");
+        set => this.WithProperty("table_reference", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsCleanroomsConfiguredTableTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsCleanroomsConfiguredTableTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

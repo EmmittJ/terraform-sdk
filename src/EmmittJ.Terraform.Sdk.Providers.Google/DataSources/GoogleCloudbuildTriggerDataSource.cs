@@ -52,7 +52,8 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
     /// If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -70,7 +71,8 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// <summary>
     /// The unique identifier for the trigger.
     /// </summary>
-    public TerraformProperty<string>? TriggerId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
+    public required TerraformProperty<string> TriggerId
     {
         get => GetProperty<TerraformProperty<string>>("trigger_id");
         set => this.WithProperty("trigger_id", value);

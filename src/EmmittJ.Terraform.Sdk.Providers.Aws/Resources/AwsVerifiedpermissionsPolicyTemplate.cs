@@ -31,7 +31,8 @@ public class AwsVerifiedpermissionsPolicyTemplate : TerraformResource
     /// <summary>
     /// The policy_store_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
+    public required TerraformProperty<string> PolicyStoreId
     {
         get => GetProperty<TerraformProperty<string>>("policy_store_id");
         set => this.WithProperty("policy_store_id", value);
@@ -49,7 +50,8 @@ public class AwsVerifiedpermissionsPolicyTemplate : TerraformResource
     /// <summary>
     /// The statement attribute.
     /// </summary>
-    public TerraformProperty<string>? Statement
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Statement is required")]
+    public required TerraformProperty<string> Statement
     {
         get => GetProperty<TerraformProperty<string>>("statement");
         set => this.WithProperty("statement", value);

@@ -3,6 +3,43 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for s3_destination in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bucket_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
+    {
+        get => GetProperty<TerraformProperty<string>>("bucket_name");
+        set => WithProperty("bucket_name", value);
+    }
+
+    /// <summary>
+    /// The key_prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? KeyPrefix
+    {
+        get => GetProperty<TerraformProperty<string>>("key_prefix");
+        set => WithProperty("key_prefix", value);
+    }
+
+    /// <summary>
+    /// The kms_key_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
+    public required TerraformProperty<string> KmsKeyArn
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
+        set => WithProperty("kms_key_arn", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_macie2_classification_export_configuration resource.
 /// </summary>
 public class AwsMacie2ClassificationExportConfiguration : TerraformResource
@@ -32,6 +69,18 @@ public class AwsMacie2ClassificationExportConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for s3_destination.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Destination block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Destination block(s) allowed")]
+    public List<AwsMacie2ClassificationExportConfigurationS3DestinationBlock>? S3Destination
+    {
+        get => GetProperty<List<AwsMacie2ClassificationExportConfigurationS3DestinationBlock>>("s3_destination");
+        set => this.WithProperty("s3_destination", value);
     }
 
 }

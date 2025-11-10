@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadServicePrincipalCertificateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_service_principal_certificate resource.
 /// </summary>
 public class AzureadServicePrincipalCertificate : TerraformResource
@@ -65,7 +100,8 @@ public class AzureadServicePrincipalCertificate : TerraformResource
     /// <summary>
     /// The object ID of the service principal for which this certificate should be created
     /// </summary>
-    public TerraformProperty<string>? ServicePrincipalId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
+    public required TerraformProperty<string> ServicePrincipalId
     {
         get => GetProperty<TerraformProperty<string>>("service_principal_id");
         set => this.WithProperty("service_principal_id", value);
@@ -92,10 +128,21 @@ public class AzureadServicePrincipalCertificate : TerraformResource
     /// <summary>
     /// The certificate data, which can be PEM encoded, base64 encoded DER or hexadecimal encoded DER
     /// </summary>
-    public TerraformProperty<string>? Value
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
     {
         get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadServicePrincipalCertificateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadServicePrincipalCertificateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -3,6 +3,78 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for mtls_policy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// When the client presents an invalid certificate or no certificate to the load balancer, the clientValidationMode specifies how the client connection is handled.
+    /// Required if the policy is to be used with the external HTTPS load balancing. For Traffic Director it must be empty. Possible values: [&amp;quot;CLIENT_VALIDATION_MODE_UNSPECIFIED&amp;quot;, &amp;quot;ALLOW_INVALID_OR_MISSING_CLIENT_CERT&amp;quot;, &amp;quot;REJECT_INVALID&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? ClientValidationMode
+    {
+        get => GetProperty<TerraformProperty<string>>("client_validation_mode");
+        set => WithProperty("client_validation_mode", value);
+    }
+
+    /// <summary>
+    /// Reference to the TrustConfig from certificatemanager.googleapis.com namespace.
+    /// If specified, the chain validation will be performed against certificates configured in the given TrustConfig.
+    /// Allowed only if the policy is to be used with external HTTPS load balancers.
+    /// </summary>
+    public TerraformProperty<string>? ClientValidationTrustConfig
+    {
+        get => GetProperty<TerraformProperty<string>>("client_validation_trust_config");
+        set => WithProperty("client_validation_trust_config", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for server_certificate in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_security_server_tls_policy resource.
 /// </summary>
 public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
@@ -55,9 +127,9 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -74,7 +146,8 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     /// <summary>
     /// Name of the ServerTlsPolicy resource.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -87,6 +160,38 @@ public class GoogleNetworkSecurityServerTlsPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for mtls_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MtlsPolicy block(s) allowed")]
+    public List<GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock>? MtlsPolicy
+    {
+        get => GetProperty<List<GoogleNetworkSecurityServerTlsPolicyMtlsPolicyBlock>>("mtls_policy");
+        set => this.WithProperty("mtls_policy", value);
+    }
+
+    /// <summary>
+    /// Block for server_certificate.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerCertificate block(s) allowed")]
+    public List<GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock>? ServerCertificate
+    {
+        get => GetProperty<List<GoogleNetworkSecurityServerTlsPolicyServerCertificateBlock>>("server_certificate");
+        set => this.WithProperty("server_certificate", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkSecurityServerTlsPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_iothub_file_upload resource.
 /// </summary>
 public class AzurermIothubFileUpload : TerraformResource
@@ -28,7 +72,8 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformProperty<string>? ConnectionString
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
+    public required TerraformProperty<string> ConnectionString
     {
         get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
@@ -37,7 +82,8 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ContainerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
+    public required TerraformProperty<string> ContainerName
     {
         get => GetProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
@@ -73,7 +119,8 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
-    public TerraformProperty<string>? IothubId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
+    public required TerraformProperty<string> IothubId
     {
         get => GetProperty<TerraformProperty<string>>("iothub_id");
         set => this.WithProperty("iothub_id", value);
@@ -113,6 +160,16 @@ public class AzurermIothubFileUpload : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("sas_ttl");
         set => this.WithProperty("sas_ttl", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermIothubFileUploadTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermIothubFileUploadTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

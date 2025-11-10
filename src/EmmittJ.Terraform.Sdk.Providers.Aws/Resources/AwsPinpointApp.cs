@@ -3,6 +3,111 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for campaign_hook in .
+/// Nesting mode: list
+/// </summary>
+public class AwsPinpointAppCampaignHookBlock : TerraformBlock
+{
+    /// <summary>
+    /// The lambda_function_name attribute.
+    /// </summary>
+    public TerraformProperty<string>? LambdaFunctionName
+    {
+        get => GetProperty<TerraformProperty<string>>("lambda_function_name");
+        set => WithProperty("lambda_function_name", value);
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    public TerraformProperty<string>? Mode
+    {
+        get => GetProperty<TerraformProperty<string>>("mode");
+        set => WithProperty("mode", value);
+    }
+
+    /// <summary>
+    /// The web_url attribute.
+    /// </summary>
+    public TerraformProperty<string>? WebUrl
+    {
+        get => GetProperty<TerraformProperty<string>>("web_url");
+        set => WithProperty("web_url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for limits in .
+/// Nesting mode: list
+/// </summary>
+public class AwsPinpointAppLimitsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The daily attribute.
+    /// </summary>
+    public TerraformProperty<double>? Daily
+    {
+        get => GetProperty<TerraformProperty<double>>("daily");
+        set => WithProperty("daily", value);
+    }
+
+    /// <summary>
+    /// The maximum_duration attribute.
+    /// </summary>
+    public TerraformProperty<double>? MaximumDuration
+    {
+        get => GetProperty<TerraformProperty<double>>("maximum_duration");
+        set => WithProperty("maximum_duration", value);
+    }
+
+    /// <summary>
+    /// The messages_per_second attribute.
+    /// </summary>
+    public TerraformProperty<double>? MessagesPerSecond
+    {
+        get => GetProperty<TerraformProperty<double>>("messages_per_second");
+        set => WithProperty("messages_per_second", value);
+    }
+
+    /// <summary>
+    /// The total attribute.
+    /// </summary>
+    public TerraformProperty<double>? Total
+    {
+        get => GetProperty<TerraformProperty<double>>("total");
+        set => WithProperty("total", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for quiet_time in .
+/// Nesting mode: list
+/// </summary>
+public class AwsPinpointAppQuietTimeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The end attribute.
+    /// </summary>
+    public TerraformProperty<string>? End
+    {
+        get => GetProperty<TerraformProperty<string>>("end");
+        set => WithProperty("end", value);
+    }
+
+    /// <summary>
+    /// The start attribute.
+    /// </summary>
+    public TerraformProperty<string>? Start
+    {
+        get => GetProperty<TerraformProperty<string>>("start");
+        set => WithProperty("start", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_pinpoint_app resource.
 /// </summary>
 public class AwsPinpointApp : TerraformResource
@@ -57,19 +162,52 @@ public class AwsPinpointApp : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for campaign_hook.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CampaignHook block(s) allowed")]
+    public List<AwsPinpointAppCampaignHookBlock>? CampaignHook
+    {
+        get => GetProperty<List<AwsPinpointAppCampaignHookBlock>>("campaign_hook");
+        set => this.WithProperty("campaign_hook", value);
+    }
+
+    /// <summary>
+    /// Block for limits.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Limits block(s) allowed")]
+    public List<AwsPinpointAppLimitsBlock>? Limits
+    {
+        get => GetProperty<List<AwsPinpointAppLimitsBlock>>("limits");
+        set => this.WithProperty("limits", value);
+    }
+
+    /// <summary>
+    /// Block for quiet_time.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuietTime block(s) allowed")]
+    public List<AwsPinpointAppQuietTimeBlock>? QuietTime
+    {
+        get => GetProperty<List<AwsPinpointAppQuietTimeBlock>>("quiet_time");
+        set => this.WithProperty("quiet_time", value);
     }
 
     /// <summary>

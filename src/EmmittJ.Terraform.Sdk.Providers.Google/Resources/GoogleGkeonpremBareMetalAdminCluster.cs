@@ -3,6 +3,186 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for cluster_operations in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Whether collection of application logs/metrics should be enabled (in addition to system logs/metrics).
+    /// </summary>
+    public TerraformProperty<bool>? EnableApplicationLogs
+    {
+        get => GetProperty<TerraformProperty<bool>>("enable_application_logs");
+        set => WithProperty("enable_application_logs", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for control_plane in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterControlPlaneBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for load_balancer in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for maintenance_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// All IPv4 address from these ranges will be placed into maintenance mode.
+    /// Nodes in maintenance mode will be cordoned and drained. When both of these
+    /// are true, the &amp;quot;baremetal.cluster.gke.io/maintenance&amp;quot; annotation will be set
+    /// on the node resource.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceAddressCidrBlocks is required")]
+    public List<TerraformProperty<string>>? MaintenanceAddressCidrBlocks
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("maintenance_address_cidr_blocks");
+        set => WithProperty("maintenance_address_cidr_blocks", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for network_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterNetworkConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for node_access_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// LoginUser is the user name used to access node machines.
+    /// It defaults to &amp;quot;root&amp;quot; if not set.
+    /// </summary>
+    public TerraformProperty<string>? LoginUser
+    {
+        get => GetProperty<TerraformProperty<string>>("login_user");
+        set => WithProperty("login_user", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for node_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The maximum number of pods a node can run. The size of the CIDR range
+    /// assigned to the node will be derived from this parameter.
+    /// </summary>
+    public TerraformProperty<double>? MaxPodsPerNode
+    {
+        get => GetProperty<TerraformProperty<double>>("max_pods_per_node");
+        set => WithProperty("max_pods_per_node", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for proxy in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterProxyBlock : TerraformBlock
+{
+    /// <summary>
+    /// A list of IPs, hostnames, and domains that should skip the proxy.
+    /// For example: [&amp;quot;127.0.0.1&amp;quot;, &amp;quot;example.com&amp;quot;, &amp;quot;.corp&amp;quot;, &amp;quot;localhost&amp;quot;].
+    /// </summary>
+    public List<TerraformProperty<string>>? NoProxy
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("no_proxy");
+        set => WithProperty("no_proxy", value);
+    }
+
+    /// <summary>
+    /// Specifies the address of your proxy server.
+    /// For Example: http://domain
+    /// WARNING: Do not provide credentials in the format
+    /// of http://(username:password@)domain these will be rejected by the server.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformProperty<string> Uri
+    {
+        get => GetProperty<TerraformProperty<string>>("uri");
+        set => WithProperty("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for security_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterSecurityConfigBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for storage in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterStorageBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_gkeonprem_bare_metal_admin_cluster resource.
 /// </summary>
 public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
@@ -43,9 +223,9 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Annotations
+    public Dictionary<string, TerraformProperty<string>>? Annotations
     {
-        get => GetProperty<TerraformMapProperty<string>>("annotations");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -79,7 +259,8 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -88,7 +269,8 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     /// <summary>
     /// The bare metal admin cluster name.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -101,6 +283,126 @@ public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for cluster_operations.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterOperations block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock>? ClusterOperations
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterClusterOperationsBlock>>("cluster_operations");
+        set => this.WithProperty("cluster_operations", value);
+    }
+
+    /// <summary>
+    /// Block for control_plane.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterControlPlaneBlock>? ControlPlane
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterControlPlaneBlock>>("control_plane");
+        set => this.WithProperty("control_plane", value);
+    }
+
+    /// <summary>
+    /// Block for load_balancer.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlock>? LoadBalancer
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterLoadBalancerBlock>>("load_balancer");
+        set => this.WithProperty("load_balancer", value);
+    }
+
+    /// <summary>
+    /// Block for maintenance_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceConfig block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock>? MaintenanceConfig
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterMaintenanceConfigBlock>>("maintenance_config");
+        set => this.WithProperty("maintenance_config", value);
+    }
+
+    /// <summary>
+    /// Block for network_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterNetworkConfigBlock>? NetworkConfig
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterNetworkConfigBlock>>("network_config");
+        set => this.WithProperty("network_config", value);
+    }
+
+    /// <summary>
+    /// Block for node_access_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeAccessConfig block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock>? NodeAccessConfig
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterNodeAccessConfigBlock>>("node_access_config");
+        set => this.WithProperty("node_access_config", value);
+    }
+
+    /// <summary>
+    /// Block for node_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock>? NodeConfig
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterNodeConfigBlock>>("node_config");
+        set => this.WithProperty("node_config", value);
+    }
+
+    /// <summary>
+    /// Block for proxy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterProxyBlock>? Proxy
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterProxyBlock>>("proxy");
+        set => this.WithProperty("proxy", value);
+    }
+
+    /// <summary>
+    /// Block for security_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityConfig block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterSecurityConfigBlock>? SecurityConfig
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterSecurityConfigBlock>>("security_config");
+        set => this.WithProperty("security_config", value);
+    }
+
+    /// <summary>
+    /// Block for storage.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
+    public List<GoogleGkeonpremBareMetalAdminClusterStorageBlock>? Storage
+    {
+        get => GetProperty<List<GoogleGkeonpremBareMetalAdminClusterStorageBlock>>("storage");
+        set => this.WithProperty("storage", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

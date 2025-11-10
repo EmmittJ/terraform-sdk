@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleProjectUsageExportBucketTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_project_usage_export_bucket resource.
 /// </summary>
 public class GoogleProjectUsageExportBucket : TerraformResource
@@ -19,7 +45,8 @@ public class GoogleProjectUsageExportBucket : TerraformResource
     /// <summary>
     /// The bucket to store reports in.
     /// </summary>
-    public TerraformProperty<string>? BucketName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
+    public required TerraformProperty<string> BucketName
     {
         get => GetProperty<TerraformProperty<string>>("bucket_name");
         set => this.WithProperty("bucket_name", value);
@@ -50,6 +77,16 @@ public class GoogleProjectUsageExportBucket : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleProjectUsageExportBucketTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleProjectUsageExportBucketTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

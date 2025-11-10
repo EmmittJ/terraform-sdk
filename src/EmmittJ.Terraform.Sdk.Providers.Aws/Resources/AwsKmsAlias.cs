@@ -57,7 +57,8 @@ public class AwsKmsAlias : TerraformResource
     /// <summary>
     /// The target_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetKeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetKeyId is required")]
+    public required TerraformProperty<string> TargetKeyId
     {
         get => GetProperty<TerraformProperty<string>>("target_key_id");
         set => this.WithProperty("target_key_id", value);

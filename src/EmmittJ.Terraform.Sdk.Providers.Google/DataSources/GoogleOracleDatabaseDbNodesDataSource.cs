@@ -20,7 +20,8 @@ public class GoogleOracleDatabaseDbNodesDataSource : TerraformDataSource
     /// <summary>
     /// vmcluster
     /// </summary>
-    public TerraformProperty<string>? CloudVmCluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmCluster is required")]
+    public required TerraformProperty<string> CloudVmCluster
     {
         get => GetProperty<TerraformProperty<string>>("cloud_vm_cluster");
         set => this.WithProperty("cloud_vm_cluster", value);
@@ -38,7 +39,8 @@ public class GoogleOracleDatabaseDbNodesDataSource : TerraformDataSource
     /// <summary>
     /// location
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

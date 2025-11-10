@@ -28,7 +28,8 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     /// <summary>
     /// The cutoff attribute.
     /// </summary>
-    public TerraformProperty<double>? Cutoff
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cutoff is required")]
+    public required TerraformProperty<double> Cutoff
     {
         get => GetProperty<TerraformProperty<double>>("cutoff");
         set => this.WithProperty("cutoff", value);
@@ -46,7 +47,8 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformProperty<double>? Duration
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
+    public required TerraformProperty<double> Duration
     {
         get => GetProperty<TerraformProperty<double>>("duration");
         set => this.WithProperty("duration", value);
@@ -82,7 +84,8 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -100,7 +103,8 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public TerraformProperty<string>? Schedule
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
+    public required TerraformProperty<string> Schedule
     {
         get => GetProperty<TerraformProperty<string>>("schedule");
         set => this.WithProperty("schedule", value);
@@ -136,18 +140,18 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

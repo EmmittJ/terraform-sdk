@@ -3,6 +3,40 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3BucketAnalyticsConfigurationFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The prefix attribute.
+    /// </summary>
+    public TerraformProperty<string>? Prefix
+    {
+        get => GetProperty<TerraformProperty<string>>("prefix");
+        set => WithProperty("prefix", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Tags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
+        set => WithProperty("tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for storage_class_analysis in .
+/// Nesting mode: list
+/// </summary>
+public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_s3_bucket_analytics_configuration resource.
 /// </summary>
 public class AwsS3BucketAnalyticsConfiguration : TerraformResource
@@ -19,7 +53,8 @@ public class AwsS3BucketAnalyticsConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformProperty<string>? Bucket
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
+    public required TerraformProperty<string> Bucket
     {
         get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
@@ -37,7 +72,8 @@ public class AwsS3BucketAnalyticsConfiguration : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -50,6 +86,28 @@ public class AwsS3BucketAnalyticsConfiguration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
+    public List<AwsS3BucketAnalyticsConfigurationFilterBlock>? Filter
+    {
+        get => GetProperty<List<AwsS3BucketAnalyticsConfigurationFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// Block for storage_class_analysis.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageClassAnalysis block(s) allowed")]
+    public List<AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock>? StorageClassAnalysis
+    {
+        get => GetProperty<List<AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock>>("storage_class_analysis");
+        set => this.WithProperty("storage_class_analysis", value);
     }
 
 }

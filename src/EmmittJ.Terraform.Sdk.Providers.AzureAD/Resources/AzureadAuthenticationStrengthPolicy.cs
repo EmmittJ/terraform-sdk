@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadAuthenticationStrengthPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azuread_authentication_strength_policy resource.
 /// </summary>
 public class AzureadAuthenticationStrengthPolicy : TerraformResource
@@ -19,9 +63,10 @@ public class AzureadAuthenticationStrengthPolicy : TerraformResource
     /// <summary>
     /// The allowed MFA methods for this policy
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AllowedCombinations
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCombinations is required")]
+    public HashSet<TerraformProperty<string>>? AllowedCombinations
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_combinations");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("allowed_combinations");
         set => this.WithProperty("allowed_combinations", value);
     }
 
@@ -37,7 +82,8 @@ public class AzureadAuthenticationStrengthPolicy : TerraformResource
     /// <summary>
     /// The display name for the authentication strength policy
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -50,6 +96,16 @@ public class AzureadAuthenticationStrengthPolicy : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadAuthenticationStrengthPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadAuthenticationStrengthPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

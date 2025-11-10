@@ -3,6 +3,83 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for group_key in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The ID of the entity.
+    /// 
+    /// For Google-managed entities, the id must be the email address of an existing
+    /// group or user.
+    /// 
+    /// For external-identity-mapped entities, the id must be a string conforming
+    /// to the Identity Source&#39;s requirements.
+    /// 
+    /// Must be unique within a namespace.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformProperty<string> Id
+    {
+        get => GetProperty<TerraformProperty<string>>("id");
+        set => WithProperty("id", value);
+    }
+
+    /// <summary>
+    /// The namespace in which the entity exists.
+    /// 
+    /// If not specified, the EntityKey represents a Google-managed entity
+    /// such as a Google user or a Google Group.
+    /// 
+    /// If specified, the EntityKey represents an external-identity-mapped group.
+    /// The namespace must correspond to an identity source created in Admin Console
+    /// and must be in the form of &#39;identitysources/{identity_source_id}&#39;.
+    /// </summary>
+    public TerraformProperty<string>? Namespace
+    {
+        get => GetProperty<TerraformProperty<string>>("namespace");
+        set => WithProperty("namespace", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_cloud_identity_group resource.
 /// </summary>
 public class GoogleCloudIdentityGroup : TerraformResource
@@ -72,9 +149,10 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// 
     /// Identity-mapped groups for Cloud Search have a label with a key of system/groups/external and an empty value.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -85,10 +163,33 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// Must be of the form identitysources/{identity_source_id} for external-identity-mapped
     /// groups or customers/{customer_id} for Google Groups.
     /// </summary>
-    public TerraformProperty<string>? Parent
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
+    public required TerraformProperty<string> Parent
     {
         get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
+    }
+
+    /// <summary>
+    /// Block for group_key.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GroupKey block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupKey block(s) allowed")]
+    public List<GoogleCloudIdentityGroupGroupKeyBlock>? GroupKey
+    {
+        get => GetProperty<List<GoogleCloudIdentityGroupGroupKeyBlock>>("group_key");
+        set => this.WithProperty("group_key", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCloudIdentityGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCloudIdentityGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

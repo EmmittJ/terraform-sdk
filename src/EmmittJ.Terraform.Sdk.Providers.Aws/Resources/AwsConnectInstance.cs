@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsConnectInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_connect_instance resource.
 /// </summary>
 public class AwsConnectInstance : TerraformResource
@@ -77,7 +103,8 @@ public class AwsConnectInstance : TerraformResource
     /// <summary>
     /// The identity_management_type attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityManagementType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityManagementType is required")]
+    public required TerraformProperty<string> IdentityManagementType
     {
         get => GetProperty<TerraformProperty<string>>("identity_management_type");
         set => this.WithProperty("identity_management_type", value);
@@ -86,7 +113,8 @@ public class AwsConnectInstance : TerraformResource
     /// <summary>
     /// The inbound_calls_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? InboundCallsEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InboundCallsEnabled is required")]
+    public required TerraformProperty<bool> InboundCallsEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("inbound_calls_enabled");
         set => this.WithProperty("inbound_calls_enabled", value);
@@ -113,7 +141,8 @@ public class AwsConnectInstance : TerraformResource
     /// <summary>
     /// The outbound_calls_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? OutboundCallsEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutboundCallsEnabled is required")]
+    public required TerraformProperty<bool> OutboundCallsEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("outbound_calls_enabled");
         set => this.WithProperty("outbound_calls_enabled", value);
@@ -131,19 +160,29 @@ public class AwsConnectInstance : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsConnectInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsConnectInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

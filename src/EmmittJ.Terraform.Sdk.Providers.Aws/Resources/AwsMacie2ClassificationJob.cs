@@ -3,6 +3,75 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for s3_job_definition in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMacie2ClassificationJobS3JobDefinitionBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for schedule_frequency in .
+/// Nesting mode: list
+/// </summary>
+public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The daily_schedule attribute.
+    /// </summary>
+    public TerraformProperty<bool>? DailySchedule
+    {
+        get => GetProperty<TerraformProperty<bool>>("daily_schedule");
+        set => WithProperty("daily_schedule", value);
+    }
+
+    /// <summary>
+    /// The monthly_schedule attribute.
+    /// </summary>
+    public TerraformProperty<double>? MonthlySchedule
+    {
+        get => GetProperty<TerraformProperty<double>>("monthly_schedule");
+        set => WithProperty("monthly_schedule", value);
+    }
+
+    /// <summary>
+    /// The weekly_schedule attribute.
+    /// </summary>
+    public TerraformProperty<string>? WeeklySchedule
+    {
+        get => GetProperty<TerraformProperty<string>>("weekly_schedule");
+        set => WithProperty("weekly_schedule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_macie2_classification_job resource.
 /// </summary>
 public class AwsMacie2ClassificationJob : TerraformResource
@@ -23,9 +92,9 @@ public class AwsMacie2ClassificationJob : TerraformResource
     /// <summary>
     /// The custom_data_identifier_ids attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? CustomDataIdentifierIds
+    public List<TerraformProperty<string>>? CustomDataIdentifierIds
     {
-        get => GetProperty<TerraformProperty<List<string>>>("custom_data_identifier_ids");
+        get => GetProperty<List<TerraformProperty<string>>>("custom_data_identifier_ids");
         set => this.WithProperty("custom_data_identifier_ids", value);
     }
 
@@ -68,7 +137,8 @@ public class AwsMacie2ClassificationJob : TerraformResource
     /// <summary>
     /// The job_type attribute.
     /// </summary>
-    public TerraformProperty<string>? JobType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
+    public required TerraformProperty<string> JobType
     {
         get => GetProperty<TerraformProperty<string>>("job_type");
         set => this.WithProperty("job_type", value);
@@ -113,19 +183,52 @@ public class AwsMacie2ClassificationJob : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for s3_job_definition.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3JobDefinition block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3JobDefinition block(s) allowed")]
+    public List<AwsMacie2ClassificationJobS3JobDefinitionBlock>? S3JobDefinition
+    {
+        get => GetProperty<List<AwsMacie2ClassificationJobS3JobDefinitionBlock>>("s3_job_definition");
+        set => this.WithProperty("s3_job_definition", value);
+    }
+
+    /// <summary>
+    /// Block for schedule_frequency.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleFrequency block(s) allowed")]
+    public List<AwsMacie2ClassificationJobScheduleFrequencyBlock>? ScheduleFrequency
+    {
+        get => GetProperty<List<AwsMacie2ClassificationJobScheduleFrequencyBlock>>("schedule_frequency");
+        set => this.WithProperty("schedule_frequency", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsMacie2ClassificationJobTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsMacie2ClassificationJobTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

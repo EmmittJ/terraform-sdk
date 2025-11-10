@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApiManagementProductDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azurerm_api_management_product.
 /// </summary>
 public class AzurermApiManagementProductDataSource : TerraformDataSource
@@ -26,7 +43,8 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiManagementName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
+    public required TerraformProperty<string> ApiManagementName
     {
         get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
@@ -44,7 +62,8 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ProductId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
+    public required TerraformProperty<string> ProductId
     {
         get => GetProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
@@ -53,10 +72,21 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApiManagementProductDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApiManagementProductDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

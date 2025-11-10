@@ -19,7 +19,8 @@ public class AwsRumMetricsDestination : TerraformResource
     /// <summary>
     /// The app_monitor_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AppMonitorName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppMonitorName is required")]
+    public required TerraformProperty<string> AppMonitorName
     {
         get => GetProperty<TerraformProperty<string>>("app_monitor_name");
         set => this.WithProperty("app_monitor_name", value);
@@ -28,7 +29,8 @@ public class AwsRumMetricsDestination : TerraformResource
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public TerraformProperty<string>? Destination
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
+    public required TerraformProperty<string> Destination
     {
         get => GetProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);

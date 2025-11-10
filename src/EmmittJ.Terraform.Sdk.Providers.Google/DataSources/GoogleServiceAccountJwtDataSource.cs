@@ -20,9 +20,9 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Delegates
+    public HashSet<TerraformProperty<string>>? Delegates
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("delegates");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("delegates");
         set => this.WithProperty("delegates", value);
     }
 
@@ -47,7 +47,8 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
     /// <summary>
     /// A JSON-encoded JWT claims set that will be included in the signed JWT.
     /// </summary>
-    public TerraformProperty<string>? Payload
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
+    public required TerraformProperty<string> Payload
     {
         get => GetProperty<TerraformProperty<string>>("payload");
         set => this.WithProperty("payload", value);
@@ -56,7 +57,8 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
-    public TerraformProperty<string>? TargetServiceAccount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
+    public required TerraformProperty<string> TargetServiceAccount
     {
         get => GetProperty<TerraformProperty<string>>("target_service_account");
         set => this.WithProperty("target_service_account", value);

@@ -3,6 +3,42 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for targets in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public List<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for task_invocation_parameters in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_ssm_maintenance_window_task resource.
 /// </summary>
 public class AwsSsmMaintenanceWindowTask : TerraformResource
@@ -102,7 +138,8 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     /// <summary>
     /// The task_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TaskArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskArn is required")]
+    public required TerraformProperty<string> TaskArn
     {
         get => GetProperty<TerraformProperty<string>>("task_arn");
         set => this.WithProperty("task_arn", value);
@@ -111,7 +148,8 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     /// <summary>
     /// The task_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TaskType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
+    public required TerraformProperty<string> TaskType
     {
         get => GetProperty<TerraformProperty<string>>("task_type");
         set => this.WithProperty("task_type", value);
@@ -120,10 +158,33 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     /// <summary>
     /// The window_id attribute.
     /// </summary>
-    public TerraformProperty<string>? WindowId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowId is required")]
+    public required TerraformProperty<string> WindowId
     {
         get => GetProperty<TerraformProperty<string>>("window_id");
         set => this.WithProperty("window_id", value);
+    }
+
+    /// <summary>
+    /// Block for targets.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Targets block(s) allowed")]
+    public List<AwsSsmMaintenanceWindowTaskTargetsBlock>? Targets
+    {
+        get => GetProperty<List<AwsSsmMaintenanceWindowTaskTargetsBlock>>("targets");
+        set => this.WithProperty("targets", value);
+    }
+
+    /// <summary>
+    /// Block for task_invocation_parameters.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskInvocationParameters block(s) allowed")]
+    public List<AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock>? TaskInvocationParameters
+    {
+        get => GetProperty<List<AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock>>("task_invocation_parameters");
+        set => this.WithProperty("task_invocation_parameters", value);
     }
 
     /// <summary>

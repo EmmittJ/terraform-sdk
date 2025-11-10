@@ -3,6 +3,108 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for data_sharing_preference in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRekognitionStreamProcessorDataSharingPreferenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Do you want to share data with Rekognition to improve model performance.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptIn is required")]
+    public required TerraformProperty<bool> OptIn
+    {
+        get => GetProperty<TerraformProperty<bool>>("opt_in");
+        set => WithProperty("opt_in", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for input in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRekognitionStreamProcessorInputBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for notification_channel in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRekognitionStreamProcessorNotificationChannelBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+    /// </summary>
+    public TerraformProperty<string>? SnsTopicArn
+    {
+        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
+        set => WithProperty("sns_topic_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for output in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRekognitionStreamProcessorOutputBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for regions_of_interest in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRekognitionStreamProcessorRegionsOfInterestBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsRekognitionStreamProcessorSettingsBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_rekognition_stream_processor resource.
 /// </summary>
 public class AwsRekognitionStreamProcessor : TerraformResource
@@ -31,7 +133,8 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// <summary>
     /// An identifier you assign to the stream processor.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -49,7 +152,8 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// <summary>
     /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
     /// </summary>
-    public TerraformProperty<string>? RoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
+    public required TerraformProperty<string> RoleArn
     {
         get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
@@ -58,10 +162,80 @@ public class AwsRekognitionStreamProcessor : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for data_sharing_preference.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsRekognitionStreamProcessorDataSharingPreferenceBlock>? DataSharingPreference
+    {
+        get => GetProperty<List<AwsRekognitionStreamProcessorDataSharingPreferenceBlock>>("data_sharing_preference");
+        set => this.WithProperty("data_sharing_preference", value);
+    }
+
+    /// <summary>
+    /// Block for input.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsRekognitionStreamProcessorInputBlock>? Input
+    {
+        get => GetProperty<List<AwsRekognitionStreamProcessorInputBlock>>("input");
+        set => this.WithProperty("input", value);
+    }
+
+    /// <summary>
+    /// Block for notification_channel.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsRekognitionStreamProcessorNotificationChannelBlock>? NotificationChannel
+    {
+        get => GetProperty<List<AwsRekognitionStreamProcessorNotificationChannelBlock>>("notification_channel");
+        set => this.WithProperty("notification_channel", value);
+    }
+
+    /// <summary>
+    /// Block for output.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsRekognitionStreamProcessorOutputBlock>? Output
+    {
+        get => GetProperty<List<AwsRekognitionStreamProcessorOutputBlock>>("output");
+        set => this.WithProperty("output", value);
+    }
+
+    /// <summary>
+    /// Block for regions_of_interest.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsRekognitionStreamProcessorRegionsOfInterestBlock>? RegionsOfInterest
+    {
+        get => GetProperty<List<AwsRekognitionStreamProcessorRegionsOfInterestBlock>>("regions_of_interest");
+        set => this.WithProperty("regions_of_interest", value);
+    }
+
+    /// <summary>
+    /// Block for settings.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsRekognitionStreamProcessorSettingsBlock>? Settings
+    {
+        get => GetProperty<List<AwsRekognitionStreamProcessorSettingsBlock>>("settings");
+        set => this.WithProperty("settings", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsRekognitionStreamProcessorTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsRekognitionStreamProcessorTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_synapse_workspace_key resource.
 /// </summary>
 public class AzurermSynapseWorkspaceKey : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformProperty<bool>? Active
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
+    public required TerraformProperty<bool> Active
     {
         get => GetProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
@@ -28,7 +73,8 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     /// <summary>
     /// The customer_managed_key_name attribute.
     /// </summary>
-    public TerraformProperty<string>? CustomerManagedKeyName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerManagedKeyName is required")]
+    public required TerraformProperty<string> CustomerManagedKeyName
     {
         get => GetProperty<TerraformProperty<string>>("customer_managed_key_name");
         set => this.WithProperty("customer_managed_key_name", value);
@@ -55,10 +101,21 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SynapseWorkspaceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
+    public required TerraformProperty<string> SynapseWorkspaceId
     {
         get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSynapseWorkspaceKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSynapseWorkspaceKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

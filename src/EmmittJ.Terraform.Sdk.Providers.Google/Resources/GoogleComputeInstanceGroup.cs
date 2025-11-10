@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for named_port in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeInstanceGroupNamedPortBlock : TerraformBlock
+{
+    /// <summary>
+    /// The name which the port will be mapped to.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The port number to map the name to.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformProperty<double> Port
+    {
+        get => GetProperty<TerraformProperty<double>>("port");
+        set => WithProperty("port", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeInstanceGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_instance_group resource.
 /// </summary>
 public class GoogleComputeInstanceGroup : TerraformResource
@@ -39,16 +102,17 @@ public class GoogleComputeInstanceGroup : TerraformResource
     /// <summary>
     /// The list of instances in the group, in self_link format. When adding instances they must all be in the same network and zone as the instance group.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? Instances
+    public HashSet<TerraformProperty<string>>? Instances
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("instances");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("instances");
         set => this.WithProperty("instances", value);
     }
 
     /// <summary>
     /// The name of the instance group. Must be 1-63 characters long and comply with RFC1035. Supported characters include lowercase letters, numbers, and hyphens.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -79,6 +143,26 @@ public class GoogleComputeInstanceGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for named_port.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleComputeInstanceGroupNamedPortBlock>? NamedPort
+    {
+        get => GetProperty<List<GoogleComputeInstanceGroupNamedPortBlock>>("named_port");
+        set => this.WithProperty("named_port", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeInstanceGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeInstanceGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

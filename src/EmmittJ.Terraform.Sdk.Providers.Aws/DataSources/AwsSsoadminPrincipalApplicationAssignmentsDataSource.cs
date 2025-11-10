@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for application_assignments in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The application_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? ApplicationArn
+    {
+        get => GetProperty<TerraformProperty<string>>("application_arn");
+        set => WithProperty("application_arn", value);
+    }
+
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrincipalId
+    {
+        get => GetProperty<TerraformProperty<string>>("principal_id");
+        set => WithProperty("principal_id", value);
+    }
+
+    /// <summary>
+    /// The principal_type attribute.
+    /// </summary>
+    public TerraformProperty<string>? PrincipalType
+    {
+        get => GetProperty<TerraformProperty<string>>("principal_type");
+        set => WithProperty("principal_type", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_ssoadmin_principal_application_assignments.
 /// </summary>
 public class AwsSsoadminPrincipalApplicationAssignmentsDataSource : TerraformDataSource
@@ -20,7 +55,8 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSource : TerraformDat
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
+    public required TerraformProperty<string> InstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
@@ -29,7 +65,8 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSource : TerraformDat
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
+    public required TerraformProperty<string> PrincipalId
     {
         get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
@@ -38,7 +75,8 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSource : TerraformDat
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformProperty<string>? PrincipalType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
+    public required TerraformProperty<string> PrincipalType
     {
         get => GetProperty<TerraformProperty<string>>("principal_type");
         set => this.WithProperty("principal_type", value);
@@ -51,6 +89,16 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSource : TerraformDat
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for application_assignments.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock>? ApplicationAssignments
+    {
+        get => GetProperty<List<AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssignmentsBlock>>("application_assignments");
+        set => this.WithProperty("application_assignments", value);
     }
 
     /// <summary>

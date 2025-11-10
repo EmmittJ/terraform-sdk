@@ -3,6 +3,34 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for connector in .
+/// Nesting mode: set
+/// </summary>
+public class AwsChimeVoiceConnectorGroupConnectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformProperty<double> Priority
+    {
+        get => GetProperty<TerraformProperty<double>>("priority");
+        set => WithProperty("priority", value);
+    }
+
+    /// <summary>
+    /// The voice_connector_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
+    public required TerraformProperty<string> VoiceConnectorId
+    {
+        get => GetProperty<TerraformProperty<string>>("voice_connector_id");
+        set => WithProperty("voice_connector_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_chime_voice_connector_group resource.
 /// </summary>
 public class AwsChimeVoiceConnectorGroup : TerraformResource
@@ -28,7 +56,8 @@ public class AwsChimeVoiceConnectorGroup : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -41,6 +70,17 @@ public class AwsChimeVoiceConnectorGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for connector.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 Connector block(s) allowed")]
+    public HashSet<AwsChimeVoiceConnectorGroupConnectorBlock>? Connector
+    {
+        get => GetProperty<HashSet<AwsChimeVoiceConnectorGroupConnectorBlock>>("connector");
+        set => this.WithProperty("connector", value);
     }
 
 }

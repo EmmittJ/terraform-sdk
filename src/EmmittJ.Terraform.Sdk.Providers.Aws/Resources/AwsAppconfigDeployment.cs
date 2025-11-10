@@ -23,7 +23,8 @@ public class AwsAppconfigDeployment : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -32,7 +33,8 @@ public class AwsAppconfigDeployment : TerraformResource
     /// <summary>
     /// The configuration_profile_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationProfileId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
+    public required TerraformProperty<string> ConfigurationProfileId
     {
         get => GetProperty<TerraformProperty<string>>("configuration_profile_id");
         set => this.WithProperty("configuration_profile_id", value);
@@ -41,7 +43,8 @@ public class AwsAppconfigDeployment : TerraformResource
     /// <summary>
     /// The configuration_version attribute.
     /// </summary>
-    public TerraformProperty<string>? ConfigurationVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationVersion is required")]
+    public required TerraformProperty<string> ConfigurationVersion
     {
         get => GetProperty<TerraformProperty<string>>("configuration_version");
         set => this.WithProperty("configuration_version", value);
@@ -50,7 +53,8 @@ public class AwsAppconfigDeployment : TerraformResource
     /// <summary>
     /// The deployment_strategy_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DeploymentStrategyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentStrategyId is required")]
+    public required TerraformProperty<string> DeploymentStrategyId
     {
         get => GetProperty<TerraformProperty<string>>("deployment_strategy_id");
         set => this.WithProperty("deployment_strategy_id", value);
@@ -68,7 +72,8 @@ public class AwsAppconfigDeployment : TerraformResource
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformProperty<string>? EnvironmentId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
+    public required TerraformProperty<string> EnvironmentId
     {
         get => GetProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
@@ -104,18 +109,18 @@ public class AwsAppconfigDeployment : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -3,6 +3,44 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for context in .
+/// Nesting mode: set
+/// </summary>
+public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key name of the context entry, such as &amp;quot;aws:CurrentTime&amp;quot;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The type that the simulator should use to interpret the strings given in argument &amp;quot;values&amp;quot;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+    /// <summary>
+    /// One or more values to assign to the context key, given as a string in a syntax appropriate for the selected value type.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
+    public HashSet<TerraformProperty<string>>? Values
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("values");
+        set => WithProperty("values", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a aws_iam_principal_policy_simulation.
 /// </summary>
 public class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSource
@@ -22,18 +60,19 @@ public class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSource
     /// <summary>
     /// One or more names of actions, like &amp;quot;iam:CreateUser&amp;quot;, that should be included in the simulation.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ActionNames
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionNames is required")]
+    public HashSet<TerraformProperty<string>>? ActionNames
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("action_names");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("action_names");
         set => this.WithProperty("action_names", value);
     }
 
     /// <summary>
     /// Additional principal-based policies to use in the simulation.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AdditionalPoliciesJson
+    public HashSet<TerraformProperty<string>>? AdditionalPoliciesJson
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("additional_policies_json");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("additional_policies_json");
         set => this.WithProperty("additional_policies_json", value);
     }
 
@@ -49,16 +88,17 @@ public class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSource
     /// <summary>
     /// Additional permission boundary policies to use in the simulation.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? PermissionsBoundaryPoliciesJson
+    public HashSet<TerraformProperty<string>>? PermissionsBoundaryPoliciesJson
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("permissions_boundary_policies_json");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("permissions_boundary_policies_json");
         set => this.WithProperty("permissions_boundary_policies_json", value);
     }
 
     /// <summary>
     /// ARN of the principal (e.g. user, role) whose existing configured access policies will be used as the basis for the simulation. If you specify a role ARN here, you can also set caller_arn to simulate a particular user acting with the given role.
     /// </summary>
-    public TerraformProperty<string>? PolicySourceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySourceArn is required")]
+    public required TerraformProperty<string> PolicySourceArn
     {
         get => GetProperty<TerraformProperty<string>>("policy_source_arn");
         set => this.WithProperty("policy_source_arn", value);
@@ -67,9 +107,9 @@ public class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSource
     /// <summary>
     /// ARNs of specific resources to use as the targets of the specified actions during simulation. If not specified, the simulator assumes &amp;quot;*&amp;quot; which represents general access across all resources.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? ResourceArns
+    public HashSet<TerraformProperty<string>>? ResourceArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("resource_arns");
         set => this.WithProperty("resource_arns", value);
     }
 
@@ -98,6 +138,16 @@ public class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSource
     {
         get => GetProperty<TerraformProperty<string>>("resource_policy_json");
         set => this.WithProperty("resource_policy_json", value);
+    }
+
+    /// <summary>
+    /// Block for context.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsIamPrincipalPolicySimulationDataSourceContextBlock>? Context
+    {
+        get => GetProperty<HashSet<AwsIamPrincipalPolicySimulationDataSourceContextBlock>>("context");
+        set => this.WithProperty("context", value);
     }
 
     /// <summary>

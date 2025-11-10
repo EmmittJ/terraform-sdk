@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for attribute in .
+/// Nesting mode: set
+/// </summary>
+public class AwsSsoadminInstanceAccessControlAttributesAttributeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_ssoadmin_instance_access_control_attributes resource.
 /// </summary>
 public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
@@ -30,7 +48,8 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
+    public required TerraformProperty<string> InstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
@@ -43,6 +62,17 @@ public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for attribute.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Attribute block(s) required")]
+    public HashSet<AwsSsoadminInstanceAccessControlAttributesAttributeBlock>? Attribute
+    {
+        get => GetProperty<HashSet<AwsSsoadminInstanceAccessControlAttributesAttributeBlock>>("attribute");
+        set => this.WithProperty("attribute", value);
     }
 
     /// <summary>

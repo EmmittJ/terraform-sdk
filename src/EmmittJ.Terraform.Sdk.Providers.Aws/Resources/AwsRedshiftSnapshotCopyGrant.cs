@@ -47,7 +47,8 @@ public class AwsRedshiftSnapshotCopyGrant : TerraformResource
     /// <summary>
     /// The snapshot_copy_grant_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SnapshotCopyGrantName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotCopyGrantName is required")]
+    public required TerraformProperty<string> SnapshotCopyGrantName
     {
         get => GetProperty<TerraformProperty<string>>("snapshot_copy_grant_name");
         set => this.WithProperty("snapshot_copy_grant_name", value);
@@ -56,18 +57,18 @@ public class AwsRedshiftSnapshotCopyGrant : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

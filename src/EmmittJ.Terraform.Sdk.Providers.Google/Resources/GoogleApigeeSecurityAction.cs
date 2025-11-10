@@ -3,6 +3,176 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for allow in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApigeeSecurityActionAllowBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for condition_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// A list of accessTokens. Limit 1000 per action.
+    /// </summary>
+    public List<TerraformProperty<string>>? AccessTokens
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("access_tokens");
+        set => WithProperty("access_tokens", value);
+    }
+
+    /// <summary>
+    /// A list of API keys. Limit 1000 per action.
+    /// </summary>
+    public List<TerraformProperty<string>>? ApiKeys
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("api_keys");
+        set => WithProperty("api_keys", value);
+    }
+
+    /// <summary>
+    /// A list of API Products. Limit 1000 per action.
+    /// </summary>
+    public List<TerraformProperty<string>>? ApiProducts
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("api_products");
+        set => WithProperty("api_products", value);
+    }
+
+    /// <summary>
+    /// A list of ASN numbers to act on, e.g. 23. https://en.wikipedia.org/wiki/Autonomous_system_(Internet)
+    /// This uses int64 instead of uint32 because of https://linter.aip.dev/141/forbidden-types.
+    /// </summary>
+    public List<TerraformProperty<string>>? Asns
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("asns");
+        set => WithProperty("asns", value);
+    }
+
+    /// <summary>
+    /// A list of Bot Reasons. Current options: Flooder, Brute Guessor, Static Content Scraper,
+    /// OAuth Abuser, Robot Abuser, TorListRule, Advanced Anomaly Detection, Advanced API Scraper,
+    /// Search Engine Crawlers, Public Clouds, Public Cloud AWS, Public Cloud Azure, and Public Cloud Google.
+    /// </summary>
+    public List<TerraformProperty<string>>? BotReasons
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("bot_reasons");
+        set => WithProperty("bot_reasons", value);
+    }
+
+    /// <summary>
+    /// A list of developer apps. Limit 1000 per action.
+    /// </summary>
+    public List<TerraformProperty<string>>? DeveloperApps
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("developer_apps");
+        set => WithProperty("developer_apps", value);
+    }
+
+    /// <summary>
+    /// A list of developers. Limit 1000 per action.
+    /// </summary>
+    public List<TerraformProperty<string>>? Developers
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("developers");
+        set => WithProperty("developers", value);
+    }
+
+    /// <summary>
+    /// Act only on particular HTTP methods. E.g. A read-only API can block POST/PUT/DELETE methods.
+    /// Accepted values are: GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE and PATCH.
+    /// </summary>
+    public List<TerraformProperty<string>>? HttpMethods
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("http_methods");
+        set => WithProperty("http_methods", value);
+    }
+
+    /// <summary>
+    /// A list of IP addresses. This could be either IPv4 or IPv6. Limited to 100 per action.
+    /// </summary>
+    public List<TerraformProperty<string>>? IpAddressRanges
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("ip_address_ranges");
+        set => WithProperty("ip_address_ranges", value);
+    }
+
+    /// <summary>
+    /// A list of countries/region codes to act on, e.g. US. This follows https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2.
+    /// </summary>
+    public List<TerraformProperty<string>>? RegionCodes
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("region_codes");
+        set => WithProperty("region_codes", value);
+    }
+
+    /// <summary>
+    /// A list of user agents to deny. We look for exact matches. Limit 50 per action.
+    /// </summary>
+    public List<TerraformProperty<string>>? UserAgents
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("user_agents");
+        set => WithProperty("user_agents", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for deny in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApigeeSecurityActionDenyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The HTTP response code if the Action = DENY.
+    /// </summary>
+    public TerraformProperty<double>? ResponseCode
+    {
+        get => GetProperty<TerraformProperty<double>>("response_code");
+        set => WithProperty("response_code", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for flag in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApigeeSecurityActionFlagBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeSecurityActionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_security_action resource.
 /// </summary>
 public class GoogleApigeeSecurityAction : TerraformResource
@@ -25,9 +195,9 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// There can be at most 100 enabled actions with proxies set in an env.
     /// Several other restrictions apply on conditions and are detailed later.
     /// </summary>
-    public TerraformProperty<List<string>>? ApiProxies
+    public List<TerraformProperty<string>>? ApiProxies
     {
-        get => GetProperty<TerraformProperty<List<string>>>("api_proxies");
+        get => GetProperty<List<TerraformProperty<string>>>("api_proxies");
         set => this.WithProperty("api_proxies", value);
     }
 
@@ -43,7 +213,8 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// <summary>
     /// The Apigee environment that this security action applies to.
     /// </summary>
-    public TerraformProperty<string>? EnvId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
+    public required TerraformProperty<string> EnvId
     {
         get => GetProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
@@ -73,7 +244,8 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// <summary>
     /// The organization that this security action applies to.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -83,7 +255,8 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// The ID to use for the SecurityAction, which will become the final component of the action&#39;s resource name.
     /// This value should be 0-61 characters, and valid format is (^a-z?$).
     /// </summary>
-    public TerraformProperty<string>? SecurityActionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityActionId is required")]
+    public required TerraformProperty<string> SecurityActionId
     {
         get => GetProperty<TerraformProperty<string>>("security_action_id");
         set => this.WithProperty("security_action_id", value);
@@ -92,7 +265,8 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// <summary>
     /// Only an ENABLED SecurityAction is enforced. An ENABLED SecurityAction past its expiration time will not be enforced. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? State
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
+    public required TerraformProperty<string> State
     {
         get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
@@ -106,6 +280,61 @@ public class GoogleApigeeSecurityAction : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("ttl");
         set => this.WithProperty("ttl", value);
+    }
+
+    /// <summary>
+    /// Block for allow.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Allow block(s) allowed")]
+    public List<GoogleApigeeSecurityActionAllowBlock>? Allow
+    {
+        get => GetProperty<List<GoogleApigeeSecurityActionAllowBlock>>("allow");
+        set => this.WithProperty("allow", value);
+    }
+
+    /// <summary>
+    /// Block for condition_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConditionConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConditionConfig block(s) allowed")]
+    public List<GoogleApigeeSecurityActionConditionConfigBlock>? ConditionConfig
+    {
+        get => GetProperty<List<GoogleApigeeSecurityActionConditionConfigBlock>>("condition_config");
+        set => this.WithProperty("condition_config", value);
+    }
+
+    /// <summary>
+    /// Block for deny.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deny block(s) allowed")]
+    public List<GoogleApigeeSecurityActionDenyBlock>? Deny
+    {
+        get => GetProperty<List<GoogleApigeeSecurityActionDenyBlock>>("deny");
+        set => this.WithProperty("deny", value);
+    }
+
+    /// <summary>
+    /// Block for flag.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Flag block(s) allowed")]
+    public List<GoogleApigeeSecurityActionFlagBlock>? Flag
+    {
+        get => GetProperty<List<GoogleApigeeSecurityActionFlagBlock>>("flag");
+        set => this.WithProperty("flag", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeSecurityActionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeSecurityActionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

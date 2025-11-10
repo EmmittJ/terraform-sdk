@@ -20,7 +20,8 @@ public class AwsEmrSecurityConfiguration : TerraformResource
     /// <summary>
     /// The configuration attribute.
     /// </summary>
-    public TerraformProperty<string>? Configuration
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
+    public required TerraformProperty<string> Configuration
     {
         get => GetProperty<TerraformProperty<string>>("configuration");
         set => this.WithProperty("configuration", value);

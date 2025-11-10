@@ -3,6 +3,71 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for access_logging_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Boolean flag that specifies whether the customer access log feature is enabled.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformProperty<bool> Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+    /// <summary>
+    /// Ship the access log entries that match the statusCode defined in the filter.
+    /// The statusCode is the only expected/supported filter field. (Ex: statusCode)
+    /// The filter will parse it to the Common Expression Language semantics for expression
+    /// evaluation to build the filter condition. (Ex: &amp;quot;filter&amp;quot;: statusCode &amp;gt;= 200 &amp;amp;&amp;amp; statusCode &amp;lt; 300 )
+    /// </summary>
+    public TerraformProperty<string>? Filter
+    {
+        get => GetProperty<TerraformProperty<string>>("filter");
+        set => WithProperty("filter", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApigeeInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apigee_instance resource.
 /// </summary>
 public class GoogleApigeeInstance : TerraformResource
@@ -25,9 +90,9 @@ public class GoogleApigeeInstance : TerraformResource
     /// which the customers can provide during the instance creation. By default, the customer
     /// project associated with the Apigee organization will be included to the list.
     /// </summary>
-    public TerraformProperty<List<string>>? ConsumerAcceptList
+    public List<TerraformProperty<string>>? ConsumerAcceptList
     {
-        get => GetProperty<TerraformProperty<List<string>>>("consumer_accept_list");
+        get => GetProperty<List<TerraformProperty<string>>>("consumer_accept_list");
         set => this.WithProperty("consumer_accept_list", value);
     }
 
@@ -86,7 +151,8 @@ public class GoogleApigeeInstance : TerraformResource
     /// <summary>
     /// Required. Compute Engine location where the instance resides.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -95,7 +161,8 @@ public class GoogleApigeeInstance : TerraformResource
     /// <summary>
     /// Resource ID of the instance.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -105,7 +172,8 @@ public class GoogleApigeeInstance : TerraformResource
     /// The Apigee Organization associated with the Apigee instance,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public TerraformProperty<string>? OrgId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
+    public required TerraformProperty<string> OrgId
     {
         get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
@@ -119,6 +187,27 @@ public class GoogleApigeeInstance : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("peering_cidr_range");
         set => this.WithProperty("peering_cidr_range", value);
+    }
+
+    /// <summary>
+    /// Block for access_logging_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLoggingConfig block(s) allowed")]
+    public List<GoogleApigeeInstanceAccessLoggingConfigBlock>? AccessLoggingConfig
+    {
+        get => GetProperty<List<GoogleApigeeInstanceAccessLoggingConfigBlock>>("access_logging_config");
+        set => this.WithProperty("access_logging_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApigeeInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApigeeInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

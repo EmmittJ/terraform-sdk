@@ -3,6 +3,229 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for properties in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// The number of CPU cores to enable for the DbSystem.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
+    public required TerraformProperty<double> ComputeCount
+    {
+        get => GetProperty<TerraformProperty<double>>("compute_count");
+        set => WithProperty("compute_count", value);
+    }
+
+    /// <summary>
+    /// The compute model of the DbSystem.
+    /// Possible values:
+    /// ECPU
+    /// OCPU
+    /// </summary>
+    public TerraformProperty<string>? ComputeModel
+    {
+        get => GetProperty<TerraformProperty<string>>("compute_model");
+        set => WithProperty("compute_model", value);
+    }
+
+    /// <summary>
+    /// The data storage size in GB that is currently available to DbSystems.
+    /// </summary>
+    public TerraformProperty<double>? DataStorageSizeGb
+    {
+        get => GetProperty<TerraformProperty<double>>("data_storage_size_gb");
+        set => WithProperty("data_storage_size_gb", value);
+    }
+
+    /// <summary>
+    /// The database edition of the DbSystem.
+    /// Possible values:
+    /// STANDARD_EDITION
+    /// ENTERPRISE_EDITION
+    /// ENTERPRISE_EDITION_HIGH_PERFORMANCE
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseEdition is required")]
+    public required TerraformProperty<string> DatabaseEdition
+    {
+        get => GetProperty<TerraformProperty<string>>("database_edition");
+        set => WithProperty("database_edition", value);
+    }
+
+    /// <summary>
+    /// The host domain name of the DbSystem.
+    /// </summary>
+    public TerraformProperty<string>? Domain
+    {
+        get => GetProperty<TerraformProperty<string>>("domain");
+        set => WithProperty("domain", value);
+    }
+
+    /// <summary>
+    /// The hostname of the DbSystem.
+    /// </summary>
+    public TerraformProperty<string>? Hostname
+    {
+        get => GetProperty<TerraformProperty<string>>("hostname");
+        set => WithProperty("hostname", value);
+    }
+
+    /// <summary>
+    /// Prefix for DB System host names.
+    /// </summary>
+    public TerraformProperty<string>? HostnamePrefix
+    {
+        get => GetProperty<TerraformProperty<string>>("hostname_prefix");
+        set => WithProperty("hostname_prefix", value);
+    }
+
+    /// <summary>
+    /// The initial data storage size in GB.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialDataStorageSizeGb is required")]
+    public required TerraformProperty<double> InitialDataStorageSizeGb
+    {
+        get => GetProperty<TerraformProperty<double>>("initial_data_storage_size_gb");
+        set => WithProperty("initial_data_storage_size_gb", value);
+    }
+
+    /// <summary>
+    /// The license model of the DbSystem.
+    /// Possible values:
+    /// LICENSE_INCLUDED
+    /// BRING_YOUR_OWN_LICENSE
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
+    public required TerraformProperty<string> LicenseModel
+    {
+        get => GetProperty<TerraformProperty<string>>("license_model");
+        set => WithProperty("license_model", value);
+    }
+
+    /// <summary>
+    /// State of the DbSystem.
+    /// Possible values:
+    /// PROVISIONING
+    /// AVAILABLE
+    /// UPDATING
+    /// TERMINATING
+    /// TERMINATED
+    /// FAILED
+    /// MIGRATED
+    /// MAINTENANCE_IN_PROGRESS
+    /// NEEDS_ATTENTION
+    /// UPGRADING
+    /// </summary>
+    public TerraformProperty<string>? LifecycleState
+    {
+        get => GetProperty<TerraformProperty<string>>("lifecycle_state");
+        set => WithProperty("lifecycle_state", value);
+    }
+
+    /// <summary>
+    /// The memory size in GB.
+    /// </summary>
+    public TerraformProperty<double>? MemorySizeGb
+    {
+        get => GetProperty<TerraformProperty<double>>("memory_size_gb");
+        set => WithProperty("memory_size_gb", value);
+    }
+
+    /// <summary>
+    /// The number of nodes in the DbSystem.
+    /// </summary>
+    public TerraformProperty<double>? NodeCount
+    {
+        get => GetProperty<TerraformProperty<double>>("node_count");
+        set => WithProperty("node_count", value);
+    }
+
+    /// <summary>
+    /// OCID of the DbSystem.
+    /// </summary>
+    public TerraformProperty<string>? Ocid
+    {
+        get => GetProperty<TerraformProperty<string>>("ocid");
+        set => WithProperty("ocid", value);
+    }
+
+    /// <summary>
+    /// The private IP address of the DbSystem.
+    /// </summary>
+    public TerraformProperty<string>? PrivateIp
+    {
+        get => GetProperty<TerraformProperty<string>>("private_ip");
+        set => WithProperty("private_ip", value);
+    }
+
+    /// <summary>
+    /// The reco/redo storage size in GB.
+    /// </summary>
+    public TerraformProperty<double>? RecoStorageSizeGb
+    {
+        get => GetProperty<TerraformProperty<double>>("reco_storage_size_gb");
+        set => WithProperty("reco_storage_size_gb", value);
+    }
+
+    /// <summary>
+    /// Shape of DB System.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
+    public required TerraformProperty<string> Shape
+    {
+        get => GetProperty<TerraformProperty<string>>("shape");
+        set => WithProperty("shape", value);
+    }
+
+    /// <summary>
+    /// SSH public keys to be stored with the DbSystem.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeys is required")]
+    public List<TerraformProperty<string>>? SshPublicKeys
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("ssh_public_keys");
+        set => WithProperty("ssh_public_keys", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleOracleDatabaseDbSystemTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_oracle_database_db_system resource.
 /// </summary>
 public class GoogleOracleDatabaseDbSystem : TerraformResource
@@ -28,7 +251,8 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// 63 characters in length. The value must start with a letter and end with a
     /// letter or a number.
     /// </summary>
-    public TerraformProperty<string>? DbSystemId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbSystemId is required")]
+    public required TerraformProperty<string> DbSystemId
     {
         get => GetProperty<TerraformProperty<string>>("db_system_id");
         set => this.WithProperty("db_system_id", value);
@@ -47,7 +271,8 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// The display name for the System db. The name does not have to
     /// be unique within your project.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -79,16 +304,17 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -111,7 +337,8 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformProperty<string>? OdbSubnet
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbSubnet is required")]
+    public required TerraformProperty<string> OdbSubnet
     {
         get => GetProperty<TerraformProperty<string>>("odb_subnet");
         set => this.WithProperty("odb_subnet", value);
@@ -124,6 +351,27 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for properties.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
+    public List<GoogleOracleDatabaseDbSystemPropertiesBlock>? Properties
+    {
+        get => GetProperty<List<GoogleOracleDatabaseDbSystemPropertiesBlock>>("properties");
+        set => this.WithProperty("properties", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleOracleDatabaseDbSystemTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleOracleDatabaseDbSystemTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

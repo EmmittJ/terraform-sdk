@@ -3,6 +3,71 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for metric_transformation in .
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The default_value attribute.
+    /// </summary>
+    public TerraformProperty<string>? DefaultValue
+    {
+        get => GetProperty<TerraformProperty<string>>("default_value");
+        set => WithProperty("default_value", value);
+    }
+
+    /// <summary>
+    /// The dimensions attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Dimensions
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("dimensions");
+        set => WithProperty("dimensions", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The namespace attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
+    public required TerraformProperty<string> Namespace
+    {
+        get => GetProperty<TerraformProperty<string>>("namespace");
+        set => WithProperty("namespace", value);
+    }
+
+    /// <summary>
+    /// The unit attribute.
+    /// </summary>
+    public TerraformProperty<string>? Unit
+    {
+        get => GetProperty<TerraformProperty<string>>("unit");
+        set => WithProperty("unit", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_cloudwatch_log_metric_filter resource.
 /// </summary>
 public class AwsCloudwatchLogMetricFilter : TerraformResource
@@ -37,7 +102,8 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     /// <summary>
     /// The log_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? LogGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
+    public required TerraformProperty<string> LogGroupName
     {
         get => GetProperty<TerraformProperty<string>>("log_group_name");
         set => this.WithProperty("log_group_name", value);
@@ -46,7 +112,8 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +122,8 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     /// <summary>
     /// The pattern attribute.
     /// </summary>
-    public TerraformProperty<string>? Pattern
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
+    public required TerraformProperty<string> Pattern
     {
         get => GetProperty<TerraformProperty<string>>("pattern");
         set => this.WithProperty("pattern", value);
@@ -68,6 +136,18 @@ public class AwsCloudwatchLogMetricFilter : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for metric_transformation.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MetricTransformation block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricTransformation block(s) allowed")]
+    public List<AwsCloudwatchLogMetricFilterMetricTransformationBlock>? MetricTransformation
+    {
+        get => GetProperty<List<AwsCloudwatchLogMetricFilterMetricTransformationBlock>>("metric_transformation");
+        set => this.WithProperty("metric_transformation", value);
     }
 
 }

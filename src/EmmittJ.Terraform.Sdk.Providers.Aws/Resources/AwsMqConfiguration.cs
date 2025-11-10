@@ -30,7 +30,8 @@ public class AwsMqConfiguration : TerraformResource
     /// <summary>
     /// The data attribute.
     /// </summary>
-    public TerraformProperty<string>? Data
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
+    public required TerraformProperty<string> Data
     {
         get => GetProperty<TerraformProperty<string>>("data");
         set => this.WithProperty("data", value);
@@ -48,7 +49,8 @@ public class AwsMqConfiguration : TerraformResource
     /// <summary>
     /// The engine_type attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
+    public required TerraformProperty<string> EngineType
     {
         get => GetProperty<TerraformProperty<string>>("engine_type");
         set => this.WithProperty("engine_type", value);
@@ -57,7 +59,8 @@ public class AwsMqConfiguration : TerraformResource
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformProperty<string>? EngineVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
+    public required TerraformProperty<string> EngineVersion
     {
         get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
@@ -75,7 +78,8 @@ public class AwsMqConfiguration : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -93,18 +97,18 @@ public class AwsMqConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

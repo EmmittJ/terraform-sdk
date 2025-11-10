@@ -36,7 +36,8 @@ public class AwsCognitoIdentityPoolDataSource : TerraformDataSource
     /// <summary>
     /// The identity_pool_name attribute.
     /// </summary>
-    public TerraformProperty<string>? IdentityPoolName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolName is required")]
+    public required TerraformProperty<string> IdentityPoolName
     {
         get => GetProperty<TerraformProperty<string>>("identity_pool_name");
         set => this.WithProperty("identity_pool_name", value);
@@ -54,9 +55,9 @@ public class AwsCognitoIdentityPoolDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

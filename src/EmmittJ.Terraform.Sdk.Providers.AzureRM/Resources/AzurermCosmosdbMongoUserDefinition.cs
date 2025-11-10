@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_cosmosdb_mongo_user_definition resource.
 /// </summary>
 public class AzurermCosmosdbMongoUserDefinition : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     /// <summary>
     /// The cosmos_mongo_database_id attribute.
     /// </summary>
-    public TerraformProperty<string>? CosmosMongoDatabaseId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
+    public required TerraformProperty<string> CosmosMongoDatabaseId
     {
         get => GetProperty<TerraformProperty<string>>("cosmos_mongo_database_id");
         set => this.WithProperty("cosmos_mongo_database_id", value);
@@ -37,16 +82,17 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     /// <summary>
     /// The inherited_role_names attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? InheritedRoleNames
+    public List<TerraformProperty<string>>? InheritedRoleNames
     {
-        get => GetProperty<TerraformProperty<List<string>>>("inherited_role_names");
+        get => GetProperty<List<TerraformProperty<string>>>("inherited_role_names");
         set => this.WithProperty("inherited_role_names", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformProperty<string>? Password
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
     {
         get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
@@ -55,10 +101,21 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformProperty<string>? Username
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
     {
         get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermCosmosdbMongoUserDefinitionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermCosmosdbMongoUserDefinitionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

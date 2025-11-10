@@ -3,6 +3,69 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for version_template in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
+{
+    /// <summary>
+    /// The algorithm to use when creating a version based on this template.
+    /// See the [algorithm reference](https://cloud.google.com/kms/docs/reference/rest/v1/CryptoKeyVersionAlgorithm) for possible inputs.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
+    public required TerraformProperty<string> Algorithm
+    {
+        get => GetProperty<TerraformProperty<string>>("algorithm");
+        set => WithProperty("algorithm", value);
+    }
+
+    /// <summary>
+    /// The protection level to use when creating a version based on this template. Possible values include &amp;quot;SOFTWARE&amp;quot;, &amp;quot;HSM&amp;quot;, &amp;quot;EXTERNAL&amp;quot;, &amp;quot;EXTERNAL_VPC&amp;quot;. Defaults to &amp;quot;SOFTWARE&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? ProtectionLevel
+    {
+        get => GetProperty<TerraformProperty<string>>("protection_level");
+        set => WithProperty("protection_level", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_kms_crypto_key resource.
 /// </summary>
 public class GoogleKmsCryptoKey : TerraformResource
@@ -61,7 +124,8 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// The KeyRing that this key belongs to.
     /// Format: &#39;&#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;&#39;.
     /// </summary>
-    public TerraformProperty<string>? KeyRing
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
+    public required TerraformProperty<string> KeyRing
     {
         get => GetProperty<TerraformProperty<string>>("key_ring");
         set => this.WithProperty("key_ring", value);
@@ -74,16 +138,17 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The resource name for the CryptoKey.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -123,6 +188,27 @@ public class GoogleKmsCryptoKey : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("skip_initial_version_creation");
         set => this.WithProperty("skip_initial_version_creation", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleKmsCryptoKeyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleKmsCryptoKeyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for version_template.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VersionTemplate block(s) allowed")]
+    public List<GoogleKmsCryptoKeyVersionTemplateBlock>? VersionTemplate
+    {
+        get => GetProperty<List<GoogleKmsCryptoKeyVersionTemplateBlock>>("version_template");
+        set => this.WithProperty("version_template", value);
     }
 
     /// <summary>

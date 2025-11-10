@@ -29,7 +29,8 @@ public class AwsWafv2ApiKey : TerraformResource
     /// <summary>
     /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
     /// </summary>
-    public TerraformProperty<string>? Scope
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformProperty<string> Scope
     {
         get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
@@ -38,9 +39,10 @@ public class AwsWafv2ApiKey : TerraformResource
     /// <summary>
     /// The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? TokenDomains
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenDomains is required")]
+    public HashSet<TerraformProperty<string>>? TokenDomains
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("token_domains");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("token_domains");
         set => this.WithProperty("token_domains", value);
     }
 

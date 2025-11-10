@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for routing_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsLambdaAliasRoutingConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The additional_version_weights attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<double>>? AdditionalVersionWeights
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<double>>>("additional_version_weights");
+        set => WithProperty("additional_version_weights", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_lambda_alias resource.
 /// </summary>
 public class AwsLambdaAlias : TerraformResource
@@ -30,7 +47,8 @@ public class AwsLambdaAlias : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
+    public required TerraformProperty<string> FunctionName
     {
         get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
@@ -39,7 +57,8 @@ public class AwsLambdaAlias : TerraformResource
     /// <summary>
     /// The function_version attribute.
     /// </summary>
-    public TerraformProperty<string>? FunctionVersion
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionVersion is required")]
+    public required TerraformProperty<string> FunctionVersion
     {
         get => GetProperty<TerraformProperty<string>>("function_version");
         set => this.WithProperty("function_version", value);
@@ -57,7 +76,8 @@ public class AwsLambdaAlias : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -70,6 +90,17 @@ public class AwsLambdaAlias : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for routing_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RoutingConfig block(s) allowed")]
+    public List<AwsLambdaAliasRoutingConfigBlock>? RoutingConfig
+    {
+        get => GetProperty<List<AwsLambdaAliasRoutingConfigBlock>>("routing_config");
+        set => this.WithProperty("routing_config", value);
     }
 
     /// <summary>

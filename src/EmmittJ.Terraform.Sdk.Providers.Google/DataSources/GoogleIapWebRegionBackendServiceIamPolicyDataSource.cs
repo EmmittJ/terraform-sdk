@@ -48,7 +48,8 @@ public class GoogleIapWebRegionBackendServiceIamPolicyDataSource : TerraformData
     /// <summary>
     /// The web_region_backend_service attribute.
     /// </summary>
-    public TerraformProperty<string>? WebRegionBackendService
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebRegionBackendService is required")]
+    public required TerraformProperty<string> WebRegionBackendService
     {
         get => GetProperty<TerraformProperty<string>>("web_region_backend_service");
         set => this.WithProperty("web_region_backend_service", value);

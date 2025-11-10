@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_spring_cloud_elastic_application_performance_monitoring resource.
 /// </summary>
 public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : TerraformResource
@@ -19,9 +63,10 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// <summary>
     /// The application_packages attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ApplicationPackages
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationPackages is required")]
+    public List<TerraformProperty<string>>? ApplicationPackages
     {
-        get => GetProperty<TerraformProperty<List<string>>>("application_packages");
+        get => GetProperty<List<TerraformProperty<string>>>("application_packages");
         set => this.WithProperty("application_packages", value);
     }
 
@@ -46,7 +91,8 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +101,8 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// <summary>
     /// The server_url attribute.
     /// </summary>
-    public TerraformProperty<string>? ServerUrl
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerUrl is required")]
+    public required TerraformProperty<string> ServerUrl
     {
         get => GetProperty<TerraformProperty<string>>("server_url");
         set => this.WithProperty("server_url", value);
@@ -64,7 +111,8 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ServiceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
+    public required TerraformProperty<string> ServiceName
     {
         get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
@@ -73,10 +121,21 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SpringCloudServiceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
+    public required TerraformProperty<string> SpringCloudServiceId
     {
         get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

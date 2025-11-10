@@ -20,7 +20,8 @@ public class AwsSesEmailIdentity : TerraformResource
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformProperty<string>? Email
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
+    public required TerraformProperty<string> Email
     {
         get => GetProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);

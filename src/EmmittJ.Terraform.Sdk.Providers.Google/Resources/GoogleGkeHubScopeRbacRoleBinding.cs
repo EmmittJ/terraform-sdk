@@ -3,6 +3,67 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for role in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleGkeHubScopeRbacRoleBindingRoleBlock : TerraformBlock
+{
+    /// <summary>
+    /// CustomRole is the custom Kubernetes ClusterRole to be used. The custom role format must be allowlisted in the rbacrolebindingactuation feature and RFC 1123 compliant.
+    /// </summary>
+    public TerraformProperty<string>? CustomRole
+    {
+        get => GetProperty<TerraformProperty<string>>("custom_role");
+        set => WithProperty("custom_role", value);
+    }
+
+    /// <summary>
+    /// PredefinedRole is an ENUM representation of the default Kubernetes Roles Possible values: [&amp;quot;UNKNOWN&amp;quot;, &amp;quot;ADMIN&amp;quot;, &amp;quot;EDIT&amp;quot;, &amp;quot;VIEW&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? PredefinedRole
+    {
+        get => GetProperty<TerraformProperty<string>>("predefined_role");
+        set => WithProperty("predefined_role", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_gke_hub_scope_rbac_role_binding resource.
 /// </summary>
 public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
@@ -51,9 +112,9 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -69,7 +130,8 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// <summary>
     /// Id of the scope
     /// </summary>
-    public TerraformProperty<string>? ScopeId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
+    public required TerraformProperty<string> ScopeId
     {
         get => GetProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
@@ -78,7 +140,8 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// <summary>
     /// The client-provided identifier of the RBAC Role Binding.
     /// </summary>
-    public TerraformProperty<string>? ScopeRbacRoleBindingId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeRbacRoleBindingId is required")]
+    public required TerraformProperty<string> ScopeRbacRoleBindingId
     {
         get => GetProperty<TerraformProperty<string>>("scope_rbac_role_binding_id");
         set => this.WithProperty("scope_rbac_role_binding_id", value);
@@ -94,6 +157,28 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
+    }
+
+    /// <summary>
+    /// Block for role.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Role block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Role block(s) allowed")]
+    public List<GoogleGkeHubScopeRbacRoleBindingRoleBlock>? Role
+    {
+        get => GetProperty<List<GoogleGkeHubScopeRbacRoleBindingRoleBlock>>("role");
+        set => this.WithProperty("role", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -118,7 +118,8 @@ public class GoogleContainerClusterDataSource : TerraformDataSource
     /// <summary>
     /// The name of the cluster, unique within the project and location.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);

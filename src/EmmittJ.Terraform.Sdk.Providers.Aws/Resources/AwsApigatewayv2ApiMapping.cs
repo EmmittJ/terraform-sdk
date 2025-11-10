@@ -19,7 +19,8 @@ public class AwsApigatewayv2ApiMapping : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -37,7 +38,8 @@ public class AwsApigatewayv2ApiMapping : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -64,7 +66,8 @@ public class AwsApigatewayv2ApiMapping : TerraformResource
     /// <summary>
     /// The stage attribute.
     /// </summary>
-    public TerraformProperty<string>? Stage
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
+    public required TerraformProperty<string> Stage
     {
         get => GetProperty<TerraformProperty<string>>("stage");
         set => this.WithProperty("stage", value);

@@ -3,6 +3,66 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for accepter in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpcPeeringConnectionAccepterAccepterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allow_remote_vpc_dns_resolution attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_remote_vpc_dns_resolution");
+        set => WithProperty("allow_remote_vpc_dns_resolution", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for requester in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVpcPeeringConnectionAccepterRequesterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The allow_remote_vpc_dns_resolution attribute.
+    /// </summary>
+    public TerraformProperty<bool>? AllowRemoteVpcDnsResolution
+    {
+        get => GetProperty<TerraformProperty<bool>>("allow_remote_vpc_dns_resolution");
+        set => WithProperty("allow_remote_vpc_dns_resolution", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsVpcPeeringConnectionAccepterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_vpc_peering_connection_accepter resource.
 /// </summary>
 public class AwsVpcPeeringConnectionAccepter : TerraformResource
@@ -51,28 +111,61 @@ public class AwsVpcPeeringConnectionAccepter : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcPeeringConnectionId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcPeeringConnectionId is required")]
+    public required TerraformProperty<string> VpcPeeringConnectionId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_peering_connection_id");
         set => this.WithProperty("vpc_peering_connection_id", value);
+    }
+
+    /// <summary>
+    /// Block for accepter.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Accepter block(s) allowed")]
+    public List<AwsVpcPeeringConnectionAccepterAccepterBlock>? Accepter
+    {
+        get => GetProperty<List<AwsVpcPeeringConnectionAccepterAccepterBlock>>("accepter");
+        set => this.WithProperty("accepter", value);
+    }
+
+    /// <summary>
+    /// Block for requester.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requester block(s) allowed")]
+    public List<AwsVpcPeeringConnectionAccepterRequesterBlock>? Requester
+    {
+        get => GetProperty<List<AwsVpcPeeringConnectionAccepterRequesterBlock>>("requester");
+        set => this.WithProperty("requester", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsVpcPeeringConnectionAccepterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsVpcPeeringConnectionAccepterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

@@ -3,6 +3,95 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for local_disk_encryption in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The Cloud KMS CryptoKey e.g. projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey} to use for protecting node local disks.
+    /// If not specified, a Google-managed key will be used instead.
+    /// </summary>
+    public TerraformProperty<string>? KmsKey
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key");
+        set => WithProperty("kms_key", value);
+    }
+
+    /// <summary>
+    /// The Cloud KMS CryptoKeyVersion currently in use for protecting node local disks. Only applicable if kmsKey is set.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyActiveVersion
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_active_version");
+        set => WithProperty("kms_key_active_version", value);
+    }
+
+    /// <summary>
+    /// Availability of the Cloud KMS CryptoKey. If not KEY_AVAILABLE, then nodes may go offline as they cannot access their local data.
+    /// This can be caused by a lack of permissions to use the key, or if the key is disabled or deleted.
+    /// </summary>
+    public TerraformProperty<string>? KmsKeyState
+    {
+        get => GetProperty<TerraformProperty<string>>("kms_key_state");
+        set => WithProperty("kms_key_state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for node_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleEdgecontainerNodePoolNodeConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// &amp;quot;The Kubernetes node labels&amp;quot;
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Labels
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
+        set => WithProperty("labels", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_edgecontainer_node_pool resource.
 /// </summary>
 public class GoogleEdgecontainerNodePool : TerraformResource
@@ -24,7 +113,8 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// <summary>
     /// The name of the target Distributed Cloud Edge Cluster.
     /// </summary>
-    public TerraformProperty<string>? Cluster
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
+    public required TerraformProperty<string> Cluster
     {
         get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
@@ -45,16 +135,17 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -74,7 +165,8 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// <summary>
     /// The resource name of the node pool.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -83,7 +175,8 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// <summary>
     /// The number of nodes in the pool.
     /// </summary>
-    public TerraformProperty<double>? NodeCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
+    public required TerraformProperty<double> NodeCount
     {
         get => GetProperty<TerraformProperty<double>>("node_count");
         set => this.WithProperty("node_count", value);
@@ -92,7 +185,8 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// <summary>
     /// Name of the Google Distributed Cloud Edge zone where this node pool will be created. For example: &#39;us-central1-edge-customer-a&#39;.
     /// </summary>
-    public TerraformProperty<string>? NodeLocation
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeLocation is required")]
+    public required TerraformProperty<string> NodeLocation
     {
         get => GetProperty<TerraformProperty<string>>("node_location");
         set => this.WithProperty("node_location", value);
@@ -105,6 +199,38 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for local_disk_encryption.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiskEncryption block(s) allowed")]
+    public List<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>? LocalDiskEncryption
+    {
+        get => GetProperty<List<GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock>>("local_disk_encryption");
+        set => this.WithProperty("local_disk_encryption", value);
+    }
+
+    /// <summary>
+    /// Block for node_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
+    public List<GoogleEdgecontainerNodePoolNodeConfigBlock>? NodeConfig
+    {
+        get => GetProperty<List<GoogleEdgecontainerNodePoolNodeConfigBlock>>("node_config");
+        set => this.WithProperty("node_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleEdgecontainerNodePoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleEdgecontainerNodePoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

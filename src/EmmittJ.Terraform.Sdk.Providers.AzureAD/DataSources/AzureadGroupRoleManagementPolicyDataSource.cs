@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Retrieves information about a azuread_group_role_management_policy.
 /// </summary>
 public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
@@ -21,7 +38,8 @@ public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
     /// <summary>
     /// ID of the group to which this policy is assigned
     /// </summary>
-    public TerraformProperty<string>? GroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
+    public required TerraformProperty<string> GroupId
     {
         get => GetProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
@@ -39,10 +57,21 @@ public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The ID of the role of this policy to the group
     /// </summary>
-    public TerraformProperty<string>? RoleId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
+    public required TerraformProperty<string> RoleId
     {
         get => GetProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

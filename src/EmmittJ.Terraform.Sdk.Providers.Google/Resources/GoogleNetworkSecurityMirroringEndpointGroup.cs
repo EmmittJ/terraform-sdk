@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleNetworkSecurityMirroringEndpointGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_network_security_mirroring_endpoint_group resource.
 /// </summary>
 public class GoogleNetworkSecurityMirroringEndpointGroup : TerraformResource
@@ -50,16 +85,17 @@ public class GoogleNetworkSecurityMirroringEndpointGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The cloud location of the endpoint group, currently restricted to &#39;global&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -80,7 +116,8 @@ public class GoogleNetworkSecurityMirroringEndpointGroup : TerraformResource
     /// The ID to use for the endpoint group, which will become the final component
     /// of the endpoint group&#39;s resource name.
     /// </summary>
-    public TerraformProperty<string>? MirroringEndpointGroupId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroupId is required")]
+    public required TerraformProperty<string> MirroringEndpointGroupId
     {
         get => GetProperty<TerraformProperty<string>>("mirroring_endpoint_group_id");
         set => this.WithProperty("mirroring_endpoint_group_id", value);
@@ -93,6 +130,16 @@ public class GoogleNetworkSecurityMirroringEndpointGroup : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleNetworkSecurityMirroringEndpointGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleNetworkSecurityMirroringEndpointGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

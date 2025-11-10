@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDocumentAiWarehouseLocationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_document_ai_warehouse_location resource.
 /// </summary>
 public class GoogleDocumentAiWarehouseLocation : TerraformResource
@@ -19,7 +45,8 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     /// <summary>
     /// The access control mode for accessing the customer data. Possible values: [&amp;quot;ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI&amp;quot;, &amp;quot;ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID&amp;quot;, &amp;quot;ACL_MODE_UNIVERSAL_ACCESS&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? AccessControlMode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlMode is required")]
+    public required TerraformProperty<string> AccessControlMode
     {
         get => GetProperty<TerraformProperty<string>>("access_control_mode");
         set => this.WithProperty("access_control_mode", value);
@@ -28,7 +55,8 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     /// <summary>
     /// The type of database used to store customer data. Possible values: [&amp;quot;DB_INFRA_SPANNER&amp;quot;, &amp;quot;DB_CLOUD_SQL_POSTGRES&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? DatabaseType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseType is required")]
+    public required TerraformProperty<string> DatabaseType
     {
         get => GetProperty<TerraformProperty<string>>("database_type");
         set => this.WithProperty("database_type", value);
@@ -68,7 +96,8 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     /// <summary>
     /// The location in which the instance is to be provisioned. It takes the form projects/{projectNumber}/locations/{location}.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -77,10 +106,21 @@ public class GoogleDocumentAiWarehouseLocation : TerraformResource
     /// <summary>
     /// The unique identifier of the project.
     /// </summary>
-    public TerraformProperty<string>? ProjectNumber
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
+    public required TerraformProperty<string> ProjectNumber
     {
         get => GetProperty<TerraformProperty<string>>("project_number");
         set => this.WithProperty("project_number", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDocumentAiWarehouseLocationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDocumentAiWarehouseLocationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -30,9 +30,9 @@ public class AwsVpcDhcpOptions : TerraformResource
     /// <summary>
     /// The domain_name_servers attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? DomainNameServers
+    public List<TerraformProperty<string>>? DomainNameServers
     {
-        get => GetProperty<TerraformProperty<List<string>>>("domain_name_servers");
+        get => GetProperty<List<TerraformProperty<string>>>("domain_name_servers");
         set => this.WithProperty("domain_name_servers", value);
     }
 
@@ -57,9 +57,9 @@ public class AwsVpcDhcpOptions : TerraformResource
     /// <summary>
     /// The netbios_name_servers attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? NetbiosNameServers
+    public List<TerraformProperty<string>>? NetbiosNameServers
     {
-        get => GetProperty<TerraformProperty<List<string>>>("netbios_name_servers");
+        get => GetProperty<List<TerraformProperty<string>>>("netbios_name_servers");
         set => this.WithProperty("netbios_name_servers", value);
     }
 
@@ -75,9 +75,9 @@ public class AwsVpcDhcpOptions : TerraformResource
     /// <summary>
     /// The ntp_servers attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? NtpServers
+    public List<TerraformProperty<string>>? NtpServers
     {
-        get => GetProperty<TerraformProperty<List<string>>>("ntp_servers");
+        get => GetProperty<List<TerraformProperty<string>>>("ntp_servers");
         set => this.WithProperty("ntp_servers", value);
     }
 
@@ -93,18 +93,18 @@ public class AwsVpcDhcpOptions : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

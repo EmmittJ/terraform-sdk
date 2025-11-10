@@ -3,6 +3,31 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for policy_detail in .
+/// Nesting mode: set
+/// </summary>
+public class AwsImagebuilderLifecyclePolicyPolicyDetailBlock : TerraformBlock
+{
+}
+
+/// <summary>
+/// Block type for resource_selection in .
+/// Nesting mode: list
+/// </summary>
+public class AwsImagebuilderLifecyclePolicyResourceSelectionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The tag_map attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? TagMap
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tag_map");
+        set => WithProperty("tag_map", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_imagebuilder_lifecycle_policy resource.
 /// </summary>
 public class AwsImagebuilderLifecyclePolicy : TerraformResource
@@ -31,7 +56,8 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
-    public TerraformProperty<string>? ExecutionRole
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
+    public required TerraformProperty<string> ExecutionRole
     {
         get => GetProperty<TerraformProperty<string>>("execution_role");
         set => this.WithProperty("execution_role", value);
@@ -40,7 +66,8 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -58,7 +85,8 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
+    public required TerraformProperty<string> ResourceType
     {
         get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
@@ -76,10 +104,30 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for policy_detail.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AwsImagebuilderLifecyclePolicyPolicyDetailBlock>? PolicyDetail
+    {
+        get => GetProperty<HashSet<AwsImagebuilderLifecyclePolicyPolicyDetailBlock>>("policy_detail");
+        set => this.WithProperty("policy_detail", value);
+    }
+
+    /// <summary>
+    /// Block for resource_selection.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsImagebuilderLifecyclePolicyResourceSelectionBlock>? ResourceSelection
+    {
+        get => GetProperty<List<AwsImagebuilderLifecyclePolicyResourceSelectionBlock>>("resource_selection");
+        set => this.WithProperty("resource_selection", value);
     }
 
     /// <summary>

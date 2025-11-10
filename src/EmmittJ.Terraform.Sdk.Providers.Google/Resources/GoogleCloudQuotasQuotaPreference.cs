@@ -3,6 +3,106 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for quota_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The annotations map for clients to store small amounts of arbitrary data. Do not put PII or other sensitive information here. See https://google.aip.dev/128#annotations.
+    /// 
+    /// An object containing a list of &amp;quot;key: value&amp;quot; pairs. Example: &#39;{ &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }&#39;.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Annotations
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("annotations");
+        set => WithProperty("annotations", value);
+    }
+
+    /// <summary>
+    /// Granted quota value.
+    /// </summary>
+    public TerraformProperty<string>? GrantedValue
+    {
+        get => GetProperty<TerraformProperty<string>>("granted_value");
+        set => WithProperty("granted_value", value);
+    }
+
+    /// <summary>
+    /// The preferred value. Must be greater than or equal to -1. If set to -1, it means the value is &amp;quot;unlimited&amp;quot;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredValue is required")]
+    public required TerraformProperty<string> PreferredValue
+    {
+        get => GetProperty<TerraformProperty<string>>("preferred_value");
+        set => WithProperty("preferred_value", value);
+    }
+
+    /// <summary>
+    /// The origin of the quota preference request.
+    /// </summary>
+    public TerraformProperty<string>? RequestOrigin
+    {
+        get => GetProperty<TerraformProperty<string>>("request_origin");
+        set => WithProperty("request_origin", value);
+    }
+
+    /// <summary>
+    /// Optional details about the state of this quota preference.
+    /// </summary>
+    public TerraformProperty<string>? StateDetail
+    {
+        get => GetProperty<TerraformProperty<string>>("state_detail");
+        set => WithProperty("state_detail", value);
+    }
+
+    /// <summary>
+    /// The trace id that the Google Cloud uses to provision the requested quota. This trace id may be used by the client to contact Cloud support to track the state of a quota preference request. The trace id is only produced for increase requests and is unique for each request. The quota decrease requests do not have a trace id.
+    /// </summary>
+    public TerraformProperty<string>? TraceId
+    {
+        get => GetProperty<TerraformProperty<string>>("trace_id");
+        set => WithProperty("trace_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCloudQuotasQuotaPreferenceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_cloud_quotas_quota_preference resource.
 /// </summary>
 public class GoogleCloudQuotasQuotaPreference : TerraformResource
@@ -38,9 +138,9 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// 
     /// Example: &#39;{&amp;quot;provider&amp;quot;: &amp;quot;Foo Inc&amp;quot;}&#39; where &amp;quot;provider&amp;quot; is a service specific dimension.
     /// </summary>
-    public TerraformMapProperty<string>? Dimensions
+    public Dictionary<string, TerraformProperty<string>>? Dimensions
     {
-        get => GetProperty<TerraformMapProperty<string>>("dimensions");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("dimensions");
         set => this.WithProperty("dimensions", value);
     }
 
@@ -106,6 +206,28 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
+    }
+
+    /// <summary>
+    /// Block for quota_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QuotaConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QuotaConfig block(s) allowed")]
+    public List<GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock>? QuotaConfig
+    {
+        get => GetProperty<List<GoogleCloudQuotasQuotaPreferenceQuotaConfigBlock>>("quota_config");
+        set => this.WithProperty("quota_config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCloudQuotasQuotaPreferenceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCloudQuotasQuotaPreferenceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

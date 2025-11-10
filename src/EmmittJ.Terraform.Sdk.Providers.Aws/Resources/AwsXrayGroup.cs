@@ -3,6 +3,33 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for insights_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsXrayGroupInsightsConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The insights_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsEnabled is required")]
+    public required TerraformProperty<bool> InsightsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("insights_enabled");
+        set => WithProperty("insights_enabled", value);
+    }
+
+    /// <summary>
+    /// The notifications_enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? NotificationsEnabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("notifications_enabled");
+        set => WithProperty("notifications_enabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_xray_group resource.
 /// </summary>
 public class AwsXrayGroup : TerraformResource
@@ -20,7 +47,8 @@ public class AwsXrayGroup : TerraformResource
     /// <summary>
     /// The filter_expression attribute.
     /// </summary>
-    public TerraformProperty<string>? FilterExpression
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterExpression is required")]
+    public required TerraformProperty<string> FilterExpression
     {
         get => GetProperty<TerraformProperty<string>>("filter_expression");
         set => this.WithProperty("filter_expression", value);
@@ -29,7 +57,8 @@ public class AwsXrayGroup : TerraformResource
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? GroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
+    public required TerraformProperty<string> GroupName
     {
         get => GetProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
@@ -56,19 +85,30 @@ public class AwsXrayGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for insights_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InsightsConfiguration block(s) allowed")]
+    public List<AwsXrayGroupInsightsConfigurationBlock>? InsightsConfiguration
+    {
+        get => GetProperty<List<AwsXrayGroupInsightsConfigurationBlock>>("insights_configuration");
+        set => this.WithProperty("insights_configuration", value);
     }
 
     /// <summary>

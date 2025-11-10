@@ -3,6 +3,77 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermApiManagementNamedValueTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for value_from_key_vault in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementNamedValueValueFromKeyVaultBlock : TerraformBlock
+{
+    /// <summary>
+    /// The identity_client_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? IdentityClientId
+    {
+        get => GetProperty<TerraformProperty<string>>("identity_client_id");
+        set => WithProperty("identity_client_id", value);
+    }
+
+    /// <summary>
+    /// The secret_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
+    public required TerraformProperty<string> SecretId
+    {
+        get => GetProperty<TerraformProperty<string>>("secret_id");
+        set => WithProperty("secret_id", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_api_management_named_value resource.
 /// </summary>
 public class AzurermApiManagementNamedValue : TerraformResource
@@ -19,7 +90,8 @@ public class AzurermApiManagementNamedValue : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiManagementName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
+    public required TerraformProperty<string> ApiManagementName
     {
         get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
@@ -28,7 +100,8 @@ public class AzurermApiManagementNamedValue : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -46,7 +119,8 @@ public class AzurermApiManagementNamedValue : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -55,7 +129,8 @@ public class AzurermApiManagementNamedValue : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -73,9 +148,9 @@ public class AzurermApiManagementNamedValue : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? Tags
+    public List<TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformProperty<List<string>>>("tags");
+        get => GetProperty<List<TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -86,6 +161,27 @@ public class AzurermApiManagementNamedValue : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermApiManagementNamedValueTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermApiManagementNamedValueTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
+    }
+
+    /// <summary>
+    /// Block for value_from_key_vault.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValueFromKeyVault block(s) allowed")]
+    public List<AzurermApiManagementNamedValueValueFromKeyVaultBlock>? ValueFromKeyVault
+    {
+        get => GetProperty<List<AzurermApiManagementNamedValueValueFromKeyVaultBlock>>("value_from_key_vault");
+        set => this.WithProperty("value_from_key_vault", value);
     }
 
 }

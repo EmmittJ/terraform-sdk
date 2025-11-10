@@ -3,6 +3,14 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for trusted_token_issuer_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock : TerraformBlock
+{
+}
+
+/// <summary>
 /// Manages a aws_ssoadmin_trusted_token_issuer resource.
 /// </summary>
 public class AwsSsoadminTrustedTokenIssuer : TerraformResource
@@ -31,7 +39,8 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? InstanceArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
+    public required TerraformProperty<string> InstanceArn
     {
         get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
@@ -40,7 +49,8 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -58,19 +68,30 @@ public class AwsSsoadminTrustedTokenIssuer : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The trusted_token_issuer_type attribute.
     /// </summary>
-    public TerraformProperty<string>? TrustedTokenIssuerType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedTokenIssuerType is required")]
+    public required TerraformProperty<string> TrustedTokenIssuerType
     {
         get => GetProperty<TerraformProperty<string>>("trusted_token_issuer_type");
         set => this.WithProperty("trusted_token_issuer_type", value);
+    }
+
+    /// <summary>
+    /// Block for trusted_token_issuer_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock>? TrustedTokenIssuerConfiguration
+    {
+        get => GetProperty<List<AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlock>>("trusted_token_issuer_configuration");
+        set => this.WithProperty("trusted_token_issuer_configuration", value);
     }
 
     /// <summary>

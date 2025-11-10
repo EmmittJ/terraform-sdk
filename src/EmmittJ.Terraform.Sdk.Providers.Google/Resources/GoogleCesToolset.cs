@@ -3,6 +3,83 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for open_api_toolset in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
+{
+    /// <summary>
+    /// If true, the agent will ignore unknown fields in the API response for all
+    /// operations defined in the OpenAPI schema.
+    /// </summary>
+    public TerraformProperty<bool>? IgnoreUnknownFields
+    {
+        get => GetProperty<TerraformProperty<bool>>("ignore_unknown_fields");
+        set => WithProperty("ignore_unknown_fields", value);
+    }
+
+    /// <summary>
+    /// The OpenAPI schema of the toolset.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenApiSchema is required")]
+    public required TerraformProperty<string> OpenApiSchema
+    {
+        get => GetProperty<TerraformProperty<string>>("open_api_schema");
+        set => WithProperty("open_api_schema", value);
+    }
+
+    /// <summary>
+    /// The server URL of the Open API schema.
+    /// This field is only set in toolsets in the environment dependencies
+    /// during the export process if the schema contains a server url.
+    /// During the import process, if this url is present in the environment dependencies
+    /// and the schema has the $env_var placeholder,
+    /// it will replace the placeholder in the schema.
+    /// </summary>
+    public TerraformProperty<string>? Url
+    {
+        get => GetProperty<TerraformProperty<string>>("url");
+        set => WithProperty("url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleCesToolsetTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_ces_toolset resource.
 /// </summary>
 public class GoogleCesToolset : TerraformResource
@@ -23,7 +100,8 @@ public class GoogleCesToolset : TerraformResource
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? App
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
+    public required TerraformProperty<string> App
     {
         get => GetProperty<TerraformProperty<string>>("app");
         set => this.WithProperty("app", value);
@@ -70,7 +148,8 @@ public class GoogleCesToolset : TerraformResource
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -90,10 +169,32 @@ public class GoogleCesToolset : TerraformResource
     /// the toolset&#39;s resource name. If not provided, a unique ID will be
     /// automatically assigned for the toolset.
     /// </summary>
-    public TerraformProperty<string>? ToolsetId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToolsetId is required")]
+    public required TerraformProperty<string> ToolsetId
     {
         get => GetProperty<TerraformProperty<string>>("toolset_id");
         set => this.WithProperty("toolset_id", value);
+    }
+
+    /// <summary>
+    /// Block for open_api_toolset.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApiToolset block(s) allowed")]
+    public List<GoogleCesToolsetOpenApiToolsetBlock>? OpenApiToolset
+    {
+        get => GetProperty<List<GoogleCesToolsetOpenApiToolsetBlock>>("open_api_toolset");
+        set => this.WithProperty("open_api_toolset", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleCesToolsetTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleCesToolsetTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

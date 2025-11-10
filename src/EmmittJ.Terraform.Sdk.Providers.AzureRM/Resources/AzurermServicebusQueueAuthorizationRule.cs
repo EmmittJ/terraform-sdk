@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermServicebusQueueAuthorizationRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_servicebus_queue_authorization_rule resource.
 /// </summary>
 public class AzurermServicebusQueueAuthorizationRule : TerraformResource
@@ -52,7 +96,8 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -61,7 +106,8 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
     /// <summary>
     /// The queue_id attribute.
     /// </summary>
-    public TerraformProperty<string>? QueueId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueId is required")]
+    public required TerraformProperty<string> QueueId
     {
         get => GetProperty<TerraformProperty<string>>("queue_id");
         set => this.WithProperty("queue_id", value);
@@ -74,6 +120,16 @@ public class AzurermServicebusQueueAuthorizationRule : TerraformResource
     {
         get => GetProperty<TerraformProperty<bool>>("send");
         set => this.WithProperty("send", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermServicebusQueueAuthorizationRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermServicebusQueueAuthorizationRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

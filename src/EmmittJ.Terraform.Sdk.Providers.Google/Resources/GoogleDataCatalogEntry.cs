@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for gcs_fileset_spec in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlock
+{
+    /// <summary>
+    /// Patterns to identify a set of files in Google Cloud Storage.
+    /// See [Cloud Storage documentation](https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames)
+    /// for more information. Note that bucket wildcards are currently not supported. Examples of valid filePatterns:
+    /// 
+    /// * gs://bucket_name/dir/*: matches all files within bucket_name/dir directory.
+    /// * gs://bucket_name/dir/**: matches all files in bucket_name/dir spanning all subdirectories.
+    /// * gs://bucket_name/file*: matches files prefixed by file in bucket_name
+    /// * gs://bucket_name/??.txt: matches files with two characters followed by .txt in bucket_name
+    /// * gs://bucket_name/[aeiou].txt: matches files that contain a single vowel character followed by .txt in bucket_name
+    /// * gs://bucket_name/[a-m].txt: matches files that contain a, b, ... or m followed by .txt in bucket_name
+    /// * gs://bucket_name/a/*/b: matches all files in bucket_name that match a/*/b pattern, such as a/c/b, a/d/b
+    /// * gs://another_bucket/a.txt: matches gs://another_bucket/a.txt
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilePatterns is required")]
+    public List<TerraformProperty<string>>? FilePatterns
+    {
+        get => GetProperty<List<TerraformProperty<string>>>("file_patterns");
+        set => WithProperty("file_patterns", value);
+    }
+
+    /// <summary>
+    /// Sample files contained in this fileset, not all files contained in this fileset are represented here.
+    /// </summary>
+    public List<TerraformProperty<object>>? SampleGcsFileSpecs
+    {
+        get => GetProperty<List<TerraformProperty<object>>>("sample_gcs_file_specs");
+        set => WithProperty("sample_gcs_file_specs", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_data_catalog_entry resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
@@ -43,7 +116,8 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// <summary>
     /// The name of the entry group this entry is in.
     /// </summary>
-    public TerraformProperty<string>? EntryGroup
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
+    public required TerraformProperty<string> EntryGroup
     {
         get => GetProperty<TerraformProperty<string>>("entry_group");
         set => this.WithProperty("entry_group", value);
@@ -52,7 +126,8 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// <summary>
     /// The id of the entry to create.
     /// </summary>
-    public TerraformProperty<string>? EntryId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryId is required")]
+    public required TerraformProperty<string> EntryId
     {
         get => GetProperty<TerraformProperty<string>>("entry_id");
         set => this.WithProperty("entry_id", value);
@@ -125,6 +200,27 @@ public class GoogleDataCatalogEntry : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("user_specified_type");
         set => this.WithProperty("user_specified_type", value);
+    }
+
+    /// <summary>
+    /// Block for gcs_fileset_spec.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsFilesetSpec block(s) allowed")]
+    public List<GoogleDataCatalogEntryGcsFilesetSpecBlock>? GcsFilesetSpec
+    {
+        get => GetProperty<List<GoogleDataCatalogEntryGcsFilesetSpecBlock>>("gcs_fileset_spec");
+        set => this.WithProperty("gcs_fileset_spec", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDataCatalogEntryTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDataCatalogEntryTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

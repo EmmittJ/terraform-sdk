@@ -37,7 +37,8 @@ public class GoogleOracleDatabaseAutonomousDatabaseDataSource : TerraformDataSou
     /// characters in length. The value must start with a letter and end with
     /// a letter or a number.
     /// </summary>
-    public TerraformProperty<string>? AutonomousDatabaseId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
+    public required TerraformProperty<string> AutonomousDatabaseId
     {
         get => GetProperty<TerraformProperty<string>>("autonomous_database_id");
         set => this.WithProperty("autonomous_database_id", value);
@@ -55,7 +56,8 @@ public class GoogleOracleDatabaseAutonomousDatabaseDataSource : TerraformDataSou
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/AutonomousDatabaseBackup&#39;.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);

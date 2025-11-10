@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for server_side_encryption in .
+/// Nesting mode: list
+/// </summary>
+public class AwsDaxClusterServerSideEncryptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Enabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("enabled");
+        set => WithProperty("enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsDaxClusterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_dax_cluster resource.
 /// </summary>
 public class AwsDaxCluster : TerraformResource
@@ -24,9 +76,9 @@ public class AwsDaxCluster : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? AvailabilityZones
+    public HashSet<TerraformProperty<string>>? AvailabilityZones
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("availability_zones");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("availability_zones");
         set => this.WithProperty("availability_zones", value);
     }
 
@@ -42,7 +94,8 @@ public class AwsDaxCluster : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ClusterName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
+    public required TerraformProperty<string> ClusterName
     {
         get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
@@ -60,7 +113,8 @@ public class AwsDaxCluster : TerraformResource
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? IamRoleArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
+    public required TerraformProperty<string> IamRoleArn
     {
         get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
@@ -87,7 +141,8 @@ public class AwsDaxCluster : TerraformResource
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformProperty<string>? NodeType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
+    public required TerraformProperty<string> NodeType
     {
         get => GetProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
@@ -123,7 +178,8 @@ public class AwsDaxCluster : TerraformResource
     /// <summary>
     /// The replication_factor attribute.
     /// </summary>
-    public TerraformProperty<double>? ReplicationFactor
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
+    public required TerraformProperty<double> ReplicationFactor
     {
         get => GetProperty<TerraformProperty<double>>("replication_factor");
         set => this.WithProperty("replication_factor", value);
@@ -132,9 +188,9 @@ public class AwsDaxCluster : TerraformResource
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SecurityGroupIds
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
@@ -150,19 +206,40 @@ public class AwsDaxCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for server_side_encryption.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
+    public List<AwsDaxClusterServerSideEncryptionBlock>? ServerSideEncryption
+    {
+        get => GetProperty<List<AwsDaxClusterServerSideEncryptionBlock>>("server_side_encryption");
+        set => this.WithProperty("server_side_encryption", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsDaxClusterTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsDaxClusterTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

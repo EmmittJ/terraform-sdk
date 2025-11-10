@@ -19,7 +19,8 @@ public class AwsAppsyncApiCache : TerraformResource
     /// <summary>
     /// The api_caching_behavior attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiCachingBehavior
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiCachingBehavior is required")]
+    public required TerraformProperty<string> ApiCachingBehavior
     {
         get => GetProperty<TerraformProperty<string>>("api_caching_behavior");
         set => this.WithProperty("api_caching_behavior", value);
@@ -28,7 +29,8 @@ public class AwsAppsyncApiCache : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformProperty<string> ApiId
     {
         get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
@@ -73,7 +75,8 @@ public class AwsAppsyncApiCache : TerraformResource
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformProperty<double>? Ttl
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
+    public required TerraformProperty<double> Ttl
     {
         get => GetProperty<TerraformProperty<double>>("ttl");
         set => this.WithProperty("ttl", value);
@@ -82,7 +85,8 @@ public class AwsAppsyncApiCache : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);

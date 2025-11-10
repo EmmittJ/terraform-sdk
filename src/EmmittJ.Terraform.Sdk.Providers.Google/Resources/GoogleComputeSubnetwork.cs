@@ -3,6 +3,172 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for log_config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeSubnetworkLogConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Can only be specified if VPC flow logging for this subnetwork is enabled.
+    /// Toggles the aggregation interval for collecting flow logs. Increasing the
+    /// interval time will reduce the amount of generated flow logs for long
+    /// lasting connections. Default is an interval of 5 seconds per connection. Default value: &amp;quot;INTERVAL_5_SEC&amp;quot; Possible values: [&amp;quot;INTERVAL_5_SEC&amp;quot;, &amp;quot;INTERVAL_30_SEC&amp;quot;, &amp;quot;INTERVAL_1_MIN&amp;quot;, &amp;quot;INTERVAL_5_MIN&amp;quot;, &amp;quot;INTERVAL_10_MIN&amp;quot;, &amp;quot;INTERVAL_15_MIN&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? AggregationInterval
+    {
+        get => GetProperty<TerraformProperty<string>>("aggregation_interval");
+        set => WithProperty("aggregation_interval", value);
+    }
+
+    /// <summary>
+    /// Export filter used to define which VPC flow logs should be logged, as as CEL expression. See
+    /// https://cloud.google.com/vpc/docs/flow-logs#filtering for details on how to format this field.
+    /// The default value is &#39;true&#39;, which evaluates to include everything.
+    /// </summary>
+    public TerraformProperty<string>? FilterExpr
+    {
+        get => GetProperty<TerraformProperty<string>>("filter_expr");
+        set => WithProperty("filter_expr", value);
+    }
+
+    /// <summary>
+    /// Can only be specified if VPC flow logging for this subnetwork is enabled.
+    /// The value of the field must be in [0, 1]. Set the sampling rate of VPC
+    /// flow logs within the subnetwork where 1.0 means all collected logs are
+    /// reported and 0.0 means no logs are reported. Default is 0.5 which means
+    /// half of all collected logs are reported.
+    /// </summary>
+    public TerraformProperty<double>? FlowSampling
+    {
+        get => GetProperty<TerraformProperty<double>>("flow_sampling");
+        set => WithProperty("flow_sampling", value);
+    }
+
+    /// <summary>
+    /// Can only be specified if VPC flow logging for this subnetwork is enabled.
+    /// Configures whether metadata fields should be added to the reported VPC
+    /// flow logs. Default value: &amp;quot;INCLUDE_ALL_METADATA&amp;quot; Possible values: [&amp;quot;EXCLUDE_ALL_METADATA&amp;quot;, &amp;quot;INCLUDE_ALL_METADATA&amp;quot;, &amp;quot;CUSTOM_METADATA&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Metadata
+    {
+        get => GetProperty<TerraformProperty<string>>("metadata");
+        set => WithProperty("metadata", value);
+    }
+
+    /// <summary>
+    /// List of metadata fields that should be added to reported logs.
+    /// Can only be specified if VPC flow logs for this subnetwork is enabled and &amp;quot;metadata&amp;quot; is set to CUSTOM_METADATA.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? MetadataFields
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("metadata_fields");
+        set => WithProperty("metadata_fields", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for params in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeSubnetworkParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Resource manager tags to be bound to the subnetwork. Tag keys and values have the
+    /// same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},
+    /// and values are in the format tagValues/456. The field is ignored when empty.
+    /// The field is immutable and causes resource replacement when mutated. This field is only
+    /// set at create time and modifying this field after creation will trigger recreation.
+    /// To apply tags to an existing resource, see the google_tags_tag_binding resource.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? ResourceManagerTags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("resource_manager_tags");
+        set => WithProperty("resource_manager_tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for secondary_ip_range in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputeSubnetworkSecondaryIpRangeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The range of IP addresses belonging to this subnetwork secondary
+    /// range. Provide this property when you create the subnetwork.
+    /// Ranges must be unique and non-overlapping with all primary and
+    /// secondary IP ranges within a network. Only IPv4 is supported.
+    /// Field is optional when &#39;reserved_internal_range&#39; is defined, otherwise required.
+    /// </summary>
+    public TerraformProperty<string>? IpCidrRange
+    {
+        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
+        set => WithProperty("ip_cidr_range", value);
+    }
+
+    /// <summary>
+    /// The name associated with this subnetwork secondary range, used
+    /// when adding an alias IP range to a VM instance. The name must
+    /// be 1-63 characters long, and comply with RFC1035. The name
+    /// must be unique within the subnetwork.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeName is required")]
+    public required TerraformProperty<string> RangeName
+    {
+        get => GetProperty<TerraformProperty<string>>("range_name");
+        set => WithProperty("range_name", value);
+    }
+
+    /// <summary>
+    /// The ID of the reserved internal range. Must be prefixed with &#39;networkconnectivity.googleapis.com&#39;
+    /// E.g. &#39;networkconnectivity.googleapis.com/projects/{project}/locations/global/internalRanges/{rangeId}&#39;
+    /// </summary>
+    public TerraformProperty<string>? ReservedInternalRange
+    {
+        get => GetProperty<TerraformProperty<string>>("reserved_internal_range");
+        set => WithProperty("reserved_internal_range", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeSubnetworkTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_subnetwork resource.
 /// </summary>
 public class GoogleComputeSubnetwork : TerraformResource
@@ -104,7 +270,8 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -114,7 +281,8 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// The network this subnet belongs to.
     /// Only networks that are in the distributed mode can have subnetworks.
     /// </summary>
-    public TerraformProperty<string>? Network
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
+    public required TerraformProperty<string> Network
     {
         get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
@@ -218,6 +386,48 @@ public class GoogleComputeSubnetwork : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("stack_type");
         set => this.WithProperty("stack_type", value);
+    }
+
+    /// <summary>
+    /// Block for log_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
+    public List<GoogleComputeSubnetworkLogConfigBlock>? LogConfig
+    {
+        get => GetProperty<List<GoogleComputeSubnetworkLogConfigBlock>>("log_config");
+        set => this.WithProperty("log_config", value);
+    }
+
+    /// <summary>
+    /// Block for params.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
+    public List<GoogleComputeSubnetworkParamsBlock>? Params
+    {
+        get => GetProperty<List<GoogleComputeSubnetworkParamsBlock>>("params");
+        set => this.WithProperty("params", value);
+    }
+
+    /// <summary>
+    /// Block for secondary_ip_range.
+    /// Nesting mode: list
+    /// </summary>
+    public List<GoogleComputeSubnetworkSecondaryIpRangeBlock>? SecondaryIpRange
+    {
+        get => GetProperty<List<GoogleComputeSubnetworkSecondaryIpRangeBlock>>("secondary_ip_range");
+        set => this.WithProperty("secondary_ip_range", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeSubnetworkTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeSubnetworkTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

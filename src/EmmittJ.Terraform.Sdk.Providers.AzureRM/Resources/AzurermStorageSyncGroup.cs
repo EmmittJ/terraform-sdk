@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermStorageSyncGroupTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_storage_sync_group resource.
 /// </summary>
 public class AzurermStorageSyncGroup : TerraformResource
@@ -28,7 +63,8 @@ public class AzurermStorageSyncGroup : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -37,10 +73,21 @@ public class AzurermStorageSyncGroup : TerraformResource
     /// <summary>
     /// The storage_sync_id attribute.
     /// </summary>
-    public TerraformProperty<string>? StorageSyncId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncId is required")]
+    public required TerraformProperty<string> StorageSyncId
     {
         get => GetProperty<TerraformProperty<string>>("storage_sync_id");
         set => this.WithProperty("storage_sync_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermStorageSyncGroupTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermStorageSyncGroupTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

@@ -28,7 +28,8 @@ public class AwsSqsQueueRedrivePolicy : TerraformResource
     /// <summary>
     /// The queue_url attribute.
     /// </summary>
-    public TerraformProperty<string>? QueueUrl
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueUrl is required")]
+    public required TerraformProperty<string> QueueUrl
     {
         get => GetProperty<TerraformProperty<string>>("queue_url");
         set => this.WithProperty("queue_url", value);
@@ -37,7 +38,8 @@ public class AwsSqsQueueRedrivePolicy : TerraformResource
     /// <summary>
     /// The redrive_policy attribute.
     /// </summary>
-    public TerraformProperty<string>? RedrivePolicy
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedrivePolicy is required")]
+    public required TerraformProperty<string> RedrivePolicy
     {
         get => GetProperty<TerraformProperty<string>>("redrive_policy");
         set => this.WithProperty("redrive_policy", value);

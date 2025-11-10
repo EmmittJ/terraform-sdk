@@ -3,6 +3,79 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for replicas in .
+/// Nesting mode: set
+/// </summary>
+public class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlock
+{
+    /// <summary>
+    /// If true, this location is designated as the default leader location where
+    /// leader replicas are placed.
+    /// </summary>
+    public TerraformProperty<bool>? DefaultLeaderLocation
+    {
+        get => GetProperty<TerraformProperty<bool>>("default_leader_location");
+        set => WithProperty("default_leader_location", value);
+    }
+
+    /// <summary>
+    /// The location of the serving resources, e.g. &amp;quot;us-central1&amp;quot;.
+    /// </summary>
+    public TerraformProperty<string>? Location
+    {
+        get => GetProperty<TerraformProperty<string>>("location");
+        set => WithProperty("location", value);
+    }
+
+    /// <summary>
+    /// Indicates the type of replica.  See the [replica types
+    /// documentation](https://cloud.google.com/spanner/docs/replication#replica_types)
+    /// for more details. Possible values: [&amp;quot;READ_WRITE&amp;quot;, &amp;quot;READ_ONLY&amp;quot;, &amp;quot;WITNESS&amp;quot;]
+    /// </summary>
+    public TerraformProperty<string>? Type
+    {
+        get => GetProperty<TerraformProperty<string>>("type");
+        set => WithProperty("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_spanner_instance_config resource.
 /// </summary>
 public class GoogleSpannerInstanceConfig : TerraformResource
@@ -33,7 +106,8 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     /// <summary>
     /// The name of this instance configuration as it appears in UIs.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -56,9 +130,9 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -79,6 +153,27 @@ public class GoogleSpannerInstanceConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for replicas.
+    /// Nesting mode: set
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replicas block(s) required")]
+    public HashSet<GoogleSpannerInstanceConfigReplicasBlock>? Replicas
+    {
+        get => GetProperty<HashSet<GoogleSpannerInstanceConfigReplicasBlock>>("replicas");
+        set => this.WithProperty("replicas", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleSpannerInstanceConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleSpannerInstanceConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

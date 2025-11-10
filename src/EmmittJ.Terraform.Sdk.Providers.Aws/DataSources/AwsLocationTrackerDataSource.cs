@@ -43,16 +43,17 @@ public class AwsLocationTrackerDataSource : TerraformDataSource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tracker_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TrackerName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackerName is required")]
+    public required TerraformProperty<string> TrackerName
     {
         get => GetProperty<TerraformProperty<string>>("tracker_name");
         set => this.WithProperty("tracker_name", value);

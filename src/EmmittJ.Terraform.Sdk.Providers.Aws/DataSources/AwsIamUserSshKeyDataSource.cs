@@ -22,7 +22,8 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public TerraformProperty<string>? Encoding
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
+    public required TerraformProperty<string> Encoding
     {
         get => GetProperty<TerraformProperty<string>>("encoding");
         set => this.WithProperty("encoding", value);
@@ -40,7 +41,8 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
     /// <summary>
     /// The ssh_public_key_id attribute.
     /// </summary>
-    public TerraformProperty<string>? SshPublicKeyId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeyId is required")]
+    public required TerraformProperty<string> SshPublicKeyId
     {
         get => GetProperty<TerraformProperty<string>>("ssh_public_key_id");
         set => this.WithProperty("ssh_public_key_id", value);
@@ -49,7 +51,8 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformProperty<string>? Username
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
     {
         get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);

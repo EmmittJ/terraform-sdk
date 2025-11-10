@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_backup_dr_backup_plan_association resource.
 /// </summary>
 public class GoogleBackupDrBackupPlanAssociation : TerraformResource
@@ -28,7 +63,8 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// - A Backup Plan configured for &#39;compute.googleapis.com/Instance&#39;, can only protect instance type resources.
     /// - A Backup Plan configured for &#39;compute.googleapis.com/Disk&#39; can be used to protect both standard Disks and Regional Disks resources.
     /// </summary>
-    public TerraformProperty<string>? BackupPlan
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
+    public required TerraformProperty<string> BackupPlan
     {
         get => GetProperty<TerraformProperty<string>>("backup_plan");
         set => this.WithProperty("backup_plan", value);
@@ -37,7 +73,8 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// <summary>
     /// The id of backupplan association
     /// </summary>
-    public TerraformProperty<string>? BackupPlanAssociationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
+    public required TerraformProperty<string> BackupPlanAssociationId
     {
         get => GetProperty<TerraformProperty<string>>("backup_plan_association_id");
         set => this.WithProperty("backup_plan_association_id", value);
@@ -55,7 +92,8 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// <summary>
     /// The location for the backupplan association
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -73,7 +111,8 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// <summary>
     /// The resource for which BPA needs to be created
     /// </summary>
-    public TerraformProperty<string>? Resource
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
+    public required TerraformProperty<string> Resource
     {
         get => GetProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
@@ -83,10 +122,21 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// The resource type of workload on which backupplan is applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, and &amp;quot;compute.googleapis.com/RegionDisk&amp;quot;
     /// </summary>
-    public TerraformProperty<string>? ResourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
+    public required TerraformProperty<string> ResourceType
     {
         get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleBackupDrBackupPlanAssociationTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleBackupDrBackupPlanAssociationTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

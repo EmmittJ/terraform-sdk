@@ -3,6 +3,142 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for maintenance_start_time in .
+/// Nesting mode: list
+/// </summary>
+public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
+{
+    /// <summary>
+    /// The day_of_month attribute.
+    /// </summary>
+    public TerraformProperty<string>? DayOfMonth
+    {
+        get => GetProperty<TerraformProperty<string>>("day_of_month");
+        set => WithProperty("day_of_month", value);
+    }
+
+    /// <summary>
+    /// The day_of_week attribute.
+    /// </summary>
+    public TerraformProperty<string>? DayOfWeek
+    {
+        get => GetProperty<TerraformProperty<string>>("day_of_week");
+        set => WithProperty("day_of_week", value);
+    }
+
+    /// <summary>
+    /// The hour_of_day attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
+    public required TerraformProperty<double> HourOfDay
+    {
+        get => GetProperty<TerraformProperty<double>>("hour_of_day");
+        set => WithProperty("hour_of_day", value);
+    }
+
+    /// <summary>
+    /// The minute_of_hour attribute.
+    /// </summary>
+    public TerraformProperty<double>? MinuteOfHour
+    {
+        get => GetProperty<TerraformProperty<double>>("minute_of_hour");
+        set => WithProperty("minute_of_hour", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for smb_active_directory_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The active_directory_status attribute.
+    /// </summary>
+    public TerraformProperty<string>? ActiveDirectoryStatus
+    {
+        get => GetProperty<TerraformProperty<string>>("active_directory_status");
+        set => WithProperty("active_directory_status", value);
+    }
+
+    /// <summary>
+    /// The domain_controllers attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? DomainControllers
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("domain_controllers");
+        set => WithProperty("domain_controllers", value);
+    }
+
+    /// <summary>
+    /// The domain_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
+    {
+        get => GetProperty<TerraformProperty<string>>("domain_name");
+        set => WithProperty("domain_name", value);
+    }
+
+    /// <summary>
+    /// The organizational_unit attribute.
+    /// </summary>
+    public TerraformProperty<string>? OrganizationalUnit
+    {
+        get => GetProperty<TerraformProperty<string>>("organizational_unit");
+        set => WithProperty("organizational_unit", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformProperty<string> Password
+    {
+        get => GetProperty<TerraformProperty<string>>("password");
+        set => WithProperty("password", value);
+    }
+
+    /// <summary>
+    /// The timeout_in_seconds attribute.
+    /// </summary>
+    public TerraformProperty<double>? TimeoutInSeconds
+    {
+        get => GetProperty<TerraformProperty<double>>("timeout_in_seconds");
+        set => WithProperty("timeout_in_seconds", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformProperty<string> Username
+    {
+        get => GetProperty<TerraformProperty<string>>("username");
+        set => WithProperty("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsStoragegatewayGatewayTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_storagegateway_gateway resource.
 /// </summary>
 public class AwsStoragegatewayGateway : TerraformResource
@@ -70,7 +206,8 @@ public class AwsStoragegatewayGateway : TerraformResource
     /// <summary>
     /// The gateway_name attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
+    public required TerraformProperty<string> GatewayName
     {
         get => GetProperty<TerraformProperty<string>>("gateway_name");
         set => this.WithProperty("gateway_name", value);
@@ -79,7 +216,8 @@ public class AwsStoragegatewayGateway : TerraformResource
     /// <summary>
     /// The gateway_timezone attribute.
     /// </summary>
-    public TerraformProperty<string>? GatewayTimezone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayTimezone is required")]
+    public required TerraformProperty<string> GatewayTimezone
     {
         get => GetProperty<TerraformProperty<string>>("gateway_timezone");
         set => this.WithProperty("gateway_timezone", value);
@@ -160,18 +298,18 @@ public class AwsStoragegatewayGateway : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -182,6 +320,38 @@ public class AwsStoragegatewayGateway : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("tape_drive_type");
         set => this.WithProperty("tape_drive_type", value);
+    }
+
+    /// <summary>
+    /// Block for maintenance_start_time.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceStartTime block(s) allowed")]
+    public List<AwsStoragegatewayGatewayMaintenanceStartTimeBlock>? MaintenanceStartTime
+    {
+        get => GetProperty<List<AwsStoragegatewayGatewayMaintenanceStartTimeBlock>>("maintenance_start_time");
+        set => this.WithProperty("maintenance_start_time", value);
+    }
+
+    /// <summary>
+    /// Block for smb_active_directory_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SmbActiveDirectorySettings block(s) allowed")]
+    public List<AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock>? SmbActiveDirectorySettings
+    {
+        get => GetProperty<List<AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock>>("smb_active_directory_settings");
+        set => this.WithProperty("smb_active_directory_settings", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsStoragegatewayGatewayTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsStoragegatewayGatewayTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

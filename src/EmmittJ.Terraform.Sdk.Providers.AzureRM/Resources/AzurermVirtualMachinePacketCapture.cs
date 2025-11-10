@@ -3,6 +3,130 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for filter in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachinePacketCaptureFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// The local_ip_address attribute.
+    /// </summary>
+    public TerraformProperty<string>? LocalIpAddress
+    {
+        get => GetProperty<TerraformProperty<string>>("local_ip_address");
+        set => WithProperty("local_ip_address", value);
+    }
+
+    /// <summary>
+    /// The local_port attribute.
+    /// </summary>
+    public TerraformProperty<string>? LocalPort
+    {
+        get => GetProperty<TerraformProperty<string>>("local_port");
+        set => WithProperty("local_port", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformProperty<string> Protocol
+    {
+        get => GetProperty<TerraformProperty<string>>("protocol");
+        set => WithProperty("protocol", value);
+    }
+
+    /// <summary>
+    /// The remote_ip_address attribute.
+    /// </summary>
+    public TerraformProperty<string>? RemoteIpAddress
+    {
+        get => GetProperty<TerraformProperty<string>>("remote_ip_address");
+        set => WithProperty("remote_ip_address", value);
+    }
+
+    /// <summary>
+    /// The remote_port attribute.
+    /// </summary>
+    public TerraformProperty<string>? RemotePort
+    {
+        get => GetProperty<TerraformProperty<string>>("remote_port");
+        set => WithProperty("remote_port", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for storage_location in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachinePacketCaptureStorageLocationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The file_path attribute.
+    /// </summary>
+    public TerraformProperty<string>? FilePath
+    {
+        get => GetProperty<TerraformProperty<string>>("file_path");
+        set => WithProperty("file_path", value);
+    }
+
+    /// <summary>
+    /// The storage_account_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? StorageAccountId
+    {
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
+        set => WithProperty("storage_account_id", value);
+    }
+
+    /// <summary>
+    /// The storage_path attribute.
+    /// </summary>
+    public TerraformProperty<string>? StoragePath
+    {
+        get => GetProperty<TerraformProperty<string>>("storage_path");
+        set => WithProperty("storage_path", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermVirtualMachinePacketCaptureTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_virtual_machine_packet_capture resource.
 /// </summary>
 public class AzurermVirtualMachinePacketCapture : TerraformResource
@@ -55,7 +179,8 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -64,7 +189,8 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
     /// <summary>
     /// The network_watcher_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkWatcherId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
+    public required TerraformProperty<string> NetworkWatcherId
     {
         get => GetProperty<TerraformProperty<string>>("network_watcher_id");
         set => this.WithProperty("network_watcher_id", value);
@@ -73,10 +199,43 @@ public class AzurermVirtualMachinePacketCapture : TerraformResource
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VirtualMachineId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
+    public required TerraformProperty<string> VirtualMachineId
     {
         get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
+    }
+
+    /// <summary>
+    /// Block for filter.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AzurermVirtualMachinePacketCaptureFilterBlock>? Filter
+    {
+        get => GetProperty<List<AzurermVirtualMachinePacketCaptureFilterBlock>>("filter");
+        set => this.WithProperty("filter", value);
+    }
+
+    /// <summary>
+    /// Block for storage_location.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
+    public List<AzurermVirtualMachinePacketCaptureStorageLocationBlock>? StorageLocation
+    {
+        get => GetProperty<List<AzurermVirtualMachinePacketCaptureStorageLocationBlock>>("storage_location");
+        set => this.WithProperty("storage_location", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermVirtualMachinePacketCaptureTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermVirtualMachinePacketCaptureTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

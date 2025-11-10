@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for media_insights_configuration in .
+/// Nesting mode: list
+/// </summary>
+public class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// The configuration_arn attribute.
+    /// </summary>
+    public TerraformProperty<string>? ConfigurationArn
+    {
+        get => GetProperty<TerraformProperty<string>>("configuration_arn");
+        set => WithProperty("configuration_arn", value);
+    }
+
+    /// <summary>
+    /// The disabled attribute.
+    /// </summary>
+    public TerraformProperty<bool>? Disabled
+    {
+        get => GetProperty<TerraformProperty<bool>>("disabled");
+        set => WithProperty("disabled", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_chime_voice_connector_streaming resource.
 /// </summary>
 public class AwsChimeVoiceConnectorStreaming : TerraformResource
@@ -19,7 +45,8 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
     /// <summary>
     /// The data_retention attribute.
     /// </summary>
-    public TerraformProperty<double>? DataRetention
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRetention is required")]
+    public required TerraformProperty<double> DataRetention
     {
         get => GetProperty<TerraformProperty<double>>("data_retention");
         set => this.WithProperty("data_retention", value);
@@ -55,19 +82,31 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
     /// <summary>
     /// The streaming_notification_targets attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? StreamingNotificationTargets
+    public HashSet<TerraformProperty<string>>? StreamingNotificationTargets
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("streaming_notification_targets");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("streaming_notification_targets");
         set => this.WithProperty("streaming_notification_targets", value);
     }
 
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VoiceConnectorId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
+    public required TerraformProperty<string> VoiceConnectorId
     {
         get => GetProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);
+    }
+
+    /// <summary>
+    /// Block for media_insights_configuration.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MediaInsightsConfiguration block(s) allowed")]
+    public List<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>? MediaInsightsConfiguration
+    {
+        get => GetProperty<List<AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock>>("media_insights_configuration");
+        set => this.WithProperty("media_insights_configuration", value);
     }
 
 }

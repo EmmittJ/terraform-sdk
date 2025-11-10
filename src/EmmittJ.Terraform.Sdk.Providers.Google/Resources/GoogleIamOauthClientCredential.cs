@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_iam_oauth_client_credential resource.
 /// </summary>
 public class GoogleIamOauthClientCredential : TerraformResource
@@ -51,7 +86,8 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -63,7 +99,8 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// and may contain the characters [a-z0-9-]. The prefix &#39;gcp-&#39; is
     /// reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformProperty<string>? OauthClientCredentialId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientCredentialId is required")]
+    public required TerraformProperty<string> OauthClientCredentialId
     {
         get => GetProperty<TerraformProperty<string>>("oauth_client_credential_id");
         set => this.WithProperty("oauth_client_credential_id", value);
@@ -72,7 +109,8 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Oauthclient
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauthclient is required")]
+    public required TerraformProperty<string> Oauthclient
     {
         get => GetProperty<TerraformProperty<string>>("oauthclient");
         set => this.WithProperty("oauthclient", value);
@@ -85,6 +123,16 @@ public class GoogleIamOauthClientCredential : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleIamOauthClientCredentialTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleIamOauthClientCredentialTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

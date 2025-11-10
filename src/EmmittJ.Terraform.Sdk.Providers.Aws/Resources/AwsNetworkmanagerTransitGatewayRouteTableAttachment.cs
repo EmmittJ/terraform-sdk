@@ -3,6 +3,32 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsNetworkmanagerTransitGatewayRouteTableAttachmentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_networkmanager_transit_gateway_route_table_attachment resource.
 /// </summary>
 public class AwsNetworkmanagerTransitGatewayRouteTableAttachment : TerraformResource
@@ -38,7 +64,8 @@ public class AwsNetworkmanagerTransitGatewayRouteTableAttachment : TerraformReso
     /// <summary>
     /// The peering_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PeeringId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
+    public required TerraformProperty<string> PeeringId
     {
         get => GetProperty<TerraformProperty<string>>("peering_id");
         set => this.WithProperty("peering_id", value);
@@ -47,28 +74,39 @@ public class AwsNetworkmanagerTransitGatewayRouteTableAttachment : TerraformReso
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_route_table_arn attribute.
     /// </summary>
-    public TerraformProperty<string>? TransitGatewayRouteTableArn
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableArn is required")]
+    public required TerraformProperty<string> TransitGatewayRouteTableArn
     {
         get => GetProperty<TerraformProperty<string>>("transit_gateway_route_table_arn");
         set => this.WithProperty("transit_gateway_route_table_arn", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsNetworkmanagerTransitGatewayRouteTableAttachmentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsNetworkmanagerTransitGatewayRouteTableAttachmentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

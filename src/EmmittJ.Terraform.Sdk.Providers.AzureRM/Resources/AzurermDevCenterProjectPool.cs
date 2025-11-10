@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermDevCenterProjectPoolTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_dev_center_project_pool resource.
 /// </summary>
 public class AzurermDevCenterProjectPool : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermDevCenterProjectPool : TerraformResource
     /// <summary>
     /// The dev_box_definition_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DevBoxDefinitionName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevBoxDefinitionName is required")]
+    public required TerraformProperty<string> DevBoxDefinitionName
     {
         get => GetProperty<TerraformProperty<string>>("dev_box_definition_name");
         set => this.WithProperty("dev_box_definition_name", value);
@@ -28,7 +73,8 @@ public class AzurermDevCenterProjectPool : TerraformResource
     /// <summary>
     /// The dev_center_attached_network_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DevCenterAttachedNetworkName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterAttachedNetworkName is required")]
+    public required TerraformProperty<string> DevCenterAttachedNetworkName
     {
         get => GetProperty<TerraformProperty<string>>("dev_center_attached_network_name");
         set => this.WithProperty("dev_center_attached_network_name", value);
@@ -37,7 +83,8 @@ public class AzurermDevCenterProjectPool : TerraformResource
     /// <summary>
     /// The dev_center_project_id attribute.
     /// </summary>
-    public TerraformProperty<string>? DevCenterProjectId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
+    public required TerraformProperty<string> DevCenterProjectId
     {
         get => GetProperty<TerraformProperty<string>>("dev_center_project_id");
         set => this.WithProperty("dev_center_project_id", value);
@@ -55,7 +102,8 @@ public class AzurermDevCenterProjectPool : TerraformResource
     /// <summary>
     /// The local_administrator_enabled attribute.
     /// </summary>
-    public TerraformProperty<bool>? LocalAdministratorEnabled
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalAdministratorEnabled is required")]
+    public required TerraformProperty<bool> LocalAdministratorEnabled
     {
         get => GetProperty<TerraformProperty<bool>>("local_administrator_enabled");
         set => this.WithProperty("local_administrator_enabled", value);
@@ -64,7 +112,8 @@ public class AzurermDevCenterProjectPool : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -73,16 +122,17 @@ public class AzurermDevCenterProjectPool : TerraformResource
     /// <summary>
     /// The managed_virtual_network_regions attribute.
     /// </summary>
-    public TerraformProperty<List<string>>? ManagedVirtualNetworkRegions
+    public List<TerraformProperty<string>>? ManagedVirtualNetworkRegions
     {
-        get => GetProperty<TerraformProperty<List<string>>>("managed_virtual_network_regions");
+        get => GetProperty<List<TerraformProperty<string>>>("managed_virtual_network_regions");
         set => this.WithProperty("managed_virtual_network_regions", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -109,10 +159,20 @@ public class AzurermDevCenterProjectPool : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermDevCenterProjectPoolTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermDevCenterProjectPoolTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

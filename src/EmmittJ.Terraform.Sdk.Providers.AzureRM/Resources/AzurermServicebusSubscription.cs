@@ -3,6 +3,85 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for client_scoped_subscription in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    public TerraformProperty<string>? ClientId
+    {
+        get => GetProperty<TerraformProperty<string>>("client_id");
+        set => WithProperty("client_id", value);
+    }
+
+    /// <summary>
+    /// The is_client_scoped_subscription_durable attribute.
+    /// </summary>
+    public TerraformProperty<bool>? IsClientScopedSubscriptionDurable
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_client_scoped_subscription_durable");
+        set => WithProperty("is_client_scoped_subscription_durable", value);
+    }
+
+    /// <summary>
+    /// The is_client_scoped_subscription_shareable attribute.
+    /// </summary>
+    public TerraformProperty<bool>? IsClientScopedSubscriptionShareable
+    {
+        get => GetProperty<TerraformProperty<bool>>("is_client_scoped_subscription_shareable");
+        set => WithProperty("is_client_scoped_subscription_shareable", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_servicebus_subscription resource.
 /// </summary>
 public class AzurermServicebusSubscription : TerraformResource
@@ -109,7 +188,8 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    public TerraformProperty<double>? MaxDeliveryCount
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryCount is required")]
+    public required TerraformProperty<double> MaxDeliveryCount
     {
         get => GetProperty<TerraformProperty<double>>("max_delivery_count");
         set => this.WithProperty("max_delivery_count", value);
@@ -118,7 +198,8 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -145,10 +226,32 @@ public class AzurermServicebusSubscription : TerraformResource
     /// <summary>
     /// The topic_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TopicId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
+    public required TerraformProperty<string> TopicId
     {
         get => GetProperty<TerraformProperty<string>>("topic_id");
         set => this.WithProperty("topic_id", value);
+    }
+
+    /// <summary>
+    /// Block for client_scoped_subscription.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientScopedSubscription block(s) allowed")]
+    public List<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>? ClientScopedSubscription
+    {
+        get => GetProperty<List<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>>("client_scoped_subscription");
+        set => this.WithProperty("client_scoped_subscription", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermServicebusSubscriptionTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermServicebusSubscriptionTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

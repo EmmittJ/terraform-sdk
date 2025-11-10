@@ -3,6 +3,50 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermSiteRecoveryVmwareReplicationPolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_site_recovery_vmware_replication_policy resource.
 /// </summary>
 public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
@@ -19,7 +63,8 @@ public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
     /// <summary>
     /// The application_consistent_snapshot_frequency_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? ApplicationConsistentSnapshotFrequencyInMinutes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationConsistentSnapshotFrequencyInMinutes is required")]
+    public required TerraformProperty<double> ApplicationConsistentSnapshotFrequencyInMinutes
     {
         get => GetProperty<TerraformProperty<double>>("application_consistent_snapshot_frequency_in_minutes");
         set => this.WithProperty("application_consistent_snapshot_frequency_in_minutes", value);
@@ -37,7 +82,8 @@ public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -46,7 +92,8 @@ public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
     /// <summary>
     /// The recovery_point_retention_in_minutes attribute.
     /// </summary>
-    public TerraformProperty<double>? RecoveryPointRetentionInMinutes
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointRetentionInMinutes is required")]
+    public required TerraformProperty<double> RecoveryPointRetentionInMinutes
     {
         get => GetProperty<TerraformProperty<double>>("recovery_point_retention_in_minutes");
         set => this.WithProperty("recovery_point_retention_in_minutes", value);
@@ -55,10 +102,21 @@ public class AzurermSiteRecoveryVmwareReplicationPolicy : TerraformResource
     /// <summary>
     /// The recovery_vault_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RecoveryVaultId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
+    public required TerraformProperty<string> RecoveryVaultId
     {
         get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermSiteRecoveryVmwareReplicationPolicyTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermSiteRecoveryVmwareReplicationPolicyTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

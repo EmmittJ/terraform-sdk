@@ -3,6 +3,60 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for job_template_data in .
+/// Nesting mode: list
+/// </summary>
+public class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlock
+{
+    /// <summary>
+    /// The execution_role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
+    public required TerraformProperty<string> ExecutionRoleArn
+    {
+        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
+        set => WithProperty("execution_role_arn", value);
+    }
+
+    /// <summary>
+    /// The job_tags attribute.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? JobTags
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("job_tags");
+        set => WithProperty("job_tags", value);
+    }
+
+    /// <summary>
+    /// The release_label attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
+    public required TerraformProperty<string> ReleaseLabel
+    {
+        get => GetProperty<TerraformProperty<string>>("release_label");
+        set => WithProperty("release_label", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AwsEmrcontainersJobTemplateTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_emrcontainers_job_template resource.
 /// </summary>
 public class AwsEmrcontainersJobTemplate : TerraformResource
@@ -38,7 +92,8 @@ public class AwsEmrcontainersJobTemplate : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -56,19 +111,41 @@ public class AwsEmrcontainersJobTemplate : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
+    }
+
+    /// <summary>
+    /// Block for job_template_data.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 JobTemplateData block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobTemplateData block(s) allowed")]
+    public List<AwsEmrcontainersJobTemplateJobTemplateDataBlock>? JobTemplateData
+    {
+        get => GetProperty<List<AwsEmrcontainersJobTemplateJobTemplateDataBlock>>("job_template_data");
+        set => this.WithProperty("job_template_data", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AwsEmrcontainersJobTemplateTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AwsEmrcontainersJobTemplateTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

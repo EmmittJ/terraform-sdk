@@ -3,6 +3,132 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 
 /// <summary>
+/// Block type for contact in .
+/// Nesting mode: set
+/// </summary>
+public class AzurermKeyVaultContactBlock : TerraformBlock
+{
+    /// <summary>
+    /// The email attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
+    public required TerraformProperty<string> Email
+    {
+        get => GetProperty<TerraformProperty<string>>("email");
+        set => WithProperty("email", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformProperty<string>? Name
+    {
+        get => GetProperty<TerraformProperty<string>>("name");
+        set => WithProperty("name", value);
+    }
+
+    /// <summary>
+    /// The phone attribute.
+    /// </summary>
+    public TerraformProperty<string>? Phone
+    {
+        get => GetProperty<TerraformProperty<string>>("phone");
+        set => WithProperty("phone", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for network_acls in .
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The bypass attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bypass is required")]
+    public required TerraformProperty<string> Bypass
+    {
+        get => GetProperty<TerraformProperty<string>>("bypass");
+        set => WithProperty("bypass", value);
+    }
+
+    /// <summary>
+    /// The default_action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
+    public required TerraformProperty<string> DefaultAction
+    {
+        get => GetProperty<TerraformProperty<string>>("default_action");
+        set => WithProperty("default_action", value);
+    }
+
+    /// <summary>
+    /// The ip_rules attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? IpRules
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("ip_rules");
+        set => WithProperty("ip_rules", value);
+    }
+
+    /// <summary>
+    /// The virtual_network_subnet_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? VirtualNetworkSubnetIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("virtual_network_subnet_ids");
+        set => WithProperty("virtual_network_subnet_ids", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class AzurermKeyVaultTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformProperty<string>? Read
+    {
+        get => GetProperty<TerraformProperty<string>>("read");
+        set => WithProperty("read", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a azurerm_key_vault resource.
 /// </summary>
 public class AzurermKeyVault : TerraformResource
@@ -20,9 +146,9 @@ public class AzurermKeyVault : TerraformResource
     /// <summary>
     /// The access_policy attribute.
     /// </summary>
-    public TerraformProperty<List<object>>? AccessPolicy
+    public List<TerraformProperty<object>>? AccessPolicy
     {
-        get => GetProperty<TerraformProperty<List<object>>>("access_policy");
+        get => GetProperty<List<TerraformProperty<object>>>("access_policy");
         set => this.WithProperty("access_policy", value);
     }
 
@@ -75,7 +201,8 @@ public class AzurermKeyVault : TerraformResource
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -84,7 +211,8 @@ public class AzurermKeyVault : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -120,7 +248,8 @@ public class AzurermKeyVault : TerraformResource
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
+    public required TerraformProperty<string> ResourceGroupName
     {
         get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
@@ -129,7 +258,8 @@ public class AzurermKeyVault : TerraformResource
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformProperty<string>? SkuName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
+    public required TerraformProperty<string> SkuName
     {
         get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
@@ -147,19 +277,51 @@ public class AzurermKeyVault : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformProperty<string>? TenantId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformProperty<string> TenantId
     {
         get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
+    }
+
+    /// <summary>
+    /// Block for contact.
+    /// Nesting mode: set
+    /// </summary>
+    public HashSet<AzurermKeyVaultContactBlock>? Contact
+    {
+        get => GetProperty<HashSet<AzurermKeyVaultContactBlock>>("contact");
+        set => this.WithProperty("contact", value);
+    }
+
+    /// <summary>
+    /// Block for network_acls.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
+    public List<AzurermKeyVaultNetworkAclsBlock>? NetworkAcls
+    {
+        get => GetProperty<List<AzurermKeyVaultNetworkAclsBlock>>("network_acls");
+        set => this.WithProperty("network_acls", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public AzurermKeyVaultTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<AzurermKeyVaultTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

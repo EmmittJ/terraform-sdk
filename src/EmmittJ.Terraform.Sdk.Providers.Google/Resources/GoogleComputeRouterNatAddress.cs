@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeRouterNatAddressTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_router_nat_address resource.
 /// </summary>
 public class GoogleComputeRouterNatAddress : TerraformResource
@@ -20,9 +55,9 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? DrainNatIps
+    public HashSet<TerraformProperty<string>>? DrainNatIps
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("drain_nat_ips");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("drain_nat_ips");
         set => this.WithProperty("drain_nat_ips", value);
     }
 
@@ -39,9 +74,10 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     /// Self-links of NAT IPs to be used in a Nat service. Only valid if the referenced RouterNat
     /// natIpAllocateOption is set to MANUAL_ONLY.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? NatIps
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatIps is required")]
+    public HashSet<TerraformProperty<string>>? NatIps
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("nat_ips");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("nat_ips");
         set => this.WithProperty("nat_ips", value);
     }
 
@@ -66,7 +102,8 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     /// <summary>
     /// The name of the Cloud Router in which the referenced NAT service is configured.
     /// </summary>
-    public TerraformProperty<string>? Router
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
+    public required TerraformProperty<string> Router
     {
         get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
@@ -75,10 +112,21 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     /// <summary>
     /// The name of the Nat service in which this address will be configured.
     /// </summary>
-    public TerraformProperty<string>? RouterNat
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterNat is required")]
+    public required TerraformProperty<string> RouterNat
     {
         get => GetProperty<TerraformProperty<string>>("router_nat");
         set => this.WithProperty("router_nat", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputeRouterNatAddressTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputeRouterNatAddressTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

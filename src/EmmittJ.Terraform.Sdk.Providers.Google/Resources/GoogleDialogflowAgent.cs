@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleDialogflowAgentTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_dialogflow_agent resource.
 /// </summary>
 public class GoogleDialogflowAgent : TerraformResource
@@ -59,7 +94,8 @@ public class GoogleDialogflowAgent : TerraformResource
     /// The default language of the agent as a language tag. [See Language Support](https://cloud.google.com/dialogflow/docs/reference/language)
     /// for a list of the currently supported language codes. This field cannot be updated after creation.
     /// </summary>
-    public TerraformProperty<string>? DefaultLanguageCode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
+    public required TerraformProperty<string> DefaultLanguageCode
     {
         get => GetProperty<TerraformProperty<string>>("default_language_code");
         set => this.WithProperty("default_language_code", value);
@@ -77,7 +113,8 @@ public class GoogleDialogflowAgent : TerraformResource
     /// <summary>
     /// The name of this agent.
     /// </summary>
-    public TerraformProperty<string>? DisplayName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
+    public required TerraformProperty<string> DisplayName
     {
         get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
@@ -126,9 +163,9 @@ public class GoogleDialogflowAgent : TerraformResource
     /// <summary>
     /// The list of all languages supported by this agent (except for the defaultLanguageCode).
     /// </summary>
-    public TerraformProperty<List<string>>? SupportedLanguageCodes
+    public List<TerraformProperty<string>>? SupportedLanguageCodes
     {
-        get => GetProperty<TerraformProperty<List<string>>>("supported_language_codes");
+        get => GetProperty<List<TerraformProperty<string>>>("supported_language_codes");
         set => this.WithProperty("supported_language_codes", value);
     }
 
@@ -150,10 +187,21 @@ public class GoogleDialogflowAgent : TerraformResource
     /// The time zone of this agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York,
     /// Europe/Paris.
     /// </summary>
-    public TerraformProperty<string>? TimeZone
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
+    public required TerraformProperty<string> TimeZone
     {
         get => GetProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleDialogflowAgentTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleDialogflowAgentTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

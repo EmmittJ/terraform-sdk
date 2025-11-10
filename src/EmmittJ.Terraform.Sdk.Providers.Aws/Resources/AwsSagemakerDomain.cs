@@ -3,6 +3,130 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for default_space_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerDomainDefaultSpaceSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The execution_role attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
+    public required TerraformProperty<string> ExecutionRole
+    {
+        get => GetProperty<TerraformProperty<string>>("execution_role");
+        set => WithProperty("execution_role", value);
+    }
+
+    /// <summary>
+    /// The security_groups attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SecurityGroups
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
+        set => WithProperty("security_groups", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for default_user_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerDomainDefaultUserSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The auto_mount_home_efs attribute.
+    /// </summary>
+    public TerraformProperty<string>? AutoMountHomeEfs
+    {
+        get => GetProperty<TerraformProperty<string>>("auto_mount_home_efs");
+        set => WithProperty("auto_mount_home_efs", value);
+    }
+
+    /// <summary>
+    /// The default_landing_uri attribute.
+    /// </summary>
+    public TerraformProperty<string>? DefaultLandingUri
+    {
+        get => GetProperty<TerraformProperty<string>>("default_landing_uri");
+        set => WithProperty("default_landing_uri", value);
+    }
+
+    /// <summary>
+    /// The execution_role attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
+    public required TerraformProperty<string> ExecutionRole
+    {
+        get => GetProperty<TerraformProperty<string>>("execution_role");
+        set => WithProperty("execution_role", value);
+    }
+
+    /// <summary>
+    /// The security_groups attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SecurityGroups
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_groups");
+        set => WithProperty("security_groups", value);
+    }
+
+    /// <summary>
+    /// The studio_web_portal attribute.
+    /// </summary>
+    public TerraformProperty<string>? StudioWebPortal
+    {
+        get => GetProperty<TerraformProperty<string>>("studio_web_portal");
+        set => WithProperty("studio_web_portal", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for domain_settings in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerDomainDomainSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The execution_role_identity_config attribute.
+    /// </summary>
+    public TerraformProperty<string>? ExecutionRoleIdentityConfig
+    {
+        get => GetProperty<TerraformProperty<string>>("execution_role_identity_config");
+        set => WithProperty("execution_role_identity_config", value);
+    }
+
+    /// <summary>
+    /// The security_group_ids attribute.
+    /// </summary>
+    public HashSet<TerraformProperty<string>>? SecurityGroupIds
+    {
+        get => GetProperty<HashSet<TerraformProperty<string>>>("security_group_ids");
+        set => WithProperty("security_group_ids", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for retention_policy in .
+/// Nesting mode: list
+/// </summary>
+public class AwsSagemakerDomainRetentionPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// The home_efs_file_system attribute.
+    /// </summary>
+    public TerraformProperty<string>? HomeEfsFileSystem
+    {
+        get => GetProperty<TerraformProperty<string>>("home_efs_file_system");
+        set => WithProperty("home_efs_file_system", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_sagemaker_domain resource.
 /// </summary>
 public class AwsSagemakerDomain : TerraformResource
@@ -43,7 +167,8 @@ public class AwsSagemakerDomain : TerraformResource
     /// <summary>
     /// The auth_mode attribute.
     /// </summary>
-    public TerraformProperty<string>? AuthMode
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthMode is required")]
+    public required TerraformProperty<string> AuthMode
     {
         get => GetProperty<TerraformProperty<string>>("auth_mode");
         set => this.WithProperty("auth_mode", value);
@@ -52,7 +177,8 @@ public class AwsSagemakerDomain : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformProperty<string>? DomainName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformProperty<string> DomainName
     {
         get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
@@ -88,9 +214,10 @@ public class AwsSagemakerDomain : TerraformResource
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? SubnetIds
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public HashSet<TerraformProperty<string>>? SubnetIds
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
@@ -106,28 +233,74 @@ public class AwsSagemakerDomain : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformProperty<string>? VpcId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
+    public required TerraformProperty<string> VpcId
     {
         get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
+    }
+
+    /// <summary>
+    /// Block for default_space_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultSpaceSettings block(s) allowed")]
+    public List<AwsSagemakerDomainDefaultSpaceSettingsBlock>? DefaultSpaceSettings
+    {
+        get => GetProperty<List<AwsSagemakerDomainDefaultSpaceSettingsBlock>>("default_space_settings");
+        set => this.WithProperty("default_space_settings", value);
+    }
+
+    /// <summary>
+    /// Block for default_user_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultUserSettings block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultUserSettings block(s) allowed")]
+    public List<AwsSagemakerDomainDefaultUserSettingsBlock>? DefaultUserSettings
+    {
+        get => GetProperty<List<AwsSagemakerDomainDefaultUserSettingsBlock>>("default_user_settings");
+        set => this.WithProperty("default_user_settings", value);
+    }
+
+    /// <summary>
+    /// Block for domain_settings.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainSettings block(s) allowed")]
+    public List<AwsSagemakerDomainDomainSettingsBlock>? DomainSettings
+    {
+        get => GetProperty<List<AwsSagemakerDomainDomainSettingsBlock>>("domain_settings");
+        set => this.WithProperty("domain_settings", value);
+    }
+
+    /// <summary>
+    /// Block for retention_policy.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
+    public List<AwsSagemakerDomainRetentionPolicyBlock>? RetentionPolicy
+    {
+        get => GetProperty<List<AwsSagemakerDomainRetentionPolicyBlock>>("retention_policy");
+        set => this.WithProperty("retention_policy", value);
     }
 
     /// <summary>

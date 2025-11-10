@@ -19,7 +19,8 @@ public class AwsPinpointBaiduChannel : TerraformResource
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public TerraformProperty<string>? ApiKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
+    public required TerraformProperty<string> ApiKey
     {
         get => GetProperty<TerraformProperty<string>>("api_key");
         set => this.WithProperty("api_key", value);
@@ -28,7 +29,8 @@ public class AwsPinpointBaiduChannel : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ApplicationId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformProperty<string> ApplicationId
     {
         get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
@@ -64,7 +66,8 @@ public class AwsPinpointBaiduChannel : TerraformResource
     /// <summary>
     /// The secret_key attribute.
     /// </summary>
-    public TerraformProperty<string>? SecretKey
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretKey is required")]
+    public required TerraformProperty<string> SecretKey
     {
         get => GetProperty<TerraformProperty<string>>("secret_key");
         set => this.WithProperty("secret_key", value);

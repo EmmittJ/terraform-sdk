@@ -3,6 +3,58 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for preserved_state in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleComputePerInstanceConfigPreservedStateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Preserved metadata defined for this instance. This is a list of key-&amp;gt;value pairs.
+    /// </summary>
+    public Dictionary<string, TerraformProperty<string>>? Metadata
+    {
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("metadata");
+        set => WithProperty("metadata", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputePerInstanceConfigTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_compute_per_instance_config resource.
 /// </summary>
 public class GoogleComputePerInstanceConfig : TerraformResource
@@ -28,7 +80,8 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// <summary>
     /// The instance group manager this instance config is part of.
     /// </summary>
-    public TerraformProperty<string>? InstanceGroupManager
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceGroupManager is required")]
+    public required TerraformProperty<string> InstanceGroupManager
     {
         get => GetProperty<TerraformProperty<string>>("instance_group_manager");
         set => this.WithProperty("instance_group_manager", value);
@@ -65,7 +118,8 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// <summary>
     /// The name for this per-instance config and its corresponding instance.
     /// </summary>
-    public TerraformProperty<string>? Name
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformProperty<string> Name
     {
         get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
@@ -108,6 +162,27 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
+    }
+
+    /// <summary>
+    /// Block for preserved_state.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreservedState block(s) allowed")]
+    public List<GoogleComputePerInstanceConfigPreservedStateBlock>? PreservedState
+    {
+        get => GetProperty<List<GoogleComputePerInstanceConfigPreservedStateBlock>>("preserved_state");
+        set => this.WithProperty("preserved_state", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleComputePerInstanceConfigTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleComputePerInstanceConfigTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

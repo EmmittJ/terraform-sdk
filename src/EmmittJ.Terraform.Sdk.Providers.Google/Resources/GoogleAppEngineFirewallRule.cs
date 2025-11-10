@@ -3,6 +3,41 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleAppEngineFirewallRuleTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_app_engine_firewall_rule resource.
 /// </summary>
 public class GoogleAppEngineFirewallRule : TerraformResource
@@ -19,7 +54,8 @@ public class GoogleAppEngineFirewallRule : TerraformResource
     /// <summary>
     /// The action to take if this rule matches. Possible values: [&amp;quot;UNSPECIFIED_ACTION&amp;quot;, &amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
-    public TerraformProperty<string>? Action
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformProperty<string> Action
     {
         get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
@@ -69,10 +105,21 @@ public class GoogleAppEngineFirewallRule : TerraformResource
     /// <summary>
     /// IP address or range, defined using CIDR notation, of requests that this rule applies to.
     /// </summary>
-    public TerraformProperty<string>? SourceRange
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRange is required")]
+    public required TerraformProperty<string> SourceRange
     {
         get => GetProperty<TerraformProperty<string>>("source_range");
         set => this.WithProperty("source_range", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleAppEngineFirewallRuleTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleAppEngineFirewallRuleTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
 }

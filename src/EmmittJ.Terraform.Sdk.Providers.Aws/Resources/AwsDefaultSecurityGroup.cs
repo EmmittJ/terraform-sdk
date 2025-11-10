@@ -24,9 +24,9 @@ public class AwsDefaultSecurityGroup : TerraformResource
     /// <summary>
     /// The egress attribute.
     /// </summary>
-    public TerraformProperty<HashSet<object>>? Egress
+    public HashSet<TerraformProperty<object>>? Egress
     {
-        get => GetProperty<TerraformProperty<HashSet<object>>>("egress");
+        get => GetProperty<HashSet<TerraformProperty<object>>>("egress");
         set => this.WithProperty("egress", value);
     }
 
@@ -42,9 +42,9 @@ public class AwsDefaultSecurityGroup : TerraformResource
     /// <summary>
     /// The ingress attribute.
     /// </summary>
-    public TerraformProperty<HashSet<object>>? Ingress
+    public HashSet<TerraformProperty<object>>? Ingress
     {
-        get => GetProperty<TerraformProperty<HashSet<object>>>("ingress");
+        get => GetProperty<HashSet<TerraformProperty<object>>>("ingress");
         set => this.WithProperty("ingress", value);
     }
 
@@ -69,18 +69,18 @@ public class AwsDefaultSecurityGroup : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

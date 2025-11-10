@@ -20,7 +20,8 @@ public class AwsPaymentcryptographyKeyAlias : TerraformResource
     /// <summary>
     /// The alias_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AliasName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
+    public required TerraformProperty<string> AliasName
     {
         get => GetProperty<TerraformProperty<string>>("alias_name");
         set => this.WithProperty("alias_name", value);

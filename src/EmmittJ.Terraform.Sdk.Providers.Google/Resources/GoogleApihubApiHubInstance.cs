@@ -3,6 +3,96 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
+/// Block type for config in .
+/// Nesting mode: list
+/// </summary>
+public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Optional. The Customer Managed Encryption Key (CMEK) used for data encryption.
+    /// The CMEK name should follow the format of
+    /// &#39;projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)&#39;,
+    /// where the location must match the instance location.
+    /// If the CMEK is not provided, a GMEK will be created for the instance.
+    /// </summary>
+    public TerraformProperty<string>? CmekKeyName
+    {
+        get => GetProperty<TerraformProperty<string>>("cmek_key_name");
+        set => WithProperty("cmek_key_name", value);
+    }
+
+    /// <summary>
+    /// Optional. If true, the search will be disabled for the instance. The default value
+    /// is false.
+    /// </summary>
+    public TerraformProperty<bool>? DisableSearch
+    {
+        get => GetProperty<TerraformProperty<bool>>("disable_search");
+        set => WithProperty("disable_search", value);
+    }
+
+    /// <summary>
+    /// Optional. Encryption type for the region. If the encryption type is CMEK, the
+    /// cmek_key_name must be provided. If no encryption type is provided,
+    /// GMEK will be used.
+    /// Possible values:
+    /// ENCRYPTION_TYPE_UNSPECIFIED
+    /// GMEK
+    /// CMEK
+    /// </summary>
+    public TerraformProperty<string>? EncryptionType
+    {
+        get => GetProperty<TerraformProperty<string>>("encryption_type");
+        set => WithProperty("encryption_type", value);
+    }
+
+    /// <summary>
+    /// Optional. The name of the Vertex AI location where the data store is stored.
+    /// </summary>
+    public TerraformProperty<string>? VertexLocation
+    {
+        get => GetProperty<TerraformProperty<string>>("vertex_location");
+        set => WithProperty("vertex_location", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for timeouts in .
+/// Nesting mode: single
+/// </summary>
+public class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformProperty<string>? Create
+    {
+        get => GetProperty<TerraformProperty<string>>("create");
+        set => WithProperty("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformProperty<string>? Delete
+    {
+        get => GetProperty<TerraformProperty<string>>("delete");
+        set => WithProperty("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformProperty<string>? Update
+    {
+        get => GetProperty<TerraformProperty<string>>("update");
+        set => WithProperty("update", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a google_apihub_api_hub_instance resource.
 /// </summary>
 public class GoogleApihubApiHubInstance : TerraformResource
@@ -63,16 +153,17 @@ public class GoogleApihubApiHubInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMapProperty<string>? Labels
+    public Dictionary<string, TerraformProperty<string>>? Labels
     {
-        get => GetProperty<TerraformMapProperty<string>>("labels");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformProperty<string>? Location
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformProperty<string> Location
     {
         get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
@@ -85,6 +176,28 @@ public class GoogleApihubApiHubInstance : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
+    }
+
+    /// <summary>
+    /// Block for config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
+    public List<GoogleApihubApiHubInstanceConfigBlock>? Config
+    {
+        get => GetProperty<List<GoogleApihubApiHubInstanceConfigBlock>>("config");
+        set => this.WithProperty("config", value);
+    }
+
+    /// <summary>
+    /// Block for timeouts.
+    /// Nesting mode: single
+    /// </summary>
+    public GoogleApihubApiHubInstanceTimeoutsBlock? Timeouts
+    {
+        get => GetProperty<GoogleApihubApiHubInstanceTimeoutsBlock>("timeouts");
+        set => this.WithProperty("timeouts", value);
     }
 
     /// <summary>

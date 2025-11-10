@@ -3,6 +3,24 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for definition in .
+/// Nesting mode: list
+/// </summary>
+public class AwsVerifiedpermissionsSchemaDefinitionBlock : TerraformBlock
+{
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_verifiedpermissions_schema resource.
 /// </summary>
 public class AwsVerifiedpermissionsSchema : TerraformResource
@@ -21,7 +39,8 @@ public class AwsVerifiedpermissionsSchema : TerraformResource
     /// <summary>
     /// The policy_store_id attribute.
     /// </summary>
-    public TerraformProperty<string>? PolicyStoreId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
+    public required TerraformProperty<string> PolicyStoreId
     {
         get => GetProperty<TerraformProperty<string>>("policy_store_id");
         set => this.WithProperty("policy_store_id", value);
@@ -34,6 +53,16 @@ public class AwsVerifiedpermissionsSchema : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for definition.
+    /// Nesting mode: list
+    /// </summary>
+    public List<AwsVerifiedpermissionsSchemaDefinitionBlock>? Definition
+    {
+        get => GetProperty<List<AwsVerifiedpermissionsSchemaDefinitionBlock>>("definition");
+        set => this.WithProperty("definition", value);
     }
 
     /// <summary>

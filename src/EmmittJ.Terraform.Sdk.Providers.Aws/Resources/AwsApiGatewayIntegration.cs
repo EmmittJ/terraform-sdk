@@ -3,6 +3,23 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for tls_config in .
+/// Nesting mode: list
+/// </summary>
+public class AwsApiGatewayIntegrationTlsConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// The insecure_skip_verification attribute.
+    /// </summary>
+    public TerraformProperty<bool>? InsecureSkipVerification
+    {
+        get => GetProperty<TerraformProperty<bool>>("insecure_skip_verification");
+        set => WithProperty("insecure_skip_verification", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_api_gateway_integration resource.
 /// </summary>
 public class AwsApiGatewayIntegration : TerraformResource
@@ -19,9 +36,9 @@ public class AwsApiGatewayIntegration : TerraformResource
     /// <summary>
     /// The cache_key_parameters attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? CacheKeyParameters
+    public HashSet<TerraformProperty<string>>? CacheKeyParameters
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("cache_key_parameters");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("cache_key_parameters");
         set => this.WithProperty("cache_key_parameters", value);
     }
 
@@ -73,7 +90,8 @@ public class AwsApiGatewayIntegration : TerraformResource
     /// <summary>
     /// The http_method attribute.
     /// </summary>
-    public TerraformProperty<string>? HttpMethod
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
+    public required TerraformProperty<string> HttpMethod
     {
         get => GetProperty<TerraformProperty<string>>("http_method");
         set => this.WithProperty("http_method", value);
@@ -118,25 +136,26 @@ public class AwsApiGatewayIntegration : TerraformResource
     /// <summary>
     /// The request_parameters attribute.
     /// </summary>
-    public TerraformMapProperty<string>? RequestParameters
+    public Dictionary<string, TerraformProperty<string>>? RequestParameters
     {
-        get => GetProperty<TerraformMapProperty<string>>("request_parameters");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("request_parameters");
         set => this.WithProperty("request_parameters", value);
     }
 
     /// <summary>
     /// The request_templates attribute.
     /// </summary>
-    public TerraformMapProperty<string>? RequestTemplates
+    public Dictionary<string, TerraformProperty<string>>? RequestTemplates
     {
-        get => GetProperty<TerraformMapProperty<string>>("request_templates");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("request_templates");
         set => this.WithProperty("request_templates", value);
     }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformProperty<string>? ResourceId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
+    public required TerraformProperty<string> ResourceId
     {
         get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
@@ -145,7 +164,8 @@ public class AwsApiGatewayIntegration : TerraformResource
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformProperty<string>? RestApiId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
+    public required TerraformProperty<string> RestApiId
     {
         get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
@@ -163,7 +183,8 @@ public class AwsApiGatewayIntegration : TerraformResource
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformProperty<string>? Type
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformProperty<string> Type
     {
         get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
@@ -176,6 +197,17 @@ public class AwsApiGatewayIntegration : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("uri");
         set => this.WithProperty("uri", value);
+    }
+
+    /// <summary>
+    /// Block for tls_config.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
+    public List<AwsApiGatewayIntegrationTlsConfigBlock>? TlsConfig
+    {
+        get => GetProperty<List<AwsApiGatewayIntegrationTlsConfigBlock>>("tls_config");
+        set => this.WithProperty("tls_config", value);
     }
 
 }

@@ -29,9 +29,9 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
     /// <summary>
     /// The filter_in_arns attribute.
     /// </summary>
-    public TerraformProperty<HashSet<string>>? FilterInArns
+    public HashSet<TerraformProperty<string>>? FilterInArns
     {
-        get => GetProperty<TerraformProperty<HashSet<string>>>("filter_in_arns");
+        get => GetProperty<HashSet<TerraformProperty<string>>>("filter_in_arns");
         set => this.WithProperty("filter_in_arns", value);
     }
 
@@ -47,7 +47,8 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
     /// <summary>
     /// The network_insights_path_id attribute.
     /// </summary>
-    public TerraformProperty<string>? NetworkInsightsPathId
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInsightsPathId is required")]
+    public required TerraformProperty<string> NetworkInsightsPathId
     {
         get => GetProperty<TerraformProperty<string>>("network_insights_path_id");
         set => this.WithProperty("network_insights_path_id", value);
@@ -65,18 +66,18 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMapProperty<string>? TagsAll
+    public Dictionary<string, TerraformProperty<string>>? TagsAll
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags_all");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

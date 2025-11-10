@@ -3,6 +3,44 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
 /// <summary>
+/// Block type for tag in .
+/// Nesting mode: list
+/// </summary>
+public class AwsAutoscalingGroupTagTagBlock : TerraformBlock
+{
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
+    {
+        get => GetProperty<TerraformProperty<string>>("key");
+        set => WithProperty("key", value);
+    }
+
+    /// <summary>
+    /// The propagate_at_launch attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropagateAtLaunch is required")]
+    public required TerraformProperty<bool> PropagateAtLaunch
+    {
+        get => GetProperty<TerraformProperty<bool>>("propagate_at_launch");
+        set => WithProperty("propagate_at_launch", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformProperty<string> Value
+    {
+        get => GetProperty<TerraformProperty<string>>("value");
+        set => WithProperty("value", value);
+    }
+
+}
+
+/// <summary>
 /// Manages a aws_autoscaling_group_tag resource.
 /// </summary>
 public class AwsAutoscalingGroupTag : TerraformResource
@@ -19,7 +57,8 @@ public class AwsAutoscalingGroupTag : TerraformResource
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
-    public TerraformProperty<string>? AutoscalingGroupName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
+    public required TerraformProperty<string> AutoscalingGroupName
     {
         get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);
@@ -41,6 +80,18 @@ public class AwsAutoscalingGroupTag : TerraformResource
     {
         get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
+    }
+
+    /// <summary>
+    /// Block for tag.
+    /// Nesting mode: list
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tag block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tag block(s) allowed")]
+    public List<AwsAutoscalingGroupTagTagBlock>? Tag
+    {
+        get => GetProperty<List<AwsAutoscalingGroupTagTagBlock>>("tag");
+        set => this.WithProperty("tag", value);
     }
 
 }

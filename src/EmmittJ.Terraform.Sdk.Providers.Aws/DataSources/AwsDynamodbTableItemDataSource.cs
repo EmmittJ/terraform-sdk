@@ -20,9 +20,9 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
     /// <summary>
     /// The expression_attribute_names attribute.
     /// </summary>
-    public TerraformMapProperty<string>? ExpressionAttributeNames
+    public Dictionary<string, TerraformProperty<string>>? ExpressionAttributeNames
     {
-        get => GetProperty<TerraformMapProperty<string>>("expression_attribute_names");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("expression_attribute_names");
         set => this.WithProperty("expression_attribute_names", value);
     }
 
@@ -38,7 +38,8 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformProperty<string>? Key
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformProperty<string> Key
     {
         get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
@@ -65,7 +66,8 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformProperty<string>? TableName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
+    public required TerraformProperty<string> TableName
     {
         get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
